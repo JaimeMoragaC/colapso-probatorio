@@ -1,0 +1,7 @@
+SELLO DE EXISTENCIA — 2026-07-02T23:51:09Z
+Documento: Colapso Probatorio e Indefension (dictamen en derecho)
+Autor: Jaime Marcelo Moraga Carrasco
+Repositorio: https://github.com/JaimeMoragaC/colapso-probatorio
+Etiqueta firmada: sello-paper-2026-07-02
+SHA256 PAPER_v3_trabajo.md: 336dc83d978e1d63b9e2dc1ab11583c068a86104a2fd3cc58267d7ba203f73ee
+SHA256 PAPER_v3_Formato_Institucional.pdf: 0756f9c8d7cc3c64bc3001a8aeba7f56e1c5bcd0e4a28fa55cd168c16c4b5d64

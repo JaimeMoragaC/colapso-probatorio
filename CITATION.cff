@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "Si cita este trabajo, hágalo como se indica abajo."
+title: "Colapso Probatorio e Indefensión en Escenario Post-Mythos y Revocación Extranjera. El Espejismo Regulatorio en la Responsabilidad de Protección de Datos"
+abstract: >-
+  Dictamen en derecho sobre el colapso probatorio de la Ley 21.663 (marco de
+  ciberseguridad), la Ley 21.719 (protección de datos) y la Ley 21.459 (delitos
+  informáticos) de Chile ante amenazas de IA autónoma y la revocación de
+  proveedores extranjeros. Sostiene que la auditoría en la nube no atestada no
+  descarga la carga de la prueba, y propone la atestación por hardware (TPM 2.0,
+  SCITT, anclaje en cadena de bloques) como condición de la evidencia idónea.
+  Incluye implementación de referencia ejecutable de la Ceremonia de Firma
+  Atestada (§6.8.1).
+type: report
+authors:
+  - family-names: "Moraga Carrasco"
+    given-names: "Jaime Marcelo"
+    email: root@nexlex.net
+date-released: "2026-07-02"
+license: CC-BY-NC-4.0
+repository-code: "https://github.com/JaimeMoragaC/colapso-probatorio"
+keywords:
+  - "ciberseguridad"
+  - "protección de datos"
+  - "prueba electrónica"
+  - "atestación por hardware"
+  - "TPM 2.0"
+  - "Ley 21.663"
+  - "Ley 21.719"
+  - "Chile"
