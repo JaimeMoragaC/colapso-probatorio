@@ -153,7 +153,9 @@ La solución existe, no requiere nueva ley ni nuevo presupuesto, y cabe en **tre
 
 **2. Jerarquía probatoria por atestación.** La evidencia anclada en *hardware* goza de presunción de integridad; el registro autodeclarado se valora conforme a las reglas generales, sin inversión de carga.
 
-**3. Continuidad soberana.** Capacidad mínima de operación autónoma de 72 horas bajo control nacional ante un corte extraterritorial; el nodo de proxy *mTLS* que materializa la cadena de custodia cuesta del orden de **US$5.000 por nodo**. El hiperescalar sigue computando; Chile controla la evidencia.
+**3. Continuidad soberana.** El plan de continuidad debe prever el corte del proveedor por una sanción extranjera (§2.4): un piso mínimo de operación autónoma bajo control nacional (72 horas), no una nube estatal paralela.
+
+**La solución no es territorial, es vertical.** No consiste en traer los servidores a Chile ni en construir cómputo propio —eso sería inviable, y no es lo que se pide—, sino en controlar el punto del *stack* donde la evidencia se ancla y se firma. El hiperescalar sigue haciendo el cómputo, esté donde esté; lo que Chile controla es la cadena de custodia. No importa dónde está la máquina, sino quién puede probar lo que hizo.
 
 Si usted no lo adopta, las consecuencias son las ya descritas: nulidad de sus actos, exposición penal personal (Ley 21.595) e indefensión probatoria el día del incidente. El **articulado completo**, listo para tramitación, está en el Anexo B.
 
@@ -3095,7 +3097,7 @@ El modelo de soberanía híbrida **no prohíbe que el entrenamiento de pesos ocu
 
 La arquitectura técnica es deliberadamente modesta. El nodo soberano establece un túnel **mTLS** (*Mutual TLS*, RFC 8705) anclado a hardware físico chileno —cuyo certificado de cliente es firmado por la clave de atestación del Estado (AK) discutida en §6.3—. Cada paquete de datos en tránsito hacia o desde el hiperescalar adquiere una firma criptográfica emitida en territorio nacional, con *timestamp* atestado, que constituye la cadena de custodia que §6.3.1 exige para el reporte de incidentes.
 
-El costo de capital (*CAPEX*) de esta arquitectura es **trivialmente pequeño**. Interceptar y firmar paquetes de red a velocidad de línea de 10 Gbps puede realizarse con servidores 1U de uso general valorados en aproximadamente US$5.000 por nodo, con redundancia geográfica alcanzable en el rango de US$30.000–50.000 para la infraestructura crítica de un OIV mediano. El hiperescalar sigue realizando el cómputo pesado —entrenamiento, inferencia de frontera, almacenamiento masivo— en sus propias instalaciones. Lo que se materializa en el proxy soberano es exclusivamente la **jurisdicción sobre la cadena de custodia**: quién firmó qué, cuándo, desde qué territorio, bajo qué régimen jurídico. Esa es exactamente la distinción entre soberanía computacional y soberanía forense que el §6.3 desarrolla. La segunda no requiere construir el primero; requiere controlar el punto de ingreso y egreso de la evidencia.
+El costo de capital (*CAPEX*) de esta arquitectura es **trivialmente pequeño**. Interceptar y firmar paquetes de red a velocidad de línea de 10 Gbps puede realizarse con servidores de uso general —no con infraestructura de frontera—, y la redundancia geográfica se alcanza con equipamiento estándar, al alcance de la infraestructura crítica de un OIV mediano. El hiperescalar sigue realizando el cómputo pesado —entrenamiento, inferencia de frontera, almacenamiento masivo— en sus propias instalaciones. Lo que se materializa en el proxy soberano es exclusivamente la **jurisdicción sobre la cadena de custodia**: quién firmó qué, cuándo, desde qué territorio, bajo qué régimen jurídico. Esa es exactamente la distinción entre soberanía computacional y soberanía forense que el §6.3 desarrolla. La segunda no requiere construir el primero; requiere controlar el punto de ingreso y egreso de la evidencia.
 
 #### Objeción E — La Paradoja de la Respuesta a Incidentes: el hipervisor es el que salva
 
@@ -3414,7 +3416,7 @@ El diagnóstico anterior no requiere nueva ley ni nuevo presupuesto para comenza
 
 **3. Continuidad soberana obligatoria.** El plan de continuidad operacional del OIV y del prestador de servicios financieros debe contemplar explícitamente el escenario de corte extraterritorial, con capacidad mínima de operación autónoma de setenta y dos horas bajo control nacional, independiente del plano de control del proveedor. Para los exchanges de criptomonedas, esto incluye la capacidad de operar el daemon de firma y los sistemas de custodia desde infraestructura soberana.
 
-El costo de implementación de la capa soberana de tránsito —el nodo de proxy con *mTLS* anclado en *hardware* chileno que materializa la cadena de custodia— es del orden de **US$5.000 por nodo**. El hiperescalar continúa realizando el cómputo. Chile controla la evidencia.
+La capa soberana de tránsito —el nodo de proxy con *mTLS* anclado en *hardware* chileno que materializa la cadena de custodia— se implementa con equipamiento estándar, sin inversión de frontera. El hiperescalar continúa realizando el cómputo. Chile controla la evidencia.
 
 El articulado completo —indicación sustitutiva al Boletín 16821-19, reforma al artículo 297 CPP y borrador de instructivo ANCI— está en el **Anexo B**. Es texto listo para tramitación.
 
