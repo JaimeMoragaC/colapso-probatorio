@@ -1,8 +1,7 @@
-# Colapso Probatorio e Indefensión — dictamen y pruebas de verificación
+# La Ficción de la Ciberseguridad Corporativa — dictamen y pruebas de verificación
 
-Repositorio público del dictamen en derecho **«Colapso Probatorio e Indefensión
-en Escenario Post-Mythos y Revocación Extranjera. El Espejismo Regulatorio en la
-Responsabilidad de Protección de Datos»** (Jaime Marcelo Moraga Carrasco, 2026),
+Repositorio público del dictamen en derecho **«La Ficción de la Ciberseguridad
+Corporativa»** (Jaime Marcelo Moraga Carrasco, 2026),
 junto con las pruebas criptográficas que permiten **verificar de forma
 independiente su autoría, su fecha de existencia y su integridad** — los mismos
 mecanismos de atestación que el propio documento defiende.
@@ -50,9 +49,8 @@ referencia ejecutable** que corre contra un TPM 2.0 real:
 
 ## Cita
 
-Ver [`CITATION.cff`](CITATION.cff). Moraga Carrasco, J. M. (2026). *Colapso
-Probatorio e Indefensión en Escenario Post-Mythos y Revocación Extranjera*.
-Dictamen en derecho.
+Ver [`CITATION.cff`](CITATION.cff). Moraga Carrasco, J. M. (2026). *La Ficción
+de la Ciberseguridad Corporativa*. Dictamen en derecho.
 
 ## Licencia
 
