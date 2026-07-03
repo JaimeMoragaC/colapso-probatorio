@@ -1,7 +1,7 @@
-SELLO DE EXISTENCIA — 2026-07-03T18:27:29Z
+SELLO DE EXISTENCIA — 2026-07-03T19:27:03Z
 Documento: La Ficcion de la Ciberseguridad Corporativa (dictamen en derecho)
 Autor: Jaime Marcelo Moraga Carrasco
 Repositorio: https://github.com/JaimeMoragaC/colapso-probatorio
 Etiqueta firmada: sello-paper-2026-07-02
-SHA256 PAPER_v3_trabajo.md: 7551c054b10803f03872199e34b7b5d6fa3d4b8dac3d695420e5c448ecabc81f
-SHA256 PAPER_v3_Formato_Institucional.pdf: d522034ae72775872f2db4962ae426b0e8d0fc6fee4e56d7da2042fcf5a44595
+SHA256 PAPER_v3_trabajo.md: 4eab6d8a820f84b76d62e2c7582379f1deef50f38e6ccdebd8c852fa57cf0060
+SHA256 PAPER_v3_Formato_Institucional.pdf: cde90d4203be115a554e98de37822204cf52c60efa60f983ba0088725fdbbe2f
