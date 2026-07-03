@@ -4358,7 +4358,7 @@ verificable por terceros y no depende de la buena fe de quien la presenta.
 <div style="font-size: 0.9em; line-height: 1.4; text-align: justify; border-top: 1px solid #ccc; padding-top: 15px; margin-top: 30px;">
 <h3 style="text-align: center; margin-bottom: 1em;">FICHA DEL DOCUMENTO</h3>
 <p><strong>Título:</strong> Colapso Probatorio e Indefensión en Escenario Post-Mythos y Revocación Extranjera. El Espejismo Regulatorio en la Responsabilidad de Protección de Datos.<br>
-<strong>Autor:</strong> Jaime Marcelo Moraga Carrasco. | <strong>Correspondencia:</strong> root@nexlex.net<br>
+<strong>Autor:</strong> Jaime Marcelo Moraga Carrasco. | <strong>Correspondencia:</strong> justicia.chile@gmail.com<br>
 <strong>Naturaleza:</strong> Dictamen en derecho (doc. de trabajo para consulta pública ANCI y debate Boletín 16821-19).<br>
 <strong>Versión:</strong> Junio 2026.</p>
 
