@@ -1,0 +1,163 @@
+@page {
+  size: letter;
+  margin-top: 1in;
+  margin-right: 1in;
+  margin-bottom: 1in;
+  margin-left: 1.5in;
+
+  @top-right {
+    content: "LA FICCIÓN DE LA CIBERSEGURIDAD CORPORATIVA";
+    font-size: 8pt;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+
+  @bottom-center {
+    content: "– " counter(page) " –";
+    font-size: 8pt;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #555;
+  }
+}
+
+@page :first {
+  @top-right {
+    content: normal;
+  }
+  @bottom-center {
+    content: normal;
+  }
+}
+body {
+  font-family: 'Garamond', 'Palatino Linotype', 'Times New Roman', serif;
+  text-align: justify;
+  line-height: 1.35;
+  font-size: 12pt;
+  color: #000;
+}
+#custom-cover {
+  page-break-after: always;
+  padding-top: 15vh;
+}
+#TOC {
+  page-break-after: always;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-weight: bold;
+  page-break-after: avoid;
+  break-after: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* evitar que el primer párrafo/lista quede separado de su título */
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p,
+h1 + ul, h2 + ul, h3 + ul, h4 + ul, h5 + ul, h6 + ul,
+h1 + ol, h2 + ol, h3 + ol, h4 + ol, h5 + ol, h6 + ol,
+h1 + blockquote, h2 + blockquote, h3 + blockquote,
+h4 + blockquote, h5 + blockquote, h6 + blockquote {
+  page-break-before: avoid;
+  break-before: avoid;
+  orphans: 1;
+  widows: 1;
+}
+
+p, li {
+  orphans: 2;
+  widows: 2;
+}
+
+h2 { margin-top: 1.2em; margin-bottom: 0.4em; }
+h3 { margin-top: 1.0em; margin-bottom: 0.35em; }
+h4 { margin-top: 0.85em; margin-bottom: 0.3em; }
+h5 { margin-top: 0.7em; margin-bottom: 0.25em; }
+h6 { margin-top: 0.5em; margin-bottom: 0.2em; }
+h5 {
+  font-size: 1.0em;
+}
+h6 {
+  font-size: 0.95em;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.cover-confidential {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  padding: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9em;
+}
+
+table, th, td {
+  border: 1px solid #000;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+.resumen-ejecutivo {
+  background-color: #f9f9f9;
+  border-left: 4px solid #000;
+  padding: 0 1.2em;
+  margin: 1.2em 0;
+}
+
+.resumen-ejecutivo p {
+  line-height: 1.45;
+}
+
+.resumen-ejecutivo hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1.1em 0;
+}
+
+.compact-table {
+  page-break-before: avoid;
+}
+
+.compact-table table {
+  margin: 4px 0;
+}
+
+.compact-table th,
+.compact-table td {
+  padding: 3px 8px;
+  font-size: 0.82em;
+  line-height: 1.25;
+}
+
+th {
+  background-color: #e5e5e5;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+pre, code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85em;
+  background-color: #f5f5f5;
+  padding: 5px;
+  page-break-inside: avoid;
+}

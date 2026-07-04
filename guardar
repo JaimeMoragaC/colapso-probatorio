@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# guardar — registra los cambios del paper en git con un solo comando.
+#
+#   Uso:
+#     ./guardar "mensaje del cambio"          add + commit (solo archivos ya trackeados)
+#     ./guardar "mensaje del cambio" --ts     además sella con OpenTimestamps (si 'ots' existe)
+#     ./guardar --help
+#
+# NO rehace nada: cada ejecución crea UN commit nuevo con lo que cambiaste.
+# El historial anterior queda intacto. Solo toca archivos ya versionados;
+# los archivos nuevos NO se incluyen salvo que los añadas tú con 'git add'.
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+DO_TS=0
+MSG=""
+for arg in "$@"; do
+  case "$arg" in
+    --ts)      DO_TS=1 ;;
+    -h|--help) awk 'NR==1{next} /^#/{sub(/^# ?/,"");print;next} {exit}' "$0"; exit 0 ;;
+    *)         if [ -z "$MSG" ]; then MSG="$arg"; else MSG="$MSG $arg"; fi ;;
+  esac
+done
+
+if [ -z "$MSG" ]; then
+  echo "Uso: ./guardar \"mensaje del cambio\" [--ts]" >&2
+  exit 1
+fi
+
+cd "$SCRIPT_DIR"
+
+# Estagear SOLO cambios de archivos ya trackeados (no barre archivos nuevos/basura).
+git add -u -- .
+
+# Sello de tiempo opcional (prueba de existencia anclada a Bitcoin).
+if [ "$DO_TS" -eq 1 ]; then
+  if command -v ots >/dev/null 2>&1; then
+    for f in PAPER_v3_trabajo.md PAPER_v3_Formato_Institucional.pdf; do
+      if [ -f "$f" ]; then
+        ots stamp "$f" || echo "aviso: no se pudo sellar $f (¿calendarios inaccesibles?)" >&2
+        if [ -f "$f.ots" ]; then git add -- "$f.ots"; fi
+      fi
+    done
+  else
+    echo "aviso: 'ots' no está instalado; se omite el sello. (pip install opentimestamps-client)" >&2
+  fi
+fi
+
+# ¿Hay algo staged?
+if git diff --cached --quiet; then
+  echo "No hay cambios en el paper para guardar."
+  untracked="$(git ls-files --others --exclude-standard -- . | head)"
+  if [ -n "$untracked" ]; then
+    echo "(Archivos nuevos NO incluidos; añádelos con 'git add' si los quieres versionar:)"
+    echo "$untracked"
+  fi
+  exit 0
+fi
+
+echo "── se va a guardar:"
+git diff --cached --stat
+echo
+
+git commit -q -m "$MSG"
+echo "✔ guardado en el commit $(git rev-parse --short HEAD)  —  $MSG"

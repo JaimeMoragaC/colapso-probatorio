@@ -1,0 +1,15 @@
+# Intermedios de build (se regeneran con ./build_pdf.sh)
+PAPER_v3_Formato_Institucional.html
+
+# Runtime del watcher
+.watcher.log
+.watcher.lock
+
+# Python
+__pycache__/
+*.pyc
+
+# Backups del editor / IDE
+*.bak
+*.bak-*
+*~
