@@ -641,11 +641,11 @@ La metamorfosis del atacante —desde un operador artesanal hacia un nodo dentro
 | Período | Hito verificado | Fuente |
 |---------|----------------|--------|
 | Jul–ago 2023 | WormGPT y FraudGPT: primeras economías de plataforma del *malware* IA | SlashNext<a href="#fn22" id="fnref22"><sup>22</sup></a>, Netenrich<a href="#fn23" id="fnref23"><sup>23</sup></a> |
-| 2024 | RaaS + IA: primeras integraciones; JaaS emerge; 55 nuevas familias RaaS (+67% interanual) | ENISA, CrowdStrike |
+| 2024 | RaaS + IA: primeras integraciones; JaaS emerge; víctimas eCrime en sitios de filtración (+76%) | ENISA, CrowdStrike |
 | Jun 2025 | APT28/PROMPTSTEAL opera *live* con LLM de código abierto en Ucrania | GTIG<a href="#fn38" id="fnref38"><sup>38</sup></a> |
 | Nov 2025 | PROMPTFLUX: mutación *just-in-time* en el primer *dropper* polimórfico por modelo | GTIG<a href="#fn39" id="fnref39"><sup>39</sup></a> |
-| 2025 | 1.100 actores emergentes (+22,9%); >80% *phishing* con IA; paquetes maliciosos 8x | ISACA<a href="#fn32" id="fnref32"><sup>32</sup></a>, ENISA<a href="#fn36" id="fnref36"><sup>36</sup></a> |
-| 2026 | Criminal AI-as-a-Service consolida; *Xanthorox AI* como producto terminado | Rapid7<a href="#fn37" id="fnref37"><sup>37</sup></a>, ISACA<a href="#fn32" id="fnref32"><sup>32</sup></a> |
+| 2025 | 1.100 actores emergentes (+22,9%); >80% ingeniería social con IA; paquetes maliciosos 8x | ISACA<a href="#fn32" id="fnref32"><sup>32</sup></a>, ENISA<a href="#fn36" id="fnref36"><sup>36</sup></a> |
+| 2026 | *Criminal AI-as-a-Service* (CAIaaS) consolida como capa de productividad en el mercado *underground* | Rapid7<a href="#fn37" id="fnref37"><sup>37</sup></a> |
 | 2027 | Gartner: 17% de todos los ciberataques involucran IA generativa; NCSC-UK: capacidades autónomas a escala | Gartner<a href="#fn40" id="fnref40"><sup>40</sup></a>, NCSC-UK<a href="#fn41" id="fnref41"><sup>41</sup></a> |
 :::
 
