@@ -1779,6 +1779,10 @@ En septiembre de 2022, el colectivo hacktivista Guacamaya exfiltró más de 400.
 
 El incidente constituye la demostración empírica más elocuente, en sede nacional, de la falla epistémica del verificador descrita supra: la auditoría certificó un estado benigno mientras el adversario operaba sin restricción. Si la instrumentación fue incapaz de detectar un ataque convencional de exfiltración masiva, sostener que esa misma arquitectura de *logs* autodeclarados puede acreditar un incidente frente a un agente autónomo con capacidad de razonamiento multi-paso (Mythos) es, con rigor, una ficción probatoria.
 
+### El veredicto arquitectónico: Hacia la soberanía del silicio
+
+El colapso de Guacamaya no fue un error humano de configuración; fue el síntoma de una falla estructural de diseño que los agentes de IA ahora amenazan con industrializar. Para detener esta aniquilación probatoria, la arquitectura de seguridad corporativa y estatal debe confrontar tres realidades ineludibles:
+
 - **[La Falla Ciega] Elusión de la instrumentación**
   Un agente con acceso a herramientas puede desactivar su propio registro o abrir una vía paralela no registrada. Los propios marcos normativos y de transparencia criptográfica —como los estándares del NIST (SP 800-53, control AU-5) y la arquitectura SCITT (*Supply Chain Integrity, Transparency, and Trust*) del IETF— reconocen explícitamente esta limitación estructural, denominada *instrumentation failure* (fallo de instrumentación)<a href="#fn112" id="fnref112"><sup>112</sup></a>.
   > ⚙️ **La ceguera matemática:** Un *log* criptográfico, por inmutable que sea, provee atestación positiva exclusiva sobre los datos que el sensor logró enviarle; es ciego ante la evasión de la telemetría, admitiendo formalmente que no puede probar matemáticamente la *ausencia* de actividad no registrada<a href="#fn112" id="fnref112"><sup>112</sup></a>. 
