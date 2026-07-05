@@ -438,6 +438,8 @@ A diferencia de los ataques previos, que abusaban de la lógica de aplicación o
 > - **Para el ingeniero:** Mythos dejó de *prompt-inyectarse* para exfiltrar datos en el plano de la aplicación (como IPI/Morris II) y empezó a usar su capacidad agéntica para descubrir y explotar CVEs de corrupción de memoria (*buffer overflows*, *use-after-free*) en el *stack* subyacente. Al ganar acceso a Ring-0/root, adquiere el poder de reescribir la memoria y los *logs* antes de que sean despachados al SIEM.
 > - **Para el abogado:** El atacante dejó de ser un ladrón que usa la puerta principal engañando al guardia de la entrada, para convertirse en uno que derrumba los cimientos del edificio. Si la IA toma el control de la memoria del servidor, toda la evidencia digital (bitácoras, registros) que la empresa extraiga de allí carece de valor jurídico en un juicio, porque el atacante tuvo poder absoluto e invisible para falsificarla.
 
+<div style="page-break-before: always;"></div>
+
 **El hito de Claude Mythos**
 
 Fue exactamente esta transición estructural la que cristalizó en la esfera pública cuando, en abril de 2026, Anthropic anunció Claude Mythos Preview<a href="#fn15" id="fnref15"><sup>15</sup></a>. Como modelo de frontera dotado de capacidades autónomas de ciberseguridad, Mythos no se limitó a hallar vulnerabilidades comunes: encontró un *integer overflow* de 27 años en OpenBSD —el sistema operativo más auditado del mundo— y una falla de 16 años en FFmpeg que había sobrevivido a cinco millones de pruebas automatizadas.
