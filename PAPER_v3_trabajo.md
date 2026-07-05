@@ -1708,7 +1708,7 @@ Para que el giro metodológico propuesto —desde el cumplimiento en papel hacia
 
 *En una frase: el sistema que debe registrar el ataque puede ser, él mismo, la primera víctima del ataque —y entonces su registro deja de ser prueba de lo que ocurrió.*
 
-Un sistema de IA adversario no es un objeto auditable pasivo; puede operar contra el mecanismo que lo audita —y, por tanto, contra la evidencia del incidente que la 21.663 obliga a reportar—. La cuestión dejó de ser una hipótesis de laboratorio.
+Un sistema de IA adversario no es un objeto auditable pasivo; puede operar contra el mecanismo que lo audita —y, por tanto, contra la evidencia del incidente que la 21.663, la CMF y la Ley 21.719 obligan a reportar—. La cuestión dejó de ser una hipótesis de laboratorio.
 
 La escena que abre este documento —las 03:14, el `GET` que se hace pasar por `SYSTEM`, los tres comandos que borran al testigo— no es una licencia narrativa: es una secuencia de técnicas catalogadas. Traducida a la taxonomía **MITRE ATT&CK** que todo equipo de defensa maneja, revela por qué la consola siguió «en verde» mientras una década de correo institucional salía por la puerta:
 
