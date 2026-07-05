@@ -3419,9 +3419,9 @@ Dos (2, 4) son límites reales que el diseño absorbe explícitamente: la atesta
 
 La conclusión técnica es sobria y por eso más difícil de refutar: no existe hoy un escudo perfecto frente a la IA polimórfica, pero sí existe una diferencia decisiva, verificable y defendible en juicio entre evidencia cuya integridad puede acreditarse y evidencia que solo puede creerse. Todo el peso jurídico de este documento descansa en esa diferencia, no en la promesa de una seguridad absoluta que ningún ingeniero serio ofrecería.
 
-### 6.7 El debate de élite: diez objeciones directas y sus refutaciones
+### 6.7 El debate de élite: once objeciones directas y sus refutaciones
 
-*Las siete objeciones del §6.6 provienen del escrutinio interno de ingeniería. Las diez que siguen son distintas: son las que un panel de adversarios con autoridad real —el criptógrafo que firma RFCs en la IETF, el arquitecto ofensivo de un red team de primer nivel, el Ministro de la Corte Suprema que admite prueba digital todos los días, el Ministro de Hacienda que debe rendir ante el Congreso, el CISO que responde incidentes a las 3 de la mañana— formularían antes de rechazar o aprobar este estándar. Se enuncian aquí en su forma más destructiva y psicopática (desde la ingeniería dura y la realidad corporativa), porque la propuesta solo sobrevive si las resiste.*
+*Las siete objeciones del §6.6 provienen del escrutinio interno de ingeniería. Las once que siguen son distintas: son las que un panel de adversarios con autoridad real —el criptógrafo que firma RFCs en la IETF, el arquitecto ofensivo de un red team de primer nivel, el Ministro de la Corte Suprema que admite prueba digital todos los días, el Ministro de Hacienda que debe rendir ante el Congreso, el CISO que responde incidentes a las 3 de la mañana— formularían antes de rechazar o aprobar este estándar. Se enuncian aquí en su forma más destructiva y psicopática (desde la ingeniería dura y la realidad corporativa), porque la propuesta solo sobrevive si las resiste.*
 
 #### Objeción A — La Falacia de la Tortuga: el chip TPM también es extranjero
 
@@ -3545,7 +3545,19 @@ La objeción es impecable en su física pero equivoca la topología de la amenaz
 
 La ausencia de repositorios en este documento no es una omisión técnica, es una delimitación disciplinar. Este texto es un instrumento de **política pública y dogmática jurídica**, diseñado para tribunales y reguladores que no auditan código en Rust. La viabilidad técnica está zanjada por los estándares de la IETF (RFC 9334 RATS). Proveer código fuente desvía el imperativo legal hacia un debate de integración de *software*. El estándar tecnológico es agnóstico (Principio de Neutralidad Tecnológica, Art. 2d Ley 19.799). El mandato de este documento decreta el fin del *log* autodeclarado; es el mercado —los proveedores *cloud* que quieran retener sus contratos— quien deberá proveer la implementación (el repositorio y el diagrama) para cumplir la ley chilena.
 
-Quien sea capaz de rebatir estos diez vectores de impugnación en una mesa técnica —reformulando la objeción de fondo con datos que las secciones anteriores no anticipen— tiene el perfil de un investigador de nivel Estado-nación. La función de este §6.7 es exactamente esa: preparar al lector para ese debate, por hostil y destructivo que sea, antes de que ocurra.
+#### Objeción K — El Espejismo de la IA Defensiva: combatir fuego con fuego
+
+*El ingeniero de ciberseguridad *cloud*.* El problema de la IA polimórfica (Mythos) ya está resuelto comercialmente. La industria *cloud* ha desplegado IAs defensivas autónomas (e.g., Microsoft Security Copilot, CrowdStrike Falcon, Google Cloud Security AI) que operan en los anillos de mayor privilegio (Ring-0) para detectar anomalías y cazar amenazas a velocidad de máquina. Combatimos IA contra IA. El banco no necesita atestación de hardware ni proxies soberanos; solo necesita encender el módulo de Inteligencia Artificial de su proveedor de nube, que procesará la telemetría en tiempo real y neutralizará el ataque antes de que el humano siquiera lo note.
+
+#### Refutación — El Colapso Epistémico Total y la Abdicación del Directorio
+
+La objeción exhibe el nivel de rendición cognitiva de la industria actual. Enfrentar una IA atacante contra una IA defensiva dentro de un entorno inatestado no produce seguridad forense; produce **el colapso epistémico total**. Si el hipervisor delega la defensa a una red neuronal opaca, la batalla ocurre a velocidad de máquina en un espacio estadístico, no determinista.
+
+**Falla de ingeniería (Adversarial ML):** Si el atacante vulnera el anillo de privilegio base, envenena la telemetría (*Data Poisoning*) antes de que llegue a la IA defensiva. Garbage in, garbage out. La "IA Defensiva" jurará que el entorno está limpio porque sus sentidos fueron secuestrados.
+
+**Falla jurídica (Ley 21.595):** Si el gerente general de un banco le dice a la CMF: *"No puedo probar científicamente que no fuimos vulnerados, pero la IA predictiva de Microsoft dice que estamos a salvo"*, acaba de confesar la **abdicación absoluta de su deber de debida diligencia**. La Ley 21.595 (Delitos Económicos) castiga la negligencia inexcusable en la prevención de delitos corporativos. Delegar el arbitraje de la evidencia a un modelo estadístico, opaco, inauditable y bajo jurisdicción extranjera destruye la trazabilidad exigida por la Sana Crítica (Art. 297 CPP). La única forma de arbitrar un duelo de IAs es mediante un árbitro que no sea otra IA: un ancla criptográfica en *hardware* físico verificable por terceros.
+
+Quien sea capaz de rebatir estos once vectores de impugnación en una mesa técnica —reformulando la objeción de fondo con datos que las secciones anteriores no anticipen— tiene el perfil de un investigador de nivel Estado-nación. La función de este §6.7 es exactamente esa: preparar al lector para ese debate, por hostil y destructivo que sea, antes de que ocurra.
 
 ### 6.8 La Comisión para el Mercado Financiero (CMF) como Regulador Asimétrico: Riesgo Sistémico y Responsabilidad Directiva
 
