@@ -1157,7 +1157,17 @@ La operación dogmática que ese modelo ejecuta merece verse en cámara lenta, p
 
 El segundo término de esa posición es el que enlaza con la tesis de este documento: el único sujeto con acceso a la evidencia del *runtime* es, a la vez, el sujeto cuyo diseño queda potencialmente comprometido por esa evidencia. El custodio exclusivo de la prueba es el principal interesado en lo que la prueba muestre. Ningún sistema probatorio —civil, penal ni administrativo— acepta esa combinación en un testigo; los regímenes de cumplimiento la presuponen en el proveedor sin siquiera enunciarla.
 
-Y el esquema de reparto no alcanza solo a los OIV. Alcanza, con idéntica estructura, a los tres frentes que este documento recorre: al operador de importancia vital ante la ANCI (Ley 21.663); a todo el perímetro supervisado por la CMF —el banco bajo la RAN 20-10; la Fintech, la plataforma y el custodio de activos virtuales bajo la NCG 502 y la Ley 21.521; las aseguradoras, administradoras de fondos e intermediarios de valores bajo sus respectivos marcos de riesgo operacional—; y —desde el 1 de diciembre de 2026— a cualquier organización que trate datos personales bajo la Ley 21.719: la clínica, la universidad, la municipalidad, el comercio. Cada uno absorbe el impacto civil y administrativo completo del incidente, incluido el costo de demostrar ante su regulador qué ocurrió en un entorno cuya evidencia forense no controla. El hiperescalar, en cambio, queda fuera del alcance de los tres: la potestad de la ANCI se ejerce sobre un plano de control que obedece a otra jurisdicción —el apagón del 12 de junio de 2026 lo demostró—; la CMF supervisa a la entidad financiera, no a su proveedor; y ante la Agencia de Protección de Datos Personales el proveedor comparece —si comparece— como encargado protegido por el contrato que él mismo redactó. El perímetro sancionatorio chileno termina exactamente donde comienza la decisión de diseño.
+Y el esquema de reparto no alcanza solo a los OIV. Alcanza, con idéntica estructura, a los tres frentes que este documento recorre: 
+
+- Al operador de importancia vital ante la ANCI (Ley 21.663).
+- A todo el perímetro supervisado por la CMF: el banco bajo la RAN 20-10; la Fintech, la plataforma y el custodio de activos virtuales bajo la NCG 502 y la Ley 21.521; las aseguradoras, administradoras de fondos e intermediarios de valores bajo sus respectivos marcos de riesgo operacional.
+- A cualquier organización que trate datos personales bajo la Ley 21.719 (desde el 1 de diciembre de 2026): la clínica, la universidad, la municipalidad, el comercio. 
+
+Cada uno absorbe el impacto civil y administrativo completo del incidente, incluido el costo de demostrar ante su regulador qué ocurrió en un entorno cuya evidencia forense no controla. 
+
+El hiperescalar, en cambio, queda fuera del alcance de los tres: la potestad de la ANCI se ejerce sobre un plano de control que obedece a otra jurisdicción —el apagón del 12 de junio de 2026 lo demostró—; la CMF supervisa a la entidad financiera, no a su proveedor; y ante la Agencia de Protección de Datos Personales el proveedor comparece —si comparece— como encargado protegido por el contrato que él mismo redactó. 
+
+El perímetro sancionatorio chileno termina exactamente donde comienza la decisión de diseño.
 
  La indemnidad del hiperescalar no es, pues, un accidente ni un vacío que un mejor contrato pueda llenar: es el diseño jurídico del producto. La responsabilidad no se transfiere con el proveedor: recae, indelegablemente, en el responsable de la información — sea éste un operador de importancia vital, una entidad supervisada por la CMF o cualquier responsable del tratamiento de datos personales.
 
