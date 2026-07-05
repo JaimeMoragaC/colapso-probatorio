@@ -699,7 +699,7 @@ No se sostiene aquí que la nube sea "ficción" y lo local "verdad". Existe un e
 
 Este documento no es un catálogo académico ni una guía de buenas prácticas; es un modelo de demolición probatoria diseñado para ser ejecutado en el contra-interrogatorio pericial ante tribunales y agencias reguladoras. Se articula a través de siete axiomas secuenciales: el primero destruye la premisa probatoria de la seguridad *cloud* contemporánea, y los seis restantes construyen el único estándar (el Paradigma Aegis) capaz de sobrevivir al escrutinio legal y técnico:
 
-1. **Crítica de ingeniería al modelo regulatorio (a desarrollarse en la Sección 1.3 a continuación).** Demostración del vacío probatorio transversal en las leyes 21.663, 21.719, la NCG 502 de la CMF y el proyecto de IA, probando que un régimen *ex post* fracasa sin una atestación forense de la cadena de delegación.
+1. **Crítica de ingeniería al modelo regulatorio (a desarrollarse en la Sección 1.3 a continuación).** Demostración del vacío probatorio transversal en la Ley 21.663, la Ley 21.719, el **Capítulo 20-10 de la RAN** (banca tradicional) y la **NCG 502** (Fintech) de la CMF, junto con las **Instrucciones Técnicas de la ANCI**, probando que un régimen normativo *ex post* fracasa si no exige primero una atestación forense de la cadena de delegación.
 
 2. **Definición de un modelo de amenazas moderno (Sección 2).** Formalización de un *Threat Model* estructurado en tres niveles: desde el sabotaje del sustrato que destruye la evidencia (Tipo I), pasando por la explotación agéntica a escala (Tipo II), hasta el apagón jurisdiccional soberano (Tipo III).
 
@@ -713,7 +713,7 @@ Este documento no es un catálogo académico ni una guía de buenas prácticas; 
 
 7. **Profundizaciones en la frontera entre la prueba y la máquina (Sección 7).** Análisis dogmático final sobre la teoría de juegos de la atestación —explicando por qué la opacidad comercial es el equilibrio actual de mercado (§7.1)—, y el replanteamiento del reporte de incidentes bajo los axiomas del consenso bizantino (§7.2).
 
-### 1.3 Crítica de ingeniería al modelo regulatorio: demostración del vacío probatorio transversal en las leyes 21.663, 21.719, la NCG 502 y el proyecto de IA, probando que un régimen *ex post* fracasa sin una atestación forense de la cadena de delegación
+### 1.3 Crítica de ingeniería al modelo regulatorio: demostración del vacío probatorio en las leyes 21.663, 21.719, la RAN 20-10, la NCG 502 y las instrucciones de la ANCI
 
 #### 1.3.1 El deber vigente: gestionar, contener y reportar incidentes
 
