@@ -296,7 +296,7 @@ El *tiempo de entrega* (*handoff*) mide el intervalo entre el acceso inicial y e
 
 El argumento no depende de la cifra más dramática: aun adoptando la estimación más conservadora de la industria —el *breakout time* medio de ~62 minutos que CrowdStrike documenta para 2024 (*Global Threat Report*)—, la fase automatizada de propagación lateral se completa muy dentro del plazo legal de tres horas; de modo que, cuando apenas nace el deber de reportar, la evidencia del estado del sistema ya pudo ser corrompida o sobrescrita en su origen.
 
-A esa asimetría temporal se suma una laguna de imputación que la doctrina ha comenzado a identificar pero no ha cerrado del todo. Cuando el ataque es perpetrado por un agente autónomo sin instrucción humana directa identificable, la estructura de imputación enfrenta un vacío de sujeto activo que ni la Ley 21.459 (delitos informáticos), ni la Ley 21.663 (Ciberseguridad), ni la NCG 502 de la CMF logran resolver en su dimensión probatoria (Gandolfi Díaz, *Diario Constitucional*, may-2026)<a href="#fn8" id="fnref8"><sup>8</sup></a>.
+A esa asimetría temporal se suma una laguna de imputación que la doctrina ha comenzado a identificar pero no ha cerrado del todo. Cuando el ataque es perpetrado por un agente autónomo sin instrucción humana directa identificable, la estructura de imputación enfrenta un vacío de sujeto activo que ni la Ley 21.459 (delitos informáticos), ni la Ley 21.663 (Ciberseguridad), ni la NCG 502 de la CMF logran resolver en su dimensión probatoria<a href="#fn8" id="fnref8"><sup>8</sup></a>.
 
 Esa lectura es correcta, pero permanece en la mitad del problema: caracteriza el vacío exclusivamente desde la perspectiva de la acusación penal —no hay sujeto activo que identificar—, y propone, implícitamente, que la solución es legislativa: redefinir el tipo penal para cubrir al desplegador del agente como autor mediato.
 
@@ -1592,7 +1592,7 @@ Ninguna jurisdicción ha completado la solución definitiva; sin embargo, todos 
 #### Solución:
  Los seguros obligatorios del Pilar 2 deben incorporar en la indicación sustitutiva una cláusula de atestación como condición de la póliza: que el asegurado mantenga evidencia de nivel A o B del estado del sistema durante el período cubierto, y que la ausencia de esa evidencia al momento del siniestro opere como presunción en contra del asegurado en el proceso de reclamación. Sin ese artículo, el seguro desplaza el riesgo sin resolverlo.
 
-#### 8. La laguna de imputación Gandolfi se vuelve sistémica bajo ex post *(Pilar 1 + Principio 3)*
+#### 8. La laguna de autoría algorítmica se vuelve sistémica bajo ex post *(Pilar 1 + Principio 3)*
 
 El vacío de imputación analizado más adelante en el §1.3.5.c de este documento —cuando un agente autónomo sin instrucción humana directa identificable causa un daño, ¿quién responde penalmente?— se agrava estructuralmente bajo el modelo ex post. Un régimen de sanciones post-daño necesita identificar a quién sancionar en la cadena: desarrollador → proveedor → implementador → usuario → agente autónomo.
 
@@ -1679,7 +1679,7 @@ La dimensión más grave emerge en el escenario Mythos: un agente adversarial qu
 
 La doctrina chilena de 2026 añade una tercera dimensión que la 21.459 aún no resuelve de modo expreso: cuando el ataque es perpetrado por un agente autónomo sin instrucción humana directa identificable en cada acto, la estructura de imputación penal clásica —que presupone un sujeto activo con dolo o culpa atribuibles a una persona determinada— enfrenta una laguna de imputación. ¿Configura acceso ilícito (art. 2) o fraude informático (art. 7) la intrusión ejecutada por un agente de IA que actúa por una cadena de delegación que nadie controla en tiempo real y que el propio responsable no puede enumerar (§1.3.3)?
 
-La pregunta carece de respuesta en la 21.459 tal como está redactada, y tanto la doctrina nacional como la comparada la reconocen como un nodo de vacío normativo que el legislador deberá abordar (Gandolfi Díaz, "IA y criminalidad digital: ¿está preparado el Derecho chileno?", *Diario Constitucional*, 13-may-2026).
+La pregunta carece de respuesta en la 21.459 tal como está redactada, y tanto la doctrina nacional como la comparada la reconocen como un nodo de vacío normativo que el legislador deberá abordar.
 
 Para los efectos de este documento, la laguna refuerza la tesis probatoria: sin evidencia atestable del agente que actuó, del alcance de su instrucción original y de la cadena de delegación por la que operó, ni la víctima puede identificar al responsable en sede penal ni el imputado puede refutar la acusación. La atestación forense no solo registra qué ocurrió: es la condición de posibilidad de la imputación misma.
 
