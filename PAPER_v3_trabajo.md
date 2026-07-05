@@ -1521,7 +1521,7 @@ Sin ese estándar, el régimen ex post anuncia la sanción sin proveer la herram
 
 Declarar la IA "infraestructura crítica para el país" sin exigir que esa infraestructura sea soberanamente operable produce una ficción normativa: el estatus protector sin el contenido protegido. El 12 de junio de 2026, el *Commerce Secretary* Lutnick desactivó globalmente dos modelos de Anthropic en horas mediante una directiva administrativa extranjera —un evento que, como establecen los precedentes de bloqueo *cloud* ya analizados (Figma/DJI 2022, Microsoft/Rusia 2024), no constituye un accidente aislado, sino la materialización de un patrón estructural de interdependencia armada—.
 
-Un OIV chileno cuya "infraestructura crítica de IA" depende de esos servicios recibe el estatus de criticidad sin ningún mecanismo de continuidad cuando la potencia extranjera ejerce su potestad soberana. La declaración de criticidad del Pilar 2 sin el artículo de continuidad soberana correspondiente es, en términos de ingeniería de sistemas, un *single point of failure* con etiqueta de resiliencia.
+Un OIV bajo la Ley 21.663, un banco regulado por la RAN 20-10, o una Fintech sujeta a la NCG 502 cuya "infraestructura crítica de IA" dependa de esos servicios, recibe el mandato legal de mantener la continuidad sin poseer ningún mecanismo material para lograrlo cuando la potencia extranjera ejerce su jurisdicción. La declaración de criticidad del Pilar 2 sin el artículo de continuidad soberana correspondiente es, en términos de ingeniería de sistemas, un *single point of failure* con etiqueta de resiliencia que arrastra hacia el colapso a todo el ecosistema regulado nacional.
 
 El derecho comparado ofrece modelos normativos rigurosos frente a este problema:
 
