@@ -3419,9 +3419,9 @@ Dos (2, 4) son límites reales que el diseño absorbe explícitamente: la atesta
 
 La conclusión técnica es sobria y por eso más difícil de refutar: no existe hoy un escudo perfecto frente a la IA polimórfica, pero sí existe una diferencia decisiva, verificable y defendible en juicio entre evidencia cuya integridad puede acreditarse y evidencia que solo puede creerse. Todo el peso jurídico de este documento descansa en esa diferencia, no en la promesa de una seguridad absoluta que ningún ingeniero serio ofrecería.
 
-### 6.7 El debate de élite: cinco objeciones directas y sus refutaciones
+### 6.7 El debate de élite: ocho objeciones directas y sus refutaciones
 
-*Las siete objeciones del §6.6 provienen del escrutinio interno de ingeniería. Las cinco que siguen son distintas: son las que un panel de adversarios con autoridad real —el criptógrafo que firma RFCs en la IETF, el arquitecto ofensivo de un red team de primer nivel, el Ministro de la Corte Suprema que admite prueba digital todos los días, el Ministro de Hacienda que debe rendir ante el Congreso, el CISO que responde incidentes a las 3 de la mañana— formularían antes de rechazar o aprobar este estándar. Se enuncian aquí en su forma más agresiva, porque la propuesta solo sobrevive si los resiste.*
+*Las siete objeciones del §6.6 provienen del escrutinio interno de ingeniería. Las ocho que siguen son distintas: son las que un panel de adversarios con autoridad real —el criptógrafo que firma RFCs en la IETF, el arquitecto ofensivo de un red team de primer nivel, el Ministro de la Corte Suprema que admite prueba digital todos los días, el Ministro de Hacienda que debe rendir ante el Congreso, el CISO que responde incidentes a las 3 de la mañana— formularían antes de rechazar o aprobar este estándar. Se enuncian aquí en su forma más destructiva y psicopática (desde la ingeniería dura y la realidad corporativa), porque la propuesta solo sobrevive si las resiste.*
 
 #### Objeción A — La Falacia de la Tortuga: el chip TPM también es extranjero
 
@@ -3501,7 +3501,37 @@ La solución no es expulsar al hiperescalar del sistema —eso sería el espanta
 
 El costo de este mecanismo es concreto y pequeño: aproximadamente 400–600 milisegundos de latencia adicional en la aprobación de cada mutación de estado, derivados del *round-trip* de firma. Se sacrifican esos 500 milisegundos de automatización comercial a cambio de **destruir el riesgo sistémico de una puerta trasera invisible en anillo 0**. El argumento de política pública es igualmente directo: la infraestructura crítica nacional no debe ser parcheada a la velocidad que maximiza la eficiencia operacional del hiperescalar —debe ser parcheada a la velocidad que preserva la verificabilidad forense del sistema—. Un sistema vulnerable pero **100% observable** es, para los fines de este documento, categóricamente superior a una caja negra "parcheda" que destruye la escena del crimen forense antes de que el regulador pueda ingresar.
 
-Quien sea capaz de rebatir estos cinco vectores de impugnación en una mesa técnica —reformulando la objeción de fondo con datos que la sección anterior no anticipe— tiene el perfil de un investigador de nivel Estado-nación. La función de este §6.7 es exactamente esa: preparar al lector para ese debate antes de que ocurra.
+#### Objeción F — La Falacia del Rendimiento: el colapso de la latencia criptográfica
+
+*El arquitecto de sistemas.* El documento exige que cada inferencia y llamada API de un agente dinámico esté atestada criptográficamente e inscrita en un registro inmutable. En producción, el *overhead* criptográfico de firmar por hardware cada milisegundo de ejecución de un modelo masivo destruirá la latencia. Un banco procesa miles de TPS (Transacciones por Segundo); si se introduce un cuello de botella atestado por hardware, el tiempo de respuesta pasará de 50ms a segundos. Ningún directorio financiero adoptará un paradigma que los vuelva operativamente inviables frente a la competencia.
+
+#### Refutación — Auditoría asíncrona en $O(1)$ logística
+
+La objeción asume falsamente que la validación de estado requiere una firma transaccional síncrona en la ruta crítica del usuario. La arquitectura propuesta (SCITT/RATS) no firma cada *token* en tiempo real bloqueando el proceso. Como se explicó en la Refutación B, el árbol de Merkle estructura las transacciones en lotes (*batching*) y el TPM firma únicamente la raíz (*Root Hash*) de forma asíncrona, en intervalos definidos (ej. cada 100ms), fuera de la ruta crítica de latencia. 
+
+La degradación de rendimiento es logística y marginal, no transaccional. La atestación dura ocurre sobre el *estado de arranque* y el *estado del contenedor*, mientras que la firma de la cadena de inferencia se agrupa. Esto garantiza auditoría determinista post-evento sin afectar los milisegundos requeridos por el procesamiento de Alta Frecuencia.
+
+#### Objeción G — El Delirio del Aislamiento Físico: diodos de datos frente a la autonomía agéntica
+
+*El ingeniero de infraestructura.* Aislar entornos con un "diodo de datos" o *Airgap* unidireccional es un delirio incompatible con la naturaleza de un agente autónomo de IA. La IA agéntica necesita interactuar bidireccionalmente con el entorno (consumir APIs, raspar la web, actualizar estados). Un diodo puro la convierte en una calculadora de solo lectura. Si se añade un proxy inverso para permitir respuestas, se rompe el aislamiento del diodo. Es un oxímoron de arquitectura: no se puede tener autonomía agéntica dinámica y aislamiento físico unidireccional simultáneamente.
+
+#### Refutación — El Diodo Lógico de Dominio de Falla
+
+La objeción asume que proponemos un diodo óptico puro de Capa 1, lo cual efectivamente castraría al modelo. Sin embargo, el Proxy Inverso Soberano (Refutación D) no es un cable óptico cortado, es un **Diodo Lógico de Dominio de Falla**. 
+
+La interacción bidireccional existe entre el agente y el mundo exterior, pero el canal de retorno hacia la red de la Infraestructura Crítica está filtrado por políticas atestadas de verificación formal. El modelo procesa información y el proxy permite el flujo de regreso *solo* de objetos serializados con integridad criptográfica validada. El aislamiento aquí no significa ausencia de red; significa la imposibilidad matemática de que un comando de respuesta no atestado o malicioso modifique el estado de anillo 0 de la red nacional.
+
+#### Objeción H — Vaporware Arquitectónico y Arrogancia Regulatoria: el vacío de implementación corporativa
+
+*El CTO corporativo.* El *whitepaper* es una obra maestra de la intimidación jurídica para asustar directorios bajo la Ley 21.595, pero es *vaporware* arquitectónico. Carece de un repositorio de código, un diagrama de arquitectura para Kubernetes o AWS, y *benchmarks* de latencia reales. Los directorios no compran manifiestos legales; compran seguros, informes de Deloitte y parches de AWS Nitro Enclaves. Sin un *Proof of Concept* (PoC) en código abierto que demuestre que el *Aegis Paradigm* compila y escala a nivel bancario, forzar a la CMF a exigirlo ignorando cómo operan los presupuestos de IT es una arrogancia regulatoria suicida.
+
+#### Refutación — El Gatillador Normativo y la Neutralidad Tecnológica
+
+Esta es la crítica sociológica más exacta y, a la vez, la objeción jurídica más irrelevante. La CMF no necesita compilar un repositorio de GitHub para aplicar la Ley de Delitos Económicos; su mandato es salvaguardar la cadena de pagos y el riesgo sistémico (§6.8). 
+
+El estándar tecnológico de la propuesta es agnóstico por diseño (Principio de Neutralidad Tecnológica). Proveer el código fuente de una integración específica (ej. Rust sobre SGX para SCITT) desvía el foco del imperativo legal hacia un debate de integración de *software*. La implementación técnica no es teórica: descansa en especificaciones estandarizadas hoy mismo por la IETF (RFC 9334) y librerías maduras (OpenEnclave). La asimetría del documento es deliberada: el texto establece el *deber ineludible*; es el mercado corporativo —con sus presupuestos de IT multimillonarios— el que construirá los contenedores conformes una vez que la CMF les retire el refugio de la certificación documental *ex post*. La responsabilidad de escribir el código de atestación recae sobre AWS y Google si quieren seguir cobrando los contratos bancarios, no sobre el regulador chileno.
+
+Quien sea capaz de rebatir estos ocho vectores de impugnación en una mesa técnica —reformulando la objeción de fondo con datos que las secciones anteriores no anticipen— tiene el perfil de un investigador de nivel Estado-nación. La función de este §6.7 es exactamente esa: preparar al lector para ese debate, por hostil y destructivo que sea, antes de que ocurra.
 
 ### 6.8 La Comisión para el Mercado Financiero (CMF) como Regulador Asimétrico: Riesgo Sistémico y Responsabilidad Directiva
 
