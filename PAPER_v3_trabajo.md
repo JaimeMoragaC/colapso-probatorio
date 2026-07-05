@@ -869,7 +869,7 @@ Una institución de defensa que no puede responder con certeza a la pregunta "¿
 
 La infraestructura de evidencia — NetFlow inmutable en equipos de red independientes del servidor comprometido, SIEM con forwarding en tiempo real hacia almacenamiento externo, EDR con telemetría en infraestructura soberana — no es una respuesta al incidente de septiembre de 2022: es la condición que habría permitido detectar el compromiso de mayo de 2022 y descartar, con certeza forense, que otros actores accedieron al mismo servidor durante los catorce meses de exposición. Esa certeza no existe. No existirá. El déficit es permanente.
 
-### Caso testigo: Instituto de Salud Pública (ISP) — parálisis de infraestructura sanitaria estatal (junio 2025)
+#### Caso testigo: Instituto de Salud Pública (ISP) — parálisis de infraestructura sanitaria estatal (junio 2025)
 
 Hay una pregunta que ningún manual de continuidad operacional contempla: ¿qué se reporta cuando la información que probaría lo ocurrido es, ella misma, parte de lo que se perdió? El Instituto de Salud Pública tuvo que responderla en la práctica. El **27 de junio de 2025**, un ataque de *ransomware* paralizó sus sistemas —clasificado oficialmente como «incidente de ciberseguridad de efecto significativo» bajo la Ley 21.663—, dejando fuera de servicio todas sus plataformas salvo el correo institucional<a href="#fn49" id="fnref49"><sup>49</sup></a>. El reloj de las obligaciones de gestión y continuidad empezó a correr sobre una institución que ya no controlaba su propio registro de los hechos.
 
@@ -887,7 +887,7 @@ Y el dato más revelador para esta tesis es el reconocimiento institucional de i
 
 La pregunta que el déficit deja sin respuesta es la que un fiscalizador formulará primero: ¿qué se perdió, exactamente, y qué se conservó íntegro? El ISP no pudo contestarla con evidencia verificable —solo con la constatación de que sus propios respaldos habían fallado—. *Y esa es, exactamente, la posición en que quedará cualquier obligado el día del incidente: no la de quien oculta lo que sabe, sino la de quien no puede probar lo que afirma.*
 
-### Caso testigo: filtración del Servicio de Salud Araucanía Sur y el oficio reservado de la ANCI sobre Historial Clínico Electrónico (mayo 2026)
+#### Caso testigo: filtración del Servicio de Salud Araucanía Sur y el oficio reservado de la ANCI sobre Historial Clínico Electrónico (mayo 2026)
 
 La institución fue la última en enterarse de su propia filtración. Ese solo hecho —quién avisó a quién— contiene el caso entero. En los primeros días de mayo de 2026, bajo el régimen plenamente vigente de la Ley 21.663, la exposición de más de 25.000 registros de pacientes del Servicio de Salud Araucanía Sur —información personal y clínica de alta sensibilidad, incluida la asociada a citaciones médicas— se detectó *por plataformas de monitoreo externas, no por la propia institución*<a href="#fn50" id="fnref50"><sup>50</sup></a>. El obligado a vigilar el sistema supo que había sido vulnerado porque alguien de afuera se lo dijo.
 
@@ -909,7 +909,7 @@ El episodio es probatoriamente crítico por tres razones convergentes:
 
 Repárese en la escena completa, porque es la que espera a cualquier obligado: un atacante que entra con credenciales válidas y deja un *log* idéntico al de un funcionario real; un regulador que, para saber siquiera qué exponer, debe pedir el inventario a 48 horas porque nunca tuvo una línea base; y una versión reservada del incidente que no coincide con la pública. Tres hechos, una sola conclusión: en este entorno, nadie —ni la víctima, ni el regulador, ni el juez— puede reconstruir con certeza qué ocurrió. La pregunta «¿fue el atacante o fue el funcionario?» no es difícil de responder: es, por construcción del registro, *irrespondible*.
 
-### Caso testigo: BancoEstado y la indelegabilidad de la prueba (septiembre 2020)
+#### Caso testigo: BancoEstado y la indelegabilidad de la prueba (septiembre 2020)
 
 Si hay un caso donde el Estado hizo todo lo que la buena práctica manda —y aun así se quedó sin prueba—, es este. Conviene tenerlo presente, porque desarma de antemano la respuesta fácil («habría bastado con supervisar mejor»). El 5 de septiembre de 2020, el *ransomware* Sodinokibi comprometió aproximadamente 12.000 equipos de la red de BancoEstado, forzando el cierre de sus 410 sucursales durante al menos una jornada completa. La respuesta regulatoria fue inmediata: informada ese mismo sábado, la CMF se constituyó *in situ* al día siguiente —mediante una unidad especial en las dependencias del banco— para supervisar las acciones de recuperación, alertó a toda la banca y ordenó a las demás instituciones financieras revisar su infraestructura. El banco presentó querella por sabotaje informático el 7 de septiembre.
 
@@ -931,7 +931,7 @@ la ley no puede presumir que habrá evidencia si el sistema no fue diseñado par
 
 Este deber presupone algo que rara vez se examina: que el obligado pueda acreditar, con evidencia fiable, qué ocurrió —en horas, no en meses, y de modo que resista impugnación—. Toda la arquitectura sancionatoria de estos regímenes —la Ley 21.663, la RAN 20-10 y la NCG 502 de la CMF— descansa, silenciosamente, sobre la confiabilidad de la evidencia del incidente. Es justamente ahí donde el abrupto cambio tecnológico y geopolítico de 2026, detonado por Mythos, abre una grieta.
 
-### 1.3.2 Confiar el registro al sospechoso: por qué la evidencia *cloud* no atestable no puede probar nada
+#### 1.3.2 Confiar el registro al sospechoso: por qué la evidencia *cloud* no atestable no puede probar nada
 
 Los tres casos testigo anteriores —EMCO, Servicio de Salud Araucanía Sur y BancoEstado— comparten una característica estructural: en ninguno pudo el obligado acreditar con certeza forense qué ocurrió, porque la evidencia residía en un entorno que no controlaba ni podía atestar de forma independiente. Esa limitación no es una falla puntual de gestión: es la consecuencia necesaria de confiar el registro del incidente a la misma infraestructura que el adversario ya comprometió. El principio que la explica es el siguiente.
 
@@ -945,7 +945,7 @@ Lo que los casos revelan no es solo que el adversario puede manipular los regist
 
 Estas tres deficiencias existen siempre —antes de cualquier ataque—. Lo que el adversario polimórfico añade (§2) es convertirlas de problemáticas en catastróficas: no solo el registro es estructuralmente débil; además, el adversario lo redacta a su conveniencia.
 
-### 1.3.3 El responsable de datos en 2026: firmó la responsabilidad, no el control54
+#### 1.3.3 El responsable de datos en 2026: firmó la responsabilidad, no el control
 
 Las tres deficiencias identificadas en §1.3.2 operan dentro del deber de reporte de la Ley 21.663, la RAN 20-10 y la NCG 502 de la CMF, un deber donde la carga de la prueba —en sentido lato— recae en el regulador: es la ANCI o la CMF, según el caso, quien debe constatar el incumplimiento. La Ley 21.719 invierte esa estructura. Bajo el principio de **responsabilidad proactiva**, el responsable de datos no espera que le imputen el incumplimiento: debe demostrar *a priori* que cumplió.
 
@@ -975,7 +975,7 @@ Ambas adiciones operan sobre el mismo sustrato técnico que los tres regímenes 
 
 - **Indelegabilidad (el *enforcement* como dato).** El análisis de la jurisprudencia internacional y de la actuación de los reguladores estadounidenses y europeos revela que la transferencia de riesgo hacia el proveedor *cloud* es una ilusión jurídica. Dos clusters de casos resultan dogmáticamente definitivos:
 
-### El colapso de las cláusulas contractuales (Meta, Uber, TikTok).
+#### El colapso de las cláusulas contractuales (Meta, Uber, TikTok).
 
   El mecanismo del colapso es preciso y conviene enunciarlo antes de los casos: las Cláusulas Contractuales Tipo (*Standard Contractual Clauses*, SCC) son contratos privados entre el exportador de datos (empresa en la UE) y el importador (empresa en el país receptor), por los que este último promete dar al dato una protección equivalente a la europea.
 
@@ -1003,7 +1003,7 @@ Pero el caso reserva su lección más profunda para el final, y es la que lo con
 
 La secuencia completa importa a este documento más allá del derecho de datos. En los tres casos lo sancionado es la misma operación que esta tesis denomina **auditoría delegada**: sustituir el control verificable del entorno por la declaración documentada de quien lo opera. La SCC es el homólogo contractual del certificado ISO o del informe SOC 2 — una promesa escrita sobre un entorno que el declarante no gobierna frente a la compulsión soberana, y que la contraparte no puede verificar de forma independiente. Si el propio operador de la infraestructura no puede atestar dónde reside el dato, ninguna cláusula firmada por él puede transportar ese hecho.
 
-### Principio extraído (invariante jurídico).
+#### Principio extraído (invariante jurídico).
 
 El invariante que estos tres casos establecen admite una formulación dogmática precisa: **ningún contrato puede obligar a un soberano que no lo suscribió**. La regla es tan antigua como el derecho de las obligaciones —es el efecto relativo del contrato, *res inter alios acta*, el mismo que el art. 1545 del Código Civil chileno enuncia al hacer del contrato una ley *para los contratantes*, y solo para ellos—, y el TJUE no hizo más que aplicarla al tráfico transfronterizo de datos: las cláusulas no pueden vincular a las autoridades del país receptor, porque no son parte del contrato (*Schrems II*, §125). Cuando el ordenamiento del Estado de destino faculta a sus agencias para exigir del importador la divulgación —la FISA 702 en EE.UU.; la legislación de inteligencia y contraespionaje en China—, esa potestad opera en un plano jerárquico al que ninguna estipulación privada alcanza. El defecto de las SCC no es, por tanto, un defecto de redacción que un mejor abogado pueda subsanar: es una imposibilidad estructural. De este invariante se siguen cuatro corolarios.
 
@@ -1017,7 +1017,7 @@ El invariante que estos tres casos establecen admite una formulación dogmática
 
 La proyección a Chile cierra el argumento. Si Europa —con un mercado de 450 millones de personas, un comité supranacional capaz de forzar una multa de €1.200 millones contra el criterio del propio regulador nacional, y el peso diplomático para extraer de Washington una orden ejecutiva a la medida— solo consiguió para sus ciudadanos una protección por decreto ajeno y revocable, Chile no obtendrá más mediante resoluciones administrativas locales, SLA con hiperescalares ni cláusulas contractuales que la futura Agencia de Protección de Datos Personales apruebe como garantía: ninguno de esos instrumentos altera la jerarquía normativa del país receptor, y Chile carece del peso relativo para negociar un marco de adecuación propio. Para un país pequeño, la salida no es contractual ni diplomática: es arquitectónica —la solución no es territorial, es vertical—: no depender, para conocer y probar el estado de los propios sistemas, de la declaración de un tercero compelible —y silenciable— por un soberano extranjero. Ese estándar de evidencia se formula en la Sección 5 y su implantación regulatoria se discute en la Sección 6.
 
-### La indemnidad estructural del hiperescalar (el caso Capital One).
+#### La indemnidad estructural del hiperescalar (el caso Capital One).
 
 La aritmética final del caso Capital One cabe en tres líneas, y conviene tenerla a la vista antes de entrar en la técnica. Datos de 106 millones de clientes, exfiltrados. Para el banco: US$270 millones entre la multa federal y el acuerdo colectivo, y años bajo supervisión reforzada. Para la atacante: condena penal. Para el proveedor cuya decisión de diseño —identificada por él mismo como vector de riesgo desde 2018— hizo posible la cadena completa: **cero**. Ni multa, ni cargo, ni deber de indemnizar; solo el lanzamiento, meses después, de la versión corregida del componente que habilitó el ataque. El caso es el más citado en la doctrina de responsabilidad en computación en nube, pero suele citarse mal: como una historia de negligencia del cliente. Por eso conviene reconstruir la cadena técnica exacta, paso a paso: porque la lección jurídica no está donde la doctrina acostumbra buscarla —en el *firewall* mal configurado del banco—, sino en una decisión de arquitectura del proveedor que ninguna autoridad llegó a sancionar.
 
@@ -1055,7 +1055,7 @@ Y el esquema de reparto no alcanza solo a los OIV. Alcanza, con idéntica estruc
 
  La indemnidad del hiperescalar no es, pues, un accidente ni un vacío que un mejor contrato pueda llenar: es el diseño jurídico del producto. La responsabilidad no se transfiere con el proveedor: recae, indelegablemente, en el responsable de la información — sea éste un operador de importancia vital, una entidad supervisada por la CMF o cualquier responsable del tratamiento de datos personales.
 
-### Colapso del esquema de delegación (responsable–encargado–sub-encargado).
+#### Colapso del esquema de delegación (responsable–encargado–sub-encargado).
 
 El precedente Capital One cierra la pregunta sobre dónde recae la responsabilidad cuando el hiperescalar se declara indemne: íntegramente sobre el obligado local. La pregunta que abre de inmediato es qué ocurre, dentro del perímetro del obligado, con el mecanismo que todos los regímenes analizados ofrecen como cauce legítimo para apoyarse en terceros: la delegación. La respuesta expone una segunda fractura estructural, de naturaleza distinta a la probatoria — y que no es privativa de la Ley 21.719. Los tres frentes normativos descansan sobre la misma premisa: delegar es lícito porque —y solo mientras— la cadena de delegados sea identificable, contratable y auditable. La Ley 21.663 exige al OIV gestionar el riesgo de los servicios provistos por terceros: presupone saber quiénes son. La regulación de la CMF —cuyo perímetro no se agota en el banco de la RAN 20-10: comprende a la Fintech y a la plataforma de activos virtuales de la NCG 502 y la Ley 21.521, y a las aseguradoras, administradoras de fondos e intermediarios de valores que completan el sistema financiero fiscalizado— admite la externalización de funciones bajo condiciones de identificación, auditabilidad y acceso del supervisor: presupone poder nombrarlos y fiscalizarlos. Y la Ley 21.719 lleva el esquema a su expresión más exigente —responsable, encargado, sub-encargado—: presupone poder contratarlos uno a uno. Tres regímenes, una sola premisa tácita: **la cadena existe, es finita y tiene nombres**. Es esa premisa —no una norma en particular— la que los agentes autónomos destruyen por construcción.
 
@@ -1063,9 +1063,9 @@ La versión de la Ley 21.719 sirve de caso de análisis porque es la más estric
 
 Repárese en el salto cualitativo respecto de todo lo anterior. En el clúster SCC y en el caso Capital One, el obligado al menos sabía con quién había contratado: el colapso consistía en que esa cadena *conocida* resultaba jurídicamente incontrolable (el soberano que no firmó el contrato) o económicamente indemne (el proveedor que trazó la línea). Aquí el colapso es un escalón más profundo: la cadena deja de ser conocida. Y el déficit es doble, *ex ante* y *ex post*: no puede contratarse lo que no puede nombrarse, y no puede reconstruirse después lo que ningún registro atestado capturó — qué herramienta fue invocada, con qué datos, hacia qué jurisdicción. La aporía es estructural y transversal: la ley impone responsabilidad solidaria sobre una cadena de encargados que, por construcción, es inmapeable; y el deber de *demostrar* el cumplimiento —la responsabilidad proactiva de la 21.719, pero también la gestión acreditable de terceros que exigen la ANCI y la CMF— se vuelve materialmente imposible, no por negligencia, sino porque su objeto dejó de ser determinable: el perímetro del tratamiento para el responsable de datos, el perímetro de la externalización para la entidad supervisada, la superficie de proveedores para el OIV.
 
-### El corolario para el responsable de la información y su Delegado: del rol de cumplimiento al blanco de la sanción.
+#### El corolario para el responsable de la información y su Delegado: del rol de cumplimiento al blanco de la sanción.
 
-De lo anterior se sigue una consecuencia que conviene enunciar con crudeza, porque define la exposición personal de quien asume estos cargos: el fenómeno analizado convierte al responsable de la información —y al Delegado de Protección de Datos que la Ley 21.719 obliga a designar— en el blanco directo de la sanción del sistema. El cargo, cuya función nuclear es supervisar el cumplimiento y servir de punto de contacto sobre el tratamiento, recibe un objeto que se ha vuelto incontrolable.
+De lo anterior se sigue una consecuencia que conviene enunciar con crudeza, porque define la exposición personal de quien asume estos cargos: el fenómeno analizado convierte al responsable de la información —y al Delegado de Protección de Datos que la Ley 21.719 obliga a designar<a href="#fn54" id="fnref54"><sup>54</sup></a>— en el blanco directo de la sanción del sistema. El cargo, cuya función nuclear es supervisar el cumplimiento y servir de punto de contacto sobre el tratamiento, recibe un objeto que se ha vuelto incontrolable.
 
 No es un reproche a su pericia, sino un problema de imputabilidad: se le asigna responsabilidad sobre la veracidad y el manejo de una información que fluye, en claro, por una cadena de agentes que no puede enumerar, a una velocidad —nanosegundos— que ninguna supervisión humana intercepta, y frente a ataques polimórficos que el propio verificador automatizado no detecta, cuando no es manipulado para absolverlos.
 
@@ -1073,7 +1073,7 @@ Y si, contra todo pronóstico, montara un control efectivo sobre su perímetro, 
 
 La designación del delegado, desprovista de un estándar de evidencia atestable que le restituya control real, deja de ser una medida de seguridad y se convierte en la última estación del escudo de responsabilidad.
 
-### El mismo vaciamiento bajo la Ley Marco (21.663): el Encargado de Ciberseguridad y el OIV.
+#### El mismo vaciamiento bajo la Ley Marco (21.663): el Encargado de Ciberseguridad y el OIV.
 
  La aporía no es privativa de la protección de datos. La Ley 21.663 obliga a toda organización regulada a designar un Encargado de Ciberseguridad —y, tratándose de un OIV, un delegado/a de ciberseguridad (Instrucción General N°3 de la ANCI)<a href="#fn67" id="fnref67"><sup>67</sup></a>— como responsable de implementar el programa de seguridad y de ser el punto de contacto técnico con la agencia, con capacitación acreditada y reporte directo.
 
@@ -1085,7 +1085,7 @@ Su designación —cargada en el portal de la ANCI, con nombre y reporte directo
 
 Aquí la indelegabilidad de la responsabilidad (el principio que cristaliza el caso BancoEstado, §1.3.1) se cruza con la imposibilidad material de ejercerla: el obligado —el OIV, su directorio, su encargado— responde por un perímetro que, sin evidencia atestable, no puede ni observar en tiempo real ni acreditar después. No es, de nuevo, un defecto de las personas designadas: es que la ley reparte responsabilidad sin que la arquitectura vigente reparta, con ella, capacidad de control.
 
-### El mismo vaciamiento en el perímetro de la CMF: el Directorio, el Gerente General y el Oficial de Cumplimiento.
+#### El mismo vaciamiento en el perímetro de la CMF: el Directorio, el Gerente General y el Oficial de Cumplimiento.
 
 El tercer frente completa el patrón y lo agrava, porque aquí la exposición no recae en un cargo técnico designado, sino en el gobierno corporativo entero. La regulación de la CMF radica la gestión de la seguridad de la información y de la continuidad operacional en el gobierno de la entidad: el directorio aprueba y vigila la estrategia; el gerente general y el oficial de cumplimiento certifican ante el supervisor —vía RAN 20-10 en la banca; vía NCG 502, con su Reporte de Incidentes Operacionales de dos horas, en Fintechs y plataformas de activos virtuales; con marcos equivalentes en aseguradoras, administradoras de fondos e intermediarios de valores— el estado de controles cuya operación efectiva su telemetría no puede acreditar. El caso *Travelers v. ICS* ya mostró el destino de esa certificación cuando el siniestro la contradice: la declaración de un control que no operaba no es un error administrativo — es la palanca de la rescisión de la póliza y, ante el supervisor, el presupuesto de la sanción por información falsa. Y mientras el OIV arriesga la multa —hasta 40.000 UTM—, el perímetro CMF conoce la sanción capital: la revocación de la autorización de existencia.
 
@@ -1098,7 +1098,7 @@ Tres registros, tres nombres, una sola estructura. El Delegado de Protección de
 
 <div style="page-break-before: always;"></div>
 
-### La tendencia comparada confirma el cerco: más responsabilidad personal, menos control.
+#### La tendencia comparada confirma el cerco: más responsabilidad personal, menos control.
 
 El 4 de mayo de 2023, en una sala del tribunal federal del Distrito Norte de California, Joe Sullivan —ex *Chief Security Officer* de Uber y, en una ironía que el expediente no registra, ex fiscal federal especializado en cibercrimen— escuchó su sentencia: tres años de libertad vigilada y una multa de US$50.000, tras la condena por jurado (octubre de 2022) por obstrucción del procedimiento de la FTC y ocultamiento de delito (*misprision of felony*)<a href="#fn71" id="fnref71"><sup>71</sup></a>. Repárese en lo que **no** dice la condena: Sullivan no fue condenado por causar la brecha de 2016, ni por la insuficiencia de sus controles. Fue condenado por **cómo la gestionó y la reportó**: pagó US$100.000 a los atacantes disfrazando el rescate de recompensa *bug bounty*, les hizo firmar acuerdos de confidencialidad, y mantuvo el incidente fuera del expediente que la FTC instruía. El juez William Orrick acompañó la clemencia con una advertencia dirigida a toda la profesión: el próximo ejecutivo de seguridad en esa posición debía esperar cárcel. El primer ejecutivo de seguridad condenado penalmente en EE.UU. a raíz de una brecha de datos no cayó por el ataque: cayó por el *reporte* — exactamente el acto que las leyes chilenas exigen ejecutar en horas, sobre evidencia que el obligado no controla.
 
@@ -1117,15 +1117,17 @@ El cuadro completo converge con la tesis: los ordenamientos de referencia hacen 
 
 <a id="sec1-3-4"></a>
 
-#### 1.3.4 La respuesta regulatoria Nacional : dos modelos, el mismo vacío probatorio
+#### 1.3.4 La respuesta regulatoria nacional: dos modelos, el mismo vacío probatorio
 
-La respuesta regulatoria al diagnóstico que precede ha recorrido, en sede chilena, dos modelos sucesivos: el Boletín 16821-19 en su redacción original importó el enfoque por riesgos del *EU AI Act* —certificación *ex ante*, *sandboxes*, monitoreo posterior autorreportado (§1.3.4)—; la propuesta ejecutiva de seis pilares (mayo 2026) giró hacia un modelo de sanción *ex post* —que esta misma sección analiza en detalle más adelante—. Son dos diseños opuestos en su lógica de intervención.
+El recorrido de las secciones anteriores deja al lector ante un cuadro cerrado: deberes de reporte incumplibles con la infraestructura vigente (§1.3.1), evidencia que no puede probar (§1.3.2), una cadena de delegación que dejó de ser enumerable y roles designados —Delegado, Encargado, directorio— que responden personalmente por un perímetro que no controlan (§1.3.3). A quien pregunte por la salida natural —«que lo resuelva la nueva ley»— esta sección le debe una respuesta, porque Chile está, precisamente, legislando sobre inteligencia artificial en este momento. La respuesta es la parte más incómoda del diagnóstico: ninguno de los dos modelos en disputa repara el vacío, porque ambos legislan sobre la *conducta* y ninguno sobre la *prueba*.
 
-Lo que este documento demuestra es que el problema epistémico subyacente no desaparece con ninguno de los dos, sin evidencia atestada, no se puede certificar que el sistema sigue siendo lo que era al momento de la conformidad *ex ante*, ni se puede reconstruir con certeza forense lo que ocurrió para fundar la sanción *ex post*.
+La respuesta regulatoria ha recorrido, en sede chilena, dos modelos sucesivos: el Boletín 16821-19 en su redacción original importó el enfoque por riesgos del *EU AI Act* —certificación *ex ante*, *sandboxes*, monitoreo posterior autorreportado—; la propuesta ejecutiva de seis pilares (mayo 2026) giró hacia un modelo de sanción *ex post* —que esta misma sección analiza en detalle más adelante—. Son dos diseños opuestos en su lógica de intervención.
+
+Lo que este documento demuestra es que el problema epistémico subyacente no desaparece con ninguno de los dos: sin evidencia atestada, no se puede certificar que el sistema sigue siendo lo que era al momento de la conformidad *ex ante*, ni se puede reconstruir con certeza forense lo que ocurrió para fundar la sanción *ex post*. El régimen *ex ante* presume permanencia; el régimen *ex post* presume reconstruibilidad; la arquitectura vigente no garantiza ninguna de las dos.
 
 La doctrina nacional ya anticipó el riesgo: las prohibiciones y exigencias por riesgo pueden quedar en "meras declaraciones sin efecto real" (Jijena, *Diario Constitucional*, 2026<a href="#fn72" id="fnref72"><sup>72</sup></a>).
 
-### La ingeniería explica, con tres hechos técnicos verificables, por qué esa advertencia se cumple en ambos modelos.
+#### La ingeniería explica, con tres hechos técnicos verificables, por qué esa advertencia se cumple en ambos modelos.
 
 El régimen por riesgos presupone que un sistema de IA de alto riesgo puede certificarse como ciberseguro *ex ante* y confiarse durante su ciclo de vida —el propio artículo 15 del *EU AI Act*<a href="#fn73" id="fnref73"><sup>73</sup></a> exige precisión, solidez y ciberseguridad "durante la totalidad del ciclo de vida"—. Tres hechos técnicos, verificables y no controvertidos, muestran por qué esa confianza debe ser verificable y no declarada:
 
@@ -1139,7 +1141,7 @@ El problema, por tanto, no es la evasión del modelo, sino la incapacidad estruc
 
 El enfoque por riesgos no es inútil —es necesario—, pero es insuficiente sin una capa de verificabilidad, que es justamente lo que evita la "declaración sin efecto real" que la doctrina ya teme. Que un gremio relevante leyera la irrupción de estos modelos como "una señal de madurez de la industria", más que como un cambio en el modelo de amenaza, no altera ese análisis técnico.
 
-### Análisis de la propuesta ejecutiva de seis pilares (mayo 2026): diez flancos estructurales y sus correcciones
+#### Análisis de la propuesta ejecutiva de seis pilares (mayo 2026): diez flancos estructurales y sus correcciones
 
 Las secciones precedentes establecieron el diagnóstico sin margen para la negociación técnica: la auditoría delegada es una ficción estructural, el giro ex post sin trazabilidad previa es materialmente inejecutable, y el adversario al que se enfrenta la infraestructura crítica chilena opera en un régimen temporal que ningún marco basado en la declaración autodeclarada puede alcanzar.
 
@@ -1153,7 +1155,7 @@ El 26 de mayo de 2026, el Ejecutivo presentó a la Comisión de Desafíos del Fu
 
 Lo que sigue es el análisis técnico-jurídico de esa reorientación.
 
-### Nota metodológica sobre el modelo invocado.
+#### Nota metodológica sobre el modelo invocado.
  La referencia a Japón y Singapur como modelos de "regulación ligera pro-innovación" requiere una corrección factual previa.
 
 La Monetary Authority of Singapore (MAS) impuso a las instituciones financieras que regula los Principios FEAT (*Fairness, Ethics, Accountability, Transparency*, 2018)<a href="#fn75" id="fnref75"><sup>75</sup></a>; en paralelo, la Personal Data Protection Commission (PDPC) y la Infocomm Media Development Authority (IMDA) publicaron el *Model AI Governance Framework* (2ª ed., ene-2020)<a href="#fn75" id="fnref75"><sup>75</sup></a> para el sector privado.
@@ -1166,7 +1168,7 @@ El contraste se vuelve definitivo al analizar la aplicación de MindForge sobre 
 
 Japón, en el marco del *Hiroshima AI Process* G7, lideró y adoptó junto a todos los miembros del G7 once principios de conducta para IA avanzada que incluyen trazabilidad, transparencia y accountability ante daños (G7, 30 de octubre de 2023)<a href="#fn76" id="fnref76"><sup>76</sup></a>.
 
-### El "modelo asiático" que los seis pilares invocan no es el que Japón y Singapur aplican a su infraestructura crítica: es la reducción de ese modelo a su menor denominador conveniente solo  para quienes operan sin restricciones de evidencia.
+#### El "modelo asiático" que los seis pilares invocan no es el que Japón y Singapur aplican a su infraestructura crítica: es la reducción de ese modelo a su menor denominador conveniente solo  para quienes operan sin restricciones de evidencia.
 
 La inconsistencia no es retórica sino estructural, y se deja exponer con la precisión que el caso exige. Lo que Singapur aplica a su sector financiero —el sistema que la propuesta presenta como paradigma de regulación ligera *ex post*— no es un régimen de sanción posterior puro: es, casi punto por punto, el modelo híbrido que este documento defiende. Hay licenciamiento y supervisión *ex ante* de las instituciones, registro continuo obligatorio durante toda la operación, y enforcement posterior ejercido *sobre* esa evidencia.
 
@@ -1190,11 +1192,11 @@ Invocar a Japón y a Singapur para legitimar ese vaciamiento no cita su lección
 
 
 
-## Examen acápite por acápite: los diez flancos estructurales de la propuesta del Ejecutivo para la Ley Marco de IA
+#### Examen acápite por acápite: los diez flancos estructurales de la propuesta del Ejecutivo para la Ley Marco de IA
 
 Establecido el marco de análisis —el diagnóstico probatorio, el modelo regulatorio híbrido que lo resuelve y los precedentes comparados que lo respaldan—, el examen procede ahora a confrontar la propuesta del Ejecutivo con ese marco, acápite por acápite. Los diez apartados siguientes recorren, uno a uno, los pilares y principios de la indicación sustitutiva anunciada el 26 de mayo de 2026: en cada caso se aísla el flanco estructural que la formulación vigente deja abierto y se propone la corrección que lo cierra. El orden no es retórico sino acumulativo —cada flanco refuerza al anterior— y converge en una conclusión única: el régimen ex post, privado de la capa de evidencia atestable, es inejecutable por construcción.
 
-### 1. El giro ex post frente a IA autónoma: incoherencia temporal estructural *(Pilar 1 + Principio 3)*
+#### 1. El giro ex post frente a IA autónoma: incoherencia temporal estructural *(Pilar 1 + Principio 3)*
 
 La decisión de transitar de regulación ex ante a ex post —"en vez de preocuparnos tanto de la regulación antes, nos preocupemos de las sanciones cuando se comete un error" (Lincolao, 26-may-2026)—<a href="#fn74" id="fnref74b"><sup>74</sup></a> presupone tres condiciones que la IA adversarial no satisface:
 
@@ -1204,7 +1206,7 @@ Mandiant M-Trends 2026 documenta que el tiempo de entrega del adversario colaps�
 
 En ese intervalo de segundos o escasos minutos, un agente autónomo puede haber inyectado código, escalado privilegios, corrompido los respaldos y sobreescrito los registros en RAM. Para cuando el régimen ex post activa su mecanismo sancionador, la evidencia del "error" que debería sancionar ya no existe o ha sido manipulada desde su origen.
 
-### Respuesta al problema planteado.
+#### Respuesta al problema planteado.
 La respuesta de los estados con marco defensivo operativo es híbrida, no ex post puro.
 
 - **UK AI Safety Institute:** realiza evaluaciones pre-despliegue de modelos de frontera —precisamente porque los daños de IA autónoma sobre infraestructura crítica son potencialmente irreversibles y no recuperables mediante sanción posterior—.
@@ -1212,7 +1214,7 @@ La respuesta de los estados con marco defensivo operativo es híbrida, no ex pos
 - **AI Act europeo:** establece evaluaciones de conformidad ex ante obligatorias para sistemas de alto riesgo (Anexo III) con el argumento explícito de que el daño de ciertos sistemas no puede repararse con sanciones posteriores.
 - **Singapur** (modelo invocado por los seis pilares): aplica en su *Accountability Framework* (MAS, 2023) monitoreo continuo post-despliegue con obligación de reporte a la autoridad ante desviaciones detectadas —no espera al daño para actuar—.
 
-### Solución — fundamento de ingeniería (con sus límites explícitos).
+#### Solución — fundamento de ingeniería (con sus límites explícitos).
 El error de diseño del modelo ex post puro es confundir la *sanción* con la *evidencia*: la sanción puede ser post-daño; la evidencia debe capturarse antes, durante y en el momento del daño. Ahora bien, la solución técnica debe describirse con precisión, porque una formulación imprecisa de la atestación de *hardware* es el primer flanco que un revisor competente atacará —y con razón—. Conviene distinguir tres capas que la literatura divulgativa suele confundir:
 
 (i) *Arranque medido* (*measured boot*, raíz estática de confianza). El TPM acumula en sus registros de configuración el *hash* encadenado de cada componente de la cadena de arranque antes de cederle el control —el firmware UEFI, las ROMs de opción y la política de *Secure Boot* en los PCR 0-7 (dominio del firmware); el *bootloader*, el *kernel* y el *initrd* en los registros del dominio del sistema operativo (PCR 4 u 8-9 según el cargador)—. Esto **no** mide el estado de la memoria en ejecución: mide *cómo arrancó* el sistema.
@@ -1227,10 +1229,10 @@ El error de diseño del modelo ex post puro es confundir la *sanción* con la *e
 
       La computación confidencial atesta la medición *inicial* del dominio de ejecución cifrado; la integridad en ejecución dentro de ese dominio sigue siendo responsabilidad de capas superiores. Es decir: ninguna de estas tecnologías, por sí sola, atestigua de forma continua la integridad de la memoria viva.
 
-### Concesión
+#### Concesión
 De esta anatomía se sigue la concesión honesta y, paradójicamente, el argumento más fuerte.  la atestación de *hardware* no es un escudo que impida un compromiso en el espacio de *kernel*; un adversario que alcanza el máximo privilegio *después* de la medición y permanece solo en memoria puede, en el límite, evadir la atestación basada en PCR, porque el TPM es un coprocesador pasivo que firma lo que se le entrega.
 
-### Argumento
+#### Argumento
 Ese mismo límite reconfigura el problema a favor del defensor. Forzar al adversario a permanecer no-persistente y solo-en-memoria —so pena de aparecer en el arranque medido o en la medición en tiempo de carga— eleva drásticamente el costo del ataque, le impide sobrevivir a un reinicio, y acorta su tiempo de permanencia.
 
 Esto es decisivo en sede probatoria: la atestación no necesita *prevenir* el ataque para ser útil como prueba; necesita que su ausencia, inconsistencia o discontinuidad sea por sí misma significativa. Un entorno que debía emitir una cadena de atestación coherente y no lo hizo, o la emitió rota, es una afirmación verificable sobre el estado del sistema —exactamente lo que el *log* autodeclarado en la nube no puede ofrecer en ningún caso—.
@@ -1271,7 +1273,7 @@ La tabla siguiente las ordena según el momento en que la norma interviene, el p
 
 *Tabla 3. Los tres modelos regulatorios. La sanción puede ser posterior al daño; la evidencia que la hace exigible debe capturarse antes, durante y en el momento del daño.*
 
-### Fundamento jurídico de la objecion.
+#### Fundamento jurídico de la objecion.
  El esquema ex post puro contradice obligaciones ya existentes en el derecho chileno vigente. La Ley 21.663 en su Art. 8 exige que los OIV mantengan sistemas de *monitoreo continuo* de sus infraestructuras críticas —no solo que reporten cuando algo sale mal—.
 
  La propuesta ejecutiva de sanciones ex post desconectadas de un requisito de registro atestado es incoherente con el deber de monitoreo que la propia ley que el Ejecutivo administra ya impone.
@@ -1280,7 +1282,7 @@ La tabla siguiente las ordena según el momento en que la norma interviene, el p
 
  La Ley de Procedimiento Administrativo (Ley 19.880 Art. 41) exige que los actos administrativos sancionatorios sean debidamente fundados; una sanción ex post por daño de IA sin evidencia técnicamente verificable del estado del sistema en el momento del evento no cumple ese estándar de fundamentación<a href="#fn152" id="fnref152"><sup>152</sup></a>.
 
-### Artículo propuesto para la indicación sustitutiva.
+#### Artículo propuesto para la indicación sustitutiva.
 
  La indicación debe incorporar como artículo: que los sistemas de IA que operen sobre infraestructura crítica (OIV) o que procesen datos de más de cien mil titulares deben
 
@@ -1294,7 +1296,7 @@ La tabla siguiente las ordena según el momento en que la norma interviene, el p
 
    Las sanciones ex post del modelo ejecutivo conservan plena vigencia como mecanismo disuasorio; lo que no tiene sentido —ni desde la ingeniería ni desde el derecho— es el ex post sin el registro que lo hace ejecutable.
 
-### 2.Concepto  "Trazable" sin definición técnica: la Ley de Goodhart aplicada al regulador *(Pilar 1)*
+#### 2. Concepto "Trazable" sin definición técnica: la Ley de Goodhart aplicada al regulador *(Pilar 1)*
 
 "Trazable" figura en el nombre mismo del primer pilar sin especificación técnica. ¿Trazabilidad es un log en CSV? ¿Un hash SHA-256 del archivo de output? ¿Una cadena de atestación con raíz en hardware físico?
 
@@ -1309,16 +1311,16 @@ Esta imprecisión conceptual introdujo al debate por inadvertencia de la autorid
   El *log* autodeclarado en la nube es la forma precisa que adopta ese mínimo: satisface la etiqueta «trazable» sin producir un solo bit de evidencia oponible en juicio.
   Bajo esa idea  trazable puede ser un simple log generado en una API o manualmente en CSV
 
-### El contraste con marcos que han resuelto este problema es directo.
+#### El contraste con marcos que han resuelto este problema es directo.
 
 - El IETF provee en RATS (RFC 9334, 2023) una definición técnica precisa: una cadena criptográficamente verificable que incluye la identidad del hardware (EK del TPM), el estado medido del entorno de ejecución (PCR values), y una firma anclada a una clave privada no exportable desde el módulo seguro<a href="#fn77" id="fnref77"><sup>77</sup></a>.
 - El AI Act europeo, Art. 12, especifica que los sistemas de alto riesgo deben permitir técnicamente el registro automático de eventos a lo largo de toda su vida útil, con el nivel de trazabilidad del funcionamiento apropiado a su finalidad y suficiente para identificar las *situaciones* en que el sistema pueda presentar un riesgo — no "registros", sino registros orientados a eventos de riesgo identificables, con especificaciones técnicas de contenido y verificabilidad<a href="#fn78" id="fnref78"><sup>78</sup></a>—.
 - El *FEAT Framework* de Singapur exige para decisiones automatizadas en servicios financieros mantener pistas de auditoría de las decisiones clave y trazabilidad verificable del proceso de decisión automatizada<a href="#fn75" id="fnref75"><sup>75</sup></a> — no un log, sino una cadena de trazabilidad independientemente auditable.
 
-### Solución:
+#### Solución:
 La indicación sustitutiva debe sustituir la palabra "trazable" en el Pilar 1 por la definición técnica que §6.3.8 de este documento provee para la categoría "evidencia con proveniencia atestada": cuatro elementos copulativos —certificado de hardware, cadena de atestación con identidad del hardware e *hash* del estado, divulgación completa por el proponente, y verificabilidad independiente con claves públicas—. Sin ese contenido técnico, "trazabilidad" es una etiqueta que cualquier auditor de cumplimiento puede satisfacer con un CSV firmado.
 
-### 3. Accountability sin estándar de evidencia: el régimen procesalmente inaplicable *(Principio 3)*
+#### 3. Accountability sin estándar de evidencia: el régimen procesalmente inaplicable *(Principio 3)*
 
 El principio de "accountability real basada en daño concreto, no riesgo teórico" es la promesa más ambiciosa del paquete ejecutivo y la más técnicamente hueca en su formulación actual. Para sancionar daño concreto atribuible a un sistema de IA específico, el demandante —sea el regulador, la víctima o el asegurador— debe probar que el daño ocurrió, que fue causado por ese sistema en ese estado concreto, bajo la operación de ese sujeto identificable.
 
@@ -1332,7 +1334,7 @@ El derecho comparado que más ha avanzado en este problema es el estadounidense.
 - **NIS2 Art. 23** exige que los reportes de incidentes de entidades esenciales incluyan la evaluación inicial de la gravedad e impacto, así como los indicadores de compromiso disponibles — no una declaración de que ocurrió, sino su caracterización técnica verificable<a href="#fn82" id="fnref82"><sup>82</sup></a>—.
 - **La propuesta de *AI Liability Directive*** (COM(2022)496, sep. 2022, retirada jul.2025) establecía una presunción de causalidad cuando el operador no puede o no quiere revelar el estado del sistema —invirtiendo la carga probatoria hacia quien controla la infraestructura—; aunque retirada, permanece como referencia del estándar probatorio al que la legislación europea aspiró y al que converge bajo la *Product Liability Directive* revisada (Dir. (UE) 2024/2853)<a href="#fn83" id="fnref83"><sup>83</sup></a>.
 
-### Solución:
+#### Solución:
 
 El principio de "accountability real" solo puede materializarse si la indicación sustitutiva incorpora, junto a la definición técnica de "trazable" del punto anterior, una **jerarquía graduada de peso probatorio**: una escala que asigne a cada medio de prueba un valor distinto según el grado de atestación que respalde su integridad, y una regla que active la consecuencia procesal de no haber producido la prueba de mayor grado cuando era exigible. Sin esa graduación, "daño concreto" es un estándar sin unidad de medida, y la prueba, la *probatio diabolica* que el imputado opone en el párrafo anterior.
 
@@ -1361,7 +1363,7 @@ Que una cadena de atestación con raíz en *hardware* sea más fiable que un *lo
 
 Sin ese estándar, el régimen ex post anuncia la sanción sin proveer la herramienta para imputarla.
 
-### 4. "Infraestructura crítica" sin continuidad soberana: mandato vacío *(Pilar 2)*
+#### 4. "Infraestructura crítica" sin continuidad soberana: mandato vacío *(Pilar 2)*
 
 Declarar la IA "infraestructura crítica para el país" sin exigir que esa infraestructura sea soberanamente operable produce una ficción normativa: el estatus protector sin el contenido protegido. El 12 de junio de 2026, el *Commerce Secretary* Lutnick desactivó globalmente dos modelos de Anthropic en horas mediante una directiva administrativa extranjera —un evento que, como establecen los precedentes de bloqueo *cloud* ya analizados (Figma/DJI 2022, Microsoft/Rusia 2024), no constituye un accidente aislado, sino la materialización de un patrón estructural de interdependencia armada—.
 
@@ -1375,10 +1377,10 @@ El derecho comparado ofrece modelos normativos rigurosos frente a este problema:
 
 - **Unión Europea (NIS2):** El Art. 21(2)(c) de la directiva exige que las medidas de gestión de riesgo de entidades esenciales incluyan "continuidad de actividad, como la gestión de copias de seguridad y la recuperación en caso de catástrofe, así como la gestión de crisis"<a href="#fn134" id="fnref134"><sup>134</sup></a>.
 
-### Solución:
+#### Solución:
 El Pilar 2 requiere un artículo específico de continuidad soberana: que ningún sistema declarado "infraestructura crítica de IA" pueda depender, para su operación en modo de emergencia, de un servicio sujeto a jurisdicción extranjera sin que exista un plan de continuidad certificado bajo control del operador nacional, con capacidad mínima de operación autónoma de 72 horas. El §6.3.3 de este documento provee la arquitectura de ese artículo.
 
-### 5. Reciprocidad de certificaciones: la transitividad del problema de atestación *(Pilar 3)*
+#### 5. Reciprocidad de certificaciones: la transitividad del problema de atestación *(Pilar 3)*
 
 La reciprocidad de certificaciones internacionales —que Chile acepte lo que otros países certifiquen sin re-certificar— importa también los defectos de esos marcos. Un certificado SOC 2 o EU AI Act no requiere atestación del entorno de ejecución en *runtime*: certifica procesos documentados, políticas escritas y controles estáticos.
 
@@ -1390,10 +1392,10 @@ La lógica es la misma que este documento defiende: la certificación del proces
 
 
 
-### Solución:
+#### Solución:
 La indicación sustitutiva debe estipular que la reciprocidad de certificaciones aplica únicamente a certificaciones que incluyan atestación verificable del entorno de ejecución (nivel A o B de la jerarquía propuesta en el documento complementario). Una certificación declarativa extranjera no es equivalente a atestación local de hardware: el principio de reciprocidad no puede extenderse a un déficit probatorio que el propio país emisor del certificado tampoco resuelve.
 
-### 6. El sandbox regulatorio como ventana de calibración adversarial *(Pilar 4)*
+#### 6. El sandbox regulatorio como ventana de calibración adversarial *(Pilar 4)*
 
 Los sandboxes regulatorios (Pilar 4) permiten despliegue de IA con restricciones aliviadas durante el período de desarrollo. El problema de seguridad es técnicamente preciso: el sandbox es el entorno donde un sistema adversarial calibra sus capacidades contra los detectores reales antes de enfrentar las defensas completas en producción. Un agente en sandbox aprende qué mecanismos de detección existen, cuál es su umbral de activación, y cómo quedar por debajo de ese umbral cuando el sandbox concluya.
 
@@ -1407,10 +1409,10 @@ Para neutralizar este riesgo, el derecho comparado somete estas áreas de prueba
 
 - **Singapur (MAS Sandbox):** El *FinTech Regulatory Sandbox* de la Monetary Authority of Singapore (MAS) exige a las entidades participantes la presentación de informes de progreso periódicos (típicamente cada dos meses), monitoreo continuo del comportamiento del sistema dentro de *boundary conditions* definidas, y una evaluación final de resultados como condición de acceso al mercado regulado al término del período de prueba <a href="#fn86" id="fnref86"><sup>86</sup></a>.
 
-### Solución:
+#### Solución:
  Los sandboxes del Pilar 4 deben exigir, para sistemas que operen sobre o accedan a infraestructura crítica, atestación del entorno de ejecución equivalente al nivel B de la jerarquía propuesta en el documento complementario durante todo el período de prueba. La relajación regulatoria puede aplicarse al régimen de sanciones, no al régimen de evidencia. Sin atestación del entorno de prueba, el sandbox no produce datos que sirvan para evaluar la seguridad del sistema cuando opere en producción con las defensas completas.
 
-### 7. Los seguros obligatorios sin prueba de causalidad: accountability sin herramienta de cobro *(Pilar 2)*
+#### 7. Los seguros obligatorios sin prueba de causalidad: accountability sin herramienta de cobro *(Pilar 2)*
 
 Los "mecanismos de seguro obligatorio" del Pilar 2 como instrumento de *safety* presuponen que el siniestro puede ser probado. Un seguro paga sobre reclamaciones verificadas. ¿Cómo prueba el reclamante que el daño fue causado por ese sistema de IA específico, en ese estado, bajo la operación de ese sujeto?
 
@@ -1426,10 +1428,10 @@ El derecho comparado aborda este déficit probatorio desde la misma conclusión 
 
 Ninguna jurisdicción ha completado la solución definitiva; sin embargo, todos señalan hacia el mismo requisito ineludible: evidencia atestada del estado del sistema en el momento exacto del evento.
 
-### Solución:
+#### Solución:
  Los seguros obligatorios del Pilar 2 deben incorporar en la indicación sustitutiva una cláusula de atestación como condición de la póliza: que el asegurado mantenga evidencia de nivel A o B del estado del sistema durante el período cubierto, y que la ausencia de esa evidencia al momento del siniestro opere como presunción en contra del asegurado en el proceso de reclamación. Sin ese artículo, el seguro desplaza el riesgo sin resolverlo.
 
-### 8. La laguna de imputación Gandolfi se vuelve sistémica bajo ex post *(Pilar 1 + Principio 3)*
+#### 8. La laguna de imputación Gandolfi se vuelve sistémica bajo ex post *(Pilar 1 + Principio 3)*
 
 El vacío de imputación analizado más adelante en el §1.3.5.c de este documento —cuando un agente autónomo sin instrucción humana directa identificable causa un daño, ¿quién responde penalmente?— se agrava estructuralmente bajo el modelo ex post. Un régimen de sanciones post-daño necesita identificar a quién sancionar en la cadena: desarrollador → proveedor → implementador → usuario → agente autónomo.
 
@@ -1441,10 +1443,10 @@ El AI Act europeo aborda esta cadena definiendo con precisión los roles de "pro
 
 El modelo chileno ex post que no requiere esa cadena documentada produce exactamente el mismo vacío, con la diferencia de que lo llama "accountability real".
 
-### Solución:
+#### Solución:
 La indicación sustitutiva debe incorporar la obligación de registro atestado de la cadena de delegación para agentes autónomos que operen sobre infraestructura crítica: qué operaciones están autorizadas, por quién, bajo qué condiciones, verificable de forma independiente por la ANCI o por cualquier perito habilitado. El §6.3.5 de este documento provee la coordinación entre regímenes; la indicación sustitutiva debe articularlo como artículo.
 
-### 9. "IA abierta a todos" sin gobernanza de proveniencia del modelo: democratización del vector adversarial *(Pilar 6)*
+#### 9. "IA abierta a todos" sin gobernanza de proveniencia del modelo: democratización del vector adversarial *(Pilar 6)*
 
 El Pilar 6 asume que el acceso amplio e irrestricto a la IA es un bien público incondicional, omitiendo que, en materia de ciberseguridad, la apertura sin gobernanza de proveniencia equivale a la proliferación de armamento de doble uso.
 
@@ -1454,7 +1456,7 @@ Al no requerir autenticación atestada ni trazabilidad de uso, el modelo "abiert
 
 Si la ley de IA chilena promueve "ciencia y tecnología abierta a todos los chilenos" sin exigir atestación del linaje del modelo —qué datos lo entrenaron, qué *fine-tuning* recibió, quién lo modificó y cuándo— crea las condiciones para que cualquier actor descargue, modifique y despliegue modelos para operaciones adversariales, amparado por el mismo marco que buscaba democratizar el acceso.
 
-### La apertura sin gobernanza de proveniencia no democratiza la IA: democratiza y legaliza el vector adversarial.
+#### La apertura sin gobernanza de proveniencia no democratiza la IA: democratiza y legaliza el vector adversarial.
 
 En términos estrictos de arquitectura forense, un modelo de lenguaje es una matriz de pesos compilada: un artefacto computacional ejecutable. Distribuir artefactos ejecutables sin una cadena de suministro criptográficamente atestada (como un AI-BOM inmutable) vulnera el principio de *Zero Trust* en su núcleo operativo.
 
@@ -1466,11 +1468,11 @@ El contraste son los GPAI (*General Purpose AI*) del AI Act europeo (Arts. 51-56
 
 Singapur, en la sección de *Operations Management* de su *Model AI Governance Framework* (2020), requiere que las organizaciones documenten el linaje y fuentes de los datos de entrenamiento para asegurar trazabilidad y auditoría —independientemente de si el modelo es abierto o propietario— <a href="#fn91" id="fnref91"><sup>91</sup></a>.
 
-### Solución:
+#### Solución:
 
 El Pilar 6 debe distinguir entre democratización del acceso —que este documento no cuestiona como objetivo de política pública— y ausencia de gobernanza de proveniencia del modelo. La indicación sustitutiva debe incorporar, para modelos desplegados sobre o accediendo a infraestructura crítica, la obligación de atestación del linaje: proveedor del modelo base, arquitectura, fuentes de datos de entrenamiento documentadas, y modificaciones posteriores al entrenamiento base. La apertura del modelo no requiere opacidad de su historia.
 
-### 10. El régimen ex post es ciego ante el daño subumbral de larga duración *(Pilar 1 + Principio 3)*
+#### 10. El régimen ex post es ciego ante el daño subumbral de larga duración *(Pilar 1 + Principio 3)*
 
 Los ataques más sofisticados no producen daño temporalmente discreto. Un agente polimórfico puede exfiltrar datos en volumen subumbral durante meses; manipular sistemáticamente clasificadores de decisión para producir sesgos que beneficien al atacante sin activar alertas; instalar mecanismos de activación condicional que permanecen latentes hasta una señal externa.
 
@@ -1482,15 +1484,15 @@ Para ataques de acumulación subumbral, el daño solo es legible retrospectivame
 - **Reino Unido y Estados Unidos (NCSC / CISA):** En sus *Guidelines for Secure AI System Development* (2023), exigen establecer un *baseline* de comportamiento ("*known good*") en la fase de diseño, como requisito ineludible para detectar ataques adversariales de acumulación gradual y *model drift* durante la operación continua<a href="#fn94" id="fnref94"><sup>94</sup></a>.
 - **Singapur (MAS TRM Guidelines):** Las normativas de gestión de riesgo tecnológico (2021) exigen a las instituciones financieras mantener perfiles de *baseline* e implementar analítica de comportamiento de usuarios (UBA) sobre registros históricos inmutables, con el objetivo de permitir la reconstrucción forense ante desviaciones anómalas<a href="#fn95" id="fnref95"><sup>95</sup></a>.
 
-### Solución:
+#### Solución:
 El §6.3.4 de este documento propone la transición del SGSI estático a atestación continua del estado operativo. Esa propuesta es la única respuesta técnicamente competente al daño subumbral: sin un *baseline* atestado del comportamiento normal del sistema —verificable en cualquier momento de forma independiente— no hay forma de detectar la desviación gradual que caracteriza los ataques de larga duración. La indicación sustitutiva debe hacer de la atestación continua un requisito explícito para sistemas de IA que operen sobre infraestructura crítica, no una opción dejada al criterio del proveedor.
 
-## Síntesis del flanco sistémico de los seis pilares.
+#### Síntesis del flanco sistémico de los seis pilares.
 Tomados en conjunto, los seis pilares producen un efecto que excede la suma de sus partes: declaran la IA infraestructura crítica y simultáneamente eliminan los estándares de prueba que hacen exigible la responsabilidad cuando esa infraestructura falla. El Pilar 2 eleva el estatus; el Pilar 1 elimina la salvaguarda que hace ese estatus operativamente significativo.
 
 El resultado es una infraestructura declarada crítica sin régimen probatorio que permita cobrar la accountability que el propio Ejecutivo anuncia como objetivo central. El marco de §6.3 de este documento no se opone a la innovación ni a la competitividad: se opone a que el "gestión trazable" del Pilar 1 sea una etiqueta sin contenido técnico verificable, y a que la "accountability real" del Principio 3 sea una promesa sin herramienta procesal para ejecutarla.
 
-### 1.3.5 El pilar penal (Ley 21.459): la cadena de custodia como presupuesto de validez
+#### 1.3.5 El pilar penal (Ley 21.459): la cadena de custodia como presupuesto de validez
 
 Si la irresponsabilidad sistémica vacía de contenido la fiscalización administrativa y civil delineada en las secciones anteriores (Ciberseguridad, Datos e IA), sus consecuencias colapsan definitivamente el sistema cuando el incidente cruza el umbral del derecho penal.
 
