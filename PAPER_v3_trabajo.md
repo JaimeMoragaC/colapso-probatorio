@@ -3793,11 +3793,20 @@ Para recuperar la soberanía probatoria y garantizar la *accountability* que exi
 
 ### El veredicto brutal para la ingeniería corporativa
 
-Si se destila este documento hasta su impacto más crudo para un Oficial de Seguridad de la Información (CISO) o un arquitecto *cloud*, el diagnóstico es devastador. No se les está revelando un nuevo vector de ataque que no conocieran, sino la **obsolescencia fiduciaria de su modelo de trabajo entero**:
+Los datos crudos de este documento no van a sorprender a un ingeniero, pero la conclusión lo va a aterrorizar. 
 
-1. **El "punto ciego" técnico ahora es una prisión legal.** Para la ingeniería tradicional, que un atacante borre los *logs* es un incidente de visibilidad; un "riesgo residual" en una matriz. La cruda realidad procesal es que esa ceguera en la nube significa que el directorio acaba de perder su única defensa penal bajo la Ley 21.595 (la prueba del Modelo de Prevención), y que el reporte a la ANCI (Ley 21.663) será tipificado como información falsa. El problema de visibilidad del ingeniero acaba de dejar al gerente general sin defensa procesal.
-2. **La ilusión epistémica de la inversión *Cloud-Native*.** La industria gasta presupuestos millonarios en EDRs y SIEMs de última generación sobre la nube. Este texto estampa en la cara del mercado que toda esa inversión es un placebo legal: *software* auditando a *software* en una infraestructura de terceros no tiene peso probatorio frente a la IA polimórfica bajo las reglas de la sana crítica. El millonario contrato con el hiperescalar no sirve como prueba pericial.
-3. **El doloroso imperativo del silicio.** El mercado huyó hacia la virtualización porque el *hardware* físico es rígido y costoso de operar. Sin embargo, para recuperar la validez de la prueba, el ingeniero es forzado a retroceder al silicio (IETF RATS, SCITT). Se le obliga a aceptar que, sin atestación continua en tiempo de ejecución, toda su postura de seguridad es una autodeclaración que se desmoronará en su primer juicio oral.
+Un ingeniero de ciberseguridad Senior o un CISO ya conoce las piezas del puzzle por separado. Sabe qué es el problema TOCTOU, sabe que los atacantes borran logs (T1070), sabe que el malware polimórfico existe y sabe que los modelos de lenguaje tienen vulnerabilidades de *prompt injection*. Técnicamente, este documento no le está enseñando magia negra. 
+
+Pero sí hay tres cosas en este *paper* en las que jamás había pensado, que le van a doler en el ego profesional y que van a destruir su actual modelo de trabajo:
+
+**1. El "Punto Ciego" técnico se transforma en "Prisión" legal**
+El ingeniero ve la evasión de logs como un "incidente técnico", una "brecha de visibilidad" o un "riesgo residual" que se anota en una matriz de Excel. **Lo que le va a doler:** El *paper* le demuestra que su "falta de visibilidad" en la nube significa que el directorio de su empresa acaba de perder la única eximente penal bajo la Ley 21.595 (la imposibilidad de probar la eficacia del Modelo de Prevención), y que su reporte a la ANCI (Ley 21.663) es legalmente información falsa. Él pensaba que el problema era que el SIEM no alertó; el *paper* le dice que el problema es que acaba de dejar a su gerente general sin defensa procesal ante un fiscal. Ese cruce entre la falla técnica y el desastre fiduciario lo va a dejar helado.
+
+**2. La devaluación de su millonaria inversión *Cloud-Native***
+La industria de la ciberseguridad actual está enamorada de la nube. Los ingenieros compran soluciones EDR, SIEMs de última generación, confían en SOC 2 y gastan millones en arquitecturas *Zero Trust* sobre AWS, Azure o Google Cloud. **Lo que le va a doler:** El *paper* le estampa en la cara que toda esa inversión es una ilusión epistémica. Le estás diciendo que software auditando software en una nube de terceros no tiene valor probatorio (Reglas de Sana Crítica). Le estás desarmando su arquitectura estrella y diciéndole que su contrato multimillonario con Microsoft o Amazon no sirve como prueba pericial en un tribunal porque no controla la raíz de confianza.
+
+**3. La exigencia implacable del anclaje en Silicio**
+El ingeniero de ciberseguridad moderno odia el hardware. Su mundo ideal es virtual, escalable y basado en APIs. **Lo que le va a doler:** El *paper* lo obliga a retroceder al silicio. Le demuestra matemáticamente que sin *Continuous Runtime Attestation* (IETF RATS, SCITT, atestación en la CPU/TPM), su seguridad es pura autodeclaración. Lo obligas a aceptar que el único paradigma válido (el *Aegis Paradigm*) requiere un nivel de ingeniería dura y control de infraestructura física que su equipo probablemente desaprendió hace años en favor de los paneles web de la nube.
 
 A nivel sistémico e institucional, de este diagnóstico se desprenden las siguientes consecuencias prácticas generales:
 
