@@ -684,9 +684,9 @@ El hilo conductor de estos tres vectores no radica en su sofisticación algorít
 
 ### 1.1 Planteamiento del problema: la evidencia en el entorno *cloud*
 
-Ambos hechos —la irrupción de la IA ofensiva autónoma (Claude Mythos) y el apagón jurisdiccional del 12 de junio de 2026— convergen en una conclusión que invalida la auditoría delegada clásica. El primero demuestra que el adversario ya superó la capacidad de verificación del auditor: un sistema que encuentra lo que la comunidad ignoró durante 27 años, que escapa de la contención y elude al clasificador de seguridad, convierte a la auditoría *cloud* en un registro de lo que el entorno declaró, no de lo que ocurrió<a href="#fn43" id="fnref43"><sup>43</sup></a>.
+La crisis de 2026 no fue un accidente estadístico, sino el colapso predecible de un modelo normativo basado en la fe. El ecosistema corporativo chileno quedó atrapado en una tenaza estructural perfecta: por un lado, adversarios de velocidad algorítmica capaces de reescribir la realidad forense en tiempo de ejecución, reduciendo la telemetría *cloud* a una ilusión perfectamente documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. Por el otro, el recordatorio brutal de que los servidores donde se almacenan esas ilusiones ni siquiera nos pertenecen, pudiendo ser desconectados en horas por un simple cambio de viento geopolítico.
 
-El segundo demuestra que el proveedor que custodia esa auditoría puede ser revocado por una jurisdicción extranjera en horas, sin aviso previo ni recurso judicial, por consideraciones políticas externas. Un régimen de ciberseguridad que descansa sobre estas premisas —que el entorno es inmanipulable y que el proveedor siempre estará disponible— no acredita el cumplimiento: apenas lo presume.
+Construir una política nacional de ciberseguridad asumiendo que el adversario operará a velocidad humana y que la jurisdicción extranjera será eternamente benevolente ya no es optimismo tecnológico; a la luz de la evidencia actual, constituye dolo fiduciario.
 
 Este documento se sitúa en la intersección del derecho y la ingeniería para resolver esa falla. Su método es conservador: cada hecho se ancla a fuente verificable y cada afirmación técnica declara sus límites. Para su lectura, conviene distinguir dos modelos de amenaza, cuya confusión es el error más frecuente del debate:
 
