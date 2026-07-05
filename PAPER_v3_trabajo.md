@@ -352,7 +352,7 @@ En consecuencia, preservar el actual esquema de confianza ciega no solo somete a
 
 <a id="sec1"></a>
 
-## 1. Introducción12 ↩
+## 1. Introducción
 
 Este documento formaliza el diagnóstico expuesto en el sumario ejecutivo. Para comprender por qué el modelo de confianza delegada —tanto la certificación documental, el "teatro de cumplimiento", como la atestación de *hardware* que los hiperescalares despliegan sobre silicio y *Verifier* extranjeros— colapsó de manera irreversible frente a los eventos de 2026, es necesario abandonar la lectura contingente de la contingencia y examinar la arquitectura estructural que hizo posible dicho colapso.
 
@@ -1005,7 +1005,7 @@ Responsabilidad sin poder de control no es seguridad: es la designación anticip
 
 <a id="sec1-3-4"></a>
 
-#### 1.3.4 La respuesta regulatoria Nacional : dos modelos, el mismo vacío probatorio ↩
+#### 1.3.4 La respuesta regulatoria Nacional : dos modelos, el mismo vacío probatorio
 
 La respuesta regulatoria al diagnóstico que precede ha recorrido, en sede chilena, dos modelos sucesivos: el Boletín 16821-19 en su redacción original importó el enfoque por riesgos del *EU AI Act* —certificación *ex ante*, *sandboxes*, monitoreo posterior autorreportado (§1.3.4)—; la propuesta ejecutiva de seis pilares (mayo 2026) giró hacia un modelo de sanción *ex post* —que esta misma sección analiza en detalle más adelante—. Son dos diseños opuestos en su lógica de intervención.
 
@@ -1431,7 +1431,7 @@ Para que el giro metodológico propuesto —desde el cumplimiento en papel hacia
 
 <a id="sec2-1"></a>
 
-### 2.1 Amenaza Tipo I: compromiso y ataque al sustrato del sistema ↩
+### 2.1 Amenaza Tipo I: compromiso y ataque al sustrato del sistema
 
 *En una frase: el sistema que debe registrar el ataque puede ser, él mismo, la primera víctima del ataque —y entonces su registro deja de ser prueba de lo que ocurrió.*
 
@@ -1783,7 +1783,7 @@ Ante el CSIRT, los organismos afectados que habían delegado su operación (y su
 
 <a id="sec3-6"></a>
 
-### 3.6 La presunción de fiabilidad de la máquina y la carga de la prueba: la integridad debe acreditarla quien presenta el registro (derecho comparado) ↩
+### 3.6 La presunción de fiabilidad de la máquina y la carga de la prueba: la integridad debe acreditarla quien presenta el registro (derecho comparado)
 
 > *El juez tiene ante sí dos relatos del mismo hecho, ambos coherentes, ambos firmados, ambos extraídos del mismo entorno: uno lo aporta la defensa; el otro, la acusación. La pregunta que decide el caso no es cuál es más verosímil —la verosimilitud es, precisamente, lo que el sistema fue diseñado para producir—, sino cuál puede acreditar la integridad del entorno que lo generó. Si ninguno puede, el juez no valora prueba: elige un relato.*
 
@@ -2005,7 +2005,7 @@ Es, en términos probatorios, el caso Horizon chileno en potencia: el sistema pr
 
 <div style="page-break-before: always;"></div>
 
-### 3.6.1 Proyección al procedimiento administrativo sancionador: el cepo regulatorio y su única salida ↩
+### 3.6.1 Proyección al procedimiento administrativo sancionador: el cepo regulatorio y su única salida
 
 > *Sala de audiencias del procedimiento sancionador. La Delegada de Protección de Datos cumplió cada casilla: ISO 27001 vigente, SOC 2 Type II, contrato con cláusula de auditoría, proveedor certificado. La instructora formula una sola pregunta: «¿Puede acreditar, con evidencia independiente del proveedor, que el registro que presenta no lo escribió el atacante?». No puede. Nadie en la sala puede. El certificado prueba que contrató con diligencia; no prueba qué ocurrió. Y el deber de responsabilidad proactiva no era contratar bien: era poder demostrarlo.*
 
@@ -2899,7 +2899,7 @@ Sometida la Ley 21.663 al escrutinio adversarial de la  ingeniería inversa de s
 
 <a id="sec6-3"></a>
 
-### 6.3 Conformidad verificable y soberanía computacional (Ley 21.663) ↩
+### 6.3 Conformidad verificable y soberanía computacional (Ley 21.663)
 
 El debate regulatorio sobre infraestructuras críticas suele incurrir en un error de categoría al centrarse en la topología de despliegue —el falso dilema entre nube e infraestructura local—. Desde la ingeniería, la ubicación geográfica del procesamiento es irrelevante si el entorno de ejecución es manipulable;  la frontera técnica real divide a los sistemas entre los de conformidad puramente declarativa y los de conformidad atestable criptográficamente, anclada a una raíz de confianza en *hardware*. Esta transición exige el reemplazo de la auditoría humana delegada por la atestación matemática de silicio.
 
@@ -3051,7 +3051,7 @@ Esta "Estrategia Puente" desbarata la excusa técnica del hiperescalar o del int
 
 <a id="sec6-6"></a>
 
-### 6.6 Límites estructurales del estándar propuesto y respuestas anticipadas ↩
+### 6.6 Límites estructurales del estándar propuesto y respuestas anticipadas
 
 *En una frase: ninguna defensa es perfecta, pero la evidencia que se puede verificar criptográficamente es estrictamente superior a la que solo se puede creer —y esa diferencia, no la promesa de seguridad absoluta, es donde descansa todo el peso jurídico de este documento.*
 
@@ -3151,7 +3151,7 @@ Dos (2, 4) son límites reales que el diseño absorbe explícitamente: la atesta
 
 La conclusión técnica es sobria y por eso más difícil de refutar: no existe hoy un escudo perfecto frente a la IA polimórfica, pero sí existe una diferencia decisiva, verificable y defendible en juicio entre evidencia cuya integridad puede acreditarse y evidencia que solo puede creerse. Todo el peso jurídico de este documento descansa en esa diferencia, no en la promesa de una seguridad absoluta que ningún ingeniero serio ofrecería.
 
-### 6.7 El debate de élite: cinco objeciones directas y sus refutaciones ↩
+### 6.7 El debate de élite: cinco objeciones directas y sus refutaciones
 
 *Las siete objeciones del §6.6 provienen del escrutinio interno de ingeniería. Las cinco que siguen son distintas: son las que un panel de adversarios con autoridad real —el criptógrafo que firma RFCs en la IETF, el arquitecto ofensivo de un red team de primer nivel, el Ministro de la Corte Suprema que admite prueba digital todos los días, el Ministro de Hacienda que debe rendir ante el Congreso, el CISO que responde incidentes a las 3 de la mañana— formularían antes de rechazar o aprobar este estándar. Se enuncian aquí en su forma más agresiva, porque la propuesta solo sobrevive si los resiste.*
 
@@ -3235,7 +3235,7 @@ El costo de este mecanismo es concreto y pequeño: aproximadamente 400–600 mil
 
 Quien sea capaz de rebatir estos cinco vectores de impugnación en una mesa técnica —reformulando la objeción de fondo con datos que la sección anterior no anticipe— tiene el perfil de un investigador de nivel Estado-nación. La función de este §6.7 es exactamente esa: preparar al lector para ese debate antes de que ocurra.
 
-### 6.8 La Comisión para el Mercado Financiero (CMF) como Regulador Asimétrico: Riesgo Sistémico y Responsabilidad Directiva ↩
+### 6.8 La Comisión para el Mercado Financiero (CMF) como Regulador Asimétrico: Riesgo Sistémico y Responsabilidad Directiva
 
 Si la Ley 21.663 establece el andamiaje institucional abstracto de la ciberseguridad nacional, es la **Comisión para el Mercado Financiero (CMF)** la entidad que posee la tracción punitiva e inmediata para romper la inercia del mercado. Mientras la ANCI (Agencia Nacional de Ciberseguridad) despliega gradualmente su capacidad de fiscalización técnica, la CMF opera bajo un paradigma fundamentalmente distinto: su mandato primario no es la higiene digital, sino la prevención del **riesgo sistémico de colapso macroeconómico**.
 
@@ -3386,7 +3386,7 @@ Estas no son digresiones académicas, sino la clausura argumentativa del *whitep
 
 <a id="sec7-1"></a>
 
-### 7.1 Teoría de juegos de la atestación: por qué la opacidad es el equilibrio actual ↩
+### 7.1 Teoría de juegos de la atestación: por qué la opacidad es el equilibrio actual
 
 *En una frase: nadie atesta no porque nadie quiera, sino porque, con las reglas de hoy, la opacidad es la jugada racional de todos a la vez —y solo cambiando los pagos, no exhortando a la virtud, se rompe ese empate.*
 
@@ -3424,7 +3424,7 @@ La jerarquía graduada hace exactamente eso: convierte la atestación en estrate
 
 <a id="sec7-2"></a>
 
-### 7.2 El reporte de incidentes como problema de consenso bizantino ↩
+### 7.2 El reporte de incidentes como problema de consenso bizantino
 
 *En una frase: la dependencia ciega del regulador en los registros del proveedor cloud es, en términos de ingeniería, un sistema centralizado sin tolerancia a fallos bizantinos; la solución no es exigir más reportes, sino descentralizar la confianza (SCITT).*
 
@@ -3562,7 +3562,7 @@ El propósito formal de este documento es actuar como un **Agente Revelador** (u
 
 Este documento no pide permiso para cambiar las reglas de la evidencia digital. Simplemente demuestra, de forma empírica, que las reglas bajo las cuales la industria creía estar operando ya no existen. La transición hacia la prueba criptográfica no es una opción de mercado; es un imperativo de supervivencia legal.
 
-## Anexo A. Glosario bilingüe ↩
+## Anexo A. Glosario bilingüe
 
 El glosario está diseñado para que cada disciplina pueda leer la otra. La primera tabla traduce los términos de ingeniería a su relevancia jurídica; la segunda, los términos jurídicos a su relevancia para la ingeniería.
 
@@ -3598,7 +3598,7 @@ El glosario está diseñado para que cada disciplina pueda leer la otra. La prim
 
 <a id="anexo-b"></a>
 
-## Anexo B. Articulado propuesto ↩
+## Anexo B. Articulado propuesto
 
 Este anexo traduce las propuestas de la §6.3 a texto normativo concreto, en formato de articulado, para facilitar su incorporación al proceso legislativo y reglamentario. El texto se ofrece como insumo redactado, no como versión final: la técnica legislativa definitiva corresponde a la Secretaría de la Comisión y a la Oficina de la ANCI. Se distingue lo que requiere rango legal (indicación al Boletín 16821-19 y reforma puntual al CPP) de lo que cabe en potestad reglamentaria (instructivos de la ANCI).
 
