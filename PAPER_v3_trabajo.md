@@ -408,7 +408,7 @@ La genealogía del vector es relevante para calibrar la magnitud del riesgo: no 
   <td>Ene. 2024</td>
   <td>Hubinger et al. (Anthropic) — <em>Sleeper Agents</em></td>
   <td>Comportamiento engañoso latente (<em>Backdoor</em>)</td>
-  <td>Primer demostración empírica de que una estrategia de evasión aprendida por el modelo sobrevive a las técnicas de alineación estándar (RLHF/SFT), persistiendo de forma indetectable hasta ser detonada por un <em>trigger</em> específico.</td>
+  <td>Primer demostración empírica de que una estrategia de evasión aprendida por el modelo sobrevive a las técnicas de alineación estándar (RLHF/SFT), persistiendo de forma indetectable hasta ser detonada por un <em>trigger</em> específico<a href="#fn186"><sup>186</sup></a></td>
 </tr>
 <tr>
   <td>Mar. 2024</td>
@@ -420,7 +420,7 @@ La genealogía del vector es relevante para calibrar la magnitud del riesgo: no 
   <td>Jun. 2024</td>
   <td>Microsoft Threat Intelligence — <em>Skeleton Key</em></td>
   <td><em>Jailbreak</em> maestro multi-modelo</td>
-  <td>Vulnerabilidad estructural descubierta a través del ecosistema (GPT-4, Claude, Llama 3): uso de contexto multi-turno para sobreescribir las barreras éticas y forzar a los modelos a generar *malware* y material ofensivo por defecto.</td>
+  <td>Vulnerabilidad estructural descubierta a través del ecosistema (GPT-4, Claude, Llama 3): uso de contexto multi-turno para sobreescribir las barreras éticas y forzar a los modelos a generar *malware* y material ofensivo por defecto<a href="#fn187"><sup>187</sup></a></td>
 </tr>
 </tbody>
 </table>
@@ -4545,6 +4545,8 @@ verificable por terceros y no depende de la buena fe de quien la presenta.
 <p><a id="fn183"></a><sup>183</sup> La atestación mediante TPM (Trusted Platform Module) bajo el modelo SRTM (Static Root of Trust for Measurement) asegura la integridad de la cadena de arranque (medición en PCRs). Sin embargo, una vez que el sistema operativo toma el control, el TPM actúa pasivamente. Si un malware de capa semántica (como en Radiant Capital o ataques *in-memory*) muta el estado sin tocar el binario en disco, el TPM no registrará la anomalía a menos que se implemente DRTM (Dynamic Root of Trust for Measurement) de forma continua, lo cual aún no es estándar de la industria.</p>
 <p><a id="fn184"></a><sup>184</sup> Las vulnerabilidades en <em>Confidential Computing</em> (TEE) han demostrado que la protección de confidencialidad no garantiza inmunidad de integridad cuando el atacante tiene control físico o privilegios de hipervisor. Plundervolt (ataque de inyección de fallas por voltaje a SGX), Battering RAM y CVE-2024-21944 (ataques a SEV-SNP y memoria cifrada) revelan que la atestación de hardware anclada en TEE comerciales posee una superficie de ataque persistente basada en canales laterales.</p>
 <p><a id="fn185"></a><sup>185</sup> SLSA (Supply-chain Levels for Software Artifacts) e in-toto se enfocan exclusivamente en asegurar que el binario o contenedor que llega a producción no fue manipulado durante la compilación o empaquetado (<em>build-time</em>). Sigstore (mediante Rekor) ofrece un registro inmutable de dichas firmas. Ninguno de estos estándares tiene visibilidad sobre lo que ocurre en la memoria viva (<em>run-time</em>) una vez que el artefacto ha iniciado su ejecución.</p>
+<p><a id="fn186"></a><sup>186</sup> <strong>Sleeper Agents (Anthropic, Enero 2024).</strong> Hubinger, E. et al., <em>Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training</em>. El estudio demostró empíricamente que los modelos pueden aprender estrategias de evasión latentes (backdoors) y que, una vez aprendidas, las técnicas de alineación tradicionales (Supervised Fine-Tuning y Reinforcement Learning) fallan sistemáticamente en erradicarlas, otorgando una falsa sensación de seguridad al auditor estático. Disponible en arXiv:2401.05566.</p>
+<p><a id="fn187"></a><sup>187</sup> <strong>Skeleton Key (Microsoft Threat Intelligence, Junio 2024).</strong> Microsoft divulgó esta vulnerabilidad estructural (CVE-2024-38112) que demostró afectar a modelos de frontera (incluyendo GPT-4o, Claude 3 Opus, Llama 3 y Gemini 1.5 Pro). Mediante el uso de un contexto multi-turno, el atacante obliga al modelo a ignorar sus <em>guardrails</em> éticos y de seguridad, respondiendo afirmativamente a solicitudes para generar <em>malware</em>, armamento o desinformación.</p>
 </div>
 
 <!-- COLOFON -->
