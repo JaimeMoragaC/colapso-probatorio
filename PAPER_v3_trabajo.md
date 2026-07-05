@@ -951,7 +951,7 @@ Las tres deficiencias identificadas en §1.3.2 operan dentro del deber de report
 
 Aplicado al escenario descrito, el efecto es multiplicador: el responsable no solo dispone de una evidencia estructuralmente deficiente para reportar el incidente (§1.3.2); además, esa misma evidencia deficiente es la que debe usar para acreditar proactivamente que su tratamiento fue íntegro. La inversión de la carga convierte la deficiencia probatoria de problema en trampa.
 
-Para entender por qué esa demostración es estructuralmente imposible en el entorno de la IA agéntica, conviene fijar una distinción técnica que recorre todo el documento y que expone la obsolescencia de los controles tradicionales: bajo el paradigma de la Ley 21.719, el dato tratado por sistemas de IA no tiene un único estado gobernable. <a id="regimenes-informacion"></a>
+Para entender por qué esa demostración es estructuralmente imposible en el entorno de la IA agéntica, conviene fijar una distinción técnica que recorre todo el documento y que expone la obsolescencia de los controles tradicionales bajo todos los regímenes en juego —el de ciberseguridad de la Ley 21.663, el financiero de la CMF y el de datos personales de la Ley 21.719—: el dato tratado por sistemas de IA no tiene un único estado gobernable. <a id="regimenes-informacion"></a>
 
 El esquema clásico de ciberseguridad —y el modelo contractual de los hiperescalares— asume que la información existe en repositorios relacionales, donde el dato es discreto, rastreable y suprimible. La irrupción de la IA agéntica fractura ese paradigma, desplegando tres regímenes simultáneos que diluyen irreversiblemente la capacidad de control del responsable:
 
