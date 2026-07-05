@@ -1773,7 +1773,7 @@ Si la subversión de *logs* convencionales ya destruye la validez probatoria de 
 
 #### Caso testigo: hackeo al Estado Mayor Conjunto de las FF.AA. (Guacamaya, septiembre 2022)
 
-El precedente nacional más grave de ceguera de la instrumentación y ruptura de la cadena de custodia se verificó antes de la era de la IA polimórfica.
+Si los seis vectores anteriores parecen el guion de un ciber-*thriller* del futuro, la historia reciente de Chile demuestra que el colapso probatorio ya ocurrió —y ocurrió en el corazón mismo de la defensa nacional usando tecnología infinitamente más primitiva—. El precedente nacional más grave de ceguera de la instrumentación y ruptura de la cadena de custodia se verificó años antes de la era de la IA polimórfica. Y si el Estado fue incapaz de ver un ataque convencional sostenido durante meses, la pregunta obligada es qué esperanza tiene el regulador de auditar a un agente autónomo en tiempo real.
 
 En septiembre de 2022, el colectivo hacktivista Guacamaya exfiltró más de 400.000 correos electrónicos clasificados del Estado Mayor Conjunto de las Fuerzas Armadas (EMCO), incluyendo documentación de inteligencia militar, sin que los sistemas de detección de intrusiones activaran alerta durante la operación<a href="#fn112" id="fnref112"><sup>112</sup></a>. La exfiltración se consumó y publicó sin que la instrumentación de seguridad —ni la del proveedor de correo ni la del propio EMCO— registrara la anomalía en tiempo real.
 
