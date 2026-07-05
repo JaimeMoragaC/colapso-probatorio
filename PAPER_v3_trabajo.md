@@ -719,13 +719,21 @@ Este documento no es un catálogo académico ni una guía de buenas prácticas; 
 
 A diferencia del régimen de datos personales —que entra en plena vigencia el 1 de diciembre de 2026—, la Ley 21.663 (junto con el Capítulo 20-10 de la RAN para bancos y la NCG 502 para Fintechs de la CMF) ya rige con plena fuerza coercitiva. La ANCI ya califica Operadores de Importancia Vital (OIV) a través de sus Instrucciones Técnicas, y la CMF fiscaliza a toda la industria financiera, exigiendo obligaciones operativas inmediatas: identificar, evaluar y mitigar riesgos; establecer políticas de seguridad; gestionar incidentes; y operar un sistema de gestión de seguridad de la información (SGSI) con pruebas de continuidad verificables.
 
-El núcleo, para los efectos de este documento, es la colisión probatoria en el deber de reporte de incidentes, donde los plazos ahogan cualquier capacidad de análisis forense manual:
+El núcleo, para los efectos de este documento, es la colisión probatoria en las tres dimensiones del deber legal (gestionar, contener y reportar), donde las exigencias regulatorias ahogan cualquier capacidad de análisis forense manual:
 
-- **RAN 20-10 (Banca):** Exige notificar a la CMF "tan pronto se tome conocimiento" de incidentes operacionales críticos, estableciendo en la práctica umbrales de alerta casi inmediatos (usualmente formalizados antes de 30 minutos).
-- **NCG 502 (Fintech):** Impone un plazo máximo de 2 horas para el Reporte de Incidente Operacional (RIO).
-- **Ley 21.663 (OIV):** Exige alerta temprana en 3 horas ante el CSIRT Nacional.
+- **RAN 20-10 de la CMF (Banca Tradicional):**
+  - **Gestionar y Contener:** Exige a los bancos implementar herramientas continuas (SOC) y probar anualmente planes de respuesta que aseguren la contención oportuna y erradicación del ataque antes de que afecte la continuidad operacional<a href="#fn188" id="fnref188"><sup>188</sup></a>.
+  - **Reportar (Cap. 20-8 y 20-10):** Obliga a notificar a la CMF "tan pronto se tome conocimiento" del incidente, estableciendo un plazo perentorio máximo de 30 minutos a través del sistema RIO.
 
-En todos estos regímenes, la entidad debe certificar oficialmente los sistemas afectados, los datos comprometidos y las medidas de contención aplicadas. El régimen sancionatorio tipifica como infracciones gravísimas (con multas de hasta 40.000 UTM para OIVs y riesgo de revocación de licencia o multas corporativas severas bajo la CMF): no reportar el incidente, entregar información falsa o tardía, no aplicar medidas de contención y obstruir al regulador<a href="#fn3" id="fnref3b"><sup>3</sup></a>.
+- **NCG 502 de la CMF (Fintech y Activos Virtuales):**
+  - **Gestionar y Contener:** Obliga a mantener un SGSI formal apoyado en Análisis de Impacto de Negocio (BIA) y planes de continuidad (BCP) orientados a resguardar textualmente la "integridad de los activos de información"<a href="#fn189" id="fnref189"><sup>189</sup></a>.
+  - **Reportar:** Impone un plazo perentorio máximo de 2 horas desde el hallazgo para enviar el Reporte de Incidente Operacional (RIO).
+
+- **Ley 21.663 y ANCI (Operadores de Importancia Vital):**
+  - **Gestionar y Contener:** Mandata la aplicación obligatoria de medidas tecnológicas y organizativas para garantizar la continuidad operacional y prevenir la propagación (arts. 5 y 8).
+  - **Reportar:** Exige enviar una alerta temprana al CSIRT Nacional en un plazo máximo e improrrogable de 3 horas (art. 9).
+
+En todos estos regímenes, la entidad debe certificar oficialmente ante el Estado los sistemas afectados, los datos comprometidos y el éxito de las medidas de contención aplicadas. El régimen sancionatorio tipifica como infracciones gravísimas (con multas de hasta 40.000 UTM para OIVs y riesgo de revocación de licencia o multas corporativas severas bajo la CMF): no reportar el incidente, entregar información falsa o tardía, no aplicar medidas de contención y obstruir al regulador<a href="#fn3" id="fnref3b"><sup>3</sup></a>.
 
 <div style="page-break-before: always;"></div>
 
@@ -4579,6 +4587,8 @@ verificable por terceros y no depende de la buena fe de quien la presenta.
 <p><a id="fn185"></a><sup>185</sup> SLSA (Supply-chain Levels for Software Artifacts) e in-toto se enfocan exclusivamente en asegurar que el binario o contenedor que llega a producción no fue manipulado durante la compilación o empaquetado (<em>build-time</em>). Sigstore (mediante Rekor) ofrece un registro inmutable de dichas firmas. Ninguno de estos estándares tiene visibilidad sobre lo que ocurre en la memoria viva (<em>run-time</em>) una vez que el artefacto ha iniciado su ejecución.</p>
 <p><a id="fn186"></a><sup>186</sup> <strong>Sleeper Agents (Anthropic, Enero 2024).</strong> Hubinger, E. et al., <em>Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training</em>. El estudio demostró empíricamente que los modelos pueden aprender estrategias de evasión latentes (backdoors) y que, una vez aprendidas, las técnicas de alineación tradicionales (Supervised Fine-Tuning y Reinforcement Learning) fallan sistemáticamente en erradicarlas, otorgando una falsa sensación de seguridad al auditor estático. Disponible en (URL directa): <a href="https://arxiv.org/abs/2401.05566">https://arxiv.org/abs/2401.05566</a> ✓ verificado.</p>
 <p><a id="fn187"></a><sup>187</sup> <strong>Skeleton Key (Microsoft Threat Intelligence, Junio 2024).</strong> Microsoft divulgó esta vulnerabilidad estructural (CVE-2024-38112) que demostró afectar a modelos de frontera (incluyendo GPT-4o, Claude 3 Opus, Llama 3 y Gemini 1.5 Pro). Mediante el uso de un contexto multi-turno, el atacante obliga al modelo a ignorar sus <em>guardrails</em> éticos y de seguridad, respondiendo afirmativamente a solicitudes para generar <em>malware</em>, armamento o desinformación. Fuente oficial (URL directa): <a href="https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/">https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/</a> ✓ verificado.</p>
+<p><a id="fn188"></a><sup>188</sup> <strong>RAN 20-10, Comisión para el Mercado Financiero (Chile).</strong> Dispone que la gestión de incidentes y riesgos es responsabilidad intransferible del Directorio de la institución financiera. Exige infraestructura operativa de respuesta inmediata (SOC), pruebas anuales de resiliencia y el reporte en plazo no superior a 30 minutos bajo el sistema RIO (Capítulo 20-8).</p>
+<p><a id="fn189"></a><sup>189</sup> <strong>NCG 502, Comisión para el Mercado Financiero (Chile).</strong> Reglamenta el Sistema de Gestión de Seguridad de la Información (SGSI) para los prestadores de servicios al amparo de la Ley N° 21.521 (Ley Fintec), exigiendo explícitamente herramientas que garanticen la "integridad de los activos de información" y el reporte perentorio de incidentes operacionales mayores dentro de 2 horas desde su hallazgo.</p>
 </div>
 
 <!-- COLOFON -->
