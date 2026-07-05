@@ -929,9 +929,9 @@ El análisis detallado de cada uno de estos vectores anti-forenses, y su traducc
 
 la ley no puede presumir que habrá evidencia si el sistema no fue diseñado para preservarla. El archivo de la Fiscalía es la demostración empírica más directa disponible en Chile de que un ataque de nivel intermedio —sin IA polimórfica, sin *zero-day*, con tecnología de 2020— ya es suficiente para dejar a un obligado sin evidencia jurídicamente acreditable en sus propios sistemas.
 
-Este deber presupone algo que rara vez se examina: que el obligado pueda acreditar, con evidencia fiable, qué ocurrió —en horas, no en meses, y de modo que resista impugnación—. Toda la arquitectura sancionatoria de la Ley 21.663 descansa, silenciosamente, sobre la confiabilidad de la evidencia del incidente.Es justamente ahí donde el abrupto cambio tecnológico y geopolítico de 2026, detonado por Mythos, abre una grieta.
+Este deber presupone algo que rara vez se examina: que el obligado pueda acreditar, con evidencia fiable, qué ocurrió —en horas, no en meses, y de modo que resista impugnación—. Toda la arquitectura sancionatoria de estos regímenes —la Ley 21.663, la RAN 20-10 y la NCG 502 de la CMF— descansa, silenciosamente, sobre la confiabilidad de la evidencia del incidente. Es justamente ahí donde el abrupto cambio tecnológico y geopolítico de 2026, detonado por Mythos, abre una grieta.
 
-### 1.3.2 Por qué la evidencia *cloud* no atestable no satisface ese deber
+### 1.3.2 Confiar el registro al sospechoso: por qué la evidencia *cloud* no atestable no puede probar nada
 
 Los tres casos testigo anteriores —EMCO, Servicio de Salud Araucanía Sur y BancoEstado— comparten una característica estructural: en ninguno pudo el obligado acreditar con certeza forense qué ocurrió, porque la evidencia residía en un entorno que no controlaba ni podía atestar de forma independiente. Esa limitación no es una falla puntual de gestión: es la consecuencia necesaria de confiar el registro del incidente a la misma infraestructura que el adversario ya comprometió. El principio que la explica es el siguiente.
 
