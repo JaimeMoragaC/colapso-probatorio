@@ -717,7 +717,7 @@ Este documento no es un catálogo académico ni una guía de buenas prácticas; 
 
 #### 1.3.1 El deber vigente: gestionar, contener y reportar incidentes
 
-A diferencia del régimen de datos personales —que entra en plena vigencia el 1 de diciembre de 2026—, la Ley 21.663 (junto con el **Capítulo 20-10 de la RAN** para bancos y la **NCG 502** para Fintechs de la CMF) ya rige con plena fuerza coercitiva. La ANCI ya califica Operadores de Importancia Vital (OIV) a través de sus **Instrucciones Técnicas**, y la CMF fiscaliza a toda la industria financiera, exigiendo obligaciones operativas inmediatas: identificar, evaluar y mitigar riesgos; establecer políticas de seguridad; gestionar incidentes; y operar un sistema de gestión de seguridad de la información (SGSI) con pruebas de continuidad verificables.
+A diferencia del régimen de datos personales —que entra en plena vigencia el 1 de diciembre de 2026—, la Ley 21.663 (junto con el Capítulo 20-10 de la RAN para bancos y la NCG 502 para Fintechs de la CMF) ya rige con plena fuerza coercitiva. La ANCI ya califica Operadores de Importancia Vital (OIV) a través de sus Instrucciones Técnicas, y la CMF fiscaliza a toda la industria financiera, exigiendo obligaciones operativas inmediatas: identificar, evaluar y mitigar riesgos; establecer políticas de seguridad; gestionar incidentes; y operar un sistema de gestión de seguridad de la información (SGSI) con pruebas de continuidad verificables.
 
 El núcleo, para los efectos de este documento, es la colisión probatoria en el deber de reporte de incidentes, donde los plazos ahogan cualquier capacidad de análisis forense manual:
 
