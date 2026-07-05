@@ -1068,9 +1068,19 @@ Lo dogmáticamente notable es que la insuficiencia constaba en los propios papel
 
 La empresa documentó la divergencia y siguió transfiriendo. La orden: adecuación en seis meses o suspensión de transferencias.
 
-Pero el caso reserva su lección más profunda para el final, y es la que lo convierte en pieza central de esta tesis. Durante toda la investigación, TikTok declaró ante la DPC que los datos europeos no se *almacenaban* en servidores en China: solo se accedían remotamente. En abril de 2025, con la decisión ya adoptada, la empresa debió informar al regulador que en febrero de ese año había descubierto que datos de usuarios europeos **sí habían estado almacenados en servidores en China**, en contradicción con lo declarado durante el procedimiento; la DPC anunció que evaluaba medidas adicionales, y su decisión fue sustancialmente confirmada por el High Court irlandés en junio de 2026. Ni siquiera el programa de localización europea de datos que la empresa había emprendido (*Project Clover*, con centros de datos dedicados en Europa) alteró el análisis, porque el problema nunca fue la geografía del servidor, sino la jurisdicción que gobierna a quien lo opera. Repárese en lo que la secuencia demuestra: el importador no es que no quisiera acreditar dónde estaban los datos — es que *no lo sabía*. Su declaración formal ante el regulador, bajo la máxima presión de escrutinio disponible en Europa, resultó falsa respecto del hecho más elemental de todos: la ubicación física del dato.
+Pero el caso reserva su lección más profunda para el final, y es la que lo convierte en pieza central de esta tesis. Durante toda la investigación, TikTok declaró ante la DPC que los datos europeos no se *almacenaban* en servidores en China: solo se accedían remotamente. 
 
-La secuencia completa importa a este documento más allá del derecho de datos. En los tres casos lo sancionado es la misma operación que esta tesis denomina **auditoría delegada**: sustituir el control verificable del entorno por la declaración documentada de quien lo opera. La SCC es el homólogo contractual del certificado ISO o del informe SOC 2 — una promesa escrita sobre un entorno que el declarante no gobierna frente a la compulsión soberana, y que la contraparte no puede verificar de forma independiente. Si el propio operador de la infraestructura no puede atestar dónde reside el dato, ninguna cláusula firmada por él puede transportar ese hecho.
+En abril de 2025, con la decisión ya adoptada, la empresa debió informar al regulador que en febrero de ese año había descubierto que datos de usuarios europeos **sí habían estado almacenados en servidores en China**, en contradicción con lo declarado durante el procedimiento; la DPC anunció que evaluaba medidas adicionales, y su decisión fue sustancialmente confirmada por el High Court irlandés en junio de 2026. 
+
+Ni siquiera el programa de localización europea de datos que la empresa había emprendido (*Project Clover*, con centros de datos dedicados en Europa) alteró el análisis, porque el problema nunca fue la geografía del servidor, sino la jurisdicción que gobierna a quien lo opera. 
+
+Repárese en lo que la secuencia demuestra: el importador no es que no quisiera acreditar dónde estaban los datos — es que *no lo sabía*. Su declaración formal ante el regulador, bajo la máxima presión de escrutinio disponible en Europa, resultó falsa respecto del hecho más elemental de todos: la ubicación física del dato.
+
+La secuencia completa importa a este documento más allá del derecho de datos. En los tres casos lo sancionado es la misma operación que esta tesis denomina **auditoría delegada**: sustituir el control verificable del entorno por la declaración documentada de quien lo opera. 
+
+La SCC es el homólogo contractual del certificado ISO o del informe SOC 2 — una promesa escrita sobre un entorno que el declarante no gobierna frente a la compulsión soberana, y que la contraparte no puede verificar de forma independiente. 
+
+Si el propio operador de la infraestructura no puede atestar dónde reside el dato, ninguna cláusula firmada por él puede transportar ese hecho.
 
 #### Principio extraído (invariante jurídico).
 
