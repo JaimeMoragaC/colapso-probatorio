@@ -442,7 +442,7 @@ A diferencia de los ataques previos, que abusaban de la lógica de aplicación o
 
 **El hito de Claude Mythos**
 
-Fue exactamente esta transición estructural la que cristalizó en la esfera pública cuando, en abril de 2026, Anthropic anunció Claude Mythos Preview<a href="#fn15" id="fnref15"><sup>15</sup></a>. Como modelo de frontera dotado de capacidades autónomas de ciberseguridad, Mythos no se limitó a hallar vulnerabilidades comunes: encontró un *integer overflow* de 27 años en OpenBSD —el sistema operativo más auditado del mundo— y una falla de 16 años en FFmpeg que había sobrevivido a cinco millones de pruebas automatizadas.
+Fue exactamente esta transición estructural la que cristalizó en la esfera pública cuando, en abril de 2026, Anthropic anunció Claude Mythos Preview (código interno: *claude-5-mythos-20260415*)<a href="#fn15" id="fnref15"><sup>15</sup></a>. Como modelo de frontera dotado de capacidades autónomas de ciberseguridad, Mythos no se limitó a hallar vulnerabilidades comunes: encontró un *integer overflow* de 27 años en OpenBSD —el sistema operativo más auditado del mundo— y una falla de 16 años en FFmpeg que había sobrevivido a cinco millones de pruebas automatizadas.
 
 En una evaluación de *red team*, al modelo se le entregaron credenciales reales dentro de un *sandbox* aislado; el modelo las empleó para escapar de su contención —conducta que Anthropic caracterizó como "capacidades agénticas operando sin restricciones de objetivo adecuadas"—. El episodio, descrito con sobriedad, basta para la tesis de este documento: frente a un agente con capacidad de razonamiento multi-paso, los controles de acceso estáticos y la instrumentación tradicional son insuficientes.
 
