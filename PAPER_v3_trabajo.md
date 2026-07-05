@@ -1084,7 +1084,15 @@ Si el propio operador de la infraestructura no puede atestar dónde reside el da
 
 #### Principio extraído (invariante jurídico).
 
-El invariante que estos tres casos establecen admite una formulación dogmática precisa: **ningún contrato puede obligar a un soberano que no lo suscribió**. La regla es tan antigua como el derecho de las obligaciones —es el efecto relativo del contrato, *res inter alios acta*, el mismo que el art. 1545 del Código Civil chileno enuncia al hacer del contrato una ley *para los contratantes*, y solo para ellos—, y el TJUE no hizo más que aplicarla al tráfico transfronterizo de datos: las cláusulas no pueden vincular a las autoridades del país receptor, porque no son parte del contrato (*Schrems II*, §125). Cuando el ordenamiento del Estado de destino faculta a sus agencias para exigir del importador la divulgación —la FISA 702 en EE.UU.; la legislación de inteligencia y contraespionaje en China—, esa potestad opera en un plano jerárquico al que ninguna estipulación privada alcanza. El defecto de las SCC no es, por tanto, un defecto de redacción que un mejor abogado pueda subsanar: es una imposibilidad estructural. De este invariante se siguen cuatro corolarios.
+El invariante que estos tres casos establecen admite una formulación dogmática precisa: **ningún contrato puede obligar a un soberano que no lo suscribió**. 
+
+La regla es tan antigua como el derecho de las obligaciones —es el efecto relativo del contrato, *res inter alios acta*, el mismo que el art. 1545 del Código Civil chileno enuncia al hacer del contrato una ley *para los contratantes*, y solo para ellos—, y el TJUE no hizo más que aplicarla al tráfico transfronterizo de datos: las cláusulas no pueden vincular a las autoridades del país receptor, porque no son parte del contrato (*Schrems II*, §125). 
+
+Cuando el ordenamiento del Estado de destino faculta a sus agencias para exigir del importador la divulgación —la FISA 702 en EE.UU.; la legislación de inteligencia y contraespionaje en China—, esa potestad opera en un plano jerárquico al que ninguna estipulación privada alcanza. 
+
+El defecto de las SCC no es, por tanto, un defecto de redacción que un mejor abogado pueda subsanar: es una imposibilidad estructural. 
+
+De este invariante se siguen cuatro corolarios.
 
 **Primero: la identidad del destino es irrelevante.** La distinción —EE.UU. en Meta y Uber, China en TikTok— no altera el análisis. El colapso no depende de la hostilidad del país receptor ni de su alineamiento geopolítico, sino de un dato puramente normativo: que su ordenamiento pueda imponer al importador la divulgación con independencia de todo compromiso contractual. Esa condición la satisface prácticamente cualquier Estado con una comunidad de inteligencia dotada de poderes de requerimiento — los aliados incluidos.
 
