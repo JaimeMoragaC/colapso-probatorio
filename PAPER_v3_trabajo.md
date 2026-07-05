@@ -1065,9 +1065,7 @@ Repárese en el salto cualitativo respecto de todo lo anterior. En el clúster S
 
 ### El corolario para el responsable de la información y su Delegado: del rol de cumplimiento al blanco de la sanción.
 
-De lo anterior se sigue una consecuencia que conviene enunciar con crudeza, porque define la exposición personal de quien asume estos cargos: el fenómeno analizado convierte al responsable de la información —
-
-y al Delegado de Protección de Datos que la Ley 21.719 obliga a designar— en el blanco directo de la sanción del sistema. El cargo, cuya función nuclear es supervisar el cumplimiento y servir de punto de contacto sobre el tratamiento, recibe un objeto que se ha vuelto incontrolable.
+De lo anterior se sigue una consecuencia que conviene enunciar con crudeza, porque define la exposición personal de quien asume estos cargos: el fenómeno analizado convierte al responsable de la información —y al Delegado de Protección de Datos que la Ley 21.719 obliga a designar— en el blanco directo de la sanción del sistema. El cargo, cuya función nuclear es supervisar el cumplimiento y servir de punto de contacto sobre el tratamiento, recibe un objeto que se ha vuelto incontrolable.
 
 No es un reproche a su pericia, sino un problema de imputabilidad: se le asigna responsabilidad sobre la veracidad y el manejo de una información que fluye, en claro, por una cadena de agentes que no puede enumerar, a una velocidad —nanosegundos— que ninguna supervisión humana intercepta, y frente a ataques polimórficos que el propio verificador automatizado no detecta, cuando no es manipulado para absolverlos.
 
@@ -1081,11 +1079,19 @@ La designación del delegado, desprovista de un estándar de evidencia atestable
 
 A ese rol se le exige detectar, contener y reportar un incidente en plazos de horas —alerta temprana en 3, reporte completo en 72, y 24 cuando el servicio esencial de un OIV se ve afectado—, bajo sanción gravísima (hasta 40.000 UTM para OIV) si la información resulta "falsa o tardía". Pero se le impone cumplirlo sobre un entorno de ejecución que no controla ni puede atestar, contra adversarios que operan a velocidad de máquina y manipulan al propio verificador, y en dependencia de un proveedor que una jurisdicción extranjera puede apagar por decreto (Sección 2.4).
 
-El Encargado de Ciberseguridad del OIV queda, así, en la misma posición imposible que el Delegado de Protección de Datos:titular formal de un deber cuya ejecución material la arquitectura le niega.
+El Encargado de Ciberseguridad del OIV queda, así, en la misma posición imposible que el Delegado de Protección de Datos: titular formal de un deber cuya ejecución material la arquitectura le niega.
 
 Su designación —cargada en el portal de la ANCI, con nombre y reporte directo— no le confiere el control que el deber presupone; lo constituye en el destinatario nominal de la sanción para cuando el incidente, inevitablemente, ocurra.
 
 Aquí la indelegabilidad de la responsabilidad (el principio que cristaliza el caso BancoEstado, §1.3.1) se cruza con la imposibilidad material de ejercerla: el obligado —el OIV, su directorio, su encargado— responde por un perímetro que, sin evidencia atestable, no puede ni observar en tiempo real ni acreditar después. No es, de nuevo, un defecto de las personas designadas: es que la ley reparte responsabilidad sin que la arquitectura vigente reparta, con ella, capacidad de control.
+
+### El mismo vaciamiento en el perímetro de la CMF: el Directorio, el Gerente General y el Oficial de Cumplimiento.
+
+El tercer frente completa el patrón y lo agrava, porque aquí la exposición no recae en un cargo técnico designado, sino en el gobierno corporativo entero. La regulación de la CMF radica la gestión de la seguridad de la información y de la continuidad operacional en el gobierno de la entidad: el directorio aprueba y vigila la estrategia; el gerente general y el oficial de cumplimiento certifican ante el supervisor —vía RAN 20-10 en la banca; vía NCG 502, con su Reporte de Incidentes Operacionales de dos horas, en Fintechs y plataformas de activos virtuales; con marcos equivalentes en aseguradoras, administradoras de fondos e intermediarios de valores— el estado de controles cuya operación efectiva su telemetría no puede acreditar. El caso *Travelers v. ICS* ya mostró el destino de esa certificación cuando el siniestro la contradice: la declaración de un control que no operaba no es un error administrativo — es la palanca de la rescisión de la póliza y, ante el supervisor, el presupuesto de la sanción por información falsa. Y mientras el OIV arriesga la multa —hasta 40.000 UTM—, el perímetro CMF conoce la sanción capital: la revocación de la autorización de existencia.
+
+La diferencia con los otros dos frentes está en quién paga. El Delegado de Protección de Datos está formalmente protegido de la sanción personal —el derecho comparado lo confirma (cf. nota 69)—, aunque el sistema lo convierta en responsable nominal; el Encargado de Ciberseguridad arriesga el cargo. En el perímetro de la CMF, en cambio, la exposición es patrimonial y eventualmente penal: los directores responden solidariamente con su patrimonio (arts. 41 y 133 de la Ley 18.046), la administración desleal (art. 470 N° 11 del Código Penal) queda disponible como calificación, y la Ley de Delitos Económicos (21.595) eleva el estándar de diligencia exigible al directorio precisamente cuando la arquitectura le retira la posibilidad material de satisfacerlo. El vaciamiento es idéntico —titularidad formal de un deber cuya ejecución material la arquitectura niega—; el precio, aquí, se cobra en el patrimonio personal de la plana mayor.
+
+Tres registros, tres nombres, una sola estructura. El Delegado de Protección de Datos inscrito ante la Agencia; el Encargado de Ciberseguridad cargado en el portal de la ANCI; el directorio y su gerente certificando ante la CMF. En los tres frentes la ley exige un nombre propio sobre el cual hacer caer la sanción, y en los tres la arquitectura vigente le niega a ese nombre el control que el deber presupone. Asignar responsabilidad sin restituir control no diseña responsables: designa culpables por anticipado — y esa designación anticipada es la única función que, a falta de evidencia atestable, el sistema todavía puede cumplir.
 
 
 
