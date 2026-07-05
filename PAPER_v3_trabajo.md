@@ -568,9 +568,9 @@ Sostenemos, a diferencia de la doctrina nacional, que la dogmática jurídica fr
 
 ### La amenaza estructural: Invisibilidad y la ficción de la auditoría delegada
 
-La Paradoja del Testigo Desaparecido describe la imposibilidad probatoria que opera **desde afuera**: un soberano extranjero acciona el interruptor y la evidencia perece con el servicio. Ese pilar es completamente independiente del adversario técnico —no requiere ningún ataque; basta una directiva administrativa—.
+La Paradoja del Testigo Desaparecido describe la imposibilidad probatoria que opera desde afuera: un soberano extranjero acciona el interruptor y la evidencia perece con el servicio. Ese pilar es completamente independiente del adversario técnico —no requiere ningún ataque; basta una directiva administrativa—.
 
-El segundo pilar opera **desde adentro**, mientras el servicio sigue vivo y la evidencia sigue generándose: es la capacidad de un adversario de manipular el entorno de ejecución en tiempo real, de modo que los registros que el auditor leerá reflejen lo que el adversario decidió que debía registrarse, no lo que ocurrió.
+El segundo pilar opera desde adentro, mientras el servicio sigue vivo y la evidencia sigue generándose: es la capacidad de un adversario de manipular el entorno de ejecución en tiempo real, de modo que los registros que el auditor leerá reflejen lo que el adversario decidió que debía registrarse, no lo que ocurrió.
 
 Ambos pilares son independientes entre sí y aditivos: pueden concurrir o actuar por separado, pero en cualquier escenario convergen en la misma conclusión. La auditoría delegada no registra la realidad —registra el relato que el entorno de ejecución eligió producir—, y ese entorno puede ser silenciado por decreto o falsificado por código.
 
