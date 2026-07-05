@@ -747,6 +747,16 @@ Si la telemetría que alimenta el Modelo de Prevención puede ser falsificada en
 
 Peor aún: este vacío probatorio fulmina la cobertura de seguros. En un siniestro, la aseguradora exigirá una auditoría forense. Cuando sus peritos constaten que la evidencia entregada por la entidad es forensemente inútil porque el entorno operativo (runtime) no estaba anclado en hardware, la aseguradora invocará las cláusulas de exclusión por "negligencia grave en los controles" o "entrega de información inexacta". La póliza se anula de pleno derecho. La CMF cursa la multa o revocación. Y los directores enfrentan la liquidación de su patrimonio personal por fraude fiduciario. La falla técnica ha mutado en la ruina patrimonial y penal de la plana mayor.
 
+#### La falacia del "Ad impossibilia": por qué el estándar de la industria ya no exime de culpa
+
+El instinto natural de las gerencias legales frente a esta crisis probatoria será recurrir al principio *ad impossibilia nemo tenetur* (nadie está obligado a lo imposible): "Si ni siquiera hiperescaladores como AWS o Azure pueden garantizar la inmunidad de su telemetría ante estos ataques, ¿cómo puede el regulador exigirnos responsabilidad a nosotros? Ningún juez nos sancionará por operar bajo el estándar de la industria".
+
+Este argumento, aunque reconfortante para el Directorio, es **jurídicamente suicida y técnicamente falso**, por tres razones insalvables:
+
+1. **La tecnología existe y está estandarizada:** La atestación criptográfica desde la raíz de confianza en silicio no es ciencia ficción ni tecnología experimental. Está codificada en estándares globales (IETF RATS, TCG DICE) y disponible comercialmente. La incapacidad de probar la indemnidad forense no deriva de una imposibilidad técnica, sino de una **decisión comercial**: la entidad *eligió* operar sobre una arquitectura *cloud* genérica que carece de garantías físicas por razones de costo o comodidad operativa. Elegir la ceguera por conveniencia económica tipifica como negligencia inexcusable.
+2. **La ceguera autoimpuesta por contrato no es fuerza mayor:** El vacío probatorio es resultado directo del "Modelo de Responsabilidad Compartida" firmado con el hiperescalador, donde la entidad renuncia al control soberano del hardware. Un OIV o un Banco no puede oponer a la CMF ni a la Fiscalía un contrato privado como excusa para incumplir un mandato de orden público (Ley 21.663, Ley 21.595). La imposibilidad de certificar el reporte fue autogenerada al tercerizar la infraestructura sin exigir atestación.
+3. **El colapso eximente del "Estándar de la Industria":** El Derecho Administrativo Sancionador no absuelve basándose en que "todos los demás cometen el mismo error". Cuando el avance de los ataques automatizados supera la barrera del Ring 0 (el Kernel), el "estándar de la industria" (EDR, SOC, ISO) queda fácticamente obsoleto. Continuar operando controles puramente lógicos, a sabiendas de que pueden ser subvertidos sin dejar rastro, destruye cualquier pretensión de diligencia debida.
+
 <div style="page-break-before: always;"></div>
 
 #### Evidencia empírica: cuatro incidentes chilenos bajo el régimen vigente
