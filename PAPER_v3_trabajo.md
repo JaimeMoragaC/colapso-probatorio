@@ -1115,6 +1115,8 @@ El reverso confirma la regla. El GDPR protege al Delegado de Protección de Dato
 El cuadro completo converge con la tesis: los ordenamientos de referencia hacen recaer la sanción —civil, patrimonial y, desde Sullivan, penal— sobre quien decide y sobre quien supervisa, de modo indelegable; pero ninguno les ha entregado todavía el instrumento que vuelve ese deber cumplible. Responsabilidad sin poder de control no es seguridad: es la designación anticipada de a quién sancionar. La única forma de devolver sentido —y defensa— a estos cargos es dotarlos de una evidencia atestable que restituya un perímetro efectivamente verificable (§5, §6.3).
 
 
+<div style="page-break-before: always;"></div>
+
 <a id="sec1-3-4"></a>
 
 #### 1.3.4 El agravante regulatorio: la IA polimórfica que hace incumplibles esos deberes no tiene ley en Chile — y los dos modelos en trámite no le darían prueba
