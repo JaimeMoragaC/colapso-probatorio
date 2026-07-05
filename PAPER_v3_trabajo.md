@@ -717,19 +717,21 @@ Este documento no es un catálogo académico ni una guía de buenas prácticas; 
 
 #### 1.3.1 El deber vigente: gestionar, contener y reportar incidentes
 
-A diferencia del régimen de datos personales —que entra en plena vigencia el 1 de diciembre de 2026—, la Ley 21.663 (junto con la normativa financiera sectorial como la Ley Fintec y la NCG 502 de la CMF) ya rige. La ANCI ya califica Operadores de Importancia Vital (OIV) y la CMF fiscaliza a miles de instituciones financieras y Fintechs, exigiendo obligaciones operativas e inmediatas: identificar, evaluar y mitigar riesgos; establecer políticas de seguridad y control de accesos; gestionar incidentes; y mantener planes de continuidad operacional.
+A diferencia del régimen de datos personales —que entra en plena vigencia el 1 de diciembre de 2026—, la Ley 21.663 (junto con el **Capítulo 20-10 de la RAN** para bancos y la **NCG 502** para Fintechs de la CMF) ya rige con plena fuerza coercitiva. La ANCI ya califica Operadores de Importancia Vital (OIV) a través de sus **Instrucciones Técnicas**, y la CMF fiscaliza a toda la industria financiera, exigiendo obligaciones operativas inmediatas: identificar, evaluar y mitigar riesgos; establecer políticas de seguridad; gestionar incidentes; y operar un sistema de gestión de seguridad de la información (SGSI) con pruebas de continuidad verificables.
 
-Los OIV y las entidades reguladas por la CMF deben además operar un sistema de gestión de seguridad de la información (SGSI) robusto y probar su continuidad ante la autoridad.
+El núcleo, para los efectos de este documento, es la colisión probatoria en el deber de reporte de incidentes, donde los plazos ahogan cualquier capacidad de análisis forense manual:
 
-El núcleo, para los efectos de este documento, es la colisión probatoria en el deber de reporte de incidentes: bajo la Ley 21.663 (art. 9), se exige alerta temprana en 3 horas ante el CSIRT Nacional; bajo la NCG 502 de la CMF, se impone un plazo aún más restrictivo de 2 horas (Reporte de Incidente Operacional - RIO). En ambos regímenes, la entidad debe certificar los sistemas afectados, datos comprometidos y medidas de contención aplicadas.
+- **RAN 20-10 (Banca):** Exige notificar a la CMF "tan pronto se tome conocimiento" de incidentes operacionales críticos, estableciendo en la práctica umbrales de alerta casi inmediatos (usualmente formalizados antes de 30 minutos).
+- **NCG 502 (Fintech):** Impone un plazo máximo de 2 horas para el Reporte de Incidente Operacional (RIO).
+- **Ley 21.663 (OIV):** Exige alerta temprana en 3 horas ante el CSIRT Nacional.
 
-El régimen sancionatorio tipifica como infracciones gravísimas (con multas de hasta 40.000 UTM para OIVs y severas sanciones corporativas bajo la CMF): no reportar el incidente, entregar información falsa o tardía durante su gestión, no aplicar medidas de contención y obstruir al regulador<a href="#fn3" id="fnref3b"><sup>3</sup></a>.
+En todos estos regímenes, la entidad debe certificar oficialmente los sistemas afectados, los datos comprometidos y las medidas de contención aplicadas. El régimen sancionatorio tipifica como infracciones gravísimas (con multas de hasta 40.000 UTM para OIVs y riesgo de revocación de licencia o multas corporativas severas bajo la CMF): no reportar el incidente, entregar información falsa o tardía, no aplicar medidas de contención y obstruir al regulador<a href="#fn3" id="fnref3b"><sup>3</sup></a>.
 
 <div style="page-break-before: always;"></div>
 
 #### Evidencia empírica: cuatro incidentes chilenos bajo el régimen vigente
 
-Hasta aquí, el deber: qué exigen la Ley 21.663 y la NCG 502 de la CMF, y con qué sanción. La pregunta que el resto de esta sección responde es empírica: ¿puede el obligado (sea un OIV o una entidad financiera), en la práctica, cumplir ese deber probatorio con la infraestructura que hoy opera? El mandato de reportar con veracidad, de acreditar el alcance del compromiso y de no entregar información falsa o tardía presupone algo que la norma no nombra pero da por sentado: que el obligado controla —y puede atestar de forma independiente— el entorno donde esa evidencia se genera. Cuando ese entorno es un *runtime* que el obligado no gobierna, la premisa se quiebra, y con ella la exigibilidad real del deber.
+Hasta aquí, el deber: qué exigen la Ley 21.663, la RAN 20-10 y la NCG 502 de la CMF, y con qué sanción. La pregunta que el resto de esta sección responde es empírica: ¿puede el obligado (sea un OIV o una entidad financiera), en la práctica, cumplir ese deber probatorio con la infraestructura que hoy opera? El mandato de reportar con veracidad, de acreditar el alcance del compromiso y de no entregar información falsa o tardía presupone algo que la norma no nombra pero da por sentado: que el obligado controla —y puede atestar de forma independiente— el entorno donde esa evidencia se genera. Cuando ese entorno es un *runtime* que el obligado no gobierna, la premisa se quiebra, y con ella la exigibilidad real del deber.
 
 Los cuatro casos que se desarrollan a continuación no son ilustrativos: son la prueba empírica de que esa premisa ya falla —de que el problema descrito en este documento no es una proyección, sino un déficit operativo bajo el régimen vigente.
 
