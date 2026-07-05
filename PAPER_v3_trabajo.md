@@ -1798,7 +1798,7 @@ El colapso de Guacamaya no fue un error humano de configuración; fue el síntom
   
   > 📌 **El veredicto estructural:** La carga del argumento la lleva esta atestación —no la localidad geográfica—. Y —espectro de aseguramiento, no binario— esa raíz de confianza es a su vez atacable (Sección 4.2); lo que cambia no es "verdad vs. ficción", sino quién controla la raíz de confianza y quién puede verificar la evidencia empírica del ataque.
 
-### Análisis comparado del valor probatorio: el colapso de la prueba digital
+### La condena por anticipado: Por qué los tribunales internacionales ya rechazan la evidencia *cloud*
 
 Si la ingeniería demuestra que un registro sin atestación en silicio carece de integridad técnica, el derecho probatorio moderno no es ciego a esa orfandad. La verdadera tragedia corporativa ocurre cuando el directorio asume que un informe *cloud* de su proveedor será suficiente para defenderse en tribunales, ignorando que los tribunales y reguladores de primer nivel ya cerraron esa puerta. Frente a un incidente provocado por un agente IA polimórfico en la nube, el valor procesal de un *log* autodeclarado, sin atestación de *hardware* (raíz de confianza), es estructuralmente frágil en las principales jurisdicciones de referencia, lo que condena por anticipado la defensa del OIV chileno:
 
