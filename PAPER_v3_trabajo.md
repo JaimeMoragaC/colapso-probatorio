@@ -947,7 +947,7 @@ Estas tres deficiencias existen siempre —antes de cualquier ataque—. Lo que 
 
 ### 1.3.3 El responsable de datos en 2026: firmó la responsabilidad, no el control54
 
-Las tres deficiencias identificadas en §1.3.2 operan dentro del deber de reporte de la Ley 21.663, un deber donde la carga de la prueba —en sentido lato— recae en el regulador: la ANCI debe constatar el incumplimiento. La Ley 21.719 invierte esa estructura. Bajo el principio de **responsabilidad proactiva**, el responsable de datos no espera que le imputen el incumplimiento: debe demostrar *a priori* que cumplió.
+Las tres deficiencias identificadas en §1.3.2 operan dentro del deber de reporte de la Ley 21.663, la RAN 20-10 y la NCG 502 de la CMF, un deber donde la carga de la prueba —en sentido lato— recae en el regulador: es la ANCI o la CMF, según el caso, quien debe constatar el incumplimiento. La Ley 21.719 invierte esa estructura. Bajo el principio de **responsabilidad proactiva**, el responsable de datos no espera que le imputen el incumplimiento: debe demostrar *a priori* que cumplió.
 
 Aplicado al escenario descrito, el efecto es multiplicador: el responsable no solo dispone de una evidencia estructuralmente deficiente para reportar el incidente (§1.3.2); además, esa misma evidencia deficiente es la que debe usar para acreditar proactivamente que su tratamiento fue íntegro. La inversión de la carga convierte la deficiencia probatoria de problema en trampa.
 
