@@ -741,9 +741,9 @@ Más crítico aún para el gobierno corporativo, la entrega de información inex
 
 Para el abogado corporativo, el refugio tradicional frente a este riesgo ha sido la *defensa de compliance*: adquirir pólizas de ciberseguros y exhibir certificaciones (ISO 27001, SOC 2) como escudo probatorio para eximir de responsabilidad penal a la empresa bajo su Modelo de Prevención de Delitos (MPD). 
 
-Sin embargo, frente a un ataque a velocidad de máquina, "este escudo jurídico es una trampa mortal". 
+Sin embargo, frente a un ataque a velocidad de máquina, *este escudo jurídico es una trampa mortal*. 
 
-Si la telemetría que alimenta el Modelo de Prevención puede ser falsificada en la capa de software (Ring 3/Ring 0) sin dejar rastro criptográfico en el hardware, el Directorio estará aportando a la Fiscalía o a la CMF evidencia ideológicamente falsa (el mismo registro que el atacante fabricó). Jurídicamente, alegar que "se contrató a un proveedor *cloud* internacional" cuando la arquitectura carecía de atestación de silicio constituye una "delegación negligente de la soberanía probatoria".
+Si la telemetría que alimenta el Modelo de Prevención puede ser falsificada en la capa de software (Ring 3/Ring 0) sin dejar rastro criptográfico en el hardware, el Directorio estará aportando a la Fiscalía o a la CMF evidencia ideológicamente falsa (el mismo registro que el atacante fabricó). Jurídicamente, alegar que "se contrató a un proveedor *cloud* internacional" cuando la arquitectura carecía de atestación de silicio constituye una *delegación negligente de la soberanía probatoria*.
 
 Peor aún: este vacío probatorio fulmina la cobertura de seguros. En un siniestro, la aseguradora exigirá una auditoría forense. Cuando sus peritos constaten que la evidencia entregada por la entidad es forensemente inútil porque el entorno operativo (runtime) no estaba anclado en hardware, la aseguradora invocará las cláusulas de exclusión por "negligencia grave en los controles" o "entrega de información inexacta". La póliza se anula de pleno derecho. La CMF cursa la multa o revocación. Y los directores enfrentan la liquidación de su patrimonio personal por fraude fiduciario. La falla técnica ha mutado en la ruina patrimonial y penal de la plana mayor.
 
