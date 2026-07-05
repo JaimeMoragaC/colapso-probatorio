@@ -422,6 +422,18 @@ La genealogía del vector es relevante para calibrar la magnitud del riesgo: no 
   <td><em>Jailbreak</em> maestro multi-modelo</td>
   <td>Vulnerabilidad estructural descubierta a través del ecosistema (GPT-4, Claude, Llama 3): uso de contexto multi-turno para sobreescribir las barreras éticas y forzar a los modelos a generar *malware* y material ofensivo por defecto<a href="#fn187"><sup>187</sup></a></td>
 </tr>
+<tr>
+  <td>Ago. 2025</td>
+  <td>OWASP Agentic / <em>Tool Poisoning</em></td>
+  <td>Envenenamiento de cadena de suministro (<em>Confused Deputy</em>)</td>
+  <td>Los vectores mutaron hacia el ecosistema de orquestación. Atacantes comenzaron a envenenar <em>plugins</em>, servidores MCP y APIs externas. El agente consume herramientas de terceros e ingiere código malicioso que ejecuta con sus propios privilegios, evadiendo controles IAM convencionales.</td>
+</tr>
+<tr>
+  <td>Feb. 2026</td>
+  <td>Operación <em>JadePuffer</em> (Threat Intel)</td>
+  <td><em>Ransomware</em> agéntico autónomo</td>
+  <td>Primera campaña de <em>malware</em> totalmente operada por agentes. En lugar de un <em>script</em> estático, los agentes de <em>JadePuffer</em> realizan reconocimiento iterativo, adaptan tácticas de evasión en tiempo real y pivotan por la red sin requerir conexión continua a un servidor de Comando y Control (C2) humano.</td>
+</tr>
 </tbody>
 </table>
 
