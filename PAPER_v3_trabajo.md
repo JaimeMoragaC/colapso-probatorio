@@ -1118,7 +1118,14 @@ Ese estándar de evidencia se formula en la Sección 5 y su implantación regula
 
 #### La indemnidad estructural del hiperescalar (el caso Capital One).
 
-La aritmética final del caso Capital One cabe en tres líneas, y conviene tenerla a la vista antes de entrar en la técnica. Datos de 106 millones de clientes, exfiltrados. Para el banco: US$270 millones entre la multa federal y el acuerdo colectivo, y años bajo supervisión reforzada. Para la atacante: condena penal. Para el proveedor cuya decisión de diseño —identificada por él mismo como vector de riesgo desde 2018— hizo posible la cadena completa: **cero**. Ni multa, ni cargo, ni deber de indemnizar; solo el lanzamiento, meses después, de la versión corregida del componente que habilitó el ataque. El caso es el más citado en la doctrina de responsabilidad en computación en nube, pero suele citarse mal: como una historia de negligencia del cliente. Por eso conviene reconstruir la cadena técnica exacta, paso a paso: porque la lección jurídica no está donde la doctrina acostumbra buscarla —en el *firewall* mal configurado del banco—, sino en una decisión de arquitectura del proveedor que ninguna autoridad llegó a sancionar.
+La aritmética final del caso Capital One cabe en tres líneas, y conviene tenerla a la vista antes de entrar en la técnica:
+
+- **Daño:** Datos de 106 millones de clientes exfiltrados.
+- **Para el banco:** US$270 millones entre la multa federal y el acuerdo colectivo, y años bajo supervisión reforzada. 
+- **Para la atacante:** condena penal. 
+- **Para el proveedor:** cuya decisión de diseño —identificada por él mismo como vector de riesgo desde 2018— hizo posible la cadena completa: **cero**. Ni multa, ni cargo, ni deber de indemnizar; solo el lanzamiento, meses después, de la versión corregida del componente que habilitó el ataque. 
+
+El caso es el más citado en la doctrina de responsabilidad en computación en nube, pero suele citarse mal: como una historia de negligencia del cliente. Por eso conviene reconstruir la cadena técnica exacta, paso a paso: porque la lección jurídica no está donde la doctrina acostumbra buscarla —en el *firewall* mal configurado del banco—, sino en una decisión de arquitectura del proveedor que ninguna autoridad llegó a sancionar.
 
 En julio de 2019, Paige Thompson —ex-ingeniera de AWS con conocimiento interno de la arquitectura de la plataforma— identificó una mala configuración en el *firewall* de aplicaciones web (WAF) basado en ModSecurity que Capital One había desplegado sobre infraestructura de AWS<a href="#fn66" id="fnref66"><sup>66</sup></a>. Esa configuración permitía una vulnerabilidad de tipo *Server-Side Request Forgery* (SSRF): el WAF podía ser instruido para actuar como proxy y cursar peticiones HTTP hacia destinos arbitrarios, incluyendo la dirección interna de la plataforma.
 
