@@ -1545,7 +1545,7 @@ El §6.3.3 provee la arquitectura de este artículo.
 
 La reciprocidad de certificaciones internacionales —que Chile acepte lo que otros países certifiquen sin re-certificar— importa también los defectos de esos marcos. Un certificado SOC 2 o EU AI Act no requiere atestación del entorno de ejecución en *runtime*: certifica procesos documentados, políticas escritas y controles estáticos.
 
-Un OIV chileno que presenta un certificado extranjero como prueba de cumplimiento ante la ANCI bajo régimen de reciprocidad no ha resuelto el problema probatorio del §3 de este documento: el mismo entorno de ejecución inacreditable existe, ahora con una capa adicional de certificación extranjera que Chile no puede auditar de forma independiente. La reciprocidad amplifica el problema, no lo resuelve.
+Un OIV chileno ante la ANCI, un banco ante la CMF, o un responsable de datos ante la APDP que presenta un certificado extranjero (ej. SOC 2, ISO 27001) como prueba de cumplimiento bajo régimen de reciprocidad no ha resuelto el problema probatorio del §3 de este documento: el mismo entorno de ejecución inacreditable existe, ahora con una capa adicional de certificación extranjera que el regulador chileno no puede auditar de forma independiente. La reciprocidad amplifica el problema, no lo resuelve.
 
 El contraste es el programa FedRAMP del gobierno de EE.UU., que no acepta certificaciones previas como equivalentes para sistemas que accedan a información gubernamental sensible: exige una evaluación independiente de terceros (*Third Party Assessment Organization*, 3PAO) específica para el entorno de despliegue federal, incluso cuando el sistema tiene certificaciones ISO 27001 o SOC 2 vigentes<a href="#fn135" id="fnref135"><sup>135</sup></a>.
 
