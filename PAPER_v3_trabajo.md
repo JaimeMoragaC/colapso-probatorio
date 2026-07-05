@@ -554,7 +554,7 @@ Este giro metodológico ya comienza a perfilarse en la literatura de vanguardia 
 
 ### La Soberanía como Estado Criptográfico (o el colapso del mapa cartesiano)
 
-En la arquitectura computacional post-Mythos, **la soberanía no es una propiedad geográfica definida por coordenadas cartesianas, sino un estado criptográfico ininterrumpido del entorno de ejecución.**
+En la arquitectura computacional post-Mythos, *la soberanía no es una propiedad geográfica definida por coordenadas cartesianas, sino un estado criptográfico ininterrumpido del entorno de ejecución.*
 
 Esta redefinición exige abandonar el paradigma territorial del derecho administrativo clásico. La soberanía operativa moderna requiere que el Estado (o la entidad obligada) posea la capacidad matemática —no meramente contractual— de atestar la integridad de cada ciclo de instrucción de la CPU, desde el momento en que el silicio recibe energía (*Secure Boot*) hasta que el hipervisor aísla las cargas de trabajo (*Runtime*). 
 
