@@ -3437,7 +3437,7 @@ Explotar una puerta trasera en el silicio de un chip TPM es un ataque de complej
 
 El *jaque mate* técnico, sin embargo, va más allá de la asimetría: el paradigma propuesto no exige aceptar a Infineon ni a Intel como raíz de confianza. El estándar DICE (*Device Identifier Composition Engine*, especificación TCG 2.0) y el proyecto OpenTitan —silicio de raíz de confianza bajo licencia Apache 2.0, auditado públicamente— permiten que el Estado chileno queme su propia semilla criptográfica (CDI, *Compound Device Identifier*) en el dispositivo *post-manufactura*, en territorio nacional, bajo custodia de la ANCI. Ese acto retira a Infineon, STMicroelectronics e Intel de la Base de Cómputo Confiable (*Trusted Computing Base*, TCB) de forma matemáticamente verificable: la cadena de certificados que el Estado puede verificar se ancla en la CDI que él mismo generó, no en el certificado de fábrica del fabricante extranjero. La tortuga tiene fondo soberano —pero requiere un acto deliberado de política pública para instalarlo—.
 
-#### Objeción B — La Ceguera Semántica: el hardware no entiende intención (Prompt Injection)
+#### Objeción B — La miopía de la Capa 7 (El Hardware no entiende Semántica)
 
 *El arquitecto ofensivo.* La propuesta acusa ceguera semántica en la nube, pero la solución física es igual de ciega. El TPM y los PCR miden la integridad del binario en la carga (SRTM/DRTM). Pero el TPM puede atestar por su vida que el binario de Llama-3 arrancó sin ser alterado y el *kernel* estaba intacto, y aun así no tener puta idea de si Llama-3 decidió, por un *prompt injection*, transferir 10 millones de dólares o exfiltrar datos del banco. El hardware atesta el *estado de la máquina*, no la *intención lógica* del modelo. El sistema probará criptográficamente que la máquina funcionaba perfecto mientras el agente cometía un delito. El colapso probatorio no se resuelve, solo se certifica criptográficamente el desastre.
 
@@ -3501,7 +3501,7 @@ La solución no es expulsar al hiperescalar del sistema —eso sería el espanta
 
 El costo de este mecanismo es concreto y pequeño: aproximadamente 400–600 milisegundos de latencia adicional en la aprobación de cada mutación de estado, derivados del *round-trip* de firma. Se sacrifican esos 500 milisegundos de automatización comercial a cambio de **destruir el riesgo sistémico de una puerta trasera invisible en anillo 0**. El argumento de política pública es igualmente directo: la infraestructura crítica nacional no debe ser parcheada a la velocidad que maximiza la eficiencia operacional del hiperescalar —debe ser parcheada a la velocidad que preserva la verificabilidad forense del sistema—. Un sistema vulnerable pero **100% observable** es, para los fines de este documento, categóricamente superior a una caja negra "parcheda" que destruye la escena del crimen forense antes de que el regulador pueda ingresar.
 
-#### Objeción F — La Falacia del Rendimiento: el colapso de la latencia criptográfica
+#### Objeción F — La falacia del rendimiento (El colapso de la latencia)
 
 *El arquitecto de sistemas.* El documento exige que cada inferencia y llamada API de un agente dinámico esté atestada criptográficamente e inscrita en un registro inmutable. En producción, el *overhead* criptográfico de firmar por hardware cada milisegundo de ejecución de un modelo masivo destruirá la latencia. Un banco procesa miles de TPS (Transacciones por Segundo); si se introduce un cuello de botella atestado por hardware, el tiempo de respuesta pasará de 50ms a segundos. Ningún directorio financiero adoptará un paradigma que los vuelva operativamente inviables frente a la competencia.
 
@@ -3511,7 +3511,7 @@ La objeción asume falsamente que la validación de estado requiere una firma tr
 
 La degradación de rendimiento es logística y marginal, no transaccional. La atestación dura ocurre sobre el *estado de arranque* y el *estado del contenedor*, mientras que la firma de la cadena de inferencia se agrupa. Esto garantiza auditoría determinista post-evento sin afectar los milisegundos requeridos por el procesamiento de Alta Frecuencia.
 
-#### Objeción G — El Delirio del Aislamiento Físico: diodos de datos frente a la autonomía agéntica
+#### Objeción G — El delirio del Diodo de Datos para IA
 
 *El ingeniero de infraestructura.* Aislar entornos con un "diodo de datos" o *Airgap* unidireccional es un delirio incompatible con la naturaleza de un agente autónomo de IA. La IA agéntica necesita interactuar bidireccionalmente con el entorno (consumir APIs, raspar la web, actualizar estados). Un diodo puro la convierte en una calculadora de solo lectura. Si se añade un proxy inverso para permitir respuestas, se rompe el aislamiento del diodo. Es un oxímoron de arquitectura: no se puede tener autonomía agéntica dinámica y aislamiento físico unidireccional simultáneamente.
 
@@ -3529,7 +3529,7 @@ La interacción bidireccional existe entre el agente y el mundo exterior, pero e
 
 La crítica sociológica es exacta, pero ignora la jerarquía de los incentivos penales chilenos tras la promulgación de la Ley de Delitos Económicos (Ley 21.595). El mandato de la CMF es el riesgo sistémico (§6.8). Un informe de Deloitte es una póliza de relaciones públicas, pero **no excluye la responsabilidad penal personal de un director** si se demuestra que los *logs* que respaldaban ese informe eran materialmente falsificables. La asimetría es deliberada: este documento expone esa falsificabilidad forense. Una vez notificado formalmente (ej. por litigio o denuncia), el directorio no puede alegar ignorancia. Ninguna póliza de ciberseguro cubre dolo o negligencia inexcusable. Amazon no irá a la cárcel; el gerente general chileno sí. Ese es el gatillador que forzará al mercado a construir los conectores.
 
-#### Objeción I — El Fetichismo del Hardware: la física destroza al silicio
+#### Objeción I — El Fetichismo del Hardware (El mito del Root of Trust inquebrantable)
 
 *El investigador de microarquitectura.* El documento deposita una confianza fetichista en el *Hardware Root of Trust* (TPM, DICE, SGX), asumiendo que "si el hardware lo firma, es verdad absoluta". Pero el hardware está roto por diseño. Vulnerabilidades como *Spectre*, *Meltdown*, *Rowhammer*, o *Zenbleed* demuestran que un agente polimórfico en el mismo *host* puede envenenar el caché o extraer llaves mediante ataques de canal lateral (*side-channel attacks*). Cambiar la confianza ciega en un contrato *cloud* por la confianza ciega en un microcódigo cerrado de AMD/Intel no elimina la caja negra, solo la hace más pequeña y vulnerable a la física.
 
@@ -3537,7 +3537,7 @@ La crítica sociológica es exacta, pero ignora la jerarquía de los incentivos 
 
 La objeción es impecable en su física pero equivoca la topología de la amenaza. La atestación propuesta no afirma que el silicio sea indestructible; afirma que su quiebre deja **evidencia atestable**. Un ataque *Rowhammer* exitoso altera la entropía y el registro de medición de la plataforma. Para mantener la ilusión ante la ANCI, el atacante tendría que falsificar también la firma de *hardware* en tiempo real, lo que requiere romper la matemática asimétrica o mantener un engaño bizantino continuo. Si el silicio falla por *Spectre*, la atestación falla y la alarma suena, lo que jurídicamente cumple el objetivo supremo del estándar: traslada la carga de la prueba al proveedor del microcódigo (Intel/AMD) y destruye la negligencia del banco local. 
 
-#### Objeción J — El Síndrome del Manifiesto: *Vaporware* sin pruebas empíricas ni TCO
+#### Objeción J — Estructura de Manifiesto de Unabomber
 
 *El gerente de TI.* El texto exige soberanía forense, atestación continua y proxies BFT, pero se lee como el manifiesto de un teórico conspirativo del silicio. No hay un solo diagrama de arquitectura de red real (Capa 3 a 7), no hay un repositorio en GitHub con un *Proof of Concept* (PoC) que compile, ni un análisis *TCO* (Costo Total de Propiedad). Exigir por ley una topología sin modelo de costos ni PoC empírico es imponer un *vaporware* regulatorio inoperante.
 
