@@ -695,9 +695,9 @@ Este documento se sitúa en la intersección del derecho y la ingeniería para r
 
 No se sostiene aquí que la nube sea "ficción" y lo local "verdad". Existe un espectro de aseguramiento, definido por dónde reside la raíz de confianza y quién puede verificar la evidencia. La proposición central es que una evidencia anclada a una raíz de confianza bajo control del obligado, verificable por un tercero independiente, es probatoriamente idónea; un registro autodeclarado por un proveedor sujeto a una legislación de exportación y vigilancia extranjera, no lo es.
 
-### 1.2 Nuestras contribuciones y estructura del documento
+### 1.2 Arquitectura del manifiesto
 
-Este documento se estructura en torno a siete contribuciones fundamentales. La primera de ellas fundamenta el diagnóstico del problema, mientras que las seis restantes proponen su solución técnica y dogmática a lo largo de las siguientes secciones:
+Este documento no es un catálogo académico ni una guía de buenas prácticas; es un modelo de demolición probatoria diseñado para ser ejecutado en el contra-interrogatorio pericial ante tribunales y agencias reguladoras. Se articula a través de siete axiomas secuenciales: el primero destruye la premisa probatoria de la seguridad *cloud* contemporánea, y los seis restantes construyen el único estándar (el Paradigma Aegis) capaz de sobrevivir al escrutinio legal y técnico:
 
 1. **Crítica de ingeniería al modelo regulatorio (a desarrollarse en la Sección 1.3 a continuación).** Demostración del vacío probatorio transversal en las leyes 21.663, 21.719, la NCG 502 de la CMF y el proyecto de IA, probando que un régimen *ex post* fracasa sin una atestación forense de la cadena de delegación.
 
