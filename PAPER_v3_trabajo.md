@@ -3810,6 +3810,20 @@ Esta evidencia gozará de presunción de integridad de su cadena de custodia en 
 
 **4. Atestación continua del SGSI. La certificación del Sistema de Gestión de Seguridad de la Información evolucionará de una certificación estática a una atestación continua y verificable del estado operativo.
 
+### B.4 Propuesta de Norma de Carácter General (NCG) para la Comisión para el Mercado Financiero (CMF)
+
+> *Nota de redacción: Esta propuesta normativa se diseña para integrarse como actualización a la NCG 502 (Ley Fintec) y al Capítulo 20-10 de la Recopilación Actualizada de Normas (RAN) para Bancos, estableciendo el estándar procesal de admisibilidad de evidencia ante el regulador.*
+
+**1. Presupuesto de Verificabilidad del Reporte de Incidente Operacional (RIO).** Todo Reporte de Incidente Operacional o de Ciberseguridad sometido a esta Comisión que pretenda acreditar el alcance, contención o ausencia de impacto de un incidente, deberá sustentarse en telemetría extraída de un entorno de ejecución verificable. El regulador presumirá el incumplimiento del deber fiduciario de reporte si la entidad supervisada fundamenta su descargo en registros provenientes de arquitecturas de "caja negra" inescrutables.
+
+**2. Régimen de Atestación o Bidireccionalidad (El Puente Probatorio).** Para que la evidencia digital (bitácoras, *logs* y registros de sistema) sea admitida como prueba eximente de responsabilidad, la entidad financiera o proveedor de servicios Fintec deberá cumplir con uno de los dos siguientes estándares probatorios:
+a) **Atestación de Estado (Régimen Definitivo):** Proveer evidencia digital con proveniencia atestada matemáticamente desde una Raíz de Confianza en Hardware (HRoT), garantizando la inalterabilidad del entorno de ejecución (Ring-0) en el milisegundo en que se generó el registro.
+b) **Inspección Bidireccional (Régimen Transitorio):** En ausencia de atestación de *hardware*, la entidad deberá conceder a la Comisión (o a los peritos auditores que esta designe) el acceso pericial irrestricto, en vivo y bidireccional, a la infraestructura base (Ring-0/Hypervisor) del entorno donde se generó la evidencia, a fin de auditar la ausencia de envenenamiento de memoria.
+
+**3. Presunción de Pérdida de Control Exclusivo.** La negativa de la entidad financiera —o su incapacidad derivada de restricciones contractuales con sus proveedores de nube (Hiperescalares)— a someter su infraestructura a la inspección bidireccional señalada en la regla 2(b), constituirá confesión fáctica de la pérdida del "exclusivo control" exigido por el ordenamiento jurídico. En dicho escenario, la Comisión procederá a la degradación probatoria inmediata de los registros presentados, calificando el reporte como "información inverificable", lo que gatillará las sanciones administrativas correspondientes y la presunción de negligencia del Directorio.
+
+**4. Obligación de Migración Tecnológica Soberana.** Las entidades financieras y Operadores de Importancia Vital bajo supervisión de la CMF contarán con un plazo perentorio [determinado por el calendario de gradualidad] para migrar los procesos críticos de autenticación, firma electrónica y registro transaccional hacia arquitecturas ancladas en silicio. Expirado el plazo, la atestación de hardware (Regla 2.a) será el único estándar probatorio admitido, precluyendo la posibilidad de ampararse en auditorías lógicas delegadas a terceros.
+
 ## Anexo C. Derecho comparado: análisis país por país
 
 Este anexo desarrolla, con mayor detalle que el cuerpo, el tratamiento que ocho jurisdicciones dan a los dos problemas centrales de este documento —la integridad verificable de la evidencia y la continuidad soberana de la infraestructura crítica—. El propósito no es exhaustividad académica, sino extraer de cada sistema la lección concreta que el régimen chileno puede aprovechar o el error que puede evitar.
