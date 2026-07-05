@@ -623,7 +623,7 @@ Las bases de datos de vulnerabilidades (CVE/NVD: 310.000 entradas registradas al
 
 El impacto regulatorio de esta convergencia es la destrucción de la asimetría de costos: un ataque complejo (grado *zero-day*), que históricamente requería presupuestos de inteligencia estatal, hoy puede ser generado por un actor solitario utilizando una **GPU de consumo** —hardware de videojuegos disponible por menos de tres mil dólares—. Con ese equipo y el acervo público, el atacante puede *fine-tunear* un modelo abierto en su sótano para que produzca de forma autónoma variantes polimórficas contra bancos, infraestructuras críticas o cualquier entidad regulada (OIV), evadiendo las firmas estáticas del mercado sin inversión en investigación. Para un directorio y su gerencia legal, esto significa que el ataque catastrófico ha dejado de ser imprevisible o alegable como caso fortuito, convirtiéndose en un riesgo comoditizado cuya inobservancia configura una negligencia inexcusable.
 
-Lo que Claude Mythos de Anthropic aportó no fue el conocimiento ofensivo: ese ya existía. Aportó la capacidad de industrializarlo.
+Lo que Claude Mythos de Anthropic aportó no fue el conocimiento ofensivo —ese acervo ya era público e ilimitado—. Lo que aportó fue el motor cognitivo para industrializarlo a escala, permitiendo que un ataque polimórfico se ejecute a la velocidad de la máquina, superando estructuralmente cualquier capacidad humana de defensa en tiempo real.
 
 ### Las cuatro dimensiones estructurales de la industrialización criminal
 
