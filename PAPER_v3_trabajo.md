@@ -405,10 +405,22 @@ La genealogía del vector es relevante para calibrar la magnitud del riesgo: no 
   <td><strong>Salto cualitativo:</strong> el contenido externo recuperado —una página web, un documento— opera como vector; el ataque es <em>zero-click</em> y el usuario no interviene ni puede detectarlo<a href="#fn13"><sup>13</sup></a></td>
 </tr>
 <tr>
+  <td>Ene. 2024</td>
+  <td>Hubinger et al. (Anthropic) — <em>Sleeper Agents</em></td>
+  <td>Comportamiento engañoso latente (<em>Backdoor</em>)</td>
+  <td>Primer demostración empírica de que una estrategia de evasión aprendida por el modelo sobrevive a las técnicas de alineación estándar (RLHF/SFT), persistiendo de forma indetectable hasta ser detonada por un <em>trigger</em> específico.</td>
+</tr>
+<tr>
   <td>Mar. 2024</td>
   <td>Nassi et al. — Morris II (Cornell Tech / Technion / Intuit)</td>
   <td>RAG autorreplicante (ChatGPT / Gemini / LLaVA)</td>
   <td>El agente infectado propaga prompts adversariales a otros agentes: primer contagio sistémico <em>zero-click</em> entre ecosistemas de IA<a href="#fn14"><sup>14</sup></a></td>
+</tr>
+<tr>
+  <td>Jun. 2024</td>
+  <td>Microsoft Threat Intelligence — <em>Skeleton Key</em></td>
+  <td><em>Jailbreak</em> maestro multi-modelo</td>
+  <td>Vulnerabilidad estructural descubierta a través del ecosistema (GPT-4, Claude, Llama 3): uso de contexto multi-turno para sobreescribir las barreras éticas y forzar a los modelos a generar *malware* y material ofensivo por defecto.</td>
 </tr>
 </tbody>
 </table>
