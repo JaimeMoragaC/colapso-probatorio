@@ -3791,7 +3791,15 @@ El análisis cruzado de este documento —que transita desde la teoría de siste
 
 Para recuperar la soberanía probatoria y garantizar la *accountability* que exigen las leyes 21.663, 21.719 y 21.459, el Estado no requiere derogar normas, sino abandonar la conformidad declarativa y exigir un consenso criptográfico distribuido que repudie la opacidad de los hiperescalares.
 
-De este diagnóstico estructural se desprenden las siguientes consecuencias prácticas:
+### El veredicto brutal para la ingeniería corporativa
+
+Si se destila este documento hasta su impacto más crudo para un Oficial de Seguridad de la Información (CISO) o un arquitecto *cloud*, el diagnóstico es devastador. No se les está revelando un nuevo vector de ataque que no conocieran, sino la **obsolescencia fiduciaria de su modelo de trabajo entero**:
+
+1. **El "punto ciego" técnico ahora es una prisión legal.** Para la ingeniería tradicional, que un atacante borre los *logs* es un incidente de visibilidad; un "riesgo residual" en una matriz. La cruda realidad procesal es que esa ceguera en la nube significa que el directorio acaba de perder su única defensa penal bajo la Ley 21.595 (la prueba del Modelo de Prevención), y que el reporte a la ANCI (Ley 21.663) será tipificado como información falsa. El problema de visibilidad del ingeniero acaba de dejar al gerente general sin defensa procesal.
+2. **La ilusión epistémica de la inversión *Cloud-Native*.** La industria gasta presupuestos millonarios en EDRs y SIEMs de última generación sobre la nube. Este texto estampa en la cara del mercado que toda esa inversión es un placebo legal: *software* auditando a *software* en una infraestructura de terceros no tiene peso probatorio frente a la IA polimórfica bajo las reglas de la sana crítica. El millonario contrato con el hiperescalar no sirve como prueba pericial.
+3. **El doloroso imperativo del silicio.** El mercado huyó hacia la virtualización porque el *hardware* físico es rígido y costoso de operar. Sin embargo, para recuperar la validez de la prueba, el ingeniero es forzado a retroceder al silicio (IETF RATS, SCITT). Se le obliga a aceptar que, sin atestación continua en tiempo de ejecución, toda su postura de seguridad es una autodeclaración que se desmoronará en su primer juicio oral.
+
+A nivel sistémico e institucional, de este diagnóstico se desprenden las siguientes consecuencias prácticas generales:
 
 **1. El colapso del *Compliance* como escudo: el estándar de diligencia del directorio (Ley 21.595) y la nulidad de ciberseguros. Las certificaciones como ISO 27001 o SOC 2 no auditan la integridad criptográfica de la memoria, sino procesos burocráticos, generando un "mercado de *lemons*" (Equilibrio de Nash) donde se tolera la ceguera tecnológica por conveniencia contractual.
 
