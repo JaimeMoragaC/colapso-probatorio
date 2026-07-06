@@ -1793,7 +1793,7 @@ Si la ingeniería demuestra que un registro sin atestación en silicio carece de
 
 4. **Reino Unido (El colapso de la presunción de fiabilidad *post*-Horizon).** El mayor error judicial en la historia británica —el escándalo del sistema Horizon del *Post Office*, que encarceló injustamente a cientos de administradores basado en *logs* de un sistema cerrado— expuso la trágica falacia de asumir que una computadora "funciona correctamente a menos que se demuestre lo contrario" (la presunción de la *Law Commission* de 1997). Tras el fallo de la *High Court* en *Bates v Post Office* (2019), que demostró que errores de *software* podían alterar los registros financieros sin dejar rastro visible para el usuario, la jurisprudencia y el Parlamento británico iniciaron la demolición de esta presunción de fiabilidad por defecto. Hoy, pretender que un tribunal acepte ciegamente un *log* de "caja negra" provisto por un gigante tecnológico, sin que la contraparte o el regulador puedan atestar criptográficamente la integridad del código en ejecución, es invitar al escrutinio probatorio más severo que la judicatura haya aplicado a la evidencia digital en su historia.
 
-*(Nota: La anatomía procesal y técnica de este desastre, y cómo el colapso de esta presunción impacta directamente la aplicabilidad de la Ley 21.595 y Ley 21.663 en Chile, se desglosa in extenso en el **[Análisis ampliado: anatomía técnica y jurídica del escándalo Horizon](#análisis-ampliado-anatomía-técnica-y-jurídica-del-escándalo-horizon-1999-2025)** dentro de la Sección 3.6).*
+*(Nota: La anatomía procesal y técnica de este desastre, y cómo el colapso de esta presunción impacta directamente la aplicabilidad de la Ley 21.595 y Ley 21.663 en Chile, se desglosa in extenso en el **[Análisis ampliado: anatomía técnica y jurídica del escándalo Horizon](#horizon-case)** dentro de la Sección 3.6).*
 
 ### 2.2 Amenaza Tipo II: agentes autónomos a escala
 
@@ -2056,6 +2056,7 @@ La lección dogmática es directa y de máxima actualidad: la fiabilidad de un s
 
 ---
 
+<a id="horizon-case"></a>
 ### Análisis ampliado: anatomía técnica y jurídica del escándalo Horizon (1999-2025)
 
 *La densidad de este caso lo convierte en el experimento controlado que la doctrina de evidencia digital rara vez tiene. Por eso merece más que una cita: su anatomía completa es el argumento.*
