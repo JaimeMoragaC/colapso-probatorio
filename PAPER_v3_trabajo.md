@@ -2601,7 +2601,7 @@ Un agente autónomo remoto no puede conectar un analizador lógico a un servidor
 
 ### El colapso de la tríada tradicional: La hemorragia del "dato agéntico" en texto plano
 
-> 🚨 **ADVERTENCIA AL DIRECTORIO**
+> **ADVERTENCIA AL DIRECTORIO**
 >
 > *Si su directorio confía en que la confidencialidad está garantizada porque "los datos están cifrados en la nube", acaba de certificar su propia vulnerabilidad penal.*
 >
