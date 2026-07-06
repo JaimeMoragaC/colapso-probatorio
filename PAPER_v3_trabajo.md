@@ -1907,7 +1907,9 @@ La crisis exhibió las consecuencias operativas y procesales del paradigma actua
 
 El caso anticipó, con exactitud estructural, el escenario que la directiva de Anthropic generalizaría a nivel geopolítico: la continuidad operacional y probatoria de la infraestructura crítica nacional está subordinada a la integridad de un tercero remoto que el obligado no controla, no puede auditar, y cuya evidencia no puede atestar criptográficamente en un tribunal. Un plan de continuidad operacional —hoy exigido a los OIV por la Ley 21.663— que no incorpore este grado de fatalismo técnico y asuma la necesidad de atestación física independiente, es manifiestamente fraudulento frente al regulador.
 
-La materialización más extrema de esta vulnerabilidad jurisdiccional no proviene de un ciberataque clásico (como en el caso de IFX), sino de la intervención directa de un Estado soberano sobre la disponibilidad de los modelos de frontera; un riesgo geopolítico que desborda cualquier plan de continuidad convencional.
+Pero si el caso IFX demostró el colapso del Estado frente a una banda criminal motivada por dinero, el verdadero terror fiduciario para un directorio ocurre cuando el actor que ejecuta el apagón lógico no es un *hacker*, sino un Estado extranjero protegiendo sus propios intereses estratégicos. Aquí es donde la vulnerabilidad *cloud* muta de un "riesgo de ciberseguridad" a una crisis de seguridad nacional irresoluble mediante contratos. 
+
+¿Qué sucede cuando la interrupción del núcleo tecnológico del país es una orden ejecutiva amparada por la ley estadounidense? La respuesta material se ejecutó en tiempo real apenas unos meses después.
 
 #### La controversia entre Anthropic y el gobierno de EE.UU.
 
