@@ -1760,17 +1760,9 @@ Si la subversión de *logs* convencionales ya destruye la validez probatoria de 
 - **[Vector 6] TOCTOU (*time-of-check / time-of-use*): La Lobotomía del Tiempo**
   - **El destrozo final:** El sensor lee la memoria en $T_1$. El *malware* muta su carga en $T_2$. La ejecución ocurre en $T_3$. Tu costoso sistema de atestación por *software* genera un *hash* criptográfico inquebrantable... del estado en $T_1$. Estás presentándole al juez una prueba criptográfica perfecta de un estado que ya no existía cuando ocurrió el crimen. **La criptografía no miente: firma con precisión matemática la ilusión que el atacante le entregó.**
 
-#### Caso testigo: hackeo al Estado Mayor Conjunto de las FF.AA. (Guacamaya, septiembre 2022)
+La anatomía de estos seis vectores demuestra que el colapso forense expuesto en la apertura de este documento —la masacre probatoria del Estado Mayor Conjunto en 2022— no fue un "error de configuración" de un administrador descuidado. Fue la manifestación temprana de una falla estructural de diseño (la dependencia en telemetría de Capa 7) que la IA polimórfica ahora amenaza con industrializar. 
 
-Si los seis vectores anteriores parecen el guion de un ciber-*thriller* del futuro, la historia reciente de Chile demuestra que el colapso probatorio ya ocurrió —y ocurrió en el corazón mismo de la defensa nacional usando tecnología infinitamente más primitiva—. El precedente nacional más grave de ceguera de la instrumentación y ruptura de la cadena de custodia se verificó años antes de la era de la IA polimórfica. Y si el Estado fue incapaz de ver un ataque convencional sostenido durante meses, la pregunta obligada es qué esperanza tiene el regulador de auditar a un agente autónomo en tiempo real.
-
-En septiembre de 2022, el colectivo hacktivista Guacamaya exfiltró más de 400.000 correos electrónicos clasificados del Estado Mayor Conjunto de las Fuerzas Armadas (EMCO), incluyendo documentación de inteligencia militar, sin que los sistemas de detección de intrusiones activaran alerta durante la operación<a href="#fn112" id="fnref112"><sup>112</sup></a>. La exfiltración se consumó y publicó sin que la instrumentación de seguridad —ni la del proveedor de correo ni la del propio EMCO— registrara la anomalía en tiempo real.
-
-El incidente constituye la demostración empírica más elocuente, en sede nacional, de la falla epistémica del verificador descrita supra: la auditoría certificó un estado benigno mientras el adversario operaba sin restricción. Si la instrumentación fue incapaz de detectar un ataque convencional de exfiltración masiva, sostener que esa misma arquitectura de *logs* autodeclarados puede acreditar un incidente frente a un agente autónomo con capacidad de razonamiento multi-paso (Mythos) es, con rigor, una ficción probatoria.
-
-### El veredicto arquitectónico: Hacia la soberanía del silicio
-
-El colapso de Guacamaya no fue un error humano de configuración; fue el síntoma de una falla estructural de diseño que los agentes de IA ahora amenazan con industrializar. Para detener esta aniquilación probatoria, la arquitectura de seguridad corporativa y estatal debe confrontar tres realidades ineludibles:
+Para detener esta aniquilación probatoria, la arquitectura de seguridad corporativa y estatal debe abandonar la ilusión de la observabilidad por software y confrontar tres realidades ineludibles:
 
 - **[La Falla Ciega] Elusión de la instrumentación**
   Un agente con acceso a herramientas puede desactivar su propio registro o abrir una vía paralela no registrada. Los propios marcos normativos y de transparencia criptográfica —como los estándares del NIST (SP 800-53, control AU-5) y la arquitectura SCITT (*Supply Chain Integrity, Transparency, and Trust*) del IETF— reconocen explícitamente esta limitación estructural, denominada *instrumentation failure* (fallo de instrumentación)<a href="#fn112" id="fnref112"><sup>112</sup></a>.
