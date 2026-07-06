@@ -2664,7 +2664,7 @@ El segundo pilar defensivo de la industria se basa en delegar el resguardo del e
 >
 > 🔁 **Traducción para abogados:** Confundir postura con prueba. Ninguna de estas defensas convierte los registros resultantes en evidencia verificable por un tercero. Un perito independiente no puede reproducir ni refutar lo que el entorno afirma que ocurrió, porque no tiene acceso al entorno que lo afirma —exactamente la misma opacidad que *State v. Pickett* rechazó como base de un dictamen forense (§3.6). Ofrecer estas medidas como cumplimiento de los deberes de las Leyes 21.663, 21.719 y 21.459 es un error categorial: el obligado puede acreditar que *contrató* mecanismos (cumplimiento formal); pero no puede acreditar materialmente lo que esos mecanismos *registraron* en el momento de la crisis.
 
-### 4.3 Telemetría de hipervisor y evasión polimórfica en el espacio de *kernel*
+### 4.3 La Ficción de la Telemetría Defensiva: Asimetría Física, Armas Polimórficas y la Falsificación del *Kernel*
 
 No estamos hablando de "atacantes" gaseosos o *script-kiddies*. Nos referimos a actores estatales como APT28 (Fancy Bear) o herramientas autónomas de próxima generación (PROMPTFLUX, PROMPTSTEAL). Tienen presupuesto ilimitado, paciencia estratégica y acceso a los mismos Modelos de Lenguaje Grandes (LLMs) que el defensor. Cuando estos adversarios entran en la red, no hacen ruido; analizan la telemetría del EDR, escriben *rootkits* polimórficos a medida y subvierten el *kernel* sin levantar alertas. Reducir esta amenaza a un problema de "cumplimiento contractual" es suicidio institucional.
 
