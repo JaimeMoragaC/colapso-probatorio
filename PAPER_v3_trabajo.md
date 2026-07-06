@@ -1951,15 +1951,15 @@ Una vulnerabilidad de "amnesia inducida" en un servidor alojado en jurisdicción
 
 El modelo de amenaza anterior deja de ser abstracto en cuanto se traduce a la propia operación del lector. Las siguientes siete preguntas tienen, cada una, dos formulaciones —la del ingeniero que diseña el sistema y la del abogado que tendrá que defenderlo— pero una sola respuesta material. *Si tres o más se responden con «no» o «no lo sé», la organización opera dentro del supuesto de §1.3.1: produce registros, no prueba.*
 
-| # | Pregunta del ingeniero | La misma pregunta para el abogado |
-|---|---|---|
-| 1 | ¿Puede reconstruir el estado del *kernel* del host de captura en T₀ del incidente sin pedir nada al proveedor? | ¿Tiene evidencia del momento del hecho que no dependa de la voluntad de un tercero para existir? |
-| 2 | ¿Su telemetría está firmada por una raíz de confianza en *hardware* que un atacante con privilegio de *kernel* no pueda falsificar? | ¿Puede un perito independiente verificar la integridad del registro sin confiar en quien lo produjo? |
-| 3 | Si el proveedor se apaga por directiva extranjera, ¿su evidencia sobrevive y es verificable *offline*? | ¿Su descargo depende de una infraestructura que una potestad ajena puede desconectar sin recurso? |
-| 4 | ¿Distingue *disponibilidad* del registro de *integridad* del registro en su cadena de custodia? | ¿Confunde «conservé el log» (art. 218 bis) con «el log dice la verdad»? |
-| 5 | ¿Su detección se apoya en clasificar *output* anómalo o en atestar el proceso que lo generó? | ¿Su prueba descansa en la coherencia del relato o en la procedencia verificable de su origen? |
-| 6 | ¿Sabría si un agente operó por debajo del umbral de su EDR/SIEM, en el mismo espacio que el sensor? | ¿Podría el adversario haber fabricado el registro que usted presentaría como prueba de su diligencia? |
-| 7 | ¿Tiene un certificado de proceso (ISO/SOC 2) o una prueba material de lo ocurrido en la crisis? | ¿Acreditó que *contrató bien*, o que *puede demostrar qué pasó*? Son deberes distintos. |
+| Pregunta del ingeniero | La misma pregunta para el abogado |
+|---|---|
+| ¿Puede reconstruir el estado del *kernel* en T₀ sin pedir nada al proveedor? | ¿Su evidencia depende de la voluntad de un tercero para existir? |
+| ¿Su telemetría está firmada en *hardware* inalterable desde el *kernel*? | ¿Puede un perito verificar el registro sin confiar en quien lo produjo? |
+| Si el proveedor se apaga por decreto extranjero, ¿su evidencia sobrevive *offline*? | ¿Su defensa depende de infraestructura que otro Estado puede desconectar? |
+| ¿Distingue *disponibilidad* de *integridad* en su cadena de custodia? | ¿Confunde «conservar el log» (art. 218 bis) con «probar que dice la verdad»? |
+| ¿Detecta *output* anómalo o atesta físicamente el proceso que lo generó? | ¿Su prueba descansa en un relato o en procedencia inmutable de su origen? |
+| ¿Sabría si el atacante operó bajo su SIEM, al mismo nivel del sensor? | ¿Podría el adversario fabricar el registro que usted presenta como prueba? |
+| ¿Tiene un certificado de proceso (SOC 2) o prueba material de la crisis? | ¿Acreditó que *contrató bien*, o que *puede demostrar qué pasó*? |
 
 *Tres horas para reportar; segundos o escasos minutos para el adversario. La pregunta no es si su organización es diligente, sino si puede probarlo cuando el registro lo escribió quien la atacó.*
 
