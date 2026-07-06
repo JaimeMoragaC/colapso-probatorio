@@ -1821,6 +1821,8 @@ Ante un incidente orquestado en el *Edge*, el *log* de la nube corporativa estar
 
 La adopción corporativa de estos agentes —sean centralizados vía APIs o empotrados en NPUs locales—, provistos de herramientas, memoria y autoridad delegada, multiplica exponencialmente la superficie de ataque, transformando la infraestructura en un punto ciego e ingobernable.
 
+#### El Vacío de Gobernanza y los Tres Mecanismos del Régimen Autónomo
+
 Indicadores de la industria estiman que hasta un 88% de las organizaciones que exploran agentes de IA han experimentado incidentes de seguridad, frecuentemente derivados de fallos en su configuración y de una falta crítica de visibilidad u observabilidad sobre la ejecución (el "vacío de gobernanza"). El dato de mayor solidez metodológica proviene del *Cost of a Data Breach Report 2025* (IBM)<a href="#fn113" id="fnref113"><sup>113</sup></a>:
 
 El informe constata empíricamente que el 97% de las organizaciones que sufrieron una brecha relacionada con IA carecían de controles de acceso y gobernanza adecuados para sus modelos, confirmando el déficit estructural de *logs* auditables en entornos de producción.
