@@ -1930,7 +1930,7 @@ Si la capacidad ofensiva está disponible en cualquier modelo de frontera sin ne
 
 La consecuencia probatoria bajo la Ley 21.663 y la Ley 21.595 es devastadora: confiar la ciberdefensa o la auditoría continua a un modelo de frontera alojado en el extranjero es someter a la infraestructura crítica chilena a un desarme forzado. El directorio está pagando por un agente de seguridad que, por mandato de un Estado foráneo, se negará a procesar la telemetría exacta que podría salvar a la corporación durante un ataque. La "ceguera forense" deja de ser un fallo técnico y se convierte en una política de cumplimiento del proveedor, garantizando que, en la "hora cero", el OIV local enfrente el desastre completamente a oscuras y sin posibilidad de atestar su debida diligencia.
 
-### 2.5 La falsa promesa estructural: Mamba y el *alibi* de los modelos de espacio de estados (SSM)
+### 2.5 La falsa promesa estructural: Mamba y la coartada de los modelos de espacio de estados (SSM)
 
 Acorralados por el colapso probatorio de sus modelos estrella (como evidenció la claudicación de Anthropic), los proveedores de nube han comenzado a desplegar una última coartada técnica para evitar la exigencia de soberanía en *hardware*: culpar a la matemática.
 
