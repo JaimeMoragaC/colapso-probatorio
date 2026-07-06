@@ -1760,6 +1760,8 @@ Si la subversión de *logs* convencionales ya destruye la validez probatoria de 
 - **[Vector 6] TOCTOU (*time-of-check / time-of-use*): La Lobotomía del Tiempo**
   - **El destrozo final:** El sensor lee la memoria en $T_1$. El *malware* muta su carga en $T_2$. La ejecución ocurre en $T_3$. Tu costoso sistema de atestación por *software* genera un *hash* criptográfico inquebrantable... del estado en $T_1$. Estás presentándole al juez una prueba criptográfica perfecta de un estado que ya no existía cuando ocurrió el crimen. **La criptografía no miente: firma con precisión matemática la ilusión que el atacante le entregó.**
 
+### El veredicto arquitectónico: Hacia la soberanía del silicio
+
 La anatomía de estos seis vectores demuestra que el colapso forense expuesto en la apertura de este documento —la masacre probatoria del Estado Mayor Conjunto en 2022— no fue un "error de configuración" de un administrador descuidado. Fue la manifestación temprana de una falla estructural de diseño (la dependencia en telemetría de Capa 7) que la IA polimórfica ahora amenaza con industrializar. 
 
 Para detener esta aniquilación probatoria, la arquitectura de seguridad corporativa y estatal debe abandonar la ilusión de la observabilidad por software y confrontar tres realidades ineludibles:
