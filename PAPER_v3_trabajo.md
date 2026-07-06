@@ -1805,7 +1805,15 @@ La adopción de "enjambres" (*swarms*) de agentes para automatizar el servicio a
 
 El riesgo de seguridad es estructural: el agente es el paradigma supremo del *Confused Deputy* (el delegado confundido). Opera internamente con los altos privilegios de la corporación (credenciales de la base de datos, acceso a la intranet), pero sus "instrucciones" de control pueden ser secuestradas en lenguaje natural por cualquier usuario externo malicioso a través de inyecciones de *prompts*. El atacante ya no necesita *hackear* el servidor perimetral; le basta con persuadir al agente de recursos humanos para que empaque y extraiga los salarios de la compañía usando las herramientas legítimas que el propio departamento de TI le configuró.
 
-La incorporación de estos agentes con herramientas, memoria y autoridad delegada multiplica exponencialmente la superficie de ataque, transformando cada integración de IA en un punto ciego y no gobernado.
+#### El agravante del *Edge AI*: Ceguera del perímetro ante procesadores neuronales (NPUs)
+
+A esta asimetría se suma un fenómeno arquitectónico que emergió con fuerza entre 2024 y 2026: la masificación de los *AI PCs*. Procesadores de consumo masivo (como la serie Snapdragon X Elite, Apple Silicon e Intel Core Ultra) incorporaron Unidades de Procesamiento Neuronal (NPUs) locales directamente en el escritorio del usuario. 
+
+Lejos de mitigar el riesgo, el *Edge AI* lo lleva al punto del colapso forense absoluto. Al correr modelos locales pequeños (SLMs) y agentes integrados en el sistema operativo (como la arquitectura detrás de *Windows Recall*), la IA procesa documentos confidenciales, redacta correos y consolida contexto **sin salir jamás a la red**. El servidor *cloud* de la corporación —donde los defensores creían tener la capacidad de auditar los flujos— queda completamente ciego ante esta ejecución. 
+
+Si un agente malicioso compromete la *laptop* de un ejecutivo bancario (Vector 6, TOCTOU en memoria unificada), ya no necesita exfiltrar datos hacia servidores detectables: la NPU local y su memoria persistente le entregan una base de datos semántica de todo lo que el ejecutivo vio y procesó en su pantalla. Ante un incidente orquestado en el *Edge*, el *log* de la nube corporativa estará vacío. La descentralización de la IA anula las defensas perimetrales y corrobora dogmáticamente el Paradigma Aegis: si la IA se ejecuta en el silicio del empleado, la única forma física y jurídicamente válida de auditarla para sobrevivir a un tribunal es exigiendo atestación criptográfica anclada en ese mismo *hardware*.
+
+La adopción corporativa de estos agentes —sean centralizados vía APIs o empotrados en NPUs locales—, provistos de herramientas, memoria y autoridad delegada, multiplica exponencialmente la superficie de ataque, transformando la infraestructura en un punto ciego e ingobernable.
 
 Indicadores de la industria estiman que hasta un 88% de las organizaciones que exploran agentes de IA han experimentado incidentes de seguridad, frecuentemente derivados de fallos en su configuración y de una falta crítica de visibilidad u observabilidad sobre la ejecución (el "vacío de gobernanza"). El dato de mayor solidez metodológica proviene del *Cost of a Data Breach Report 2025* (IBM)<a href="#fn113" id="fnref113"><sup>113</sup></a>:
 
