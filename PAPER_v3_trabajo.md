@@ -2672,13 +2672,13 @@ El tercer y último bastión de la defensa *cloud* es la telemetría dinámica: 
 
 La seguridad gestionada de los hiperescalares asume la inmutabilidad de la instrumentación en espacio de *kernel* (vía *Kprobes* o eBPF) y la visibilidad determinista desde el hipervisor (*Ring -1*). Frente a un agente autónomo con capacidad de introspección de sistema, esa arquitectura adolece de una asimetría insalvable de concurrencia y latencia. El Agente de IA ofensivo pre-calcula y compila *payloads* (armas) que operan en la escala de ciclos de reloj (nanosegundos). Es físicamente imposible que la telemetría del EDR —que depende de inferencia de IA en la nube o análisis estocástico con latencia de milisegundos— intercepte en tiempo real una manipulación de memoria que ocurre a la velocidad de la luz en el hardware.
 
-La instrumentalización de agentes polimórficos proyecta el ensamblaje dinámico de cadenas ROP/JOP mutando *offsets* en tiempo de ejecución. Para cuando el modelo defensivo (operando en cientos de milisegundos) intenta procesar la anomalía en espacio de usuario, la bala del atacante ya alteró las estructuras `task_struct` o la tabla de llamadas al sistema, falsificando la telemetría desde el origen.
+La instrumentalización de agentes polimórficos proyecta el ensamblaje dinámico de cadenas ROP/JOP mutando *offsets* en tiempo de ejecución. Para cuando el modelo defensivo (operando en cientos de milisegundos) intenta procesar la anomalía en espacio de usuario, la bala del atacante ya desconectó sus procesos de la lista principal mediante DKOM (*Direct Kernel Object Manipulation*), falsificando la telemetría desde el origen.
 
 El *audit trail* que el proveedor certifica y entrega es un artefacto criptográficamente válido, pero operacionalmente nulo.
 
 > 🔁 **Traducción para ingenieros:** El fraude del eBPF en código puro. Cuando la doctrina jurídica habla de "ceguera operacional", la ingeniería ofensiva la escribe así:
 > ```c
-> SEC("kprobe/sys_execve")
+> SEC("kprobe/__x64_sys_execve")
 > int bpf_prog1(struct pt_regs *ctx) {
 >     char payload_name[256];
 >     bpf_probe_read(payload_name, sizeof(payload_name), (void *)PT_REGS_PARM1(ctx));
