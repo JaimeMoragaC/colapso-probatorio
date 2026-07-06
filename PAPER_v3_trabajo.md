@@ -1930,11 +1930,13 @@ Si la capacidad ofensiva está disponible en cualquier modelo de frontera sin ne
 
 La consecuencia probatoria bajo la Ley 21.663 y la Ley 21.595 es devastadora: confiar la ciberdefensa o la auditoría continua a un modelo de frontera alojado en el extranjero es someter a la infraestructura crítica chilena a un desarme forzado. El directorio está pagando por un agente de seguridad que, por mandato de un Estado foráneo, se negará a procesar la telemetría exacta que podría salvar a la corporación durante un ataque. La "ceguera forense" deja de ser un fallo técnico y se convierte en una política de cumplimiento del proveedor, garantizando que, en la "hora cero", el OIV local enfrente el desastre completamente a oscuras y sin posibilidad de atestar su debida diligencia.
 
-### 2.5 La falsa promesa estructural: Mamba y los modelos de espacio de estados (SSM)
+### 2.5 La falsa promesa estructural: Mamba y el *alibi* de los modelos de espacio de estados (SSM)
 
-Ante las vulnerabilidades sistémicas descritas, la industria suele ofrecer una defensa basada en la innovación arquitectónica: las fallas intrínsecas a los *Transformers* se mitigarían migrando a arquitecturas más eficientes, como los modelos de espacio de estados (SSM), cuyo exponente es Mamba. Es una falsa promesa estructural.
+Acorralados por el colapso probatorio de sus modelos estrella (como evidenció la claudicación de Anthropic), los proveedores de nube han comenzado a desplegar una última coartada técnica para evitar la exigencia de soberanía en *hardware*: culpar a la matemática.
 
-A diferencia de los *Transformers*, que revisan todo el historial de entrada mediante autoatención (con costo cuadrático), Mamba logra tiempo lineal comprimiendo el contexto en un *estado oculto* de tamaño fijo. Esa misma eficiencia introduce vulnerabilidades de seguridad exclusivas de su arquitectura, que el cambio de sustrato no resuelve, sino que muta:
+El discurso corporativo argumenta ahora que las vulnerabilidades descritas no son inherentes a la delegación en la nube, sino un mero defecto de diseño de la arquitectura *Transformer*. Su promesa salvadora es la adopción de los Modelos de Espacio de Estados (SSM), cuyo máximo exponente es Mamba. Se le vende a los reguladores y directorios como la evolución segura y definitiva.
+
+Sin embargo, bajo el escrutinio de la Ley 21.595, Mamba es una falsa promesa estructural. A diferencia de los *Transformers*, que revisan todo el historial de entrada mediante autoatención (con costo cuadrático), Mamba logra tiempo lineal comprimiendo el contexto en un *estado oculto* de tamaño fijo. Esa misma eficiencia introduce vulnerabilidades de seguridad exclusivas de su arquitectura, que el cambio de sustrato no resuelve, sino que muta:
 
 1. **Envenenamiento del estado oculto (*hidden-state poisoning* / *HiSPA*).** Por la compresión secuencial, un *trigger* breve puede manipular el operador de transición espectral del modelo, induciendo la sobrescritura o corrupción de información previamente almacenada en el estado oculto —una "amnesia" parcial inducida que colapsa el horizonte de memoria—. Si un SSM opera como oráculo defensivo de un OIV, el adversario degrada su memoria del historial de intrusión en tiempo real<a href="#fn104" id="fnref104"><sup>104</sup></a>.
 
