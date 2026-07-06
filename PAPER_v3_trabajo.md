@@ -1715,15 +1715,12 @@ Un sistema de IA adversario no es un objeto auditable pasivo; puede operar contr
 
 La escena que abre este documento —las 03:14, el `GET` que se hace pasar por `SYSTEM`, los tres comandos que borran al testigo— no es una licencia narrativa: es una secuencia de técnicas catalogadas. Traducida a la taxonomía **MITRE ATT&CK** que todo equipo de defensa maneja, revela por qué la consola siguió «en verde» mientras una década de correo institucional salía por la puerta:
 
-| Momento del relato (apertura) | Técnica ATT&CK | Por qué el *dashboard* no se inmutó |
-|---|---|---|
-| `GET` sin credenciales interpretado como `NT AUTHORITY\\SYSTEM` | T1190 *Exploit Public-Facing Application* | El proxy de Exchange autenticó la petición como el propio sistema; ningún control de identidad tenía algo que objetar |
-| `w3wp.exe` engendra PowerShell; *webshell* `.aspx` | T1505.003 *Server Software Component: Web Shell* | El proceso padre es el servidor de correo legítimo: la cadena de proceso parece operación normal |
-| `New-MailboxExportRequest` ×162 → `.pst` exfiltrados | T1114.002 *Remote Email Collection* + T1567 *Exfiltration Over Web Service* | Es una función administrativa válida de Exchange: la herramienta no la marca como anómala |
-| `del …\\W3SVC1\\*.log` | T1070.004 *File Deletion* (registros IIS) | Se borra la *fuente* del registro web, no una alerta: no hay nada que «apagar» que alguien vaya a notar |
-| `Remove-Item (HistorySavePath)` | T1070.003 *Clear Command History* | Desaparece la traza de lo que se ejecutó |
-| `Remove-Item <webshell>.aspx` | T1070.004 *File Deletion* | Se elimina el punto de entrada |
-| 09:00 — consola «en verde» | T1562 *Impair Defenses* (efecto estructural) | La única instrumentación que podía ver el ataque vivía en el mismo host comprometido: el testigo se borró a sí mismo (**INV‑03**) |
+| Momento del relato (apertura) | Técnica ATT&CK | Por qué el *dashboard* no se inmutó (La ilusión epistémica) |
+| :--- | :--- | :--- |
+| **Falsificación de Identidad (SSRF)**<br>Petición HTTP malformada inyecta un *token* OAuth forjado hacia el *backend* del servidor (puerto 444). | **T1190** Exploit Public-Facing App<br>**T1134** Access Token Manipulation | El sensor perimetral (WAF/Firewall) ve tráfico SSL cifrado. La explotación ocurre en la memoria del *backend*; la petición hereda privilegios `SYSTEM` sin que ningún control semántico perimetral la intercepte. |
+| **Ejecución en Memoria (.NET CLR)**<br>El servidor web (`w3wp.exe`) compila una *webshell* `.aspx` al vuelo y ejecuta código en su propio espacio de memoria. | **T1505.003** Web Shell<br>**T1055.011** In-Memory Execution | Un EDR tradicional alerta si IIS abre una consola (`powershell.exe`). Al ejecutar el ataque de forma *fileless* dentro de la memoria legítima del entorno .NET, el EDR certifica el proceso como "normal". |
+| **Volcado y Exfiltración**<br>`New-MailboxExportRequest` a 162 buzones. Compresión y salida a través del túnel OWA existente. | **T1114.002** Remote Email Collection<br>**T1048.002** Exfil Over Non-C2 Protocol | El SIEM clasifica la exportación como "tarea administrativa de respaldo por usuario autorizado". El Firewall (DLP) no bloquea la fuga porque el tráfico sale cifrado por el puerto 443 autorizado. |
+| **Lobotomía del Testigo**<br>Truncado en memoria de *logs* IIS, *timestomping* de artefactos y purga de caché (`HistorySavePath`). | **T1070.004** File Deletion<br>**T1070.006** Timestomp | El atacante no detiene el servicio de auditoría (lo que dispararía alertas de disponibilidad). En su lugar, mutila el contenido y el tiempo. El sistema criptográfico firma su propia lobotomía, acreditando matemáticamente una historia falsa. |
 
 Ninguna de estas técnicas es exótica: están documentadas, tienen identificador y son el pan de cada día de un SOC. El punto del cuadro no es que el ataque sea sofisticado, sino lo contrario: incluso con técnicas catalogadas, el registro que el regulador recibirá fue escrito —y luego borrado— por el adversario, en un sustrato que el operador no controla.
 
