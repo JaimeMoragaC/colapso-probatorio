@@ -1797,7 +1797,15 @@ Si la ingeniería demuestra que un registro sin atestación en silicio carece de
 
 ### 2.2 Amenaza Tipo II: Agentes Autónomos a Escala
 
-La incorporación de agentes con herramientas, memoria persistente y autoridad delegada multiplica la superficie de ataque y los puntos de tratamiento no gobernados.
+Para entender la magnitud del colapso, es imperativo desmitificar qué es un "agente autónomo" frente a un modelo de lenguaje (LLM) tradicional. Hasta 2024, la adopción corporativa de IA se limitó a *chatbots* pasivos: oráculos estadísticos atrapados en un bucle síncrono de petición-respuesta (el usuario pregunta, el modelo responde) y aislados por diseño de la infraestructura crítica corporativa (solo tenían permiso de lectura o de generación de texto).
+
+A partir de 2025, el mercado cruzó el Rubicón arquitectónico. Los proveedores corporativos comenzaron a desplegar masivamente **agentes**: entidades de IA dotadas de autonomía de ejecución (bucles asíncronos que toman decisiones sin intervención humana), conectividad sistémica a través de *Function Calling* (capacidad de invocar APIs, ejecutar código en terminales, alterar bases de datos y enviar correos mediante protocolos como MCP, *Model Context Protocol*) y memoria persistente a largo plazo.
+
+La adopción de "enjambres" (*swarms*) de agentes para automatizar el servicio al cliente, recursos humanos u operaciones de TI se está realizando bajo una ignorancia temeraria sobre sus implicancias forenses. Se le entregó autoridad de escritura e interacción sistémica a motores de razonamiento que son matemáticamente no-deterministas. 
+
+El riesgo de seguridad es estructural: el agente es el paradigma supremo del *Confused Deputy* (el delegado confundido). Opera internamente con los altos privilegios de la corporación (credenciales de la base de datos, acceso a la intranet), pero sus "instrucciones" de control pueden ser secuestradas en lenguaje natural por cualquier usuario externo malicioso a través de inyecciones de *prompts*. El atacante ya no necesita *hackear* el servidor perimetral; le basta con persuadir al agente de recursos humanos para que empaque y extraiga los salarios de la compañía usando las herramientas legítimas que el propio departamento de TI le configuró.
+
+La incorporación de estos agentes con herramientas, memoria y autoridad delegada multiplica exponencialmente la superficie de ataque, transformando cada integración de IA en un punto ciego y no gobernado.
 
 Indicadores de la industria estiman que hasta un 88% de las organizaciones que exploran agentes de IA han experimentado incidentes de seguridad, frecuentemente derivados de fallos en su configuración y de una falta crítica de visibilidad u observabilidad sobre la ejecución (el "vacío de gobernanza"). El dato de mayor solidez metodológica proviene del *Cost of a Data Breach Report 2025* (IBM)<a href="#fn113" id="fnref113"><sup>113</sup></a>:
 
