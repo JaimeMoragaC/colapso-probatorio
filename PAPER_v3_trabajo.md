@@ -1823,6 +1823,8 @@ La adopción corporativa de estos agentes —sean centralizados vía APIs o empo
 
 #### El Vacío de Gobernanza y los Tres Mecanismos del Régimen Autónomo
 
+La transición corporativa hacia la Inteligencia Artificial no fue un proceso de ingeniería controlada; fue una carrera comercial a ciegas. Al desplegar enjambres de agentes con autoridad de ejecución sin haber resuelto primero la atestación física de sus servidores y terminales, las organizaciones abrieron la puerta a una categoría de desastre que la ciberseguridad tradicional ni siquiera puede ver ocurrir. La hecatombe forense dejó de ser especulativa y las métricas de este colapso ya son oficiales.
+
 Indicadores de la industria estiman que hasta un 88% de las organizaciones que exploran agentes de IA han experimentado incidentes de seguridad, frecuentemente derivados de fallos en su configuración y de una falta crítica de visibilidad u observabilidad sobre la ejecución (el "vacío de gobernanza"). El dato de mayor solidez metodológica proviene del *Cost of a Data Breach Report 2025* (IBM)<a href="#fn113" id="fnref113"><sup>113</sup></a>:
 
 El informe constata empíricamente que el 97% de las organizaciones que sufrieron una brecha relacionada con IA carecían de controles de acceso y gobernanza adecuados para sus modelos, confirmando el déficit estructural de *logs* auditables en entornos de producción.
