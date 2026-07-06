@@ -2601,7 +2601,13 @@ Un agente autónomo remoto no puede conectar un analizador lógico a un servidor
 
 ### El colapso de la tríada tradicional: La hemorragia del "dato agéntico" en texto plano
 
-> *Si su directorio confía en que la confidencialidad está garantizada porque "los datos están cifrados en la nube", acaba de certificar su propia vulnerabilidad penal. El cifrado que le vendieron protege la información muerta, en un disco inerte. Pero la Inteligencia Artificial no piensa encriptada. Para que su modelo razone, su secreto corporativo debe desnudarse en la memoria viva del hiperescalar, quedando a merced de quien controle el procesador. Lo que usted compró no es seguridad; es la ilusión de tener la llave de una caja fuerte cuya pared posterior ha sido desmantelada.*
+> 🚨 **ADVERTENCIA AL DIRECTORIO**
+>
+> *Si su directorio confía en que la confidencialidad está garantizada porque "los datos están cifrados en la nube", acaba de certificar su propia vulnerabilidad penal.*
+>
+> El cifrado que le vendieron protege la información muerta, en un disco inerte. **Pero la Inteligencia Artificial no piensa encriptada.** Para que su modelo razone, su secreto corporativo debe desnudarse en la memoria viva del hiperescalar, quedando a merced de quien controle el procesador. 
+>
+> Lo que usted compró no es seguridad; es la ilusión de tener la llave de una caja fuerte cuya pared posterior ha sido desmantelada.
 
 El andamiaje de cumplimiento tradicional fue diseñado para la era pre-agéntica y opera sobre tres estados de la información. El primero es el *dato en tránsito*, protegido por protocolos maduros como TLS 1.3, lo que estadísticamente constituye un vector cerrado. El segundo es el *dato en reposo*, resguardado mediante cifrado estático (AES-256) en discos de almacenamiento que proveen confidencialidad a la infraestructura inerte. Y el tercero es el *dato en uso*, el único estrato que verdaderamente importa en la era de los modelos de lenguaje, y donde radica el colapso arquitectónico de todo el esquema comercial *cloud*.
 
