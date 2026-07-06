@@ -2680,7 +2680,15 @@ De ahí la conclusión que cierra esta sección y reúne las cinco anteriores: e
 
 La traducción jurídica es directa. Cuando un tribunal o la ANCI reciben un registro de auditoría *cloud* y lo tratan como un relato consistente y completo de lo ocurrido, le atribuyen una propiedad —una línea temporal completa y verificable de forma independiente— que la plataforma que lo generó no garantiza en su configuración estándar. El Estado no apoya entonces su escrutinio en una prueba meramente débil: lo apoya en una prueba que la propia arquitectura que la produce advierte, de antemano, que no puede sostener.
 
-### Validación empírica: los incidentes nacionales como prueba material
+### 4.5 El fracaso de las bases de licitación (RFP) estándar y la necesidad de una "trampa contractual"
+
+Si las cinco imposibilidades estructurales recién demostradas anulan el valor probatorio de la nube, la respuesta corporativa de seguir licitando servicios *cloud* con las bases de contratación (RFP) estándar de la década pasada constituye un acto de negligencia predecible. 
+
+Un pliego de licitación que exige "cumplimiento ISO 27001", "auditoría SOC 2 Tipo II" y "99.9% de disponibilidad" está diseñando un contrato para el fracaso forense. Le está pidiendo al proveedor que demuestre que sus procesos están en regla, pero omite exigir la única pieza que salva al directorio penalmente: evidencia material, atestada en hardware y fuera de banda, que demuestre el estado exacto del entorno durante un ataque.
+
+Para sobrevivir a este vacío, la entidad obligada debe convertir sus licitaciones en un arma de cumplimiento probatorio. Debe dejar de pedir certificaciones documentales y exigir atestación criptográfica soberana como condición excluyente de admisibilidad. Este giro táctico descalifica por diseño a cualquier proveedor hiperescalar que dependa de telemetría opaca, trasladando la carga de la imposibilidad probatoria del directorio chileno al proveedor tecnológico. El modelo exacto para ejecutar esta maniobra legal en bases de licitación se entrega en la **Sección 6.9**.
+
+### 5. Validación empírica: los incidentes nacionales como prueba material
 
 Las fallas estructurales descritas no son proyecciones teóricas. El registro de incidentes en Chile entre 2022 y el primer semestre de 2026 confirma —caso por caso— que cada vulnerabilidad identificada ya se materializó en territorio nacional, con consecuencias verificables sobre la infraestructura crítica, los datos de los ciudadanos y la capacidad del Estado para acreditar lo ocurrido.
 
@@ -3738,6 +3746,24 @@ Si el tiempo de entrega (*handoff*) de la amenaza polimórfica (Mandiant M-Trend
 
 En síntesis, la NCG 502 no es un mero trámite administrativo para los exchanges; es la materialización jurídica del déficit estructural de prueba: la ausencia de un ancla de verificación independiente del propio custodio. Sin una Ceremonia de Firma Atestada en *hardware*, la cancelación del registro no será producto de una vulnerabilidad tecnológica en el custodio, sino del diseño arquitectónico de su régimen de evidencia probatoria.
 
+### 6.9 La Trampa de Licitación: Modelo de Anexo Técnico (RFP) para Contratación Soberana
+
+Si el diagnóstico probatorio y la teoría de seguros expuesta en este documento son correctos, el directorio, la gerencia legal y el oficial de cumplimiento (CISO/DPO) enfrentan una emergencia táctica inmediata: ¿cómo se contrata tecnología mañana por la mañana sin incurrir en culpa grave bajo la Ley 21.595?
+
+La respuesta no es una declaración de principios; es un **anexo técnico de licitación (RFP)**. Si un banco, un hospital o una entidad regulada inserta la siguiente cláusula en sus bases de licitación para servicios de nube, ciberseguridad o auditoría, logra dos objetivos letales e inmediatos:
+1. **Blindaje legal:** Demuestra ante la CMF y la Fiscalía que ejecutó la diligencia debida en su máxima expresión estructural, impidiendo que el riesgo forense ingrese a la organización.
+2. **Filtro de mercado:** Descalifica automáticamente a los hiperescalares tradicionales (AWS, Azure, Google Cloud) y a los proveedores que operan arquitecturas opacas, forzando la creación de un mercado de soberanía forense.
+
+> **ANEXO TÉCNICO MODELO: REQUISITOS DE ATESTACIÓN Y CADENA DE CUSTODIA (RFP-Soberano)**
+> 
+> *Para ser considerada admisible, la oferta deberá garantizar y proveer evidencia técnica del cumplimiento irrestricto de los siguientes requisitos operacionales. El incumplimiento sobreviniente constituirá causal de término anticipado del contrato con indemnización de perjuicios.*
+> 
+> 1. **Atestación de Hardware en $T_0$:** El Oferente debe proveer un mecanismo criptográfico (basado en estándar IETF RATS, DICE, o equivalente en hardware físico) que ateste el estado de ejecución en memoria (Ring-0/Hipervisor) del entorno donde se procesan los datos de la Institución, garantizando la captura de esta evidencia en el instante exacto de cualquier transacción u operación crítica.
+> 2. **Exclusión de Logs Autodeclarados:** No se aceptarán *logs* de auditoría generados exclusivamente por software en el nivel de hipervisor o sistema operativo como prueba de integridad, a menos que estén anclados de forma continua a una raíz de confianza en silicio (SCITT/Transparency Logs) verificable independientemente por la Institución o sus auditores.
+> 3. **Independencia Jurisdiccional (Anti-ECRA):** La infraestructura de telemetría de seguridad, captura de evidencia forense y nodo de continuidad (*failover* crítico) debe residir en territorio nacional. Su plano de control no puede estar sujeto técnica ni jurídicamente a la *Export Control Reform Act* (ECRA) u otras regulaciones de revocación extraterritorial que impidan a la Institución recuperar su evidencia offline.
+> 4. **Responsabilidad Financiera por Ceguera Forense:** Si ocurre un incidente de ciberseguridad y el Oferente no puede proveer evidencia criptográfica atestada de la indemnidad del entorno según el punto (1), el Oferente asumirá la responsabilidad civil íntegra por el daño directo y las multas regulatorias derivadas (Ley 21.595, Ley 21.663, Ley 21.719), renunciando expresamente a invocar límites de responsabilidad fundados en auditorías documentales estáticas (e.g. SOC 2, ISO 27001).
+
+Al introducir esta cláusula, la entidad financiera y el Estado dejan de ser víctimas pasivas de la negligencia hiperescalar y se convierten en los arquitectos y reguladores *de facto* de su propia seguridad.
 
 ## 7. Profundizaciones en la frontera entre la prueba y la máquina
 
