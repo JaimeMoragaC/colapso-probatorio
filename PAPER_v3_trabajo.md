@@ -1793,6 +1793,8 @@ Si la ingeniería demuestra que un registro sin atestación en silicio carece de
 
 4. **Reino Unido (El colapso de la presunción de fiabilidad *post*-Horizon).** El mayor error judicial en la historia británica —el escándalo del sistema Horizon del *Post Office*, que encarceló injustamente a cientos de administradores basado en *logs* de un sistema cerrado— expuso la trágica falacia de asumir que una computadora "funciona correctamente a menos que se demuestre lo contrario" (la presunción de la *Law Commission* de 1997). Tras el fallo de la *High Court* en *Bates v Post Office* (2019), que demostró que errores de *software* podían alterar los registros financieros sin dejar rastro visible para el usuario, la jurisprudencia y el Parlamento británico iniciaron la demolición de esta presunción de fiabilidad por defecto. Hoy, pretender que un tribunal acepte ciegamente un *log* de "caja negra" provisto por un gigante tecnológico, sin que la contraparte o el regulador puedan atestar criptográficamente la integridad del código en ejecución, es invitar al escrutinio probatorio más severo que la judicatura haya aplicado a la evidencia digital en su historia.
 
+*(Nota: El desarrollo dogmático, procesal y regulatorio detallado de esta asimetría probatoria —incluyendo su impacto bajo la Ley 21.595, la Ley 21.663 y la Ley 21.459— se analiza en profundidad en la **Sección 3.6: La presunción de fiabilidad de la máquina y la carga de la prueba**).*
+
 ### 2.2 Amenaza Tipo II: agentes autónomos a escala
 
 La incorporación de agentes con herramientas, memoria persistente y autoridad delegada multiplica la superficie de ataque y los puntos de tratamiento no gobernados.
