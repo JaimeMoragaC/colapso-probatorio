@@ -2010,18 +2010,40 @@ Esta afirmación no se limita a ISO 27001 y SOC 2. El ecosistema global de certi
 
 3. **La consecuencia penal es directa.** Bajo la Ley 21.595, si el directivo puede conocer —y este cuadro demuestra que puede— que ninguna certificación documental acredita el estado de ejecución del sistema que custodia la evidencia, la decisión de seguir apoyándose en ellas como escudo de debida diligencia es susceptible de ser valorada como asunción consciente del riesgo de irreconstruibilidad forense.
 
-Ese teatro tiene consecuencias forenses graves.
+Ese teatro tiene consecuencias económicas y procesales letales.
 
-Bajo la Ley 21.595 (Delitos Económicos), el directorio de un Operador de Importancia Vital debe acreditar debida diligencia —no intención, sino diligencia—. Si el único instrumento disponible para esa acreditación es un certificado emitido por un auditor que verificó *logs* autodeclarados por el propio sistema auditado, en un *runtime* que el obligado no controla y cuya integridad nadie atestó a nivel de silicio, entonces el escudo de responsabilidad es, literalmente, un escudo de papel: se desintegra en el momento exacto en que se necesita.
+### 3.1 El colapso de las pólizas de ciberseguro: exclusión por "culpa probatoria"
 
-Y §4 muestra, capa por capa, por qué ni siquiera ese papel sobrevive al examen técnico.
+El directorio teme a la responsabilidad penal (Ley 21.595), pero el Gerente de Finanzas (CFO) le teme al colapso de la caja. Históricamente, la mitigación corporativa consistió en transferir el riesgo económico mediante pólizas de *Cyber Insurance*. Sin embargo, el colapso probatorio de la nube inactiva este blindaje financiero por diseño.
 
-Este es el punto de partida de la taxonomía que sigue. Bajo la lógica de transferencia de riesgo legal que Anderson describió<a href="#fn164" id="fnref164"><sup>164</sup></a>, el modelo transaccional clásico —aceptar términos, autorizar accesos, firmar contratos— colapsa frente a la IA agéntica. No se trata de una deficiencia operativa transitoria que una actualización de *software* pueda corregir, sino de una **incompatibilidad estructural** entre el diseño autónomo de los sistemas de frontera y los principios rectores de responsabilidad del derecho:
+Toda póliza de ciberseguro corporativa incluye cláusulas de exclusión por "culpa grave" o "negligencia inexcusable" del asegurado, exigiendo además la entrega de evidencia forense irrefutable del siniestro para activar la cobertura. Cuando ocurre un ataque sobre un oráculo en la nube (ej. saturación del estado oculto), la organización es incapaz de presentar *logs* atestados criptográficamente. Al carecer de la raíz de confianza en silicio, el ajustador del seguro argumentará—correctamente, bajo la teoría probatoria expuesta—que el registro aportado es susceptible de manipulación y no constituye prueba material de cómo ocurrió la intrusión.
 
-### 3.1 Obsolescencia del consentimiento por no estacionariedad algorítmica
+El resultado económico es fulminante: la aseguradora se negará a pagar la indemnización alegando que la entidad fue negligente al delegar su arquitectura de *logs* en un sistema semánticamente ciego y sin atestación de *hardware*. **La entidad paga la prima por un seguro que, arquitectónicamente, nunca va a poder cobrar.**
+
+### 3.2 La impugnación simulada: crónica de una derrota procesal predecible
+
+Para comprender la magnitud de la exposición bajo el estándar del Código Procesal Penal chileno, basta proyectar el interrogatorio al Fiscal Corporativo de una entidad que intentó usar certificaciones extranjeras como escudo en un juicio por fraude o ciberataque masivo:
+
+> **Defensa de la Entidad:** "Su señoría, presentamos el registro de logs del proveedor *cloud* (AWS/Azure) y la certificación SOC 2 Tipo II, que prueban que operamos con el máximo nivel de diligencia. El ataque escapó a nuestro control."
+> 
+> **Perito Acusador / Fiscalía:** "¿Puede confirmar si esos logs fueron procesados en memoria (Ring-0) por un servidor cuya atestación física estaba bajo su control soberano al momento del ataque?"
+> 
+> **Defensa de la Entidad:** "Están en la nube de nuestro proveedor certificado, firmados por su sistema."
+> 
+> **Perito Acusador / Fiscalía:** "Pero el propio proveedor advierte que su hipervisor es vulnerable a inyección de estado. Como no hay atestación criptográfica del procesador físico en $T_0$, ¿tiene usted alguna forma de probar matemáticamente que el atacante no sobrescribió ese mismo *log* que usted hoy presenta como su defensa?"
+> 
+> **Defensa de la Entidad:** "...No podemos probar el estado físico del procesador, dependemos de la certificación."
+> 
+> **Fiscalía:** "Su señoría, la defensa no presenta evidencia del hecho. Presenta el testimonio de un software vulnerable, operado por un tercero que no comparece, y un papel (SOC 2) que certifica el pasado, no el momento del fraude. Hay negligencia grave en la cadena de custodia por diseño de arquitectura."
+
+Esta impugnación no es un ejercicio teórico; es la aplicación estricta del debido proceso y la cadena de custodia probatoria. Cuando la contraparte desnuda que el registro aportado es maleable, el directorio queda expuesto a las penas de la Ley 21.595 sin recurso fáctico. El modelo de *compliance* transaccional ha fracasado en la sala de audiencias.
+
+Bajo la lógica de transferencia de riesgo legal que Anderson describió<a href="#fn164" id="fnref164"><sup>164</sup></a>, el modelo transaccional clásico colapsa frente a la IA agéntica. No se trata de una deficiencia operativa transitoria que una actualización de *software* pueda corregir, sino de una **incompatibilidad estructural** entre el diseño autónomo de los sistemas de frontera y los principios rectores de responsabilidad del derecho:
+
+### 3.3 Obsolescencia del consentimiento por no estacionariedad algorítmica
 Un modelo sujeto a reentrenamiento continuo (*fine-tuning*) o actualización de pesos altera estocásticamente su espacio latente: el sistema que opera hoy es matemáticamente distinto al que solicitó el permiso ayer. Esto erosiona el **principio de finalidad** (Art. 5 GDPR; Ley 21.719<a href="#fn114" id="fnref114"><sup>114</sup></a>), que exige un fin específico, explícito y legítimo. Si el sustrato cognitivo muta, el tratamiento posterior en ese nuevo espacio latente excede el marco del consentimiento original, viciándolo por modificación unilateral e inadvertida de su objeto.
 
-### 3.2 Fractura de la minimización ante la inferencia y la delegación agéntica (*confused deputy*)
+### 3.4 Fractura de la minimización ante la inferencia y la delegación agéntica (*confused deputy*)
 Los esquemas de autorización binaria (RBAC/ACL) son ciegos a la semántica.
 
 Un agente puede inferir datos sensibles a partir de telemetría inocua, o delegar tareas a sub-agentes heredando permisos de forma recursiva mediante *prompt injection* (actuando como *confused deputy*). Es una vulneración directa al principio de proporcionalidad y minimización: el control de acceso es la materialización técnica de la minimización; si el sistema infiere o deriva información sensible no autorizada a partir de datos comunes, el esquema binario incumple su deber de limitar el tratamiento a lo estrictamente necesario.
@@ -2029,19 +2051,19 @@ Un agente puede inferir datos sensibles a partir de telemetría inocua, o delega
 > 🔁 **Traducción para abogados:** El "Diputado Confundido" y la Inferencia.
 > En el mundo físico, limitar la llave de una oficina (Control de Acceso) suele bastar para cumplir con el principio de minimización. En la IA, esto es falso. Un *Confused Deputy* (delegado confundido) ocurre cuando un agente corporativo con altos privilegios es engañado por un tercero para que abuse de su autoridad. Por ejemplo: si un adversario oculta instrucciones maliciosas en un currículum PDF, y el agente de RR.HH. (que tiene permisos legítimos de administrador) lee el archivo, el agente ejecutará el ataque usando *sus propios* privilegios, evadiendo los controles. Adicionalmente, los modelos pueden "inferir" (deducir) información protegida —como una enfermedad o afiliación política— cruzando datos completamente inocuos, como hábitos de compra o patrones de tipeo. El esquema de permisos dirá que el acceso a "compras" fue lícito, pero será ciego ante la deducción médica no autorizada que la IA realizó en su "caja negra", violando la minimización de datos por la puerta trasera.
 
-### 3.3 Ceguera operacional (TOCTOU) y ruptura de la cadena de custodia
+### 3.5 Ceguera operacional (TOCTOU) y ruptura de la cadena de custodia
 La auditoría de *software* mediante *software* en un entorno no atestado sufre la vulnerabilidad *Time-of-Check to Time-of-Use* (TOCTOU). La firma criptográfica valida la telemetría que el hipervisor declara, no la integridad física del estado de ejecución, permitiendo alterar la memoria entre la verificación y el uso.
 
 Genera **evidencia procesalmente nula**: una firma sobre un entorno comprometido certifica el estado que el entorno declaró —no necesariamente el real—, rompe la cadena de custodia exigida como presupuesto de validez probatoria (Ley 21.459) y expone al obligado a la infracción gravísima de "entregar información falsa o tardía" a la ANCI (Ley 21.663).
 
 
-Que esta ruptura derrote el valor probatorio del registro *sin* exigir a quien la alega la prueba —diabólica— de la alteración concreta es lo que se funda, con derecho comparado, en §3.6.
+Que esta ruptura derrote el valor probatorio del registro *sin* exigir a quien la alega la prueba —diabólica— de la alteración concreta es lo que se funda, con derecho comparado, en §3.8.
 
 > 🔁 **Traducción.**
 > **Ingeniería:** TOCTOU (*Time-of-Check to Time-of-Use*) es una clase de vulnerabilidad en la que el estado del sistema cambia entre el momento en que se verifica y el momento en que se usa. En un entorno no atestado, el atacante puede alterar la memoria de ejecución después de que el verificador comprueba la integridad y antes de que el resultado se registre. La firma criptográfica solo certifica el valor que el entorno *declaró* haber tenido; no puede distinguir ese valor del estado real si el entorno que firma ya estaba comprometido.
-> **Derecho:** lo que el perito recibe es una firma sobre lo que el sistema dijo que ocurrió, no sobre lo que ocurrió. Si el entorno que produjo y firmó el registro ya había sido comprometido, la cadena de custodia se rompió antes de que el registro existiera —y esa ruptura no requiere prueba de alteración concreta: basta acreditar que el entorno carecía de la atestación que permitiría descartarla (§3.6). El incumplimiento del deber de reporte (Ley 21.663, art. 9) no se salva con una firma válida sobre un contenido inacreditable.
+> **Derecho:** lo que el perito recibe es una firma sobre lo que el sistema dijo que ocurrió, no sobre lo que ocurrió. Si el entorno que produjo y firmó el registro ya había sido comprometido, la cadena de custodia se rompió antes de que el registro existiera —y esa ruptura no requiere prueba de alteración concreta: basta acreditar que el entorno carecía de la atestación que permitiría descartarla (§3.8). El incumplimiento del deber de reporte (Ley 21.663, art. 9) no se salva con una firma válida sobre un contenido inacreditable.
 
-### 3.4 Irreversibilidad algorítmica y la inejecutabilidad material del derecho de supresión
+### 3.6 Irreversibilidad algorítmica y la inejecutabilidad material del derecho de supresión
 La doctrina tradicional asume que un dato, una vez almacenado, conserva su individualidad física y puede ser aislado para su destrucción. En la arquitectura de los modelos fundacionales, esta premisa colapsa. Cuando un registro sujeto a tutela jurídica (datos personales, confidencialidad médica o secreto industrial) es ingerido vía API o absorbido mediante actualización estocástica de pesos (*weight memorization*), su entropía se entrelaza de forma irreversible en un espacio latente de alta dimensionalidad. Como ya se expuso al analizar la ficción de la supresión en los estados de la información corporativa<sup><a href="#regimenes-informacion">véase §1.3.3</a></sup>, el mandato legal de supresión o borrado deviene matemáticamente inejecutable: la representación distribuida aniquila la correspondencia biunívoca entre el sujeto de derecho y el sustrato físico de la información.
 
 #### Caso testigo: La historia clínica en el espacio latente
@@ -2056,7 +2078,7 @@ La investigación científica contemporánea demuestra que el llamado *machine u
 > **Para el abogado:** Borrar un dato de una base de datos tradicional es como arrancar una página de un libro; la información desaparece físicamente. Pero cuando una IA "ingiere" datos personales, no los guarda en páginas; los disuelve en sus parámetros, igual que disolver azúcar en un café. Cuando el paciente ejerce su "Derecho al Olvido", la ley exige que la clínica extraiga exactamente sus moléculas de azúcar sin derramar ni alterar el café. Esto es materialmente imposible.
 > **Para el ingeniero:** El cumplimiento legal de la Ley 21.719 exige *exact deletion*, que matemáticamente requiere equivalencia de reentrenamiento (*retrain equivalence*) desde cero sin el *dataset* del paciente. El *machine unlearning* actual aplica heurísticas de ofuscación (e.g., ascenso de gradiente) para esconder la salida, pero el entrelazamiento (*entanglement*) de pesos en espacios de alta dimensión asegura que la información siga latente y vulnerable a ataques de extracción adversarial. La ley fue escrita asumiendo álgebra relacional (SQL); la máquina opera con matrices de probabilidad irreversible.
 
-### 3.5 Dependencia jurisdiccional e incumplimiento del deber de continuidad
+### 3.7 Dependencia jurisdiccional e incumplimiento del deber de continuidad
 La Ley 21.663 impone a los Operadores de Importancia Vital (OIV) el deber ineludible de garantizar la continuidad operacional de los servicios esenciales. Sin embargo, la adopción de una arquitectura *cloud* hipercentralizada sin un *failover* soberano —una infraestructura de respaldo local e independiente que pueda operar de manera autónoma en caso de desconexión— vacía de contenido esta obligación legal.
 
 Cuando el plano de control (IAM, enrutamiento, telemetría) reside en una jurisdicción extranjera, la continuidad del servicio del OIV chileno queda subyugada a factores extralegales sobre los que no tiene agencia: la revocación unilateral del servicio por sanciones geopolíticas o regulatorias (como se expuso en la Sección 2.4), o el colapso financiero instantáneo inducido por agentes maliciosos (*denial-of-wallet* o ataques de agotamiento de cuota de API). Al no poseer atestación física ni capacidad de ejecución aislada en el territorio nacional, el apagón de la infraestructura lógica del proveedor apaga inmediatamente al operador local, materializando el incumplimiento normativo sin previo aviso ni capacidad material de mitigación.
@@ -2069,9 +2091,9 @@ GTD opera como proveedor de infraestructura para múltiples OIV; su caída demos
 
 Ante el CSIRT, los organismos afectados que habían delegado su operación (y su telemetría) no pudieron acreditar, con evidencia propia y verificable, el estado real de sus sistemas comprometidos, dependiendo enteramente de las declaraciones de un proveedor que ya estaba vulnerado. El deber de continuidad operacional de la Ley 21.663 exige superar este modelo de "espera ciega": obliga a contemplar no solo la revocación extranjera, sino el colapso sistémico del proveedor nacional mediante atestación independiente y capacidad de respaldo *air-gapped*.
 
-<a id="sec3-6"></a>
+<a id="sec3-8"></a>
 
-### 3.6 La presunción de fiabilidad de la máquina y la carga de la prueba: la integridad debe acreditarla quien presenta el registro (derecho comparado)
+### 3.8 La presunción de fiabilidad de la máquina y la carga de la prueba: la integridad debe acreditarla quien presenta el registro (derecho comparado)
 
 > *El juez tiene ante sí dos relatos del mismo hecho, ambos coherentes, ambos firmados, ambos extraídos del mismo entorno: uno lo aporta la defensa; el otro, la acusación. La pregunta que decide el caso no es cuál es más verosímil —la verosimilitud es, precisamente, lo que el sistema fue diseñado para producir—, sino cuál puede acreditar la integridad del entorno que lo generó. Si ninguno puede, el juez no valora prueba: elige un relato.*
 
@@ -2294,7 +2316,7 @@ Es, en términos probatorios, el caso Horizon chileno en potencia: el sistema pr
 
 <div style="page-break-before: always;"></div>
 
-### 3.6.1 Proyección al procedimiento administrativo sancionador: el cepo regulatorio y su única salida
+### 3.8.1 Proyección al procedimiento administrativo sancionador: el cepo regulatorio y su única salida
 
 > *Sala de audiencias del procedimiento sancionador. La Delegada de Protección de Datos cumplió cada casilla: ISO 27001 vigente, SOC 2 Type II, contrato con cláusula de auditoría, proveedor certificado. La instructora formula una sola pregunta: «¿Puede acreditar, con evidencia independiente del proveedor, que el registro que presenta no lo escribió el atacante?». No puede. Nadie en la sala puede. El certificado prueba que contrató con diligencia; no prueba qué ocurrió. Y el deber de responsabilidad proactiva no era contratar bien: era poder demostrarlo.*
 
@@ -2340,7 +2362,7 @@ Quien confía su defensa a que "tampoco podrán probar lo contrario" sigue incum
 Quien la adopta hoy convierte el cepo en piso firme; quien persiste en el cumplimiento meramente documental queda dentro cuando la tenaza se cierra. El catálogo normativo concreto para incorporar esta exigencia al régimen —reporte atestable, puerto seguro probatorio, continuidad bajo control del obligado y un estándar único de evidencia— se desarrolla en §6.3.
 
 
-### 3.6.2 Proyección al proceso penal: cadena de custodia, prueba ilícita y sana crítica
+### 3.8.2 Proyección al proceso penal: cadena de custodia, prueba ilícita y sana crítica
 
 > *El imputado es el desplegador del agente. Para exonerarse debe demostrar que el agente actuó fuera de sus instrucciones —que un tercero alteró sus parámetros, que la cadena de delegación se ramificó sin su autorización—. Esa prueba existe: son las trazas de decisión del modelo. Pero viven en la infraestructura del proveedor, a la que no tiene acceso, y que pudo ser purgada por el mismo adversario. No puede exigir que se le exhiba lo que el sistema nunca atestó. Víctima sin poder acusar a nadie; acusado sin nada con qué defenderse: la misma opacidad sirve a las dos indefensiones.*
 
