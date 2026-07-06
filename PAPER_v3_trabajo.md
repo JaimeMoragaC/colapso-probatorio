@@ -1941,9 +1941,7 @@ Para un abogado con experiencia en diseño de sistemas, esto es cambiar de cerra
 2. **Desplazamiento forzado de directrices de seguridad (Colapso por saturación).** Al tener una capacidad de retención matemática finita, el modelo sufre de un cuello de botella estructural. Si un atacante inyecta suficiente ruido o contexto irrelevante (saturación), Mamba se ve arquitectónicamente obligado a descartar las instrucciones de seguridad originales (los *guardrails* corporativos) simplemente para hacer espacio al nuevo *input*. No es un *hackeo* tradicional, sino un desplazamiento por diseño: el adversario inunda la sala de audiencias hasta que las reglas del debido proceso son empujadas fuera de ella<a href="#fn105" id="fnref105"><sup>105</sup></a>.
 
 #### Conclusión
-Cambiar el diseño del modelo (de *Transformer* a SSM) no resuelve el problema jurídico ni forense subyacente a la arquitectura regulatoria nacional vigente.
-
-El colapso probatorio no se limita a los Operadores de Importancia Vital bajo la Ley 21.663 (Ciberseguridad), sino que fractura por igual el sistema de cumplimiento de la Ley 21.595 (Delitos Económicos) y el régimen de protección de datos personales: si la telemetría es arquitectónicamente manipulable, el directorio corporativo es materialmente incapaz de atestar su debida diligencia.
+Cambiar el diseño del modelo (de *Transformer* a SSM) no resuelve el problema jurídico ni forense subyacente. Si la telemetría es arquitectónicamente manipulable mediante inyección de texto, cualquier sistema de cumplimiento penal corporativo (Ley 21.595) o de protección de datos (Ley 21.719) queda fracturado de origen: el directorio se vuelve materialmente incapaz de atestar su debida diligencia.
 
 Una vulnerabilidad de "amnesia inducida" en un servidor alojado en jurisdicción extranjera sigue siendo indetectable para el operador local si no existe atestación de *hardware* continua anclada en la raíz de confianza del silicio. La seguridad probatoria frente a la IA polimórfica no se alcanza modificando el sustrato cognitivo (*software*), sino anclando y verificando inmutablemente el sustrato físico (*hardware*).
 
