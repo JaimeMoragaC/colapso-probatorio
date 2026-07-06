@@ -2627,7 +2627,6 @@ Sin embargo, cuando este maquillaje comercial se somete a la implacabilidad de l
 
 El veredicto técnico y legal expone este sofisma sin atenuantes corporativos:
 
-**Veredicto de Ingeniería Ofensiva (Red Team):**
 Un atacante avanzado con un presupuesto de estado-nación o un auditor forense hostil descartaría de inmediato cualquier certificación BYOK/HYOK comercial. Desde la óptica de la ingeniería inversa, este andamiaje es insuficiente para proteger la confidencialidad, y la física matemática detrás de este fracaso opera en tres capas:
 
 **1. El fraude de la memoria viva (VRAM) y el dato en uso:**
