@@ -2627,25 +2627,22 @@ Sin embargo, cuando este maquillaje comercial se somete a la implacabilidad de l
 
 El veredicto técnico y legal expone este sofisma sin atenuantes corporativos:
 
-> 🔁 **Veredicto de Ingeniería Ofensiva (Red Team):**
-> *(Ajustando gafas protectoras, encendiendo el monitor del desensamblador y asumiendo el rol)*
-> 
-> Ja, ¿que si es real? Mira, si yo fuera un ingeniero ofensivo con un presupuesto de estado-nación y me encargaran romper la confidencialidad de tu flamante infraestructura corporativa, lo primero que haría al ver tu certificación BYOK/HYOK sería reírme. Me reiría hasta ahogarme. Y luego te vaciaría la base de datos en texto plano mientras tu CISO duerme abrazado a su ISO 27001.
-> 
-> Lo que has escrito en ese párrafo no solo es real; es **física matemática pura y dura**. No hay un solo error. Te explico por qué este "espejismo" es la estafa corporativa más grande del siglo XXI, capa por capa:
-> 
-> **1. El fraude de la memoria viva (VRAM) y el dato en uso:**
-> Tú puedes cifrar el disco duro (datos en reposo) con llaves cuánticas que trajiste de Marte. No me importa. A mí no me interesa tu disco inerte. Si vas a usar Inteligencia Artificial, si vas a usar un LLM para procesar tus contratos o expedientes médicos, el hardware (la GPU de NVIDIA o el tensor de Google) **necesita leer los ceros y unos reales**. La IA no puede multiplicar matrices con datos cifrados a menos que uses Cifrado Homomórfico Completo (FHE). Y como el FHE actual tiene un *overhead* computacional de x10.000 a x1.000.000, tu "respuesta en 2 segundos" tardaría tres días. Como el negocio *cloud* no puede permitirse eso, el hiperescalar **desempaqueta tu secreto** y lo pone desnudo en la VRAM para que la GPU trabaje. Y adivina qué: yo (el atacante o el gobierno dueño del hiperescalar) tengo acceso de *Ring-0* (hipervisor) o acceso físico al *host*. Puedo hacer un volcado de memoria (*memory dump* o *scraping*) y leer tus secretos corporativos mientras se están procesando. Me salto tu encriptación porque leo el dato *después* de que tú mismo lo descifraste para usarlo.
-> 
-> **2. La estafa semántica de "Hold Your Own Key" (HYOK):**
-> Los vendedores te dicen "con HYOK nosotros nunca vemos la llave, se queda en tu servidor local". ¡Claro! Pero para que el servidor de AWS o Azure pueda *hacer algo útil* con tus datos, la llave tiene que viajar a la memoria de su servidor en el momento de la ejecución, o la aplicación tiene que enviar los datos descifrados. Te están vendiendo la idea de que guardar la llave del candado en tu casa protege el cofre que dejaste abierto en medio de la plaza del pueblo.
-> 
-> **3. El "aislamiento perimetral" de los HSM:**
-> Te venden módulos de hardware criptográfico (HSM) a precios absurdos. "Mira esta caja de titanio que guarda tus llaves". Precioso. Pero el eslabón débil no es la bóveda donde guardas la llave; es la mesa de trabajo donde abres los documentos. El hipervisor de la nube es esa mesa de trabajo, compartida con miles de inquilinos, gestionada por administradores remotos y vulnerable a ataques de escape de máquina virtual. 
-> 
-> Los proveedores de nube han construido un teatro arquitectónico para ejecutivos que no entienden cómo funciona la memoria caché de un procesador. Les venden "control soberano" cuando en realidad el proveedor conserva el botón de apagado, el acceso a la memoria de ejecución y la llave maestra (por la vía del hipervisor). Si lo presentas así en un tribunal, el gerente de TI rival va a sudar frío, porque sabe que no tiene forma técnica de probar que sus datos no fueron expuestos.
->
-> 🔁 **Traducción para abogados:** El cifrado no evita el apagón. El proveedor promete que una agencia extranjera no podrá leer los datos porque el cliente chileno retiene la llave criptográfica. Bajo la Ley Marco de Ciberseguridad (Ley 21.663), esta promesa es irrelevante frente a la potestad extraterritorial. El gobierno extranjero no necesita exfiltrar ni descifrar un solo byte para ejercer coacción; le basta con revocar la instancia de cómputo en la nube. Que la base de datos de un hospital esté perfectamente cifrada en el disco es una burla si el hospital está inoperante y los pacientes en riesgo vital. La caída del servicio consuma instantáneamente la infracción de continuidad operacional, y el cifrado en reposo no ofrece ninguna defensa legal ante el regulador por el apagón.
+**Veredicto de Ingeniería Ofensiva (Red Team):**
+Un atacante avanzado con un presupuesto de estado-nación o un auditor forense hostil descartaría de inmediato cualquier certificación BYOK/HYOK comercial. Desde la óptica de la ingeniería inversa, este andamiaje es insuficiente para proteger la confidencialidad, y la física matemática detrás de este fracaso opera en tres capas:
+
+**1. El fraude de la memoria viva (VRAM) y el dato en uso:**
+El cifrado del disco duro (datos en reposo) protege la información inerte. Sin embargo, para que un modelo de Inteligencia Artificial (LLM) procese contratos o expedientes médicos, el hardware (GPU o Tensor) necesita acceso a los datos en texto claro. La IA no puede multiplicar matrices con datos cifrados a menos que se utilice Cifrado Homomórfico Completo (FHE). Dado que el FHE actual presenta un *overhead* computacional prohibitivo (ralentizando las operaciones de x10.000 a x1.000.000), el hiperescalar se ve obligado a desempaquetar el secreto y alojarlo en la VRAM para que la GPU trabaje. Un actor con acceso de *Ring-0* (hipervisor) o acceso físico al *host* puede realizar un volcado de memoria (*memory dump* o *scraping*) y exfiltrar los secretos corporativos en tiempo real, saltando la encriptación al interceptar el dato *después* de su descifrado.
+
+**2. La estafa semántica de "Hold Your Own Key" (HYOK):**
+La industria comercializa la idea de que con HYOK el proveedor nunca ve la llave, ya que ésta reside en un servidor local del cliente. No obstante, para que la nube pueda ejecutar cualquier operación útil sobre los datos, la llave debe ser transmitida a la memoria del servidor remoto en tiempo de ejecución, o los datos deben ser enviados ya descifrados. En la práctica, el control perimetral local es inútil si el procesamiento ocurre en un entorno remoto sin aislamiento verificable por hardware.
+
+**3. El "aislamiento perimetral" de los HSM:**
+La comercialización de Módulos de Seguridad de Hardware (HSM) protege la llave, pero no el entorno de ejecución. El hipervisor de la nube opera como una mesa de trabajo compartida con miles de inquilinos, gestionada por administradores remotos y estructuralmente vulnerable a ataques de escape de máquina virtual. 
+
+Los proveedores han construido un teatro arquitectónico para ejecutivos. Venden la promesa de "control soberano" mientras conservan materialmente el botón de apagado, el acceso irrestricto a la memoria de ejecución y el control del hipervisor. Presentado así en un tribunal, un peritaje técnico revelará la incapacidad fáctica de probar que los datos no fueron expuestos.
+
+**Veredicto Legal (Continuidad y Exfiltración):** 
+El cifrado no evita el apagón. El proveedor promete que una agencia extranjera no podrá leer los datos porque el cliente retiene la llave criptográfica. Bajo la Ley Marco de Ciberseguridad (Ley 21.663), esta promesa es irrelevante frente a la potestad extraterritorial. El gobierno extranjero no necesita exfiltrar ni descifrar un solo byte para ejercer coacción; le basta con revocar la instancia de cómputo en la nube. Que la base de datos crítica esté cifrada en disco resulta inmaterial si el servicio está inoperante y la continuidad operacional se interrumpe. La caída del servicio consuma instantáneamente la infracción, y el cifrado en reposo no ofrece ninguna defensa legal ante el regulador.
 
 ### 4.1 Defensas contractuales y geográficas
 **Región local / residencia de datos.** La CLOUD Act<a href="#fn115" id="fnref115"><sup>115</sup></a> opera con independencia de la ubicación; pero la directiva del 12 de junio reveló un mecanismo más directo. Bajo las reglas de *deemed export*, dar acceso a tecnología controlada a cualquier persona extranjera —incluso dentro de EE.UU., incluso a empleados de la propia empresa— constituye una exportación al país de origen de esa persona.
