@@ -1926,6 +1926,10 @@ La controversia no debilita el argumento de este documento; lo cierra por ambos 
 
 Si la capacidad ofensiva está disponible en cualquier modelo de frontera sin necesidad de *bypass*, entonces todo modelo de frontera es, por diseño, una herramienta de doble uso cuya contención depende de clasificadores manipulables, y todo proveedor de nube que los ofrezca es un vector de riesgo jurisdiccional sujeto a la misma potestad de revocación.
 
+**El colapso silencioso del apalancamiento financiero (Ciberseguros):** Existe una consecuencia estructural que el mercado ha omitido por completo. Un apagón de APIs ordenado por la EAR/BIS no califica jurídicamente como un incidente de ciberseguridad; es un acto de soberanía extranjera (sanción geopolítica). Esto activa automáticamente las cláusulas de exclusión por "Acto de Estado" o "Guerra Cibernética" (*Hostile Act exclusion*) presentes en el 100% de las pólizas de ciberseguro corporativo de gran escala. 
+
+Si un OIV chileno cae por un ataque de *ransomware* (como IFX), la póliza mitiga el daño. Pero si el núcleo transaccional del banco cae porque EE.UU. restringió la exportación del modelo (Anthropic), el siniestro es legalmente inasegurable. Bajo el prisma de la Ley 21.595, el directorio que aprueba una dependencia absoluta hacia modelos de frontera alojados en EE.UU. no solo cede soberanía; comete una negligencia patrimonial inexcusable. Están reemplazando un riesgo operacional mitigable por un riesgo geopolítico financieramente tóxico, garantizando que, ante el colapso, el daño se pague directamente con el patrimonio corporativo y personal de los directores al quedar la corporación desprovista de cobertura.
+
 ### 2.5 La falsa promesa estructural: Mamba y los modelos de espacio de estados (SSM)
 
 Ante las vulnerabilidades sistémicas descritas, la industria suele ofrecer una defensa basada en la innovación arquitectónica: las fallas intrínsecas a los *Transformers* se mitigarían migrando a arquitecturas más eficientes, como los modelos de espacio de estados (SSM), cuyo exponente es Mamba. Es una falsa promesa estructural.
