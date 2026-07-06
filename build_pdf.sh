@@ -9,7 +9,7 @@ pandoc PAPER_v3_trabajo.md -o PAPER_v3_Formato_Institucional.html --standalone \
   --template=template.html \
   -V lang=es --toc --toc-depth=4
 
-google-chrome --headless --disable-gpu \
+google-chrome --headless --disable-gpu --no-sandbox \
   --print-to-pdf=PAPER_v3_Formato_Institucional.pdf \
   --print-to-pdf-no-header --no-pdf-header-footer \
   PAPER_v3_Formato_Institucional.html
