@@ -2650,7 +2650,7 @@ Ese fue el mecanismo invocado para ordenar la suspensión de acceso por cualquie
 
 El director legal de Microsoft Francia declaró ante el Senado francés (2025)<a href="#fn136" id="fnref136"><sup>136</sup></a> que la compañía no puede garantizar que datos europeos no sean requeridos por autoridades de EE.UU.; tras el 12 de junio, la cuestión dejó de ser si los datos pueden ser requeridos y pasó a ser si el servicio puede ser revocado —y la respuesta es empírica—.
 
-### 4.2 Cómputo confidencial, Atestación Comercial y la Ceguera Inter-Agencial (A2A)
+### 4.2 El Espejismo del Cómputo Confidencial: La Farsa de la Atestación Comercial y la Ceguera Inter-Agencial (A2A)
 
 El segundo pilar defensivo de la industria se basa en delegar el resguardo del entorno a consorcios tecnológicos y mecanismos de cifrado avanzado por hardware (NVIDIA Hopper/Blackwell, Intel Trust Authority, Google Confidential Space), proyectando una ilusión de soberanía criptográfica. Si bien la industria ha reconocido la insuficiencia de los hipervisores y promueve ahora enclaves físicos (TEE) con atestación remota, esta arquitectura comercial sufre de fracturas estructurales insalvables para la soberanía del Estado y la seguridad agéntica:
 
