@@ -1795,7 +1795,7 @@ Si la ingeniería demuestra que un registro sin atestación en silicio carece de
 
 *(Nota: La anatomía procesal y técnica de este desastre, y cómo el colapso de esta presunción impacta directamente la aplicabilidad de la Ley 21.595 y Ley 21.663 en Chile, se desglosa in extenso en el **[Análisis ampliado: anatomía técnica y jurídica del escándalo Horizon](#horizon-case)** dentro de la Sección 3.6).*
 
-### 2.2 Amenaza Tipo II: agentes autónomos a escala
+### 2.2 Amenaza Tipo II: Agentes Autónomos a Escala
 
 La incorporación de agentes con herramientas, memoria persistente y autoridad delegada multiplica la superficie de ataque y los puntos de tratamiento no gobernados.
 
