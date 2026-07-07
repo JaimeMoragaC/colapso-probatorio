@@ -132,6 +132,9 @@ TERMS = {
 "WormGPT":["wormgpt"],
 "XBOW":["xbow"],
 # --- términos añadidos ---
+"NCG 502 (CMF, obligaciones Fintec)":["ncg 502"],
+"RAN 20-7 / 20-8 / 20-10 (normativa CMF)":["ran 20-7","ran 20-8","ran 20-9","ran 20-10","capítulo 20-7","capítulo 20-8","capítulo 20-10"],
+"Banco de Chile / Redbanc (Lazarus, 2018)":["banco de chile","redbanc","powerratankba"],
 "Preservación provisoria (Art. 218 bis CPP)":["218 bis","preservación provisoria"],
 "Incidente (reporte y gestión de)":["reporte de incidente","reporte del incidente","reporte de incidentes","gestión de incidentes","notificación de incidente","deber de reporte"],
 "Responsable de la información / del tratamiento":["responsable de la información","responsable del tratamiento","responsable de datos","responsable de la informacion"],
