@@ -761,7 +761,7 @@ Para dimensionar la amenaza asimétrica, es indispensable mapear la matriz origi
 Este mapa evidencia que la integración del "motor cognitivo" ofensivo es doctrina militar en etapa de despliegue activo. La institucionalización de estas tácticas es tan absoluta que la telemetría de Microsoft y OpenAI forzó, en su actualización crítica de **marzo de 2026**, la integración definitiva en la matriz global **MITRE ATT&CK® y MITRE ATLAS™** para incluir formalmente una nueva taxonomía de "TTPs temáticos de LLM" (*LLM-themed TTPs*). Estos vectores de ataque oficiales incluyen la "evasión de detección de anomalías mejorada por LLM" (*LLM-enhanced anomaly detection evasion*) —utilizada por actores como Crimson Sandstorm para evadir EDRs alterando silenciosamente el registro de Windows— y la "artesanía de *payloads* optimizada" (*LLM-optimized payload crafting*)<a href="#fn265" id="fnref265"><sup>265</sup></a>. El colapso regulatorio que enfrenta una corporación radica en que el cibercrimen financiero (los *Spiders* del eCrime) ya no necesita desarrollar la tecnología que poseen los *Bears* o los *Pandas*; simplemente asimilan estas tácticas algorítmicas, ya codificadas en los manuales abiertos, y las dirigen contra la empresa privada.
 
 
-### Los tres vectores de ataque y su arquitectura técnica
+### Anatomía del Colapso Probatorio: Tres Vectores de Ejecución a Velocidad de Máquina
 
 La horda descrita no opera de forma abstracta: sus capacidades se materializan usualmente en tres vectores documentados que concentran la mayor parte de los incidentes reales en infraestructura crítica y ecosistemas financieros. Cada uno tiene casos verificados en el contexto chileno y, lo que es más relevante para el argumento de este documento, cada uno genera una categoría específica de falla epistémica en el verificador —el mismo tipo de falla que compromete la cadena de custodia de la evidencia que el OIV debe presentar a la ANCI o que la entidad financiera debe remitir a la CMF.
 
@@ -777,6 +777,8 @@ La conclusión de ingeniería no es necesariamente que el ataque fue dirigido po
 Frente a estas métricas, la reacción pública de la industria nacional de ciberseguridad ilustra de forma prístina la ceguera forense que este documento denuncia. Al analizar la contracción del *breakout time* a 29 minutos, los especialistas chilenos concluyeron que el problema radicaba en la gestión de credenciales comprometidas y prescribieron como solución masiva la migración hacia arquitecturas de Confianza Cero (*Zero Trust*)<a href="#fn227" id="fnref227"><sup>227</sup></a>. El diagnóstico es arquitectónicamente fallido: un motor de políticas *Zero Trust* opera en la capa de *software* (Capa 7), volviéndose estructuralmente inútil si la telemetría que evalúa proviene de un núcleo del sistema operativo (*kernel*) ya subvertido por un agente adversarial. Gestionar identidades no resuelve la asimetría temporal si el atacante —operando en anillos de privilegio profundo— clona la sesión legítima en memoria y falsifica los *logs* que el propio sistema *Zero Trust* consumirá para autorizar el acceso. Pretender que un colapso en la física de la cadena de custodia probatoria se soluciona comprando licencias de validación semántica es el error fundacional del modelo corporativo vigente.
 
 La única defensa viable e inmutable contra un ataque a velocidad de máquina es una atestación anclada en silicio bajo control criptográfico soberano, que opere en una capa fundacional subyacente (anillos -1/0) inaccesible a la automatización; esto descarta de plano las soluciones comerciales de los hiperescalares (Intel SGX/TDX, AMD SEV-SNP, AWS Nitro Enclaves), cuyas supuestas atestaciones de *hardware* operan como cajas negras bajo jurisdicción extranjera incapaces de resistir una auditoría pericial hostil.
+
+#### Arquitectura del Apagón: La Integración Secuencial de los Tres Vectores
 
 A partir de esta superioridad operativa, la cadena de compromiso observada en la infraestructura nacional se articula típicamente mediante la integración secuencial de tres vectores específicos:
 
@@ -794,6 +796,10 @@ Este no es un temor especulativo, sino el perfil dominante del incidente actual:
 
 > 🔁 **Traducción para abogados:** Un *log* inalterable en la nube no prueba que el sistema estaba seguro; solo prueba que nadie modificó el archivo *después* de que se guardó la mentira. Si el atacante operó desde una máquina comprometida usando credenciales robadas, el *log* documentará fielmente esa operación fraudulenta como si fuera legítima. Intentar defender a un directorio o a un gerente usando estos *logs* como "evidencia de debida diligencia" ante la CMF o un tribunal penal es garantizar su condena.
 
+
+<div style="page-break-before: always;"></div>
+
+# 1. El Falso Consenso de la Seguridad Cloud: Anatomía de un Fracaso Normativo
 
 ### 1.1 Planteamiento del problema: la evidencia en el entorno *cloud*
 
@@ -2955,7 +2961,7 @@ La cláusula, sin embargo, debe redactarse anticipando la contra-oferta previsib
 
 La consecuencia contractual es directa: una base de licitación que exija "atestación de hardware conforme a IETF RATS" sin discriminar quién opera el *Verifier* será satisfecha —con honestidad técnica impecable— por cualquiera de estos servicios, y la trampa contractual quedará reducida al mismo *checkbox* que esta sección denuncia en ISO 27001 y SOC 2. La discriminación es exigible porque los componentes que sí admiten despliegue bajo control soberano también tienen nombre y apellido: verificadores auto-hospedables como Veraison (Confidential Computing Consortium) o Keylime (CNCF), y raíces de confianza de silicio abierto y auditable como OpenTitan o Caliptra. Este último aporta, además, una admisión probatoria de primer orden: AMD, Google, Microsoft y NVIDIA lo fundaron y lo están integrando en su propio silicio de centro de datos —con los primeros chips llegando al mercado en 2026—, reconociendo en los hechos que una raíz de confianza cerrada e inauditable ya no es defendible ni para sus propios entornos<a href="#fn222" id="fnref222"><sup>222</sup></a>. El modelo exacto para ejecutar esta maniobra legal en bases de licitación —incluido el test de discriminación que un comité evaluador no criptógrafo puede aplicar— se entrega en la **Sección 6.9**.
 
-### 5. Validación empírica: los incidentes nacionales como prueba material
+### 4.6 Validación empírica: los incidentes nacionales como prueba material
 
 Las fallas estructurales descritas no son proyecciones teóricas. El registro de incidentes en Chile entre 2018 y el primer semestre de 2026 confirma —caso por caso— que cada vulnerabilidad identificada ya se materializó en territorio nacional, con consecuencias verificables sobre la infraestructura crítica, los datos de los ciudadanos y la capacidad del Estado para acreditar lo ocurrido.
 
@@ -3001,13 +3007,13 @@ La tabla anterior identifica la falla; la siguiente la *diseca* desde la única 
 
 *Tabla — Autopsia probatoria. En cada caso, sin excepción, la columna «¿verificable por un tercero?» es «no» (o «parcial»), y la última columna exhibe la misma estructura: el obligado pudo acreditar que «algo ocurrió», pero no pudo acreditar qué, cómo, cuándo ni en qué estado —que es justamente lo que los tres regímenes exigen probar—. Las celdas de detalle sujetas a confirmación de fuente se tratan en §5.1.3 con sus respectivas notas.*
 
-#### 5.1.1 Dogmática de la responsabilidad corporativa y prueba ilícita (el colapso de la delegación)
+#### 4.6.1 Dogmática de la responsabilidad corporativa y prueba ilícita (el colapso de la delegación)
 
 La evidencia empírica de la tabla anterior tiene traducción legal inmediata para los directorios, oficiales de cumplimiento y gerencias legales de los OIV.
 
 La defensa corporativa tradicional descansa en transferir el riesgo al proveedor *cloud* mediante acuerdos de nivel de servicio (SLA). Cuatro incidentes nacionales demuestran que, bajo la arquitectura normativa vigente (Leyes 21.663, 21.459 y 21.719), esa estrategia de delegación no descarga la responsabilidad: la traslada íntegra al obligado local.
 
-### 1. BancoEstado (2020): el principio de indelegabilidad de la prueba.
+**1. BancoEstado (2020): el principio de indelegabilidad de la prueba.**
 
 El *ransomware* Sodinokibi (5 de septiembre de 2020) forzó el cierre de las 410 sucursales del banco y motivó la supervisión in situ de la CMF desde el primer fin de semana. El banco activó sus protocolos y presentó querella por sabotaje informático. La Fiscalía cerró la investigación y comunicó la **decisión de no perseverar** (Art. 248 c del Código Procesal Penal) el 7 de junio de 2021, «por no haberse reunido los antecedentes necesarios para fundar una acusación»<a href="#fn53" id="fnref53"><sup>53</sup></a>: pese a la supervisión in situ del regulador, no fue posible identificar imputados ni establecer responsabilidad, porque la evidencia forense residía en un entorno que el obligado no controlaba ni pudo atestar de forma independiente. Este caso asienta nuestra cuarta tesis central:
 
@@ -3032,25 +3038,25 @@ La indelegabilidad de la consecuencia exige disponer de evidencia propia y verif
 >
 > La PDI y la Fiscalía no encontraron evidencia no porque la investigación fuera deficiente, sino porque Sodinokibi fue diseñado para que no hubiera evidencia que encontrar en los sistemas de la víctima. El único entorno donde esa evidencia podría haber subsistido era uno con atestación continua de *hardware* anterior al ataque —que hubiera preservado un estado de referencia íntegro, anclado antes del compromiso, contra el cual comparar el estado post-ataque—. Ese entorno no existía, porque no se le había exigido. Ese es el déficit que el régimen de la Ley 21.663 no puede tolerar si pretende que el deber de reporte sea algo más que una ficción.
 
-### 2. IFX Networks (2023): la fuerza mayor ficticia.
+**2. IFX Networks (2023): la fuerza mayor ficticia.**
 
 El secuestro de datos que derribó la infraestructura de IFX Networks paralizó ChileCompra, obligando a retornar a documentos físicos por días.
 
 Frente a este "apagón", la dogmática civil suele invocar la fuerza mayor  (Art. 45 del Código Civil) alegando que la caída de un proveedor internacional es un "imprevisto imposible de resistir". Pero delegar infraestructura crítica del Estado en un proveedor no atestable elimina el eximente de imprevisibilidad: constituye una negligencia arquitectónica previsible y vulnera el deber de continuidad operacional que exige la Ley 21.663.
 
-### 3. GTD (2023): la ilusión de la diversificación del riesgo
+**3. GTD (2023): la ilusión de la diversificación del riesgo.**
 
  El *ransomware* que derribó a GTD se propagó en cascada a numerosos clientes, incluidos servicios públicos críticos.
 
 Los equipos legales asumen erróneamente que contratar varios proveedores locales satisface la "debida diligencia". Dogmáticamente, si un proveedor local concentra los servicios críticos de múltiples OIV sin *failover* soberano, la diversificación contractual es ilusoria: contratar varios proveedores que dependen de la misma infraestructura no satisface el deber de continuidad operacional (Ley 21.663). La omisión de exigir garantías de continuidad estructural atestables  es, precisamente, la falla de diligencia que la ley imputa al obligado.
 
-### 4. EMCO / Guacamaya (2022): la ceguera inducida por diseño
+**4. EMCO / Guacamaya (2022): la ceguera inducida por diseño.**
 
 La filtración de 400.000 correos de inteligencia del Estado Mayor Conjunto forzó la salida del jefe del EMCO y el retorno de emergencia de la ministra de Defensa. Los antecedentes indican que se conocían vulnerabilidades previas.
 
 Operar infraestructura crítica con vulnerabilidades conocidas y sin verificación continua no es un infortunio: la imposibilidad de reconstruir la cadena de custodia durante el ataque no es un accidente, sino el resultado previsible de operar ciego por diseño . El reproche no requiere invocar figuras penales agravadas; basta el estándar de diligencia que la propia ley impone al obligado.
 
-### 5.1.2 El patrón común: la anatomía recurrente del colapso probatorio
+#### 4.6.2 El patrón común: la anatomía recurrente del colapso probatorio
 
 *En una frase: incidentes muy distintos —inteligencia militar, banca, salud, compras públicas— fallan exactamente de la misma manera y en el mismo orden, y esa repetición es lo que convierte una lista de anécdotas en evidencia de un problema estructural.*
 
@@ -3088,7 +3094,7 @@ Frente a un adversario avanzado, el colapso probatorio opera mucho antes: la Fis
 
 El resultado empírico es absoluto:no hay una sola condena por sabotaje contra una infraestructura crítica en la historia penal de Chile . La impunidad resultante no es un defecto procesal de la fiscalía, sino un defecto estructural de la arquitectura *cloud* que destruye la verificabilidad de la evidencia desde el diseño. Superar esa arquitectura es, en último término, lo que este documento propone.
 
-### 5.2 Del incidente al universo: el mapa OIV–problema sobre la nómina oficial
+### 4.7 Del incidente al universo: el mapa OIV–problema sobre la nómina oficial
 
 *En una frase: los casos testigo no son anécdotas aisladas; proyectados sobre la nómina oficial de Operadores de Importancia Vital, muestran que cada sector del universo regulado está estructuralmente expuesto a un subconjunto preciso de las fallas que este documento denuncia.*
 
@@ -3141,7 +3147,7 @@ El dato decisivo para la tesis es de representatividad. Los casos testigo del Ca
 
 Como ese universo crece con cada etapa de calificación mientras el presupuesto de la ANCI no, la brecha entre lo que debe fiscalizarse y lo que puede fiscalizarse se ensancha precisamente en los sectores donde el déficit probatorio es más grave (§6.1.3).
 
-### 5.2.1 El universo paralelo: el perímetro CMF y la doble ventanilla
+#### 4.7.1 El universo paralelo: el perímetro CMF y la doble ventanilla
 
 *En una frase: la nómina OIV mide el sector financiero con la lente equivocada —cuenta operadores donde la criticidad reside en la interconexión— y deja invisible el perímetro completo que la CMF supervisa sin estándar probatorio alguno.*
 
@@ -3180,7 +3186,7 @@ Dos consecuencias dogmáticas se siguen de la matriz.
 
 Una precisión final de perímetros, para que esta subsección no incurra en el defecto que corrige: la CMF no agota los reguladores paralelos. Los sistemas de pago de alto valor responden al Banco Central de Chile (LBTR y cámaras de compensación, Compendio de Normas Financieras); las administradoras de fondos de pensiones —las 26 OIV de "previsión social" del Cuadro 5.B— responden a la Superintendencia de Pensiones, no a la CMF; y análoga fragmentación rige en salud (Superintendencia de Salud), telecomunicaciones (SUBTEL), energía y combustibles (SEC) y servicios sanitarios (SISS). El análisis se concentra en la CMF por dos razones que el propio documento ya estableció: es el regulador del sector de mayor densidad de interconexión, y es el único actor con capacidad asimétrica de romper el equilibrio de la opacidad (§7.1). Pero la conclusión escala a todos los perímetros: cada regulador sectorial consume hoy la misma clase de evidencia no atestada, y ninguno ha fijado un estándar de suficiencia que la distinga de la evidencia fabricada.
 
-### 5.3 La imposibilidad probatoria bidireccional y el colapso de la potestad sancionadora
+### 4.8 La imposibilidad probatoria bidireccional y el colapso de la potestad sancionadora
 
 El rechazo del sector privado a la calificación de OIV —materializado en las decenas de observaciones presentadas durante los períodos de consulta de las Resoluciones N°50 y N°85— reveló una limitación epistémica natural. Las asesorías corporativas concentraron sus esfuerzos en argumentar altos costos de cumplimiento o exceso de carga administrativa, desarrollando defensas jurídicas que no abordaron el problema de fondo. Esta omisión conceptual es consecuencia inevitable de enfrentar una contingencia que supera los límites de la dogmática jurídica clásica: abordar el riesgo real requería el análisis de ingeniería en ciberseguridad que este documento articula.
 
@@ -3391,9 +3397,9 @@ El "monitoreo en tiempo real" (medida 7) prescribe "detectar actividades malicio
 
 **(c) Error de categoría en la gestión de credenciales.** Las medidas 8 (MFA) y 9 (gestor de contraseñas) tratan la autenticación como un problema de complejidad de la credencial. Frente a ataques con *InfoStealer* —el vector exacto que la propia ANCI documentó en su oficio reservado de mayo de 2026 sobre sistemas de Historial Clínico Electrónico<a href="#fn52" id="fnref52"><sup>52</sup></a>—, el MFA convencional basado en TOTP es vulnerable a ataques de proxy en tiempo real (*evilginx2*, *Modlishka*) que interceptan el *token* de sesión tras la autenticación.
 
-El NIST SP 800-63B (Revisión 4, 2025) ya desaconsejó la autenticación basada en SMS y reconoció las limitaciones del TOTP frente a *phishing* avanzado, recomendando la migración hacia autenticación resistente a *phishing* (FIDO2/WebAuthn)<a href="#fn109" id="fnref109"><sup>109</sup></a>.
+Peor aún, a la debilidad del TOTP se suma la vulnerabilidad algorítmica declarada en marzo de 2026 por Microsoft Threat Intelligence y oficializada por MITRE ATT&CK®, quienes tipificaron el ***LLM-directed security feature bypass*** como una táctica operativa de las APTs. La telemetría global demuestra que los actores de amenaza ya utilizan modelos de lenguaje específicamente para buscar y ejecutar vías que eludan los controles de acceso tradicionales, incluyendo la autenticación de dos factores (2FA) y los CAPTCHA, a velocidad de máquina.
 
-Que la ANCI prescriba MFA genérico y gestores de contraseñas como estándar obligatorio en 2026 —tras documentar en su propio oficio reservado que el vector activo sobre infraestructura de salud pública utiliza credenciales obtenidas por *InfoStealer*— configura una incoherencia entre el diagnóstico y la prescripción: la agencia identifica correctamente la amenaza, pero prescribe una mitigación que la propia investigación de la industria (NIST, FIDO Alliance) ya documentó como insuficiente frente a ese vector específico.
+El NIST SP 800-63B (Revisión 4, 2025) ya había desaconsejado la autenticación basada en SMS y reconocido las limitaciones del TOTP, recomendando la migración hacia autenticación anclada a *hardware* resistente a *phishing* (FIDO2/WebAuthn)<a href="#fn109" id="fnref109"><sup>109</sup></a>. Que la ANCI prescriba MFA genérico como estándar obligatorio en 2026 configura una incoherencia inexcusable: la agencia exige a los Operadores de Importancia Vital implementar un control que la propia industria —NIST, Microsoft y MITRE— ya documentó como algorítmicamente franqueable por la IA ofensiva.
 
 **(d) La opacidad del oficio reservado como inversión del principio de transparencia.** La ANCI emitió un oficio reservado —firmado por la directora nacional subrogante— alertando a los servicios de salud sobre actividad maliciosa en sistemas de Historial Clínico Electrónico. El carácter reservado es comprensible como medida táctica inmediata para no alertar al atacante, pero genera una tensión jurídica precisa con tres principios:
 
