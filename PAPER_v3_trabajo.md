@@ -811,6 +811,9 @@ Este no es un temor especulativo, sino el perfil dominante del incidente actual:
 
 ### 1.1 Planteamiento del problema: la evidencia en el entorno *cloud*
 
+Para comprender la magnitud de la falla actual, conviene hacer un breve repaso del devenir normativo que nos trajo hasta aquí. Durante la última década, la modernización del aparato jurídico chileno en materia de ciberseguridad fue un proceso sumamente paulatino. El país se adhirió formalmente al Convenio de Budapest en 2017, comprometiéndose a elevar sus estándares de persecución penal. Esto derivó, tras años de debate parlamentario, en la promulgación de la Ley 21.459 sobre Delitos Informáticos en 2022, la cual vino a reemplazar un cuerpo legal que databa de 1993. Todo este esfuerzo legislativo se hizo bajo una premisa que en su momento parecía razonable: si el Estado tipificaba los delitos, la industria proveería las pruebas forenses para perseguirlos. 
+
+
 La crisis de 2026 no fue un accidente estadístico, sino el colapso predecible de un modelo normativo basado en la fe. El ecosistema corporativo chileno quedó atrapado en una tenaza estructural perfecta: por un lado, adversarios de velocidad algorítmica capaces de reescribir la realidad forense en tiempo de ejecución, reduciendo la telemetría *cloud* a una ilusión perfectamente documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. Por el otro, el recordatorio brutal de que los servidores donde se almacenan esas ilusiones ni siquiera nos pertenecen, pudiendo ser desconectados en horas por un simple cambio de viento geopolítico.
 
 Construir una política nacional de ciberseguridad asumiendo que el adversario operará a velocidad humana y que la jurisdicción extranjera será eternamente benevolente ya no es optimismo tecnológico; a la luz de la evidencia actual, constituye dolo fiduciario.
@@ -1850,6 +1853,9 @@ Frente a la parálisis probatoria transversal que afecta a las leyes 21.663, 21.
 
 ## 2. Definición del modelo de amenazas
 
+Antes de deconstruir la arquitectura ofensiva contemporánea, resulta útil observar cómo ha evolucionado empíricamente el modelo de ataque corporativo en la última década. A principios de los años 2010, la amenaza dominante consistía en campañas de *malware* relativamente rudimentarias y de impacto inmediato. Para la llegada de epidemias de *ransomware* como WannaCry y NotPetya en 2017, la industria corporativa entendió que la defensa de perímetro tradicional ya no era suficiente. Fue entonces cuando el mercado viró masivamente hacia las soluciones de detección y respuesta en el *endpoint* (EDR). Durante algunos años, este equilibrio táctico funcionó con relativa estabilidad: el atacante ingresaba, el EDR detectaba el comportamiento anómalo en el registro, y un analista del SOC contenía el incidente. Lo que examinaremos a continuación es por qué ese equilibrio histórico acaba de colapsar definitivamente.
+
+
 > «No se puede confiar en código que uno no creó enteramente por sí mismo.»
 > — Ken Thompson, *Reflections on Trusting Trust* (Turing Award Lecture, 1984)
 
@@ -2704,6 +2710,9 @@ Toda la arquitectura de fiscalización de la Ley 21.663, las multas de la Ley 21
 
 ## 4. Análisis crítico de las defensas hiperescalares
 
+En las páginas siguientes, se procederá primero a examinar las limitaciones estructurales de la auditoría en entornos de nube pública. Una vez establecido este marco teórico, se revisará cómo la delegación fiduciaria sin atestación genera un problema de asimetría de información casi insoluble para los directorios corporativos. Finalmente, se aterrizarán estos conceptos mediante una revisión empírica de casos recientes en el ecosistema nacional, comprobando que las debilidades descritas no son hipótesis de laboratorio, sino vectores que ya están siendo explotados en la práctica operativa.
+
+
 *Análisis crítico de las defensas hiperescalares: demostración técnica de por qué las defensas tradicionales en la nube y los modelos contractuales colapsan ante ataques de bajo nivel (TOCTOU) y eventos de revocación jurisdiccional.*
 
 > «Un sistema distribuido es aquel en que la falla de un computador cuya existencia desconocías puede dejar inutilizable el tuyo.»
@@ -3379,6 +3388,9 @@ La distinción relevante no es el proveedor, sino el resultado: si la evidencia 
 <div style="page-break-before: always;"></div>
 
 ## 6. Discusión y propuesta regulatoria
+
+Habiendo recorrido la anatomía del colapso epistémico y las carencias del modelo de observabilidad actual, este capítulo tiene como objetivo articular un camino de salida pragmático y jurídicamente robusto. Para ello, se analizará en primer lugar la postura de los reguladores nacionales (especialmente la ANCI y la CMF), desglosando las incoherencias normativas que aún subsisten en el marco vigente. Posteriormente, se delineará una estrategia de transición operativa (la "estrategia puente") para que los Operadores de Importancia Vital puedan adoptar estándares de atestación por hardware sin detener su continuidad de negocio. Por último, se abordarán de manera directa las objeciones corporativas y técnicas más comunes que la industria opondrá frente a este cambio de estándar.
+
 
 *Discusión y propuesta regulatoria: análisis crítico de la actuación de la ANCI, disección de las diez fracturas estructurales de la Ley 21.663 frente a la evidencia digital, y diseño de una estrategia puente de integración para someter a los Operadores de Importancia Vital a un estándar de soberanía computacional.*
 
