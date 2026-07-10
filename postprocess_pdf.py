@@ -40,16 +40,28 @@ def main():
     if not PDF.exists():
         sys.exit("Falta el PDF; corre ./build_pdf.sh primero.")
     md = MD.read_text(encoding="utf-8").split("\n")
-    headings = [ln[3:] for ln in md if ln.startswith("## ")]
+    pref_path = HERE / "preface.md"          # front matter inyectado antes del índice
+    pref = pref_path.read_text(encoding="utf-8").split("\n") if pref_path.exists() else []
+    headings = [ln[3:] for ln in (pref + md) if ln.startswith("## ")]
 
     pages = subprocess.run(["pdftotext","-enc","UTF-8",str(PDF),"-"],
                            capture_output=True, text=True).stdout.split("\f")
     norm = [re.sub(r"\s+"," ", p) for p in pages]
-    body0 = next((i for i,p in enumerate(norm) if "03:14" in p), 0)  # tras el TOC
+    # Inicio del cuerpo, TRAS el TOC (Escenario I, marcado por "03:14"): las búsquedas de
+    # encabezados arrancan aquí para no confundirlos con sus entradas del índice.
+    body0 = next((i for i,p in enumerate(norm) if "03:14" in p), 0)
+    # El prefacio es front matter ANTES del TOC; se ubica aparte por su epígrafe.
+    pref_pg = next((i for i,p in enumerate(norm) if "no admite primera persona" in p), None)
 
     outline, cur, missing = [], body0, []
     for h in headings:
         key = heading_key(h)
+        if key.startswith("Palabras previas"):
+            if pref_pg is not None:
+                outline.append((re.sub(r"\s*\d+$","",clean(h)).strip(), pref_pg))
+            else:
+                missing.append(clean(h))
+            continue
         pg = next((i for i in range(cur, len(norm)) if key and key in norm[i]), None)
         if pg is None:
             missing.append(clean(h)); continue

@@ -5,9 +5,20 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+# Prefacio (front matter): se renderiza como fragmento y se inyecta ANTES del índice
+# (vía include-before-body, que el template coloca entre la portada y el TOC).
+INCLUDE_BEFORE=""
+if [ -f preface.md ]; then
+  pandoc preface.md -o .preface.fragment.html
+  INCLUDE_BEFORE="--include-before-body=.preface.fragment.html"
+fi
+
 pandoc PAPER_v3_trabajo.md -o PAPER_v3_Formato_Institucional.html --standalone \
   --template=template.html \
+  $INCLUDE_BEFORE \
   -V lang=es --toc --toc-depth=4
+
+rm -f .preface.fragment.html
 
 google-chrome --headless --disable-gpu --no-sandbox \
   --print-to-pdf=PAPER_v3_Formato_Institucional.pdf \
