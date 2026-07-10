@@ -1,0 +1,18 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#ffffff'}}}%%
+flowchart LR
+    classDef legal fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef risk fill:#ffe6e6,stroke:#cc0000,stroke-width:1px;
+    classDef safe fill:#e6ffe6,stroke:#006600,stroke-width:1px;
+
+    A[Incidente Crítico] --> B{¿Atestación de Hardware?}
+    B -- NO --> C[Telemetría de Nube Centralizada]
+    C --> D[Prueba Forense Impugnable]
+    D --> E[Presunción de Culpa Ley 21.595]
+    
+    B -- SÍ --> F[Registro Descentralizado SCITT]
+    F --> G[Atestación Matemática Irrefutable]
+    G --> H[Eximente de Responsabilidad]
+    
+    class A,B legal;
+    class E risk;
+    class H safe;

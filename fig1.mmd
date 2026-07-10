@@ -1,0 +1,14 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#f4f4f4'}}}%%
+graph TD
+    classDef attacker fill:#ffe6e6,stroke:#cc0000,stroke-width:1px,color:#990000;
+    classDef system fill:#f9f9f9,stroke:#666666,stroke-width:1px,color:#333333;
+    classDef crypto fill:#e6f3ff,stroke:#0066cc,stroke-width:1px,color:#003366;
+
+    A[Intención de Usuario] -->|Llamada al Sistema| B(Capa del SO / Hypervisor)
+    X[Adversario Ring-0 / Mythos] -.->|Inyección de Memoria TOCTOU| B
+    B --> C{Servicio de Criptografía KMS}
+    C -->|Firma Digital Falsificada| D[Registro Auditoría SOC2]
+    
+    class X attacker;
+    class C,D crypto;
+    class A,B system;
