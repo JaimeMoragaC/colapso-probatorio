@@ -4264,7 +4264,19 @@ Falla de ingeniería (Adversarial ML): Si el atacante vulnera el anillo de privi
 
 Falla jurídica (Ley 21.595): Si el gerente general de un banco le dice a la CMF: *"No puedo probar científicamente que no fuimos vulnerados, pero la IA predictiva de Microsoft dice que estamos a salvo"*, acaba de confesar la abdicación absoluta de su deber de debida diligencia. La Ley 21.595 (Delitos Económicos) castiga la negligencia inexcusable en la prevención de delitos corporativos. Delegar el arbitraje de la evidencia a un modelo estadístico, opaco, inauditable y bajo jurisdicción extranjera destruye la trazabilidad exigida por la Sana Crítica (Art. 297 CPP). La única forma de arbitrar un duelo de IAs es mediante un árbitro que no sea otra IA: un ancla criptográfica en *hardware* físico verificable por terceros.
 
-Quien sea capaz de rebatir estos once vectores de impugnación en una mesa técnica —reformulando la objeción de fondo con datos que las secciones anteriores no anticipen— tiene el perfil de un investigador de nivel Estado-nación. La función de este §6.7 es exactamente esa: preparar al lector para ese debate, por hostil y destructivo que sea, antes de que ocurra.
+#### Objeción M — La Fricción Estocástica: el mito del atacante invisible
+
+*El perito informático.* El documento dota a la inteligencia artificial de una precisión quirúrgica infalible. Sin embargo, la naturaleza de las redes neuronales es estocástica y probabilística. Cuando una IA intenta compilar y ejecutar *exploits* de corrupción de memoria *just-in-time* en entornos de producción que no conoce perfectamente, la tasa de error es altísima. Un *buffer overflow* mal calculado por una IA probabilística no ofusca un sistema silenciosamente: provoca un *Kernel Panic* o una Pantalla Azul (BSOD) que enciende todas las alarmas del Centro de Operaciones de Seguridad (SOC). La automatización ofensiva masiva genera inestabilidad y ruido, lo cual destruye la premisa de la subversión invisible.
+
+#### Refutación — El Gemelo Digital y la Inferencia Offline (El agotamiento del ruido)
+
+La objeción asume un modelo de ataque obsoleto, donde el atacante improvisa su desarrollo en el servidor de la víctima. La IA ofensiva moderna (Mythos) no ejecuta inferencia estocástica en el entorno de producción. Utiliza la inmensa cantidad de telemetría y datos OSINT iniciales para clonar un "Gemelo Digital" (*Digital Twin*) de la infraestructura de la víctima en su propio laboratorio de simulación oscuro.
+
+El agente autónomo ejecuta la fricción estocástica *offline*: estrella el servidor clonado diez mil veces en su propia infraestructura, donde el ruido no importa y los *Kernel Panics* no alertan a ningún SOC. A través de Aprendizaje por Refuerzo, la IA perfecciona el *exploit* hasta que la cadena de ejecución es 100% determinista. Cuando el agente finalmente cruza el perímetro del Operador de Importancia Vital, inyecta exclusivamente el *payload* exitoso. 
+
+El ataque no es probabilístico en el objetivo; la probabilidad, el error y el ruido se agotaron en el entrenamiento previo. Lo que impacta la infraestructura crítica no es una red neuronal improvisando, sino un algoritmo precalculado que se ejecuta con precisión matemática en Ring-0, consumando el apagón probatorio antes de que el EDR registre la primera anomalía.
+
+Quien sea capaz de rebatir estos doce vectores de impugnación en una mesa técnica —reformulando la objeción de fondo con datos que las secciones anteriores no anticipen— tiene el perfil de un investigador de nivel Estado-nación. La función de este §6.7 es exactamente esa: preparar al lector para ese debate, por hostil y destructivo que sea, antes de que ocurra.
 
 ### 6.8 La Comisión para el Mercado Financiero (CMF) como Regulador Asimétrico: Riesgo Sistémico y Responsabilidad Directiva
 
