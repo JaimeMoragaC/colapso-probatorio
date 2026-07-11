@@ -8,8 +8,8 @@ cd "$(dirname "$0")"
 # Prefacio (front matter): se renderiza como fragmento y se inyecta ANTES del índice
 # (vía include-before-body, que el template coloca entre la portada y el TOC).
 INCLUDE_BEFORE=""
-if [ -f preface.md ]; then
-  pandoc preface.md -o .preface.fragment.html
+if [ -f PALABRAS_PREVIAS_borrador.md ]; then
+  pandoc PALABRAS_PREVIAS_borrador.md -o .preface.fragment.html
   INCLUDE_BEFORE="--include-before-body=.preface.fragment.html"
 fi
 
