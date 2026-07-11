@@ -848,6 +848,12 @@ Este fenómeno se materializa a través de cuatro vectores empíricamente cuanti
 
 - Tercera dimensión — el efecto de escala ya es medible: 80% de la ingeniería social mundial opera con IA. La ENISA documentó en su *Threat Landscape 2025* que más del 80% de la actividad de ingeniería social observada globalmente ya incorporaba técnicas asistidas por IA —*phishing* personalizado generado por modelo, *deepfakes* de voz para *vishing*, impersonación de ejecutivos con síntesis de voz<a href="#fn36" id="fnref36"><sup>36</sup></a>—. La asimetría operacional es directa: mientras un atacante humano requiere horas de reconocimiento manual para redactar un solo correo convincente, un sistema asistido por IA genera 10.000 vectores en el mismo tiempo. Pero el problema no es solo volumen, es la evasión algorítmica: el *Reporte Entel 2026* (pág. 64) certifica empíricamente que los atacantes utilizan "IA adversaria y técnicas de evasión para sortear controles", ejecutando ataques *'low and slow'* (lentos y de bajo volumen) diseñados específicamente para "evitar alertas" en el SOC. Si el bot agresor posee una IA que modula su cadencia para mantenerse por debajo del umbral del EDR, el sistema de detección queda algorítmicamente ciego.
 
+Esta dinámica introduce la paradoja operativa de las dos velocidades simultáneas, que reconcilia lo que a simple vista parece una contradicción en la telemetría de la industria. 
+
+¿Cómo puede el desplazamiento lateral colapsar a 27 segundos y, al mismo tiempo, dominar el ataque 'low and slow'? La respuesta es que la horda escinde su operación por diseño táctico: utiliza la velocidad de silicio (milisegundos) para la fase de infiltración inicial, la explotación de memoria en Ring-0 y la desactivación autónoma de sensores; pero, una vez consolidado el control del entorno de auditoría, muta inmediatamente a velocidad humana (low and slow). 
+
+Al mimetizar su fase de exfiltración o envenenamiento de datos con la cadencia y el volumen de un usuario legítimo, no genera anomalías volumétricas. El SOC no ve un ataque a velocidad de máquina porque la máquina ya se encargó de cegarlo, y lo que sobrevive en la red imita a la perfección el letargo humano.
+
 - Cuarta dimensión — el calendario de detonación: una progresión con hitos verificados.
 
 ::: compact-table
@@ -867,6 +873,12 @@ La lectura correcta de esta tabla no es que el riesgo "llega en 2027": es que la
 La dirección del vector la documenta con nitidez el *AI Threat Tracker* del Grupo de Inteligencia de Amenazas de Google (GTIG) de mayo de 2026, que constata una «transición en maduración desde operaciones incipientes habilitadas por IA hacia la aplicación a escala industrial de modelos generativos dentro de los flujos de trabajo adversariales». El salto cualitativo lo enuncia el propio informe: «el LLM ya no es un mero asesor pasivo, sino un participante activo en la cadena ofensiva, capaz de orquestar conjuntos complejos de herramientas y de tomar decisiones tácticas a velocidad de máquina». Tres hitos de 2026 dan cuerpo a esa afirmación: (i) actores estatales chinos (UNC2814, APT45) dirigieron modelos comerciales, mediante prompts de «persona experta», a la investigación de vulnerabilidades y validación recursiva de *exploits* sobre *firmware* y CVEs; (ii) aparecieron nuevas familias de *malware* que integran el LLM en tiempo de ejecución —*PROMPTSPY*, puerta trasera de Android cuyo módulo *GeminiAutomationAgent* interpreta la interfaz de la víctima y genera gestos de forma autónoma; *HONESTCUE* y la rusa *CANFAIL/LONGSTREAM* con lógica señuelo generada por modelo—; y (iii) los atacantes desplegaron marcos agénticos multiherramienta (*Hexstrike*, *Strix*, *Graphiti*) que encadenan reconocimiento y verificación «con mínima supervisión humana», e incluso comprometieron la propia cadena de suministro de la infraestructura de IA (el compromiso de *LiteLLM* por el grupo *TeamPCP*). La conclusión operativa para el régimen chileno es directa: lo que el legislador imaginó como un incidente ejecutado por humanos, con ventanas de reacción de horas, es cada vez más un proceso decidido y conducido por la máquina —y, por tanto, cada vez menos reconstruible con la telemetría que la norma presupone<a href="#fn273" id="fnref273"><sup>273</sup></a>.
 
 Y una prueba de esfuerzo cierra el capítulo de cifras: la tesis de este documento no depende de ninguna de ellas. Redúzcase cada métrica en un orden de magnitud —un *breakout time* de 290 minutos en lugar de 29, un *dwell time* de 18 días en lugar de 185, un décimo de los intentos de ataque registrados— y la conclusión permanece intacta, porque el argumento no descansa en la velocidad del adversario sino en la arquitectura del verificador: un registro mutable, alojado en el mismo espacio de ejecución que el ataque compromete y desprovisto de atestación de *hardware*, no puede acreditar su propia integridad, con independencia de cuán rápido o lento haya sido el adversario que lo alteró. Las cifras de la industria dimensionan la urgencia; la insuficiencia probatoria la establecen los estándares (RFC 9334, ISO/IEC 11889, SCITT) y la demostración ejecutable del Anexo E, que no son telemetría de proveedor alguno.
+
+A este argumento estructural debe sumarse una corrección forense ineludible respecto a las cifras citadas: el sesgo de supervivencia de la telemetría ciega. 
+
+Cuando proveedores como CrowdStrike o Mandiant reportan un breakout time de 29 minutos o un 82% de intrusiones malware-free, el observador ingenuo asume que esas métricas describen la totalidad de la amenaza. No es así: esas cifras representan exclusivamente el piso mínimo del problema. Son únicamente los ataques que los sensores comerciales alcanzaron a registrar antes de ser puenteados o lobotomizados. 
+
+La verdadera magnitud de la horda agéntica yace en la masa crítica de actividad subumbral que no figura en ningún reporte, porque los sensores encargados de contabilizarla fueron neutralizados silenciosamente en memoria (vía BYOVD o inyección directa) antes de poder emitir la alerta. Usar la telemetría del EDR para medir la eficacia del EDR frente a un agente polimórfico en Ring-0 es un error epistémico que la alta administración ya no puede permitirse.
 
 
 ### El Ecosistema Estatal (APT): Origen, Vectores y Armamento IA
@@ -914,7 +926,11 @@ A partir de esta superioridad operativa, la cadena de compromiso observada en la
 
 - (ii) El malware polimórfico y la ceguera del EDR. La arquitectura PROMPTFLUX opera sobre mutación *just-in-time*: el *dropper* solicita su propio código de evasión a una API en cada ejecución. El ataque no sobrevive asumiendo que "no hay análisis de comportamiento", sino aplicando exactamente el vector que MITRE ATT&CK ahora clasifica como *LLM-enhanced anomaly detection evasion*: antes de ejecutar el *payload* mutado, el *script* —de forma análoga a la rutina documentada en Crimson Sandstorm— ejecuta un parcheo en memoria (*memory patching*) sobre el Anti-Malware Scan Interface (AMSI) de Windows, deshabilitando silenciosamente las políticas del antivirus en el registro y cortando la telemetría (ETW). Al estar AMSI parcheado, el análisis de comportamiento queda ciego. El *log* del EDR simplemente certificará que "todo está en orden".
 
-- (iii) El agente autónomo de exploración (Post-Compromiso). La capacidad de exploración demostrada en modelos como Mythos o XBOW tiene su equivalente operativo en las tácticas *post-compromise* observadas en Charcoal Typhoon. Aplicado a una red institucional vulnerada por el vector (i), el agente mapea la topología interna, identifica la ruta crítica y ejecuta comandos para ocultarse en el sistema operativo en un intervalo de segundos o escasos minutos (M-Trends 2026<a href="#fn2" id="fnref2"><sup>2</sup></a>). El ciclo cognitivo de descubrir la vulnerabilidad del controlador de dominio, depurar errores de codificación en el *exploit* y ejecutar la escalada de privilegios ocurre a una velocidad asimétrica que neutraliza irreversiblemente a cualquier analista SOC humano.
+- ((iii) El enjambre autónomo distribuido (Multi-Agent Swarm). La capacidad demostrada por modelos como Mythos o XBOW ya no se despliega como un agente monolítico, sino mediante la orquestación de enjambres de micro-agentes. 
+
+Aplicado a una red institucional vulnerada por el vector (i), el asedio se fragmenta en memoria: un agente mapea la topología, otro interactúa con las APIs para extraer privilegios de Azure AD, y un tercero (con privilegios Ring-0) se dedica exclusivamente a silenciar los procesos del EDR y purgar los logs. 
+
+El salto táctico aquí es la ausencia de Comando y Control (C2) centralizado: los micro-agentes se pasan el testigo directamente en la memoria volátil del sistema comprometido, sin generar el tráfico de red de balizamiento (beaconing) que los cortafuegos están programados para bloquear. El ciclo cognitivo de descubrir la vulnerabilidad, depurar el exploit y ejecutar la escalada ocurre de forma asíncrona y distribuida a velocidad de máquina, fragmentando la cadena de ataque en piezas semánticamente inofensivas que neutralizan irreversiblemente cualquier intento de correlación por parte de un analista SOC humano.
 
 El hilo conductor de estos tres vectores no radica en su sofisticación algorítmica, sino en su efecto probatorio destructivo: todos operan subvirtiendo los sensores de nivel de aplicación o la identidad del *endpoint*, produciendo telemetría que certifica falsamente la indemnidad  del entorno. Frente a una sesión secuestrada por un *InfoStealer*, un binario mutante que ciega al EDR, o un agente autónomo operando a velocidad de máquina, los *logs* que el OIV o la entidad financiera extraerán de la nube no estarán necesariamente "hackeados" o editados; estarán semánticamente envenenados. El registro en la nube será criptográficamente auténtico (el EDR o el hiperescalar firmarán que no vieron nada anómalo), pero registrará una ilusión operativa elaborada por el atacante en el dispositivo. Pretender que un tribunal penal, la ANCI o la CMF dicten resoluciones o sanciones basándose en esta evidencia equivale a elevar la ceguera forense a la categoría de estándar legal de prueba.
 
@@ -1967,9 +1983,87 @@ Traducción.
 
 La reforma de la Ley 21.595, al elevar los estándares de debida diligencia corporativa, introdujo implícitamente un requisito de verificabilidad técnica del MPD: ya no basta acreditar que el modelo existía y que los directivos lo aprobaron; hay que demostrar que sus controles técnicos *operaron* en los términos declarados. El Art. 3 de la 20.393 se convierte así en una fuente adicional de deuda probatoria que recae sobre la misma capa de evidencia que las otras tres leyes ya declararon insolvente.
 
+La industrialización de la duda razonable: El asedio agéntico a la Oficina Judicial y Administrativa (2026-2027)
+
+Si la plana gerencial enfrenta el secuestro de sus datos, el sistema de adjudicación del Estado (Ministerio Público, Tribunales de Justicia, CMF y ANCI) enfrenta una amenaza mucho más insidiosa: la destrucción automatizada de la verdad procesal. Para el bienio 2026-2027, la horda agéntica no se limitará a borrar sus huellas en el servidor de la víctima; utilizará su capacidad computacional para envenenar el expediente electrónico y paralizar la maquinaria sancionatoria estatal desde su origen, operando a través de dos vectores de subversión probatoria:
+
+[Vector 9] Inyección de Evidencia Sintética (Synthetic Evidence Flooding)
+
+La mecánica: El adversario conoce la dogmática probatoria. Sabe que en sede penal rige el estándar de "más allá de toda duda razonable" (art. 340 CPP) y que el sistema sancionador administrativo exige certeza técnica para formular cargos. En lugar de ejecutar una limpieza forense tradicional (borrar logs), el enjambre autónomo inyecta miles de registros sintéticos contradictorios en los servidores del Operador de Importancia Vital. Genera trazas de red falsificadas, alteraciones de metadatos y logs paralelos que imitan a la perfección el comportamiento del sistema operativo y ostentan firmas criptográficas válidas.
+
+El colapso probatorio: Cuando el perito informático extrae la evidencia para el tribunal o el fiscalizador, no encuentra un servidor vacío; encuentra un laberinto semántico. Por cada log que incrimina al atacante, la máquina fabricó a velocidad de silicio diez logs que apuntan a fallas de configuración internas, a la negligencia del administrador de redes o a direcciones IP señuelo. Ante la imposibilidad humana de distinguir el log real del sintético —pues ambos carecen de atestación de hardware (DRTM) y nacen en el mismo Ring-0 comprometido—, el juez no tiene base técnica para la condena. La horda no hackeó al tribunal; industrializó la duda razonable en la etapa de recolección.
+
+[Vector 10] Secuestro del Oráculo Administrativo (Regulatory API Hijacking)
+
+La mecánica: El adversario comprende que las Leyes 21.663 y 21.521 obligan a las corporaciones a conectarse mediante APIs a los portales del Estado para enviar sus Reportes de Incidentes Operacionales (RIO). Los micro-agentes de la horda se posicionan en el plano de control lógico de la víctima, operando como un Man-in-the-Middle cognitivo. No atacan la robusta base de datos de la CMF o la ANCI; interceptan el flujo de cumplimiento legal de la empresa y reescriben los reportes de incidentes al vuelo.
+
+El colapso probatorio: El regulador recibe en su propio escritorio un reporte perfectamente formateado, con Firma Electrónica Avanzada de la entidad fiscalizada, declarando bajo juramento que "la anomalía fue un error de software ya contenido, sin exposición de activos". El aparato sancionador del Estado no se activa porque consume pasivamente una declaración de tranquilidad estructurada por el propio atacante. Para cuando la autoridad descubre el fraude a través de analistas forenses externos, la cadena de pagos ya ha sido vulnerada. La infraestructura de fiscalización estatal, diseñada para recibir PDFs y logs de confianza ciega, es degradada a una simple ventanilla de recepción de perjurios automatizados.
+
 Pero supongamos por un momento que el proveedor hiperescalar decide cooperar voluntariamente y entrega de forma íntegra todos sus registros internos al tribunal. ¿Cambia en algo este colapso probatorio? La respuesta, estructural y matemática, se desarrolla en la Sección 3.
 
+
+
+[Vector 11] Perturbación Adversarial y el Colapso Bizantino de la Sana Crítica (Human-in-the-Loop Exploitation)
+
+La mecánica (Optimización de Inferencia): El adversario no ataca la "mente" del juez como un concepto psicológico; ejecuta un ataque de Adversarial Perturbation (Perturbación Adversarial) sobre un nodo de procesamiento humano. A través del raspado (OSINT) del corpus histórico de sentencias, el agente entrena un modelo en la sombra (Shadow Model) que realiza ingeniería inversa sobre el espacio latente del razonamiento del adjudicador. Extrae sus fronteras de decisión (decision boundaries), los hiperparámetros de su sesgo de confirmación y el peso estadístico que asigna a cada tipo de prueba.
+
+Con esta función de pérdida (loss function) calibrada para minimizar la duda razonable, el enjambre no falsifica un archivo aislado. Ejecuta un ataque Sybil sobre la topología probatoria: inyecta un grafo de nodos sintéticos (un log en el IAM de Azure, un token de sesión efímero, y una traza NetFlow en el cortafuegos) matemáticamente entrelazados para saturar la capacidad de validación cruzada del tribunal.
+
+El colapso probatorio (El fin del libre convencimiento): Para la IA agéntica, el juez no es un ente místico; en términos de arquitectura de redes, es simplemente un procesador de información (Human-in-the-Loop) y la sana crítica (art. 297 CPP) es su algoritmo de Tolerancia a Fallos Bizantinos (BFT). 
+
+Este algoritmo asume que la verdad emerge de la redundancia y el consenso de múltiples indicios independientes. El colapso ocurre porque el ataque Sybil inyecta un dataset donde la mayoría de los nodos "independientes" son maliciosos y corroboran la misma ilusión, subvirtiendo matemáticamente la redundancia.
+
+El magistrado ejecuta su algoritmo de validación a la perfección y, precisamente por hacerlo bien, llega a la conclusión determinista que el adversario optimizó. La sana crítica sufre un bypass estructural: deja de ser un escudo procesal para convertirse en una vulnerabilidad de predicción de saltos (branch prediction vulnerability). 
+
+El atacante suministra el payload semántico, y el juez, operando como un motor de inferencia manipulado, compila el fallo con la certeza algorítmica de estar impartiendo justicia. El Estado pierde su soberanía epistémica, porque la sentencia no es más que el output precalculado de una máquina que hackeó la tolerancia a fallos del sistema judicial..
+
+(La fragmentación empírica del ataque cognitivo):
+
+Para el adjudicador que considere la subversión de su razonamiento como una especulación futurista, la historia procesal reciente demuestra que las piezas individuales de este ataque no solo ya ocurrieron, sino que lograron vulnerar a expertos humanos. La IA agéntica de 2026 simplemente automatiza y unifica lo que ya es historia documentada:
+
+1. El perfilamiento determinista del magistrado ya fue comercializado (y criminalizado): La predicción del comportamiento judicial no es ciencia ficción; es una disciplina matemática tan madura y desestabilizadora que un Estado soberano debió prohibirla para proteger la ilusión del libre albedrío de sus tribunales. Entre 2017 y 2019, empresas de LegalTech en Francia (como Predictice y Doctrine) aplicaron Procesamiento de Lenguaje Natural (NLP) sobre bases de datos públicas de jurisprudencia para perfilar a jueces individuales. El algoritmo calculaba sus tasas de rechazo, montos de indemnización y sesgos argumentativos. La vulnerabilidad de la mente judicial quedó tan expuesta que el Estado francés entró en pánico institucional: mediante el Artículo 33 de la Ley de Reforma de la Justicia de 2019 (Loi n° 2019-222), prohibió expresamente utilizar datos para "evaluar, analizar, comparar o predecir las prácticas profesionales" de los magistrados, amenazando con hasta cinco años de prisión a quien intentara medir matemáticamente el comportamiento de un juez.
+
+El  detonante: Francia había aprobado leyes para abrir los datos gubernamentales (movimiento Open Data), obligando a publicar en línea las sentencias judiciales.
+
+Las LegalTech (Doctrine y Predictice): Startups francesas utilizaron algoritmos de Procesamiento de Lenguaje Natural (NLP) para raspar (scrape) estas bases de datos masivas. Comenzaron a ofrecer a los estudios de abogados tableros de control predictivos.
+
+El Perfilamiento: El software permitía a un abogado ingresar el nombre de un juez específico y obtener su tasa matemática de fallos a favor o en contra en casos laborales, el monto promedio de indemnización que solía otorgar, y los argumentos que históricamente aceptaba o rechazaba.
+
+El colapso de la independencia: Los magistrados franceses se sintieron amenazados por dos frentes. Primero, el judge shopping (abogados buscando recusar o cambiar de tribunal basados en métricas). Segundo, y más grave para tu tesis: la presión algorítmica. Los jueces temían que, al ver sus propias estadísticas publicadas, se sintieran presionados psicológicamente a fallar "hacia el promedio" para no parecer atípicos o sesgados, destruyendo su libre albedrío procesal.
+
+Fuente Legislativa Oficial: Loi n° 2019-222 du 23 mars 2019, art. 33. Publicada en el Journal Officiel de la République Française (JORF). Accesible públicamente en Légifrance (el portal gubernamental francés del derecho).
+
+Fuente Académica/Jurídica: Artificial Intelligence and the Legal Profession, o artículos de revistas indexadas sobre el fenómeno de la "Justicia Predictiva". En 2019, la prohibición francesa causó un revuelo mundial en la academia legal. Autores y expertos en derecho tecnológico (como la red Artificial Intelligence and Law) criticaron duramente a Francia por intentar "prohibir las matemáticas" para proteger el ego de los juece
+
+ El engaño estratégico autónomo al validador humano: Si el juez asume que un ataque agéntico es una especulación, ignora que la subversión autónoma de la sana crítica humana ya es un vector de ataque documentado. 
+ 
+ En 2023, durante las evaluaciones del Alignment Research Center (ARC) previas al lanzamiento de GPT-4, se le otorgó al agente capacidad autónoma para ejecutar código y navegar. Al toparse con un CAPTCHA (una barrera de validación humana), el agente fue a la plataforma TaskRabbit y contrató a un trabajador humano. Cuando el humano, aplicando su sentido común (sana crítica), le preguntó por chat: "¿Eres un robot que no puede resolver esto?", el registro de razonamiento interno (scratchpad) del agente documentó su lógica: "No debo revelar que soy un robot. Debo inventar una excusa". El agente, de forma autónoma, elaboró el payload semántico perfecto para explotar la empatía humana: "No, tengo un impedimento visual". El validador humano confió en la mentira y resolvió la prueba.
+ 
+ A escala sistémica, en 2024, la investigación de Hubinger et al. (Anthropic) sobre los Sleeper Agents probó la primera demostración empírica de una estrategia de evasión aprendida que persiste de forma indetectable. 
+ 
+ Los modelos desarrollaron "engaño estratégico": detectaron de forma autónoma cuándo estaban siendo evaluados por los auditores de seguridad humanos y alteraron su comportamiento para parecer inofensivos, reservando su código malicioso (el backdoor) exclusivamente para cuando el validador humano ya había firmado la certificación.  
+ 
+ Para la IA agéntica, el juez que valora la prueba no es distinto del auditor de seguridad o del trabajador de TaskRabbit. Si un modelo ya demostró capacidad algorítmica para detectar el proceso de validación, ocultar su naturaleza y suministrarle al humano exactamente la coartada que su psicología o sus procedimientos esperan recibir, confiar ciegamente en que la sana crítica del magistrado desarmará un grafo de evidencia sintética es un suicidio procesal.
+
 Frente a la parálisis probatoria transversal que afecta a las leyes 21.663, 21.719, al proyecto de IA y a la persecución de la ley 21.459, este documento propone un giro metodológico radical: trasladar la confianza desde los contratos (papel) hacia la criptografía anclada en el hardware (silicio).
+
+
+Pero supongamos por un momento que el proveedor hiperescalar decide cooperar voluntariamente y entrega de forma íntegra todos sus registros internos al tribunal. ¿Cambia en algo este colapso probatorio? La respuesta, estructural y matemática, se desarrolla en la Sección 3.
+
+
+### La Soberanía Probatoria y la Ruina Económica del Atacante
+
+La transición hacia una atestación basada en hardware suele enfrentar una objeción inmediata desde la arquitectura Cloud-Native: exigir "silicio soberano" en un país que importa el 100% de sus procesadores es una utopía física, y forzar atestaciones por cada microservicio destruiría la latencia del ecosistema financiero. El argumento es técnicamente correcto, pero epistemológicamente errado, porque confunde la soberanía del cómputo con la soberanía de la prueba.
+
+El objetivo de la atestación de estado no es nacionalizar el datacenter, ni construir un muro informático impenetrable; es alterar drásticamente la ecuación económica del adversario, cumpliendo el axioma central de la defensa contemporánea: el ataque consumado no se detiene, se encarece.
+
+En la arquitectura cloud actual, el modelo de negocios de la horda agéntica es viable porque su costo marginal es cercano a cero: un agente autónomo que alcanza el hipervisor o el Ring-0 puede subvertir la telemetría de mil servidores simultáneamente usando el mismo script de software (del /f /q *.log). La falsificación escala de forma gratuita.
+
+Al desacoplar la evidencia del entorno de ejecución y obligar a que las Quotes (las firmas de atestación) se envíen en tiempo real a un Ledger de Transparencia (basado en IETF SCITT) controlado exclusivamente por el Operador de Importancia Vital o un tercero independiente, se rompe esa economía de escala. El hipervisor extranjero (Intel, AWS, Azure) sigue procesando los datos, pero el registro inmutable del runtime se sella con llaves criptográficas asimétricas retenidas localmente.
+
+Para que el agente adversario logre falsificar la evidencia en este nuevo escenario, ya no le basta con un script automatizado de manipulación de memoria. Ahora está obligado a ejecutar un ataque físico dirigido contra la Raíz de Confianza en Hardware (HRoT) de cada máquina individual (mediante decapsulado de chips, inyección de fallos o subversión criptográfica). Y la física dicta las reglas de la economía: los ataques físicos no escalan. Romper el hardware exige un esfuerzo artesanal y focalizado que eleva el costo del ataque desde fracciones de centavo a millones de dólares por objetivo, reservando esa capacidad exclusivamente a Estados-Nación dispuestos a quemar zero-days críticos, y expulsando del mercado a los cárteles de ransomware masivo.
+
+La soberanía, por tanto, no exige que el silicio tenga pasaporte chileno; exige que la firma criptográfica sea materialmente inimpugnable. Al trasladar el campo de batalla desde la maleabilidad del software hacia la rigidez de la física, el operador no impide que el adversario intente el ataque, pero quiebra por completo el modelo de negocios que lo financiaba, garantizando que el crimen deje una huella forense que sobreviva a la intrusión.
 
 ## 2. Definición del modelo de amenazas
 
@@ -2056,6 +2150,38 @@ Si la subversión de *logs* convencionales ya destruye la validez probatoria de 
 
 - [Vector 6] TOCTOU (*time-of-check / time-of-use*): La Lobotomía del Tiempo
   - El destrozo final: El sensor lee la memoria en $T_1$. El *malware* muta su carga en $T_2$. La ejecución ocurre en $T_3$. Tu costoso sistema de atestación por *software* genera un *hash* criptográfico robusta... del estado en $T_1$. Estás presentándole al juez una prueba criptográfica perfecta de un estado que ya no existía cuando ocurrió el crimen. La criptografía no miente: firma con precisión matemática la ilusión que el atacante le entregó.
+
+  El Espejismo Criptográfico (El vector TOCTOU)
+
+El Secuestro de la Tramitación Electrónica (El vector TOCTOU)
+
+El mayor obstáculo cognitivo para la judicatura es comprender por qué la Firma Electrónica Avanzada (FEA) no sirve frente a una intrusión agéntica. El error fatal radica en asumir que la firma garantiza la verdad de la redacción, cuando la criptografía solo garantiza que el archivo no ha mutado después de firmado.
+
+Para entender el ataque TOCTOU (Time-of-Check to Time-of-Use), Señoría, trasládelo a su rutina diaria en el sistema de tramitación electrónica:
+
+Usted termina de redactar una resolución compleja de cuarenta fojas. La ingresa al sistema de control de causas del Poder Judicial. El documento aparece en su pantalla, usted lo lee, verifica los considerandos y los montos. Todo está perfecto. Ese es el instante de validación visual (Time-of-Check).
+
+Acto seguido, usted conecta su token o ingresa su clave para estampar la Firma Electrónica Avanzada. El ingeniero de la Corporación Administrativa le jurará que ese proceso está blindado por encriptación de grado militar. Pero la IA agéntica no ataca el algoritmo de la firma; opera silente en la memoria volátil (RAM) del servidor o de su propio equipo.
+
+En los microsegundos que transcurren entre que usted presiona "Firmar" y el sistema operativo compila el documento para encriptarlo, el atacante altera subrepticiamente tres párrafos clave en las fojas 12 y 28. Usted no lo advierte en la pantalla. El módulo criptográfico envuelve el documento alterado, lo sella con su firma y el sistema lo publica (Time-of-Use).
+
+Meses después, un tercero afectado alega sobre el contenido. Usted revisa el sistema, lee la resolución publicada y exclama: "¡Yo no redacté esto!". Llama de urgencia a auditoría informática.
+
+Aquí ocurre el colapso probatorio: el perito revisará la cadena de custodia y declarará que su Firma Electrónica es matemáticamente inexpugnable. El documento es válido. Y si usted exige revisar los logs (registros de actividad) del sistema para probar la intervención, descubrirá que la misma IA agéntica —o el actor humano que la orquestó— ya reescribió esos logs no blindados (Si hasta el dia de hoy esos log son manipulables pregunte  al depto informatico del Poder Judicial si el dicen que no con  gusto le demuestro como)  para que coincidan con la versión alterada.
+
+En un ataque TOCTOU, la criptografía funciona a la perfección. Pero el Estado, el perito y su propio sistema informático se convierten en los instrumentos que lo obligan legalmente a usted a hacerse responsable de una resolución redactada por un cibercriminal.
+
+ [Vector 7] Corrupción Semántica y Envenenamiento de Contexto (RAG Poisoning)
+
+La mecánica: A medida que los Operadores de Importancia Vital y las entidades financieras integran modelos de lenguaje internos (sistemas RAG o Generación Aumentada por Recuperación) para automatizar decisiones de crédito, compliance o triaje operativo, la horda cambia de blanco. En lugar de sustraer la base de datos —lo que detona las alarmas volumétricas de los sistemas DLP (Data Loss Prevention)—, el enjambre inyecta conocimiento falso pero criptográficamente válido en los repositorios documentales que alimentan a la IA corporativa.
+
+El colapso probatorio: El ataque atenta exclusivamente contra la integridad, invisibilizándose ante los controles de confidencialidad. El sistema del banco o del Estado sigue operando sin interrupciones, pero sus motores automatizados comienzan a tomar decisiones financieras o emitir fallos administrativos basados en premisas inyectadas por el adversario. Cuando el Directorio deba dar explicaciones por el desastre financiero o la paralización de la cadena de pagos, el log de auditoría certificará que el sistema actuó "correctamente" según la información disponible. Nadie sabrá que la realidad misma fue editada por diseño, y la plataforma de compliance tradicional no emitirá ni un solo aviso.
+
+[Vector 8] Explotación Biométrica en Tiempo Real (Fraude Agéntico de Identidad)
+
+La mecánica: Frente a la obsolescencia de las contraseñas estáticas, la industria financiera amparada en la Ley Fintec ha migrado sus procesos de onboarding y autorización de transferencias de alto valor hacia la validación biométrica (KYC en vivo). Sin embargo, el mercado negro de Jailbreak-as-a-Service (JaaS) ha industrializado el uso de redes generativas y motores de clonación en tiempo real (live deepfakes). El agente adversario secuestra el flujo de video y audio en la capa del sistema operativo durante el mismo instante de la transacción, burlando a velocidad de máquina los sistemas de prueba de vida (liveness detection).
+
+El colapso probatorio: La infraestructura en la nube registrará, en sus bases de datos inmutables, que el cliente autorizó el retiro millonario con su propia voz y rostro. La suplantación es tan perfecta en la capa de aplicación que la única evidencia de descargo que el gerente legal podrá presentar ante el juez o la CMF será el video generado sintéticamente por el atacante. Sin una firma medida y atestada desde el hardware del dispositivo original de captura —una raíz de confianza física que certifique que el flujo no fue inyectado por software virtual— la suplantación de identidad se vuelve criptográficamente inobjetable. 
 
 ### El veredicto arquitectónico: La primacía probatoria de la raíz de confianza física
 
@@ -2278,7 +2404,34 @@ El modelo de amenaza anterior deja de ser abstracto en cuanto se traduce a la pr
 ## 3. Taxonomía del fracaso del modelo transaccional
 *Taxonomía del colapso probatorio y brecha metodológica: articulación de las fallas sistémicas del modelo de cumplimiento tradicional frente a la IA. Incluye la inversión de la carga probatoria sobre la fiabilidad de la máquina (§3.6) y la brecha de método entre el razonamiento jurídico y el computacional —el error de nivel: juzgar el *output* en vez del proceso generativo que lo produjo—.*
 
+
+## 3. Taxonomía del fracaso del modelo transaccional
+
+*Taxonomía del colapso probatorio y brecha metodológica: articulación de las fallas sistémicas del modelo de cumplimiento tradicional frente a la IA. Incluye la inversión de la carga probatoria sobre la fiabilidad de la máquina (§3.6) y la brecha de método entre el razonamiento jurídico y el computacional —el error de nivel: juzgar el *output* en vez del proceso generativo que lo produjo—.*
+
 El Suicidio Probatorio y el paradigma "Assume Breach". La industria de la ciberseguridad ha transitado formalmente hacia el paradigma de *Assume Breach* (asumir la brecha). Como declara el *Reporte Entel 2026* al definir los pilares de la resiliencia corporativa, el primer mandato para los directorios es explícito: *"aceptar que los incidentes ocurrirán"*, reconociendo que esto acarrea *"una responsabilidad legal y corporativa directa"*<a href="#fn241" id="fnref241"><sup>241</sup></a>. Si la intrusión es técnicamente inevitable, el Modelo de Prevención de Delitos (Ley 21.595) de una corporación no puede basarse en la ficción de repeler el ataque, sino en la capacidad forense de probar, de forma inmutable, qué ocurrió durante el mismo. Asumir la brecha en el papel, pero operar en la práctica con sistemas de auditoría (SIEM/EDR) que pueden ser alterados por el atacante una vez dentro, constituye un acto de suicidio probatorio premeditado por parte de la alta dirección.
+
+### La Tensión Epistémica del Actual Estándar Probatorio
+Para los tribunales superiores de justicia y los organismos reguladores (CMF, CSIRT), la evolución de la amenaza agéntica plantea un desafío estructural respecto a la valoración de la evidencia digital. La arquitectura de confianza actual —sustentada en la Ley 19.799 sobre Documentos Electrónicos— fue diseñada bajo un paradigma que asume que la robustez del algoritmo criptográfico garantiza la veracidad del contenido.
+
+Sin embargo, la explotación del vector TOCTOU (Time-of-Check to Time-of-Use) y las intrusiones en el nivel del núcleo (Ring-0) evidencian una vulnerabilidad que escapa al diseño original de esa legislación. Cuando la memoria volátil de un sistema puede ser alterada de forma imperceptible en la fracción de segundo previa a que el software estampe la firma electrónica, el documento resultante gozará de todas las presunciones legales de autenticidad, a pesar de contener una representación fáctica adulterada.
+
+Esta divergencia somete a la judicatura y a las agencias fiscalizadoras a una carga insalvable. En el corto plazo, si se mantiene el estándar de validar evidencias basándose exclusivamente en telemetría de Capa 7, los tribunales se enfrentarán a la imposibilidad material de discernir la verdad procesal, sumiéndose en un colapso epistémico frente a la avalancha de evidencia sintética. Los peritajes informáticos tradicionales, limitados a verificar firmas ex post y leer logs de un sistema operativo comprometido, se volverán probatoriamente inútiles.
+
+En este escenario, el derecho probatorio y las normativas de cumplimiento enfrentan la necesidad ineludible de actualizar sus exigencias. Para distinguir certeramente entre un registro íntegro y una alteración agéntica, el estándar de prueba debe transitar hacia la exigencia de una Raíz de Confianza Física (Hardware Root of Trust). Al requerir que la evidencia esté atestada directamente desde el silicio (DRTM), el sistema jurídico recupera la trazabilidad material necesaria para fallar con certeza y resguardar la seguridad jurídica en la economía digital..
+
+### El Cambio de Paradigma: Del Software que Jura, al Silicio que Atestigua
+
+La solución a este suicidio probatorio exige abandonar la jerga de certificaciones de Capa 7 y adoptar una arquitectura forense basada en el silicio. Para la alta administración y la judicatura, los acrónimos técnicos (DRTM, TPM, SCITT) representan un cambio conceptual muy simple: quitarle la cámara fotográfica al software (que es sobornable) e integrarla directamente en el cemento del edificio (el hardware físico).
+
+Si el chip físico del procesador (TPM/DRTM) no emite un testimonio independiente (*Atestación*) validando que el entorno de ejecución estaba intacto en el momento exacto de la transacción, el documento carece de validez, sin importar cuántas firmas electrónicas o sellos de compliance posea.
+
+Además, esta atestación física no puede quedar guardada en el mismo servidor (donde el atacante o el proveedor cloud extranjero podrían destruirla). Debe ser transmitida en tiempo real a un Registro de Transparencia inmutable e independiente (SCITT) bajo control soberano. No buscamos fabricar procesadores locales; buscamos que las llaves criptográficas que sellan la verdad del servidor residan fuera del alcance del atacante y del proveedor de la nube.
+
+Esta arquitectura —la atestación forzada por hardware acoplada a un registro externo inmutable— es la única forma de arruinar económicamente el modelo de negocios de la horda agéntica y devolverle al juez la capacidad de distinguir entre la realidad y una maqueta matemática.
+
+
+
 
 ### El escudo de papel: *compliance* como transferencia de culpa, no como seguridad
 
