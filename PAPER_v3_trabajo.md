@@ -3655,7 +3655,40 @@ Aceptar esta claudicación regulatoria no es un mero formalismo administrativo; 
 
 >*Precedente histórico verificable:* Hackeo a la OPM (EE.UU., 2014-2015) y Medibank (Australia, 2022)<a href="#fn146" id="fnref146"><sup>146</sup></a>. El robo de 22 millones de fichas de inteligencia (SF-86) con biometría desde el gobierno de EE.UU. operó sin detección por meses. En Australia, la extracción de 9.7 millones de historiales médicos confidenciales ocurrió por explotación de credenciales válidas sin atestación de origen. La ausencia de validación *zero-trust* en *runtime* regala los activos más sensibles de la Nación.
 
-## 5. Requisitos de evidencia idónea (marco propuesto)
+## 5. El cisma regulatorio global (Julio 2026): La abdicación del *compliance* de papel y la lección para Chile
+
+La caducidad de las auditorías de papel frente a la Inteligencia Artificial agéntica dejó de ser una advertencia teórica. Entre junio y julio de 2026, las principales potencias regulatorias del mundo iniciaron un cisma legislativo sin precedentes, abandonando *de facto* la presunción de seguridad del *compliance* administrativo tradicional (ISO, SOC 2). Analizar este colapso global es imperativo, pues expone que el actual proyecto de ley de IA de Chile (Boletín 16821-19) —basado en modelos documentales obsoletos— corre el riesgo de nacer forensemente muerto.
+
+### 5.1 El "Digital Omnibus" de la Unión Europea: La confesión de impotencia técnica
+
+En junio de 2026, el Parlamento Europeo y el Consejo adoptaron el *Digital Omnibus on AI*, un paquete de enmiendas de emergencia a la *EU AI Act* original. El principal objetivo práctico del *Omnibus* fue retrasar las fechas de cumplimiento forzoso para los sistemas de IA de alto riesgo hasta diciembre de 2027 y agosto de 2028.
+
+El Boletín 16821-19 chileno fue redactado precisamente clonando la estructura original de la *EU AI Act*. Sin embargo, el retraso europeo opera como una confesión de impotencia técnica: el ecosistema corporativo descubrió que exigir gobernanza de IA mediante *checklists* administrativos (Capa 7) es inviable frente a la opacidad matemática de los modelos de frontera y vectores como *Mythos*. Las corporaciones carecen de los medios forenses para demostrar inmutabilidad sin una raíz de confianza dura. Si Chile persiste en importar un modelo administrativo que la propia Europa debió retrasar por inaplicable, el Estado estará legislando una ficción jurídica, exigiendo a los Operadores de Importancia Vital (OIV) un estándar de cumplimiento que la ciencia de la computación ya declaró insolvente.
+
+### 5.2 Alemania (KI-MIG): La inteligencia artificial como infraestructura física
+
+El 11 de junio de 2026, el Bundestag alemán aprobó la Ley de Implementación de la Ley de IA de la UE (KI-MIG). Su rasgo más letal para los viejos paradigmas fue negarse a entregarle la fiscalización de la IA a las agencias tradicionales de protección de datos. Alemania designó como autoridad suprema de vigilancia a la Agencia Federal de Redes (*Bundesnetzagentur*), el organismo encargado de fiscalizar los "fierros duros" críticos del Estado: telecomunicaciones, electricidad y redes ferroviarias.
+
+Mientras el debate chileno asume que gobernar la IA es un subproducto de la "privacidad de la información" (delegando responsabilidades en la nueva Agencia de Protección de Datos de la Ley 21.719), Alemania comprendió la tesis central de este manifiesto: un ataque agéntico (la vulneración del Ring-0) es un ataque directo a la infraestructura crítica. La Inteligencia Artificial no se gobierna leyendo manuales corporativos de privacidad; se gobierna exigiendo atestación a nivel de arquitectura, redes y silicio. Esta decisión alemana corrobora que la ANCI (Agencia Nacional de Ciberseguridad) y la CMF deben asumir un rol de fiscalización de topologías de *hardware*, y no limitarse a timbrar avisos de privacidad.
+
+### 5.3 Illinois, EE.UU.: La aniquilación de la auto-certificación
+
+En julio de 2026, el estado de Illinois promulgó la *Artificial Intelligence Safety Measures Act* (SB 315), obligando por ley a que los modelos de frontera sean sometidos a auditorías anuales por parte de terceros independientes. 
+
+Este movimiento es la muerte jurídica del modelo de "auto-certificación" de los hiperescalares. Hasta hoy, las normativas chilenas de la CMF (RAN 20-10) permiten que los proveedores de la nube envíen sus propios *logs* auto-declarados como prueba de seguridad. Sin embargo, si el Estado de Illinois dictaminó que la palabra del fabricante de IA carece de valor jurídico sin verificación externa obligatoria, el regulador chileno incurre en negligencia al aceptar *logs* (que pueden ser manipulados por *Mythos* desde el kernel) como evidencia de debida diligencia. El derecho comparado ha validado que los registros internos de un proveedor comprometido carecen de peso probatorio, elevando la atestación criptográfica externa (SCITT) a estándar mínimo de auditoría independiente.
+
+### 5.4 Francia (ANSSI) y el Mandato Post-Cuántico: La ineficacia del parche lógico
+
+Sumándose al cisma de julio, la ANSSI francesa estableció la prohibición inminente para certificar módulos de seguridad físicos (HSM/Tarjetas Inteligentes) que no implementen algoritmos post-cuánticos (PQC) incrustados en su *hardware*. Al negarse a certificar esquemas de seguridad que dependan exclusivamente de parches lógicos (*software*), Francia decretó el principio rector de nuestra arquitectura *Aegis*: el software no puede defenderse a sí mismo frente a un atacante con privilegios de núcleo. Si la llave criptográfica no está soldada físicamente al silicio, un agente agéntico la extraerá de la memoria RAM a velocidad de máquina.
+
+### 5.5 La advertencia al legislador chileno
+
+Los eventos de julio de 2026 configuran una señal internacional inequívoca. El modelo de seguridad corporativa basado en promesas comerciales y papeles timbrados ha abdicado formalmente frente al vector de ataque agéntico. 
+
+Copiar ciegamente la cáscara administrativa europea original, ignorando estas dramáticas correcciones técnicas de Estados Unidos, Francia y Alemania, condenará a las empresas estratégicas chilenas a la indefensión forense total. Aprobar el actual proyecto de ley (Boletín 16821-19) sin exigir —de manera vinculante— la atestación criptográfica inmutable anclada en hardware, es despojar al juez de la República de cualquier herramienta técnica para distinguir entre la verdad material y la alucinación ofensiva, configurando una negligencia inexcusable sancionable bajo la Ley N° 21.595.
+
+
+## 6. Requisitos de evidencia idónea (marco propuesto)
 
 *Requisitos de evidencia: definición del estándar técnico para unificar el reporte a la ANCI y la cadena de custodia penal, exigiendo atestación de hardware en el origen.*
 
@@ -3691,7 +3724,7 @@ La distinción relevante no es el proveedor, sino el resultado: si la evidencia 
 
 <div style="page-break-before: always;"></div>
 
-## 6. Discusión y propuesta regulatoria
+## 7. Discusión y propuesta regulatoria
 
 Habiendo recorrido la anatomía del colapso epistémico y las carencias del modelo de observabilidad actual, este capítulo tiene como objetivo articular un camino de salida pragmático y jurídicamente robusto. Para ello, se analizará en primer lugar la postura de los reguladores nacionales (especialmente la ANCI y la CMF), desglosando las incoherencias normativas que aún subsisten en el marco vigente. Posteriormente, se delineará una estrategia de transición operativa (la "estrategia puente") para que los Operadores de Importancia Vital puedan adoptar estándares de atestación por hardware sin detener su continuidad de negocio. Por último, se abordarán de manera directa las objeciones corporativas y técnicas más comunes que la industria opondrá frente a este cambio de estándar.
 
@@ -4487,7 +4520,7 @@ La respuesta no es una declaración de principios; es un anexo técnico de licit
 
 Al introducir esta cláusula, la entidad financiera y el  Estado dejan de ser víctimas pasivas de la negligencia hiperescalar y se convierten en los arquitectos y reguladores *de facto* de su propia seguridad.
 
-## 7. Profundizaciones en la frontera entre la prueba y la máquina
+## 8. Profundizaciones en la frontera entre la prueba y la máquina
 
 *Profundizaciones en la frontera entre la prueba y la máquina: análisis dogmático sobre la teoría de juegos de la atestación, el equilibrio corporativo de la opacidad (§7.1) y la aplicación de la teoría del consenso bizantino al reporte de incidentes ante el regulador (§7.2).*
 
@@ -4580,9 +4613,9 @@ Tolerancia a fallos bizantinos. La integridad de un sistema *frente a un orácul
 El reporte como atestación, no acto de fe. La autoridad no debe estructurar la recepción de incidentes como un acto de fe en el *log* del proveedor, sino exigir que la evidencia se genere sobre un registro tolerante a fallos. El reporte regulatorio deja de ser una declaración vulnerable y pasa a ser una atestación matemáticamente inalterable, devolviéndole la soberanía epistémica al Estado.
 
 
-## 8. Conclusiones
+## 9. Conclusiones
 
-El recorrido analítico de este documento ha transitado, de forma deliberada e irreversible, desde la constatación de un déficit probatorio puntual hasta la demostración de un colapso estructural de magnitud sistémica. Comenzó en Ring-0 —en el milisegundo en que el atacante autónomo reescribe la memoria antes de que el sensor la lea— y terminó en la sala del directorio, en el despacho del regulador y en la audiencia del tribunal: el mismo vacío de evidencia que el adversario explota en el sustrato físico se reproduce, con precisión matemática, en cada estrato del sistema de responsabilidades que debería acotarlo. Las Secciones 2 a 7 no son capítulos independientes: son la misma tesis demostrada en sucesivos planos —ingeniería, derecho penal, derecho administrativo, teoría de juegos y sistemas distribuidos—, hasta que ya no queda ángulo desde el que la presunción de integridad del *log* no atestado pueda sostenerse. De esa convergencia se extraen los siguientes hallazgos.
+El recorrido analítico de este documento ha transitado, de forma deliberada e irreversible, desde la constatación de un déficit probatorio puntual hasta la demostración de un colapso estructural de magnitud sistémica. Comenzó en Ring-0 —en el milisegundo en que el atacante autónomo reescribe la memoria antes de que el sensor la lea— y terminó en la sala del directorio, en el despacho del regulador y en la audiencia del tribunal: el mismo vacío de evidencia que el adversario explota en el sustrato físico se reproduce, con precisión matemática, en cada estrato del sistema de responsabilidades que debería acotarlo. Las Secciones 2 a 8 no son capítulos independientes: son la misma tesis demostrada en sucesivos planos —ingeniería, derecho penal, derecho administrativo, teoría de juegos y sistemas distribuidos—, hasta que ya no queda ángulo desde el que la presunción de integridad del *log* no atestado pueda sostenerse. De esa convergencia se extraen los siguientes hallazgos.
 
 La arquitectura legal e institucional de la ciberseguridad nacional se sostiene hoy sobre una ficción probatoria: la presunción de que los registros emitidos por un proveedor de infraestructura en la nube reflejan fielmente la realidad del entorno de ejecución.
 
