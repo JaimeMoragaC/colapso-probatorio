@@ -2015,7 +2015,22 @@ Este algoritmo asume que la verdad emerge de la redundancia y el consenso de mú
 
 El magistrado ejecuta su algoritmo de validación a la perfección y, precisamente por hacerlo bien, llega a la conclusión determinista que el adversario optimizó. La sana crítica sufre un bypass estructural: deja de ser un escudo procesal para convertirse en una vulnerabilidad de predicción de saltos (branch prediction vulnerability). 
 
-El atacante suministra el payload semántico, y el juez, operando como un motor de inferencia manipulado, compila el fallo con la certeza algorítmica de estar impartiendo justicia. El Estado pierde su soberanía epistémica, porque la sentencia no es más que el output precalculado de una máquina que hackeó la tolerancia a fallos del sistema judicial..
+El atacante suministra el payload semántico, y el juez, operando como un motor de inferencia manipulado, compila el fallo con la certeza algorítmica de estar impartiendo justicia. El Estado pierde su soberanía epistémica, porque la sentencia no es más que el output precalculado de una máquina que hackeó la tolerancia a fallos del sistema judicial.
+
+### El Realismo Constitucional de la "Parálisis Probatoria": La universalidad de la ceguera
+
+Ante este colapso estructural (Vectores 9, 10 y 11), la respuesta instintiva del pragmatismo es el pánico: si toda prueba digital sin atestación de hardware es epistemológicamente nula, la gran mayoría de las investigaciones ordinarias colapsarían. Frente a este "suicidio del sistema", la tentación regulatoria es proponer un estándar probatorio a dos velocidades: exigir atestación de silicio únicamente a la Infraestructura Crítica y mantener una sana crítica laxa para la imputación común.
+
+Esta salida pragmática es constitucionalmente inadmisible y dogmáticamente suicida por tres razones ineludibles:
+
+**1. La igualdad ante la ley y la indivisibilidad del estándar (No hay estándar degradado)**:
+El estándar de convicción "más allá de toda duda razonable" (art. 340 CPP) no es un dial que el juez pueda ajustar según la magnitud del hecho. Si la ingeniería demuestra que un registro digital sin atestación en Ring-0 es estructuralmente incapaz de distinguir entre un hecho histórico y una alucinación inyectada, entonces esa prueba es ciega para un ataque financiero y exactamente igual de ciega para una imputación común. Condenar a un ciudadano valiéndose de evidencia que el propio sistema considera "inidónea" para auditar a un banco constituye una violación flagrante a la Igualdad ante la Ley (Art. 19 N° 2 de la Constitución Política). La "parálisis probatoria" no es un error del sistema que deba corregirse bajando el estándar; es el funcionamiento correcto y exigido por la presunción de inocencia frente a la obsolescencia tecnológica. El sistema debe absolver, obligando a la industria —y no al imputado— a absorber el costo de elevar universalmente su arquitectura probatoria.
+
+**2. La distribución de la carga: La duda es estructural, no accidental**:
+Frente a un ecosistema asediado por IA polimórfica, el sistema de adjudicación no puede exigirle a la defensa que demuestre matemáticamente la intervención de un agente autónomo específico en su caso concreto (prueba diabólica). Dado que el diseño del *log* autodeclarado es incapaz de dejar rastros tras una mutación en memoria, la mera demostración forense de que la evidencia aportada por el acusador carece de Raíz de Confianza en Hardware (DRTM) basta para activar la duda razonable. El germen de la duda no requiere ser sembrado por el imputado; viene inyectado de fábrica en la arquitectura ciega de la evidencia.
+
+**3. El mandato de inmediatez (Cero plazos de gracia institucionales)**:
+La crisis epistémica está afectando hoy a seres humanos concretos, que son el centro de toda imputación penal y administrativa. El Estado no puede suspender las garantías constitucionales de los ciudadanos mientras sus propios órganos de persecución transitan lentamente hacia la criptografía de hardware. No existen "puentes procesales" ni plazos transitorios para los derechos fundamentales. Si los métodos de recolección de evidencia vigentes son materialmente inidóneos para repeler un envenamiento semántico, el costo institucional de esa obsolescencia se paga hoy en la sala de audiencias, mediante absoluciones.
 
 (La fragmentación empírica del ataque cognitivo):
 
