@@ -3428,6 +3428,24 @@ La filtración de 400.000 correos de inteligencia del Estado Mayor Conjunto forz
 
 Operar infraestructura crítica con vulnerabilidades conocidas y sin verificación continua no es un infortunio: la imposibilidad de reconstruir la cadena de custodia durante el ataque no es un accidente, sino el resultado previsible de operar ciego por diseño . El reproche no requiere invocar figuras penales agravadas; basta el estándar de diligencia que la propia ley impone al obligado.
 
+5. Carabineros / PacoLeaks (2019): La inobservancia de la criptografía en reposo.
+
+La exposición de las identidades de 72 agentes encubiertos e informantes se originó por el almacenamiento de archivos de inteligencia en texto plano y planillas de Excel no cifradas. 
+
+Análisis de ingeniería: El fracaso no radicó en la vulneración de un perímetro complejo, sino en la ausencia absoluta de Seguridad Operacional (OpSec) y segmentación de privilegios. Almacenar identidades de inteligencia humana (HUMINT) sin encriptación AES-256 ni Controles de Acceso Basados en Roles (RBAC) demuestra que el diseño del sistema asumió erróneamente que la red interna era inherentemente confiable (*trusted network*). Cuando el atacante superó el cortafuegos, obtuvo acceso irrestricto a la totalidad de los datos sin encontrar resistencia criptográfica a nivel de archivo. Dogmáticamente, esto representa la forma más elemental de negligencia frente a la inminente Ley 21.719 (Protección de Datos): la falla en implementar el estado del arte básico (cifrado en reposo) y el principio de privilegios mínimos.
+
+6. Gobierno Digital / Clave Única (2020): El colapso del Punto Único de Falla en la nube.
+
+La vulneración de la plataforma transversal del Estado no ocurrió por descifrar las contraseñas originales de los ciudadanos, sino por la sustracción de *tokens* de interconexión (API keys) alojados en la nube (AWS).
+
+Análisis de ingeniería: Este incidente exhibe el defecto arquitectónico de los secretos estáticos en infraestructuras hiperescalares. El atacante comprometió el servicio no atacando la base de datos central criptográficamente blindada, sino extrayendo credenciales de alta jerarquía depositadas en un servidor intermedio sin rotación automatizada ni protección mediante un Módulo de Seguridad de Hardware (HSM). Desde el punto de vista del *compliance*, demuestra que delegar la identidad digital del Estado a un proveedor *cloud* sin exigir atestación de que los secretos operan exclusivamente en enclaves seguros (como *Confidential Computing*) transforma un fallo local de configuración en una crisis de seguridad nacional (*Single Point of Failure*).
+
+7. Poder Judicial (LockBit 3.0, 2022) y Ejército de Chile (Rhysida, 2023): La obsolescencia como negligencia estructural.
+
+Ambas instituciones sufrieron secuestros de datos paralizantes facilitados por un vector común: la operación de infraestructura crítica sobre sistemas operativos fuera del ciclo de vida de soporte (Windows 7) y redes militares con un 18% de terminales operando sin antivirus activo.
+
+Análisis de ingeniería: La paralización por *ransomware* en estos casos no requirió técnicas de evasión avanzadas, 0-days o *killers* de EDR. LockBit 3.0 y Rhysida (que emplea encriptación ultra-rápida ChaCha20 y curva elíptica Curve25519) pudieron mapear los recursos compartidos, escalar privilegios vía protocolos SMB obsoletos y cifrar los discos duros a nivel de núcleo porque el sistema operativo anfitrión era técnicamente ciego. Windows 7 carece de las APIs modernas (como ETW/AMSI) que los sensores de telemetría (EDR) necesitan para detectar inyecciones en memoria en tiempo real. En consecuencia, el oficial de cumplimiento es legalmente incapaz de producir evidencia probatoria (como exige la Ley 21.663) simplemente porque el sensor ni siquiera era compatible con la máquina que debía proteger. Bajo la nueva Ley Marco de Ciberseguridad, operar infraestructura vital bajo obsolescencia técnica anula cualquier presunción legal de debida diligencia.
+
 #### 4.6.2 El patrón común: la anatomía recurrente del colapso probatorio
 
 *En una frase: incidentes m uy distintos —inteligencia militar, banca, salud, compras públicas— fallan exactamente de la misma manera y en el mismo orden, y esa repetición es lo que convierte una lista de anécdotas en evidencia de un problema estructural.*
