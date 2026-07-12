@@ -3219,7 +3219,29 @@ Pero ofrecidas como medio para acreditar un incidente (21.663) o el cumplimiento
 
 <a id="sec4-4"></a>
 
-### 4.4 La objeción del registro abundante: por qué preservar no es probar
+### 4.4 El Colapso Empírico del Perímetro: La evidencia de M-Trends 2026
+
+*El análisis forense de la industria corrobora sistemáticamente los fracasos teóricos descritos. El informe M-Trends 2026 de Mandiant y Google Cloud documenta cuatro vectores tácticos que destruyen los pilares de defensa y cumplimiento tradicionales<a href="#fn_mtrends"><sup>282</sup></a>:*
+
+#### 1. El hipervisor como "Punto Ciego" y elusión del Sistema Operativo (*Guest OS Bypass*)
+*   **El hallazgo de M-Trends:** Los atacantes están clonando discos virtuales directamente desde la capa de almacenamiento del hipervisor para extraer bases de datos críticas (como el `ntds.dit` de Active Directory), **sin interactuar jamás con los sistemas de alerta de las máquinas virtuales**. Además, cifran los *datastores* completos, apagando toda la infraestructura de golpe.
+*   **Conexión con nuestra tesis:** Esto es la prueba irrefutable para el **Capítulo 4.3 (La Ficción de la Telemetría Defensiva)**. Demuestra la *asimetría física*: si el atacante compromete el hipervisor (Anillo -1 de privilegios) en la nube, el EDR comercial instalado dentro de la máquina virtual (Anillo 0) es ciego por diseño. Es decir, el proveedor de nube te vende una seguridad que el atacante simplemente puentea por debajo.
+
+#### 2. La destrucción del plano de administración y las copias de seguridad
+*   **El hallazgo de M-Trends:** El *ransomware* ya no cifra simplemente los archivos; los atacantes ahora mapean el almacenamiento físico y en la nube para eliminar sistemáticamente todas las copias de seguridad, inhabilitando las consolas IAM y las herramientas de seguridad antes de detonar el ataque.
+*   **Conexión con nuestra tesis:** Esto aniquila el estándar regulatorio de la CMF y la ANCI sobre los **Planes de Continuidad Operacional (BCP/DRP)** (Capítulo 2.2). Obligar a un OIV a tener "respaldos en la nube" es inútil si el atacante posee las credenciales de administración de esa misma nube y los borra. Demuestra que sin separación criptográfica de hardware (*Airgap*), el respaldo lógico es una ilusión.
+
+#### 3. La evasión del EDR mediante dispositivos perimetrales (Routers/Firewalls)
+*   **El hallazgo de M-Trends:** Actores avanzados realizan todo el ciclo de vida de la intrusión utilizando herramientas nativas de los *switches* y *firewalls* perimetrales, evitando tocar los servidores y estaciones de trabajo monitorizados. Además, el almacenamiento reducido de los equipos de red destruye la evidencia al reiniciarse.
+*   **Conexión con nuestra tesis:** Refuerza la "Ceguera Forense" (**Capítulo 4**). Como los dispositivos perimetrales no admiten agentes EDR estándar de la industria corporativa, el Oficial de Cumplimiento no tiene telemetría de dónde ocurre realmente el ataque. 
+
+#### 4. Persistencia plurianual y el colapso del "Log Retention"
+*   **El hallazgo de M-Trends:** Se documentó que ciertas puertas traseras (como `BRICKSTORM`) mantuvieron un tiempo de permanencia medio de **393 días**. Además, los atacantes ejecutan borrados masivos de registros históricos y manipulan marcas de tiempo (*timestomping*).
+*   **Conexión con nuestra tesis:** Esto destruye la exigencia legal de "retención de logs de 90 días" (**Capítulo 1.3**). Si el atacante lleva 393 días dentro del sistema modificando las fechas y borrando huellas, el *log* que el OIV le entrega al regulador o al juez es un documento forense adulterado por el adversario.
+
+<a id="sec4-5"></a>
+
+### 4.5 La objeción del registro abundante: por qué preservar no es probar
 
 *En una frase: la respuesta instintiva de la industria frente al colapso de sus defensas físicas es el repliegue hacia la volumetría documental. La nube no carece de registros —le sobran—; el defecto estructural es que dicho volumen resulta epistemológica y jurídicamente nulo frente a un adversario que opera en la misma capa física que emite el registro.*
 
