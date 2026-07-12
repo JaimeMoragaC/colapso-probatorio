@@ -2437,6 +2437,21 @@ Mientras tanto, la clínica privada chilena (el OIV) y su directorio justificaba
 
 Esta es la tesis del colapso: el atacante ha industrializado la cadena de suministro ofensiva y automatizado la inteligencia táctica mediante *clusters* de IA propios. Es matemáticamente imposible que un Operador de Importancia Vital gane una guerra de desgaste donde el defensor gasta 300 mil dólares al año en sostener un perímetro lógico obsoleto, frente a una industria donde el costo operativo (energía, transporte y cómputo) de aniquilar a la institución es inferior a mil dólares. Bajo esta asimetría estructural, la única defensa probatoriamente y financieramente viable no es construir un muro lógico más alto, sino implementar atestación física de *hardware* (*Confidential Computing*, DICE, RATS) que encarezca el ataque al forzar al adversario a comprometer el silicio.
 
+#### El colapso del modelo de negocio criminal frente a la seguridad anclada en silicio
+
+Para comprender por qué el marco probatorio propuesto en este documento (DICE, RATS, *Confidential Computing*) es la única salida viable para un directorio, apliquemos el mismo escenario de la clínica privada asumiendo que la infraestructura estuviera blindada por silicio. El cambio no es de grado, es de paradigma: el objetivo no es hacer que el sistema sea mágicamente "invulnerable", sino **destruir la viabilidad económica del atacante forzando un ROI (Retorno de Inversión) negativo**.
+
+Si el entorno de la clínica operara bajo atestación de *hardware*:
+
+1. **Adquisición del Vector Inicial:** Comprar la credencial de la VPN por $50 USD en la *dark web* se vuelve inútil. La arquitectura exige que el *endpoint* de conexión presente un token de atestación (DICE) generado criptográficamente en el chip físico autorizado por el hospital. Falsificar esta atestación requiere extraer la clave privada soldada en el silicio.
+   - **Nuevo costo criminal (CAPEX):** Adquirir acceso físico al dispositivo, o comprar un *0-day* contra el *firmware* del microprocesador (cotizado hoy entre **$1.000.000 y $2.500.000 USD** en *brokers* de vulnerabilidades como Zerodium).
+2. **Cómputo y Cognición Agéntica:** Aun escalando el perímetro, la IA del cartel (Mythos) se encuentra con que la base de datos SQL opera en un enclave encriptado en memoria (ej. *Intel TDX* o *AMD SEV-SNP*). La memoria RAM está cifrada en *hardware* mediante motores AES-128-XTS. Ni el sistema operativo anfitrión ni el hipervisor, aunque hayan sido comprometidos con privilegios *root*, pueden leer los datos médicos.
+   - **Nuevo costo cognitivo:** La IA es incapaz de reescribir el microcódigo del procesador vía *software*. El cartel necesitaría desarrollar y desplegar *exploits* de nivel de canal lateral (*side-channel*) contra la microarquitectura, aumentando el tiempo de operación (*Dwell Time*) de minutos a meses de investigación matemática profunda.
+3. **Evasión Criptográfica (Exfiltración):** Un *proxy* de egreso que exige IETF RATS no permite el paso de un solo paquete de red que no provenga de un binario atestado criptográficamente. Extraer 250 GB sin la firma de estado físico correcta genera un bloqueo estructural y determinista en la red, imposible de silenciar desde el sistema operativo.
+
+**El balance fiduciario invertido:**
+En un ecosistema anclado en *hardware*, el costo de producción para el cartel (Devman) salta brutalmente de **$915 USD a más de $2.500.000 USD**. Considerando que la extorsión típica a una clínica es de $2 millones, **la operación criminal arroja pérdida neta**. Ante un ROI negativo, el modelo *Cybercrime-as-a-Service* colapsa por diseño, forzando matemáticamente a los sindicatos a abandonar el objetivo en busca de víctimas rezagadas que sigan operando en *software*.
+
 <a id="test-exposicion"></a>
 
 ### El test de exposición: siete preguntas que su arquitectura debe poder responder
