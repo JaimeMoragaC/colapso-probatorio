@@ -2415,6 +2415,25 @@ La vulnerabilidad estructural del ecosistema chileno no es un fenómeno repentin
 
 La conclusión forense transversal de este historial es inapelable: el Estado y el sector privado invirtieron por una década en normativas de papel y certificaciones perimetrales, mientras los adversarios entraban por la puerta delantera utilizando credenciales válidas adquiridas en la *dark web*, deshabilitando el antivirus anfitrión y borrando los registros con privilegios de administrador.
 
+### 2.7 La asimetría económica de Mythos: El costo marginal cero del ataque
+
+La verdadera magnitud del colapso de la seguridad perimetral se entiende al cruzarla con la economía del crimen agéntico. Históricamente, el costo de un ataque dirigido (APT) estaba anclado al salario de un ingeniero humano tecleando durante semanas para evadir el EDR y mapear la red. La IA polimórfica (Mythos) y el ecosistema *Ransomware-as-a-Service* (RaaS) han pulverizado ese modelo de costos, democratizando el daño a niveles insostenibles para la defensa tradicional. 
+
+Para dimensionar esta asimetría, analicemos el costo de extracción en un escenario real chileno: el caso del grupo "Devman" exfiltrando 250 GB de fichas médicas de una clínica en 2026 (véase §2.6 y §4.6.2). Si este ataque es orquestado por un modelo de frontera (IA agéntica) integrado a herramientas RaaS, el desglose económico del adversario frente a la víctima es el siguiente:
+
+1. **Costo de Acceso Inicial (Initial Access Broker):** El adversario no gastó semanas buscando una vulnerabilidad (0-day). Compró credenciales válidas de la VPN (sin MFA) en foros rusos por un precio de mercado estándar.
+   - **Costo estimado:** $15 a $50 USD.
+2. **Costo Cognitivo (Orquestación Agéntica):** Navegar por una red interna plana, encontrar el servidor SQL de pacientes, escribir el script de exfiltración *Bash/PowerShell* y ejecutarlo, le toma a un agente basado en modelos LLM modernos unas 100 a 300 iteraciones (bucles ReAct). A un costo de $3 USD por millón de tokens procesados.
+   - **Costo estimado:** ~$1.50 USD.
+3. **Costo de Exfiltración (Infraestructura de Egreso):** Para mover 250 GB de datos sensibles sin ser detectado, el agente arrienda servidores virtuales (VPS) anónimos (pagados con Monero) y utiliza APIs de subida fragmentada (*chunking*) para evitar firmas estáticas de red. El costo de transferencia de salida en servicios *bulletproof* es mínimo.
+   - **Costo estimado:** ~$8.00 USD (por el ancho de banda y el VPS desechable).
+4. **Costo de Oportunidad (Velocidad de Ejecución):** En una red corporativa con un enlace de 1 Gbps, la extracción automatizada de 250 GB toma apenas ~33 minutos. El agente agéntico no duerme ni necesita pausas; orquesta y extrae la inteligencia antes de que los *logs* del EDR sean siquiera indexados y presentados al analista de seguridad en su turno diurno.
+
+**El balance fiduciario del desastre:**
+Mientras la clínica privada chilena (el OIV) y su directorio justificaban presupuestos anuales de **$150.000 a $300.000 USD** en licencias de *Firewalls*, EDRs, analistas SOC e ISO 27001 para "estar en cumplimiento", el adversario penetró, extrajo el activo más crítico de la corporación y destruyó la presunción de diligencia legal gastando un **total de $45 USD en menos de 45 minutos**. 
+
+Esta es la tesis del colapso: cuando el costo marginal de ejecutar un ciberataque complejo tiende a cero dólares, los incidentes dejan de ser eventos aislados para convertirse en ataques continuos y simultáneos. Es matemáticamente imposible que un Operador de Importancia Vital gane una guerra de desgaste donde defender cuesta cien mil dólares y atacar cuesta cuarenta. Bajo esta asimetría, la única defensa jurídicamente viable ante la ley no es construir un muro de papel más alto, sino implementar atestación física (hardware) que encarezca el ataque al obligar al adversario a comprometer el silicio.
+
 <a id="test-exposicion"></a>
 
 ### El test de exposición: siete preguntas que su arquitectura debe poder responder
