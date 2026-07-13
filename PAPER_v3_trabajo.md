@@ -3433,6 +3433,8 @@ Al exigir prueba física, la empresa levanta un muro que el *software* no puede 
 
  > 🔗 *[Para el escrutinio técnico del ingeniero forense sobre la vulnerabilidad arquitectónica de AWS Nitro, las SmartNICs y por qué esta ceguera del plano IAM constituye la única frontera probatoria frente a la negligencia corporativa culpable, véase el Anexo 5: El Error Categorial de AWS Nitro](#anexo-sabotaje-cinetico)*
 
+ 
+
 ### La trampa penal del "Cifrado Cloud": La abdicación procesal del secreto corporativo en texto plano
 
 > ADVERTENCIA AL DIRECTORIO
@@ -3441,9 +3443,13 @@ Al exigir prueba física, la empresa levanta un muro que el *software* no puede 
 >
 > El cifrado que le vendieron protege la información muerta, en un disco inerte. Pero *la Inteligencia Artificial no piensa encriptada. Para que su modelo razone, su secreto corporativo debe desnudarse en la memoria viva del hiperescalar, quedando a merced de quien controle el procesador.
 >
-> Lo que usted compró no es seguridad; es la ilusión de tener la llave de una caja fuerte cuya pared posterior ha sido desmantelada. **Toda certificación de cumplimiento que limite su alcance al dato en tránsito y en reposo, ignorando la hemorragia del dato en uso, no es una garantía de invulnerabilidad: es un certificado de negligencia corporativa impreso en papel de lujo.**
+> Lo que usted compró no es seguridad; es la ilusión de tener la llave de una caja fuerte cuya pared posterior ha sido desmantelada. *Toda certificación de cumplimiento que limite su alcance al dato en tránsito y en reposo, ignorando la hemorragia del dato en uso, no es una garantía de invulnerabilidad: es un certificado de negligencia corporativa impreso en papel de lujo.*
 
-El andamiaje de cumplimiento tradicional fue diseñado para la era pre-agéntica y opera sobre tres estados de la información. El primero es el *dato en tránsito*, protegido por protocolos maduros como TLS 1.3, un vector estadísticamente cerrado. El segundo es el *dato en reposo*, resguardado mediante cifrado estático (AES-256) en discos de almacenamiento. En el contexto de un ataque algorítmico moderno, el AES-256 es un fetiche inútil: equivale a ponerle un candado militar a un cadáver en la morgue. El único estrato que verdaderamente importa en la era de los modelos de lenguaje es el tercero: el *dato en uso*. Aquí radica el colapso arquitectónico del esquema comercial *cloud*.
+El andamiaje de cumplimiento tradicional fue diseñado para la era pre-agéntica y opera sobre tres estados de la información, de los cuales la industria solo certifica los dos primeros, ignorando el único que resulta letal:
+
+1. **El dato en tránsito (el vector cerrado):** Protegido por protocolos maduros como TLS 1.3. Hoy constituye un vector estadísticamente marginal para la exfiltración avanzada.
+2. **El dato en reposo (el fetiche inútil):** Resguardado mediante cifrado estático (AES-256) en discos de almacenamiento. En el contexto de un ataque algorítmico, exhibir este cifrado como defensa equivale a ponerle un candado militar a un cadáver en la morgue.
+3. **El dato en uso (el punto de colapso y el "dato agéntico"):** El único estrato que verdaderamente importa en la era de los modelos de lenguaje. Aquí radica el desahucio arquitectónico de todo el esquema comercial *cloud*.
 
 Para que un agente autónomo procese historiales clínicos, analice código propietario o decida sobre estrategias de litigio, el dato debe abandonar el refugio de su cifrado y ser inyectado, de forma pura y en texto plano, en la memoria volátil (VRAM) de las GPU del proveedor. En ese milisegundo, la criptografía de reposo es evadida; si el hiperescalar (o un atacante remoto con acceso Ring-0) ejecuta un volcado de memoria (*RAM dump*), obtiene el botín completo sin tener que romper ninguna llave criptográfica. Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. Ya no se trata del robo de un archivo inerte; el hiperescalar extranjero no solo aloja sus documentos, sino que observa el proceso cognitivo, táctico y estratégico de su empresa en tiempo real. Al usar IA en la nube pública, usted no solo externalizó su almacenamiento; le entregó el cerebro desnudo de su corporación a un administrador de sistemas a diez mil kilómetros de distancia. 
 
