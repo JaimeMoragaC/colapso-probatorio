@@ -3515,6 +3515,11 @@ El impacto forense de esta práctica es demoledor para el secreto corporativo, d
 
 ### El teatro criptográfico: La farsa del cifrado en reposo y la ilusión del HYOK
 
+> LA TRAMPA PENAL DE LA LLAVE COMPARTIDA
+> 
+> *Abogado litigante: si su estrategia de defensa frente al directorio consiste en argumentar que "el secreto industrial está a salvo porque implementamos BYOK (Bring Your Own Key) o HYOK", deténgase inmediatamente. Esgrimir esa sigla ante un tribunal es un suicidio procesal. Usted le está diciendo al juez que se siente seguro porque compró la puerta blindada más gruesa del mercado, ignorando que, por diseño, su proveedor de nube le exige dejar la puerta abierta, la llave pegada y sus secretos industriales extendidos sobre la mesa (la memoria RAM) para poder leerlos y procesarlos. Cuando el perito de la contraparte demuestre que la exfiltración ocurrió en la VRAM de la GPU mientras el documento estaba legítimamente desencriptado, su defensa de BYOK no solo será desestimada; será utilizada por el querellante para acreditar la ignorancia técnica inexcusable de su directorio bajo la Ley 21.595.*
+
+
 Para enmascarar esta falla estructural —la inevitable e insalvable exposición del secreto corporativo o estatal en la memoria viva de la máquina del tercero—, la industria *cloud* ha desplegado una sofisticada campaña de marketing semántico, impulsando arquitecturas de "gestión soberana de llaves", bajo siglas como BYOK (*Bring Your Own Key*) o HYOK (*Hold Your Own Key*). 
 
 Se comercializan ante los Oficiales de Cumplimiento y los Comités de Riesgo como el remedio definitivo y absoluto contra la intrusión de terceros. Sin embargo, analizados desde el rigor de la ingeniería inversa, constituyen un peligroso espejismo técnico que empuja al directorio a asumir un riesgo que cree mitigado. El portafolio comercial confunde sistemáticamente la protección perimetral del contenedor de almacenamiento con el control soberano sobre el estado de ejecución de la máquina.
