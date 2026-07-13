@@ -3297,7 +3297,7 @@ Las presentaremos en su versión más formidable, exactamente como las declamar�
 
 Le sugerimos leer lo que viene con una única regla en mente. Olvide si la tecnología suena impenetrable y pregúntese solo esto: «¿Puedo llevar este registro a un tribunal o a la agencia reguladora y probar matemáticamente, frente a un juez o un fiscalizador hostil, que el atacante miente?». Sin atestación de silicio soberana, la respuesta siempre será no. Y si la respuesta es no, lo que usted tiene en sus manos no es evidencia forense: es apenas un recibo de pago por su propia indefensión.
 
-> **Nota de lectura:** Para garantizar un análisis jurídico y estratégico ágil, las demostraciones empíricas y el detalle de ingeniería de sistemas que comprueban cada una de las tesis de este capítulo han sido extraídos hacia los **Anexos Técnicos Forenses** al final del documento. Cada sección cuenta con un hipervínculo directo (🔗) para los lectores o peritos que requieran escudriñar la mecánica técnica de la vulnerabilidad.
+> **Nota de lectura:** Para garantizar un análisis jurídico y estratégico ágil, las demostraciones empíricas y el detalle de ingeniería de sistemas que comprueban cada una de las tesis de este capítulo han sido extraídos hacia los **Anexos Técnicos Forenses** al final del documento. Cada sección cuenta con un hipervínculo directo (🔗) para los lectores que requieran escudriñar la mecánica técnica de la vulnerabilidad.
 
 ### El espejismo del "estándar razonable" (El caso Capital One)
 
