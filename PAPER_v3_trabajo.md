@@ -3350,10 +3350,6 @@ El fraude de la desconfianza delegada. Vender *Zero Trust* sobre un hipervisor e
 
 El modelo asume que no se debe confiar en la red interna, pero obliga al responsable jurídico a confiar ciegamente en el *hardware* extranjero donde esas transacciones operan. Si el regulado no posee físicamente la Raíz de Confianza de Hardware (*Hardware Root of Trust*), su arquitectura no es *Zero Trust*; es un régimen de abdicación absoluta (*Trust the Vendor*). Jurídicamente, esto significa delegar la custodia y la carga de la prueba en un tercero que se niega expresamente a asumir responsabilidad penal por la alteración de la misma.
 
-El *hash* SHA-256 que la plataforma calcula y custodia prueba, a lo sumo, que ella no tocó el registro después de calcularlo: pedirle al proveedor que selle su propio *log* es pedirle al sospechoso que firme su propia coartada. El verificador mismo —el clasificador que decide qué es "benigno"— es un modelo manipulable: Check Point Research documentó en 2025 *malware* que, vía *prompt injection*, induce a la IA defensiva a absolver la amenaza<a href="#fn110" id="fnref110"><sup>110</sup></a>.
-
-Y la asimetría es, antes que económica, física: ninguna inferencia neuronal de cientos de milisegundos intercepta una manipulación de punteros que se ejecuta en nanosegundos; cuando el modelo defensivo "ve" la anomalía, el estado ya fue reescrito y la telemetría falsificada en el origen — el sensor y el atacante viven en el mismo plano de ejecución, y lo que puede ser desenganchado no puede certificar su propia integridad—.
-
 > 🔗 *[Para la demostración pericial de estas vulnerabilidades, véase el Anexo 2: Falacias de Auto-Atestación, Asimetría Temporal y Envenenamiento de IA Defensiva](#anexo-auto-atestacion)*
 
 ### La ficción del aislamiento: El colapso físico del "Cómputo Confidencial"
