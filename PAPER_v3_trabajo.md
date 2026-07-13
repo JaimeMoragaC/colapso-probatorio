@@ -3100,19 +3100,25 @@ Frente a este cerco transnacional, la reacción refleja de las gerencias legales
 
 Es un espejismo tranquilizador, pero estratégicamente letal. Los directorios se consuelan asumiendo que, si un ciberataque es tan avanzado que borra sus propias huellas, la incapacidad técnica del regulador (CMF, ANCI) para reconstruirlo operará como una garantía de impunidad. Lo que no calculan es que ese mismo escudo constitucional en el que depositan su salvación está diseñado para mutar, ante la ceguera forense autoinducida, en la espada que ejecutará su condena personal.
 
-1. **El piso garantista protege al diligente, no al complaciente.** Es doctrina consolidada del Tribunal Constitucional que los principios del orden penal se aplican, *con matices*, al Derecho Administrativo Sancionador (STC Rol N°244, 1996, y su línea posterior<a href="#fn125" id="fnref125"><sup>125</sup></a>): rigen la presunción de inocencia —de la que se sigue que la carga de acreditar la infracción recae en la Administración, no en el administrado (art. 19 N°3 de la Constitución; Ley 19.880)— y el principio de culpabilidad, que proscribe la responsabilidad objetiva: no hay sanción sin dolo o, cuando menos, negligencia imputable.
+#### 1. El piso garantista protege al diligente, no al complaciente.
+
+Es doctrina consolidada del Tribunal Constitucional que los principios del orden penal se aplican, *con matices*, al Derecho Administrativo Sancionador (STC Rol N°244, 1996, y su línea posterior<a href="#fn125" id="fnref125"><sup>125</sup></a>): rigen la presunción de inocencia —de la que se sigue que la carga de acreditar la infracción recae en la Administración, no en el administrado (art. 19 N°3 de la Constitución; Ley 19.880)— y el principio de culpabilidad, que proscribe la responsabilidad objetiva: no hay sanción sin dolo o, cuando menos, negligencia imputable.
 
 Pero la culpabilidad es una bisagra de doble filo: lo mismo que exime al operador que actuó con diligencia es lo que condena al que, pudiendo prever y mitigar un riesgo conocido, no lo hizo. Y aquí es donde la defensa habitual ("*no me pueden sancionar porque la manipulación de la IA era invisible y humanamente imprevisible*") colapsa por su propio peso.
 
 La negligencia que se sanciona  no es no haber detectado a la IA en tiempo real; la negligencia es haber certificado formalmente ante el regulador que el sistema era seguro, cuando el operador *sabía* (o debía saber) que la arquitectura de nube elegida era estructuralmente ciega . El riesgo conocido no es el hackeo específico; es la ceguera arquitectónica que el directorio ocultó bajo un certificado de *compliance* de papel. El garantismo ampara al diligente, no a quien certifica como seguro un entorno que no puede verificar.
 
-2. **La tenaza: dos deberes que el *cloud* no atestado no puede satisfacer a la vez.** El responsable queda atrapado entre dos obligaciones legales simultáneas. De un lado, el deber de reportar el incidente con información veraz y oportuna, cuya infracción la Ley 21.663 (art. 9) tipifica como gravísima.
+#### 2. La tenaza: dos deberes que el *cloud* no atestado no puede satisfacer a la vez.
+
+El responsable queda atrapado entre dos obligaciones legales simultáneas. De un lado, el deber de reportar el incidente con información veraz y oportuna, cuya infracción la Ley 21.663 (art. 9) tipifica como gravísima.
 
 Del otro, la responsabilidad proactiva de la Ley 21.719, que le impone *poder demostrar* el cumplimiento y, como parte de él, conocer y gestionar el riesgo de sus proveedores . Con una arquitectura *cloud* no atestada, el responsable no puede acreditar la integridad del registro que reporta —la firma certifica *quién* firmó, no la integridad del entorno que produjo el dato (§3.3)— ni demostrar que gestionó el riesgo de atestación.
 
 La precisión dogmática importa: no se afirma que el *log* sea falso  —probarlo sería tan difícil como probar su veracidad—, sino que su integridad es inacreditable. Y un deber de acreditar que no puede satisfacerse es la mandíbula superior del cepo.
 
-3. **Por qué la salida "imposibilidad técnica" se cierra: la culpa por encubrimiento del riesgo residual.** La defensa de *ad impossibilia nemo tenetur* —a lo imposible nadie está obligado— es real. Dado que una infraestructura comercial con atestación de hardware soberana no existe hoy como un producto masivo *off-the-shelf*, el operador no puede ser sancionado por no comprar lo que el mercado no ofrece. Pero la responsabilidad proactiva (*Accountability*) exige declarar la verdad técnica.
+#### 3. Por qué la salida "imposibilidad técnica" se cierra: la culpa por encubrimiento del riesgo residual.
+
+La defensa de *ad impossibilia nemo tenetur* —a lo imposible nadie está obligado— es real. Dado que una infraestructura comercial con atestación de hardware soberana no existe hoy como un producto masivo *off-the-shelf*, el operador no puede ser sancionado por no comprar lo que el mercado no ofrece. Pero la responsabilidad proactiva (*Accountability*) exige declarar la verdad técnica.
 
 Desde el momento en que el riesgo se vuelve notorio —la difusión técnica de que el *cloud* estándar es ciego a la manipulación del entorno—, el deber de diligencia se desplaza. Ya no consiste en exigir la tecnología inexistente, sino en notificar formalmente al regulador (ANCI) que se está asumiendo un riesgo residual inmanejable por ceguera arquitectónica.
 
@@ -3122,11 +3128,15 @@ Continuar amparándose en ese escudo de papel, en lugar de transparentar la falt
 
 Este documento, al hacer público el riesgo, agota la excusa de la ignorancia: hacia el futuro, el silencio corporativo sobre la falta de atestación ya no es imposibilidad, es ocultamiento.
 
-4. **El estoppel regulatorio es un escudo transitorio, no permanente.** Mientras el propio estándar de la ANCI se satisfaga con controles estáticos y *logs* autodeclarados (§6.1), la autoridad no puede fundar una sanción en la falta de fiabilidad de esa misma evidencia: hacerlo sería *venire contra factum proprium* y lesionaría la confianza legítima del administrado.
+#### 4. El estoppel regulatorio es un escudo transitorio, no permanente.
+
+Mientras el propio estándar de la ANCI se satisfaga con controles estáticos y *logs* autodeclarados (§6.1), la autoridad no puede fundar una sanción en la falta de fiabilidad de esa misma evidencia: hacerlo sería *venire contra factum proprium* y lesionaría la confianza legítima del administrado.
 
 Pero este amparo es transitorio. Protege al operador solo hasta que la atestación verificable se reconozca como disponible y exigible —algo que la consulta pública en curso (§6.1) puede consagrar—; corregido el estándar, la confianza legítima deja de cubrir a quien no se adaptó. El escudo del estoppel y la fecha de cierre del cepo son la misma manecilla del reloj vista desde dos lados.
 
-5. **La hoja simétrica es defensa de último recurso, no estrategia.** Es cierto que la opacidad corta en ambos sentidos: si la ANCI pretende fundar la infracción sobre el mismo *log* no atestado, su evidencia es igualmente derrotable, y como la carga de la infracción pesa sobre ella, la duda insalvable se resuelve *in dubio pro administrado* (§3.6, supra). Pero apostar a esa duda es frágil y no descarga la responsabilidad proactiva, que es un deber positivo de acreditar diligencia, no de generar incertidumbre.
+#### 5. La hoja simétrica es defensa de último recurso, no estrategia.
+
+Es cierto que la opacidad corta en ambos sentidos: si la ANCI pretende fundar la infracción sobre el mismo *log* no atestado, su evidencia es igualmente derrotable, y como la carga de la infracción pesa sobre ella, la duda insalvable se resuelve *in dubio pro administrado* (§3.6, supra). Pero apostar a esa duda es frágil y no descarga la responsabilidad proactiva, que es un deber positivo de acreditar diligencia, no de generar incertidumbre.
 
 Quien confía su defensa a que "tampoco podrán probar lo contrario" sigue incumpliendo el deber de *poder demostrar*, y queda a merced de que la integridad no resulte reconstruible por otras vías. La duda puede salvar un cargo aislado; no sostiene una posición de cumplimiento.
 
