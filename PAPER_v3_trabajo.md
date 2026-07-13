@@ -3445,6 +3445,12 @@ Al exigir prueba física, la empresa levanta un muro que el *software* no puede 
 >
 > Lo que usted compró no es seguridad; es la ilusión de tener la llave de una caja fuerte cuya pared posterior ha sido desmantelada. *Toda certificación de cumplimiento que limite su alcance al dato en tránsito y en reposo, ignorando la hemorragia del dato en uso, no es una garantía de invulnerabilidad: es un certificado de negligencia corporativa impreso en papel de lujo.*
 
+**La magnitud real de la hemorragia cognitiva**
+
+Frente a una exfiltración en la memoria viva, ya no hablamos del robo de un PDF inerte. El atacante (o el hiperescalar extranjero) exfiltra el proceso táctico, cognitivo y estratégico de su empresa a medida que ocurre. El impacto comercial y jurídico de esta hemorragia es devastador: para un estudio de abogados, significa que un tercero conoce sus debilidades y argumentos de litigio antes del juicio (destruyendo el privilegio cliente-abogado). Para una industria tecnológica o farmacéutica, implica que el adversario no solo roba el producto final, sino que exfiltra todo el razonamiento de I+D que llevó a él. Al perder la opacidad sobre su proceso de toma de decisiones, la corporación sufre la aniquilación automática de su Secreto Industrial.
+
+Al usar IA en la nube pública, usted no solo externalizó su almacenamiento; le entregó el cerebro desnudo de su corporación a un administrador de sistemas a diez mil kilómetros de distancia. Si esta desnudez cognitiva se materializa en una brecha, el directorio quedará indefenso ante demandas de los accionistas y sanciones de entes fiscalizadores por negligencia culpable en la custodia del núcleo intelectual del negocio.
+
 El andamiaje de cumplimiento tradicional fue diseñado para la era pre-agéntica y opera sobre tres estados de la información, de los cuales la industria solo certifica los dos primeros, ignorando el único que resulta letal:
 
 1. **El dato en tránsito (el vector cerrado):** Protegido por protocolos maduros como TLS 1.3. Hoy constituye un vector estadísticamente marginal para la exfiltración avanzada.
@@ -3460,10 +3466,6 @@ Un agente autónomo (IA) funciona bajo un paradigma radicalmente distinto: opera
 Para que este proceso cognitivo sea posible, la propiedad intelectual debe abandonar el refugio de su cifrado en disco y ser inyectada, de forma pura y en texto plano, en la memoria volátil (VRAM) de las GPU del proveedor. En ese milisegundo, la criptografía de reposo es evadida por completo. Si el proveedor (o un atacante remoto con acceso Ring-0 al hipervisor) ejecuta un volcado de memoria (*RAM dump*), obtiene el botín en texto claro sin tener que romper ninguna llave matemática.
 
 Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. El secreto industrial de su empresa ya no es un archivo inerte guardado en un cajón digital; se ha transformado en el flujo de pensamiento matemático de una máquina de terceros que razona en tiempo real sobre los problemas más íntimos de su corporación. 
-
-Frente a una exfiltración en la memoria viva, ya no hablamos del robo de un PDF inerte. El atacante (o el hiperescalar extranjero) exfiltra el proceso táctico, cognitivo y estratégico de su empresa a medida que ocurre. El impacto comercial y jurídico de esta hemorragia es devastador: para un estudio de abogados, significa que un tercero conoce sus debilidades y argumentos de litigio antes del juicio (destruyendo el privilegio cliente-abogado). Para una industria tecnológica o farmacéutica, implica que el adversario no solo roba el producto final, sino que exfiltra todo el razonamiento de I+D que llevó a él. Al perder la opacidad sobre su proceso de toma de decisiones, la corporación sufre la aniquilación automática de su Secreto Industrial.
-
-Al usar IA en la nube pública, usted no solo externalizó su almacenamiento; le entregó el cerebro desnudo de su corporación a un administrador de sistemas a diez mil kilómetros de distancia. Si esta desnudez cognitiva se materializa en una brecha, el directorio quedará indefenso ante demandas de los accionistas y sanciones de entes fiscalizadores por negligencia culpable en la custodia del núcleo intelectual del negocio.
 
 **La coartada inútil: El espejismo de la PQC y el FHE ante un tribunal**
 
