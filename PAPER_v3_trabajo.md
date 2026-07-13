@@ -3280,7 +3280,7 @@ Cuando uno empieza a analizar las defensas que ofrecen los proveedores de nube p
 
 Pero a medida que vas bajando de abstracción y miras la arquitectura real, te vas dando cuenta de que hay un abismo gigantesco entre lo que promete el contrato y lo que físicamente ocurre en el procesador. No quiero hacer de esto un tratado de criptografía ni mucho menos, pero es imposible entender el problema legal que enfrentan los directorios corporativos sin mirar, aunque sea por un momento, la asimetría física que hay detrás de la "nube". 
 
-Al final, lo que intento demostrar aquí no es una teoría de laboratorio o un escenario distópico; es algo que ya estamos viendo reventar, caso tras caso, en los incidentes de la industria nacional. Vamos a ir desglosando esto paso a paso, pero partamos por desarmar las promesas más grandes.
+Al final, lo que intento demostrar aquí no es una teoría de laboratorio o un escenario distópico; es algo que ya estamos viendo reventar, caso tras caso, tanto en los incidentes de la industria nacional como en los desastres probatorios de la jurisprudencia internacional. Vamos a ir desglosando esto paso a paso, pero partamos por desarmar las promesas más grandes.
 
 
 *Análisis crítico de las defensas hiperescalares: demostración técnica de por qué las defensas tradicionales en la nube y los modelos contractuales colapsan ante ataques de bajo nivel (TOCTOU) y eventos de revocación jurisdiccional.*
