@@ -3433,7 +3433,7 @@ Al exigir prueba física, la empresa levanta un muro que el *software* no puede 
 
  > 🔗 *[Para el escrutinio técnico del ingeniero forense sobre la vulnerabilidad arquitectónica de AWS Nitro, las SmartNICs y por qué esta ceguera del plano IAM constituye la única frontera probatoria frente a la negligencia corporativa culpable, véase el Anexo 5: El Error Categorial de AWS Nitro](#anexo-sabotaje-cinetico)*
 
-### El colapso de la tríada tradicional: La hemorragia del "dato agéntico" en texto plano
+### La trampa penal del "Cifrado Cloud": La abdicación procesal del secreto corporativo en texto plano
 
 > ADVERTENCIA AL DIRECTORIO
 >
