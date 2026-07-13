@@ -3510,6 +3510,9 @@ Esta hemorragia de texto plano no es un riesgo teórico, sino una realidad opera
 
 El impacto forense de esta práctica es demoledor para el secreto corporativo, dado que el principal tipo de dato exfiltrado hacia estos modelos externos fue código fuente, y un 3,2% de las violaciones de políticas DLP involucraron la carga directa de investigación técnica y propiedad intelectual<a href="#fn_verizon_dbir"><sup>281</sup></a>. El Directorio que confía en que su bóveda perimetral protege el secreto industrial ignora que sus propios empleados ya le han entregado las llaves —y los planos del producto— a un modelo no atestado en la nube.
 
+<a id="retorno-anexo7"></a>
+> 🔍 *[Para una deconstrucción técnica de ingeniería sobre por qué la física computacional hace inútil la Criptografía Post-Cuántica en memoria y convierte al Cifrado Homomórfico en una imposibilidad termodinámica, consulte el Anexo 7: La Fricción Termodinámica de la IA](#anexo-colapso-criptografico). Asimismo, para la refutación forense del Cómputo Confidencial (SGX/SEV), consulte el [Anexo 3: El Colapso Físico del Cómputo Confidencial y los Ataques de Canal Lateral](#anexo-computo-confidencial).*
+
 ### El teatro criptográfico: La farsa del cifrado en reposo y la ilusión del HYOK
 
 Para enmascarar esta falla estructural —la inevitable e insalvable exposición del secreto corporativo o estatal en la memoria viva de la máquina del tercero—, la industria *cloud* ha desplegado una sofisticada campaña de marketing semántico, impulsando arquitecturas de "gestión soberana de llaves", bajo siglas como BYOK (*Bring Your Own Key*) o HYOK (*Hold Your Own Key*). 
@@ -5763,7 +5766,24 @@ El ingeniero forense moderno no instala atestación de *hardware* asumiendo que 
 
 Desde la perspectiva procesal (*threat model boundary*), obligar al adversario a abandonar los vectores de *software* (remotos, baratos, algorítmicamente invisibles y escalables) y forzarlo a realizar una operación de sabotaje físico en el recinto, altera radicalmente la imputabilidad jurídica del incidente. Si la atestación criptográfica cae bajo estas condiciones de violencia material, el peritaje documenta ante el juez que el sistema fue violentado físicamente (eximente de fuerza mayor). Si la misma vulnerabilidad ocurriera remotamente en un servidor arrendado en la nube delegada (como ocurre con Nitro al vulnerar el IAM), sería negligencia culpable del directorio por no elevar la barrera de fricción del atacante.
 
-> ↩️ *[Volver al Capítulo 4: La ilusión del aislamiento perimetral (AWS Nitro) y la negligencia de la caja negra](#retorno-anexo5)*
+> ↩️ *[Volver al Capítulo 4: La ilusión del aislamiento perimetral (AWS Nitro) y la negligencia de la caja negra](#retorno-anexo6)*
+
+---
+
+<a id="anexo-colapso-criptografico"></a>
+### Anexo 7: La Fricción Termodinámica de la Inteligencia Artificial (El Colapso del FHE y la PQC)
+
+**7.1. La Inutilidad Operativa de la Criptografía Post-Cuántica (PQC) en *Runtime***  
+Cuando la defensa corporativa invoca la implementación de protocolos PQC (como Kyber o Dilithium) para mitigar el riesgo de fuga cognitiva en la nube, comete un error de estado. La PQC soluciona un problema de túnel de red (Dato en Tránsito) contra la amenaza cuántica futura (Shor), pero exhibe un valor pericial nulo frente al hipervisor. 
+
+En la arquitectura de procesamiento tensorial (GPU), el modelo no ingiere *hashes* cuánticos; ingiere texto en claro. Proteger la transmisión al proveedor con matemáticas post-cuánticas, para que luego el hiperescalar deposite el secreto desnudo en la VRAM para calcular los pesos de la red, es el equivalente en ingeniería a transportar un plano clasificado en un tanque blindado, solo para colgarlo en la vitrina pública a su llegada. La robustez del túnel es irrelevante si el destino es, por diseño, un escaparte transparente.
+
+**7.2. El Cifrado Homomórfico (FHE) y los Límites de la Termodinámica**  
+La única refutación matemática a la desnudez de la memoria viva es el Cifrado Homomórfico Completo (FHE), que permite computar sobre el ruido cifrado. El problema es que el FHE es una maravilla teórica que colisiona frontalmente contra la termodinámica del silicio comercial. 
+
+El *overhead* de expansión polinómica del FHE exige entre $10^4$ y $10^6$ veces más ciclos de reloj computacionales y consumo de memoria que una operación en texto claro. En un modelo LLM masivo, cada inferencia involucra billones de operaciones de coma flotante (FLOPs). Ejecutar una simple consulta corporativa bajo FHE no demoraría milisegundos, sino horas o días, friendo literalmente el presupuesto térmico del *rack* del proveedor. Por lo tanto, cuando un proveedor insinúa que ofrece confidencialidad en tiempo de ejecución para IA generativa, el ingeniero psicópata sabe que, o están violando las leyes de la termodinámica, o (como es el caso real) simplemente le están mintiendo y procesando sus datos en texto completamente plano.
+
+> ↩️ *[Volver al Capítulo 4: El espejismo de la PQC y el FHE ante un tribunal](#retorno-anexo7)*
 
 ---
 
