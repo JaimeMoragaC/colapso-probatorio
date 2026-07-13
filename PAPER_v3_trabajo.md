@@ -3116,7 +3116,7 @@ En paralelo, los tribunales europeos y autoridades de protección de datos (DPAs
 
 #### 2. La tenaza: dos deberes que el *cloud* no atestado no puede satisfacer a la vez.
 
-El responsable queda atrapado entre dos obligaciones legales simultáneas. De un lado, el deber de reportar el incidente con información veraz y oportuna, cuya infracción la Ley 21.663 (art. 9) tipifica como gravísima.
+El responsable queda asi atrapado entre dos obligaciones legales simultáneas. De un lado, el deber de reportar el incidente con información veraz y oportuna, cuya infracción la Ley 21.663 (art. 9) tipifica como gravísima.
 
 Del otro, la responsabilidad proactiva de la Ley 21.719, que le impone *poder demostrar* el cumplimiento y, como parte de él, conocer y gestionar el riesgo de sus proveedores. Y aquí se cierra el cepo: como se analizó en §3.3, un *log* de nube carente de anclaje en hardware (TPM/DICE) es matemáticamente inacreditable. El responsable envía al regulador telemetría firmada que, por la vulnerabilidad inherente al problema TOCTOU en el Ring 0, no puede garantizar el estado del entorno en el milisegundo en que se generó.
 
@@ -3128,11 +3128,11 @@ La defensa de *ad impossibilia nemo tenetur* —a lo imposible nadie está oblig
 
 Desde el momento en que el riesgo se vuelve notorio —la difusión técnica de que el *cloud* estándar es ciego a la manipulación del entorno—, el deber de diligencia se desplaza. Ya no consiste en exigir la tecnología inexistente, sino en notificar formalmente al regulador (ANCI) que se está asumiendo un riesgo residual inmanejable por ceguera arquitectónica.
 
-Y aquí es donde la limitación técnica de ISO 27001, SOC 2 y de todo el catálogo de certificaciones documentales (Cuadro 3.A) sella la trampa probatoria: como son estrictamente certificaciones de gestión y no de inalterabilidad física del procesador, utilizarlas para reportar a la autoridad que la infraestructura está "mitigada" equivale *a exhibir una auditoría contable para negar que un edificio tiene fallas de cimientos.
+Y aquí es donde el uso distorsionado de ISO 27001, SOC 2 y del catálogo de certificaciones documentales (Cuadro 3.A) sella la trampa probatoria. Estas normativas no son inútiles; de hecho, constituyen un avance indispensable en la gobernanza organizacional y un paso correcto en la madurez corporativa. Su falla no es su existencia, sino que aún no exigen controles de atestación de hardware. Al ser estrictamente certificaciones de gestión de procesos y no de inalterabilidad física del procesador, utilizarlas para asegurarle a la autoridad que la infraestructura técnica está "mitigada" frente a ataques de Ring 0 equivale a exhibir una auditoría contable impecable para negar que un edificio tiene fallas en sus cimientos.
 
-Continuar amparándose en ese escudo de papel, en lugar de transparentar la falta de atestación, deja de ser imposibilidad excusable y pasa a ser la negligencia misma. La culpa no está en carecer de la tecnología, sino en falsificar el diagnóstico empleando el instrumento equivocado.
+Continuar amparándose exclusivamente en este escudo documental, en lugar de transparentar la falta de atestación física, deja de ser imposibilidad excusable y pasa a ser la negligencia misma. La culpa no radica en carecer de una tecnología que el mercado masivo aún no ofrece de forma nativa, ni en certificarse bajo normas ISO, sino en falsificar el diagnóstico de riesgo empleando un instrumento administrativo para encubrir un abismo ingenieril.
 
-Este documento, al hacer público el riesgo, agota la excusa de la ignorancia: hacia el futuro, el silencio corporativo sobre la falta de atestación ya no es imposibilidad, es ocultamiento.
+Este documento, al hacer público el riesgo sistémico, agota la excusa de la ignorancia: hacia el futuro, el silencio corporativo sobre la falta de atestación ya no es imposibilidad, es ocultamiento doloso.
 
 #### 4. El estoppel regulatorio es un escudo transitorio, no permanente.
 
