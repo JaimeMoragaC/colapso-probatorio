@@ -3461,15 +3461,15 @@ Para que este proceso cognitivo sea posible, la propiedad intelectual debe aband
 
 Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. El secreto industrial de su empresa ya no es un archivo inerte guardado en un cajón digital; se ha transformado en el flujo de pensamiento matemático de una máquina de terceros que razona en tiempo real sobre los problemas más íntimos de su corporación. 
 
-Frente a una exfiltración en la memoria viva, ya no hablamos del robo de un PDF; el atacante (o el hiperescalar extranjero) exfiltra el proceso táctico, cognitivo y estratégico de su empresa a medida que ocurre. 
+Frente a una exfiltración en la memoria viva, ya no hablamos del robo de un PDF inerte. El atacante (o el hiperescalar extranjero) exfiltra el proceso táctico, cognitivo y estratégico de su empresa a medida que ocurre. El impacto comercial y jurídico de esta hemorragia es devastador: para un estudio de abogados, significa que un tercero conoce sus debilidades y argumentos de litigio antes del juicio (destruyendo el privilegio cliente-abogado). Para una industria tecnológica o farmacéutica, implica que el adversario no solo roba el producto final, sino que exfiltra todo el razonamiento de I+D que llevó a él. Al perder la opacidad sobre su proceso de toma de decisiones, la corporación sufre la aniquilación automática de su Secreto Industrial.
 
-Al usar IA en la nube pública, usted no solo externalizó su almacenamiento; le entregó el cerebro desnudo de su corporación a un administrador de sistemas a diez mil kilómetros de distancia. 
+Al usar IA en la nube pública, usted no solo externalizó su almacenamiento; le entregó el cerebro desnudo de su corporación a un administrador de sistemas a diez mil kilómetros de distancia. Si esta desnudez cognitiva se materializa en una brecha, el directorio quedará indefenso ante demandas de los accionistas y sanciones de entes fiscalizadores por negligencia culpable en la custodia del núcleo intelectual del negocio.
 
 **La coartada inútil: El espejismo de la PQC y el FHE ante un tribunal**
 
 > LA TRAMPA DEL SALVAVIDAS TÉCNICO
 > 
-> *Para el abogado litigante o el Oficial de Cumplimiento, existe un peligro procesal inminente tras un incidente cibernético: usar la jerga de su departamento de TI como defensa legal. Cuando ocurra la exfiltración del modelo de IA, su proveedor y sus propios ingenieros intentarán entregarle un salvavidas argumentativo lleno de acrónimos como "Criptografía Post-Cuántica" o "Cifrado Homomórfico". Rechácelo de inmediato. Invocar estas siglas como eximente de culpa ante un tribunal penal es un suicidio probatorio. No lo salvará; le demostrará al juez que su directorio firmó contratos de IA sin comprender la física elemental de cómo le robaban la información.*
+> *Para el abogado litigante o el Oficial de Cumplimiento, existe un peligro procesal inminente tras un incidente cibernético: usar la jerga de su departamento de TI como defensa legal. Cuando ocurra la exfiltración del modelo de IA, su proveedor y sus propios ingenieros intentarán entregarle un salvavidas argumentativo lleno de acrónimos como "Criptografía Post-Cuántica" o "Cifrado Homomórfico". Rechácelo de inmediato. Invocar estas siglas como eximente de culpa  es un suicidio probatorio. No lo salvará; le demostrará al juez o entidad fiscalziadora que su directorio firmó contratos de IA sin comprender la física elemental de cómo le robaban la información.*
 
 Frente a esta hemorragia en la memoria viva, los proveedores de la nube intentan calmar al mercado vendiendo "criptografía avanzada". 
 
