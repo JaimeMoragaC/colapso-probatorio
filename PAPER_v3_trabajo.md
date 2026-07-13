@@ -3338,6 +3338,7 @@ Incluso en su variante más estricta (SOC 2 Tipo II), el auditor no desensambla 
 
 Su función estructural no es detener a un atacante que opera modificando punteros en el espacio de *kernel*, sino garantizar que, cuando el hiperescalar sea vulnerado, el gerente pueda decirle a su directorio (y al juez penal): *"No me sancionen, yo compré el sistema certificado"*. Como demostró Ross Anderson en su análisis de la economía de la seguridad de la información, es un seguro de responsabilidad civil disfrazado de robustez técnica; una ilusión financiera, no computacional.
 
+<a id="retorno-anexo1"></a>
 > 🔗 *[Para el escrutinio técnico exhaustivo en tribunales, véase el Anexo 1: Análisis Forense de la Falsificación Criptográfica y el Teatro de Cumplimiento SOC 2](#anexo-falsificacion-criptografica)*
 
 ### El oxímoron jurídico del "Zero Trust" subarrendado
@@ -3352,6 +3353,7 @@ El fraude de la desconfianza delegada. Vender *Zero Trust* sobre un hipervisor e
 
 El modelo asume que no se debe confiar en la red interna, pero obliga al responsable jurídico a confiar ciegamente en el *hardware* extranjero donde esas transacciones operan. Si el regulado no posee físicamente la Raíz de Confianza de Hardware (*Hardware Root of Trust*), su arquitectura no es *Zero Trust*; es un régimen de abdicación absoluta (*Trust the Vendor*). Jurídicamente, esto significa delegar la custodia y la carga de la prueba en un tercero que se niega expresamente a asumir responsabilidad penal por la alteración de la misma.
 
+<a id="retorno-anexo2"></a>
 > 🔗 *[Para la demostración pericial de estas vulnerabilidades, véase el Anexo 2: Falacias de Auto-Atestación, Asimetría Temporal y Envenenamiento de IA Defensiva](#anexo-auto-atestacion)*
 
 ### La ficción del aislamiento: El colapso físico del "Cómputo Confidencial"
@@ -5569,6 +5571,8 @@ Por último, proteger el núcleo del conocimiento corporativo (bases vectoriales
 
 Están esperando la estabilización del Algoritmo de Shor en hardware cuántico. Cuando eso ocurra, todas las llaves de intercambio previas colapsarán retrospectivamente. Exhibir certificaciones comerciales que no exigen atestación de Criptografía Post-Cuántica (PQC, como ML-KEM/Kyber) desde el diseño, es confesar ante el tribunal que usted ha almacenado la propiedad intelectual de su empresa en una caja fuerte cuya clave ya tiene fecha de publicación programada.
 
+> ↩️ *[Volver al Capítulo 4: La ficción probatoria del Cifrado Cloud](#retorno-anexo1)*
+
 <a id="anexo-auto-atestacion"></a>
 ### Anexo 2: Falacias de Auto-Atestación, Asimetría Temporal y Envenenamiento de IA Defensiva
 
@@ -5588,6 +5592,8 @@ Pero el argumento final que destruye cualquier defensa de *software* (EDR) o IA 
 Por el contrario, el EDR de la víctima detecta la anomalía, la empaqueta, la envía por red a una API de telemetría o a un modelo neuronal defensivo, y espera un veredicto de bloqueo. Esto toma milisegundos (10⁻³), si tiene suerte con la latencia. Es una asimetría de seis órdenes de magnitud. Es el equivalente balístico a intentar esquivar una bala hiperveloz enviando una carta por correo postal para pedir permiso para moverse. 
 
 Para cuando el EDR finalmente recibe la orden de bloquear, el atacante ya reescribió la memoria, exfiltró los datos, cifró el disco y apagó el sensor EDR desde el Ring-0. Porque el EDR es solo un software más corriendo en el mismo espacio lógico que el atacante ya domina. Lo que puede ser desenganchado (*unhooked*) en un nanosegundo no puede testificar a su favor en un juicio.
+
+> ↩️ *[Volver al Capítulo 4: El oxímoron jurídico del "Zero Trust" subarrendado](#retorno-anexo2)*
 
 ---
 
