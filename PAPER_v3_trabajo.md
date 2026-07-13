@@ -5669,21 +5669,24 @@ Exigirle a un administrador local (el usuario en el Ring-3) que demuestre un err
 ---
 
 <a id="anexo-sabotaje-cinetico"></a>
-### Anexo 5: El Error Categorial de AWS Nitro y la Ceguera Forense de las *SmartNICs*
+### Anexo 5: El Error Categorial de AWS Nitro y la Anatomía del Sabotaje Cinético
 
-**El aislamiento perimetral de la infraestructura frente al secuestro del plano de identidad.**
+**El mito de la inviolabilidad criptográfica y la utilidad probatoria de la vulnerabilidad física.**
 
-La defensa corporativa habitual frente a la fragilidad de la nube invoca arquitecturas de *hardware* dedicado, siendo AWS Nitro (y tecnologías similares basadas en *SmartNICs* o Unidades de Procesamiento de Datos - DPUs) el estandarte de la industria. El argumento de ventas sostiene que, al trasladar el hipervisor, la virtualización de red y el almacenamiento a una tarjeta física independiente, se crea un entorno hermético: el sistema operativo invitado (*guest OS*) queda físicamente aislado del plano de control del proveedor, impidiendo que un atacante escape de la máquina virtual.
+Existe una falacia dogmática entre los teóricos de la ciberseguridad corporativa: creer que la atestación anclada en *hardware* (como los módulos TPM o los enclaves de silicio) es matemáticamente invulnerable. Esta premisa es falsa a nivel eléctrico, pero es precisamente su susceptibilidad a la explotación material lo que le otorga su supremo valor probatorio en tribunales bajo la Ley 21.595.
 
-**1. El déficit epistémico en la capa de aplicación (IAM):**
-Desde la perspectiva de la ingeniería forense, invocar este aislamiento físico contra una amenaza algorítmica constituye un "error categorial" fatal. AWS Nitro blinda la infraestructura contra vulnerabilidades clásicas de escape de hipervisor (fuerza bruta, *buffer overflows* en virtualización), pero es **matemáticamente ciego** frente al secuestro de identidad en la capa superior (IAM). 
+**1. El error categorial de las SmartNICs (AWS Nitro):**
+La defensa corporativa habitual frente a la fragilidad de la nube invoca arquitecturas de *hardware* dedicado, siendo AWS Nitro (y tecnologías similares basadas en *SmartNICs* o Unidades de Procesamiento de Datos - DPUs) el estandarte de la industria. El argumento sostiene que, al trasladar el hipervisor a una tarjeta física independiente, se crea un entorno hermético. 
 
-Si una IA polimórfica inyecta *prompts* maliciosos o secuestra un *token* de sesión legítimo, el agente no necesita perforar la tarjeta Nitro. Simplemente se autentica a través del plano de control lógico. Para el *hardware* de Amazon, una orden de borrar bases de datos o extraer gigabytes de telemetría firmada con credenciales válidas es indistinguible de una operación administrativa lícita. Nitro ejecutará su propia instrucción destructiva con total obediencia, porque su topología no fue diseñada para validar la *voluntad biológica* detrás de la credencial, sino únicamente la validez criptográfica del *token* delegado.
+Desde la perspectiva de la ingeniería forense, invocar este aislamiento físico contra una amenaza algorítmica constituye un "error categorial" fatal. AWS Nitro blinda la infraestructura contra vulnerabilidades clásicas, pero es **matemáticamente ciego** frente al secuestro de identidad en la capa superior (IAM). Si una IA inyecta *prompts* maliciosos o secuestra un *token* de sesión, el agente no necesita perforar la tarjeta Nitro; simplemente se autentica a través del plano lógico. Para el *hardware*, una instrucción destructiva firmada con credenciales válidas es indistinguible de una operación lícita.
 
-**2. El contraste forense con la fricción física local (TPM y Glitching):**
-La superioridad probatoria de un nodo soberano local no radica en que un chip TPM sea inherentemente más invulnerable que una tarjeta Nitro (de hecho, los módulos TPM pueden ser vulnerados físicamente interceptando el bus SPI con sondas lógicas o inyectando fallos de voltaje (*glitching*) <a href="#fn126" id="fnref126"><sup>126</sup></a>). La diferencia dogmática es el **trazado de la frontera de la amenaza**. 
+**2. Explotación a nivel de transistores y buses locales (TPM):**
+A diferencia del ataque algorítmico remoto, un atacante con acceso físico irrestricto al nodo soberano no necesita descifrar la criptografía con matemáticas; le basta con escuchar las transmisiones eléctricas. Los módulos TPM son susceptibles a extracción de claves mediante ataques directos al bus SPI o inyección de fallos de voltaje (*glitching*) <a href="#fn126" id="fnref126"><sup>126</sup></a>. Al conectar un analizador lógico a las pistas de cobre de la placa base, un atacante presencial puede interceptar el tráfico en texto plano entre el procesador y el módulo criptográfico en el momento exacto en que se intercambian las claves, comprometiendo todo el entorno de ejecución sin tocar una sola línea de código algorítmico.
 
-Vulnerar el sistema de identidad de una *SmartNIC* en la nube requiere únicamente código y credenciales robadas (un ataque remoto, escalable y barato). Vulnerar un TPM local para falsificar una atestación requiere proximidad cinemática, desensamblaje del chasis y manipulación eléctrica de los circuitos. Nitro protege el metal pero regala la llave en la red; la atestación soberana ancla la llave al metal local, forzando al atacante a cometer un asalto físico (fuerza mayor) para robarla.
+**3. El valor dogmático de obligar al atacante a destruir el hardware:**
+El ingeniero forense moderno no instala atestación de *hardware* asumiendo que el silicio es indestructible; lo instala porque extraer las claves mediante *sniffing* requiere **proximidad cinemática, herramientas físicas (sondas lógicas, osciloscopios), desensamblaje del chasis y manipulación eléctrica de los circuitos**. 
+
+Desde la perspectiva procesal (*threat model boundary*), obligar al adversario a abandonar los vectores de *software* (remotos, baratos, algorítmicamente invisibles y escalables) y forzarlo a realizar una operación de sabotaje físico en el recinto, altera radicalmente la imputabilidad jurídica del incidente. Si la atestación criptográfica cae bajo estas condiciones de violencia material, el peritaje documenta ante el juez que el sistema fue violentado físicamente (eximente de fuerza mayor). Si la misma vulnerabilidad ocurriera remotamente en un servidor arrendado en la nube delegada (como ocurre con Nitro al vulnerar el IAM), sería negligencia culpable del directorio por no elevar la barrera de fricción del atacante.
 
 > ↩️ *[Volver al Capítulo 4: La ilusión del aislamiento perimetral (AWS Nitro) y la negligencia de la caja negra](#retorno-anexo5)*
 
