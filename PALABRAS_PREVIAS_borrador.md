@@ -12,7 +12,7 @@ Busqué respuestas en la ley, la doctrina y las certificaciones. No había nada.
 
 Me quedé solo con la pregunta, así que hice lo que se supone que un abogado no hace: me metí en las tripas de la máquina. Y lo hice con la misma clase de herramienta que este libro analiza. Asistentes de inteligencia artificial generativa fueron mis copilotos técnicos, utilizados adversarialmente unos contra otros. Juntos, bajamos por las capas buscando suelo firme: de la aplicación al sistema operativo; del kernel —el Ring-0, donde el que manda no rinde cuentas— al arranque, al firmware y al silicio.
 
-No hablo con metáforas. Durante 222 días de desarrollo ininterrumpido y documentado criptográficamente construí código defensivo —sensores, firmas, quórums de verificación en TypeScript, Rust, C y eBPF— y logré desplegar una arquitectura operativa de casi 4 millones de líneas en un margen de meses.
+No hablo con metáforas. Durante 222 días de desarrollo ininterrumpido y documentado criptográficamente construí código defensivo —sensores, firmas, quórums de verificación en TypeScript, Rust, C y eBPF— y logré desplegar una arquitectura operativa de más de 700.000 líneas en un margen de meses.
 
 Evidentemente, gran parte de este volumen titánico incluye la infraestructura base, código autogenerado a velocidades absurdas por copilotos de IA y scaffolding de los diferentes microservicios (Backend en Python/Go, Rust para binarios nativos y eBPF, Frontend en TypeScript). Pero eso es la prueba empírica, matemática y tangible de que la asimetría del atacante hoy tiene costo marginal cero.
 
