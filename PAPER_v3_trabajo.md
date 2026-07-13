@@ -3400,7 +3400,9 @@ No se trata de que el cifrado o las certificaciones sean inútiles —son necesa
 
 ### La bancarrota del catálogo corporativo: Garantías de papel frente a amenazas algorítmicas
 
-Ante el riesgo jurisdiccional y la fragilidad probatoria de la auditoría delegada, la industria *cloud* despliega un catálogo estandarizado de controles y garantías contractuales. Eficaces para vectores tradicionales y para la confidencialidad en reposo, resultan estructuralmente inidóneos frente a los dos modelos de amenaza de este documento: la manipulación algorítmica del entorno de auditoría (TOCTOU) y la revocación del servicio por mandato soberano extranjero.
+Para un abogado corporativo o un director sentado en el banquillo bajo la Ley 21.595, el cálculo jurídico es letal: adherir a un "modelo de responsabilidad compartida" no delega el riesgo penal de su compañía; delega el control de la evidencia inmutable que usted necesitará para defenderse.
+
+Ante la fragilidad probatoria de la auditoría delegada, la industria *cloud* despliega un catálogo estandarizado de garantías contractuales. Eficaces para vectores tradicionales, resultan estructuralmente inidóneas frente a los dos modelos de amenaza que paralizan a un tribunal hoy: la manipulación algorítmica de la telemetría (TOCTOU) y la incautación del servicio por mandato soberano extranjero. Presentar un Acuerdo de Nivel de Servicio (SLA) en tribunales para responder a un ataque a nivel de silicio equivale a intentar apagar un incendio forestal agitando una póliza de seguros: el hiperescalar diseñó un modelo de inmunidad operativa para sí mismo, empacado y vendido como "cumplimiento corporativo" para que el cliente asuma la condena en solitario.
 
 ### La ilusión del aislamiento perimetral (el caso AWS Nitro)
 
