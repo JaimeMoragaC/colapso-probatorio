@@ -5529,6 +5529,12 @@ Japón, también invocado por la propuesta ejecutiva, suscribió en el marco del
   <li id="fn273" value="273">Maduración hacia la ofensiva autónoma de escala industrial. Google Threat Intelligence Group (GTIG), *AI Threat Tracker* (11 de mayo de 2026). El informe documenta la «transición en maduración desde operaciones incipientes habilitadas por IA hacia la aplicación a escala industrial de modelos generativos» y sostiene que «el LLM ya no es un mero asesor pasivo, sino un participante activo en la cadena ofensiva, capaz de orquestar conjuntos complejos de herramientas y de tomar decisiones tácticas a velocidad de máquina». Registra: actores estatales (UNC2814, APT45, APT27 de la RPC; actores de la RPDC; actores rusos) usando modelos comerciales para investigación de vulnerabilidades y validación de *exploits*; nuevas familias de *malware* con LLM embebido en ejecución (*PROMPTSPY*, puerta trasera de Android con módulo *GeminiAutomationAgent*; *HONESTCUE*; *CANFAIL* y *LONGSTREAM* de nexo ruso, con lógica señuelo generada por modelo); el primer *zero-day* que GTIG estima desarrollado con IA (un *bypass* de 2FA, cf. nota 97); marcos agénticos multiherramienta de reconocimiento autónomo (*Hexstrike*, *Strix*, *Graphiti*); y ataques a la cadena de suministro de la propia infraestructura de IA (el grupo *TeamPCP*/UNC6780 comprometió el conector *LiteLLM* y otros paquetes en marzo de 2026). Fuente: [Google Cloud — GTIG «Adversaries Leverage AI for Vulnerability Exploitation, Augmented Operations, and Initial Access» (mayo 2026)](https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access). </li>
 </ol>
 
+## ANEXOS TÉCNICOS FORENSES
+
+*(Aquí se irán incorporando los análisis detallados de ingeniería, pruebas de concepto y mecánicas forenses que sustentan las tesis presentadas en el documento principal, estructurados para revisión pericial).*
+
+---
+
 ### Referencias Adicionales (2026)
 
 - <a id="fn_schneier_mission">271.</a> Schneier, B. (2026). *Cybersecurity Mission Creep*. Schneier on Security. Recuperado de [https://www.schneier.com/blog/archives/2026/07/cybersecurity-mission-creep.html](https://www.schneier.com/blog/archives/2026/07/cybersecurity-mission-creep.html)
