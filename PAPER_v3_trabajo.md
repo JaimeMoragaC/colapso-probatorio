@@ -3124,17 +3124,15 @@ La precisión dogmática importa: no se afirma que el *log* sea falso —probarl
 
 #### 3. Por qué la salida "imposibilidad técnica" se cierra: la culpa por encubrimiento del riesgo residual.
 
-La defensa de *ad impossibilia nemo tenetur* —a lo imposible nadie está obligado— es real. Dado que una infraestructura comercial con atestación de hardware soberana no existe hoy como un producto masivo *off-the-shelf*, el operador no puede ser sancionado por no comprar lo que el mercado no ofrece. Pero la responsabilidad proactiva (*Accountability*) exige declarar la verdad técnica.
+El reflejo defensivo corporativo es invocar el principio *ad impossibilia nemo tenetur* (a lo imposible nadie está obligado). El argumento es predecible: si el mercado *cloud* masivo no ofrece atestación de hardware por defecto, el regulador no puede sancionar al operador por no adquirir una tecnología incipiente. 
 
-Desde el momento en que el riesgo se vuelve notorio —la difusión técnica de que el *cloud* estándar es ciego a la manipulación del entorno—, el deber de diligencia se desplaza. Ya no consiste en exigir la tecnología inexistente, sino en notificar formalmente al regulador (ANCI) que se está asumiendo un riesgo residual inmanejable por ceguera arquitectónica.
+Pero esta defensa es un salvavidas de plomo. La responsabilidad proactiva (*Accountability*) de la Ley 21.719 no exige comprar lo inexistente; exige no mentir sobre lo existente. Si la arquitectura elegida es intrínsecamente ciega ante un ataque de Ring 0, el deber fiduciario y legal del operador es notificar formalmente a la ANCI que se está operando bajo un riesgo residual inmanejable. 
 
-Y aquí es donde el catálogo de certificaciones como ISO 27001 o SOC 2 (Cuadro 3.A) juega un doble rol. Por un lado, son normativas sumamente útiles y constituyen un avance indispensable en la higiene y gobernanza organizacional. No hay reproche en obtenerlas. Sin embargo, su alcance es estrictamente administrativo: certifican que existen políticas y procesos, no la inalterabilidad física del procesador frente a un compromiso del hipervisor.
+Y aquí es donde certificaciones como ISO 27001 o SOC 2 pasan de ser herramientas de gestión a convertirse en instrumentos de encubrimiento doloso. Frente a un adversario avanzado, estas normativas son técnicamente inútiles. Al ser certificaciones puramente documentales, avalan la existencia de políticas administrativas, pero son completamente ciegas a la inalterabilidad física del procesador. Utilizarlas para reportar al regulador que un entorno tecnológico está "mitigado" es una ficción jurídica; equivale a exhibir una auditoría contable para garantizar que un edificio no colapsará en un terremoto.
 
-La trampa probatoria se detona por una deliberada *confusión de ámbitos*. Presentar una ISO 27001 ante el regulador para argumentar que la infraestructura técnica está "mitigada" frente a ataques de Ring 0 equivale a exhibir una auditoría contable impecable para demostrar que un edificio resistirá un terremoto. 
+La negligencia corporativa, por tanto, no se configura por sufrir el hackeo, sino por la falsificación del diagnóstico. Continuar amparándose en el escudo de papel del *compliance* documental para ocultar la falta de atestación física es un fraude de asimetría de información (idéntico al sancionado por la SEC en el caso SolarWinds). 
 
-La culpa legal del operador corporativo, por tanto, no radica en carecer de atestación de hardware (dado que el mercado masivo aún no la ofrece por defecto), ni tampoco en certificarse bajo normas ISO (lo cual es un acto de diligencia). La negligencia sancionable consiste en utilizar el instrumento correcto (la certificación documental) para responder al problema equivocado (la ceguera arquitectónica), encubriendo el riesgo real ante la autoridad.
-
-Este documento, al evidenciar la diferencia entre cumplimiento documental e integridad técnica, agota la excusa de la ignorancia: hacia el futuro, el silencio corporativo sobre la falta de atestación ya no es imposibilidad técnica, es ocultamiento probatorio.
+Al hacer público el abismo entre cumplimiento documental e integridad técnica, este documento agota la excusa de la ignorancia. Hacia el futuro, invocar la "imposibilidad técnica" mientras se usa un certificado administrativo para simular seguridad tecnológica, ya no es una defensa válida: es la confesión misma del ocultamiento probatorio.
 
 #### 4. El estoppel regulatorio es un escudo transitorio, no permanente.
 
