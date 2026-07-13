@@ -3278,8 +3278,6 @@ Toda la arquitectura de fiscalización de la Ley 21.663, las multas de la Ley 21
 
 *Análisis crítico de las defensas hiperescalares: demostración técnica de por qué las defensas tradicionales en la nube y los modelos contractuales colapsan ante ataques de bajo nivel (TOCTOU) y eventos de revocación jurisdiccional.*
 
-> **Nota de lectura:** Para garantizar un análisis jurídico y estratégico ágil, las demostraciones empíricas y el detalle de ingeniería de sistemas que comprueban cada una de las tesis de este capítulo han sido extraídos hacia los **Anexos Técnicos Forenses** al final del documento. Cada sección cuenta con un hipervínculo directo (🔗) para los lectores o peritos que requieran escudriñar la mecánica técnica de la vulnerabilidad.
-
 Cuando uno empieza a analizar las defensas que ofrecen los proveedores de nube pública, la primera tentación es quedarse en la capa documental —es decir, revisar qué certificaciones tienen y asumir que eso basta—.
 
 Pero a medida que vas bajando de abstracción y miras la arquitectura real, te vas dando cuenta de que hay un abismo gigantesco entre lo que promete el contrato y lo que físicamente ocurre en el procesador. No quiero hacer de esto un tratado de criptografía ni mucho menos, pero es imposible entender el problema legal que enfrentan los directorios corporativos sin mirar, aunque sea por un momento, la asimetría física que hay detrás de la "nube". 
@@ -3298,6 +3296,8 @@ En las próximas páginas, subiremos al estrado a cada una de las promesas de se
 Las presentaremos en su versión más formidable, exactamente como las declamaría su mejor abogado corporativo. Y luego, una por una, expondremos cómo un adversario avanzado las hace pedazos, demostrando empíricamente que cualquier arquitectura desprovista de atestaciones de *hardware* bajo raíz de confianza soberana e independiente es, por diseño, jurídicamente indefendible.
 
 Le sugerimos leer lo que viene con una única regla en mente. Olvide si la tecnología suena impenetrable y pregúntese solo esto: «¿Puedo llevar este registro a un tribunal o a la agencia reguladora y probar matemáticamente, frente a un juez o un fiscalizador hostil, que el atacante miente?». Sin atestación de silicio soberana, la respuesta siempre será no. Y si la respuesta es no, lo que usted tiene en sus manos no es evidencia forense: es apenas un recibo de pago por su propia indefensión.
+
+> **Nota de lectura:** Para garantizar un análisis jurídico y estratégico ágil, las demostraciones empíricas y el detalle de ingeniería de sistemas que comprueban cada una de las tesis de este capítulo han sido extraídos hacia los **Anexos Técnicos Forenses** al final del documento. Cada sección cuenta con un hipervínculo directo (🔗) para los lectores o peritos que requieran escudriñar la mecánica técnica de la vulnerabilidad.
 
 ### El espejismo del "estándar razonable" (El caso Capital One)
 
