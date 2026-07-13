@@ -3315,7 +3315,9 @@ Ante esta imposibilidad técnica de probar la eximente, la CMF y los tribunales 
 
 Conviene decirlo sin rodeos, porque sobre este punto se ha asentado en la práctica chilena un estándar que se da por razonable: la tríada presentada como "estándar razonable de seguridad" —certificación de proceso (SOC 2, ISO 27001 o cualquier otra del catálogo documental del Cuadro 3.A), cifrado fuerte (AES-256, TLS 1.3) y contrato con el hiperescalar (SLA, cláusulas tipo, "no retención")— no acredita, ni fue diseñada para acre ditar, la veracidad de un solo dato.
 
-La ingeniería lo expone como un error de categoría, capa por capa. El cifrado habita una sola dimensión de la tríada CIA (*Confidentiality–Integrity–Availability*) —la *confidencialidad*—: garantiza que un tercero no leyó el dato, jamás que el dato sea cierto; cifrar un registro adulterado no lo corrige, lo convierte en un secreto bien guardado.
+#### La ingeniería lo expone como un error de categoría, capa por capa. 
+
+El cifrado habita una sola dimensión de la tríada CIA (*Confidentiality–Integrity–Availability*) —la *confidencialidad*—: garantiza que un tercero no leyó el dato, jamás que el dato sea cierto; cifrar un registro adulterado no lo corrige, lo convierte en un secreto bien guardado.
 
 Protege el dato *en reposo* —cuando nadie lo usa, el único momento en que no importa—: en el instante de la inferencia, el único que una pregunta forense interroga, el dato debe estar descifrado en memoria, donde el cifrado homomórfico (FHE) sigue siendo inviable a escala y el operador conserva acceso en claro al contenido y al razonamiento del agente.
 
