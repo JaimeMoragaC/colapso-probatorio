@@ -5718,8 +5718,28 @@ Exigirle a un administrador local (el usuario en el Ring-3) que demuestre un err
 
 ---
 
+<a id="anexo-hemorragia-vram"></a>
+### Anexo 5: Anatomía Forense de la Hemorragia en VRAM y la Farsa del *Zero Data Retention*
+
+**5.1. El Absurdo Arquitectónico del BYOK/HYOK (*Bring Your Own Key*)**  
+La coartada predilecta de los proveedores de nube para seducir a las corporaciones es el esquema BYOK/HYOK ("Traiga o Retenga Su Propia Llave"). El argumento comercial es que, como el cliente custodia la llave maestra criptográfica (KMS), el hiperescalar no puede acceder a los datos. Desde la perspectiva de la ingeniería de sistemas y la seguridad ofensiva, esta premisa es una mentira descarada que ignora la arquitectura de Von Neumann. 
+
+La criptografía protege el dato inerte (disco). Sin embargo, la Unidad Lógico Aritmética (ALU) de una CPU o los Tensor Cores de una GPU no pueden multiplicar matrices sobre entropía cifrada. Para que la máquina procese la información, el hipervisor debe desencriptar el *payload* y colocarlo en la memoria volátil (RAM/VRAM) en texto plano. Si el proveedor (o un atacante remoto) controla el Anillo 0 (Hipervisor/Kernel del *Host*), controla las tablas de paginación (*Page Tables*) y la unidad IOMMU. Un volcado de memoria concurrente extrae tanto la llave efímera inyectada en la RAM como su secreto industrial en texto claro. Vender BYOK como una garantía de aislamiento computacional es equivalente a afirmar que un mensaje es secreto porque fue transportado en una maleta blindada, ignorando que fue leído por un megáfono en la plaza pública para poder ser procesado.
+
+**5.2. Extracción DMA y Caché K-V: La VRAM como Escaparate Abierto**  
+En el contexto de la Inteligencia Artificial generativa, la hemorragia es aún más grosera. Para que una GPU NVIDIA H100 procese un *prompt* corporativo de 128.000 *tokens* (por ejemplo, el historial completo de un litigio), la totalidad de la ventana de contexto debe ser mapeada en la memoria HBM3 de la tarjeta gráfica. Los pesos del modelo, las activaciones de las redes neuronales y, crucialmente, la Caché K-V (*Key-Value Cache*) que almacena su secreto industrial, residen allí sin ninguna protección criptográfica. 
+
+Un administrador de la nube con acceso físico, o una Amenaza Persistente Avanzada (APT) que comprometa el *firmware* del servidor base (BMC/IPMI), puede ejecutar un ataque de Acceso Directo a Memoria (DMA) sobre el bus PCIe. Este ataque congela el estado de la VRAM y clona el "pensamiento" de la máquina, exfiltrando su propiedad intelectual a velocidad de red. Lo más destructivo para el Oficial de Cumplimiento es que un ataque DMA puro en el hipervisor ocurre por debajo del sistema operativo del cliente (Ring-3), lo que significa que el ataque es *invisible* para cualquier sistema EDR o log de auditoría local. Usted es robado y su sistema forense reporta que todo está normal.
+
+**5.3. El Fraude Termodinámico del "Zero Data Retention"**  
+Frente a la inevitabilidad física de la exposición en memoria, el último refugio del hiperescalar es el contrato: el *Zero Data Retention* (Retención Cero de Datos). El proveedor le asegura, bajo firma, que aplicará un *scrubbing* (sobrescritura con ceros) en la VRAM inmediatamente después de la inferencia, y que ningún humano la mirará. 
+
+Para un ingeniero de seguridad ofensiva, esgrimir un contrato como defensa de *runtime* es patético. Un NDA (Acuerdo de Confidencialidad) no tiene propiedades termodinámicas; no detiene la propagación de electrones. El *scrubbing* ocurre en el tiempo *T+1* (después de la ejecución). Si el ataque DMA o el volcado de memoria ocurre en el tiempo *T* (durante la ingesta cognitiva), el atacante captura el secreto vivo. Argumentar ante un tribunal penal que la empresa no es negligente porque firmó una promesa de "borrado posterior", cuando permitió que el dato crítico existiera en texto plano en infraestructura de terceros sin atestación de hardware, es confesar ignorancia arquitectónica deliberada.
+
+---
+
 <a id="anexo-sabotaje-cinetico"></a>
-### Anexo 5: El Error Categorial de AWS Nitro y la Anatomía del Sabotaje Cinético
+### Anexo 6: El Error Categorial de AWS Nitro y la Anatomía del Sabotaje Cinético
 
 **El mito de la inviolabilidad criptográfica y la utilidad probatoria de la vulnerabilidad física.**
 
