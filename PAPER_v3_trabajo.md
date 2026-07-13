@@ -2936,7 +2936,9 @@ La consecuencia probatoria es estructural: cuando el responsable presenta el reg
 
 ### Traducción a la sana crítica chilena.
 
-En este punto el ordenamiento chileno juega a favor de la tesis, no en contra. A diferencia del *common law* inglés pre-Horizon, el proceso penal chileno no consagra una presunción legal de que "los computadores funcionan correctamente": rige la libre valoración conforme a la sana crítica (arts. 295-297 CPP), que obliga al tribunal a ponderar la prueba según la lógica, las máximas de la  experiencia y los conocimientos científicamente afianzados.
+En este punto el ordenamiento chileno juega a favor de la tesis, no en contra. A diferencia del *common law* inglés pre-Horizon, el proceso penal chileno no consagra una presunción legal de que "los computadores funcionan correctamente": rige la libre valoración conforme a la sana crítica (arts. 295-297 CPP), que obliga al tribunal a ponderar la prueba según la lógica, las máximas de la experiencia y los conocimientos científicamente afianzados.
+
+Sin embargo, en la praxis judicial suele rondar un peligroso *fantasma de facto*: la inercia cognitiva de asumir que la máquina "no se equivoca". Como se examinó previamente frente a la presunción de regularidad (*omnia praesumuntur rite esse acta*), esta falsa confianza fue concebida para instrumentos mecánicos simples —como relojes, básculas o péndulos— cuyo error es netamente estocástico y físicamente peritable. El sesgo del juzgador consiste en evaluar un ecosistema *cloud* complejo con la misma lógica determinista que aplicaría a la medición de un péndulo, ignorando que la red está habitada por adversarios racionales capaces de alterar activamente la telemetría sin descalibrar el sustrato físico de la máquina.
 
 De ello se sigue que:
 
@@ -2994,23 +2996,29 @@ Bajo la Ley 20.009 — que tras la reforma de la Ley 21.234 invierte expresament
 
 el dueño de la infraestructura, no la víctima, soporta el riesgo del entorno que controla.
 
+Esta jurisprudencia es, en el fondo, una reproducción de manual de la Ley de Anderson. El máximo tribunal ha comprendido económicamente que la opacidad técnica es rentable para quien opera la infraestructura a escala masiva, traduciendo el problema tecnológico a un principio que la judicatura penal y civil sanciona con severidad: **el enriquecimiento sin justa causa y la externalización de costos**. 
+
+La premisa subyacente es que la corporación no opta por una infraestructura *cloud* inatestable porque sea más segura, sino porque es financieramente más eficiente operar a ciegas y transferirle el daño patromonial y el riesgo forense al usuario asimétrico o al Estado. Prohibir esta externalización destruye la narrativa de la empresa como "víctima" de un ciberataque y la reposiciona como un agente negligente guiado por el lucro: es la entidad operadora —quien diseña, lucra y controla el ecosistema cerrado— quien debe asumir el costo de sus vulnerabilidades. 
+
+En sede penal (Ley 21.595) y sancionatoria (Ley 21.663), esta lógica es letal. Acreditar que el directorio consintió una arquitectura ciego-probatoria para maximizar márgenes operativos, renunciando a la atestación física que el estado del arte permitía, constituye dinamita pura para configurar negligencia inexcusable o, derechamente, dolo eventual ante un escenario de colapso de datos.
+
+El paralelo no es retórico sino empíricamente demostrado. En su estudio fundacional *"Why Information Security is Hard — An Economic Perspective"* (2001), Ross Anderson, de la Universidad de Cambridge, documentó que la seguridad de los cajeros automáticos y sistemas de pago electrónico divergía radicalmente según a quién le asignara la ley la carga de la prueba en las transacciones disputadas. 
+
+En Estados Unidos, donde la regulación federal (*Regulation E*) obligaba al banco a probar que la transacción fue autorizada, las entidades financieras invirtieron masivamente en seguridad robusta porque absorbían el costo del fraude. 
+
+En el Reino Unido, donde la carga recaía sobre el cliente y los bancos podían invocar la infalibilidad de sus sistemas para negar los reclamos por "retiros fantasma" (*phantom withdrawals*), la inversión en seguridad se estancó y se produjo una epidemia de fraude bancario que solo se corrigió cuando los costos se volvieron insostenibles. 
+
+Anderson demostró que la variable determinante no era la sofisticación tecnológica sino la asignación legal de la responsabilidad: cuando el operador de la infraestructura asume el riesgo, invierte en seguridad real; cuando puede externalizarlo hacia el usuario asimétrico, la opacidad se convierte en modelo de negocio.
+
+La Corte Suprema chilena, al aplicar la Ley 20.009 reformada, ha elegido explícitamente el modelo estadounidense que Anderson identificó como el único que genera incentivos reales de seguridad: el operador de la infraestructura es garante, no la víctima.
+
 Conviene precisar el alcance de la analogía para no excederla —y la precisión, lejos de debilitarla, la blinda—: la Ley 20.009 contiene una inversión de carga *legal y expresa*, propia de un régimen de protección al consumidor, y no constituye precedente vinculante sobre la valoración de la prueba en sede penal.
 
 Su valor es demostrativo, no normativo directo, y por eso mismo es difícil de refutar: el legislador y la judicatura chilenos ya reconocieron que un registro informático generado y custodiado por quien lo invoca no acredita por sí solo el hecho que pretende probar, y ya radicaron la carga de acreditar la fiabilidad del entorno en quien lo controla.
 
 Lo que este documento propone es la extensión coherente de ese principio —firme en sede civil de consumo— a la infraestructura crítica (Ley 21.663) y a la persecución penal (Ley 21.459), en un escenario donde el adversario ya no es el estafador del "cuento del tío" sino la IA polimórfica capaz de fabricar el registro mismo.
 
-### La confirmación empírica nacional: el caso Araucanía Sur como instancia real del problema (§1.3.1).
 
-El principio anterior no descansa únicamente en jurisprudencia de consumo financiero: tiene una demostración en infraestructura crítica chilena, verificable y documentada. En la filtración del Servicio de Salud Araucanía Sur (mayo de 2026, >25.000 registros clínicos comprometidos), el vector de acceso fue el uso de credenciales válidas robadas a funcionarios del propio servicio.
-
-El sistema de salud registró una sesión autenticada sin anomalía formal alguna: el *log* muestra un acceso técnicamente legítimo. No hubo alerta de instrucción, no hubo firma anómala, no hubo patrón detectable en el propio sistema del OIV.
-
-La distinción entre "acceso autorizado" e "intrusión con credenciales robadas" es, estructuralmente, invisible para el registro autodeclarado —y solo reconstituible mediante atestación externa del entorno que certifique el estado del sistema en el momento y contexto del acceso—. El *log* que el operador habría presentado ante la ANCI en cumplimiento del art. 9 de la Ley 21.663 habría descrito, con exactitud técnica, al atacante como usuario legítimo.
-
-Que la ANCI reconociera la gravedad del vector mediante un oficio de alerta reservado dirigido a todos los servicios de salud del país (§1.3.1), alertando sobre el uso de credenciales válidas como método activo de la filtración, confirma que la estructura del problema —*log* formalmente limpio, incidente real, ausencia de mecanismo de distinción en el propio sistema— no es anecdótica: es sistémica.
-
-Es, en términos probatorios, el caso Horizon chileno en potencia: el sistema produce un registro internamente coherente que no refleja la realidad de la operación, y quien lo presenta ante el tribunal o regulador no puede, sin atestación del entorno, acreditar la diferencia.
 
 
 
@@ -3020,13 +3028,30 @@ Es, en términos probatorios, el caso Horizon chileno en potencia: el sistema pr
 
 ### 3.8.1 Proyección al procedimiento administrativo sancionador: el cepo regulatorio y su única salida
 
-> *Expediente reservado del procedimiento sancionador.* La Delegada de Protección de Datos cumplió cada casilla en sus descargos escritos: ISO 27001 vigente, SOC 2 Type II, contrato con cláusula de auditoría, proveedor certificado. Todo se tramita a puertas cerradas, sin audiencias públicas ni escrutinio transparente sobre cómo el regulador adopta su decisión. En la resolución final, la autoridad asesta un solo golpe: «¿Puede la entidad acreditar, con evidencia independiente del proveedor, que el registro aportado no fue alterado o fabricado por el atacante?». No puede. El expediente se cierra en la opacidad administrativa. Los certificados prueban que la entidad contrató con diligencia documental; no prueban qué ocurrió realmente en la infraestructura. Y el deber de responsabilidad proactiva (*accountability*) no era contratar bien: era poder demostrar de forma irrefutable el estado del sistema ante un regulador que falla en la sombra.
-
-El campo de batalla real del responsable de datos no es, en la mayoría de los casos, el penal, sino el procedimiento administrativo sancionador ante la ANCI (Ley 21.663) y la Agencia de Protección de Datos (Ley 21.719). Y allí la carga probatoria no opera como un refugio garantista ni como una condena automática, sino como un cepo : una tenaza de dos deberes legales cuya única salida compatible con la diligencia es la evidencia atestable.
+El campo de batalla real del responsable de datos no es, en la mayoría de los casos, el penal, sino el procedimiento administrativo sancionador ante la ANCI (Ley 21.663), la Agencia de Protección de Datos (Ley 21.719) y la CMF (Normativa de Ciberseguridad y NCG 502). Y allí la carga probatoria no opera como un refugio garantista ni como una condena automática, sino como un cepo: una tenaza de dos deberes legales cuya única salida compatible con la diligencia es la evidencia atestable.
 
 Leer este escenario como "escudo" es tan erróneo como leerlo como "responsabilidad objetiva": ambas lecturas ignoran que la llave del cepo es el principio de culpabilidad, y que su filo se vuelve, con el tiempo, contra quien no se adaptó.
 
-(1) El piso garantista protege al diligente, no al complaciente. Es doctrina consolidada del Tribunal Constitucional que los principios del orden penal se aplican, *con matices*, al Derecho Administrativo Sancionador (STC Rol N°244, 1996, y su línea posterior<a href="#fn125" id="fnref125"><sup>125</sup></a>): rigen la presunción de inocencia —de la que se sigue que la carga de acreditar la infracción recae en la Administración, no en el administrado (art. 19 N°3 de la Constitución; Ley 19.880)— y el principio de culpabilidad, que proscribe la responsabilidad objetiva: no hay sanción sin dolo o, cuando menos, negligencia imputable.
+#### El Espejo Regulatorio Europeo (GDPR y NIS2): Sanciones Administrativas por "Ceguera Arquitectónica"
+
+El colapso probatorio frente a los reguladores ya es una realidad sancionatoria consolidada en Europa. Las agencias han comenzado a multar a las corporaciones no por "ser hackeadas", sino por vulnerar los **Artículos 5.2 (Accountability), 25 (Diseño y por Defecto) y 32 (Estado de la técnica) del GDPR**, al carecer de una arquitectura que ofrezca *logs* inmutables. Se han desestimado de plano las defensas de *compliance* documental:
+
+* **Francia (CNIL - Caso Dedalus Biologie, 2022):** La autoridad impuso €1,5 millones por infracción al Art. 32 GDPR. El regulador dictaminó que la mera existencia de *logs* es jurídicamente inútil si la arquitectura no garantiza su integridad inmutable. Sin atestación matemática, el *software* de trazabilidad ya no califica como "estado de la técnica"<a href="#fn280" id="fnref280"><sup>280</sup></a>.
+
+* **España (AEPD - Caso Endesa, 2023):** Ante una multa de €6,1M, la empresa invocó sus *firewalls* como prueba de diligencia. La AEPD sentenció que, al carecer de trazabilidad granular inmutable, la empresa vulneraba el principio de *Accountability* (Art. 5.2 GDPR). Si la arquitectura impide reconstruir pericialmente la ruta del ataque, todo el aparato perimetral es una ficción jurídica.
+
+* **Italia (Garante - Caso UniCredit, 2022):** Frente a una multa de €2,8M, el banco argumentó haber invertido millones en plataformas SIEM. El regulador destrozó el argumento: gastar millones en *software* comercial es legalmente irrelevante si la arquitectura subyacente carece de monitorización inmutable desde la extracción de los datos.
+
+* **Finlandia (Tietosuojavaltuutettu - Caso Vastaamo, 2021):** El operador se atrincheró en su narrativa de "víctima". El regulador y posteriormente la justicia penal desestimaron la victimización de plano, culminando en la condena penal del propio CEO. La falla estructural en mantener *log data* inmutables no es solo un error técnico, sino una negligencia directiva temeraria.
+
+* **Bélgica (APD - Hospitales Públicos):** La autoridad invalidó el cumplimiento de papel argumentando el Art. 25 GDPR. Dictaminó que una "Política Interna" es una alucinación legal si la arquitectura de TI no fuerza algorítmicamente la trazabilidad inmutable mediante diseño (*Secure-by-Design*).
+
+Estas resoluciones, consagradas ahora de forma estatutaria por el *Artículo 20 de la Directiva Europea NIS2* —que impone responsabilidad personal a los órganos de dirección por la gestión de riesgos cibernéticos—, demuestran empíricamente que carecer de trazabilidad forense independiente (como RATS/SCITT) no funciona como un escudo regulatorio, sino que detona la sanción de forma directa. 
+
+Más aún, como se analizó en la sección precedente sobre jurisprudencia europea, estas demoliciones regulatorias no son interpretaciones aisladas de las agencias: *han sido ratificadas sistemáticamente por los tribunales superiores de cada país* (incluyendo el Tribunal Supremo en España, la *Corte Suprema di Cassazione* en Italia, y los tribunales penales y de apelación en Finlandia y Bélgica), consolidando a nivel judicial que operar una infraestructura estructuralmente opaca constituye un ilícito *ex ante* por negligencia directiva.
+
+### El piso garantista protege al diligente, no al complaciente. 
+Es doctrina consolidada del Tribunal Constitucional que los principios del orden penal se aplican, *con matices*, al Derecho Administrativo Sancionador (STC Rol N°244, 1996, y su línea posterior<a href="#fn125" id="fnref125"><sup>125</sup></a>): rigen la presunción de inocencia —de la que se sigue que la carga de acreditar la infracción recae en la Administración, no en el administrado (art. 19 N°3 de la Constitución; Ley 19.880)— y el principio de culpabilidad, que proscribe la responsabilidad objetiva: no hay sanción sin dolo o, cuando menos, negligencia imputable.
 
 Pero la culpabilidad es una bisagra de doble filo: lo mismo que exime al operador que actuó con diligencia es lo que condena al que, pudiendo prever y mitigar un riesgo conocido, no lo hizo. Y aquí es donde la defensa habitual ("*no me pueden sancionar porque la manipulación de la IA era invisible y humanamente imprevisible*") colapsa por su propio peso.
 
