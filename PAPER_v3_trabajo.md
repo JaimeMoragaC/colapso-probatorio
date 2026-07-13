@@ -3160,11 +3160,13 @@ Quien confía su defensa a que "tampoco podrán probar lo contrario" sigue incum
 Quien la adopta hoy convierte el cepo en piso firme; quien persiste en el cumplimiento meramente documental queda dentro cuando la tenaza se cierra. El catálogo normativo concreto para incorporar esta exigencia al régimen —reporte atestable, puerto seguro probatorio, continuidad bajo control del obligado y un estándar único de evidencia— se desarrolla en §6.3.
 
 
-### 3.8.2 Proyección al proceso penal: cadena de custodia, prueba ilícita y sana crítica
+### 3.8.4 Proyección al proceso penal: cadena de custodia, prueba ilícita y sana crítica
+
+El salto desde la infracción administrativa al proceso penal cambia drásticamente las reglas de supervivencia. Aquí ya no se discuten multas corporativas, sino la libertad de los directivos (Ley 21.595) y la incautación de evidencia en la escena del crimen digital. Es en esta arena jurisdiccional donde la ceguera de la arquitectura *cloud* despliega su consecuencia más letal: transforma a la empresa hackeada, que entra al tribunal buscando justicia como víctima, en la principal sospechosa de un encubrimiento que es matemáticamente incapaz de desmentir.
 
 > *El imputado es el desplegador del agente. Para exonerarse debe demostrar que el agente actuó fuera de sus instrucciones —que un tercero alteró sus parámetros, que la cadena de delegación se ramificó sin su autorización—. Esa prueba existe: son las trazas de decisión del modelo. Pero viven en la infraestructura del proveedor, a la que no tiene acceso, y que pudo ser purgada por el mismo adversario. No puede exigir que se le exhiba lo que el sistema nunca atestó. Víctima sin poder acusar a nadie; acusado sin nada con qué defenderse: la misma opacidad sirve a las dos indefensiones.*
 
- La falla en la cadena de custodia conduce al nudo procesal derivado de la modernización de la Ley 21.459, que incorporó al Código Procesal Penal el Artículo 218 bis (preservación provisoria de datos informáticos), junto con órdenes de conservación y entrega rápida de datos y técnicas especiales de investigación.
+La falla en la cadena de custodia conduce al nudo procesal derivado de la modernización de la Ley 21.459, que incorporó al Código Procesal Penal el Artículo 218 bis (preservación provisoria de datos informáticos), junto con órdenes de conservación y entrega rápida de datos y técnicas especiales de investigación.
 
 *La trampa temporal de la preservación: por qué el Art. 218 bis conserva la disponibilidad, no la veracidad.* Aquí la dogmática debe ser exacta, porque sobre este punto se levantará la objeción del defensor del modelo vigente: *«la ley ya lo resolvió —el Art. 218 bis permite ordenar la conservación de los datos; la evidencia no se pierde»*. La objeción confunde dos propiedades que la ingeniería distingue con rigor: la *disponibilidad* del registro y su *integridad*. El Art. 218 bis garantiza la primera; es estructuralmente incapaz de producir la segunda.
 
