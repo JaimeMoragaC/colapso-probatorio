@@ -3461,13 +3461,19 @@ El andamiaje de cumplimiento tradicional fue diseñado para la era pre-agéntica
 
 **La metamorfosis forense: De archivo inerte a "dato agéntico"**
 
-Para comprender la gravedad procesal de esta vulnerabilidad, el abogado corporativo debe primero entender qué es exactamente un "agente autónomo" y qué hace con la información. Un *software* clásico (como una base de datos) es pasivo y determinista: usted busca un contrato, el sistema lo lee del disco y se lo muestra. El dato entra y sale inalterado. 
+Para comprender la gravedad procesal de esta vulnerabilidad, el abogado corporativo debe entender cómo procesa la información cualquier Inteligencia Artificial, ya sea un complejo "agente autónomo" o un simple *chatbot* corporativo alimentado con sus documentos internos (arquitecturas RAG). Un *software* clásico (como una base de datos) es pasivo: usted busca un contrato, el sistema lo lee del disco y se lo muestra. El dato entra y sale inalterado. 
 
-Un agente autónomo (IA) funciona bajo un paradigma radicalmente distinto: opera por delegación de objetivos. El usuario no le pide que busque un archivo; le ordena, por ejemplo: *"revisa estos historiales clínicos, cruza la información con las pólizas de seguro y determina si existe riesgo de litigio por negligencia"*. Para ejecutar este mandato, el agente no se limita a "leer"; tiene que *ingerir* la totalidad de los expedientes en su "ventana de contexto" (su memoria operativa a corto plazo), inferir relaciones semánticas complejas, razonar sobre el problema y planificar una respuesta. 
+La inferencia generativa funciona bajo un paradigma de "ingesta cognitiva". Para ejecutar una instrucción (ej. *"cruza estos historiales clínicos y detecta riesgos de litigio"*), la red neuronal no se limita a "leer"; debe inyectar la totalidad de su propiedad intelectual, de forma pura y en texto plano, en la memoria volátil (VRAM) de las GPU del proveedor. En ese milisegundo, la criptografía de reposo es evadida por completo.
 
-Para que este proceso cognitivo sea posible, la propiedad intelectual debe abandonar el refugio de su cifrado en disco y ser inyectada, de forma pura y en texto plano, en la memoria volátil (VRAM) de las GPU del proveedor. En ese milisegundo, la criptografía de reposo es evadida por completo. Si el proveedor (o un atacante remoto con acceso Ring-0 al hipervisor) ejecuta un volcado de memoria (*RAM dump*), obtiene el botín en texto claro sin tener que romper ninguna llave matemática.
+> LA FALACIA LEGAL DEL "ZERO DATA RETENTION"
+> 
+> *Frente a esto, su proveedor de nube intentará calmar al directorio esgrimiendo contratos que prometen "Zero Data Retention" (Retención Cero de Datos), jurando que la VRAM se borra tras cada consulta y que sus empleados no la miran. Para un abogado penalista o fiscalizador, este argumento es un insulto a la física. Un Acuerdo de Confidencialidad (NDA) no detiene electrones. Si un atacante remoto —o un administrador con acceso de sistema— ejecuta un volcado de memoria (RAM dump) en el milisegundo exacto en que la GPU procesa su contrato, el atacante obtiene el botín en texto claro. La promesa contractual de "borrar el dato después" es inútil si el dato fue extraído durante el "mientras".*
 
-Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. El secreto industrial de su empresa ya no es un archivo inerte guardado en un cajón digital; se ha transformado en el flujo de pensamiento matemático de una máquina de terceros que razona en tiempo real sobre los problemas más íntimos de su corporación. 
+Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. El secreto industrial de su empresa ya no es un archivo inerte guardado en un cajón digital; se ha transformado en el flujo de pensamiento de una máquina de terceros que razona en tiempo real sobre los problemas más íntimos de su corporación. 
+
+**La ceguera pericial y la inversión de la carga de la prueba**
+
+El golpe de gracia procesal radica en la pérdida de la cadena de custodia. Al no controlar el *hardware* (el procesador y la memoria física), su empresa padece ceguera forense absoluta. Si ocurre un ataque de extracción en la VRAM del hiperescalar, usted no tendrá logs locales que lo registren. Frente a un juez, un regulador o un accionista, argumentar "no tenemos evidencia de que nos hayan robado en la nube" equivale a confesar "no tenemos telemetría para proteger nuestro propio modelo de negocios". Externalizar el cómputo sin telemetría anclada criptográficamente en el *hardware* es, bajo la Ley 21.595, invertir la carga de la prueba en contra de su propio directorio.
 
 \newpage
 
