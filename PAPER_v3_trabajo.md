@@ -3094,6 +3094,8 @@ Consecuentemente, esta exposición extraterritorial destruye cualquier asimetrí
 
 Si una entidad chilena adopta o debe adoptar este estándar duro para salvaguardar sus operaciones en el mercado europeo y evitar multas masivas, sostener una arquitectura inferior ("ciega") para sus operaciones locales en Chile ante la CMF o la ANCI ya no es una decisión de diseño, sino una confesión expresa de negligencia. El estándar de diligencia europeo se vuelve el piso ineludible en Chile, no por trasplante doctrinario directo de la norma técnica, sino por imposición de la realidad operativa de la propia empresa.
 
+### 3.8.3 La trampa doméstica: el colapso de la defensa garantista
+
 Frente a este cerco transnacional, la reacción refleja de las gerencias legales corporativas en Chile es atrincherarse en el bastión histórico del derecho sancionador doméstico: exigir que el Estado pruebe la culpa. 
 
 Es un espejismo tranquilizador, pero estratégicamente letal. Los directorios se consuelan asumiendo que, si un ciberataque es tan avanzado que borra sus propias huellas, la incapacidad técnica del regulador (CMF, ANCI) para reconstruirlo operará como una garantía de impunidad. Lo que no calculan es que ese mismo escudo constitucional en el que depositan su salvación está diseñado para mutar, ante la ceguera forense autoinducida, en la espada que ejecutará su condena personal.
