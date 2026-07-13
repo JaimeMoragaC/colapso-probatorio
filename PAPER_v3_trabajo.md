@@ -3128,7 +3128,9 @@ El reflejo defensivo corporativo es invocar el principio *ad impossibilia nemo t
 
 Pero esta defensa es fáctica y jurídicamente falsa. El mercado *cloud* actual **sí ofrece** soluciones de atestación de hardware (ej. *Confidential Computing*, enclaves seguros). Si bien estas tecnologías comerciales aún presentan defectos de soberanía y diseño ante ataques de Ring 0 —como ya hemos analizado—, constituyen un paso fundacional en la dirección correcta hacia la inalterabilidad del silicio y son arquitectónicamente perfeccionables. 
 
-Ignorar deliberadamente estas tecnologías disponibles para seguir operando en arquitecturas estándar (más económicas pero completamente ciegas ante el hipervisor) destruye la excusa de la imposibilidad. La responsabilidad proactiva (*Accountability*) de la Ley 21.719 exige diligencia técnica basada en el estado del arte. Si el operador decide no implementar los medios de atestación de hardware existentes, su deber fiduciario y legal es notificar formalmente a la ANCI que ha optado por operar bajo una ceguera arquitectónica que genera un riesgo residual inmanejable, y transparentar que, no obstante, en cualquier escenario (con o sin enclaves comerciales), mantiene su vulnerabilidad ante ataques de Ring 0 a su estructura de datos.
+Ignorar deliberadamente estas tecnologías disponibles para seguir operando en arquitecturas estándar (más económicas pero completamente ciegas ante el hipervisor) destruye la excusa de la imposibilidad. La responsabilidad proactiva (*Accountability*) de la Ley 21.719 exige diligencia técnica basada en el estado del arte. 
+
+Si el operador decide no implementar los medios de atestación de hardware existentes, su deber fiduciario y legal es notificar formalmente a la ANCI que ha optado por operar bajo una ceguera arquitectónica que genera un riesgo residual inmanejable, y transparentar que, no obstante, en cualquier escenario (con o sin enclaves comerciales), mantiene su vulnerabilidad ante ataques de Ring 0 a su estructura de datos.
 
 Y aquí es donde certificaciones como ISO 27001 o SOC 2 pasan de ser herramientas de gestión a convertirse en instrumentos de encubrimiento doloso. Frente a un adversario avanzado, estas normativas son técnicamente inútiles. Al ser certificaciones puramente documentales, avalan la existencia de políticas administrativas, pero son completamente ciegas a la inalterabilidad física del procesador. Utilizarlas para reportar al regulador que un entorno tecnológico está "mitigado" es una ficción jurídica; equivale a exhibir una auditoría contable para garantizar que un edificio no colapsará en un terremoto.
 
@@ -3136,11 +3138,13 @@ La negligencia corporativa, por tanto, no se configura por sufrir el hackeo, sin
 
 Al hacer público el abismo entre cumplimiento documental e integridad técnica, este documento agota la excusa de la ignorancia. Hacia el futuro, invocar la "imposibilidad técnica" mientras se usa un certificado administrativo para simular seguridad tecnológica, ya no es una defensa válida: es la confesión misma del ocultamiento probatorio.
 
-#### 4. El estoppel regulatorio es un escudo transitorio, no permanente.
+#### 4. El colapso del "estoppel regulatorio": la normativa desfasada no protege el fraude.
 
-Mientras el propio estándar de la ANCI se satisfaga con controles estáticos y *logs* autodeclarados (§6.1), la autoridad no puede fundar una sanción en la falta de fiabilidad de esa misma evidencia: hacerlo sería *venire contra factum proprium* y lesionaría la confianza legítima del administrado.
+Una última línea defensiva es invocar el *estoppel* regulatorio (*venire contra factum proprium*): argumentar que si la propia autoridad (ANCI) históricamente ha aceptado certificaciones estáticas y *logs* autodeclarados, sancionar ahora su falta de fiabilidad lesionaría la "confianza legítima" del administrado.
 
-Pero este amparo es transitorio. Protege al operador solo hasta que la atestación verificable se reconozca como disponible y exigible —algo que la consulta pública en curso (§6.1) puede consagrar—; corregido el estándar, la confianza legítima deja de cubrir a quien no se adaptó. El escudo del estoppel y la fecha de cierre del cepo son la misma manecilla del reloj vista desde dos lados.
+Esta premisa es un espejismo jurídico. La confianza legítima protege el cumplimiento de buena fe, no el encubrimiento de riesgos estructurales. El deber de responsabilidad proactiva (Ley 21.719) y el mandato penal de prevención de delitos económicos (Ley 21.595) son obligaciones legales de rango superior a cualquier pauta técnica transitoria. El operador no puede ampararse en el desfase temporal de una guía administrativa para justificar la entrega de telemetría criptográficamente ciega, menos aún cuando el mercado y la literatura técnica ya evidencian la asimetría del *cloud* frente a ataques avanzados.
+
+No existe "confianza legítima" para el ocultamiento. Al usar un estándar normativo mínimo como pretexto para enmascarar la vulnerabilidad inmanente de sus estructuras de datos, el operador rompe la buena fe. El escudo del *estoppel* no ampara a quien utiliza la obsolescencia transitoria del regulador como herramienta de impunidad corporativa.
 
 #### 5. La hoja simétrica es defensa de último recurso, no estrategia.
 
