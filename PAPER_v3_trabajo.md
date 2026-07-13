@@ -3476,7 +3476,7 @@ La inferencia generativa funciona bajo un paradigma de "ingesta cognitiva". Para
 Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. El secreto industrial de su empresa ya no es un archivo inerte guardado en un cajón digital; se ha transformado en el flujo de pensamiento de una máquina de terceros que razona en tiempo real sobre los problemas más íntimos de su corporación. 
 
 <a id="retorno-anexo5"></a>
-> 🔍 *[Para una deconstrucción técnica sobre cómo un ataque DMA exfiltra la VRAM y anula mecánicamente el BYOK y el "Zero Data Retention", consulte el Anexo 5: Anatomía Forense de la Hemorragia en VRAM](#anexo-hemorragia-vram).*
+> 🔍 *[Para el análisis técnico de ingeniería (exposición de memoria, ataques DMA y el colapso físico del BYOK y el "Zero Data Retention") que demuestra pericialmente la totalidad de esta hemorragia cognitiva, consulte el Anexo 5: Anatomía Forense de la Hemorragia en VRAM](#anexo-hemorragia-vram).*
 
 **La ceguera pericial y la inversión de la carga de la prueba**
 
