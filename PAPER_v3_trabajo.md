@@ -3547,6 +3547,9 @@ Los proveedores han construido un teatro arquitectónico para ejecutivos. Venden
 Veredicto Legal (Continuidad y Exfiltración): 
 El cifrado no evita el apagón. El proveedor promete que una agencia extranjera no podrá leer los datos porque el cliente retiene la llave criptográfica. Bajo la Ley Marco de Ciberseguridad (Ley 21.663), esta promesa es irrelevante frente a la potestad extraterritorial. El gobierno extranjero no necesita exfiltrar ni descifrar un solo byte para ejercer coacción; le basta con revocar la instancia de cómputo en la nube. Que la base de datos crítica esté cifrada en disco resulta inmaterial si el servicio está inoperante y la continuidad operacional se interrumpe. La caída del servicio consuma instantáneamente la infracción, y el cifrado en reposo no ofrece ninguna defensa legal ante el regulador.
 
+<a id="retorno-anexo8"></a>
+> 🔍 *[Para la autopsia técnica sobre por qué retener la llave localmente (HYOK) es inútil en tiempo de ejecución y por qué los Módulos de Seguridad (HSM) en la nube operan como 'puertas blindadas en tiendas de campaña', consulte el Anexo 8: La Ilusión del HSM y el Fraude Arquitectónico del HYOK](#anexo-hsm-hyok).*
+
 ### 4.1 Defensas contractuales y geográficas
 Región local / residencia de datos. La CLOUD Act<a href="#fn115" id="fnref115"><sup>115</sup></a> opera con independencia de la ubicación; pero la directiva del 12 de junio reveló un mecanismo más directo. Bajo las reglas de *deemed export*, dar acceso a tecnología controlada a cualquier persona extranjera —incluso dentro de EE.UU., incluso a empleados de la propia empresa— constituye una exportación al país de origen de esa persona.
 
@@ -5794,6 +5797,23 @@ La única refutación matemática a la desnudez de la memoria viva es el Cifrado
 El *overhead* de expansión polinómica del FHE exige entre $10^4$ y $10^6$ veces más ciclos de reloj computacionales y consumo de memoria que una operación en texto claro. En un modelo LLM masivo, cada inferencia involucra billones de operaciones de coma flotante (FLOPs). Ejecutar una simple consulta corporativa bajo FHE no demoraría milisegundos, sino horas o días, friendo literalmente el presupuesto térmico del *rack* del proveedor. Por lo tanto, cuando un proveedor insinúa que ofrece confidencialidad en tiempo de ejecución para IA generativa, el ingeniero psicópata sabe que, o están violando las leyes de la termodinámica, o (como es el caso real) simplemente le están mintiendo y procesando sus datos en texto completamente plano.
 
 > ↩️ *[Volver al Capítulo 4: El espejismo de la PQC y el FHE ante un tribunal](#retorno-anexo7)*
+
+---
+
+<a id="anexo-hsm-hyok"></a>
+### Anexo 8: La Ilusión del HSM Perimetral y el Fraude Arquitectónico del HYOK
+
+**8.1. La Paradoja de Transmisión del HYOK (*Hold Your Own Key*)**  
+La promesa comercial del HYOK es seductora para los directorios: "Nosotros mantenemos la llave maestra en nuestros propios servidores locales, el proveedor de la nube nunca la tiene". Desde la ingeniería inversa, esta afirmación es una contradicción funcional. 
+
+Para que la nube (AWS, Azure) pueda ejecutar una inferencia de IA o una simple búsqueda indexada sobre los datos del cliente, necesita el texto plano. Esto obliga al cliente a enviar los datos ya descifrados a través de la red, o bien, a enviar la llave criptográfica en tiempo de ejecución para que el hipervisor extranjero descifre el volumen en la VRAM. En el momento en que la llave cruza el perímetro hacia el entorno de ejecución externo, la soberanía de retención se evapora. El atacante con privilegios *Ring-0* en el hiperescalar simplemente intercepta la llave en la memoria volátil o roba los datos una vez desencriptados. Mantener la llave original en su sótano es irrelevante si usted está obligado a enviarle una copia de uso diario a un tercero inauditable.
+
+**8.2. El HSM (*Hardware Security Module*) como Guardia de un Edificio sin Paredes**  
+Para mitigar el desastre anterior, la industria vende el uso de HSMs gestionados en la nube. Un HSM es un módulo físico criptográfico extremadamente robusto que protege la llave contra extracciones. Sin embargo, el "ingeniero psicópata" sabe que atacar un HSM es un gasto inútil de energía. 
+
+El HSM protege la llave, pero *no protege el entorno donde se usan los datos desencriptados*. El hipervisor de la nube sigue siendo una mesa de trabajo compartida (*multi-tenant*). El atacante no intenta penetrar la coraza de titanio del HSM; en su lugar, se asienta en el hipervisor, espera pacientemente a que la aplicación legítima solicite al HSM que desencripte los datos, y captura los secretos directamente desde la memoria RAM del servidor de aplicaciones una vez que el HSM ha hecho su trabajo. Vender un HSM en un entorno sin atestación de nodo completo es como instalar la puerta de una bóveda bancaria de 10 toneladas en una tienda de campaña de lona; la puerta es inexpugnable, pero el atacante simplemente entra cortando la tela con un cuchillo.
+
+> ↩️ *[Volver al Capítulo 4: La estafa semántica del HYOK y los HSMs](#retorno-anexo8)*
 
 ---
 
