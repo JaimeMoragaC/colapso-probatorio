@@ -3182,9 +3182,9 @@ La orden de conservación es una *read primitive* dirigida al nodo no confiable.
 
 Al ordenar la conservación, el Ministerio Público se convierte en un *diputado confundido* (confused deputy). En la teoría de la seguridad, el *confused deputy* es la entidad que ejerce una autoridad legítima cuya ejecución material delega en quien no merece confianza<a href="#fn173" id="fnref173"><sup>173</sup></a>. 
 
-La orden del Art. 218 bis es impecable en su forma —emana de la potestad persecutoria— pero su ejecución material recae en el proveedor: el único actor cuya honestidad la causa pone en duda. El fiscal cree estar asegurando la prueba; en realidad le pide al sospechoso que custodie su propia coartada. 
+La orden del Art. 218 bis es impecable en su forma —emana de la potestad persecutoria— pero su ejecución material recae en el proveedor (hiperescalador): el único actor cuya integridad la causa pone en duda. Al negarse a entregar el acceso directo a su sistema en Ring 0 para verificar criptográficamente la indemnidad de los datos, el proveedor se convierte forensemente en el sospechoso de la opacidad. El fiscal cree estar asegurando la prueba mediante un tercero neutral; en realidad, le pide al sospechoso de la caja negra que custodie su propia coartada. 
 
-Es el Problema de los Generales Bizantinos<a href="#fn171" id="fnref171b"><sup>171</sup></a> trasladado del *log* a la sala de audiencias: un sistema que depende de un nodo central capaz de mentir de forma arbitraria no alcanza un estado confiable por el solo hecho de ordenarle que conserve su versión.
+Es el Problema de los Generales Bizantinos<a href="#fn171" id="fnref171b"><sup>171</sup></a> trasladado del *log* a la sala de audiencias: un sistema que depende de un nodo central capaz de mentir de forma arbitraria —o de ocultar su propia vulneración en Ring 0— no alcanza un estado confiable por el solo hecho de que un juez le ordene conservar su versión.
 
 #### El *Zero-Day* Procesal: La aniquilación de la prueba electrónica ante la sana crítica
 
