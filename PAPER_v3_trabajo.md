@@ -3555,13 +3555,16 @@ Región local / residencia de datos. La CLOUD Act<a href="#fn115" id="fnref115">
 
 Ese fue el mecanismo invocado para ordenar la suspensión de acceso por cualquier *foreign person*, ejecutada por decisión administrativa, sin proceso judicial ni recurso accesible al usuario final extranjero. La región local no altera la dinámica: el *software* que opera en ella es tecnología estadounidense cuyo acceso por un extranjero es una exportación sujeta a licencia revocable.
 
-El director legal de Microsoft Francia declaró ante el Senado francés (2025)<a href="#fn136" id="fnref136"><sup>136</sup></a> que la compañía no puede garantizar que datos europeos no sean requeridos por autoridades de EE.UU.; tras el 12 de junio, la cuestión dejó de ser si los datos pueden ser requeridos y pasó a ser si el servicio puede ser revocado —y la respuesta es empírica—.
+El testimonio del director legal de Microsoft Francia ante el Senado francés (2025)<a href="#fn136" id="fnref136"><sup>136</sup></a> demolió definitivamente el mito de la "nube soberana" operada por proveedores estadounidenses. Bajo juramento, admitió que la corporación no puede garantizar que los datos de ciudadanos e instituciones europeas queden fuera del alcance de las agencias de inteligencia de EE.UU. (bajo la Sección 702 de FISA o la CLOUD Act), sin importar cuántas "regiones locales" o centros de datos físicos construyan en territorio europeo. 
+
+Sin embargo, para el abogado corporativo moderno, el verdadero pánico jurídico se consolida tras las acciones ejecutivas del 12 de junio. El paradigma de la amenaza mutó drásticamente: la preocupación de los Estados ya no es únicamente si el gobierno extranjero *leerá* sus secretos, sino si *apagará* su infraestructura crítica. La respuesta demostró ser brutalmente empírica. A través de la Oficina de Industria y Seguridad (BIS) del Departamento de Comercio de EE.UU., una simple orden administrativa basada en el control de exportaciones (*deemed export*) obliga al hiperescalar a accionar el botón de apagado (*kill-switch*) sobre las instancias de cómputo de usuarios extranjeros. 
+
+En este escenario, no existe debido proceso local, no hay exhorto a tribunales chilenos o europeos, y no hay defensa criptográfica (BYOK/HYOK) que valga. Cuando una agencia extranjera presiona el interruptor desde la capa del hipervisor, la continuidad operacional del Estado o del banco colapsa en milisegundos, materializando instantáneamente una infracción gravísima a los deberes fiduciarios bajo la Ley Marco de Ciberseguridad (Ley 21.663).
 
 
 <br>
 
-![Figura 1: Arquitectura de la Ceguera Forense. El atacante manipula el estado antes del sellado criptográfico.](figura_ceguera.png "Arquitectura TOCTOU")
-<p align="center"><em>Figura 1: Arquitectura de la Ceguera Forense. El atacante manipula el estado antes del sellado criptográfico.</em></p>
+
 
 ### 4.2 El Espejismo del Cómputo Confidencial: La Farsa de la Atestación Comercial y la Ceguera Inter-Agencial (A2A)
 
