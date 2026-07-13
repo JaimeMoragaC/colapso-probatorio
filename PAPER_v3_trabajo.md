@@ -3475,6 +3475,9 @@ La inferencia generativa funciona bajo un paradigma de "ingesta cognitiva". Para
 
 Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. El secreto industrial de su empresa ya no es un archivo inerte guardado en un cajón digital; se ha transformado en el flujo de pensamiento de una máquina de terceros que razona en tiempo real sobre los problemas más íntimos de su corporación. 
 
+<a id="retorno-anexo5"></a>
+> 🔍 *[Para una deconstrucción técnica sobre cómo un ataque DMA exfiltra la VRAM y anula mecánicamente el BYOK y el "Zero Data Retention", consulte el Anexo 5: Anatomía Forense de la Hemorragia en VRAM](#anexo-hemorragia-vram).*
+
 **La ceguera pericial y la inversión de la carga de la prueba**
 
 El golpe de gracia procesal radica en la pérdida de la cadena de custodia. Al no controlar el *hardware* (el procesador y la memoria física), su empresa padece ceguera forense absoluta. Si ocurre un ataque de extracción en la VRAM del hiperescalar, usted no tendrá logs locales que lo registren. Frente a un juez, un regulador o un accionista, argumentar "no tenemos evidencia de que nos hayan robado en la nube" equivale a confesar "no tenemos telemetría para proteger nuestro propio modelo de negocios". Externalizar el cómputo sin telemetría anclada criptográficamente en el *hardware* es, bajo la Ley 21.595, invertir la carga de la prueba en contra de su propio directorio.
@@ -5735,6 +5738,8 @@ Un administrador de la nube con acceso físico, o una Amenaza Persistente Avanza
 Frente a la inevitabilidad física de la exposición en memoria, el último refugio del hiperescalar es el contrato: el *Zero Data Retention* (Retención Cero de Datos). El proveedor le asegura, bajo firma, que aplicará un *scrubbing* (sobrescritura con ceros) en la VRAM inmediatamente después de la inferencia, y que ningún humano la mirará. 
 
 Para un ingeniero de seguridad ofensiva, esgrimir un contrato como defensa de *runtime* es patético. Un NDA (Acuerdo de Confidencialidad) no tiene propiedades termodinámicas; no detiene la propagación de electrones. El *scrubbing* ocurre en el tiempo *T+1* (después de la ejecución). Si el ataque DMA o el volcado de memoria ocurre en el tiempo *T* (durante la ingesta cognitiva), el atacante captura el secreto vivo. Argumentar ante un tribunal penal que la empresa no es negligente porque firmó una promesa de "borrado posterior", cuando permitió que el dato crítico existiera en texto plano en infraestructura de terceros sin atestación de hardware, es confesar ignorancia arquitectónica deliberada.
+
+> ↩️ *[Volver al Capítulo 4: El dato agéntico y la vulnerabilidad terminal](#retorno-anexo5)*
 
 ---
 
