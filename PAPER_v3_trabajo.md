@@ -5610,7 +5610,7 @@ Por último, proteger el núcleo del conocimiento corporativo (bases vectoriales
 
 Están esperando la estabilización del Algoritmo de Shor en hardware cuántico. Cuando eso ocurra, todas las llaves de intercambio previas colapsarán retrospectivamente. Exhibir certificaciones comerciales que no exigen atestación de Criptografía Post-Cuántica (PQC, como ML-KEM/Kyber) desde el diseño, es confesar ante el tribunal que usted ha almacenado la propiedad intelectual de su empresa en una caja fuerte cuya clave ya tiene fecha de publicación programada.
 
-> ↩️ *[Volver al Capítulo 4: La ficción probatoria del Cifrado Cloud](#retorno-anexo1)*
+> ↩️ *[Volver al Capítulo 4: El Teatro de Cumplimiento SOC 2](#retorno-anexo1)*
 
 <a id="anexo-auto-atestacion"></a>
 ### Anexo 2: Falacias de Auto-Atestación, Asimetría Temporal y Envenenamiento de IA Defensiva
@@ -5647,7 +5647,7 @@ El supuesto de amenaza requerido para ejecutar estos ataques (acceso físico al 
 
 Desde la rigurosidad pericial, invocar el "Cómputo Confidencial" sobre infraestructura ajena es un disparate térmico y procesal. Si el custodio físico de la máquina puede extraer sus secretos comerciales alterando infinitesimalmente el suministro eléctrico de su propia placa madre, la separación lógica entre proveedor y cliente no existe. Frente a un tribunal, debe quedar claro: usted no posee "Cómputo Confidencial". Usted simplemente está corriendo un algoritmo sobre un silicio subarrendado, donde otra corporación tiene línea directa con el regulador de voltaje.
 
-> ↩️ *[Volver al Capítulo 4: La ficción del aislamiento y el Cómputo Confidencial](#retorno-anexo3)*
+> ↩️ *[Volver al Capítulo 4: La ficción del aislamiento y el colapso físico del "Cómputo Confidencial"](#retorno-anexo3)*
 
 ---
 
@@ -5664,7 +5664,7 @@ Un sistema que permite alterar el estado final de una transacción financiera si
 
 Exigirle a un administrador local (el usuario en el Ring-3) que demuestre un error de *software* desde el exterior, cuando el proveedor domina la base de datos central, controla el código fuente y puede modificar el estado de la memoria sin invalidar ningún *hash* criptográfico, es un fraude epistémico. Arquitectónicamente, el sistema *Horizon* fue diseñado para mentir con total impunidad técnica, forzando a los tribunales británicos a actuar como validadores ciegos de un sistema forense en bancarrota.
 
-> ↩️ *[Volver al Capítulo 4: El colapso de la presunción de fiabilidad computacional](#retorno-anexo4)*
+> ↩️ *[Volver al Capítulo 4: El colapso de la presunción de fiabilidad computacional (el caso del Reino Unido)](#retorno-anexo4)*
 
 ---
 
@@ -5685,7 +5685,7 @@ La superioridad probatoria de un nodo soberano local no radica en que un chip TP
 
 Vulnerar el sistema de identidad de una *SmartNIC* en la nube requiere únicamente código y credenciales robadas (un ataque remoto, escalable y barato). Vulnerar un TPM local para falsificar una atestación requiere proximidad cinemática, desensamblaje del chasis y manipulación eléctrica de los circuitos. Nitro protege el metal pero regala la llave en la red; la atestación soberana ancla la llave al metal local, forzando al atacante a cometer un asalto físico (fuerza mayor) para robarla.
 
-> ↩️ *[Volver al Capítulo 4: La única frontera probatoria entre el asalto físico y la negligencia corporativa](#retorno-anexo5)*
+> ↩️ *[Volver al Capítulo 4: La ilusión del aislamiento perimetral (AWS Nitro) y la negligencia de la caja negra](#retorno-anexo5)*
 
 ---
 
