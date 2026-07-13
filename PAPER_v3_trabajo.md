@@ -3360,7 +3360,8 @@ El modelo asume que no se debe confiar en la red interna, pero obliga al respons
 
 Cuando una defensa corporativa invoca el "Cómputo Confidencial" (enclaves cifrados en memoria), le está diciendo al juez: *"Pusimos nuestros datos en una caja fuerte mágica dentro del servidor del hiperescalar, y ni siquiera AWS, Azure o Google tienen la llave"*. Es un argumento comercial brillante, hasta que un perito forense explica cómo funciona la física. El gigante tecnológico (el hiperescalar) no necesita su llave criptográfica porque es el dueño del edificio, del silicio y de la electricidad. Basta con que altere infinitesimalmente el voltaje de la placa madre para que el procesador colapse, se equivoque en un cálculo y escupa la llave maestra en texto plano. Jurídicamente, esto significa que la separación algorítmica entre sus datos y el proveedor es una fantasía procesal: usted le entregó el control absoluto de su secreto comercial a los hiperescalares extranjeros, los únicos que controlan el enchufe de la pared.
 
-Hasta el último refugio del discurso, el "cómputo confidencial" (SEV-SNP, SGX/TDX), ha sido derrotado por la física del procesador. Ataques de canal lateral como *Plundervolt* (CVE-2019-11157) demostraron que quien controla el *hardware* físico puede alterar el voltaje del procesador (*undervolting*) para inducir fallos matemáticos controlados dentro del enclave cifrado, forzándolo a filtrar sus llaves criptográficas. Desde la dogmática jurídica, esto destruye la presunción de aislamiento: si el custodio físico de la máquina puede subvertir la criptografía alterando el suministro eléctrico de la placa madre en 0.1 voltios, la separación lógica entre proveedor y cliente es una ficción procesal. El supuesto de ataque de estos vectores —acceso físico y máximo privilegio en el anfitrión, tal como probaron también BadRAM y Battering RAM— describe con exactitud la posición arquitectónica del propio hiperescalar.
+<a id="retorno-anexo3"></a>
+> 🔗 *[Para el desglose técnico sobre la subversión de enclaves y la física de ataques de canal lateral, véase el Anexo 3: El Colapso Físico del Cómputo Confidencial](#anexo-computo-confidencial)*
 
 El edificio entero descansa sobre un axioma jamás demostrado: que el entorno que produce la evidencia es honesto.
 
@@ -5596,6 +5597,21 @@ Por el contrario, el EDR de la víctima detecta la anomalía, la empaqueta, la e
 Para cuando el EDR finalmente recibe la orden de bloquear, el atacante ya reescribió la memoria, exfiltró los datos, cifró el disco y apagó el sensor EDR desde el Ring-0. Porque el EDR es solo un software más corriendo en el mismo espacio lógico que el atacante ya domina. Lo que puede ser desenganchado (*unhooked*) en un nanosegundo no puede testificar a su favor en un juicio.
 
 > ↩️ *[Volver al Capítulo 4: El oxímoron jurídico del "Zero Trust" subarrendado](#retorno-anexo2)*
+
+<a id="anexo-computo-confidencial"></a>
+### Anexo 3: El Colapso Físico del Cómputo Confidencial y los Ataques de Canal Lateral
+
+**3.1. La Ficción del Aislamiento Algorítmico (Plundervolt y la Física del Silicio)**  
+La industria del *cloud* promociona los enclaves de Cómputo Confidencial (como AMD SEV-SNP o Intel SGX/TDX) como la garantía definitiva de privacidad, argumentando que cifran la memoria en uso, volviéndola ilegible incluso para el hipervisor o el administrador del sistema operativo. Sin embargo, este es un debate estrictamente de *software*, ignorando deliberadamente que el *hardware* es el árbitro final de la criptografía. 
+
+Como demostraron ataques de canal lateral como *Plundervolt* (CVE-2019-11157), *BadRAM* o *Battering RAM*, quien posee acceso físico a la placa base y control de la infraestructura (Ring -1, SMM o gestión de energía) puede subvertir cualquier algoritmo de cifrado. Mediante la alteración microscópica de la frecuencia o el voltaje de la CPU (*undervolting* dinámico), el atacante induce errores matemáticos deterministas en las operaciones criptográficas del enclave protegido (Inyección de Fallos o *Fault Injection*). Cuando el enclave falla al calcular una firma AES o RSA debido a la inestabilidad de la energía, filtra fragmentos de sus propias llaves maestras al entorno del hipervisor.
+
+**3.2. La Posición Arquitectónica del Hiperescalar**  
+El supuesto teórico bajo el cual operan estos vectores de ataque —acceso físico irrestricto, control total del firmware anfitrión y capacidad para manipular los rieles de suministro eléctrico— describe con absoluta precisión la posición arquitectónica diaria de un proveedor de nube (AWS, Azure, GCP). El hiperescalar no necesita intentar "hackear" el algoritmo del cliente; simplemente altera el entorno físico en el que se ejecuta el cálculo. 
+
+Desde la dogmática pericial, esto destruye irrevocablemente la presunción de aislamiento: si el custodio físico de la máquina (el hiperescalar) puede extraer las llaves criptográficas alterando el suministro eléctrico de su propia placa madre en 0.1 voltios, la separación lógica entre proveedor y cliente es una ficción matemática sin sustento físico. Usted no tiene "Cómputo Confidencial"; usted simplemente tiene datos cifrados corriendo en una computadora donde otra entidad corporativa es dueña del enchufe.
+
+> ↩️ *[Volver al Capítulo 4: La ficción del aislamiento y el Cómputo Confidencial](#retorno-anexo3)*
 
 ---
 
