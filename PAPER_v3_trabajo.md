@@ -3413,7 +3413,10 @@ Para comprender la falacia de esta defensa, el abogado corporativo debe entender
 
 En términos procesales, esto equivale a instalar la bóveda acorazada más resistente del mundo (la infraestructura de AWS), pero delegar en un tercero la custodia de las llaves y las autorizaciones (la gestión de identidad IAM). El sistema Nitro garantiza matemáticamente que ningún atacante externo podrá perforar las paredes de la bóveda; sin embargo, si un agente autónomo secuestra las credenciales de un administrador y entra por la puerta principal, el *hardware* de Amazon ejecutará la instrucción destructiva considerándola una orden lícita. Ante un tribunal, invocar la inviolabilidad física de los servidores de AWS frente a un ataque algorítmico es tan inútil como alegar el grosor del acero de una caja fuerte que fue abierta con la clave legítima del gerente: el problema forense nunca fue la resistencia del metal, sino la imposibilidad de auditar y verificar la verdadera voluntad de quien impartió la orden.
 
-Un nodo soberano instrumentado localmente con eBPF en el *kernel* y atestación criptográfica anclada en *hardware* ofrece una cadena de custodia forense que supera probatoriamente —frente a las exigencias procesales de la Ley 21.663— a cualquier macro-infraestructura extranjera de hiperescala que opere bajo un modelo de caja negra. El valor de este anclaje no reside en una supuesta inviolabilidad mística del silicio —los módulos TPM son susceptibles a extracción de claves mediante *sniffing* del bus SPI o inyección de fallos de voltaje (*glitching*)<a href="#fn126" id="fnref126"><sup>126</sup></a>—, sino en el trazado de la frontera de la amenaza (*threat model boundary*). Al requerir atestación de *hardware*, el derecho obliga al adversario a abandonar los vectores remotos, baratos y escalables del *software* (el dominio nativo de la IA) y cruzar el *airgap* hacia la explotación física.
+<a id="retorno-anexo5"></a>
+Un nodo soberano instrumentado localmente con eBPF en el *kernel* y atestación criptográfica anclada en *hardware* ofrece una cadena de custodia forense que supera probatoriamente —frente a las exigencias procesales de la Ley 21.663— a cualquier macro-infraestructura extranjera de hiperescala que opere bajo un modelo de caja negra. El valor de este anclaje no reside en una supuesta inviolabilidad mística del silicio, sino en el trazado de la frontera de la amenaza (*threat model boundary*). Al requerir atestación física de forma obligatoria, el diseño arquitectónico fuerza al adversario a abandonar los vectores remotos del *software* (el dominio de la IA) y cruzar el *airgap* hacia el sabotaje material.
+
+> 🔗 *[Para el escrutinio técnico del ingeniero forense sobre cómo se destruye físicamente un TPM mediante sniffing y glitching, y por qué esta vulnerabilidad material constituye paradójicamente la mayor defensa jurídica del directorio, véase el Anexo 5: Anatomía del Sabotaje Cinético](#anexo-sabotaje-cinetico)*
 
 Un agente autónomo remoto no puede conectar un analizador lógico a un servidor en Santiago. Esa fricción asimétrica es lo que configura la diligencia debida: si la atestación se corrompe, documenta un compromiso físico o de Estado-Nación (eximiendo de responsabilidad al operador frente al regulador); si la caja negra de la nube falla silenciosamente por *software*, documenta negligencia arquitectónica.
 
@@ -5645,6 +5648,25 @@ Un sistema que permite alterar el estado final de una transacción financiera si
 Exigirle a un administrador local (el usuario en el Ring-3) que demuestre un error de *software* desde el exterior, cuando el proveedor domina la base de datos central, controla el código fuente y puede modificar el estado de la memoria sin invalidar ningún *hash* criptográfico, es un fraude epistémico. Arquitectónicamente, el sistema *Horizon* fue diseñado para mentir con total impunidad técnica, forzando a los tribunales británicos a actuar como validadores ciegos de un sistema forense en bancarrota.
 
 > ↩️ *[Volver al Capítulo 4: El colapso de la presunción de fiabilidad computacional](#retorno-anexo4)*
+
+---
+
+<a id="anexo-sabotaje-cinetico"></a>
+### Anexo 5: Anatomía del Sabotaje Cinético (Vulnerabilidades del Silicio y Fricción Forense)
+
+**El mito de la inviolabilidad criptográfica y la utilidad probatoria de su vulnerabilidad física.**
+
+Existe una falacia dogmática entre los teóricos de la ciberseguridad corporativa: creer que la atestación anclada en *hardware* (como los módulos TPM o los enclaves de silicio) es matemáticamente invulnerable. Esta premisa es falsa a nivel eléctrico, pero es precisamente su susceptibilidad a la explotación material lo que le otorga su supremo valor probatorio en tribunales bajo la Ley 21.595.
+
+**1. Explotación a nivel de transistores y buses:**
+Un atacante con acceso físico irrestricto al nodo soberano no necesita descifrar la criptografía con matemáticas; le basta con escuchar las transmisiones eléctricas. Los módulos TPM son susceptibles a extracción de claves mediante ataques directos al bus SPI o inyección de fallos de voltaje (*glitching*) <a href="#fn126" id="fnref126"><sup>126</sup></a>. Al conectar un analizador lógico a las pistas de cobre de la placa base, un atacante presencial puede interceptar el tráfico en texto plano entre el procesador y el módulo criptográfico en el momento exacto en que se intercambian las claves, comprometiendo todo el entorno de ejecución sin tocar una sola línea de código algorítmico.
+
+**2. El valor dogmático de obligar al atacante a destruir el hardware:**
+El ingeniero forense moderno no instala atestación de *hardware* asumiendo que el silicio es indestructible; lo instala porque extraer las claves mediante *sniffing* requiere **proximidad cinemática, herramientas físicas (sondas lógicas, osciloscopios), desensamblaje del chasis y manipulación eléctrica de los circuitos**. 
+
+Desde la perspectiva procesal (*threat model boundary*), obligar al adversario a abandonar los vectores de *software* (remotos, baratos, algorítmicamente invisibles y escalables) y forzarlo a realizar una operación de sabotaje físico en el recinto, altera radicalmente la imputabilidad jurídica del incidente. Si la atestación criptográfica cae bajo estas condiciones de violencia material, el peritaje documenta ante el juez que el sistema fue violentado físicamente (eximente de fuerza mayor). Si la misma vulnerabilidad ocurriera remotamente en un servidor arrendado en la nube delegada, sería negligencia culpable del directorio por no elevar la barrera de fricción del atacante.
+
+> ↩️ *[Volver al Capítulo 4: La fricción asimétrica y la configuración de la diligencia debida](#retorno-anexo5)*
 
 ---
 
