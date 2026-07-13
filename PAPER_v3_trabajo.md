@@ -3360,9 +3360,6 @@ El modelo asume que no se debe confiar en la red interna, pero obliga al respons
 
 Cuando una defensa corporativa invoca el "Cómputo Confidencial" (enclaves cifrados en memoria), le está diciendo al juez: *"Pusimos nuestros datos en una caja fuerte mágica dentro del servidor del hiperescalar, y ni siquiera AWS, Azure o Google tienen la llave"*. Es un argumento comercial brillante, hasta que un perito forense explica cómo funciona la física. El gigante tecnológico (el hiperescalar) no necesita su llave criptográfica porque es el dueño del edificio, del silicio y de la electricidad. Basta con que altere infinitesimalmente el voltaje de la placa madre para que el procesador colapse, se equivoque en un cálculo y escupa la llave maestra en texto plano. Jurídicamente, esto significa que la separación algorítmica entre sus datos y el proveedor es una fantasía procesal: usted le entregó el control absoluto de su secreto comercial a los hiperescalares extranjeros, los únicos que controlan el enchufe de la pared.
 
-<a id="retorno-anexo3"></a>
-> 🔗 *[Para el desglose técnico sobre la subversión de enclaves y la física de ataques de canal lateral, véase el Anexo 3: El Colapso Físico del Cómputo Confidencial](#anexo-computo-confidencial)*
-
 El edificio entero descansa sobre un axioma jamás demostrado: que el entorno que produce la evidencia es honesto.
 
 Y es el derecho comparado —no la especulación— el que sella el desahucio, con jurisprudencia y normativa que el aula chilena aún no incorpora.
@@ -3370,6 +3367,9 @@ Y es el derecho comparado —no la especulación— el que sella el desahucio, c
 - En Estados Unidos: la *Federal Rule of Evidence* 901(b)(9), sistematizada en *Lorraine v. Markel American Insurance Co.* (241 F.R.D. 534, D. Md. 2007), invierte el axioma dominante: es el proponente quien debe demostrar que el sistema "produce un resultado preciso" —un informe SOC 2 no lo hace—<a href="#fn122" id="fnref122"><sup>122</sup></a>; y en *State v. Pickett* (N.J. App. Div., 2021) un tribunal resolvió que treinta estudios de validación *sin acceso al código fuente* no acreditan la fiabilidad de un sistema<a href="#fn123" id="fnref123"><sup>123</sup></a>.
 - En la Unión Europea: *Schrems II* (C-311/18, 2020) declaró que ninguna cláusula contractual tipo se opone a la potestad de vigilancia del Estado de destino, y los reguladores lo respaldaron con multas que ridiculizan cualquier SLA: €1.200 millones a Meta (2023), €290 millones a Uber (2024) y €530 millones a TikTok (2025) por transferencias que sus contratos prometían proteger<a href="#fn63" id="fnref63"><sup>63</sup></a>. Además, la NIS2 (Directiva (UE) 2022/2555) y el AI Act (Reglamento (UE) 2024/1689, arts. 12 y 15) ya exigen trazabilidad robusta *por diseño*, no certificación *ex post*.
 - En la Industria Cloud: *Capital One* aporta el dato más incómodo para el "modelo de responsabilidad compartida": pese a operar sobre infraestructura certificada, se exfiltraron 106 millones de registros, el banco pagó USD 80 millones al regulador y USD 190 millones en compensaciones, y el hiperescalar —que "operó según su diseño"— no respondió por nada.
+
+<a id="retorno-anexo3"></a>
+> 🔗 *[Para el desglose técnico sobre la subversión de enclaves y la física de ataques de canal lateral, véase el Anexo 3: El Colapso Físico del Cómputo Confidencial](#anexo-computo-confidencial)*
 
 ### El colapso de la presunción de fiabilidad computacional (el caso del Reino Unido).
 
