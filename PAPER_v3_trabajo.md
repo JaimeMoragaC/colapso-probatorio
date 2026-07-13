@@ -3469,6 +3469,8 @@ Para que este proceso cognitivo sea posible, la propiedad intelectual debe aband
 
 Surge aquí una subcategoría forense de vulnerabilidad terminal: **el dato agéntico**. El secreto industrial de su empresa ya no es un archivo inerte guardado en un cajón digital; se ha transformado en el flujo de pensamiento matemático de una máquina de terceros que razona en tiempo real sobre los problemas más íntimos de su corporación. 
 
+\newpage
+
 **La coartada inútil: El espejismo de la PQC y el FHE ante un tribunal**
 
 > LA TRAMPA DEL SALVAVIDAS TÉCNICO
