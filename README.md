@@ -1,6 +1,6 @@
-# La Ficción de la Ciberseguridad Corporativa — dictamen y pruebas de verificación
+# La Ficción de la Ciberseguridad Corporativa — análisis doctrinal y pruebas de verificación
 
-Repositorio público del dictamen en derecho **«La Ficción de la Ciberseguridad
+Repositorio público del análisis doctrinal **«La Ficción de la Ciberseguridad
 Corporativa»** (Jaime Marcelo Moraga Carrasco, 2026),
 junto con las pruebas criptográficas que permiten **verificar de forma
 independiente su autoría, su fecha de existencia y su integridad** — los mismos
@@ -10,7 +10,7 @@ mecanismos de atestación que el propio documento defiende.
 
 ## Contenido
 
-- **PAPER_v3_Formato_Institucional.pdf** — el dictamen (documento principal).
+- **PAPER_v3_Formato_Institucional.pdf** — el análisis (documento principal).
 - **PAPER_v3_trabajo.md** — texto fuente.
 - **PAPER_v3_trabajo.md.ots** — prueba OpenTimestamps (anclaje en Bitcoin) del texto.
 - **SELLO_2026-07-02.txt** — manifiesto con los SHA-256 de esta versión.
@@ -50,7 +50,7 @@ referencia ejecutable** que corre contra un TPM 2.0 real:
 ## Cita
 
 Ver [`CITATION.cff`](CITATION.cff). Moraga Carrasco, J. M. (2026). *La Ficción
-de la Ciberseguridad Corporativa*. Dictamen en derecho.
+de la Ciberseguridad Corporativa*. Análisis doctrinal.
 
 ## Licencia
 
