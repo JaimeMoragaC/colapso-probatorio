@@ -14,6 +14,12 @@ $if(title)$
 <p class="author"><strong>Autor:</strong> $author$</p>
 <p class="date"><strong>Versión:</strong> $date$</p>
 
+$for(include-before)$
+<section id="palabras-previas" style="page-break-after: always; text-align: left;">
+$include-before$
+</section>
+$endfor$
+
 <div class="cover-confidential" style="font-size: 0.9em; font-weight: bold; text-align: center; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 15px; margin-top: 40px; margin-bottom: 40px; text-transform: uppercase;">
 ANÁLISIS DOCTRINAL SOBRE SOBERANÍA TECNOLÓGICA, FIABILIDAD DE LA EVIDENCIA DIGITAL Y LOS LÍMITES DE LA POTESTAD SANCIONATORIA
 </div>
@@ -47,12 +53,6 @@ ANÁLISIS DOCTRINAL SOBRE SOBERANÍA TECNOLÓGICA, FIABILIDAD DE LA EVIDENCIA DI
 <p><strong>Keywords:</strong> <em>Prueba Digital, CMF, Ley Fintec, NCG 502, Verificabilidad Independiente, Atestación Remota, Continuidad Soberana, IA Polimórfica Adversarial, Cadena de Custodia, Responsabilidad Proactiva, Ley 21.663, Ley 21.595, ANCI, Mythos.</em></p>
 </header>
 $endif$
-
-$for(include-before)$
-<section id="palabras-previas" style="page-break-after: always;">
-$include-before$
-</section>
-$endfor$
 
 $if(toc)$
 <nav id="TOC" role="doc-toc" style="page-break-after: always; margin-top: -0.5cm;">

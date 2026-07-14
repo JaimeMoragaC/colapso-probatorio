@@ -1,7 +1,7 @@
 ---
-title: "La Ficción de la Ciberseguridad Corporativa: Certificaciones de papel, CISOs silenciados y la indefensión de los Directorios.  El secreto que su Gerencia de Seguridad barre bajo la alfombra."
-author: "Jaime Marcelo Moraga Carrasco. Abogado. Especialista en derecho probatorio y regulación tecnológica. Investigador y desarrollador en arqutiecturas de seguridad descentralizada, sistemas defensivos autónomos e ingeniería de software aplicada a nivel de kernel, inteligencia artificial y redes distribuidas."
-date: "Junio 2026"
+title: "La Ficción de la Ciberseguridad Corporativa: Certificaciones de papel, CISOs silenciados y el abismo del compliance: cuando el humano es solo el eslabón dócil del engaño."
+author: "Jaime Marcelo Moraga Carrasco. Abogado."
+date: "Julio 2026"
 keywords: ["Ciberseguridad", "Derecho Probatorio", "Inteligencia Artificial", "CMF", "Fintech", "Criptomonedas", "Ley 21.663", "Atestación de Hardware"]
 geometry: "letterpaper, margin=1in"
 mainfont: "Garamond"
@@ -885,6 +885,8 @@ A este argumento estructural debe sumarse una corrección forense ineludible res
 Cuando proveedores como CrowdStrike o Mandiant reportan un breakout time de 29 minutos o un 82% de intrusiones malware-free, el observador ingenuo asume que esas métricas describen la totalidad de la amenaza. No es así: esas cifras representan exclusivamente el piso mínimo del problema. Son únicamente los ataques que los sensores comerciales alcanzaron a registrar antes de ser puenteados o lobotomizados. 
 
 La verdadera magnitud de la horda agéntica yace en la masa crítica de actividad subumbral que no figura en ningún reporte, porque los sensores encargados de contabilizarla fueron neutralizados silenciosamente en memoria (vía BYOVD o inyección directa) antes de poder emitir la alerta. Usar la telemetría del EDR para medir la eficacia del EDR frente a un agente polimórfico en Ring-0 es un error epistémico que la alta administración ya no puede permitirse.
+
+Es cierto que los equipos forenses tradicionales aún capturan atacantes rastreando errores en el movimiento lateral o metadatos residuales. Pero este es un caso de manual de **sesgo de supervivencia**. Hoy capturamos a los operadores humanos mediocres que olvidan borrar un *bash_history* o generan anomalías ruidosas. Sin embargo, un estándar jurídico de "debida diligencia" para infraestructuras críticas no puede sostenerse sobre la esperanza táctica de que el atacante sea incompetente. Frente a la inteligencia adversarial, que ejecuta rutinas de evasión a velocidad de silicio y no padece fatiga cognitiva, la probabilidad del "error humano descuidado" desaparece. Construir el cumplimiento normativo asumiendo que el atacante "siempre deja algún rastro" no es una estrategia de seguridad; es, jurídicamente, un suicidio probatorio.
 
 
 ### El Ecosistema Estatal (APT): Origen, Vectores y Armamento IA
@@ -2084,7 +2086,7 @@ El colapso de la independencia: Los magistrados franceses se sintieron amenazado
 
 Fuente Legislativa Oficial: Loi n° 2019-222 du 23 mars 2019, art. 33. Publicada en el Journal Officiel de la République Française (JORF). Accesible públicamente en Légifrance (el portal gubernamental francés del derecho).
 
-Fuente Académica/Jurídica: Artificial Intelligence and the Legal Profession, o artículos de revistas indexadas sobre el fenómeno de la "Justicia Predictiva". En 2019, la prohibición francesa causó un revuelo mundial en la academia legal. Autores y expertos en derecho tecnológico (como la red Artificial Intelligence and Law) criticaron duramente a Francia por intentar "prohibir las matemáticas" para proteger el ego de los juece
+Fuente Académica/Jurídica: Artificial Intelligence and the Legal Profession, o artículos de revistas indexadas sobre el fenómeno de la "Justicia Predictiva". En 2019, la prohibición francesa causó un revuelo mundial en la academia legal. Autores y expertos en derecho tecnológico (como la red Artificial Intelligence and Law) criticaron duramente a Francia por intentar "prohibir las matemáticas" para proteger el ego de los jueces. Sin embargo, a la luz del nuevo paradigma agéntico post-Mythos, **la prohibición francesa fue un berrinche inútil. Francia intentó tapar el sol con un dedo prohibiendo el análisis de datos (manipulación en la capa de aplicación), pero este documento demuestra que el verdadero "exploit" cognitivo ya no es estadístico, es arquitectónico (inyección de pruebas falsas a nivel Ring-0).**
 
  El engaño estratégico autónomo al validador humano: Si el juez asume que un ataque agéntico es una especulación, ignora que la subversión autónoma de la sana crítica humana ya es un vector de ataque documentado. 
 
@@ -4521,17 +4523,33 @@ Lo relevante para esta sección no es repetir esa insuficiencia, sino el dato in
 
  El requisito de plan de continuidad operacional para OIV, en su formulación actual, difícilmente obliga a contemplar la revocación del servicio por una jurisdicción extranjera. Tras el apagón del 12 de junio, ese vacío es evidente para cualquier autoridad sectorial. La propuesta 6.4.3 ofrece el lenguaje para cerrarlo: formaliza una inquietud que la autoridad ya tiene sobre la mesa, no le introduce una preocupación ajena.
 
+### La obsolescencia súbita del estándar y el dolo eventual (Ley 21.595).
+
+Un directorio o gerente general podría argumentar que cumplir con la ISO 27001 los exime de responsabilidad penal bajo la Ley de Delitos Económicos (Ley 21.595), escudándose en que "operan bajo el estándar de la industria". Sin embargo, la irrupción de la inteligencia adversarial post-Mythos vuelve obsoleto este estándar documental de la noche a la mañana. Cuando la vulnerabilidad total de la telemetría en Ring-0 es un hecho empírico, público y demostrable, aferrarse a una certificación de papel a sabiendas de que los registros subyacentes son manipulables deja de ser "debida diligencia" para transmutar en **negligencia consciente**. El estándar de la industria ya no protege penalmente al directorio cuando la industria entera está probadamente ciega.
+
 ### Objeciones legítimas de implementación y escalabilidad.
 
 Dicho esto, el autor reconoce —y comparte— cuatro objeciones de implementación que la autoridad, con razón, plantearía:
 
-- Madurez desigual del universo OIV. No todos los operadores de importancia vital están en condiciones de atestación en *hardware*: junto a bancos y telcos de alta madurez conviven operadores con deuda técnica significativa. Exigir atestación de golpe arriesga crear un nuevo teatro de cumplimiento o asfixiar a los más débiles. La exigencia debe ser escalonada: un piso mínimo común, una ruta diferenciada por madurez, y la atestación plena requerida primero donde el riesgo y la capacidad lo permiten.
+- Madurez desigual del universo OIV. No todos los operadores de importancia vital están en condiciones de atestación en *hardware*: junto a bancos y telcos de alta madurez conviven operadores con deuda técnica significativa. Exigir atestación de golpe arriesga crear un nuevo teatro de cumplimiento o asfixiar a los más débiles. La exigencia debe ser **escalonada y focalizada**: proponer un modelo de transición gradual que exija *hardware attestation* única y exclusivamente para los nodos hiper-críticos o los servidores maestros de telemetría (donde reside la verdad probatoria), permitiendo que el resto de la red corporativa transite a su propio ritmo.
 
 - Riesgo de concentración en pocos proveedores. Si el estándar deviniera, de facto, en el de un único fabricante, se recrearía el problema de concentración que este documento critica. Que el estándar sea abierto, interoperable y verificable (alineado con SCITT/RATS) no puede ser un eslogan: debe ser condición normativa exigible y auditable —precisamente para que ningún actor quede en posición de renta—.
 
 - Límites de competencia. Buena parte de lo propuesto excede el mandato de la ANCI. El reporte atestable y la atestación continua del SGSI son materia de su reglamento e instructivos; pero el puerto seguro probatorio y la prueba penal (21.459) involucran al legislador y al Ministerio Público, y la coordinación del estándar único requiere a la Agencia de Protección de Datos y a la cartera sectorial. El documento distingue lo que la ANCI puede hacer por sí sola de lo que exige articulación interinstitucional.
 
-- Soberanía sin alternativa nacional inmediata. La dimensión de soberanía es real —el propio Estado opera sobre nube extranjera vía ChileCompra, y no existe hoy una alternativa nacional equivalente—. Una propuesta seria no puede exigir una postura que la autoridad no está en condiciones operativas de sostener. De ahí que la soberanía se plantee escalada al riesgo: como resultado exigible solo para el subconjunto más crítico, y como horizonte de política pública —capacidad soberana de continuidad— más que como prohibición inmediata.
+- Soberanía sin alternativa nacional inmediata. La dimensión geopolítica es real: el propio Estado y los OIV operan sobre nube extranjera (AWS, Azure) vía ChileCompra. Una propuesta seria no puede exigir que el país repatríe sus petabytes de datos o abandone la nube pública por servidores *bare-metal* locales, pues es económicamente suicida. La exigencia de este modelo es quirúrgica: **anclar la atestación probatoria en silicio soberano local, no el procesamiento masivo de datos**. La nube extranjera procesa, pero una raíz de confianza en territorio nacional audita y firma inmutablemente el registro. Si la atestación criptográfica falla, la evidencia de la nube se invalida instantáneamente.
+
+### La fricción criptográfica: el hardware no es invulnerable, es asimétrico.
+
+Una crítica técnica ineludible es señalar que los enclaves de hardware (TPM, Intel SGX, AMD SEV) también poseen vulnerabilidades (ataques de canal lateral, *sniffing*, etc.). Este documento no postula que el hardware sea una caja negra mágica o invulnerable. Su valor jurídico no radica en garantizar una seguridad perfecta, sino en su capacidad física para **elevar exponencialmente el costo del ataque (fricción criptográfica)** a niveles que destruyen la asimetría actual. Obligar al adversario a investigar vulnerabilidades de silicio o intervenir físicamente la placa base, en lugar de inyectar un *exploit* remoto a costo marginal cero, altera la ecuación económica del delito. La atestación no detiene a Dios, pero detiene el hackeo escalable.
+
+Para dimensionar la violencia de esta asimetría, es indispensable mapear cómo el fenómeno (el ataque agéntico y la evidencia resultante) es percibido y procesado por los tres actores institucionales clave, dependiendo de si operan bajo el obsoleto estándar de software o bajo atestación física:
+
+| Paradigma Probatorio | Entidad Fiscalizada (Bancos, OIVs, Directorios) | Regulador Administrativo (CMF / ANCI) | Poder Judicial (Tribunales y Fiscalías) |
+| :--- | :--- | :--- | :--- |
+| **Cumplimiento Tradicional (Software / Logs de Nube)** | **Suicidio Probatorio.** Paga millones por licencias inútiles y reporta *logs* manipulados desde el Ring-0. Creyendo actuar con diligencia, autoinculpa a su Directorio. | **Ceguera Institucional.** Recibe reportes y certificaciones (ISO, SOC 2) que evalúan procesos, no integridad. Fiscaliza un espejismo documental sin capacidad técnica de refutarlo. | **El Juez como Periférico Hackeado.** Recibe evidencia criptográficamente perfecta pero semánticamente falsa. Fallar en base a estos peritajes es lavar judicialmente el fraude de la IA. |
+| **Atestación Criptográfica (Raíz en Silicio)** | **Inmunidad Forense.** Al obligar al adversario a realizar un ataque físico contra la placa, la entidad cambia su estatus de "negligente" a "víctima de fuerza mayor". | **Supervisión Matemática.** Audita telemetría anclada en hardware. Sabe matemáticamente si el sistema cayó por desidia corporativa o por una amenaza irresistible de Estado-Nación. | **Certeza Material y Sana Crítica.** Falla sobre una cadena de custodia irrefutable. Si el chip está intacto, el registro es verdad; si está roto, hay evidencia material del asedio. |
+
 
 ### Soberanía de hardware y arquitecturas abiertas (RISC-V).
 
@@ -6313,7 +6331,8 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 <strong>Versión:</strong> Junio 2026.</p>
 
 <p><strong>Cómo citar:</strong> Moraga Carrasco, J. M. (2026). <em>La Ficción de la Ciberseguridad Corporativa</em>. Análisis doctrinal, versión junio 2026.<br>
-<strong>Licencia:</strong> Creative Commons Atribución-NoComercial 4.0 Internacional (<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es">CC BY-NC 4.0</a>).</p>
+**ISBN:** [Pendiente de asignación / Inserte código aquí]  
+**Licencia y Propiedad Intelectual:** © 2026 Jaime Marcelo Moraga Carrasco. Todos los derechos reservados. Queda estrictamente prohibida la reproducción, distribución, transformación o explotación comercial total o parcial de esta obra sin la autorización expresa y por escrito del titular de los derechos patrimoniales.</p>
 
 
 </div>
