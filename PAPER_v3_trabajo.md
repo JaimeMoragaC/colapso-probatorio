@@ -575,6 +575,8 @@ La salida a esta crisis probatoria no requiere inventar nuevas leyes, sino actua
 El deber de cumplimiento ya no se satisface mostrando un certificado en un marco; se cumple probando matemáticamente el *origen* inmaculado de la evidencia.
 
 
+<div style="page-break-before: always;"></div>
+
 <a id="sec1"></a>
 
 ## 1. Introducción
