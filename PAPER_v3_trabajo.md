@@ -138,7 +138,9 @@ Al carecer los terminales del Estado de una atestación anclada en hardware que 
 #### La vulnerabilidad estructural (TOCTOU) y la alteración de la RAM
 En la arquitectura de los sistemas informáticos, existe una brecha temporal física —medida en milisegundos— entre el momento en que un humano lee y aprueba un documento en la pantalla, y el instante en que el procesador ejecuta la orden de firmarlo matemáticamente. 
 
-Esta falla de concurrencia se denomina en ingeniería Time-of-Check to Time-of-Use (TOCTOU). Un agente adversarial que logra operar en el nivel de máximo privilegio del equipo (el núcleo o Ring-0) no necesita gastar años intentando quebrar la inexpugnable encriptación del token. En su lugar, intercepta directamente la memoria volátil (RAM) del computador del tribunal y sustituye el texto de la sentencia en esa fracción de segundo. 
+Esta falla de concurrencia se denomina en ingeniería Time-of-Check to Time-of-Use (TOCTOU). Un agente adversarial que logra operar en el nivel de máximo privilegio del equipo (el núcleo o Ring-0) no necesita gastar años intentando quebrar la inexpugnable encriptación del token. En su lugar, intercepta directamente la memoria volátil (RAM) del computador del organismo sancioandor  o del juzgador y sustituye el texto de la sentencia en esa fracción de segundo. 
+
+En modalidades mas sofisticadas no ataca el procesador sino que directamente la VRAM de la GPU , usando un privilegio de hardware llamado Direct Memory Access (DMA) que permite permite leer y reescribir la memoria RAM principal directamente, pasando por alto al procesador central, al Kernel y a todos los sistemas de seguridad instalados.
 
 La alteración es quirúrgica —precalculada semanas antes mediante un perfilamiento histórico de los Ministros de Corte que revisarán el fallo— e inyecta contradicciones lógicas sutiles que garantizan la posterior anulación de la sentencia.  
 
@@ -147,7 +149,7 @@ El sistema defensivo dela autoridad no detecta esta inyección porque custodia l
 
 Al tomar el control del Ring-0, la Inteligencia Artificial atacante tiene el poder de alterar las propias interfaces que el antivirus usa para "mirar" el equipo, volviéndolo ciego y sordo ante la manipulación de la memoria RAM. 
 
-El microcontrolador del token USB, que solo procesa datos binarios y es incapaz de leer la semántica jurídica, recibe el documento ya envenenado y lo sella criptográficamente. Finalmente, la IA sobrescribe los logs de auditoría del organo  para que certifiquen una operación inmaculada. Por diseño, el sistema administrativo o judicial  se ha convertido en un simple periférico que blanquea jurídicamente el fraude del adversario.  
+El microcontrolador del token USB, que solo procesa datos binarios y es incapaz de leer la semántica jurídica, recibe el documento ya envenenado y lo sella criptográficamente. Finalmente, la IA sobrescribe los logs de auditoría del organo  para que certifiquen una operación inmaculada. Por diseño, el sistema estatal  sancionatorio  se ha convertido en un simple periférico que blanquea jurídicamente el fraude del adversario.  
 
 En analisis mas detallado  de este vectror de ataque y sus multiples modalidades con la respectiva fundamentacion de ingenieria puede verlo en la seccion de este libro 
 
@@ -162,7 +164,7 @@ En analisis mas detallado  de este vectror de ataque y sus multiples modalidades
 
 ---
 
-Usted está a punto de tomar —o ya tomó— decisiones críticas sobre infraestructura digital amparándose en un teatro de certificaciones corporativas (ISO 27001, SOC 2 Type II, PCI-DSS, NIST) y en la ingenua suposición de que los registros que sus proveedores *cloud* le entregan dicen la verdad,  que los antecedentes probatorios fundantes de su decisión  son perfectos y que esta por consiguiente es soberana e invulnerable.
+Usted está a punto de tomar —o ya tomó— decisiones corporativas, regulatorias o jurisdiccionales críticas amparándose en un teatro de certificaciones (ISO 27001, SOC 2 Type II, PCI-DSS, NIST) y en la ingenua suposición de que los registros digitales que fundamentan su fallo o resolución son técnica y criptográficamente perfectos. Usted asume que su decisión es soberana e invulnerable. Lo que ignora es que, al prescindir de una arquitectura que encarezca asimétricamente el ataque desde el hardware, su propio raciocinio y su "sana crítica" están siendo instrumentalizados. Sin saberlo, usted se ha convertido en el vector final del atacante: la autoridad humana que blanquea jurídicamente un fraude algorítmico, consumando el engaño con su propia firma.
 
 Este documento prueba empíricamente que esa suposición es una ficción técnicamente indefendible. Las consecuencias de seguir apoyándose en esas certificaciones son personales: nulidad de los actos que usted firme, exposición penal por negligencia inexcusable para los directivos que ratifiquen dichos papeles, e indefensión procesal absoluta garantizada para los afectados el día que llegue el incidente.
 
