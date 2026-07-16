@@ -343,7 +343,11 @@ El documento es largo porque el problema es transversal, pero su columna vertebr
 
 > §1.3.1 *(los dos hechos de 2026: el adversario agéntico y el apagón jurisdiccional)* ⇒ §2 *(modelo de amenaza: por qué el registro no atestado no prueba lo que dice)* ⇒ §3.6 *(quién soporta la carga de acreditar la fiabilidad de la máquina)* ⇒ §5.3 *(la indefensión probatoria bidireccional: ni la víctima acusa ni el imputado se exonera)* ⇒ §5–§6 y Anexo B *(el estándar de evidencia atestable que cierra la cadena)*.*
 
-Una asimetría fundamental recorre todo este trabajo y conviene fijarla desde aquí, pues reaparece en cada sección como su estribillo ineludible: *el choque frontal entre el tiempo de la máquina y el tiempo humano*. Por un lado, el tiempo humano de respuesta al incidente, donde el plazo legal para reaccionar y reportar se mide en letárgicas horas (dos bajo la normativa de la CMF, tres ante la ANCI). Por el otro, el tiempo de la máquina subvertido por la Inteligencia Artificial agéntica, donde la interceptación y manipulación de la evidencia (ataques TOCTOU) ocurre en fracciones de milisegundo dentro de la memoria volátil, consumando el fraude antes de que el humano siquiera aparte la vista de la pantalla. Todo lo demás en este documento es la disección de ese abismo cronológico, y de cómo el andamiaje probatorio del Estado colapsa al intentar gobernar la velocidad del silicio con la lentitud del papel.
+Una asimetría fundamental recorre todo este trabajo y conviene fijarla desde aquí, pues reaparece en cada sección como su estribillo ineludible: *el choque frontal entre el tiempo de la máquina y el tiempo humano*. 
+
+Por un lado, el tiempo humano de respuesta al incidente, donde el plazo legal para reaccionar y reportar se mide en letárgicas horas (dos bajo la normativa de la CMF, tres ante la ANCI). Por el otro, el tiempo de la máquina subvertido por la Inteligencia Artificial agéntica, donde la interceptación y manipulación de la evidencia (ataques TOCTOU) ocurre en fracciones de milisegundo dentro de la memoria volátil, consumando el fraude antes de que el humano siquiera aparte la vista de la pantalla. 
+
+Todo lo demás en este documento es la disección de ese abismo cronológico, y de cómo el andamiaje probatorio del Estado colapsa al intentar gobernar la velocidad del silicio con la lentitud del papel.
 
 De esa cadena se destilan siete invariantes —proposiciones que el documento prueba y que el lector puede llevarse como herramienta de trabajo—. Aparecen recuadradas, numeradas, en el punto exacto donde se demuestran:
 
@@ -401,15 +405,15 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 
 ## Abstract
 
-Durante dos décadas, el cumplimiento en ciberseguridad operó primordialmente como *escudo de responsabilidad*: certificaciones, cifrado y contratos que blindan al obligado frente al regulador, pero no como mecanismo para probar qué ocurrió. 
+Durante dos décadas, el cumplimiento en ciberseguridad operó primordialmente como *escudo de responsabilidad*: certificaciones, cifrado y contratos que blindan al obligado frente al regulador o sancionador , pero no como mecanismo para probar qué ocurrió. 
 
-La industria sufre hoy los efectos de la Ley de Goodhart a escala sistémica: cuando la certificación de papel (SOC 2, ISO y el resto del catálogo documental) se convirtió en el objetivo regulatorio, dejó de ser una medida válida de seguridad operativa; se transformó en un teatro estático, inútil frente a un ataque dinámico en Ring-0. 
+El sistema  sufre hoy los efectos de la Ley de Goodhart a escala sistémica: cuando la certificación de papel (SOC 2, ISO y el resto del catálogo documental) se convirtió en el objetivo regulatorio, dejó de ser una medida válida de seguridad operativa; se transformó en un teatro estático, inútil frente a un ataque dinámico en Ring-0. 
 
 La advertencia se proyecta hacia adelante: si la respuesta regulatoria convierte la atestación de *hardware* en un nuevo casillero que marcar —un enclave comercial (Intel SGX/TDX, AMD SEV-SNP), un TPM con arranque medido, un certificado de raíz de confianza del fabricante—, caerá en el mismo vicio de Goodhart, porque esas capas atestan el *arranque* o el *producto* bajo silicio extranjero, no la instrucción viva. Lo único que resiste la conversión del indicador en objetivo es atestar el estado y la instrucción *en ejecución* bajo raíz de confianza soberana: mide el hecho, no su representación documental, y por eso no puede gamearse.
 
 ### La muerte del estándar documental: Dos eventos de extinción
 
-Este estándar obsoleto descansaba sobre un supuesto tácito —que la evidencia producida por un entorno *cloud* no atestado refleja el hecho real— cuya vigencia ha sido aniquilada por la convergencia de dos eventos tectónicos en 2026:
+Este estándar obsoleto descansaba sobre un supuesto tácito —que toda evidencia producida por un entorno *cloud* no atestado refleja el hecho real— cuya vigencia ha sido aniquilada por la convergencia de dos eventos tectónicos en 2026:
 
 - Primero, la irrupción pública de Mythos de Anthropic como corolario de una ola de adversarios que ya operan con modelos de lenguaje de código abierto sin restricciones éticas: APT28/PROMPTSTEAL ejecutó operaciones *live* en Ucrania usando LLMs de código abierto vía Hugging Face (GTIG, jun-2025)<a href="#fn1" id="fnref1"><sup>1</sup></a>; PROMPTFLUX desplegó motores de mutación *just-in-time* (GTIG, nov-2025)<a href="#fn1" id="fnref1"><sup>1</sup></a>; en mayo de 2026 el mismo cuerpo documentó con "alta confianza" el primer *zero-day* asistido por IA —un *bypass* de 2FA interceptado antes de su explotación masiva—<a href="#fn1" id="fnref1"><sup>1</sup></a>; y Mandiant M-Trends 2026 registra que el tiempo de entrega del adversario colapsó de horas a fracciones de minuto<a href="#fn2" id="fnref2"><sup>2</sup></a>, sobre quinientas mil horas de investigaciones de campo. 
 
@@ -454,7 +458,7 @@ La misma deficiencia probatoria —un entorno de ejecución inacreditable— col
 
 Como documenta la «Visión de Riesgo» del diagnóstico nacional de inteligencia de amenazas, la expansión de la superficie de ataque —impulsada por infraestructuras descentralizadas en la nube (IaaS, PaaS, SaaS), microservicios, APIs expuestas y modelos de IA embebidos en procesos críticos— genera una complejidad sistémica donde el "principal problema es la falta de visibilidad integral sobre los activos"236. 
 
-Sin embargo, en este ecosistema opaco, el peligro definitivo no es que una mala configuración cloud facilite la intrusión inicial, sino que esta extrema abstracción técnica destruye la cadena de custodia. Al delegar el cómputo en capas hiper-fragmentadas de software sin anclaje en hardware, el operador no solo pierde el control del perímetro; pierde estructuralmente la capacidad de reconstruir y probar la verdad forense de lo que ocurrió dentro de sus propios activos.
+Sin embargo, en este ecosistema opaco, el peligro definitivo no es que una mala configuración cloud facilite la intrusión inicial, sino que esta extrema abstracción técnica destruye la cadena de custodia. Al delegar el cómputo en capas hiper-fragmentadas de software sin anclaje en hardware con control soberano , el operador no solo pierde el control del perímetro; pierde estructuralmente la capacidad de reconstruir y probar la verdad forense de lo que ocurrió dentro de sus propios activos.
 
 ### La asimetría letal: Plazos de tres horas contra ataques de 27 segundos
 
@@ -462,7 +466,7 @@ La conexión entre estas premisas técnicas y el colapso jurídico de la Ley 21.
 
 Si una organización padece de una ceguera forense estructural —no por negligencia en su higiene de TI, sino por la propia arquitectura de las soluciones cloud sin atestación de hardware—, exigirle a su Oficial de Cumplimiento o a su CISO que reporte la magnitud real de un incidente en 180 minutos es someterlo a un mandato legal de imposible cumplimiento.
 
-La normativa de la ANCI y la CMF obliga a reportar basándose en una telemetría que, ante un atacante con control de kernel, ha sido diseñada para mentir. En este escenario, el Estado no está empujando al regulado a cometer la infracción de "entrega de información falsa"; peor aún, lo está obligando a estampar su firma en un reporte que certifica la coartada construida por el adversario. El principio de imposibilidad jurídica es claro: el derecho regulatorio no puede exigir certezas fácticas cuando el estándar de la industria solo provee ficciones criptográficamente firmadas.
+La normativa de la ANCI y la CMF obliga a reportar basándose en una telemetría que, ante un atacante con control de kernel, ha sido diseñada para mentir. En este escenario, el Estado no está empujando al regulado a cometer la infracción de "entrega de información falsa"; peor aún, lo está obligando a estampar su firma en un reporte que certifica la coartada construida por el adversario.
 
 Frente a este déficit, el regulador suele escudarse en una falsa premisa epistemológica: argumentar que el plazo de 2 o 3 horas exigido por la normativa (como la RAN 20-10 de la CMF) busca obtener únicamente un "reporte preliminar" o de triage, posponiendo la certeza pericial para el informe final.
 
@@ -475,15 +479,22 @@ Peor aún, la indulgencia del "plazo preliminar" es un espejismo jurídico. El E
 
 La ANCI y la CMF, que deben recibir y verificar esos reportes, operan asumiendo que los *logs* que reciben son verdaderos. La ANCI opera con un presupuesto de $3.847M CLP<a href="#fn6" id="fnref6"><sup>6</sup></a> para 915 OIVs<a href="#fn7" id="fnref7"><sup>7</sup></a> —equivalente al costo de cumplimiento de una sola institución—, y la CMF fiscaliza ecosistemas de criptoactivos asumiendo que los Análisis de Impacto (BIA/RIA) previenen manipulaciones en el *runtime*. La asimetría temporal completa el diagnóstico: los plazos legales de reporte son de dos a tres horas; el tiempo de entrega documentado del adversario, segundos o escasos minutos<a href="#fn2" id="fnref2c"><sup>2</sup></a>.
 
-La razón de ingeniería detrás de esta asimetría de tres órdenes de magnitud es la automatización total de la cadena de intrusión. El tiempo de entrega (handoff) mide el intervalo entre el acceso inicial y el traspaso de ese control hacia el movimiento lateral. Antes, esta fase exigía a un operador humano reconocer la red, elegir el exploit, escalar privilegios y decidir el siguiente salto —un ciclo OODA (observar–orientar–decidir–actuar) que consumía horas—. Hoy, ese ciclo lo ejecuta un agente autónomo en bucle cerrado, a velocidad de máquina y sin la latencia del juicio humano. El traspaso del control dejó de ser una operación táctica entre personas; se redujo a una simple llamada de función.
+La razón de ingeniería detrás de esta asimetría de tres órdenes de magnitud es la automatización total de la cadena de intrusión. El tiempo de entrega (handoff) mide el intervalo entre el acceso inicial y el traspaso de ese control hacia el movimiento lateral. 
+
+Antes, esta fase exigía a un operador humano reconocer la red, elegir el exploit, escalar privilegios y decidir el siguiente salto —un ciclo OODA (observar–orientar–decidir–actuar) que consumía horas—. Hoy, ese ciclo lo ejecuta un agente autónomo (IA) en bucle cerrado, a velocidad de máquina y sin la latencia del juicio humano. El traspaso del control dejó de ser una operación táctica entre personas; se redujo a una simple llamada de función.
 
 Frente a un adversario que consolida su dominio a nivel de procesador en milisegundos, el plazo regulatorio de tres horas para emitir un reporte no es una ventana de respuesta: es una autopsia diferida.
 
-Frente a un adversario que consolida su dominio a nivel de procesador en milisegundos, el plazo regulatorio de tres horas para emitir un reporte no es una ventana de respuesta: es una autopsia diferida.
+F
+El argumento no depende de la cifra más dramática ni de un sólo año: la serie de *breakout time* medido por la telemetría de la industria desciende de forma sostenida —98 minutos en 2021, 84 en 2022, 62 en 2023, 48 en 2024 y 29 en 2025 (una reducción cercana al 70% en cuatro años)—, de modo que incluso adoptando la estimación más conservadora de ese rango, la fase automatizada de propagación lateral se completa muy dentro del plazo legal de tres horas<a href="#fn247" id="fnref247c"><sup>247</sup></a>. 
 
-El argumento no depende de la cifra más dramática ni de un sólo año: la serie de *breakout time* medido por la telemetría de la industria desciende de forma sostenida —98 minutos en 2021, 84 en 2022, 62 en 2023, 48 en 2024 y 29 en 2025 (una reducción cercana al 70% en cuatro años)—, de modo que incluso adoptando la estimación más conservadora de ese rango, la fase automatizada de propagación lateral se completa muy dentro del plazo legal de tres horas<a href="#fn247" id="fnref247c"><sup>247</sup></a>. Cuando apenas nace el deber de reportar, la evidencia del estado del sistema ya pudo ser corrompida o sobrescrita en su origen —y la brecha se ensancha cada año, mientras el plazo legal permanece fijo. Esta tensión entre el deber de reportar y la imposibilidad de reconstruir el incidente no es una singularidad chilena: la regla federal estadounidense CIRCIA, finalizada en 2026, impone a más de 300.000 operadores de infraestructura crítica reportar un incidente significativo en 72 horas y todo pago de rescate en 24; y una línea jurisprudencial en ascenso —la *negligent incident response*— erige el retardo mismo de la notificación en fuente autónoma de responsabilidad, desplazando la pregunta de «¿por qué dejó que ocurriera?» a «¿por qué tardó tanto en avisar?»<a href="#fn270" id="fnref270"><sup>270</sup></a>. El régimen chileno no es, pues, un rigor aislado, sino la versión local de una ola regulatoria global —y hereda, agravado por sus plazos más breves, el mismo vicio estructural: exige veracidad y prontitud sobre un registro que el adversario pudo reescribir antes de que el reloj empezara a correr.
+Cuando apenas nace el deber de reportar, la evidencia del estado del sistema ya pudo ser corrompida o sobrescrita en su origen —y la brecha se ensancha cada año, mientras el plazo legal permanece fijo. 
 
-AA esta asimetría temporal se suma un déficit de imputación que la doctrina tradicional ha diagnosticado de forma incompleta. Cuando el compromiso es ejecutado a velocidad de máquina por un agente autónomo, sin instrucción humana directa en tiempo real, el sistema de persecución choca contra un vacío probatorio que ni la Ley de Delitos Informáticos (21.459) ni la normativa de la CMF logran sortear.
+Esta tensión entre el deber de reportar y la imposibilidad de reconstruir el incidente no es una singularidad chilena: la regla federal estadounidense CIRCIA, finalizada en 2026, impone a más de 300.000 operadores de infraestructura crítica reportar un incidente significativo en 72 horas y todo pago de rescate en 24; y una línea jurisprudencial en ascenso —la *negligent incident response*— erige el retardo mismo de la notificación en fuente autónoma de responsabilidad, desplazando la pregunta de «¿por qué dejó que ocurriera?» a «¿por qué tardó tanto en avisar?»<a href="#fn270" id="fnref270"><sup>270</sup></a>.
+
+El régimen chileno no es, pues, un rigor aislado, sino la versión local de una ola regulatoria global —y hereda, agravado por sus plazos más breves, el mismo vicio estructural: exige veracidad y prontitud sobre un registro que el adversario pudo reescribir antes de que el reloj empezara a correr.
+
+A esta asimetría temporal se suma un déficit de imputación que la doctrina tradicional ha diagnosticado de forma incompleta. Cuando el compromiso es ejecutado a velocidad de máquina por un agente autónomo, sin instrucción humana directa en tiempo real, el sistema de persecución choca contra un vacío probatorio que ni la Ley de Delitos Informáticos (21.459) ni la normativa de la CMF logran sortear.
 
 La academia suele leer este fenómeno desde la trinchera de la acusación penal: constata la imposibilidad material de identificar al sujeto activo y propone, como cura teórica, redefinir el tipo penal para capturar al desplegador del software como autor mediato.
 
@@ -493,7 +504,9 @@ Pero esa lectura es ingenua porque permanece en la mitad del problema. Lo que no
 
 Si se atribuye responsabilidad (penal por negligencia bajo la Ley 21.595, o administrativa bajo la CMF/ANCI) al Directorio o al Oficial de Cumplimiento por las acciones destructivas de un sistema comprometido, el imputado necesita demostrar que el agente actuó fuera del alcance de sus políticas, que la cadena de delegación se ramificó de forma anómala, o que un tercero alteró el entorno de ejecución del *cloud* eludiendo los controles de seguridad documentados.
 
-Pero esa prueba —la traza de decisión del agente, el registro inalterado de memoria, el historial de modificaciones del hipervisor— reside íntegramente en la infraestructura del proveedor de nube, a la que el sujeto obligado no tiene acceso independiente. Esa evidencia puede haber sido purgada por el adversario en *Ring-0* o, más grave aún, simplemente no existir porque la infraestructura no fue diseñada para atestarla criptográficamente. El Director o el Oficial de Cumplimiento no puede exigirle al proveedor *cloud* ni a un tribunal que le exhiba lo que la arquitectura jamás atestó.
+Pero esa prueba —la traza de decisión del agente, el registro inalterado de memoria, el historial de modificaciones del hipervisor— reside íntegramente en la infraestructura del proveedor de nube, a la que el sujeto obligado no tiene acceso independiente. 
+
+Esa evidencia puede haber sido purgada por el adversario en *Ring-0* o, más grave aún, simplemente no existir porque la infraestructura no fue diseñada para atestarla criptográficamente. El Director o el Oficial de Cumplimiento no puede exigirle al proveedor *cloud* ni a un tribunal que le exhiba lo que la arquitectura jamás atestó.
 
 El resultado no es sólo un vacío de sujeto activo: es una *indefensión estructural bidireccional y multisectorial* —reguladores sin evidencia técnica para acusar, directivos y oficiales de cumplimiento sin evidencia para defenderse— que vulnera el núcleo del Art. 19 N°3 de la Constitución.
 
@@ -503,7 +516,9 @@ Aquí reside el punto que la discusión en curso no ha enunciado con suficiente 
 
 Definir al desplegador como autor mediato es una solución de derecho sustantivo que sólo opera si la cadena de delegación —qué instruyó el humano, qué interpretó el agente, qué ejecutó, en qué momento y bajo qué condiciones— puede ser reconstruida con evidencia verificable e independiente.
 
-En la arquitectura de nube actual, esa cadena probatoria nace rota. Lo que se registra vive dentro del mismo dominio de confianza que controla el proveedor (o el adversario con privilegios de kernel). Los estratos que decidirían la atribución penal o administrativa —como el estado del kernel en runtime, la telemetría del hipervisor o la traza de razonamiento de un modelo autónomo— quedan excluidos de la atestación criptográfica basada en hardware. El imputado (y el regulador) se enfrenta a una caja negra donde la única evidencia disponible es la que el propio entorno comprometido decide exhibir.
+En la arquitectura de nube actual, esa cadena probatoria nace rota. Lo que se registra vive dentro del mismo dominio de confianza que controla el proveedor (o el adversario con privilegios de kernel). 
+
+Los estratos que decidirían la atribución penal o administrativa —como el estado del kernel en runtime, la telemetría del hipervisor o la traza de razonamiento de un modelo autónomo— quedan excluidos de la atestación criptográfica basada en hardware. El imputado (y el regulador) se enfrenta a una caja negra donde la única evidencia disponible es la que el propio entorno comprometido decide exhibir.
 
 Ampliar el ámbito de la imputación sin resolver primero el estándar de la evidencia es legislar sobre el vacío: se define quién responde sin dotar de capacidad para probar o refutar qué hizo. Acumular logs en un entorno ciego no soluciona esta crisis; como se demuestra en §4.4, preservar archivos no es probar su integridad forense.
 
@@ -511,46 +526,53 @@ La laguna, en definitiva, no es legislativa en su origen —es arquitectónica�
 
 ### La epistemología de la evidencia digital: Las Invariantes Post-Mythos
 
-Este documento cruza planos que la do ctrina jurídica chilena no ha transitado juntos: el jurídico-probatorio, el de la ingeniería de sistemas y el del diseño regulatorio (este último, desarrollado en la Sección 6 y el Anexo B).
-En el plano jurídico, demuestra —con derecho comparado de tres ordenamientos jurídicos (*Bates v Post Office*, UK, 2019<a href="#fn9" id="fnref9"><sup>9</sup></a>; FRE 901(b)(9) y *State v. Pickett*, EE.UU., 2021<a href="#fn10" id="fnref10"><sup>10</sup></a>; NIS2/AI Act, UE, 2024<a href="#fn11" id="fnref11"><sup>11</sup></a>)— que la integridad de un sistema complejo no se presume sino que la acredita quien presenta el registro, de modo que la insuficiencia de la evidencia *cloud* puede sostenerse sin necesidad de probar una alteración específica.
+Para comprender la magnitud de la crisis actual, debemos cruzar una frontera que tradicionalmente separa a dos mundos: el **derecho probatorio** y la **ingeniería de sistemas**. El diseño regulatorio que propone este documento (desarrollado en la Sección 6 y el Anexo B) nace precisamente en ese cruce.
 
-En el plano de la ingeniería de sistemas, identifica la *brecha metodológica* de fondo entre el razonamiento jurídico y el computacional que explica por qué la doctrina comparada de 2025-2026 —Lillo (Academia Judicial, abr-2026), Perdiguero Borrell (ene-2025), los criterios de nuestra judicatura de EE.UU. (oct-2025) — alcanzó contribuciones sólidas dentro del perímetro de su metodología y no más lejos.
+Desde el **plano jurídico**, la jurisprudencia comparada reciente (*Bates v Post Office*, UK, 2019<a href="#fn9" id="fnref9"><sup>9</sup></a>; FRE 901(b)(9) y *State v. Pickett*, EE.UU., 2021<a href="#fn10" id="fnref10"><sup>10</sup></a>; NIS2/AI Act, UE, 2024<a href="#fn11" id="fnref11"><sup>11</sup></a>) ha llegado a una conclusión demoledora: *la integridad de un sistema informático complejo ya no se presume*. Quien presenta un registro digital como prueba, tiene la carga de acreditar que el sistema que lo produjo era fiable. Esto significa que la evidencia alojada en la nube (*cloud*) puede ser rechazada por su sola opacidad estructural, sin que la contraparte deba probar que fue hackeada.
 
-Esos textos comparten un error de enfoque crítico: analizan las propiedades formales del output (el registro ya fabricado y firmado) ignorando la opacidad y manipulación del proceso generativo que lo produjo. Esta ceguera estructural se resume en las dos primeras tesis (Invariantes) que rigen la epistemología de la evidencia digital en entornos carentes de atestación física:
+Desde el **plano de la ingeniería**, la doctrina jurídica y técnica de los últimos años —como los manuales de la Academia Judicial (2026) o los criterios de nuestra judicatura— llegó hasta donde su metodología lo permitía. Sin embargo, ambas disciplinas comparten un "punto ciego" crítico: **analizan el resultado final (el log o archivo generado) ignorando si la máquina estaba comprometida mientras lo fabricaba**.
 
-INVARIANTE 01 · La coherencia interna de la evidencia no es prueba de su veracidad.
-Un auditor que evalúa la autenticidad basándose exclusivamente en el output opera sobre la misma superficie que el atacante ya controló y optimizó.
+Esta ceguera compartida se desmitifica a través de dos reglas absolutas (Invariantes) que rigen la evidencia digital de hoy:
 
-Demostración Técnica: La fluidez, el formato perfecto y la consistencia criptográfica de un log (o un reporte forense de un SIEM) no son señales de que el evento haya ocurrido tal como se describe. En una arquitectura donde el atacante ha comprometido el kernel (Ring-0) o el hipervisor, el sistema no está "ocultando" un rastro torpe; está siendo instrumentalizado para generar una falsificación sintácticamente perfecta desde su origen. Cualquier filtro de auditoría que evalúe el producto final sin verificar la indemnidad del proceso de generación será engañado por diseño. Si el adversario controla la memoria viva, la mentira queda registrada con la misma fidelidad criptográfica que la verdad. Toda auditoría basada en el output asume una frontera de confianza que ya no existe.
+---
 
-INVARIANTE 02 · La autenticidad no es una propiedad del artefacto, sino inescindible de su procedencia (origen).
-Validar la estructura criptográfica del relato no es autenticar el estado físico del sistema en el instante en que ocurrió el hecho.
+> **INVARIANTE 01 · La coherencia interna de la evidencia no prueba su veracidad.**
+> *Auditar el resultado final es jugar en la cancha que el atacante ya dominó.*
 
-Demostración Legal y Arquitectónica: Dar por auténtica una prueba digital basándose en la coherencia de su formato, sus firmas superficiales o su verosimilitud interna, equivale a tener por verídico un testimonio exclusivamente porque la narración suena convincente: un buen perjuro —o un adversario agéntico en Ring-0— también produce historias perfectas. Dado que las propiedades del *documento* están bajo el control absoluto de quien lo presenta (o del *malware* que lo fabrica), la convicción judicial o administrativa no puede descansar en el *artefacto*. La autenticidad debe anclarse en la procedencia verificable: la atestación física del entorno de captura en el momento exacto del incidente ($T_0$). El objeto de la prueba se desplaza del «qué dice el registro» al «bajo qué integridad de silicio fue capturado».
+**El engaño por diseño:** Para un ingeniero o un auditor, un archivo de *log* (registro) impecable, con formato perfecto y firmas criptográficas consistentes, suele ser sinónimo de seguridad. Pero si un adversario tomó el control profundo del sistema (Ring-0) de donde salió ese log, la máquina no está ocultando un rastro de forma torpe; está fabricando una falsificación perfecta desde la raíz. 
 
-A ello se suma el vector inverso: el adversario puede generar evidencia sintética —logs fabricados, trazas de red reconstituidas, reportes forenses aparentemente coherentes— que supera cualquier verificación estática, en un escenario donde los propios órganos administrativos (ANCI, CMF) y la judicatura carecen de protocolos para distinguirla (Lillo, 2026). El único criterio que escapa a esta trampa es el control del hardware de captura mediante una raíz de confianza independiente, anclada antes del momento de generación de la evidencia.
+En términos jurídicos, creerle a un documento solo porque "luce bien" y está firmado, equivale a creerle a un testigo exclusivamente porque su relato suena fluido. Un buen perjuro —o un malware avanzado en el núcleo de la máquina— también produce historias sin contradicciones. Si el atacante controla la memoria RAM de la computadora, la mentira quedará registrada matemáticamente con la misma fidelidad que la verdad.
 
-De esta doble perspectiva emerge el propósito central de este documento. La arquitectura de cumplimiento y ciberseguridad actual opera bajo un paradigma "pre-Mythos": asume que la infraestructura delegada operará siempre en condiciones de normalidad jurisdiccional y frente a adversarios limitados por latencia humana. Este documento demuestra por qué dicho paradigma ha colapsado fáctica y procesalmente.
+---
 
-Hoy, no solo las certificaciones documentales (ISO 27001, SOC 2) son inútiles; la propia atestación de hardware que ofrecen los hiperescalares resulta insuficiente. Tecnologías como el arranque medido, los enclaves de cómputo confidencial (Intel SGX/TDX, AMD SEV-SNP) y la atestación RATS nacen con un doble defecto estructural: primero, anclan su Verificador (Verifier) en jurisdicciones extranjeras, vulnerables a un apagón extraterritorial; y segundo, son ciegas a la inteligencia adversarial autónoma, que subvierte el estado de ejecución (runtime) sin alterar la medición de arranque.
+> **INVARIANTE 02 · La autenticidad no vive en el documento, sino en su origen.**
+> *Validar la firma criptográfica del archivo no valida el estado físico de la máquina que lo creó.*
 
-Solo existe una vía de escape a esta doble insuficiencia: la atestación de la instrucción y del estado vivos bajo una raíz de confianza soberana (§6.8.1). Una arquitectura que, por diseño comercial, ningún proveedor cloud convencional despliega por defecto.
+**La trampa del artefacto:** Dado que el atacante o el propio investigado controlan las propiedades del archivo que entregan, un juez o un regulador no puede basar su convicción en el documento mismo. La pregunta ya no es «*¿qué dice este registro?*», sino «*¿cuál era el estado de salud del procesador en el milisegundo exacto en que lo capturó?*».
 
-En consecuencia, preservar el actual esquema de confianza ciega no solo somete a la infraestructura crítica a una fragilidad operativa, sino que produce un vacío probatorio insalvable que neutraliza el diseño de responsabilidad proactiva contenido en las Leyes 21.663, 21.719, 21.459 y en la Ley Fintec (21.521) junto con la NCG 502 de la CMF. Resolver esta crisis no demanda necesariamente de nuevas leyes sustantivas, sino de una actualización urgente en los criterios administrativos y forenses con los que el Estado evalúa qué constituye evidencia digital materialmente válida.
+La única forma de evitar la falsificación es anclando la confianza en un hardware externo e inalterable, que verifique el estado del equipo en el instante mismo del evento ($T_0$).
 
-Toda la pila de confianza en la nube actual falla porque audita el instante irrelevante. La certificación documental, como enseña la peor tradición del compliance, se limita a atestar un procedimiento escrito. El arranque medido (measured boot) solo garantiza la pureza del sistema en el segundo exacto de su encendido; mientras que los enclaves comerciales (como Intel SGX/TDX o AMD SEV-SNP) encapsulan esa medición inicial obligando al cliente a confiar en el Verifier del propio fabricante. Estándares como RATS o SLSA, por su parte, certifican la arquitectura y el empaquetado del código.
+---
 
-Pero ninguna de estas capas vigila la instrucción viva en runtime. Y es precisamente ahí, en la ejecución continua, donde el adversario polimórfico manipula la memoria. A esta ceguera técnica se suma un riesgo geopolítico ineludible: toda esta infraestructura probatoria depende de validaciones ancladas en jurisdicción extranjera, vulnerables a cualquier acto administrativo externo que decida cortar el plano de control.
+**El fracaso de la ciberseguridad corporativa moderna**
 
-Lo que el sistema jurídico exige —la reconstrucción inalterable del estado del sistema durante el incidente, verificable sin depender del sistema operativo que acaba de ser subvertido— no se satisface midiendo únicamente el instante de encendido. 
+Todo el modelo actual de cumplimiento opera bajo una fantasía "pre-Mythos": asume que los sistemas funcionarán normalmente y que los hackers actúan a velocidad humana. Hoy, este modelo ha colapsado.
 
-Esta exigencia probatoria requiere arquitecturas de Atestación Dinámica (DRTM) ancladas en hardware soberano, capaces de re-medir y validar los entornos de ejecución crítica durante su ciclo de vida, sin delegar el control final del Verifier a jurisdicciones extranjeras. Todo lo demás es telemetría autodeclarada con mejor marketing.
+Las certificaciones de papel (como ISO 27001 o SOC 2) no sirven en un tribunal porque solo prueban que la empresa tenía un manual escrito, no qué ocurrió en la memoria del servidor. Peor aún, las protecciones de *hardware* que venden los gigantes tecnológicos (AWS, Google, Microsoft) sufren de dos fallas estructurales letales:
+1. **Auditan el instante equivocado:** Tecnologías como el *Secure Boot* (arranque seguro) solo revisan que el sistema esté limpio al momento de encenderlo. Es el equivalente a revisar al guardia de seguridad cuando llega a su turno en la mañana, pero no supervisarlo durante la noche, que es exactamente cuando ocurre el robo en la memoria viva (*runtime*).
+2. **Dependen del extranjero:** Estas herramientas envían su validación (el *Verifier*) a servidores en Estados Unidos. Ante un bloqueo geopolítico o un apagón jurisdiccional, toda esa cadena de confianza se apaga, dejando a la infraestructura crítica nacional ciega.
 
-El vacío no es de normas, es de estándar probatorio. Las Leyes 21.663, 21.719, 21.459 y 21.521, con la NCG 502, ya reparten responsabilidad proactiva y exigen *poder demostrar*; el problema es que el Estado sigue aceptando como «evidencia digital válida» registros que, por el diseño de la arquitectura que los produce, no admiten verificación independiente de su integridad. 
+**El vacío no es de leyes, es de estándar probatorio**
 
-Sancionar o absolver sobre esa base es fundar la convicción en un testigo que declara sobre su propia conducta sin control externo. 
+Leyes chilenas recientes como la Ley Marco de Ciberseguridad (21.663), la Ley de Delitos Económicos (21.595) o la Ley Fintec (21.521) son modernas y ya exigen que las empresas sean proactivas y *demuestren* su diligencia. 
 
-La salida no exige nuevas leyes sustantivas, sino elevar de una vez por todas el criterio de admisibilidad administrativo y forense: que solo cuente como prueba material aquella cuya procedencia esté atestada por una raíz de confianza que ni el obligado ni el adversario controlen. El deber deja de cumplirse exhibiendo un certificado y pasa a cumplirse acreditando el *origen*.
+El problema es que el Estado chileno sigue aceptando como "prueba válida" registros técnicos que son humanamente imposibles de verificar de forma independiente. Sancionar a un banco o absolver a un directivo basándose en los *logs* que su propia máquina infectada generó, es fundar una sentencia en un testigo que declara sobre sí mismo, sin supervisión de nadie más.
+
+**La solución: Confianza Soberana**
+
+La salida a esta crisis probatoria no requiere inventar nuevas leyes, sino actualizar nuestro estándar de evidencia administrativa y judicial. Solo debe considerarse como prueba materialmente válida aquella que esté certificada por una "raíz de confianza" (hardware) que ni la empresa investigada ni el hacker puedan manipular, y que opere bajo jurisdicción nacional (Atestación Dinámica Soberana). 
+
+El deber de cumplimiento ya no se satisface mostrando un certificado en un marco; se cumple probando matemáticamente el *origen* inmaculado de la evidencia.
 
 
 <a id="sec1"></a>
@@ -561,7 +583,7 @@ Este documento formaliza el diagnóstico expuesto en el sumario ejecutivo. Para 
 
 Esta introducción avanza en dos movimientos. El primero rastrea la genealogía empírica de la Inteligencia Artificial ofensiva, demostrando que la exfiltración agéntica no fue una anomalía imprevista, sino el punto de fuga inevitable de una vulnerabilidad sistémica gestada durante cinco años. El segundo (§1.1 y §1.2) enuncia el problema de investigación y la estructura de las contribuciones, para culminar (§1.3) con la crítica ingenieril directa al modelo regulatorio chileno.
 
-LA GENEALOGÍA DEL VECTOR: HACIA EL FIN DEL PARADIGMA PRE-MYTHOS
+### LA GENEALOGÍA DEL VECTOR: HACIA EL FIN DEL PARADIGMA PRE-MYTHOS
 
 Es necesario establecer una precisión histórica y técnica, sustentada en datos empíricos: Claude Mythos no inauguró la era de la exfiltración de datos mediante inteligencia artificial. La infraestructura tecnológica global ya padecía exfiltraciones sistémicas y *zero-click* (sin interacción del usuario) mucho antes de 2026, facilitadas por la integración ingenua de LLMs al ecosistema de producción:
 
