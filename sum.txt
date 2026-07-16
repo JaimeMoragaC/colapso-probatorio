@@ -1,0 +1,1607 @@
+2026 Data Breach
+Investigations Report
+Executive Summary
+
+61% System Intrusion
+17% Social Engineering
+
+2026
+
+10% Basic Web
+Application Attacks
+8% Miscellaneous Errors
+3% Privilege Misuse
+
+53% System Intrusion
+
+2025
+
+18% Basic Web
+Application Attacks
+17% Social Engineering
+12% Miscellaneous Errors
+7% Privilege Misuse
+
+36% System Intrusion
+25% Miscellaneous Errors
+
+2024
+
+22% Social Engineering
+9% Basic Web
+Application Attacks
+8% Privilege Misuse
+
+About the cover
+“The only constant is change” is
+an aphorism commonly ascribed
+to Greek philosopher Heraclitus.
+There has been no historical
+evidence uncovered that he had
+any hands-on experience with
+cybersecurity, but he would be
+right at home in our field with
+this mentality. But even as the
+threat landscape constantly
+evolves and changes, the 2026
+edition of the Data Breach
+Investigations Report (DBIR)
+invites you to consider the
+importance of the fundamentals
+of cybersecurity as the best way
+to brave all of this change. A
+little cyber-stoicism, if you will.
+On our cover, you can see
+concentric rings, each one
+representing a year of our
+data, floating down and settling
+onto the foundation of our
+cybersecurity knowledge.
+They add to our understanding
+and complement our defensive
+strategies and are segmented
+by the incident patterns from
+the past four years.
+
+Our own 2026 report is the
+topmost ring, followed by
+2025, 2024 and 2023, the
+last one already settled
+into the foundation.
+There are more zero days and
+critical vulnerabilities year over
+year (YoY), generative artificial
+intelligence (GenAI) augmented
+malware is now a common
+occurrence, and complex
+forms of social engineering are
+becoming more successful as the
+prelude to a breach. Their speed
+may be increasing, their scale
+might be a concern, but those
+are all challenges defenders have
+been facing for a long time. This
+new world should require more
+focus, more agility, but does
+not necessitate an upheaval.
+Refinement, not revolution. We
+will be ready for the future if we
+continue to collaborate and work
+together for the greater good.
+Also, yes, those are technically
+donut charts. Sorry, not sorry.
+
+Table of
+contents
+Welcome5
+
+Quick-fire industry facts
+
+17
+
+How to use this report
+
+6
+
+Regional findings
+
+19
+
+Key topics and findings
+
+9
+
+Stay informed 
+and threat ready.
+
+21
+
+Industry highlights
+
+13
+
+Educational Services
+
+13
+
+Financial and Insurance
+
+14
+
+Healthcare14
+Manufacturing15
+Public Administration
+
+15
+
+Retail 
+
+16
+
+Small- and mediumsized businesses
+
+16
+
+2026 DBIR Executive Summary
+
+4
+
+Welcome
+Welcome to Verizon’s 2026 Data Breach Investigations
+Report! Hello again to those who’ve been with us over
+the years—and to those joining the DBIR community
+for the first time, it’s great to have you. As always,
+we’re glad you’re here.
+In this 19th edition of the Verizon DBIR,
+we dig into more than 31,000 actual
+real-world security incidents, of which
+more than 22,000 were confirmed
+data breaches involving organizations
+in 145 countries. This represents the
+largest number of breaches we have
+ever examined in a single report! Yes, we
+realize that we have said that before, but
+what can we say? It’s still true because
+the number of cases we examine
+continues to increase YoY. We leave it
+up to you to determine if that is a good
+thing or a not so good thing. For the
+victim organizations, it is undoubtedly the
+latter, but for our purposes of illuminating
+threats to your business, it is firmly in the
+former camp.
+If we were to give this report an
+overarching theme, it would be “keeping a
+strong foundation in the face of change.”
+Few people would argue that change, in
+every aspect of modern life, confronts us
+at an ever-increasing pace these days.
+The insights we try to provide in this
+report attempt to equip enterprises to
+meet cybersecurity changes in the most
+effective manner possible. And even
+though this report’s dataset covers Oct
+2024 through Nov 2025, both the DBIR
+team and Verizon are keenly aware of
+the growing impact and capabilities of
+AI-augmented vulnerability research and
+weaponization so far in 2026 based on
+early indicators and trends observed at
+the time of publication, and will provide
+some forward-looking commentary in
+regards to that where applicable.
+
+1.
+1.
+2.
+
+We have observed that, in some areas,
+cybercrime has shifted in meaningful
+ways since the publication of the 2025
+report. In others, it is less a matter of
+change and more a matter of speed
+and scale. Exploitation of vulnerabilities,
+discussed in several sections of the
+report, has now emerged as the most
+common way attackers gain initial access
+into an organization’s environment, which
+underlines the ongoing importance of
+getting the basics right. Additionally, as
+the ancient prophecies1 foretold, threat
+actors are increasingly relying on GenAI
+to assist them with various stages of
+their attacks, such as choosing targets,
+gaining a foothold within those targets,
+conducting vulnerability research, and
+developing malware and other tools to
+make their efforts more effective and
+efficient. Meanwhile, Social Engineering,
+a longtime fan favorite, is evolving,
+as well, with attackers increasingly
+using voice and other mobile-centric
+techniques to catch people off guard in
+the middle of the workday.
+Please continue reading for report
+highlights, including the latest breach
+findings for industries and regions. And
+please feel free to pass this summary
+to colleagues, and download the
+full report for a more in-depth view
+of the threats you might face today.
+
+Or a fantastic thing! Ok, we’re data breach geeks.
+And
+the
+past
+reports and mentioned a couple paragraphs ago.
+And by
+by ancient,
+ancient, we
+we mean
+mean predicted
+predictedin
+for
+the
+lasttwo
+twoDBIR
+years.
+
+2026 DBIR Executive Summary
+
+5
+
+How to use this report
+First-time readers:
+Before you get started on the 2026 DBIR, it might be a good
+idea to take a look at this section first. We have been doing this
+report for quite a while now, and we appreciate that the verbiage
+we use can be a bit obtuse at times. We use very deliberate
+naming conventions, terms and definitions and spend a lot of
+time making sure we are consistent throughout the report.
+Hopefully this section will help make all of those more familiar.
+If you are a longtime reader (thank you!) and are already familiar
+with how to use the DBIR, you are welcome to skip to the
+next section.
+
+What you will find here
+The Data Breach Investigations Report
+(DBIR) focuses on the analysis of
+anonymized cybersecurity incident data
+that Verizon collects every year from
+almost a hundred data contributors.
+Those data points are normalized using
+the Vocabulary for Event Recording and
+Incident Sharing (VERIS) framework
+(more about it on the next page),
+which provides us a great foundation
+for statistical analysis of this type of
+data. Given the culture of secrecy (and
+just how difficult incident response is
+sometimes) that still permeates these
+cases, we often don’t have all the very
+specific details of any given incident.
+
+2026 DBIR Executive Summary
+
+The breadth of data collection is
+what sets this report apart. Vendorspecific reports are able to talk very
+authoritatively and in great detail about
+the cases they investigated themselves,
+but here we are seeking to bridge
+different perspectives and contributor
+types—large incident response
+outfits, boutique forensics firms, law
+enforcement from local to country level,
+cyber insurance brokers and reinsurers—
+with the hope that it will get us closer to
+the capital T “Truth” of what is going on
+in the threat landscape.
+
+6
+
+VERIS framework
+resources
+The terms “threat actions,” “threat
+actors” and “varieties” will be referenced
+often. These are part of the VERIS, a
+framework designed to allow for the
+consistent, unequivocal collection of
+security incident details. Here is how
+they should be interpreted:
+Threat actor: Who is behind the event?
+This could be the external “bad guy”
+who launches a phishing campaign
+or an employee who leaves sensitive
+documents in their seat back pocket.
+Threat action: What tactics (actions)
+were used to affect an asset? VERIS
+uses seven primary categories of
+threat actions: Malware, Hacking,
+Social, Misuse, Physical, Error and
+Environmental. Examples at a high level
+are hacking a server, installing malware
+or influencing human behavior through a
+social attack.
+Variety: More specific enumerations of
+higher-level categories—e.g., classifying
+the external “bad guy” as an organized
+criminal group or recording a hacking
+action as SQL injection or brute force.
+There are also “vectors” and “motives”
+and “categories,” but we do our best
+in each section to ease folks into the
+nomenclature and try to make it clear
+how to interpret those terms. Also, any
+weird capitalization issues you may find
+throughout the report are referring to
+VERIS “Proper Nouns” and have specific
+meaning tied to them in the framework.
+As much as in the Fae world, true names
+have power here.
+
+Learn more here:
+• github.com/vz-risk/veris—features the
+framework’s JavaScript Object Notation
+(JSON) schema with some usage, utility
+scripts, enumeration listings, mappings
+to Center for Internet Security (CIS)
+Critical Security Controls, MITRE
+ATT&CK and a VERIS Style Guide
+• verisframework.org—a slightly more
+user-friendly website providing
+information on the framework with
+examples and enumeration listings
+
+Incident vs. breach
+We talk a lot about incidents
+and breaches and we use the
+following definitions:
+Incident: A security event that
+compromises the integrity, confidentiality
+or availability of an information asset.
+Breach: An incident that results in the
+confirmed disclosure—not just potential
+exposure—of data to an unauthorized
+party. A distributed DoS (DDoS) attack,
+for instance, is most often an incident
+rather than a breach since data is rarely
+exfiltrated. However, we realize that
+doesn’t make it any less serious.
+
+Figure 2. Example slanted bar chart
+(n=230)
+
+Industry labels
+We align with the North American
+Industry Classification System (NAICS)
+standard to categorize the victim
+organizations in our corpus. The
+standard uses two- to six-digit codes to
+classify businesses and organizations.
+Our analysis is typically done at the
+two-digit level, and we will specify NAICS
+codes along with an industry label. For
+example, a chart with a label of Financial
+(52) is not indicative of 52 as a value.
+“52” is the NAICS code for the Financial
+and Insurance sector. The overall label
+of “Financial” is used for brevity within
+the figures. Detailed information on the
+codes and the classification system are
+available here: census.gov/naics.
+
+Figure 1. Example spaghetti chart
+
+2026 DBIR Executive Summary
+
+7
+
+Being confident in our data
+Starting in 2019 with slanted bar charts,
+the DBIR has tried to make the point that
+the only certain thing about information
+security is that nothing is certain. Even
+with all the data we have, we’ll never
+know anything with absolute certainty.
+However, instead of throwing our hands
+up and complaining that it is impossible
+to measure anything in a data-poor
+environment or, worse yet, just plain
+making stuff up, we get to work. This
+year, you’ll continue to see the team
+representing uncertainty throughout the
+report figures.
+The examples shown in Figures 1, 2
+and 3 all convey a range of realities
+that could credibly be true. Whether it
+be the slant of the bar chart, the threads
+of the spaghetti chart, the dots of the
+dot plot or the colors of the pictogram
+plot, all convey the uncertainty of the
+cybersecurity industry in their own
+special way.
+The slanted bar chart will be familiar
+to returning readers. The slant on the
+bar chart represents the uncertainty
+of that data point to a 95% confidence
+level (which is a common standard for
+statistical testing). In layman’s terms, if
+the slanted areas of two (or more) bars
+overlap, you can’t really say one is bigger
+than the other without angering the
+math gods.
+Much like the slanted bar chart, the
+spaghetti chart represents the same
+concept: the possible values that
+exist within the confidence interval.
+However, it’s slightly more involved
+because we have the added element of
+time. The individual threads represent
+a sample of all possible connections
+between the points that exist within
+each observation’s confidence interval.
+
+2026 DBIR Executive Summary
+
+Figure 3. Example dot plot (n=10,000—each dot is one event)
+Orange: lower half of 80%; Yellow: upper half of 80%; Green: 80%–95%; Blue:
+Outliers, 95% of events: 402–597 80% of events: 435–565, Median: 500
+As you can see, some of the threads
+are looser than others, indicating a
+wider confidence interval and a smaller
+sample size.
+The dot plot is another returning
+champion, and the trick to understanding
+this chart is to remember that the dots
+represent a specific number of events,
+described in the figure caption. This is
+a much better way of understanding
+how something is distributed among
+organizations and provides considerably
+more information than an average or
+a median. We added more colors and
+callouts to those in an attempt to make
+them even more informative. In statistical
+terms, it’s just a quantized density chart.
+In non-statistical terms, who doesn’t love
+colored little dots?
+
+8
+
+Key topics
+and findings
+Rise of
+vulnerability
+exploitation
+Exploitation of vulnerabilities is now
+the most common initial access vector
+for breaches. It has risen to 31% in this
+year’s reporting dataset, while credential
+abuse—the previous leader—is down
+to 13%.
+Only 26% of critical vulnerabilities—
+defined as being in the Cybersecurity
+Infrastructure and Security Agency
+Known Exploited Vulnerabilities (CISA
+KEV) catalog—were fully remediated by
+organizations in 2025, a drop from the
+previous year’s 38%.
+
+Figure 4. Known initial access vectors in non-Error, non-Misuse breaches over time
+(n for 2026 dataset=19,905)
+
+2026 DBIR Executive Summary
+
+The median time for full resolution went
+up to 43 days, almost two weeks more
+than the previous year’s 32 days. In the
+median case, organizations had 50%
+more critical vulnerabilities to patch in
+this year’s reporting dataset compared
+to the previous year.
+
+9
+
+Growth in
+ransomware
+and thirdparty breaches
+continues.
+Ransomware grew again to 48%
+of all breaches, up from 44% from
+the previous year. However, ransom
+payments have continued to decline
+among our dataset, as 69% of
+ransomware victims didn’t pay. The
+median amount of ransom paid also
+continues a downward trend: $139,875
+in this year’s reporting dataset from
+$150,000 in the previous year.
+As organizations increase their
+reliance on third parties for services
+and software, their exposure increases,
+as well, and breaches with third-party
+involvement have increased by 60% from
+last year’s dataset, reaching 48% of
+total breaches.
+Figure 5. Survival analysis of third-party, cloud-based MFA exposures (n=7,513)
+
+Looking at remediation over time in
+third-party cloud exposure, only 23% of
+third-party organizations fully remediated
+missing or improperly secured
+multifactor authentication (MFA) on their
+cloud accounts, with 50% of all findings
+being resolved within a month.
+For weak passwords and permission
+misconfigurations, the time to resolve
+50% of all findings was much worse,
+reaching almost eight months.
+
+2026 DBIR Executive Summary
+
+10
+
+Generative AI
+impacting the
+threat landscape
+Threat actors are demonstrably using
+GenAI to help at different stages of
+attack, including targeting, initial access,
+and development of malware and
+other tools. The median threat actor
+researched or used AI assistance in 15
+different documented techniques, with
+some Actors leveraging as many as 40
+or 50.
+Most AI-assisted development of
+malware and tooling was associated
+with well-known and defined attack
+techniques, with a median of 55 existing
+known malware examples performing the
+same functions.
+
+Figure 6. Distribution of known existing malware examples per ATT&CK technique
+observed (n=9,897—each dot is 247.43 observations)
+
+Less than 2.5% of the AI-assisted
+malware observations involved lesscommon techniques with one or fewer
+known malware examples.
+
+Mobile-centric
+Social Engineering
+Human element was present in 62%
+of breaches, a slight increase from the
+previous year’s 60%. Social Engineering
+was our third most common breach
+pattern, representing 16% of all breaches.
+In phishing simulations, the median rate
+of successful “click” rates in mobilecentric vectors (such as voice and text
+messaging) is 40% higher than via email.
+
+Figure 7. Distribution of success rate of non-Email vector-simulated social attack
+campaigns (n=35—each dot is 0.88 campaigns)
+2026 DBIR Executive Summary
+
+Pretexting has become a more common
+initial access vector to ransomware
+and extortion attacks. In all breaches, it
+reached 6%, while Phishing remained
+at 16% like the previous year. Pretexting
+is an attacker tactic in which a trusted
+relationship is built through concocted
+scenarios to trick the user into taking an
+action that unknowingly compromises
+the organization, frequently by voice
+communications but also seen via email
+or text messaging.
+
+11
+
+Shadow AI policy
+violations and
+malicious insiders
+Regarding usage of unauthorized GenAI
+services (“Shadow AI”), 67% percent of
+users are using non-corporate accounts
+on their corporate devices to access
+AI services, a slight decrease from
+the previous year. However, 45% of
+employees are now considered regular
+users of AI (authorized or not) on their
+corporate devices, up from 15% in the
+previous year.
+
+Figure 8. Select data types in untrusted DLP events targeting generative AI tools
+(n=858,440)
+
+2026 DBIR Executive Summary
+
+Shadow AI is now the third most
+common non-malicious insider action
+detected in our data loss prevention
+(DLP) dataset in 2025, a fourfold
+increase in percentage from the
+previous year.
+The most common type submitted to
+external GenAI models was source code,
+followed by images and other types of
+structured data. In 3.2% of DLP policy
+violations, we even found research and
+technical documentation being uploaded
+to those unauthorized AI systems,
+which presents a risk of intellectual
+property exposure.
+
+12
+
+Industry highlights
+As mentioned in the introduction, we analyzed more than 22,000 confirmed
+data breaches this year—by far the largest number we have ever examined in a
+single report. In this section, we break those breaches down by industry. Different
+industries face different threats, largely because their attack surfaces are not
+created equal.
+When reading this section, it’s important to be aware of a few caveats. Industry-level
+differences can be influenced by factors such as varying regulatory and reporting
+requirements and the resulting differences in the level of external scrutiny they receive,
+along with the size of the data sample we have for any given industry. These and other
+factors can affect how a vertical appears in the report, so please keep that in mind
+when comparing one industry to another.
+Many of our readers refer to this section to find “bespoke post” results for their own
+industries. When doing so, make sure to note the top patterns for your sector. And
+for a more comprehensive view of any given industry or pattern, please refer to the
+respective sections of the full report. This should give you a deeper understanding of
+the attacks you will likely need to defend against.
+
+Educational Services
+
+Frequency
+
+1,302 incidents, 1,252 with confirmed data disclosure
+
+(NAICS 61)
+
+Top patterns
+
+System Intrusion, Social Engineering and Miscellaneous
+Errors represent 83% of breaches
+
+Threat actors
+
+External (78%), Internal (22%) (breaches)
+
+Actor motives
+
+Financial (78%), Espionage (21%) Ideology (2%) (breaches)
+
+Data
+compromised
+
+Internal (64%), Personal (41%), Other (26%), Secrets (19%) (breaches)
+
+Initial access
+vector breakdown
+
+Exploitation of vulnerabilities (34%), Phishing (22%), Credential abuse
+(8%) (breaches)
+
+Other metrics
+
+Human element (68%), Third-party (40%)
+
+What is the same?
+
+The System Intrusion, Social Engineering and Miscellaneous Errors
+patterns are still the top three patterns, as they were last year and the
+year before.
+
+The Education vertical is troubled
+primarily by external, financially
+motivated actors who utilize
+Ransomware, Exploit vulnerabilities
+and rely greatly on the Use of
+stolen credentials.
+
+2026 DBIR Executive Summary
+
+13
+
+Financial
+and Insurance
+
+Frequency
+
+3,809 incidents, 1,300 with confirmed data disclosure
+
+Top patterns
+
+System Intrusion, Social Engineering and Everything Else represent
+81% of breaches
+
+Threat actors
+
+External (88%), Internal (12%) (breaches)
+
+Actor motives
+
+Financial (98%), Espionage (3%) (breaches)
+
+Data
+compromised
+
+Internal (53%), Personal (43%), Other (28%), Credentials (26%)
+(breaches)
+
+Initial access
+vector breakdown
+
+Exploitation of vulnerabilities (22%), Phishing (20%), Credential abuse
+(15%) (breaches)
+
+Other metrics
+
+Human element (65%), Third-party (34%)
+
+What is the same?
+
+System Intrusion remains the top pattern since 2022. Attackers
+remain primarily financially motivated.
+
+Healthcare
+
+Frequency
+
+1,492 incidents, 1,438 with confirmed data disclosure
+
+(NAICS 62)
+
+Top patterns
+
+System Intrusion, Miscellaneous Errors and Social Engineering
+represent 81% of breaches
+
+Threat actors
+
+External (81%), Internal (19%) (breaches)
+
+Actor motives
+
+Financial (99%), Espionage (2%) (breaches)
+
+Data
+compromised
+
+Internal (65%), Personal (37%), Credentials (25%), Other (19%)
+(breaches)
+
+Initial access
+vector breakdown
+
+Exploitation of vulnerabilities (20%), Phishing (14%), Credential abuse
+(11%) (breaches)
+
+Other metrics
+
+Human element (54%), Third-party (32%) (breaches)
+
+What is the same?
+
+Miscellaneous Errors has been in the top patterns for this industry
+since we started keeping track. System Intrusion is, once again, in the
+number one spot for the second year in a row.
+
+(NAICS 52)
+This sector continues to be heavily
+targeted by financially motivated
+external attackers, with Ransomwaredriven System Intrusions, Phishing,
+Exploit vulnerability and Use of stolen
+credentials being the primary threats.
+Human error and third-party exposure
+remain significant contributing factors.
+
+Healthcare organizations face a mix of
+Ransomware-driven System Intrusions
+and persistent human errors, with
+financially motivated external attackers
+exploiting vulnerabilities, Phishing, and
+using stolen credentials. Staff mistakes
+and Misconfigurations remain a chronic
+source of breaches.
+
+2026 DBIR Executive Summary
+
+14
+
+Manufacturing
+
+Frequency
+
+3,627 incidents, 2,713 with confirmed data disclosure
+
+(NAICS 31—33)
+
+Top patterns
+
+System Intrusion, Social Engineering and Basic Web Application
+Attacks represent 91% of breaches
+
+Threat actors
+
+External (95%), Internal (5%) (breaches)
+
+Actor motives
+
+Financial (87%), Espionage (15%) (breaches)
+
+Data
+compromised
+
+Internal (81%), Credentials (26%), Other (22%), Personal (17%)
+(breaches)
+
+Initial access
+vector breakdown
+
+Exploitation of vulnerabilities (38%), Phishing (13%), Credential abuse
+(11%) (breaches)
+
+Other metrics
+
+Third-party (61%), Human element (56%) (breaches)
+
+What is the same?
+
+The top patterns for Manufacturing are the same as last year, with the
+vast majority of actors being financially motivated.
+
+Frequency
+
+3,634 incidents, 2,410 with confirmed data disclosure
+
+Top patterns
+
+System Intrusion, Miscellaneous Errors and Privilege Misuse represent
+80% of breaches
+
+Threat actors
+
+External (56%), Internal (44%) (breaches)
+
+Actor motives
+
+Financial (69%), Espionage (33%), Ideology (2%) (breaches)
+
+Data
+compromised
+
+Personal (50%), Internal (39%), Other (37%), Secrets (30%)
+(breaches)
+
+Initial access
+vector breakdown
+
+Exploitation of vulnerabilities (40%), Phishing (20%), Credential abuse
+(8%) (breaches)
+
+Other metrics
+
+Human element (69%), Third-party (36%)
+
+What is the same?
+
+The first two attack patterns in this sector remain the same as last
+year, although Basic Web Application Attacks gave way to Privilege
+Misuse this year. The prevalence of External actors targeting this
+industry remains consistent YoY.
+
+The number of breaches in this
+industry continues to grow, with the
+uptick in numbers largely due to
+Ransomware attacks.
+
+Public
+Administration
+(NAICS 92)
+Public Administration is primarily
+targeted by a combination of financially
+motivated criminals and State-affiliated
+actors, leading to a high frequency
+of System Intrusion via vulnerability
+exploitation and Ransomware.
+Additionally, the sector faces an
+unusually high rate of internal incidents
+driven by Miscellaneous Errors—
+specifically Misdelivery due to the sheer
+volume of correspondence—as well as
+intentional data mishandling.
+
+2026 DBIR Executive Summary
+
+15
+
+Retail
+
+Frequency
+
+997 incidents, 806 with confirmed data disclosure
+
+(NAICS 44—45)
+
+Top patterns
+
+System Intrusion, Basic Web Application Attacks and Social
+Engineering represent 95% of breaches
+
+Threat actors
+
+External (99%), Internal (1%) (breaches)
+
+Actor motives
+
+Financial (85%), Espionage (19%) (breaches)
+
+Data
+compromised
+
+Internal (84%), Credentials (26%), Secrets (20%), Other (14%)
+(breaches)
+
+Initial access
+vector breakdown
+
+Exploitation of vulnerabilities (42%), Credential abuse (14%), Phishing
+(9%) (breaches)
+
+Other metrics
+
+Third-party (68%), Human element (58%) (breaches)
+
+What is the same?
+
+The top three patterns remained the same, but their order of supremacy
+shifted a bit. The patterns have been the same consistently for many
+years now, but which is more prevalent in a given year changes.
+
+Frequency
+
+7,256 incidents, 7,152 with confirmed data disclosure
+
+Top patterns
+
+System Intrusion, Basic Web Application Attacks and Social
+Engineering represent 100% of breaches
+
+Threat actors
+
+External (100%) (breaches)
+
+Actor motives
+
+Financial (100%) (breaches)
+
+Data
+compromised
+
+Internal (97%), Credentials (31%), System (1%), Other (1%) (breaches)
+
+Initial access
+vector breakdown
+
+Exploitation of vulnerabilities (26%), Credential abuse (13%), Phishing
+(9%) (breaches)
+
+Other metrics
+
+Third-party (55%), Human element (45%) (breaches)
+
+What is the same?
+
+System Intrusion, Basic Web Application Attacks and Social
+Engineering continue to be the main drivers of breaches
+in small- and medium-sized businesses.
+
+Retail organizations face persistent
+threats from external attackers exploiting
+vulnerabilities, stealing credentials and
+Phishing. These activities often lead
+to ransomware attacks and data theft,
+with third-party systems and internal
+corporate data becoming increasingly
+valuable targets.
+
+Small- and mediumsized businesses
+Small organizations are disproportionally
+impacted by Ransomware and face
+many of the same threats as other
+industries and organizations but often
+with less resources available.
+
+2026 DBIR Executive Summary
+
+16
+
+Quick-fire
+industry facts
+While we do not have sufficient space, time or, in some cases, data to examine all
+industry verticals in depth, we have provided the following table, which illustrates
+high-level information on the industries that we do not touch upon in greater detail.
+
+Industry
+(NAICS)
+
+Frequency
+
+Top patterns
+
+Threat actors
+
+Actor motives
+
+Data
+compromised
+
+Agriculture (11)
+
+223 incidents, 219
+with confirmed data
+disclosure
+
+System Intrusion,
+Basic Web
+Application
+Attacks and Social
+Engineering
+represent 91% of
+breaches
+
+External (100%)
+(breaches)
+
+Financial (71%),
+Espionage (29%),
+Ideology (1%)
+(breaches)
+
+Internal (70%),
+Other (43%),
+Secrets (36%)
+(breaches)
+
+Administrative (56)
+
+422 incidents, 419
+with confirmed data
+disclosure
+
+System Intrusion,
+Social Engineering
+and Basic Web
+Application Attacks
+represent 98% of
+breaches
+
+External (99%),
+Internal (1%)
+(breaches)
+
+Financial (100%)
+(breaches)
+
+Internal (96%),
+Credentials (28%),
+Other (2%),
+System (2%)
+(breaches)
+
+Construction (23)
+
+843 incidents, 828
+with confirmed data
+disclosure
+
+System Intrusion,
+Social Engineering
+and Basic Web
+Application Attacks
+represent 95% of
+breaches
+
+External (99%),
+Internal (1%)
+(breaches)
+
+Financial (97%),
+Espionage (5%)
+(breaches)
+
+Internal (86%),
+Credentials (34%),
+Other (13%),
+Secrets (6%)
+(breaches)
+
+Entertainment (71)
+
+587 incidents, 483
+with confirmed data
+disclosure
+
+System Intrusion,
+Social Engineering
+and Everything Else
+represent 82% of
+breaches
+
+External (86%),
+Internal (14%)
+(breaches)
+
+Financial (89%),
+Espionage (20%),
+Ideology (1%)
+(breaches)
+
+Internal (54%),
+Personal (45%),
+Other (31%),
+Secrets (20%)
+(breaches)
+
+Information (51)
+
+1,703 incidents,
+1,099 with confirmed
+data disclosure
+
+System Intrusion,
+Basic Web
+Application Attacks
+and Everything Else
+represent 79% of
+breaches
+
+External (89%),
+Internal (11%),
+Multiple (1%)
+(breaches)
+
+Financial (84%),
+Espionage (16%),
+Ideology (2%)
+(breaches)
+
+Internal (52%),
+Personal (39%),
+Other (31%),
+Credentials (24%)
+(breaches)
+
+Table 1. At-a-glance table for victim industries without a section
+
+2026 DBIR Executive Summary
+
+17
+
+Industry
+(NAICS)
+
+Frequency
+
+Top patterns
+
+Threat actors
+
+Actor motives
+
+Data
+compromised
+
+Management (55)
+
+103 incidents, 101
+with confirmed data
+disclosure
+
+System Intrusion,
+Social Engineering
+and Basic Web
+Application Attacks
+represent 98% of
+breaches
+
+External (100%)
+(breaches)
+
+Financial (100%)
+(breaches)
+
+Internal (96%),
+Credentials
+(35%), Multifactor credential
+(3%), Other (2%)
+(breaches)
+
+Mining (21)
+
+72 incidents, 70
+with confirmed data
+disclosure
+
+System Intrusion,
+Everything Else
+and Basic Web
+Application Attacks
+represent 96% of
+breaches
+
+External (100%)
+(breaches)
+
+Financial (97%),
+Espionage (1%),
+Ideology (1%)
+(breaches)
+
+Internal (74%),
+Credentials
+(31%), Personal
+(17%), Other (9%)
+(breaches)
+
+Other Services (81)
+
+900 incidents, 885
+with confirmed data
+disclosure
+
+System Intrusion,
+Social Engineering
+and Miscellaneous
+Errors represent
+85% of breaches
+
+External (81%),
+Internal (19%)
+(breaches)
+
+Financial (78%),
+Espionage (23%)
+(breaches)
+
+Internal (66%),
+Personal (38%),
+Other (28%),
+Secrets (20%)
+(breaches)
+
+Professional (54)
+
+3,578 incidents,
+2,558 with
+confirmed data
+disclosure
+
+System Intrusion,
+Social Engineering
+and Basic Web
+Application Attacks
+represent 91% of
+breaches
+
+External (97%),
+Internal (3%)
+(breaches)
+
+Financial (96%),
+Espionage (5%)
+(breaches)
+
+Internal (80%),
+Credentials
+(31%), Personal
+(14%), Other (11%)
+(breaches)
+
+Real Estate (53)
+
+505 incidents, 499
+with confirmed data
+disclosure
+
+System Intrusion,
+Social Engineering
+and Miscellaneous
+Errors represent
+85% of breaches
+
+External (79%),
+Internal (22%)
+(breaches)
+
+Financial (100%)
+(breaches)
+
+Internal (63%),
+Personal (43%),
+Credentials (24%),
+Other (16%)
+(breaches)
+
+Transportation
+(48–49)
+
+689 incidents, 652
+with confirmed data
+disclosure
+
+System Intrusion,
+Basic Web
+Application Attacks
+and Everything Else
+represent 89% of
+breaches
+
+External (99%),
+Internal (1%)
+(breaches)
+
+Financial (89%),
+Espionage (15%),
+Ideology (1%)
+(breaches)
+
+Internal (84%),
+Credentials (27%),
+Secrets (16%),
+Other (14%)
+(breaches)
+
+Utilities (22)
+
+638 incidents, 597
+with confirmed data
+disclosure
+
+System Intrusion,
+Basic Web
+Application
+Attacks and Social
+Engineering
+represent 94% of
+breaches
+
+External (97%),
+Internal (3%)
+(breaches)
+
+Espionage (71%),
+Financial (36%)
+(breaches)
+
+Internal (85%),
+Secrets (68%),
+Other (21%)
+(breaches)
+
+Wholesale Trade (42)
+
+1,057 incidents,
+1,048 with confirmed
+data disclosure
+
+System Intrusion,
+Basic Web
+Application
+Attacks and Social
+Engineering
+represent 99% of
+breaches
+
+External (100%)
+(breaches)
+
+Financial (100%)
+(breaches)
+
+Internal (98%),
+Credentials (29%)
+(breaches)
+
+Table 1. At-a-glance table for victim industries without a section (continued)
+
+2026 DBIR Executive Summary
+
+18
+
+Regional findings
+In this section, we examine breaches from a macro-regional perspective to
+highlight how trends differ or remain consistent across geographical regions.
+Our visibility into any given area is determined by several variables, including
+regional disclosure laws, our specific datasets and the locations where our
+contributors conduct business. If you feel your region is not adequately
+represented in the following pages, please contact us about becoming a data
+contributor and encourage other organizations in your area to do the same.
+
+Regions with records
+
+Regions without records
+
+Asia and the Pacific
+(APAC)
+
+Europe, Middle East
+and Africa (EMEA)
+
+2026 DBIR Executive Summary
+
+Frequency
+
+5,229 incidents, 2,855 with confirmed data disclosure
+
+Top patterns
+
+System Intrusion, Basic Web Application Attacks and Social
+Engineering represent 97% of breaches
+
+Threat actors
+
+External (99%), Internal (1%) (breaches)
+
+Actor motives
+
+Financial (70%), Espionage (36%) (breaches)
+
+Data
+compromised
+
+Internal (70%), Credentials (36%), Other (35%), Secrets (30%)
+(breaches)
+
+Initial access
+vectors
+
+Exploitation of vulnerabilities (42%), Credential abuse (25%), Phishing
+(15%) (breaches)
+
+Misc
+
+Third-party (69%), Human element (71%) (breaches)
+
+Frequency
+
+8,245 incidents, 6,060 with confirmed data disclosure
+
+Top patterns
+
+System Intrusion, Social Engineering and Miscellaneous Errors
+represent 92% of breaches
+
+Threat actors
+
+External (80%), Internal (20%) (breaches)
+
+Actor motives
+
+Financial (76%), Espionage (27%) (breaches)
+
+Data
+compromised
+
+Internal (73%), Other (49%), Personal (34%), Secrets (24%) (breaches)
+
+Initial access
+vectors
+
+Exploitation of vulnerabilities (47%), Phishing (28%), Credential abuse
+(6%) (breaches)
+
+Misc
+
+Third-party (54%), Human element (70%) (breaches)
+
+19
+
+Regions with records
+
+Latin America and
+Caribbean (LAC)
+
+Northern
+America (NA)
+
+2026 DBIR Executive Summary
+
+Regions without records
+Frequency
+
+813 incidents, 718 with confirmed data disclosure
+
+Top patterns
+
+System Intrusion, Social Engineering and Basic Web Application
+Attacks represent 98% of breaches
+
+Threat actors
+
+External (99%), Internal (1%) (breaches)
+
+Actor motives
+
+Financial (90%), Espionage (11%) (breaches)
+
+Data
+compromised
+
+Internal (93%), Credentials (23%), Secrets (24%), Other (3%)
+(breaches)
+
+Initial access
+vectors
+
+Exploitation of vulnerabilities (44%), Phishing (20%), Credential abuse
+(5%) (breaches)
+
+Misc
+
+Third-party (74%), Human element (57%) (breaches)
+
+Frequency
+
+12,371 incidents, 8,426 with confirmed data disclosure
+
+Top patterns
+
+System Intrusion, Social Engineering and Basic Web Application
+Attacks represent 87% of breaches
+
+Threat actors
+
+External (88%), Internal (12%) (breaches)
+
+Actor motives
+
+Financial (98%), Espionage (3%) (breaches)
+
+Data
+compromised
+
+Internal (77%), Credentials (36%), Personal (9%), Other (8%)
+(breaches)
+
+Initial access
+vectors
+
+Exploitation of vulnerabilities (30%), Credential abuse (20%), Phishing
+(12%) (breaches)
+
+Misc
+
+Third-party (43%), Human element (59%) (breaches)
+
+20
+
+Stay informed
+and threat ready.
+Facing today’s threats requires intelligence from a source you can trust.
+The full DBIR contains details on the actors, actions and patterns that can
+help you prepare your defenses and educate your organization. Get the
+intelligence you need to help protect your organization.
+Read the full 2026 DBIR at verizon.com/dbir.
+
+Want to make the world of
+cybersecurity a safer place?
+If your organization aggregates incident or security data and you’re interested in
+becoming a contributor or research partner to the annual Verizon DBIR (and we
+hope you are), the process is very easy and straightforward. Please email us at
+dbircontributor@verizon.com so we can discuss the details and make you a part
+of the DBIR research community.
+Please feel free to provide us feedback for improving the DBIR at
+dbir@verizon.com, reach out to Verizon Business (or one of the authors) on
+LinkedIn and check out the VERIS GitHub page: github.com/vz-risk/veris.
+
+2026 DBIR Executive Summary
+
+21
+
+© 2026 Verizon. OGES2110526
+
+

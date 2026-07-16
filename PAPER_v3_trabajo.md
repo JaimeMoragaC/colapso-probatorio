@@ -156,15 +156,17 @@ Para quien no tiene tiempo de leer 264 páginas. Para quien sí las va a leer, e
 
 ---
 
-Usted está a punto de tomar —o ya tomó— decisiones críticas sobre infraestructura digital amparándose en un teatro de certificaciones corporativas (ISO 27001, SOC 2 Type II, PCI-DSS, NIST) y en la ingenua suposición de que los registros que sus proveedores *cloud* le entregan dicen la verdad. 
+Usted está a punto de tomar —o ya tomó— decisiones críticas sobre infraestructura digital amparándose en un teatro de certificaciones corporativas (ISO 27001, SOC 2 Type II, PCI-DSS, NIST) y en la ingenua suposición de que los registros que sus proveedores *cloud* le entregan dicen la verdad,  que los antecedentes  fundantes de su decisión  son perfectos y que esta por consiguiente es soberana e invulnerable.
 
-Este documento prueba empíricamente que esa suposición es una ficción técnicamente indefendible. Las consecuencias de seguir apoyándose en esas certificaciones son personales: nulidad de los actos administrativos que usted firme, exposición penal por negligencia inexcusable para los directivos que ratifiquen dichos papeles, e indefensión procesal absoluta garantizada para el día que llegue el incidente.
+Este documento prueba empíricamente que esa suposición es una ficción técnicamente indefendible. Las consecuencias de seguir apoyándose en esas certificaciones son personales: nulidad de los actos que usted firme, exposición penal por negligencia inexcusable para los directivos que ratifiquen dichos papeles, e indefensión procesal absoluta garantizada para el día que llegue el incidente.
 
-No es una advertencia teórica. Es la descripción del cepo en el que el sistema regulatorio chileno ya está. Si usted dirige un Operador de Importancia Vital, un banco, una Fintech o un exchange de criptomonedas registrado ante la CMF, este cepo ya tiene su nombre.
+No es una advertencia teórica. Es la descripción del cepo en el que el sistema regulatorio chileno ya está. Si usted dirige un Operador de Importancia Vital, un banco, una Fintech o un exchange de criptomonedas registrado ante la CMF,una entidad reguladora o un Tribunal , este diagnóstico tiene su nombre.
 
 ---
 
 I. Su regulación está calibrada para un adversario que ya no existe.
+
+### Entidades Reguladas por CMF y ANCI
 
 La Ley 21.663 le da al OIV tres horas para reportar un incidente a la ANCI. La NCG 502 de la CMF le da a la Fintech dos horas para enviar su Reporte de Incidentes Operacionales (RIO). 
 
@@ -225,7 +227,30 @@ Si esa base empírica es estructuralmente repudiable —pues el sistema que prod
 (b) Vulneración de la garantía del debido proceso material (Art. 19 N° 3 de la Constitución): La exigencia de que el imputado demuestre su grado de diligencia o refute la extensión del incidente basándose en sistemas carentes de firma medida genera una indefensión estructural. El Estado impone un deber de reporte, pero acepta e impone arquitecturas operativas que hacen matemáticamente imposible generar evidencia exculpatoria inalterada. 
 
 Exigir al regulado que se defienda con registros que la propia arquitectura hace inautenticables no es solo una probatio diabolica o inversión ilegítima de la carga probatoria; es someterlo a un mandato legal de imposible cumplimiento, vaciando de contenido su derecho constitucional a presentar pruebas materiales en su defensa.
----
+
+### ORGANOS JURISDICCIONALES.
+La mismas criticas planetadas al desfase de la regulacion formal e indefension  ante el avance que lideran a las IA agenticas Multiformicas (Mytho) y los ataques Ring 0 tambien alcanza al Poder Judicial.
+
+El Acta Nº 44-05 de la Excma. Corte Suprema sobre el Nuevo Código de Etica del Poder Judicial Aprobado recientemente,  introduce directrices explícitas sobre el comportamiento digital de los magistrados. De manera inédita, el instrumento exige a los jueces documentar sus interacciones con sistemas automatizados y reportar fallas de ciberseguridad, con el objetivo de fortalecer los mecanismos de control institucional. Es una medida puramente declarativa y de procedimiento humano, que asume que el juez o el sistema tendrá la visibilidad necesaria para advertir que una falla o intervención ha ocurrido.
+
+Las medidas de seguridad de la CAPJ para el acceso a la OJV se delegan estructuralmente en la encriptación de tránsito (túneles SSL/TLS) y en la validación de identidad del Estado. Las últimas actualizaciones operativas (como la Resolución Exenta N° 733 de noviembre de 2025 de Hacienda, que cruza con la nueva Ley de Ciberseguridad y la Ley 21.719 de Datos Personales) reafirman que la seguridad descansa en la robustez de ClaveÚnica y en la Firma Electrónica Avanzada. El diseño asume que si la credencial es válida, la orden procesal ingresada por el usuario es íntegra y legítima.
+
+No existe en la documentación oficial, resoluciones de la CAPJ ni en los manuales de la Academia Judicial ninguna directriz o protocolo que aborde la manipulación de evidencia o decisiones  jurisdiccionales pre-criptográfica de la memoria volátil (TOCTOU) ni la subversión de procesos en el nivel del kernel (Ring-0). El sistema judicial chileno instruye a sus jueces para proteger sus contraseñas, reportar anomalías visibles y aplicar la sana crítica sobre la prueba digital, presuponiendo de manera absoluta la indemnidad estructural de las máquinas que generan, tramitan y firman digitalmente los expedientes.
+
+Siguiendo la conducta tradicional de las direcciones de informática estatales compran seguridad basándose en checklists de cumplimiento (ISO 27001, NIST). Es fácil justificar presupuesto comprando licencias millonarias de Antivirus (EDR) de última generación, cortafuegos y VPNs.  Estas herramientas crean una falsa sensación de invulnerabilidad. Los gerentes de TI ven un panel de control con luces verdes y asumen que están protegidos.
+
+A este escenario se suma una mezcla histórica de deuda técnica, burocracia y terror a la paralización operativa. Hoy, muchos magistrados, relatores y actuarios trabajan desde sus casas utilizando equipos altamente heterogéneos. Al salir de la red física del tribunal, la diversidad de sistemas y el uso de procesadores personales no solo vuelve inmanejable la administración técnica, sino que expande exponencialmente la superficie de ataque.
+
+La verdadera amenaza no radica en que exigir el estándar TPM 2.0 o Secure Boot rompa la compatibilidad con usuarios de Linux o Apple. El peligro crítico es que estos equipos operan en entornos de hardware ciego y no auditado por el Estado, dejándolos completamente indefensos ante ataques de subversión profunda a nivel de kernel (Ring-0) y manipulaciones de memoria mediante vulnerabilidades de condición de carrera (TOCTOU - Time-of-Check to Time-of-Use).
+
+En el procesador de un equipo personal, una IA agéntica puede instalarse en el Anillo 0 (Ring-0) del sistema operativo, obteniendo privilegios superiores a los del propio usuario y cegando por completo cualquier Antivirus o EDR instalado. Desde este nivel de control absoluto, la IA ejecuta un ataque TOCTOU perfecto: espera el momento exacto en que el magistrado lee y aprueba un fallo en su pantalla (Time-of-Check) y, en los milisegundos que tarda el procesador en inyectar la firma electrónica (Time-of-Use), altera el texto directamente en la memoria volátil del equipo.
+
+El resultado procesal es catastrófico: el sistema de la CAPJ recibe una resolución jurisdiccional cuyo sentido y alcance han sido manipulados por un agente externo, pero que ingresa al expediente validada por una firma electrónica criptográficamente perfecta e irrefutable. 
+
+El Poder Judicial entonces prefiere el riesgo teórico de un ataque sofisticado a la certeza absoluta de paralizar los tribunales por problemas de incompatibilidad de hardware. Confían en que la complejidad técnica del ataque mantendrá a salvo sus resoluciones, jugando a la ruleta rusa con la integridad de la sana crítica.
+
+Tal excusa de  complejidad desaparecio con la irrupcion de las Ia multiagente poliformica como se analiza en la seccion __
+
 
 V. Un interruptor ubicado en el extranjero puede apagar Chile —y su cadena de pagos—.
 
