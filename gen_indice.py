@@ -168,10 +168,13 @@ def main():
     # para no citar ni la tabla de contenidos ni el propio índice analítico.
     marker = "términos clave y las páginas del pdf"
     cutoff = next((i for i, p in enumerate(P) if marker in p), len(P))
-    # Marcador de inicio del cuerpo: el subtítulo (texto que NO está en el TOC; el título
-    # de la H1 sí aparece listado en el TOC, así que no sirve como marcador).
+    # Marcador de inicio del cuerpo: un TOKEN único del primer bloque (Escenario I) que
+    # NO está en la TABLA DE CONTENIDOS (esta solo lista títulos) ni en el front matter,
+    # para excluir portada + Palabras Previas. Debe ser una sola palabra: pdftotext parte
+    # las frases en varias líneas y una frase con espacios no matchea como substring.
+    # La TOC se movió al FINAL (tras el índice analítico), así que el `cutoff` ya la excluye.
     start  = next((i for i, p in enumerate(P)
-                   if "por qué la evidencia digital delegada en la nube" in p), 0)
+                   if "new-mailboxexportrequest" in p), 0)
     entries = []
     for label, pats in TERMS.items():
         if isinstance(pats, tuple) and pats and pats[0] == "SEE":
