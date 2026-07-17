@@ -26,11 +26,13 @@ De ahí surgió la única conclusión intelectualmente honesta que atraviesa est
 
 Con esa certeza volví a mirar el derecho. Frente a adversarios que son pura potencia de cálculo, la regulación avanza en la dirección equivocada: trata a la IA como a un niño malcriado, exigiéndole alineamiento moral. Es como exigirle a un campeón de velocidad que recite versos de Platón en plena carrera: una incomprensión absoluta de la física del problema. Reducimos a escala humana algo que no la tiene y legislamos para el espejo. Pagamos hoy la hipoteca semántica que John McCarthy firmó en 1955 al bautizarla «inteligencia artificial» para conseguir financiamiento¹. Ignoramos a Turing, que se negó a definir la inteligencia por considerarlo absurdo², y olvidamos la advertencia brutal de Dijkstra: preguntarse si las máquinas piensan es tan relevante como preguntarse si los submarinos nadan³. Mientras la ley discute si el submarino nada, el submarino sigue avanzando bajo el agua.
 
-Lo que sigue retoma el formato de un análisis formal. En su elaboración, utilicé IA como copiloto de código y asistente de edición. Pero ninguna máquina razonó ni leyó por mí. Todo el análisis jurídico, la investigación de ingeniería y las propuestas regulatorias son íntegramente míos: la IA no tiene título de abogado ni responde por la arquitectura de un sistema, y estos argumentos los firma quien conoce el campo y responde por ellos ante un tribunal. Cada fuente fue verificada contra su original.
+Lo que sigue retoma el formato de un análisis formal. En su elaboración, utilicé IA como copiloto de código y asistente de edición. Pero ninguna máquina sustituyó mi juicio crítico ni tomó las decisiones de diseño por mí. Todo el análisis jurídico, la investigación de ingeniería y las propuestas regulatorias son íntegramente míos: la IA no tiene título de abogado ni responde por la arquitectura de un sistema, y estos argumentos los firma quien conoce el campo y responde por ellos ante un tribunal. Cada fuente fue verificada contra su original.
 
 Las tesis, los errores y la responsabilidad son míos. El proceso completo está documentado en un historial de versiones anclado a una raíz de confianza en hardware (silicio) y sellado en el tiempo —cuya integridad criptográfica puede ser verificada empíricamente por el lector (véase Anexo F)— porque un documento que exige la muerte de la certificación de papel no podía permitirse una prueba menor.
 
 Jaime Marcelo Moraga Carrasco
+
+justiciachile@gmail.com
 
 Temuco, Araucanía, Chile — Julio de 2026
 

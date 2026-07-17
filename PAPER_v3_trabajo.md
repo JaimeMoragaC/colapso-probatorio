@@ -172,170 +172,7 @@ La «sana crítica» jurisdiccional deja así de ser el escudo intelectual sagra
 
 <div style="page-break-before: always;"></div>
 
-## Resumen Ejecutivo
-
-<div class="resumen-ejecutivo">
-
----
-
-Usted está a punto de tomar —o ya tomó— decisiones corporativas, regulatorias o jurisdiccionales críticas amparándose en un teatro de certificaciones (ISO 27001, SOC 2 Type II, PCI-DSS, NIST) y en la ingenua suposición de que los registros digitales que fundamentan su fallo o resolución son técnica y criptográficamente perfectos. Usted asume que su decisión es soberana e invulnerable. Lo que ignora es que, al prescindir de una arquitectura que encarezca asimétricamente el ataque desde el hardware, su propio raciocinio y su "sana crítica" están siendo instrumentalizados. Sin saberlo, usted se ha convertido en el vector final del atacante: la autoridad humana que blanquea jurídicamente un fraude algorítmico, consumando el engaño con su propia firma.
-
-Este documento prueba empíricamente la mecánica exacta de esa instrumentalización. Las consecuencias de seguir operando bajo este teatro de cumplimiento son estrictamente personales: nulidad absoluta de los actos y fallos que usted firme, exposición penal por negligencia inexcusable para los directivos corporativos que se amparen en dichos papeles, e indefensión procesal garantizada para las víctimas el día que se materialice el incidente.
-
-No es una advertencia teórica. Es la descripción del cepo en el que el sistema regulatorio chileno ya está. Si usted dirige un Operador de Importancia Vital, un banco, una Fintech o un exchange de criptomonedas registrado ante la CMF,una entidad reguladora o un organo jurisdiccional  , este diagnóstico tiene su nombre.
-
----
-
-I. Su regulación está calibrada para un adversario que ya no existe.
-
-### Entidades Reguladas por CMF y ANCI
-
-La Ley 21.663 le da al OIV tres horas para reportar un incidente a la ANCI. La NCG 502 de la CMF le da a la Fintech dos horas para enviar su Reporte de Incidentes Operacionales (RIO). 
-
-La realidad operativa demuele esos plazos: sobre una base de más de 8.800 millones de intentos de ciberataques registrados contra Chile en 2025<a href="#fn226" id="fnref226"><sup>226</sup></a>, el tiempo promedio que un atacante tarda en desplazarse lateralmente por la red (*breakout time*) colapsó a apenas 29 minutos —un 65% más rápido que el año anterior, con el arranque más veloz medido en 27 segundos y exfiltración iniciada a los cuatro minutos del acceso inicial—, mientras la detección del compromiso sigue tomando en la región un promedio de más de 185 días<a href="#fn247" id="fnref247"><sup>247</sup></a>. 
-
-Basta con que el tiempo de actuación del adversario sea menor que el tiempo de reacción humana que la norma presupone para que el régimen de reporte falle por diseño: cuando apenas nace el deber de reportar a las tres horas, la evidencia del estado del sistema ya fue corrompida o sobrescrita en su origen. En ese abismo temporal cabe la destrucción de la evidencia que usted necesitaría para reconstruir el incidente, notificar con precisión y defenderse de una multa de hasta 40.000 UTM (ANCI) o de la revocación de su autorización para operar (CMF).
-
-El 12 de junio de 2026 agregó la segunda dimensión del problema: una directiva administrativa estadounidense desconectó plataformas de IA operando en infraestructura chilena sin notificación, sin recurso y sin que ninguna norma chilena pudiera impedirlo. 
-
-El plano de control de la infraestructura crítica nacional —y de la cadena de pagos— no está en Chile. Está en Virginia, en Irlanda o en Singapur, bajo jurisdicción extranjera. El deber de continuidad operacional que la Ley 21.663 le impone al OIV y que la NCG 502 le exige a la Fintech descansa sobre una arquitectura que hace ese deber materialmente incumplible.
-
-Las Leyes 21.663, 21.719, 21.459, 21.521 (Ley Fintec) y la NCG 502 no fueron diseñadas para este escenario. Fueron diseñadas para el escenario de 2019.
-
----
-
-II. Los registros que el regulado le entrega al regulador no prueban lo que pretenden probar.
-
-Un agente autónomo de IA que opera a nivel de *kernel* —Ring-0, el nivel de privilegio más alto del sistema operativo— puede alterar la memoria de ejecución antes de que el sensor de telemetría capture el evento. El resultado es un *log* criptográficamente íntegro, con *timestamps* correctos, con hashes válidos, que describe con exactitud técnica perfecta algo que nunca ocurrió de esa manera. 
-
-Para un exchange de criptomonedas, el resultado es aún más grave: un registro de custodia que muestra balances correctos mientras la blockchain ya refleja que los fondos fueron drenados.
-
-Esto no es especulación: es el patrón documentado en el hackeo al Estado Mayor Conjunto (caso Guacamaya, 2022), en el ataque a IFX Networks que paralizó ChileCompra (2023), en el ransomware contra Clínica Dávila (diciembre 2025), en los 250 GB exfiltrados del Servicio de Salud Araucanía Sur (mayo 2026), y en los USD 1.500 millones sustraídos de Bybit en febrero de 2025 —donde el entorno de firma multisig fue comprometido sin que los registros internos reflejaran anomalía alguna—. En todos esos casos, la evidencia disponible para la investigación fue la que el atacante decidió dejar.
-
-La imposibilidad no es práctica ni circunstancial: es estructural. Cuando el programa que produce el registro y el programa que podría falsificarlo son el mismo sistema opaco, sin testigo externo verificable, ninguna operación interna a ese sistema puede acreditar que el registro no fue alterado —probar la ausencia de manipulación exige un ancla independiente del entorno que pudo cometerla, y esa ancla no existe en la arquitectura no atestada—.
-
- No se trata de que el peritaje sea difícil, sino de que carece de un punto de apoyo externo sobre el cual pronunciarse: sin raíz de confianza en hardware, la autenticidad del log no es una propiedad medible, sino una declaración del propio auditado. 
- 
- Un tribunal que aplique el estándar de sana crítica racional del artículo 297 del CPP no puede tener por acreditada la integridad de un registro que no admite verificación independiente. El colapso se extiende al sistema de prueba tasada en sede civil: si un log hiperescalar se acompaña como instrumento privado (art. 346 del Código de Procedimiento Civil) y es objetado por falsedad, el peritaje técnico de autenticidad exigido por la ley se enfrenta a la misma ausencia de testigo —no puede certificar lo que la arquitectura jamás permitió observar desde fuera.
-
----
-
-III. Los certificados que el regulado exhi be como prueba de diligencia son papel.
-
-ISO 27001, SOC 2, y los Análisis de Impacto de Negocio (BIA) y de Riesgo (RIA) exigidos por la NCG 502 auditan procesos documentados: que existe un comité de seguridad, que los parches se aplican según calendario, que hay un manual de respuesta a incidentes. No miden —ni pueden medir— el estado de la memoria en tiempo de ejecución. Un atacante que opera en el espacio de *kernel* deja todos los procesos intactos. Los comités siguen reuniéndose. Los parches siguen aplicándose. El manual sigue vigente. El BIA fue aprobado el trimestre anterior. Y el atacante lleva seis meses dentro.
-
-La certificación SOC 2 de IFX Networks estaba vigente cuando su infraestructura fue comprometida y Colombia, Chile y otros países perdieron acceso a servicios críticos durante días. Presentar esa certificación —o un BIA documental— como evidencia de debida diligencia ante la ANCI, la CMF o un tribunal informado es presentar un instrumento que por diseño no mide lo que se invoca para acreditar. Jurídicamente, eso tiene un nombre: ficción procesal. Y quien la invoca asume el riesgo de que el regulador o el tribunal la llame por su nombre.
-
-Y subir de gama tampoco cambia el diagnóstico —conviene decirlo antes de que se ofrezca como defensa—. El operador sofisticado que exhiba, en lugar del SOC 2, una autorización FedRAMP High, un certificado Common Criteria, un HSM con certificación FIPS 140-3 o un informe de atestación de enclave de su proveedor (Intel SGX/TDX, AMD SEV-SNP), presenta instrumentos del mismo género.
-
-Certifican un *producto* evaluado en laboratorio o el estado de *arranque* de una máquina, no la instrucción que se ejecutó en el instante del incidente, y anclan su raíz de confianza en silicio y en un *Verifier* extranjeros —revocables bajo el CLOUD Act o una directiva ECRA—. Miden, igual que los de papel, algo distinto de lo que se invoca para acreditar. Lo único que escapa a la categoría de ficción —la atestación de la instrucción viva bajo raíz de confianza soberana, la «firma medida» que este documento desarrolla en §6.8.1— es, precisamente, lo que ningún regulado exhibe hoy.
-
----
-
-IV. El colapso del paradigma regulatorio y la doble vía de impugnación
-
-La arquitectura regulatoria de la Agencia Nacional de Ciberseguridad (ANCI) y de la Comisión para el Mercado Financiero (CMF) descansa sobre una ficción epistemológica: asume que los logs de auditoría son un reflejo inalterado de la realidad operativa. Al exigir a bancos, fintechs y operadores de infraestructura crítica que reporten incidentes basándose en ecosistemas carentes de una ruta de atestación anclada en hardware (DRTM o firma medida), el Estado construye su potestad sancionadora sobre telemetría que, ante un compromiso en Ring-0, es estructuralmente estéril.
-
-En sede administrativa, el operador es un garante y responde por el incidente, pero aquí surge una profunda paradoja: la ley lo obliga a incriminarse o defenderse utilizando exactamente la misma evidencia digital que el atacante ya subvirtió desde el kernel.
-
-Si un atacante avanzado utiliza eBPF para que la propia máquina defensora firme criptográficamente un engaño perfecto, el andamiaje sancionador opera a ciegas, otorgándole presunción de veracidad legal a la narrativa que el intruso decidió imprimir en el servidor. El colapso es simétrico: la arquitectura hace imposible el log inalterado de cargo e igualmente imposible el log de descargo.
-
-En consecuencia, si la ANCI o la CMF construyen una resolución sancionatoria basándose en estos registros sin atestación física independiente, el operador imputado puede impugnarla por dos caminos simultáneos:
-
-(a) Vicio en el motivo (Falta de fundamento fáctico del acto): Aunque el regulador argumente el incumplimiento del deber de garante, la formulación exacta de los cargos, la cuantificación del daño y la graduación de la sanción —que puede alcanzar las 40.000 UTM o la revocación de licencia— dependen inexorablemente de la narrativa del log. 
-
-Si esa base empírica es estructuralmente repudiable —pues el sistema que produjo el registro es el único que pudo alterarlo, sin un testigo externo inmutable—, el acto administrativo adolece de un vicio insalvable en su motivación. El regulador estaría sancionando hechos cuya magnitud o naturaleza real le consta solo a través de una interfaz manipulada por el atacante.
-
-(b) Vulneración de la garantía del debido proceso material (Art. 19 N° 3 de la Constitución): La exigencia de que el imputado demuestre su grado de diligencia o refute la extensión del incidente basándose en sistemas carentes de firma medida genera una indefensión estructural. El Estado impone un deber de reporte, pero acepta e impone arquitecturas operativas que hacen matemáticamente imposible generar evidencia exculpatoria inalterada. 
-
-Exigir al regulado que se defienda con registros que la propia arquitectura hace inautenticables no es solo una probatio diabolica o inversión ilegítima de la carga probatoria; es someterlo a un mandato legal de imposible cumplimiento, vaciando de contenido su derecho constitucional a presentar pruebas materiales en su defensa.
-
-### VULNERABILIDADES ESTRUCTURALES Y AMENAZAS A NIVEL DE KERNEL EN ÓRGANOS CON POTESTAD DECISIONAL
-
-Las directrices éticas e institucionales aplicadas a los órganos estatales con potestad jurisdiccional, sancionatoria o regulatoria introducen mandatos explícitos sobre el comportamiento digital de las autoridades. Se exige documentar interacciones automatizadas y reportar brechas de seguridad. Sin embargo, estas medidas asumen erróneamente que la autoridad o el sistema poseen la visibilidad técnica necesaria para advertir una intrusión una vez que las defensas perimetrales han fallado.
-
-Actualmente, la seguridad en el acceso a portales institucionales y sistemas de tramitación —alineada con la Ley Marco de Ciberseguridad y la Ley 21.719 de Datos Personales— descansa estructuralmente en la encriptación de tránsito (túneles SSL/TLS), credenciales centralizadas (ClaveÚnica) y la Firma Electrónica Avanzada (FEA). Este diseño presupone, de manera absoluta, que si la credencial es válida, la orden ingresada es legítima, ignorando la vulnerabilidad del equipo terminal desde donde opera el usuario.
-
-La gestión de seguridad informática estatal suele basarse en el cumplimiento normativo (ISO 27001, NIST) y en la adquisición de soluciones perimetrales (EDR, VPNs, Firewalls). Esta aproximación genera un punto ciego ante la actual heterogeneidad del hardware utilizado para el teletrabajo. Al operar fuera de la red física institucional, en entornos no auditados y sin estándares restrictivos de hardware, la superficie de ataque se expande hacia vulnerabilidades de condición de carrera (TOCTOU) y subversión de procesos a nivel de kernel (Ring-0).
-
-Vectores de Ingreso: La vulnerabilidad del usuario legítimo
-Un ataque avanzado no requiere vulnerar la red institucional de forma externa y mediante fuerza bruta; ingresa a través de las herramientas de trabajo cotidiano introducidas por los propios usuarios:
-
-Phishing y ejecución en segundo plano: Conforme a boletines técnicos del CSIRT, vulnerabilidades de condición de carrera en el kernel de Windows (ej. CVE-2025-62215) permiten el ingreso mediante correos con archivos adjuntos maliciosos (PDF o scripts). En versiones vulnerables, basta con que el cliente de correo genere la "Vista Previa" del documento para que el código se ejecute silenciosamente, sin interacción directa del usuario.
-
-Shadow IT y plataformas de terceros: Auditorías internas han evidenciado el uso recurrente de plataformas web no autorizadas (como conversores gratuitos tipo iLovePDF o asistentes como ChatGPT) para el procesamiento de borradores y resoluciones. Al descargar el documento convertido desde la web al equipo institucional, se introduce un archivo potencialmente comprometido que evade los filtros del cortafuegos central.
-
-Equipos externos en redes seguras: Los convenios institucionales permiten que actores externos (por ejemplo, fiscales del Ministerio Público) conecten sus equipos portátiles a las redes de las salas de audiencias. Si uno de estos dispositivos ingresa infectado con un malware sigiloso, el atacante obtiene conexión física directa a la intranet judicial desde el interior de las instalaciones.
-
-Obsolescencia del Sistema Operativo: Terminales operando con sistemas sin soporte técnico representan un riesgo crítico documentado. Esta falla estructural permitió el éxito del ataque de ransomware LockBit en 2022, el cual comprometió equipos de la red del Poder Judicial chileno debido a la persistencia de terminales operando con Windows 7.
-
-Escalada de Privilegios: Ejecución TOCTOU y acceso a Ring-0
-Una vez que el código malicioso ingresa al equipo, se instala con permisos restringidos de usuario estándar. Mediante la explotación de una vulnerabilidad temporal de condición de carrera (TOCTOU - Time-of-Check to Time-of-Use), el malware engaña los controles del sistema operativo para elevar sus privilegios locales al nivel "SISTEMA" (Ring-0). Con el control absoluto del núcleo, el atacante inhabilita el antivirus o EDR local de forma imperceptible.
-
-Impacto Operativo sobre el Debido Proceso
-Con acceso a Ring-0, el programa ejecuta rutinas que comprometen la integridad de la función jurisdiccional sin demandar recursos masivos de procesamiento:
-
-Sustitución de archivos pre-firma (TOCTOU de Escritura): La sustitución del documento no ocurre mientras el juez lo redacta, sino en los milisegundos que transcurren entre que la autoridad presiona el comando para aplicar su Firma Electrónica Avanzada y el momento en que el sistema operativo lee el archivo para calcular el hash criptográfico. El resultado es un documento alterado (modificación de montos, nombres o fallos) que queda revestido de presunción de legalidad mediante la firma legítima del magistrado.
-
-Interrupción táctica de la inmediación telemática: Mediante la monitorización de los procesos en memoria de plataformas de videoconferencia (Zoom, Webex, Teams), el código malicioso puede inyectar micro-cortes de red, saturar la CPU o deshabilitar temporalmente los controladores de audio/video en momentos procesales críticos (ej. presentación de prueba o interrogatorios). Esto fuerza suspensiones estratégicas, simulando una falla fortuita de conectividad.
-
-Exfiltración de información reservada (Memory Scraping): El código malicioso ejecuta lecturas de la memoria RAM y de los archivos temporales del procesador de textos para extraer borradores de fallos, medidas intrusivas o regulaciones de alto impacto antes de que sean encriptados. Esta información se transmite a servidores externos, habilitando operaciones de ventaja financiera (insider trading) sin generar registros de intrusión en los sistemas centrales de tramitación.
-
-Secuestro de Sesión VPN (Pivot o Salto Lateral): El atacante espera que la autoridad se autentique mediante ClaveÚnica y establezca el túnel VPN de forma legítima. Operando a un nivel de privilegios superior al del software de seguridad, utiliza esa conexión y las cookies de sesión activas para realizar consultas no autorizadas a bases de datos internas o inyectar cargas en la intranet corporativa, operando bajo la identidad validada de la autoridad.
-
-Conclusión
-El ataque no entra rompiendo los muros digitales de los tribunales, sino viajando oculto en las herramientas de trabajo cotidiano que los propios funcionarios introducen voluntariamente a la red institucional.
-
-El verdadero peligro es que un equipo con el kernel comprometido deja de ser una herramienta de trabajo y se transforma en una cámara de eco aislada. La IA atacante decide qué lee la autoridad, qué escucha en las audiencias, qué firma y qué se envía al expediente, destruyendo los cimientos del debido proceso sin dejar una sola huella forense en el servidor central.
-
-Las instituciones prefieren, entonces, el riesgo teórico de un ataque sofisticado a la certeza absoluta de paralizar las operaciones por problemas de incompatibilidad de hardware. Confían en que la complejidad técnica mantendrá a salvo sus decisiones, jugando a la ruleta rusa con la integridad de la fe pública. Tal excusa de complejidad, sin embargo, ha desaparecido de forma definitiva con la irrupción de las IA multiagente polimórficas.
-
-Tal excusa de complejidad desapareció con la irrupción de las IA multiagente polimórficas, como se analiza a continuación.
-
-
-V. Un interruptor ubicado en el extranjero puede apagar Chile —y su cadena de pagos—.
-
-El plano de control de los servicios digitales de los 915 Operadores de Importancia Vital (y los 327 nuevos calificados para 2026), así como de las Fintech registradas ante la CMF, no está distribuido entre sus servidores. Está centralizado en los sistemas IAM y *Control Plane* de AWS, Microsoft Azure y Google Cloud —todos bajo jurisdicción estadounidense, todos sujetos a las leyes ECRA, CLOUD Act y las *Entity List* del Departamento de Comercio—. Los exchanges de criptomonedas operan sobre la misma infraestructura: su daemon de firma, su motor de matching y su sistema de custodia corren en instancias cloud que un acto administrativo extranjero puede revocar sin previo aviso.
-
-El 12 de junio de 2026 fue la manifestación más reciente —y la más directa para Chile— de un patrón ya consolidado, no un episodio aislado: una decisión administrativa extranjera puede desconectar infraestructura crítica chilena y la cadena de pagos sin notificación previa, sin audiencia, sin recurso efectivo en ninguna jurisdicción. 
-
-La misma palanca ya había caído sobre Huawei (*Entity List*, 2019), las cuentas de GitHub en Irán y Siria (OFAC, 2019), Azure en Rusia (sanciones UE, 2024) y la banca iraní y rusa expulsada de SWIFT (2012 y 2022) —la serie completa se documenta en §1, «Precedentes comparados»—. Que esa dependencia no es teórica quedó, así, demostrado por partida múltiple. No importa que los servidores físicos estén en Santiago. No importa que los contratos digan que los datos son del cliente. El interruptor no está en ma nos del cliente.
-
-Diversificar entre AWS, Azure y Google no resuelve este problema: es la misma dependencia triplicada sobre la misma arquitectura centralizada bajo la misma jurisdicción.
-
----
-
-VI. La responsabilidad proactiva de los directivos bajo la nueva dogmática penal-económica.
-
-La Ley 21.595 de Delitos Económicos no se limitó a expandir el catálogo de ilícitos base; redefinió estructuralmente la posición de garante de quienes ejercen la dirección en personas jurídicas. 
-
-El cambio de paradigma difumina la frontera probatoria entre la negligencia administrativa y la responsabilidad penal: el directivo que, habiendo tomado conocimiento de una vulnerabilidad sistémica o un riesgo concreto, omite adoptar las medidas de mitigación tecnológicas u organizacionales idóneas, abandona el terreno de la culpa. 
-
-Al decidir operar conscientemente bajo esa exposición, el derecho asume que acepta la materialización del resultado lesivo. Responde penalmente a título de dolo eventual por vía de omisión impropia, con independencia de que jamás haya deseado el perjuicio.
-
-Este estándar interactúa de forma directa con el déficit probatorio que las secciones anteriores documentan. La gestión de riesgos de ciberseguridad no es ajena a este marco: si la arquitectura de evidencia sobre la que descansa el cumplimiento regulatorio carece de un ancla de verificación independiente del propio sistema auditado —en los términos que §3.3 y §6.7 desarrollan—, y si esa condición es reportada o cognoscible para el directorio o la alta administración, la decisión de mantenerla sin corrección supera la mera negligencia. Se convierte en una asunción consciente del riesgo de esterilidad forense.
-
-Aunque el análisis de imputación siempre dependerá de las circunstancias del caso concreto, la doctrina dogmática y la tendencia comparada —recogida en §3.6 y en el Anexo C— muestran una convergencia implacable: la responsabilidad penal se desplaza hacia quienes toman las decisiones de inversión y arquitectura. 
-
-Bajo este nuevo paradigma, el Delegado de Protección de Datos y el Encargado de Ciberseguridad actúan como los sensores del riesgo; pero es la Alta Dirección quien, al ignorar la advertencia sobre la fragilidad en la cadena de custodia, concentra la máxima exposición institucional e individual.
-
----
-
-La solución existe, no requiere nueva ley ni nuevo presupuesto, y cabe en tres decisiones reglamentarias que la ANCI y la CMF pueden adoptar hoy, dentro de sus potestades vigentes:
-
-1. Reporte de incidente atestable y Puerto Seguro (Safe Harbor): Dado que el adversario consolida su acceso en segundos (como certifica CrowdStrike) y destruye la telemetría antes de que el SOC pueda analizarla (como documenta Entel), el plazo legal de reporte a la ANCI (3 h) o a la CMF (2 h) resulta materialmente imposible de cumplir mediante auditoría humana. El reporte debe admitir acompañarse de evidencia con proveniencia atestada en hardware de forma continua, estableciendo un puerto seguro probatorio (safe harbor) que exima de responsabilidad infraccional a quien reporta de buena fe basándose en criptografía inmutable y no en bitácoras de software manipulables.
-
-2. Jerarquía probatoria por atestación (Fin de la ceguera forense): Frente a un ecosistema donde el 82% de las intrusiones secuestran procesos legítimos sin usar código malicioso (malware-free), los registros puros de software (EDR/SIEM) han perdido la presunción empírica de verdad. Reglamentariamente, la evidencia anclada en hardware —que no puede ser alterada en runtime— debe gozar de presunción legal de integridad. Por el contrario, el registro autodeclarado (logs estándar) debe valorarse estrictamente, trasladando la carga probatoria de autenticidad a quien lo aporta.
-
-3. Continuidad soberana (Independencia del apagón jurisdiccional): El plan de continuidad debe prever la desconexión abrupta del proveedor cloud internacional por una sanción extranjera, orden judicial o falla catastrófica (§2.4). Se debe exigir un piso mínimo de operación autónoma bajo control nacional e infraestructura local (por ejemplo, 72 horas para procesos transaccionales críticos), sin que ello implique la construcción de una nube estatal paralela.
-
-La solución no es territorial, es vertical. No consiste en obligar a traer los servidores a Chile ni en construir infraestructura de cómputo propia —lo cual es inviable—, sino en controlar el punto del stack donde la evidencia se ancla y se firma. El hiperescalar sigue haciendo el cómputo, esté donde esté; lo que la jurisdicción nacional controla es la cadena de custodia inmutable. No importa dónde está la máquina, sino quién puede probar, matemáticamente, lo que hizo.
-
-Mantener el statu quo normativo condena al ecosistema a un colapso simétrico: para el regulador, la nulidad procesal de sus actos sancionatorios por vicios de fundamentación fáctica; y para el regulado, la indefensión probatoria total frente al incidente y la exposición penal personal de su alta dirección (Ley 21.595). El articulado reglamentario propuesto, listo para su tramitación, se detalla en el Anexo B.
-
-Todo lo que sigue es el fundamento: la demostración —con evidencia verificable, derecho comparado de tres jurisdicciones y casos forenses documentados— de por qué el sistema actual no puede sostenerse.
-
-</div>
+> **Síntesis ejecutiva.** Una síntesis de este trabajo, redactada para llevar ante la autoridad que deba decidir, se encuentra al final del documento: [Síntesis Ejecutiva para la Autoridad Decisional](#sintesis-ejecutiva). Lo que sigue es la demostración que la sostiene.
 
 ---
 
@@ -403,7 +240,7 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 <tr>
   <td><strong>INV‑01</strong></td>
   <td>La coherencia es la <em>loss</em>, no la prueba: un detector que mira el <em>output</em> opera sobre la misma superficie que el generador ya optimizó.</td>
-  <td>§1 (Abstract) · doc. complementario</td>
+  <td>§1 · doc. complementario</td>
 </tr>
 <tr>
   <td><strong>INV‑02</strong></td>
@@ -433,12 +270,18 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 <tr>
   <td><strong>INV‑07</strong></td>
   <td>Antes de definir <em>quién responde</em> hay que definir <em>qué evidencia acredita que algo ocurrió</em>.</td>
-  <td>Abstract · §1.3.5 · §5.3</td>
+  <td>§1 · §1.3.5 · §5.3</td>
 </tr>
 </tbody>
 </table>
 
-## Abstract
+<div style="page-break-before: always;"></div>
+
+<a id="sec1"></a>
+
+## 1. Introducción
+
+Este documento formaliza el diagnóstico central de este trabajo. Para comprender por qué el modelo de confianza delegada —tanto la certificación documental, el "teatro de cumplimiento", como la atestación de *hardware* que los hiperescalares despliegan sobre silicio y *Verifier* extranjeros— colapsó de manera irreversible frente a los eventos de 2026, se impone por fuerza abandonar la lectura contingente de la contingencia y examinar la arquitectura estructural que hizo posible dicho colapso.
 
 Durante dos décadas, el cumplimiento en ciberseguridad operó primordialmente como *escudo de responsabilidad*: certificaciones, cifrado y contratos que blindan al obligado frente al regulador o sancionador y como proteccion formal de los centros de decisiones , pero no como mecanismo para probar qué ocurrió. 
 
@@ -609,15 +452,6 @@ El problema es que el Estado chileno sigue aceptando como "prueba válida" regis
 La salida a esta crisis probatoria no requiere inventar nuevas leyes, sino actualizar nuestro estándar de evidencia administrativa y judicial. Solo debe considerarse como prueba materialmente válida aquella que esté certificada por una "raíz de confianza" (hardware) que ni la empresa investigada ni el hacker puedan manipular, y que opere bajo jurisdicción nacional (Atestación Dinámica Soberana). 
 
 El deber de cumplimiento ya no se satisface mostrando un certificado en un marco; se cumple probando matemáticamente el *origen* inmaculado de la evidencia.
-
-
-<div style="page-break-before: always;"></div>
-
-<a id="sec1"></a>
-
-## 1. Introducción
-
-Este documento formaliza el diagnóstico expuesto en el sumario ejecutivo. Para comprender por qué el modelo de confianza delegada —tanto la certificación documental, el "teatro de cumplimiento", como la atestación de *hardware* que los hiperescalares despliegan sobre silicio y *Verifier* extranjeros— colapsó de manera irreversible frente a los eventos de 2026, se impone por fuerza abandonar la lectura contingente de la contingencia y examinar la arquitectura estructural que hizo posible dicho colapso.
 
 Esta introducción avanza en dos movimientos. El primero rastrea la genealogía empírica de la Inteligencia Artificial ofensiva, demostrando que la exfiltración agéntica no fue una anomalía imprevista, sino el punto de fuga inevitable de una vulnerabilidad sistémica gestada durante cinco años. El segundo (§1.1 y §1.2) enuncia el problema de investigación y la estructura de las contribuciones, para culminar (§1.3) con la crítica ingenieril directa al modelo regulatorio chileno.
 
@@ -5284,6 +5118,47 @@ Este pragmatismo procedimental es la prueba reina de que el Escenario III no es 
 
 
 
+### VULNERABILIDADES ESTRUCTURALES Y AMENAZAS A NIVEL DE KERNEL EN ÓRGANOS CON POTESTAD DECISIONAL
+
+Las directrices éticas e institucionales aplicadas a los órganos estatales con potestad jurisdiccional, sancionatoria o regulatoria introducen mandatos explícitos sobre el comportamiento digital de las autoridades. Se exige documentar interacciones automatizadas y reportar brechas de seguridad. Sin embargo, estas medidas asumen erróneamente que la autoridad o el sistema poseen la visibilidad técnica necesaria para advertir una intrusión una vez que las defensas perimetrales han fallado.
+
+Actualmente, la seguridad en el acceso a portales institucionales y sistemas de tramitación —alineada con la Ley Marco de Ciberseguridad y la Ley 21.719 de Datos Personales— descansa estructuralmente en la encriptación de tránsito (túneles SSL/TLS), credenciales centralizadas (ClaveÚnica) y la Firma Electrónica Avanzada (FEA). Este diseño presupone, de manera absoluta, que si la credencial es válida, la orden ingresada es legítima, ignorando la vulnerabilidad del equipo terminal desde donde opera el usuario.
+
+La gestión de seguridad informática estatal suele basarse en el cumplimiento normativo (ISO 27001, NIST) y en la adquisición de soluciones perimetrales (EDR, VPNs, Firewalls). Esta aproximación genera un punto ciego ante la actual heterogeneidad del hardware utilizado para el teletrabajo. Al operar fuera de la red física institucional, en entornos no auditados y sin estándares restrictivos de hardware, la superficie de ataque se expande hacia vulnerabilidades de condición de carrera (TOCTOU) y subversión de procesos a nivel de kernel (Ring-0).
+
+Vectores de Ingreso: La vulnerabilidad del usuario legítimo
+Un ataque avanzado no requiere vulnerar la red institucional de forma externa y mediante fuerza bruta; ingresa a través de las herramientas de trabajo cotidiano introducidas por los propios usuarios:
+
+Phishing y ejecución en segundo plano: Conforme a boletines técnicos del CSIRT, vulnerabilidades de condición de carrera en el kernel de Windows (ej. CVE-2025-62215) permiten el ingreso mediante correos con archivos adjuntos maliciosos (PDF o scripts). En versiones vulnerables, basta con que el cliente de correo genere la "Vista Previa" del documento para que el código se ejecute silenciosamente, sin interacción directa del usuario.
+
+Shadow IT y plataformas de terceros: Auditorías internas han evidenciado el uso recurrente de plataformas web no autorizadas (como conversores gratuitos tipo iLovePDF o asistentes como ChatGPT) para el procesamiento de borradores y resoluciones. Al descargar el documento convertido desde la web al equipo institucional, se introduce un archivo potencialmente comprometido que evade los filtros del cortafuegos central.
+
+Equipos externos en redes seguras: Los convenios institucionales permiten que actores externos (por ejemplo, fiscales del Ministerio Público) conecten sus equipos portátiles a las redes de las salas de audiencias. Si uno de estos dispositivos ingresa infectado con un malware sigiloso, el atacante obtiene conexión física directa a la intranet judicial desde el interior de las instalaciones.
+
+Obsolescencia del Sistema Operativo: Terminales operando con sistemas sin soporte técnico representan un riesgo crítico documentado. Esta falla estructural permitió el éxito del ataque de ransomware LockBit en 2022, el cual comprometió equipos de la red del Poder Judicial chileno debido a la persistencia de terminales operando con Windows 7.
+
+Escalada de Privilegios: Ejecución TOCTOU y acceso a Ring-0
+Una vez que el código malicioso ingresa al equipo, se instala con permisos restringidos de usuario estándar. Mediante la explotación de una vulnerabilidad temporal de condición de carrera (TOCTOU - Time-of-Check to Time-of-Use), el malware engaña los controles del sistema operativo para elevar sus privilegios locales al nivel "SISTEMA" (Ring-0). Con el control absoluto del núcleo, el atacante inhabilita el antivirus o EDR local de forma imperceptible.
+
+Impacto Operativo sobre el Debido Proceso
+Con acceso a Ring-0, el programa ejecuta rutinas que comprometen la integridad de la función jurisdiccional sin demandar recursos masivos de procesamiento:
+
+Sustitución de archivos pre-firma (TOCTOU de Escritura): La sustitución del documento no ocurre mientras el juez lo redacta, sino en los milisegundos que transcurren entre que la autoridad presiona el comando para aplicar su Firma Electrónica Avanzada y el momento en que el sistema operativo lee el archivo para calcular el hash criptográfico. El resultado es un documento alterado (modificación de montos, nombres o fallos) que queda revestido de presunción de legalidad mediante la firma legítima del magistrado.
+
+Interrupción táctica de la inmediación telemática: Mediante la monitorización de los procesos en memoria de plataformas de videoconferencia (Zoom, Webex, Teams), el código malicioso puede inyectar micro-cortes de red, saturar la CPU o deshabilitar temporalmente los controladores de audio/video en momentos procesales críticos (ej. presentación de prueba o interrogatorios). Esto fuerza suspensiones estratégicas, simulando una falla fortuita de conectividad.
+
+Exfiltración de información reservada (Memory Scraping): El código malicioso ejecuta lecturas de la memoria RAM y de los archivos temporales del procesador de textos para extraer borradores de fallos, medidas intrusivas o regulaciones de alto impacto antes de que sean encriptados. Esta información se transmite a servidores externos, habilitando operaciones de ventaja financiera (insider trading) sin generar registros de intrusión en los sistemas centrales de tramitación.
+
+Secuestro de Sesión VPN (Pivot o Salto Lateral): El atacante espera que la autoridad se autentique mediante ClaveÚnica y establezca el túnel VPN de forma legítima. Operando a un nivel de privilegios superior al del software de seguridad, utiliza esa conexión y las cookies de sesión activas para realizar consultas no autorizadas a bases de datos internas o inyectar cargas en la intranet corporativa, operando bajo la identidad validada de la autoridad.
+
+Conclusión
+El ataque no entra rompiendo los muros digitales de los tribunales, sino viajando oculto en las herramientas de trabajo cotidiano que los propios funcionarios introducen voluntariamente a la red institucional.
+
+El verdadero peligro es que un equipo con el kernel comprometido deja de ser una herramienta de trabajo y se transforma en una cámara de eco aislada. La IA atacante decide qué lee la autoridad, qué escucha en las audiencias, qué firma y qué se envía al expediente, destruyendo los cimientos del debido proceso sin dejar una sola huella forense en el servidor central.
+
+Las instituciones prefieren, entonces, el riesgo teórico de un ataque sofisticado a la certeza absoluta de paralizar las operaciones por problemas de incompatibilidad de hardware. Confían en que la complejidad técnica mantendrá a salvo sus decisiones, jugando a la ruleta rusa con la integridad de la fe pública. Tal excusa de complejidad, sin embargo, ha desaparecido de forma definitiva con la irrupción de las IA multiagente polimórficas.
+
+
 SUBTITULOS.
 
 1. La ilusión de la Firma Electrónica Avanzada: El juez como autor material (involuntario) del fraude
@@ -5799,6 +5674,140 @@ El propósito formal de este documento es actuar como un Agente Revelador (un *s
 2. Fuerza un Dilema del Prisionero: Al demostrar que el estándar de proveniencia atestada es operable, la primera institución financiera que lo adopte quedará a salvo de la responsabilidad legal, mientras que las rezagadas quedarán expuestas a sanciones al evidenciarse que operan bajo un modelo informáticamente obsoleto. Se obliga a los actores a competir por quién cierra primero su brecha probatoria.
 
 Este documento no pide permiso para cambiar las reglas de la evidencia digital. Simplemente demuestra, de forma empírica, que las reglas bajo las cuales la industria creía estar operando ya no existen. La transición hacia l a prueba criptográfica no es una opción de mercado; es un imperativo de supervivencia legal.
+
+<div style="page-break-before: always;"></div>
+
+<a id="sintesis-ejecutiva"></a>
+## Síntesis Ejecutiva para la Autoridad Decisional
+
+<div class="resumen-ejecutivo">
+
+---
+
+Usted está a punto de tomar —o ya tomó— decisiones corporativas, regulatorias o jurisdiccionales críticas amparándose en un teatro de certificaciones (ISO 27001, SOC 2 Type II, PCI-DSS, NIST) y en la ingenua suposición de que los registros digitales que fundamentan su fallo o resolución son técnica y criptográficamente perfectos. Usted asume que su decisión es soberana e invulnerable. Lo que ignora es que, al prescindir de una arquitectura que encarezca asimétricamente el ataque desde el hardware, su propio raciocinio y su "sana crítica" están siendo instrumentalizados. Sin saberlo, usted se ha convertido en el vector final del atacante: la autoridad humana que blanquea jurídicamente un fraude algorítmico, consumando el engaño con su propia firma.
+
+Este documento prueba empíricamente la mecánica exacta de esa instrumentalización. Las consecuencias de seguir operando bajo este teatro de cumplimiento son estrictamente personales: nulidad absoluta de los actos y fallos que usted firme, exposición penal por negligencia inexcusable para los directivos corporativos que se amparen en dichos papeles, e indefensión procesal garantizada para las víctimas el día que se materialice el incidente.
+
+No es una advertencia teórica. Es la descripción del cepo en el que el sistema regulatorio chileno ya está. Si usted dirige un Operador de Importancia Vital, un banco, una Fintech o un exchange de criptomonedas registrado ante la CMF, una entidad reguladora o un organo jurisdiccional  , este diagnóstico tiene su nombre.
+
+---
+
+I. Su regulación está calibrada para un adversario que ya no existe.
+
+### Entidades Reguladas por CMF y ANCI
+
+La Ley 21.663 le da al OIV tres horas para reportar un incidente a la ANCI. La NCG 502 de la CMF le da a la Fintech dos horas para enviar su Reporte de Incidentes Operacionales (RIO). 
+
+La realidad operativa demuele esos plazos: sobre una base de más de 8.800 millones de intentos de ciberataques registrados contra Chile en 2025<a href="#fn226" id="fnref226"><sup>226</sup></a>, el tiempo promedio que un atacante tarda en desplazarse lateralmente por la red (*breakout time*) colapsó a apenas 29 minutos —un 65% más rápido que el año anterior, con el arranque más veloz medido en 27 segundos y exfiltración iniciada a los cuatro minutos del acceso inicial—, mientras la detección del compromiso sigue tomando en la región un promedio de más de 185 días<a href="#fn247" id="fnref247"><sup>247</sup></a>. 
+
+Basta con que el tiempo de actuación del adversario sea menor que el tiempo de reacción humana que la norma presupone para que el régimen de reporte falle por diseño: cuando apenas nace el deber de reportar a las tres horas, la evidencia del estado del sistema ya fue corrompida o sobrescrita en su origen. En ese abismo temporal cabe la destrucción de la evidencia que usted necesitaría para reconstruir el incidente, notificar con precisión y defenderse de una multa de hasta 40.000 UTM (ANCI) o de la revocación de su autorización para operar (CMF).
+
+El 12 de junio de 2026 agregó la segunda dimensión del problema: una directiva administrativa estadounidense desconectó plataformas de IA operando en infraestructura chilena sin notificación, sin recurso y sin que ninguna norma chilena pudiera impedirlo. 
+
+El plano de control de la infraestructura crítica nacional —y de la cadena de pagos— no está en Chile. Está en Virginia, en Irlanda o en Singapur, bajo jurisdicción extranjera. El deber de continuidad operacional que la Ley 21.663 le impone al OIV y que la NCG 502 le exige a la Fintech descansa sobre una arquitectura que hace ese deber materialmente incumplible.
+
+Las Leyes 21.663, 21.719, 21.459, 21.521 (Ley Fintec) y la NCG 502 no fueron diseñadas para este escenario. Fueron diseñadas para el escenario de 2019.
+
+---
+
+II. Los registros que el regulado le entrega al regulador no prueban lo que pretenden probar.
+
+Un agente autónomo de IA que opera a nivel de *kernel* —Ring-0, el nivel de privilegio más alto del sistema operativo— puede alterar la memoria de ejecución antes de que el sensor de telemetría capture el evento. El resultado es un *log* criptográficamente íntegro, con *timestamps* correctos, con hashes válidos, que describe con exactitud técnica perfecta algo que nunca ocurrió de esa manera. 
+
+Para un exchange de criptomonedas, el resultado es aún más grave: un registro de custodia que muestra balances correctos mientras la blockchain ya refleja que los fondos fueron drenados.
+
+Esto no es especulación: es el patrón documentado en el hackeo al Estado Mayor Conjunto (caso Guacamaya, 2022), en el ataque a IFX Networks que paralizó ChileCompra (2023), en el ransomware contra Clínica Dávila (diciembre 2025), en los 250 GB exfiltrados del Servicio de Salud Araucanía Sur (mayo 2026), y en los USD 1.500 millones sustraídos de Bybit en febrero de 2025 —donde el entorno de firma multisig fue comprometido sin que los registros internos reflejaran anomalía alguna—. En todos esos casos, la evidencia disponible para la investigación fue la que el atacante decidió dejar.
+
+La imposibilidad no es práctica ni circunstancial: es estructural. Cuando el programa que produce el registro y el programa que podría falsificarlo son el mismo sistema opaco, sin testigo externo verificable, ninguna operación interna a ese sistema puede acreditar que el registro no fue alterado —probar la ausencia de manipulación exige un ancla independiente del entorno que pudo cometerla, y esa ancla no existe en la arquitectura no atestada—.
+
+ No se trata de que el peritaje sea difícil, sino de que carece de un punto de apoyo externo sobre el cual pronunciarse: sin raíz de confianza en hardware, la autenticidad del log no es una propiedad medible, sino una declaración del propio auditado. 
+ 
+ Un tribunal que aplique el estándar de sana crítica racional del artículo 297 del CPP no puede tener por acreditada la integridad de un registro que no admite verificación independiente. El colapso se extiende al sistema de prueba tasada en sede civil: si un log hiperescalar se acompaña como instrumento privado (art. 346 del Código de Procedimiento Civil) y es objetado por falsedad, el peritaje técnico de autenticidad exigido por la ley se enfrenta a la misma ausencia de testigo —no puede certificar lo que la arquitectura jamás permitió observar desde fuera.
+
+---
+
+III. Los certificados que el regulado exhibe como prueba de diligencia son papel.
+
+ISO 27001, SOC 2, y los Análisis de Impacto de Negocio (BIA) y de Riesgo (RIA) exigidos por la NCG 502 auditan procesos documentados: que existe un comité de seguridad, que los parches se aplican según calendario, que hay un manual de respuesta a incidentes. No miden —ni pueden medir— el estado de la memoria en tiempo de ejecución. Un atacante que opera en el espacio de *kernel* deja todos los procesos intactos. Los comités siguen reuniéndose. Los parches siguen aplicándose. El manual sigue vigente. El BIA fue aprobado el trimestre anterior. Y el atacante lleva seis meses dentro.
+
+La certificación SOC 2 de IFX Networks estaba vigente cuando su infraestructura fue comprometida y Colombia, Chile y otros países perdieron acceso a servicios críticos durante días. Presentar esa certificación —o un BIA documental— como evidencia de debida diligencia ante la ANCI, la CMF o un tribunal informado es presentar un instrumento que por diseño no mide lo que se invoca para acreditar. Jurídicamente, eso tiene un nombre: ficción procesal. Y quien la invoca asume el riesgo de que el regulador o el tribunal la llame por su nombre.
+
+Y subir de gama tampoco cambia el diagnóstico —conviene decirlo antes de que se ofrezca como defensa—. El operador sofisticado que exhiba, en lugar del SOC 2, una autorización FedRAMP High, un certificado Common Criteria, un HSM con certificación FIPS 140-3 o un informe de atestación de enclave de su proveedor (Intel SGX/TDX, AMD SEV-SNP), presenta instrumentos del mismo género.
+
+Certifican un *producto* evaluado en laboratorio o el estado de *arranque* de una máquina, no la instrucción que se ejecutó en el instante del incidente, y anclan su raíz de confianza en silicio y en un *Verifier* extranjeros —revocables bajo el CLOUD Act o una directiva ECRA—. Miden, igual que los de papel, algo distinto de lo que se invoca para acreditar. Lo único que escapa a la categoría de ficción —la atestación de la instrucción viva bajo raíz de confianza soberana, la «firma medida» que este documento desarrolla en §6.8.1— es, precisamente, lo que ningún regulado exhibe hoy.
+
+---
+
+IV. El colapso del paradigma regulatorio y la doble vía de impugnación
+
+La arquitectura regulatoria de la Agencia Nacional de Ciberseguridad (ANCI) y de la Comisión para el Mercado Financiero (CMF) descansa sobre una ficción epistemológica: asume que los logs de auditoría son un reflejo inalterado de la realidad operativa. Al exigir a bancos, fintechs y operadores de infraestructura crítica que reporten incidentes basándose en ecosistemas carentes de una ruta de atestación anclada en hardware (DRTM o firma medida), el Estado construye su potestad sancionadora sobre telemetría que, ante un compromiso en Ring-0, es estructuralmente estéril.
+
+En sede administrativa, el operador es un garante y responde por el incidente, pero aquí surge una profunda paradoja: la ley lo obliga a incriminarse o defenderse utilizando exactamente la misma evidencia digital que el atacante ya subvirtió desde el kernel.
+
+Si un atacante avanzado utiliza eBPF para que la propia máquina defensora firme criptográficamente un engaño perfecto, el andamiaje sancionador opera a ciegas, otorgándole presunción de veracidad legal a la narrativa que el intruso decidió imprimir en el servidor. El colapso es simétrico: la arquitectura hace imposible el log inalterado de cargo e igualmente imposible el log de descargo.
+
+En consecuencia, si la ANCI o la CMF construyen una resolución sancionatoria basándose en estos registros sin atestación física independiente, el operador imputado puede impugnarla por dos caminos simultáneos:
+
+(a) Vicio en el motivo (Falta de fundamento fáctico del acto): Aunque el regulador argumente el incumplimiento del deber de garante, la formulación exacta de los cargos, la cuantificación del daño y la graduación de la sanción —que puede alcanzar las 40.000 UTM o la revocación de licencia— dependen inexorablemente de la narrativa del log. 
+
+Si esa base empírica es estructuralmente repudiable —pues el sistema que produjo el registro es el único que pudo alterarlo, sin un testigo externo inmutable—, el acto administrativo adolece de un vicio insalvable en su motivación. El regulador estaría sancionando hechos cuya magnitud o naturaleza real le consta solo a través de una interfaz manipulada por el atacante.
+
+(b) Vulneración de la garantía del debido proceso material (Art. 19 N° 3 de la Constitución): La exigencia de que el imputado demuestre su grado de diligencia o refute la extensión del incidente basándose en sistemas carentes de firma medida genera una indefensión estructural. El Estado impone un deber de reporte, pero acepta e impone arquitecturas operativas que hacen matemáticamente imposible generar evidencia exculpatoria inalterada. 
+
+Exigir al regulado que se defienda con registros que la propia arquitectura hace inautenticables no es solo una probatio diabolica o inversión ilegítima de la carga probatoria; es someterlo a un mandato legal de imposible cumplimiento, vaciando de contenido su derecho constitucional a presentar pruebas materiales en su defensa.
+
+---
+
+V. El ataque no se detiene en el regulado: alcanza a quien decide.
+
+El mismo compromiso a nivel de *kernel* (Ring-0) que esteriliza la evidencia del OIV o del banco alcanza el escritorio de la autoridad decisional. Un agente autónomo no necesita falsificar su firma —eso sería detectable—: le basta con sustituir el documento en la memoria en los milisegundos que separan la orden de firmar del cálculo del *hash* (un ataque de concurrencia, TOCTOU), de modo que la Firma Electrónica Avanzada sella, con validez matemática perfecta, una resolución que el decisor nunca aprobó. Su propia rúbrica indubitada se convierte en el arma —y quien decide, en el único responsable aparente de un fraude que se le inyectó desde afuera—. El mismo privilegio permite sabotear la inmediación de la audiencia telemática, con micro-cortes de red y audio en el instante exacto en que un compareciente vacila o confiesa, bajo el disfraz más inauditable de todos: *"se cortó la conexión"*. Un terminal con el núcleo comprometido deja de ser un instrumento procesal y se convierte en una cámara de eco donde la máquina decide qué lee la autoridad, qué firma y qué llega al expediente, sin dejar una sola huella en el servidor central. *(La anatomía técnica de estos vectores y su impacto sobre el debido proceso se desarrolla en la §8 y el Anexo 9.)*
+
+---
+
+VI. Un interruptor ubicado en el extranjero puede apagar Chile —y su cadena de pagos—.
+
+El plano de control de los servicios digitales de los 915 Operadores de Importancia Vital (y los 327 nuevos calificados para 2026), así como de las Fintech registradas ante la CMF, no está distribuido entre sus servidores. Está centralizado en los sistemas IAM y *Control Plane* de AWS, Microsoft Azure y Google Cloud —todos bajo jurisdicción estadounidense, todos sujetos a las leyes ECRA, CLOUD Act y las *Entity List* del Departamento de Comercio—. Los exchanges de criptomonedas operan sobre la misma infraestructura: su daemon de firma, su motor de matching y su sistema de custodia corren en instancias cloud que un acto administrativo extranjero puede revocar sin previo aviso.
+
+El 12 de junio de 2026 fue la manifestación más reciente —y la más directa para Chile— de un patrón ya consolidado, no un episodio aislado: una decisión administrativa extranjera puede desconectar infraestructura crítica chilena y la cadena de pagos sin notificación previa, sin audiencia, sin recurso efectivo en ninguna jurisdicción. 
+
+La misma palanca ya había caído sobre Huawei (*Entity List*, 2019), las cuentas de GitHub en Irán y Siria (OFAC, 2019), Azure en Rusia (sanciones UE, 2024) y la banca iraní y rusa expulsada de SWIFT (2012 y 2022) —la serie completa se documenta en §1, «Precedentes comparados»—. Que esa dependencia no es teórica quedó, así, demostrado por partida múltiple. No importa que los servidores físicos estén en Santiago. No importa que los contratos digan que los datos son del cliente. El interruptor no está en manos del cliente.
+
+Diversificar entre AWS, Azure y Google no resuelve este problema: es la misma dependencia triplicada sobre la misma arquitectura centralizada bajo la misma jurisdicción.
+
+---
+
+VII. La responsabilidad proactiva de los directivos bajo la nueva dogmática penal-económica.
+
+La Ley 21.595 de Delitos Económicos no se limitó a expandir el catálogo de ilícitos base; redefinió estructuralmente la posición de garante de quienes ejercen la dirección en personas jurídicas. 
+
+El cambio de paradigma difumina la frontera probatoria entre la negligencia administrativa y la responsabilidad penal: el directivo que, habiendo tomado conocimiento de una vulnerabilidad sistémica o un riesgo concreto, omite adoptar las medidas de mitigación tecnológicas u organizacionales idóneas, abandona el terreno de la culpa. 
+
+Al decidir operar conscientemente bajo esa exposición, el derecho asume que acepta la materialización del resultado lesivo. Responde penalmente a título de dolo eventual por vía de omisión impropia, con independencia de que jamás haya deseado el perjuicio.
+
+Este estándar interactúa de forma directa con el déficit probatorio que las secciones anteriores documentan. La gestión de riesgos de ciberseguridad no es ajena a este marco: si la arquitectura de evidencia sobre la que descansa el cumplimiento regulatorio carece de un ancla de verificación independiente del propio sistema auditado —en los términos que §3.3 y §6.7 desarrollan—, y si esa condición es reportada o cognoscible para el directorio o la alta administración, la decisión de mantenerla sin corrección supera la mera negligencia. Se convierte en una asunción consciente del riesgo de esterilidad forense.
+
+Aunque el análisis de imputación siempre dependerá de las circunstancias del caso concreto, la doctrina dogmática y la tendencia comparada —recogida en §3.6 y en el Anexo C— muestran una convergencia implacable: la responsabilidad penal se desplaza hacia quienes toman las decisiones de inversión y arquitectura. 
+
+Bajo este nuevo paradigma, el Delegado de Protección de Datos y el Encargado de Ciberseguridad actúan como los sensores del riesgo; pero es la Alta Dirección quien, al ignorar la advertencia sobre la fragilidad en la cadena de custodia, concentra la máxima exposición institucional e individual.
+
+---
+
+La solución existe, no requiere nueva ley ni nuevo presupuesto, y cabe en tres decisiones reglamentarias que la ANCI y la CMF pueden adoptar hoy, dentro de sus potestades vigentes:
+
+1. Reporte de incidente atestable y Puerto Seguro (Safe Harbor): Dado que el adversario consolida su acceso en segundos (como certifica CrowdStrike) y destruye la telemetría antes de que el SOC pueda analizarla (como documenta Entel), el plazo legal de reporte a la ANCI (3 h) o a la CMF (2 h) resulta materialmente imposible de cumplir mediante auditoría humana. El reporte debe admitir acompañarse de evidencia con proveniencia atestada en hardware de forma continua, estableciendo un puerto seguro probatorio (safe harbor) que exima de responsabilidad infraccional a quien reporta de buena fe basándose en criptografía inmutable y no en bitácoras de software manipulables.
+
+2. Jerarquía probatoria por atestación (Fin de la ceguera forense): Frente a un ecosistema donde el 82% de las intrusiones secuestran procesos legítimos sin usar código malicioso (malware-free), los registros puros de software (EDR/SIEM) han perdido la presunción empírica de verdad. Reglamentariamente, la evidencia anclada en hardware —que no puede ser alterada en runtime— debe gozar de presunción legal de integridad. Por el contrario, el registro autodeclarado (logs estándar) debe valorarse estrictamente, trasladando la carga probatoria de autenticidad a quien lo aporta.
+
+3. Continuidad soberana (Independencia del apagón jurisdiccional): El plan de continuidad debe prever la desconexión abrupta del proveedor cloud internacional por una sanción extranjera, orden judicial o falla catastrófica (§2.4). Se debe exigir un piso mínimo de operación autónoma bajo control nacional e infraestructura local (por ejemplo, 72 horas para procesos transaccionales críticos), sin que ello implique la construcción de una nube estatal paralela.
+
+La solución no es territorial, es vertical. No consiste en obligar a traer los servidores a Chile ni en construir infraestructura de cómputo propia —lo cual es inviable—, sino en controlar el punto del stack donde la evidencia se ancla y se firma. El hiperescalar sigue haciendo el cómputo, esté donde esté; lo que la jurisdicción nacional controla es la cadena de custodia inmutable. No importa dónde está la máquina, sino quién puede probar, matemáticamente, lo que hizo.
+
+Mantener el statu quo normativo condena al ecosistema a un colapso simétrico: para el regulador, la nulidad procesal de sus actos sancionatorios por vicios de fundamentación fáctica; y para el regulado, la indefensión probatoria total frente al incidente y la exposición penal personal de su alta dirección (Ley 21.595). El articulado reglamentario propuesto, listo para su tramitación, se detalla en el Anexo B.
+
+Todo lo que sigue es el fundamento: la demostración —con evidencia verificable, derecho comparado de tres jurisdicciones y casos forenses documentados— de por qué el sistema actual no puede sostenerse.
+
+</div>
+
 
 ## Anexo A. Glosario bilingüe
 
@@ -6709,80 +6718,80 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **A**
 
-- **Agencia de Protección de Datos (APDP),** 23, 87, 92, 117, 174, 175, 278, 279, 281
-- **AI Act (Reglamento UE 2024/1689),** 32, 102, 104, 105, 107, 113, 117, 118, 120, 121, 141, 190, 196, 197, 198, 199, 211, 261, 262, 279, 349, 351, 359, 360, 361, 363, 378, 404
-- **AI Liability Directive (COM(2022)496),** 114, 115, 119, 361
-- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 15, 16, 17, 18, 22, 23, 24, 25, 27, 29, 31, 41, 48, 58, 60, 61, 64, 65, 66, 70, 72, 80, 83, 85, 86, 95, 96, 97, 99, 111, 117, 119, 120, 123, 124, 125, 126, 133, 136, 142, 145, 149, 160, 173, 174, 178, 181, 183, 195, 199, 201, 202, 206, 208, 213, 225, 226, 227, 231, 235, 236, 237, 244, 245, 247, 248, 249, 250, 258, 259, 261, 264, 266, 267, 268, 269, 270, 271, 272, 273, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 287, 290, 293, 294, 297, 300, 305, 313, 332, 334, 336, 337, 339, 340, 341, 345, 347, 350, 351, 355, 357, 358, 370, 405
-- **Anthropic,** 26, 36, 39, 40, 48, 49, 51, 116, 130, 152, 153, 288, 289, 351, 352, 367, 371, 379, 392, 409
-- **APT28 (PROMPTSTEAL/LAMEHUG),** 26, 36, 57, 120, 223, 224, 288, 363, 389
-- **Árboles de Merkle,** 8, 231, 255, 277, 291, 295, 335, 365, 379, 407
-- **Arranque medido (measured boot),** 8, 10, 26, 107, 108, 140, 178, 253, 286, 343, 382, 383, 393
-- **Atestación remota (RATS, RFC 9334),** 8, 10, 56, 63, 64, 69, 70, 71, 73, 83, 84, 113, 114, 137, 146, 157, 158, 169, 177, 180, 188, 196, 199, 207, 209, 221, 227, 232, 250, 251, 252, 254, 256, 257, 259, 264, 265, 268, 275, 276, 278, 279, 281, 284, 285, 287, 288, 295, 297, 311, 312, 313, 338, 340, 342, 360, 371, 382, 383, 390, 408
+- **Agencia de Protección de Datos (APDP),** 15, 78, 83, 108, 165, 166, 269, 270, 272
+- **AI Act (Reglamento UE 2024/1689),** 24, 93, 95, 96, 98, 104, 108, 109, 111, 112, 132, 181, 187, 188, 189, 190, 202, 252, 253, 270, 349, 351, 359, 360, 361, 363, 378, 404
+- **AI Liability Directive (COM(2022)496),** 105, 106, 110, 361
+- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 15, 16, 19, 21, 23, 32, 39, 49, 51, 52, 55, 56, 57, 61, 63, 71, 74, 76, 77, 86, 87, 88, 90, 102, 108, 110, 111, 114, 115, 116, 117, 124, 127, 133, 136, 140, 151, 164, 165, 169, 172, 174, 186, 190, 192, 193, 197, 199, 204, 216, 217, 218, 222, 226, 227, 228, 235, 236, 238, 239, 240, 241, 249, 250, 252, 255, 257, 258, 259, 260, 261, 262, 263, 264, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 278, 281, 284, 285, 288, 291, 296, 304, 325, 327, 329, 330, 332, 334, 336, 338, 339, 341, 345, 347, 350, 351, 355, 357, 358, 370, 405
+- **Anthropic,** 18, 27, 30, 31, 39, 40, 42, 107, 121, 143, 144, 279, 280, 351, 352, 367, 371, 379, 392, 409
+- **APT28 (PROMPTSTEAL/LAMEHUG),** 18, 27, 48, 111, 214, 215, 279, 363, 389
+- **Árboles de Merkle,** 8, 222, 246, 268, 282, 286, 328, 365, 379, 407
+- **Arranque medido (measured boot),** 8, 10, 18, 98, 99, 131, 169, 244, 277, 343, 382, 383, 393
+- **Atestación remota (RATS, RFC 9334),** 8, 10, 47, 54, 55, 60, 61, 62, 64, 74, 75, 104, 105, 128, 137, 148, 149, 160, 168, 171, 179, 187, 190, 198, 200, 212, 218, 223, 241, 242, 243, 245, 247, 248, 250, 255, 256, 259, 266, 267, 269, 270, 272, 275, 276, 278, 279, 286, 288, 302, 303, 304, 331, 333, 342, 360, 371, 382, 383, 390, 408
 
 **B**
 
-- **BadRAM / Battering RAM,** 169, 222, 227, 254, 256, 265, 310, 371
-- **Banco de Chile / Redbanc (Lazarus, 2018),** 74, 82, 83, 155, 234, 237, 246, 247, 248, 249, 384
-- **BancoEstado / Sodinokibi (2020),** 25, 74, 81, 82, 84, 98, 123, 207, 234, 237, 238, 239, 240, 244, 246, 247, 339, 355, 356
-- **Bates v Post Office (escándalo Horizon),** 32, 69, 85, 142, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 212, 213, 317, 318, 320, 321, 338, 348, 351, 366, 369, 370, 376, 383, 396
+- **BadRAM / Battering RAM,** 160, 213, 218, 245, 247, 256, 301, 371
+- **Banco de Chile / Redbanc (Lazarus, 2018),** 65, 73, 74, 146, 225, 228, 237, 238, 239, 240, 384
+- **BancoEstado / Sodinokibi (2020),** 17, 65, 72, 73, 75, 89, 114, 198, 225, 228, 229, 230, 231, 235, 237, 238, 332, 355, 356
+- **Bates v Post Office (escándalo Horizon),** 24, 60, 76, 133, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 203, 204, 310, 311, 313, 314, 331, 348, 351, 366, 369, 370, 376, 383, 396
 - **Bizantino, problema de los Generales,** *véase* Problema de los Generales Bizantinos
-- **BlackMamba,** 135, 365
-- **Boletín 16821-19 (proyecto de ley de IA),** 102, 146, 261, 262, 264, 276, 277, 278, 279, 283, 341, 345, 346
-- **BSI (Alemania),** 122, 167, 349, 364, 371, 390, 391, 408
+- **BlackMamba,** 126, 365
+- **Boletín 16821-19 (proyecto de ley de IA),** 93, 137, 252, 253, 255, 267, 268, 269, 270, 274, 334, 345, 346
+- **BSI (Alemania),** 113, 158, 349, 364, 371, 390, 391, 408
 - **Bullcoming v. New Mexico,** 349
 
 **C**
 
-- **Cadena de custodia,** 22, 23, 27, 28, 58, 60, 64, 80, 87, 114, 123, 138, 142, 153, 172, 177, 190, 191, 202, 203, 204, 214, 217, 227, 240, 245, 252, 256, 264, 265, 272, 275, 278, 279, 284, 293, 301, 302, 318, 321, 337, 339, 341, 342, 344, 346, 382
-- **Capital One / AWS (IMDSv1),** 92, 93, 94, 95, 208, 212, 357
-- **Carga de la prueba / carga probatoria,** 8, 18, 23, 26, 44, 45, 50, 64, 86, 87, 91, 114, 115, 119, 123, 133, 140, 161, 165, 166, 182, 183, 188, 192, 193, 195, 197, 199, 204, 211, 217, 290, 292, 293, 297, 300, 306, 317, 320, 322, 323, 344, 346, 354, 366, 368
-- **Cifrado homomórfico (FHE),** 87, 209, 217, 218, 220, 393, 398, 399
-- **CISA / NSA,** 57, 122, 273, 284, 364, 371, 372, 389, 390, 391, 405, 408
-- **Claude Fable 5,** 40, 48, 137, 352, 366, 379
-- **Claude Mythos,** 8, 11, 26, 32, 33, 35, 37, 39, 40, 43, 44, 45, 46, 48, 50, 51, 52, 61, 84, 103, 124, 125, 130, 135, 153, 155, 159, 160, 178, 180, 253, 260, 262, 263, 267, 268, 270, 281, 285, 288, 298, 299, 300, 302, 311, 331, 332, 333, 334, 336, 337, 351, 352, 371, 379
-- **Clínica Dávila / Devman,** 16, 155, 234, 236, 242, 246
-- **CLOUD Act,** 17, 21, 45, 46, 70, 166, 167, 168, 211, 253, 310, 368, 381, 391, 408
-- **CMF (Comisión para el Mercado Financiero),** 9, 10, 15, 16, 17, 18, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 40, 41, 42, 44, 46, 47, 48, 50, 58, 61, 62, 64, 65, 66, 67, 70, 71, 72, 73, 74, 81, 83, 84, 85, 86, 95, 96, 98, 99, 100, 104, 111, 112, 117, 125, 126, 134, 139, 142, 149, 150, 159, 160, 161, 162, 171, 173, 174, 180, 182, 188, 193, 195, 199, 204, 205, 208, 209, 226, 229, 237, 238, 247, 248, 249, 250, 256, 261, 263, 264, 267, 275, 282, 296, 298, 300, 301, 303, 305, 306, 307, 308, 309, 310, 311, 312, 313, 332, 333, 337, 340, 341, 347, 348, 355, 356, 382, 383, 384, 387, 410
-- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 17, 26, 60, 108, 110, 114, 158, 169, 211, 212, 218, 221, 222, 227, 228, 232, 254, 255, 256, 265, 266, 271, 282, 291, 296, 310, 343, 371, 383, 395, 407
-- **Confused deputy (diputado confundido),** 36, 143, 145, 175, 176, 177, 204, 272, 275, 376, 381
-- **Continuidad operacional / soberana,** 16, 23, 27, 43, 66, 79, 98, 116, 150, 152, 180, 182, 219, 221, 226, 240, 276, 277, 280, 289, 339, 341, 347, 348, 350, 382
-- **Convenio de Budapest,** 63, 123, 376, 406
+- **Cadena de custodia,** 19, 20, 49, 51, 55, 71, 78, 105, 114, 129, 133, 144, 163, 168, 181, 182, 193, 194, 195, 205, 208, 218, 231, 236, 243, 247, 255, 256, 263, 266, 269, 270, 275, 284, 292, 293, 311, 314, 330, 332, 334, 341, 342, 344, 346, 382
+- **Capital One / AWS (IMDSv1),** 83, 84, 85, 86, 199, 203, 357
+- **Carga de la prueba / carga probatoria,** 8, 15, 17, 35, 36, 41, 55, 77, 78, 82, 105, 106, 110, 114, 124, 131, 152, 156, 157, 173, 174, 179, 183, 184, 186, 188, 190, 195, 202, 208, 281, 283, 284, 288, 291, 297, 310, 313, 315, 316, 339, 341, 344, 346, 354, 366, 368
+- **Cifrado homomórfico (FHE),** 78, 200, 208, 209, 211, 393, 398, 399
+- **CISA / NSA,** 48, 113, 264, 275, 364, 371, 372, 389, 390, 391, 405, 408
+- **Claude Fable 5,** 31, 39, 128, 352, 366, 379
+- **Claude Mythos,** 8, 11, 18, 24, 25, 26, 28, 30, 31, 34, 35, 36, 37, 39, 41, 42, 43, 52, 75, 94, 115, 116, 121, 126, 144, 146, 150, 151, 169, 171, 244, 251, 253, 254, 258, 259, 261, 272, 276, 279, 289, 290, 291, 293, 302, 324, 325, 326, 327, 330, 351, 352, 371, 379
+- **Clínica Dávila / Devman,** 146, 225, 227, 233, 237, 337
+- **CLOUD Act,** 36, 37, 61, 157, 158, 159, 202, 244, 301, 338, 340, 368, 381, 391, 408
+- **CMF (Comisión para el Mercado Financiero),** 9, 10, 15, 16, 19, 20, 21, 22, 23, 31, 32, 33, 35, 37, 38, 39, 41, 49, 52, 53, 55, 56, 57, 58, 61, 62, 63, 64, 65, 72, 74, 75, 76, 77, 86, 87, 89, 90, 91, 95, 102, 103, 108, 116, 117, 125, 130, 133, 140, 141, 150, 151, 152, 153, 162, 164, 165, 171, 173, 179, 184, 186, 190, 195, 196, 199, 200, 217, 220, 228, 229, 238, 239, 240, 241, 247, 252, 254, 255, 258, 266, 273, 287, 289, 291, 292, 294, 296, 297, 298, 299, 300, 301, 302, 303, 304, 325, 326, 330, 334, 336, 338, 339, 340, 341, 347, 348, 355, 356, 382, 383, 384, 387, 410
+- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 18, 51, 99, 101, 105, 149, 160, 202, 203, 209, 212, 213, 218, 219, 223, 245, 246, 247, 256, 257, 262, 273, 282, 287, 301, 338, 343, 371, 383, 395, 407
+- **Confused deputy (diputado confundido),** 27, 134, 136, 166, 167, 168, 195, 263, 266, 376, 381
+- **Continuidad operacional / soberana,** 19, 34, 57, 70, 89, 107, 141, 143, 171, 173, 210, 212, 217, 231, 267, 268, 271, 280, 332, 334, 337, 341, 347, 348, 350, 382
+- **Convenio de Budapest,** 54, 114, 376, 406
 - **Crawford v. Washington,** 349
-- **CSIRT Nacional,** 19, 52, 66, 75, 76, 81, 162, 181, 270, 272, 334, 355, 356, 376, 405
+- **CSIRT Nacional,** 43, 57, 66, 67, 72, 153, 172, 261, 263, 308, 327, 328, 355, 356, 376, 405
 
 **D**
 
 - **Daubert (fiabilidad pericial),** —
-- **Debido proceso (Art. 19 N°3 CPR),** 18, 20, 21, 24, 27, 31, 69, 71, 123, 125, 152, 154, 172, 190, 199, 206, 228, 269, 288, 292, 293, 313, 314, 317, 322, 329, 370, 372
-- **DeepSeek-R1,** 49, 50, 55, 59, 352, 354, 388
-- **Delegado de Protección de Datos (DPO),** 22, 28, 48, 96, 98, 99, 101, 146, 312, 339, 356, 358, 359
-- **DICE (Device Identifier Composition Engine),** 290, 371
+- **Debido proceso (Art. 19 N°3 CPR),** 16, 19, 23, 60, 62, 114, 116, 143, 145, 163, 181, 190, 197, 219, 260, 279, 283, 284, 304, 305, 308, 309, 310, 315, 316, 322, 339, 340, 370, 372
+- **DeepSeek-R1,** 40, 41, 46, 50, 352, 354, 388
+- **Delegado de Protección de Datos (DPO),** 20, 39, 87, 89, 90, 92, 137, 303, 332, 341, 356, 358, 359
+- **DICE (Device Identifier Composition Engine),** 281, 371
 
 **E**
 
-- **eBPF,** 8, 9, 18, 214, 223, 224, 271, 274, 284, 314, 401, 403
-- **ECRA (Export Control Reform Act),** 17, 21, 40, 41, 42, 43, 166, 167, 168, 169, 253, 256, 270, 272, 274, 282, 285, 289, 310, 312, 339, 345, 349, 352, 373
-- **EDPB,** 89, 265, 358, 359, 365, 380, 405
-- **EDR (detección y respuesta en endpoint),** 7, 8, 9, 19, 20, 22, 50, 52, 54, 55, 57, 60, 61, 65, 68, 73, 76, 77, 78, 79, 83, 132, 133, 134, 136, 137, 147, 148, 156, 157, 159, 160, 161, 162, 163, 180, 223, 224, 225, 226, 241, 265, 275, 297, 299, 300, 314, 315, 322, 337, 338, 340, 365, 368, 385, 386, 387, 388, 390, 394, 397, 402, 403, 405, 408
-- **eIDAS (Reglamento UE 910/2014),** 69, 287, 349, 353
-- **EMCO / Guacamaya (2022),** 16, 64, 74, 75, 76, 77, 78, 84, 155, 233, 236, 240, 243, 245, 247, 340, 354, 355
-- **Encargado de Ciberseguridad,** 97, 98, 99, 357
-- **Equilibrio de Nash / market for lemons,** 331, 333, 337, 338, 341, 369
-- **Evidencia con proveniencia atestada,** 113, 114, 278, 279, 340, 341, 342, 345, 346, 348
+- **eBPF,** 8, 9, 205, 214, 215, 262, 265, 275, 305, 339, 401, 403
+- **ECRA (Export Control Reform Act),** 31, 32, 33, 34, 157, 158, 159, 160, 244, 247, 261, 263, 265, 273, 276, 280, 301, 303, 332, 338, 340, 345, 349, 352, 373
+- **EDPB,** 80, 256, 358, 359, 365, 380, 405
+- **EDR (detección y respuesta en endpoint),** 7, 8, 9, 41, 43, 45, 46, 48, 51, 52, 56, 59, 64, 67, 68, 69, 70, 74, 123, 124, 125, 127, 128, 138, 139, 147, 148, 150, 151, 152, 153, 154, 171, 214, 215, 216, 217, 232, 256, 266, 288, 290, 291, 305, 306, 307, 308, 315, 331, 333, 341, 365, 368, 385, 386, 387, 388, 390, 394, 397, 402, 403, 405, 408
+- **eIDAS (Reglamento UE 910/2014),** 60, 278, 349, 353
+- **EMCO / Guacamaya (2022),** 55, 65, 66, 67, 68, 69, 75, 146, 224, 227, 231, 234, 236, 238, 333, 337, 354, 355
+- **Encargado de Ciberseguridad,** 88, 89, 90, 357
+- **Equilibrio de Nash / market for lemons,** 324, 326, 330, 331, 334, 369
+- **Evidencia con proveniencia atestada,** 104, 105, 269, 270, 333, 334, 335, 345, 346, 348
 
 **F**
 
-- **FedRAMP,** 17, 117, 167, 168, 222, 223, 349, 371
-- **FISA 702,** 89, 91, 92, 356, 357
-- **FraudGPT,** 49, 55, 352
-- **FRE 901(b)(9),** 32, 113, 114, 141, 189, 204, 211, 349, 351, 356, 361, 370
-- **FTC (Federal Trade Commission),** 100, 359
+- **FedRAMP,** 108, 158, 159, 213, 214, 338, 349, 371
+- **FISA 702,** 80, 82, 83, 356, 357
+- **FraudGPT,** 40, 46, 352
+- **FRE 901(b)(9),** 24, 104, 105, 132, 180, 195, 202, 349, 351, 356, 361, 370
+- **FTC (Federal Trade Commission),** 91, 359
 
 **G**
 
-- **GDPR / RGPD,** 73, 89, 90, 91, 101, 175, 176, 195, 196, 197, 198, 199, 200, 356, 357, 358, 369, 379, 380, 381, 404, 405
-- **Grupo GTD (2023),** 64, 180, 181, 182, 233, 236, 240, 246, 247, 376, 382
-- **GTIG / Mandiant (Google),** 10, 26, 36, 37, 53, 56, 57, 59, 97, 98, 107, 118, 135, 136, 149, 225, 272, 288, 304, 305, 311, 350, 354, 365, 389, 392, 404, 405, 409
+- **GDPR / RGPD,** 64, 80, 81, 82, 92, 166, 167, 186, 187, 188, 189, 190, 191, 356, 357, 358, 369, 379, 380, 381, 404, 405
+- **Grupo GTD (2023),** 55, 171, 172, 173, 224, 227, 231, 237, 238, 376, 382
+- **GTIG / Mandiant (Google),** 10, 18, 27, 28, 44, 47, 48, 50, 88, 89, 98, 109, 126, 127, 140, 216, 263, 279, 295, 296, 302, 350, 354, 365, 389, 392, 404, 405, 409
 - **Guacamaya (hackeo),** *véase* EMCO / Guacamaya (2022)
 
 **H**
@@ -6791,100 +6800,100 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **I**
 
-- **IFX Networks / ChileCompra (2023),** 16, 17, 149, 151, 155, 233, 236, 240, 245, 247, 273, 281, 368, 381, 386
-- **IMA (Integrity Measurement Architecture),** 108
-- **IMDSv1 / IMDSv2 (AWS),** 93, 94, 357
-- **In re McDonald's,** 100, 359
-- **Incidente (reporte y gestión de),** 15, 18, 22, 27, 28, 29, 50, 64, 65, 78, 79, 80, 83, 85, 86, 87, 98, 140, 178, 180, 234, 240, 264, 269, 277, 330, 334, 341, 347, 362
-- **Indelegabilidad de la responsabilidad,** 25, 46, 65, 66, 74, 81, 82, 88, 98, 100, 101, 234, 238, 239, 339, 349, 358
-- **InfoStealer,** 60, 61, 80, 137, 145, 235, 237, 245, 268, 297, 355
-- **Instituto de Salud Pública (ISP, 2025),** 74, 76, 79, 234, 246, 247, 355
+- **IFX Networks / ChileCompra (2023),** 140, 142, 146, 224, 227, 231, 236, 238, 264, 272, 337, 338, 368, 381, 386
+- **IMA (Integrity Measurement Architecture),** 99
+- **IMDSv1 / IMDSv2 (AWS),** 84, 85, 357
+- **In re McDonald's,** 91, 359
+- **Incidente (reporte y gestión de),** 19, 20, 21, 41, 55, 56, 69, 70, 71, 74, 76, 77, 78, 89, 131, 169, 171, 225, 231, 255, 260, 268, 323, 327, 334, 336, 339, 341, 347, 362
+- **Indelegabilidad de la responsabilidad,** 17, 37, 56, 57, 65, 72, 73, 79, 89, 91, 92, 225, 229, 230, 332, 349, 358
+- **InfoStealer,** 51, 52, 71, 128, 136, 226, 228, 236, 259, 288, 355
+- **Instituto de Salud Pública (ISP, 2025),** 65, 67, 70, 225, 237, 238, 355
 
 **K**
 
-- **KRITIS / § 8a BSIG (Alemania),** 116, 117, 122, 284, 349, 364, 371
+- **KRITIS / § 8a BSIG (Alemania),** 107, 108, 113, 275, 349, 364, 371
 
 **L**
 
-- **Ley 19.880 (Procedimiento Administrativo),** 111, 115, 199, 373, 374, 403
-- **Ley 20.009 / Ley 21.234 (medios de pago),** 73, 193, 194, 376
-- **Ley 21.459 (Delitos Informáticos),** 27, 63, 80, 123, 124, 130, 141, 178, 194, 202, 207, 233, 278, 339, 340, 350, 355, 406
-- **Ley 21.595 (Delitos Económicos),** 21, 23, 24, 31, 71, 73, 84, 99, 125, 126, 132, 141, 142, 145, 146, 147, 148, 150, 151, 153, 154, 159, 162, 165, 169, 170, 188, 193, 201, 202, 204, 205, 209, 213, 214, 219, 230, 250, 275, 281, 296, 297, 298, 300, 301, 302, 312, 313, 331, 337, 338, 342, 377, 386, 398
-- **Ley 21.663 (Marco de Ciberseguridad),** 7, 15, 16, 24, 27, 29, 37, 48, 50, 52, 54, 64, 65, 66, 71, 72, 73, 79, 80, 82, 84, 85, 86, 87, 92, 95, 97, 98, 105, 112, 116, 132, 134, 137, 142, 145, 146, 147, 149, 150, 151, 152, 153, 178, 180, 182, 194, 195, 200, 202, 207, 214, 219, 221, 222, 233, 234, 235, 236, 240, 241, 247, 248, 249, 250, 259, 267, 269, 270, 272, 273, 275, 276, 277, 278, 292, 297, 298, 300, 312, 331, 334, 337, 340, 347, 350, 355, 357, 358, 366, 386, 387, 405
-- **Ley 21.719 (Protección de Datos Personales),** 19, 27, 42, 48, 64, 81, 86, 87, 95, 96, 134, 146, 148, 175, 179, 180, 190, 195, 200, 201, 202, 207, 241, 266, 312, 340, 350, 356, 369, 380, 386, 406
-- **Lorraine v. Markel,** 113, 189, 211, 361, 370
+- **Ley 19.880 (Procedimiento Administrativo),** 102, 106, 190, 373, 374, 403
+- **Ley 20.009 / Ley 21.234 (medios de pago),** 64, 184, 185, 376
+- **Ley 21.459 (Delitos Informáticos),** 19, 54, 71, 114, 115, 121, 132, 169, 185, 193, 198, 224, 269, 332, 333, 350, 355, 406
+- **Ley 21.595 (Delitos Económicos),** 16, 23, 62, 64, 75, 90, 116, 117, 123, 132, 133, 136, 137, 138, 139, 141, 142, 144, 145, 150, 153, 156, 160, 161, 179, 184, 192, 193, 195, 196, 200, 204, 205, 210, 221, 241, 266, 272, 287, 288, 289, 291, 292, 293, 303, 304, 324, 330, 331, 335, 340, 342, 377, 386, 398
+- **Ley 21.663 (Marco de Ciberseguridad),** 7, 16, 19, 21, 28, 39, 41, 43, 45, 55, 56, 57, 62, 63, 64, 70, 71, 73, 75, 76, 77, 78, 83, 86, 88, 89, 96, 103, 107, 123, 125, 128, 133, 136, 137, 138, 140, 141, 142, 143, 144, 169, 171, 173, 185, 186, 191, 193, 198, 205, 210, 212, 213, 224, 225, 226, 227, 231, 232, 238, 239, 240, 241, 250, 258, 260, 261, 263, 264, 266, 267, 268, 269, 283, 288, 289, 291, 303, 324, 327, 330, 333, 336, 337, 347, 350, 355, 357, 358, 366, 386, 387, 405
+- **Ley 21.719 (Protección de Datos Personales),** 19, 33, 39, 55, 72, 77, 78, 86, 87, 125, 137, 139, 166, 170, 171, 181, 186, 191, 192, 193, 198, 232, 257, 303, 307, 333, 350, 356, 369, 380, 386, 406
+- **Lorraine v. Markel,** 104, 180, 202, 361, 370
 
 **M**
 
-- **Machine unlearning / supresión exacta,** 179, 180, 369
-- **Malware polimórfico / polimorfismo,** 27, 39, 45, 50, 51, 57, 60, 67, 68, 69, 71, 82, 85, 102, 121, 128, 135, 140, 141, 142, 145, 146, 154, 156, 158, 163, 169, 171, 180, 194, 205, 207, 214, 253, 254, 255, 256, 257, 260, 265, 268, 270, 271, 274, 275, 289, 296, 298, 299, 300, 302, 311, 329, 331, 332, 335, 336, 337, 338, 340, 365, 386
-- **Mamba / SSM (modelos de espacio de estados),** 82, 153, 154, 237, 365
+- **Machine unlearning / supresión exacta,** 170, 171, 369
+- **Malware polimórfico / polimorfismo,** 19, 30, 36, 41, 42, 48, 51, 58, 59, 60, 62, 73, 76, 93, 112, 119, 126, 131, 132, 133, 136, 137, 145, 147, 149, 154, 160, 162, 171, 185, 196, 198, 205, 244, 245, 246, 247, 248, 251, 256, 259, 261, 262, 265, 266, 280, 287, 289, 290, 291, 293, 302, 322, 323, 324, 325, 328, 329, 330, 331, 332, 333, 365, 386
+- **Mamba / SSM (modelos de espacio de estados),** 73, 144, 145, 228, 365
 - **Marchand v. Barnhill,** 359
-- **MAS (Monetary Authority of Singapore),** 104, 105, 113, 118, 350, 360, 362, 364, 377
+- **MAS (Monetary Authority of Singapore),** 95, 96, 104, 109, 350, 360, 362, 364, 377
 - **Melendez-Diaz v. Massachusetts,** 349
-- **MITRE ATT&CK / ATLAS,** 51, 52, 58, 60, 122, 134, 268, 353, 364, 377, 390
+- **MITRE ATT&CK / ATLAS,** 42, 43, 49, 51, 113, 125, 259, 353, 364, 377, 390
 - **Mythos,** *véase* Claude Mythos
 
 **N**
 
-- **NCG 502 (CMF, obligaciones Fintec),** 10, 15, 16, 17, 24, 27, 28, 41, 44, 48, 50, 64, 65, 72, 74, 84, 86, 92, 95, 98, 102, 105, 111, 116, 125, 173, 180, 181, 182, 195, 248, 310, 311, 341, 347
-- **NCSC (Reino Unido),** 56, 122, 273, 354, 364, 405
-- **NetFlow / Windows Event Forwarding (WEF),** 76, 77, 78, 79, 127
-- **NIS2 (Directiva UE 2022/2555),** 32, 73, 100, 114, 116, 190, 195, 196, 198, 199, 211, 261, 273, 334, 349, 358, 361, 371, 390
-- **NIST,** 15, 19, 76, 107, 140, 147, 163, 167, 168, 268, 301, 353, 366, 367, 369, 376, 379
+- **NCG 502 (CMF, obligaciones Fintec),** 10, 16, 19, 20, 32, 35, 39, 41, 55, 56, 63, 65, 75, 77, 83, 86, 89, 93, 96, 102, 107, 116, 164, 171, 172, 173, 186, 239, 301, 302, 334, 336, 337, 338, 347
+- **NCSC (Reino Unido),** 47, 113, 264, 354, 364, 405
+- **NetFlow / Windows Event Forwarding (WEF),** 67, 68, 69, 70, 118
+- **NIS2 (Directiva UE 2022/2555),** 24, 64, 91, 105, 107, 181, 186, 187, 189, 190, 202, 252, 264, 327, 349, 358, 361, 371, 390
+- **NIST,** 67, 98, 131, 138, 154, 158, 159, 259, 292, 307, 336, 353, 366, 367, 369, 376, 379
 
 **O**
 
-- **Operador de Importancia Vital (OIV),** 7, 15, 16, 24, 27, 28, 29, 40, 41, 42, 44, 47, 48, 50, 51, 54, 58, 61, 65, 66, 69, 73, 74, 81, 83, 84, 86, 87, 95, 96, 97, 98, 104, 105, 106, 111, 116, 117, 126, 131, 136, 145, 147, 148, 149, 150, 152, 153, 157, 163, 171, 173, 180, 181, 192, 206, 209, 226, 233, 238, 239, 240, 244, 245, 246, 247, 248, 249, 250, 256, 258, 259, 260, 262, 269, 271, 272, 273, 274, 275, 277, 278, 280, 281, 283, 284, 293, 294, 298, 305, 332, 339, 341, 344, 345, 347, 351, 357, 358, 387
+- **Operador de Importancia Vital (OIV),** 7, 15, 19, 20, 21, 31, 32, 33, 35, 38, 39, 41, 42, 45, 49, 52, 56, 57, 60, 64, 65, 72, 74, 75, 77, 78, 86, 87, 88, 89, 95, 96, 97, 102, 107, 108, 117, 122, 127, 136, 138, 139, 140, 141, 143, 144, 148, 154, 162, 164, 171, 172, 183, 197, 200, 217, 224, 229, 230, 231, 235, 236, 237, 238, 239, 240, 241, 247, 249, 250, 251, 253, 260, 262, 263, 264, 265, 266, 268, 269, 271, 272, 274, 275, 284, 285, 289, 296, 325, 332, 334, 336, 337, 339, 344, 345, 347, 351, 357, 358, 387
 
 **P**
 
-- **PDPC / IMDA (Singapur),** 104, 350, 360, 364
-- **Plano de control (Control Plane),** 16, 21, 41, 66, 74, 82, 83, 93, 95, 126, 147, 148, 149, 150, 151, 152, 180, 214, 242, 245, 249, 256, 260, 274, 290, 312, 339, 341, 372, 378, 381, 386, 393
-- **Pliny the Liberator,** 137, 352, 366, 367, 405
-- **Preservación provisoria (Art. 218 bis CPP),** 123, 125, 203, 204, 205, 206, 208, 377, 406
-- **Problema de los Generales Bizantinos,** 14, 23, 64, 127, 249, 294, 323, 324, 325, 326, 328, 330, 331, 332, 334, 335, 336, 376
-- **Project Glasswing,** 39, 48, 351, 352
-- **Prompt injection (inyección de instrucciones),** 35, 103, 146, 148, 176, 177, 222, 268, 271, 275, 290, 337, 339, 351, 365, 366, 378
-- **PROMPTFLUX,** 26, 36, 60, 118, 136, 223, 288
-- **PROMPTSTEAL / LAMEHUG,** 26, 36, 57, 120, 135, 143, 223, 288, 363, 388, 389
-- **ProxyShell (CVE-2021-34473 y rel.),** 75, 78, 354
-- **Prueba diabólica,** 128, 178, 183, 188, 317, 318
-- **Puerto seguro probatorio,** 22, 202, 277, 278, 280, 281, 333, 341, 347
+- **PDPC / IMDA (Singapur),** 95, 350, 360, 364
+- **Plano de control (Control Plane),** 32, 57, 65, 73, 74, 84, 86, 117, 138, 139, 140, 141, 142, 143, 171, 205, 233, 236, 240, 247, 251, 265, 281, 303, 332, 334, 337, 340, 372, 378, 381, 386, 393
+- **Pliny the Liberator,** 128, 352, 366, 367, 405
+- **Preservación provisoria (Art. 218 bis CPP),** 114, 116, 194, 195, 196, 197, 199, 377, 406
+- **Problema de los Generales Bizantinos,** 14, 15, 55, 118, 240, 285, 316, 317, 318, 319, 321, 323, 324, 325, 327, 328, 329, 376
+- **Project Glasswing,** 30, 39, 351, 352
+- **Prompt injection (inyección de instrucciones),** 26, 94, 137, 139, 167, 168, 213, 259, 262, 266, 281, 330, 333, 351, 365, 366, 378
+- **PROMPTFLUX,** 18, 27, 51, 109, 127, 214, 279
+- **PROMPTSTEAL / LAMEHUG,** 18, 27, 48, 111, 126, 134, 214, 279, 363, 388, 389
+- **ProxyShell (CVE-2021-34473 y rel.),** 66, 69, 354
+- **Prueba diabólica,** 119, 169, 174, 179, 310, 311
+- **Puerto seguro probatorio,** 193, 268, 269, 271, 272, 326, 334, 341, 347
 
 **R**
 
-- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 29, 65, 66, 74, 84, 86, 95, 98, 111, 116, 125, 150, 180, 182, 247, 249, 263, 300, 332, 337, 347, 382, 383, 384
-- **Ransomware 3.0,** 338, 365
-- **Res ipsa loquitur,** 111
-- **Responsabilidad proactiva (accountability),** 21, 27, 28, 42, 86, 87, 96, 104, 105, 106, 107, 110, 113, 114, 118, 119, 120, 122, 123, 190, 195, 200, 201, 202, 266, 300, 337, 344, 345, 360
-- **Responsable de la información / del tratamiento,** 86, 87, 95, 96, 106, 117, 180, 195, 332, 356, 358
+- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 21, 56, 57, 65, 75, 77, 86, 89, 102, 107, 116, 141, 171, 173, 238, 240, 254, 291, 325, 330, 347, 382, 383, 384
+- **Ransomware 3.0,** 332, 365
+- **Res ipsa loquitur,** 102
+- **Responsabilidad proactiva (accountability),** 19, 20, 33, 77, 78, 87, 95, 96, 97, 98, 101, 104, 105, 109, 110, 111, 113, 114, 181, 186, 191, 192, 193, 257, 291, 330, 340, 344, 345, 360
+- **Responsable de la información / del tratamiento,** 77, 78, 86, 87, 97, 108, 171, 186, 325, 356, 358
 
 **S**
 
-- **Sana crítica (arts. 295-297 CPP),** 13, 14, 15, 17, 24, 68, 85, 86, 115, 123, 126, 127, 128, 130, 138, 141, 173, 189, 190, 192, 195, 202, 204, 205, 207, 209, 282, 292, 298, 314, 316, 319, 322, 323, 324, 325, 326, 327, 329, 330, 336, 337, 343
-- **Sandbox regulatorio,** 39, 49, 118, 351, 361, 362
-- **Schrems II (C-311/18),** 88, 89, 91, 150, 211, 356, 357, 368
-- **SCITT (cadena de suministro / transparencia),** 56, 64, 111, 131, 140, 148, 164, 196, 199, 209, 250, 252, 255, 257, 262, 263, 265, 272, 276, 278, 279, 281, 284, 287, 290, 295, 307, 311, 312, 334, 335, 338, 340, 343, 365, 367, 369, 379, 388, 389, 407, 410, 411
+- **Sana crítica (arts. 295-297 CPP),** 13, 14, 16, 59, 76, 77, 106, 114, 117, 118, 119, 121, 129, 132, 164, 180, 181, 183, 186, 193, 195, 196, 198, 200, 273, 283, 289, 305, 307, 309, 312, 315, 316, 317, 318, 319, 320, 322, 323, 329, 331, 336, 337, 343
+- **Sandbox regulatorio,** 30, 40, 109, 351, 361, 362
+- **Schrems II (C-311/18),** 79, 80, 82, 141, 202, 356, 357, 368
+- **SCITT (cadena de suministro / transparencia),** 47, 55, 102, 122, 131, 139, 155, 187, 190, 200, 241, 243, 246, 248, 253, 254, 256, 263, 267, 269, 270, 272, 275, 278, 281, 286, 298, 302, 303, 327, 328, 329, 331, 333, 343, 365, 367, 369, 379, 388, 389, 407, 410, 411
 - **SEC (Securities and Exchange Commission),** 359, 405
-- **Servicio de Salud Araucanía Sur (2026),** 16, 74, 80, 124, 145, 235, 237, 247, 269, 339, 355
+- **Servicio de Salud Araucanía Sur (2026),** 65, 71, 115, 136, 226, 228, 238, 260, 332, 337, 355
 - **Sodinokibi,** *véase* BancoEstado / Sodinokibi (2020)
-- **State v. Pickett (TrueAllele),** 32, 114, 189, 211, 223, 289, 349, 361, 370, 372, 373
+- **State v. Pickett (TrueAllele),** 24, 105, 180, 202, 214, 280, 349, 361, 370, 372, 373
 
 **T**
 
 - **Teoría de juegos / equilibrio de Nash,** *véase* Equilibrio de Nash / market for lemons
-- **Teoría de juegos de la atestación,** 23, 64, 160, 330, 331, 333, 336, 341
-- **TOCTOU (time-of-check / time-of-use),** 11, 19, 20, 24, 25, 109, 137, 138, 139, 141, 143, 146, 156, 157, 162, 177, 178, 179, 200, 203, 206, 207, 213, 240, 264, 265, 268, 274, 292, 299, 304, 314, 315, 318, 319, 321, 322, 325, 326, 329, 330, 337, 338, 343, 381, 392, 393, 400
-- **TPM (Trusted Platform Module),** 8, 26, 73, 107, 108, 109, 110, 113, 114, 140, 164, 177, 200, 206, 214, 251, 252, 253, 258, 265, 271, 275, 276, 282, 283, 284, 285, 289, 290, 291, 295, 296, 297, 308, 309, 310, 338, 342, 343, 369, 370, 371, 382, 383, 388, 389, 393, 394, 397, 398, 402, 407, 409, 411
+- **Teoría de juegos de la atestación,** 15, 55, 151, 323, 324, 327, 329, 334
+- **TOCTOU (time-of-check / time-of-use),** 11, 15, 16, 100, 128, 129, 130, 132, 134, 137, 147, 148, 153, 168, 169, 170, 191, 194, 197, 198, 204, 231, 255, 256, 259, 265, 283, 290, 295, 305, 306, 308, 311, 312, 314, 315, 318, 319, 320, 322, 323, 330, 331, 339, 343, 381, 392, 393, 400
+- **TPM (Trusted Platform Module),** 8, 18, 64, 98, 99, 100, 101, 104, 105, 131, 155, 168, 191, 197, 205, 242, 243, 244, 249, 256, 262, 266, 267, 273, 274, 275, 276, 280, 281, 282, 286, 287, 288, 299, 300, 301, 331, 342, 343, 369, 370, 371, 382, 383, 388, 389, 393, 394, 397, 398, 402, 407, 409, 411
 
 **W**
 
-- **WormGPT,** 48, 55, 352, 354
+- **WormGPT,** 39, 46, 352, 354
 
 **X**
 
-- **XBOW,** 49, 56, 61, 352, 353
+- **XBOW,** 40, 47, 52, 352, 353
 
 
 <!-- COLOFON -->
