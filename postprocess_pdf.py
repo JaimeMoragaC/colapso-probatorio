@@ -28,6 +28,7 @@ def clean(h):
     h = re.sub(r"<[^>]+>", "", h)          # tags html
     h = h.replace("↩", "").replace("#", "")
     h = re.sub(r"\*+", "", h)
+    h = re.sub(r"\{[^}]*\}", "", h)     # atributos pandoc {.clase}
     return re.sub(r"\s+", " ", h).strip()
 
 def heading_key(h):
