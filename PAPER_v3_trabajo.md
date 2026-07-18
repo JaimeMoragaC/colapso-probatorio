@@ -193,6 +193,8 @@ La primera parte de esta obra se enfoca estrictamente en el mercado financiero y
 2. El Frente Jurisdiccional y Estatal (El secuestro del debido proceso)
 Una vez establecido el diagnóstico corporativo, la segunda parte del documento traslada esta misma vulnerabilidad arquitectónica a los órganos con potestad decisional del Estado (tribunales y entes sancionadores). En este frente, el análisis abandona el riesgo financiero para centrarse en el riesgo institucional: cómo un ataque a nivel de kernel convierte la presunción de legalidad de la Firma Electrónica Avanzada en un arma de falsificación perfecta. Aquí demostraremos cómo el sistema instrumentaliza al Juez y a la Autoridad Administrativa, convirtiéndolos en simples periféricos hackeados que blanquean fraudes algorítmicos mediante su "sana crítica".
 
+Es en este segundo frente donde el trabajo hace su aportación más singular. La Sección 8 modela la *sana crítica* del juez como un algoritmo de consenso biológico y demuestra —trasladando el teorema de tolerancia a fallos bizantinos (Lamport, 1982) del sistema distribuido al proceso probatorio— que ese algoritmo fracasa por diseño cuando todas sus fuentes digitales pueden estar comprometidas. En la intersección exacta que ese capítulo ocupa —la sana crítica del juez humano leída como consenso bizantino bajo el modelo de amenazas de la IA agéntica— no existe, hasta donde alcanza esta investigación, literatura previa: es una contribución pionera —un *first-mover* genuino—, cuyo aporte no reside en la metáfora sino en haberla convertido en un modelo con condición de falla, umbral y remedio (§8.3).
+
 Guía de lectura:
 La vulnerabilidad técnica subyacente actúa como el hilo conductor de toda la obra. Sin embargo, el lector proveniente del mundo corporativo (CEOs, directores, auditores) encontrará el núcleo de su exposición legal en la primera mitad, mientras que el lector del mundo jurídico y procesal (magistrados, litigantes, legisladores) verá el colapso de su liturgia institucional expuesto con crudeza en la segunda. Ambos frentes convergen, hacia el final del documento, en una única solución arquitectónica ineludible: la Soberanía Forense anclada en hardware.
 
@@ -6708,7 +6710,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Plano de control (Control Plane),** 33, 58, 66, 74, 75, 85, 87, 118, 139, 140, 141, 142, 143, 144, 172, 206, 234, 237, 241, 248, 252, 266, 282, 304, 328, 330, 333, 336, 368, 374, 377, 382, 389
 - **Pliny the Liberator,** 129, 348, 362, 363, 401
 - **Preservación provisoria (Art. 218 bis CPP),** 115, 117, 195, 196, 197, 198, 200, 373, 402
-- **Problema de los Generales Bizantinos,** 14, 15, 56, 119, 241, 286, 308, 310, 311, 312, 314, 319, 321, 322, 323, 324, 325, 372
+- **Problema de los Generales Bizantinos,** 14, 15, 16, 56, 119, 241, 286, 308, 310, 311, 312, 314, 319, 321, 322, 323, 324, 325, 372
 - **Project Glasswing,** 31, 40, 347, 348
 - **Prompt injection (inyección de instrucciones),** 28, 95, 138, 140, 168, 169, 214, 260, 263, 267, 282, 326, 328, 347, 361, 362, 374
 - **PROMPTFLUX,** 20, 29, 52, 110, 128, 215, 280
