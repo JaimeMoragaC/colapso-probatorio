@@ -34,8 +34,6 @@ Jaime Marcelo Moraga Carrasco
 justiciachile@gmail.com  
 Temuco, Araucanía, Chile — Julio de 2026
 
-*Nota de Cumplimiento (EU AI Act): La metodología de desarrollo asistido de esta obra se acoge a la exención del deber de marcado de contenido sintético establecida en el Artículo 50(4) del Reglamento (UE) 2024/1689 (Ley de Inteligencia Artificial). La totalidad del documento ha sido sometida a revisión y control editorial humano exhaustivo, recayendo la responsabilidad jurídica, técnica y patrimonial por su publicación exclusivamente sobre el autor.*
-
 ¹ McCarthy, J. et al., A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence, 1955.  
 ² Turing, A. M., «Computing Machinery and Intelligence», Mind, 1950.  
 ³ Dijkstra, E. W., «The threats to computing science» (EWD898), 1984.
