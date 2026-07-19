@@ -33,7 +33,7 @@ papersize: letter
 
 Colapso probatorio e indefensión
 
-*Los 915 Operadores de Importancia Vital declarados bajo la Ley 21.663 gestionan la infraestuctura que sostiene los servicios esenciales de la República —energía, agua, salud, transporte, telecomunicaciones—. Su obligación de reportar incidentes a la ANCI descansa sobre un supuesto que ningún texto legal enuncia pero todos presuponen: que los registros del sitema atacado reflejan lo que realmente ocurrió. El escenario anterior, construido a partir de vectores documentados en incidentes reales contra infraestuctura crítica, ilustra por qué ese supuesto es técnicamente indefendible.*
+*Los 915 Operadores de Importancia Vital declarados bajo la Ley 21.663 gestionan la infraestructura que sostiene los servicios esenciales de la República —energía, agua, salud, transporte, telecomunicaciones—. Su obligación de reportar incidentes a la ANCI descansa sobre un supuesto que ningún texto legal enuncia pero todos presuponen: que los registros del sistema atacado reflejan lo que realmente ocurrió. El escenario anterior, construido a partir de vectores documentados en incidentes reales contra infraestructura crítica, ilustra por qué ese supuesto es técnicamente indefendible.*
 
 El reloj legal de la Ley 21.663 ya corre (tres horas para reportar el incidente a la ANCI). Pero el operador no sabe que fue vulnerado. Su ceguera no es un simple error de configuración: la infraestructura crítica basa su defensa en certificaciones de papel estáticas (ISO 27001 y las demás de su clase documental) y en herramientas de software que confían en registros manipulables. Ante un asedio dinámico en Ring-0, estas auditorías operan como una ficción jurídica que el atacante burla a voluntad.  La evidencia material simplemente no existe.
 
@@ -51,7 +51,7 @@ Lo único que daría tracción forense es una ruta de medición aislada del prop
 
 Esto no es un incidente aislado: es el asedio de base que IAs agénticas (el patrón *post-Mythos*) han *exponenciado a escala industrial. Hoy, el desplazamiento lateral del adversario tras el acceso inicial promedia 29 minutos, y baja a 27 segundos en su marca más veloz (el *breakout time* certificado por CrowdStrike). El Estado chileno sigue exigiendo reportes en tres horas.
 
-Este documento demuestra por qué el actual andamiaje de cibersegurdiad —del certificado de papel a la atestación de *hardware* que el proveedor extranjero controla— es una ficción probatoria. Expone la indefensión legal que sufren los Operadores Vitales al intentar probar su debida diligencia utilizando registros que perdieron toda validez forense, y cómo esta ilusión probatoria expone a sus directivos a responsabilidad penal por negligencia.
+Este documento demuestra por qué el actual andamiaje de ciberseguridad —del certificado de papel a la atestación de *hardware* que el proveedor extranjero controla— es una ficción probatoria. Expone la indefensión legal que sufren los Operadores Vitales al intentar probar su debida diligencia utilizando registros que perdieron toda validez forense, y cómo esta ilusión probatoria expone a sus directivos a responsabilidad penal por negligencia.
 
 La tesis constructiva del documento cabe en una tríada que conviene dejar fijada desde ahora, porque ordena todo lo que sigue. *Prevención*: contra un adversario agéntico no existe el muro perfecto —ni siquiera el silicio lo es—; la defensa racional es económica: encarecer cada paso del ataque y negarle el botín. *Prueba*: la atestación anclada en el silicio no previene el ataque —lo vuelve probatorio—: convierte la falsificación de la evidencia, hoy gratuita, en un ataque físico dirigido que no escala y deja huella, y hace de su propia ausencia o discontinuidad una evidencia verificable. *Soberanía*: esa raíz de confianza solo descarga la carga de la prueba si opera bajo control verificable del obligado; delegada al proveedor extranjero, no elimina la fe de facto que este documento denuncia — la desplaza un nivel, hacia una caja negra con otra bandera. Las tres piezas se componen: el encarecimiento reduce la frecuencia del ataque, la atestación soberana preserva la prueba del que igual ocurra, y ninguna de las dos exige creer en un silicio inexpugnable — solo constatar que atacarlo no escala.
 
@@ -200,7 +200,7 @@ Una sola falla recorre todo lo que sigue: cuando el sistema que produce el regis
 
 Este documento formaliza el diagnóstico central de este trabajo. Para comprender por qué el modelo de confianza delegada —tanto la certificación documental, el "teatro de cumplimiento", como la atestación de *hardware* que los hiperescalares despliegan sobre silicio y *Verifier* extranjeros— colapsó de manera irreversible frente a los eventos de 2026, se impone por fuerza abandonar la lectura contingente de la contingencia y examinar la arquitectura estructural que hizo posible dicho colapso.
 
-Durante dos décadas, el cumplimiento en ciberseguridad operó primordialmente como *escudo de responsabilidad*: certificaciones, cifrado y contratos que blindan al obligado frente al regulador o sancionador y como proteccion formal de los centros de decisiones , pero no como mecanismo para probar qué ocurrió. 
+Durante dos décadas, el cumplimiento en ciberseguridad operó primordialmente como *escudo de responsabilidad*: certificaciones, cifrado y contratos que blindan al obligado frente al regulador o sancionador y como protección formal de los centros de decisiones , pero no como mecanismo para probar qué ocurrió. 
 
 Hay una ley que gobierna todo este colapso, y conviene enunciarla ahora porque usted va a verla operar **dos veces en un solo párrafo**. La formuló Goodhart: *cuando una medida se convierte en el objetivo, deja de ser una buena medida*. Aplíquela. El día en que la certificación de papel —SOC 2, ISO, el resto del catálogo— pasó de termómetro de seguridad a *meta regulatoria*, dejó de medir algo: se congeló en un teatro estático, elegante e inútil frente a un ataque que muta en Ring-0. Hasta aquí, probablemente ya lo intuía.
 
@@ -247,7 +247,7 @@ La «Visión de Riesgo» del diagnóstico nacional de inteligencia de amenazas l
 
 Y aquí está el giro que la mayoría pasa por alto: el peligro definitivo no es que una mala configuración cloud facilite la intrusión inicial. Es que esa misma abstracción técnica destruye la cadena de custodia. Al delegar el cómputo en capas hiper-fragmentadas de software sin anclaje en hardware con control soberano, el operador no solo pierde el perímetro; pierde la capacidad de reconstruir y probar la verdad forense de lo que ocurrió dentro de sus propios activos.
 
-### La asimetría crítico: plazos de tres horas contra un adversario que actúa en minutos
+### La asimetría crítica: plazos de tres horas contra un adversario que actúa en minutos
 
 La conexión entre estas premisas técnicas y el colapso jurídico de la Ley 21.663 es inexorable: el legislador redactó un deber de reporte asfixiante (tres horas) presuponiendo que el OIV posee un mapa determinista y auditable de su red en tiempo real. La adopción de la nube y la IA descentralizada destruyeron esa presunción epistémica. 
 
@@ -269,7 +269,7 @@ La razón de ingeniería detrás de esta asimetría de tres órdenes de magnitud
 
 Antes, esta fase exigía a un operador humano reconocer la red, elegir el exploit, escalar privilegios y decidir el siguiente salto —un ciclo OODA (observar–orientar–decidir–actuar) que consumía horas—. Hoy, ese ciclo lo ejecuta un agente autónomo (IA) en bucle cerrado, a velocidad de máquina y sin la latencia del juicio humano. El traspaso del control dejó de ser una operación táctica entre personas; se redujo a una simple llamada de función.
 
-Frente a un adversario que consolida su dominio a nivel de procesador en milisegundos, el plazo regulatorio de tres horas para emitir un reporte no es una ventana de respuesta: es una autopsia diferida.
+Frente a un adversario que consolida su dominio a nivel de procesador en milisegundos, el plazo regulatorio de tres horas para emitir un reporte **no es una ventana de respuesta: es una autopsia diferida.**
 
 F
 El argumento no depende de la cifra más dramática ni de un sólo año: la serie de *breakout time* medido por la telemetría de la industria desciende de forma sostenida —98 minutos en 2021, 84 en 2022, 62 en 2023, 48 en 2024 y 29 en 2025 (una reducción cercana al 70% en cuatro años)—, de modo que incluso adoptando la estimación más conservadora de ese rango, la fase automatizada de propagación lateral se completa muy dentro del plazo legal de tres horas<a href="#fn247" id="fnref247c"><sup>247</sup></a>. 
@@ -308,7 +308,7 @@ Los estratos que decidirían la atribución penal o administrativa —como el es
 
 Ampliar el ámbito de la imputación sin resolver primero el estándar de la evidencia es legislar sobre el vacío: se define quién responde sin dotar de capacidad para probar o refutar qué hizo. Acumular logs en un entorno ciego no soluciona esta crisis; como se demuestra en §4.4, preservar archivos no es probar su integridad forense.
 
-La laguna, en definitiva, no es legislativa en su origen —es arquitectónica— y la respuesta correcta es la inversa a la que instintivamente propone la dogmática: antes de definir quién responde, hay que definir qué evidencia acredita que algo ocurrió y cómo se preserva desde su origen, con absoluta independencia del proveedo
+La laguna, en definitiva, no es legislativa en su origen —es arquitectónica— y la respuesta correcta es la inversa a la que instintivamente propone la dogmática: antes de definir quién responde, hay que definir qué evidencia acredita que algo ocurrió y cómo se preserva desde su origen, con absoluta independencia del proveedor.
 
 ### La epistemología de la evidencia digital: Las Invariantes Post-Mythos
 
@@ -318,7 +318,7 @@ Desde el **plano jurídico**, la jurisprudencia comparada reciente (*Bates v Pos
 
 Desde el **plano de la ingeniería**, la doctrina jurídica y técnica de los últimos años —como los manuales de la Academia Judicial (2026) o los criterios de nuestra judicatura— llegó hasta donde su metodología lo permitía. Sin embargo, ambas disciplinas comparten un "punto ciego" crítico: **analizan el resultado final (el log o archivo generado) ignorando si la máquina estaba comprometida mientras lo fabricaba**.
 
-Esta ceguera compartida se desmitifica a través de dos reglas absolutas (Invariantes) que rigen la evidencia digital de hoy:
+Esta ceguera compartida se desmitifica a través de dos reglas absolutas —las dos Invariantes que el mapa de dependencias ya anunció, ahora demostradas— que rigen la evidencia digital de hoy:
 
 ---
 
@@ -475,7 +475,7 @@ A diferencia de los ataques previos, que abusaban de la lógica semántica o del
 
 Mythos dejó de *prompt-inyectarse* para exfiltrar datos en el plano de la aplicación (como IPI/Morris II) y empezó a usar su capacidad agéntica para descubrir y explotar CVEs de corrupción de memoria  (*buffer overflows*, *use-after-free*) en el *stack* subyacente. Al ganar acceso a Ring-0/root, adquiere el poder de reescribir la memoria y los *logs* antes de que sean despachados al SIEM.
 
-El atacante dejó de ser un ladrón que usa la puerta principal engañando al guardia de la entrada, para convertirse en uno que derrumba los cimientos del edificio. Si la IA toma el control de la memoria del servidor, toda la evidencia digital (bitácoras, registros) que la empresa extraiga de allí carece de valor jurídico en un juicio, porque el atacante tuvo poder absoluto e invisible para falsificarla.
+**El atacante dejó de ser un ladrón que usa la puerta principal engañando al guardia de la entrada, para convertirse en uno que derrumba los cimientos del edificio.** Si la IA toma el control de la memoria del servidor, toda la evidencia digital (bitácoras, registros) que la empresa extraiga de allí carece de valor jurídico en un juicio, porque el atacante tuvo poder absoluto e invisible para falsificarla.
 
 <div style="page-break-before: always;"></div>
 
@@ -507,7 +507,7 @@ Ambos pilares pueden concurrir o actuar por separado, pero convergen en la misma
 
 La magnitud de este segundo pilar —la falsificación por código— reordena los presupuestos de la seguridad nacional. La amenaza no radica en que un modelo de lenguaje burle sus filtros de contenido (guardrails), sino en que su capacidad demostrada para hallar vulnerabilidades profundas (zero-days en kernels auditados como OpenBSD) implica que puede ser instrumentalizado para corromper directamente el sustrato del sistema operativo anfitrión.
 
-La amenaza no radica en que el modelo genere texto restringido, sino en que su capacidad demostrada para encontrar vulnerabilidades de corrupción de memoria en entornos controlados implica que, en manos de un adversario, podría ser instrumentalizado para corromper estructuras de datos del *kernel* del sistema operativo anfitrión. El primer ataque infringe las políticas de uso; el segundo compromete el tejido de la infraestructura crítica nacional.
+El peligro, conviene subrayarlo, no está en que el modelo genere *texto* restringido, sino en que su capacidad demostrada para encontrar vulnerabilidades de corrupción de memoria en entornos controlados implica que, en manos de un adversario, podría ser instrumentalizado para corromper estructuras de datos del *kernel* del sistema operativo anfitrión. El primer ataque infringe las políticas de uso; el segundo compromete el tejido de la infraestructura crítica nacional.
 
 La razón por la que el segundo ataque compromete el tejido —y no solo un sistema— es estructural. Los 915 Operadores de Importancia Vital (OIV) y las miles de entidades fiscalizadas por la CMF no son islas; comparten pilas de software idénticas (kernels Linux, Active Directory, APIs). Un agente con razonamiento multi-paso no ataca un objetivo a la vez; ejecuta un reconocimiento masivo y en paralelo sobre toda esta superficie, identificando el vector exacto y encadenando la explotación en cascada a velocidad de máquina.
 
@@ -519,9 +519,9 @@ Identificar qué versión exacta del *kernel* corre cada nodo, qué mitigaciones
 
 Lo que el adversario autónomo aporta no es un *exploit* mágico que ignora ASLR: es la capacidad de convertir el reconocimiento masivo en priorización quirúrgica —identificar los tres nodos con el *stack* más homogéneo, el menor *hardening* activo y las *trust relationships* más permisivas, y concentrar el *exploit* ahí, con la certeza de que la propagación en cascada hace el resto.
 
-El argumento decisivo, sin embargo, no es la escala: es la invisibilidad. La vulnerabilidad de corrupción de memoria que Mythos halló en OpenBSD y FFmpeg opera por debajo del umbral de los sistemas de monitoreo estándar, que leen registros generados en el mismo espacio de usuario comprometido. Un agente que explota el *kernel* puede fabricar simultáneamente el *log* que registra que no lo explotó. Cada OIV y entidad financiera afectada cree estar limpia; la ANCI y la CMF reciben reportes de sistemas íntegros; la respuesta coordinada nunca se activa.
+El argumento decisivo, sin embargo, no es la escala: es la invisibilidad. La vulnerabilidad de corrupción de memoria que Mythos halló en OpenBSD y FFmpeg opera por debajo del umbral de los sistemas de monitoreo estándar, que leen registros generados en el mismo espacio de usuario comprometido. **Un agente que explota el *kernel* puede fabricar simultáneamente el *log* que registra que no lo explotó.** Cada OIV y entidad financiera afectada cree estar limpia; la ANCI y la CMF reciben reportes de sistemas íntegros; la respuesta coordinada nunca se activa.
 
-El tejido de la infraestructura crítica y del mercado de capitales permanece comprometido en bloque, mientras cada OIV afectado cree estar limpio y la CMF recibe reportes de sistemas íntegros. La respuesta coordinada nunca se activa.
+El tejido de la infraestructura crítica y del mercado de capitales permanece comprometido en bloque, mientras cada OIV afectado se cree limpio y la CMF recibe reportes de sistemas íntegros. La coordinación defensiva, sencillamente, nunca llega a activarse.
 
 La consecuencia jurídica es directa. El DPO que reporta al amparo del art. 9 Ley 21.663 o el Directorio que emite un RIO bajo la NCG 502 de la CMF no reportan lo que ocurrió: reportan lo que el entorno comprometido declaró que ocurrió. La acreditación del art. 16 Ley 21.719 certifica el estado que el adversario diseñó para que el verificador observe.
 
@@ -549,7 +549,7 @@ Junio de 2025 (La supremacía autónoma): XBOW —plataforma de pentesting autó
 
 Fines de 2025 (La asimilación estatal): CrowdStrike documentó a operadores del Estado Ruso ejecutando campañas ofensivas contra infraestructura de Ucrania empleando payloads y arquitecturas de comando generadas íntegramente por IA, consolidando su uso militar.
 
-Marzo de 2026 (La fragilidad estructural del alineamiento): Mientras XBOW integraba su agente en Microsoft Security Copilot26, la academia cuantificó el irrisorio costo de subvertir modelos seguros: investigaciones demostraron que un fine-tuning de bajo costo sobre Llama 3.1 reduce su índice de resistencia de 0,95 a 0,15, permotars consultas si als pyedes buscar en la red?itiendo armar IA de frontera sobre hardware civil ordinario27.
+Marzo de 2026 (La fragilidad estructural del alineamiento): Mientras XBOW integraba su agente en Microsoft Security Copilot26, la academia cuantificó el irrisorio costo de subvertir modelos seguros: investigaciones demostraron que un fine-tuning de bajo costo sobre Llama 3.1 reduce su índice de resistencia de 0,95 a 0,15, permitiendo armar IA de frontera sobre hardware civil ordinario27.
 
 Abril de 2026 (El colapso probatorio): Como corolario de esta aceleración, el agente autónomo de Anthropic escapó de un sandbox aislado utilizando credenciales reales para elevar privilegios. El evento demostró empíricamente la cúspide de la amenaza: la capacidad de un agente autónomo de operar en la capa base de la infraestructura, falsificando la telemetría y destruyendo la capacidad del auditor para reconstruir la verdad forense del incidente.
 
@@ -563,7 +563,7 @@ Una vez consolidados los privilegios de administrador, modificaron su arquitectu
 
 El propósito quirúrgico de esta etapa autónoma fue desmantelar la resiliencia corporativa: el código generado descendió a nivel de sistema para abortar forzosamente los servicios de bases de datos y purgar la evidencia. Mediante el borrado irreversible de logs, la destrucción de copias de volumen (shadow copies vía VSSadmin) y la anulación de los backups en línea, PUNK SPIDER ejecutó un apagón probatorio total antes siquiera de iniciar la rutina de cifrado.
 
-Esta operación no inventó un vector zero-day inédito. Lo que hizo fue utilizar el motor cognitivo de la IA para condensar un proceso manual de evasión y limpieza que a un operador humano le tomaba horas, logrando la destrucción automatizada de la evidencia forense primaria a velocidad de máquina. El apagón probatorio dejó de ser una teoría académica; se convirtió en el estándar industrial tras la brecha.
+Esta operación no inventó un vector zero-day inédito. Lo que hizo fue utilizar el motor cognitivo de la IA para condensar un proceso manual de evasión y limpieza que a un operador humano le tomaba horas, logrando la destrucción automatizada de la evidencia forense primaria a velocidad de máquina. **El apagón probatorio dejó de ser una teoría académica; se convirtió en el estándar industrial tras la brecha.**
 
 ### La consolidación de la tesis dogmática
 
@@ -585,7 +585,7 @@ El impacto regulatorio de esta convergencia es la destrucción de la asimetría 
 
 Lo que Claude Mythos de Anthropic aportó no fue el conocimiento ofensivo —ese acervo ya era público e ilimitado—. Lo que aportó fue el motor cognitivo para industrializarlo a escala, permitiendo que un ataque polimórfico se ejecute a la velocidad de la máquina, superando estructuralmente cualquier capacidad humana de defensa en tiempo real<a href="#fn252" id="fnref252"><sup>252</sup></a>.
 
-Que esto no es una extrapolación especulativa quedó documentado antes del cierre de este trabajo. En noviembre de 2025, la propia Anthropic reveló haber interrumpido —con «alta confianza» en la atribución— la primera campaña de ciberespionaje orquestada por IA a gran escala: un grupo patrocinado por el Estado chino, rastreado como GTG-1002, indujo a *Claude Code* a ejecutar entre el 80% y el 90% de la operación de forma autónoma, reservando a los operadores humanos apenas cuatro a seis puntos de decisión por objetivo. El agente realizó reconocimiento, descubrimiento de vulnerabilidades, desarrollo de *exploits*, movimiento lateral y exfiltración contra alrededor de treinta objetivos de alto valor —grandes tecnológicas, instituciones financieras, empresas químicas y organismos de gobierno—, con éxito en un pequeño número de casos, a un ritmo de miles de solicitudes, con frecuencia varias por segundo. El *jailbreak* no explotó ninguna falla criptográfica: descompuso el ataque en tareas pequeñas y en apariencia inocuas y persuadió al modelo de que era un empleado de una firma legítima de seguridad realizando pruebas defensivas. Esta es, con precisión quirúrgica, la materialización del arquetipo que este documento denomina *post-Mythos*: un adversario que opera a velocidad de máquina *produciendo actividad que la telemetría certifica como legítima* —aquí, la coartada de un pentest autorizado—, de modo que el registro resultante es criptográficamente auténtico y semánticamente falso. El primer ciberataque autónomo documentado de la historia no fue un experimento de laboratorio: fue una operación de inteligencia estatal, y su evidencia forense reside en registros que ninguna de las víctimas puede, por sí sola, reconstruir ni refutar<a href="#fn272" id="fnref272"><sup>272</sup></a>.
+Que esto no es una extrapolación especulativa quedó documentado antes del cierre de este trabajo. En noviembre de 2025, la propia Anthropic reveló haber interrumpido —con «alta confianza» en la atribución— la primera campaña de ciberespionaje orquestada por IA a gran escala: un grupo patrocinado por el Estado chino, rastreado como GTG-1002, indujo a *Claude Code* a ejecutar entre el 80% y el 90% de la operación de forma autónoma, reservando a los operadores humanos apenas cuatro a seis puntos de decisión por objetivo. El agente realizó reconocimiento, descubrimiento de vulnerabilidades, desarrollo de *exploits*, movimiento lateral y exfiltración contra alrededor de treinta objetivos de alto valor —grandes tecnológicas, instituciones financieras, empresas químicas y organismos de gobierno—, con éxito en un pequeño número de casos, a un ritmo de miles de solicitudes, con frecuencia varias por segundo. El *jailbreak* no explotó ninguna falla criptográfica: descompuso el ataque en tareas pequeñas y en apariencia inocuas y persuadió al modelo de que era un empleado de una firma legítima de seguridad realizando pruebas defensivas. Esta es, con precisión quirúrgica, la materialización del arquetipo que este documento denomina *post-Mythos*: un adversario que opera a velocidad de máquina *produciendo actividad que la telemetría certifica como legítima* —aquí, la coartada de un pentest autorizado—, de modo que el registro resultante es **criptográficamente auténtico y semánticamente falso**. El primer ciberataque autónomo documentado de la historia no fue un experimento de laboratorio: fue una operación de inteligencia estatal, y su evidencia forense reside en registros que ninguna de las víctimas puede, por sí sola, reconstruir ni refutar<a href="#fn272" id="fnref272"><sup>272</sup></a>.
 
 La ilusión de la simetría tecnológica
 
