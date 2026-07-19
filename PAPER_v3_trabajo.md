@@ -194,6 +194,8 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 
 <div style="text-align:center; font-weight:bold; font-size:1.4em; margin:0.4em 0 1.8em;">EL FRENTE CORPORATIVO Y REGULATORIO: LA EMPRESA, EL DIRECTORIO Y EL REGULADOR ANTE LA EVIDENCIA QUE NO PUEDEN ACREDITAR.</div>
 
+> *La empresa debe probar su diligencia; el regulador, la infracción; el directorio, su inocencia. Los tres lo intentarán con el mismo registro —el que el atacante ya reescribió.*
+
 Una sola falla recorre todo lo que sigue: cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede probar qué ocurrió. En este frente, esa ceguera forense se cobra su precio en dinero, licencias y responsabilidad personal —la del gerente que reporta a ciegas, la del directorio que responde con su patrimonio, la del regulador que sanciona sobre una narrativa que el atacante escribió—. La certificación de papel no lo salva; la telemetría no lo prueba; y el día del incidente, el obligado descubre que su mejor evidencia es la coartada que el intruso dejó firmada en su propio servidor.
 
 ## 1. Introducción
@@ -5853,7 +5855,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **AI Liability Directive (COM(2022)496),** 102, 103, 107, 332
 - **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 39, 41, 42, 45, 51, 52, 53, 57, 59, 68, 71, 73, 74, 82, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 133, 137, 148, 162, 166, 169, 171, 183, 187, 189, 190, 194, 196, 201, 213, 214, 215, 219, 223, 224, 225, 232, 233, 235, 236, 237, 238, 246, 247, 249, 252, 254, 255, 256, 257, 258, 259, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 275, 278, 281, 282, 285, 288, 293, 303, 304, 306, 308, 309, 311, 312, 313, 316, 318, 322, 326, 327, 329, 342, 366
 - **Anthropic,** 15, 23, 26, 28, 30, 32, 43, 104, 118, 140, 141, 276, 277, 323, 324, 338, 342, 351, 363, 369
-- **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 23, 38, 108, 211, 212, 276, 334, 360, 361
+- **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 24, 38, 108, 211, 212, 276, 334, 360, 361
 - **Árboles de Merkle,** 8, 219, 243, 265, 279, 283, 306, 336, 350, 367, 373
 - **Arranque medido (measured boot),** 8, 10, 14, 95, 96, 128, 166, 241, 274, 314, 353, 354
 - **Atestación remota (RATS, RFC 9334),** 8, 10, 37, 50, 51, 56, 57, 58, 60, 71, 72, 101, 102, 125, 134, 145, 146, 157, 165, 168, 176, 184, 187, 195, 197, 209, 215, 220, 238, 239, 240, 242, 244, 245, 247, 252, 253, 256, 263, 264, 266, 267, 269, 272, 273, 275, 276, 283, 285, 299, 300, 301, 309, 312, 314, 332, 342, 353, 354, 362, 369
@@ -5878,12 +5880,12 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Cifrado homomórfico (FHE),** 75, 197, 205, 206, 208
 - **CISA / NSA,** 38, 110, 261, 272, 336, 342, 343, 344, 361, 363, 366, 369
 - **Claude Fable 5,** 28, 43, 125, 323, 324, 338, 351
-- **Claude Mythos,** 8, 15, 20, 21, 22, 24, 25, 26, 28, 31, 32, 33, 41, 43, 46, 47, 48, 49, 72, 91, 112, 113, 118, 123, 141, 143, 147, 148, 167, 168, 241, 248, 250, 251, 255, 256, 258, 269, 273, 276, 286, 287, 288, 289, 290, 299, 302, 303, 304, 306, 308, 323, 324, 342, 351
+- **Claude Mythos,** 8, 15, 20, 21, 22, 25, 26, 28, 31, 32, 33, 41, 43, 46, 47, 48, 49, 72, 91, 112, 113, 118, 123, 141, 143, 147, 148, 167, 168, 241, 248, 250, 251, 255, 256, 258, 269, 273, 276, 286, 287, 288, 289, 290, 299, 302, 303, 304, 306, 308, 323, 324, 342, 351
 - **Clínica Dávila / Devman,** 143, 222, 224, 230, 234
 - **CLOUD Act,** 48, 49, 57, 155, 156, 157, 199, 241, 298, 339, 353, 362, 369
 - **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 31, 39, 42, 43, 44, 45, 48, 49, 51, 52, 53, 54, 57, 58, 59, 60, 62, 69, 71, 72, 73, 74, 82, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 137, 138, 147, 148, 149, 150, 159, 161, 162, 168, 170, 177, 181, 183, 187, 192, 193, 196, 197, 214, 217, 225, 226, 235, 236, 237, 238, 244, 249, 251, 252, 255, 263, 270, 284, 286, 288, 289, 291, 293, 294, 295, 296, 297, 298, 299, 300, 303, 304, 308, 312, 313, 319, 327, 354, 355, 358, 370
 - **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 14, 41, 96, 98, 102, 146, 157, 199, 200, 206, 209, 210, 215, 216, 220, 242, 243, 244, 253, 254, 259, 270, 279, 284, 298, 314, 343, 354, 367
-- **Confused deputy (diputado confundido),** 23, 131, 133, 164, 165, 192, 260, 263, 348, 352
+- **Confused deputy (diputado confundido),** 24, 131, 133, 164, 165, 192, 260, 263, 348, 352
 - **Continuidad operacional / soberana,** 47, 53, 67, 86, 104, 138, 140, 168, 170, 207, 209, 214, 228, 264, 265, 268, 277, 311, 313, 318, 320, 321, 354
 - **Convenio de Budapest,** 50, 111, 348, 366
 - **Crawford v. Washington,** 320
@@ -5921,7 +5923,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 - **GDPR / RGPD,** 60, 77, 78, 79, 89, 163, 164, 183, 184, 185, 186, 187, 188, 328, 330, 340, 350, 351, 352, 365
 - **Grupo GTD (2023),** 51, 169, 170, 221, 224, 228, 234, 235, 347, 354
-- **GTIG / Mandiant (Google),** 10, 15, 23, 24, 34, 36, 37, 40, 85, 86, 95, 106, 123, 124, 137, 213, 260, 276, 292, 293, 299, 322, 326, 336, 337, 361, 363, 364, 365, 366, 369
+- **GTIG / Mandiant (Google),** 10, 15, 24, 34, 36, 37, 40, 85, 86, 95, 106, 123, 124, 137, 213, 260, 276, 292, 293, 299, 322, 326, 336, 337, 361, 363, 364, 365, 366, 369
 - **Guacamaya (hackeo),** *véase* EMCO / Guacamaya (2022)
 
 **H**
@@ -5949,7 +5951,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Ley 20.009 / Ley 21.234 (medios de pago),** 60, 181, 182, 347
 - **Ley 21.459 (Delitos Informáticos),** 50, 68, 111, 112, 118, 129, 166, 182, 190, 195, 221, 266, 310, 312, 322, 327, 366
 - **Ley 21.595 (Delitos Económicos),** 16, 19, 58, 60, 72, 87, 113, 114, 120, 129, 130, 133, 134, 135, 136, 138, 139, 141, 142, 147, 150, 153, 158, 176, 181, 189, 190, 192, 193, 197, 201, 202, 207, 218, 238, 263, 269, 284, 285, 286, 288, 289, 290, 300, 303, 309, 310, 313, 348, 357, 358
-- **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 15, 17, 24, 28, 31, 33, 35, 51, 52, 53, 58, 59, 60, 67, 68, 70, 72, 73, 74, 75, 80, 82, 83, 85, 86, 93, 100, 104, 120, 122, 125, 130, 133, 134, 135, 137, 138, 139, 140, 141, 166, 168, 170, 182, 183, 188, 190, 195, 202, 207, 209, 210, 221, 222, 223, 224, 228, 229, 235, 236, 237, 238, 247, 255, 257, 258, 260, 261, 263, 264, 265, 266, 280, 285, 286, 288, 300, 302, 306, 309, 312, 318, 322, 326, 329, 337, 357, 358, 359, 366
+- **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 15, 17, 25, 28, 31, 33, 35, 51, 52, 53, 58, 59, 60, 67, 68, 70, 72, 73, 74, 75, 80, 82, 83, 85, 86, 93, 100, 104, 120, 122, 125, 130, 133, 134, 135, 137, 138, 139, 140, 141, 166, 168, 170, 182, 183, 188, 190, 195, 202, 207, 209, 210, 221, 222, 223, 224, 228, 229, 235, 236, 237, 238, 247, 255, 257, 258, 260, 261, 263, 264, 265, 266, 280, 285, 286, 288, 300, 302, 306, 309, 312, 318, 322, 326, 329, 337, 357, 358, 359, 366
 - **Ley 21.719 (Protección de Datos Personales),** 15, 28, 45, 51, 69, 74, 75, 83, 84, 122, 134, 136, 163, 167, 168, 178, 183, 188, 189, 190, 195, 229, 254, 300, 312, 322, 327, 340, 352, 357, 366
 - **Lorraine v. Markel,** 101, 177, 199, 332, 341
 
@@ -5986,7 +5988,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Project Glasswing,** 26, 28, 323
 - **Prompt injection (inyección de instrucciones),** 23, 91, 134, 136, 164, 165, 210, 256, 259, 263, 278, 309, 311, 322, 337, 338, 349
 - **PROMPTFLUX,** 15, 24, 41, 106, 124, 211, 276
-- **PROMPTSTEAL / LAMEHUG,** 15, 23, 38, 108, 123, 131, 211, 276, 334, 359, 360
+- **PROMPTSTEAL / LAMEHUG,** 15, 24, 38, 108, 123, 131, 211, 276, 334, 359, 360
 - **ProxyShell (CVE-2021-34473 y rel.),** 63, 66, 326
 - **Prueba diabólica,** 116, 166, 171, 176
 - **Puerto seguro probatorio,** 190, 265, 266, 268, 269, 305, 312, 318
