@@ -13,3 +13,10 @@ __pycache__/
 *.bak
 *.bak-*
 *~
+
+# Scripts de uso interno (tooling temporal)
+scratch_*
+scratch/
+test.*
+fe_ciega*.txt
+*_RESPALDO.md
