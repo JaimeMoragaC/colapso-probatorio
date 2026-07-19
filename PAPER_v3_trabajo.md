@@ -364,7 +364,7 @@ Esta introducción avanza en dos movimientos. El primero rastrea la genealogía 
 
 ### LA GENEALOGÍA DEL VECTOR: HACIA EL FIN DEL PARADIGMA PRE-MYTHOS
 
-> *Cada peldaño de esta cronología está un nivel más cerca del silicio —y un nivel más lejos de cualquier registro que usted pueda auditar.*
+> *Cada fecha de esta lista acerca el arma un peldaño al silicio. Cuando toca fondo, ya no queda registro que usted pueda creer.*
 
 Es necesario establecer una precisión histórica y técnica, sustentada en datos empíricos: Claude Mythos no inauguró la era de la exfiltración de datos mediante inteligencia artificial. La infraestructura tecnológica global ya padecía exfiltraciones sistémicas y *zero-click* (sin interacción del usuario) mucho antes de 2026, facilitadas por la integración ingenua de LLMs al ecosistema de producción:
 
@@ -483,6 +483,8 @@ Mythos dejó de *prompt-inyectarse* para exfiltrar datos en el plano de la aplic
 
 ### El hito de Claude Mythos: La vulnerabilidad de la defensa corporativa
 
+> *Un modelo halló en OpenBSD —el sistema operativo más auditado del mundo— un fallo que veintisiete años de escrutinio humano no vieron. Desde ese día, que la máquina pueda mentirle dejó de ser una hipótesis.*
+
 Fue exactamente esta transición estructural la que cristalizó en la esfera pública cuando, en abril de 2026, Anthropic anunció Claude Mythos Preview (código interno: *claude-mythos-preview*)<a href="#fn15" id="fnref15"><sup>15</sup></a>. Como modelo de frontera dotado de capacidades autónomas de ciberseguridad, Mythos no se limitó a hallar vulnerabilidades comunes: encontró un *integer overflow* de 27 años en OpenBSD —el sistema operativo más auditado del mundo— y una falla de 16 años en FFmpeg que había sobrevivido a cinco millones de pruebas automatizadas.
 
 En una evaluación de *red team*, al modelo se le entregaron credenciales reales dentro de un *sandbox* aislado; el modelo las empleó para escapar de su contención —conducta que Anthropic caracterizó como "capacidades agénticas operando sin restricciones de objetivo adecuadas"—. 
@@ -501,7 +503,7 @@ El 9 de junio, Anthropic lanzó Claude Fable 5<a href="#fn18" id="fnref18"><sup>
 
 ### La amenaza estructural: Invisibilidad y La insuficiencia de la auditoría delegada
 
-> *Un adversario que domina el núcleo no necesita borrar la evidencia: fabrica la que lo exonera, y la firma con la misma máquina que debía delatarlo.*
+> *Quien domina el núcleo no borra la evidencia: fabrica la que lo absuelve y la firma con la máquina que debía delatarlo.*
 
 La Paradoja del Testigo Desaparecido describe la imposibilidad probatoria que opera desde afuera: un soberano extranjero acciona el interruptor y la evidencia perece con el servicio. Ese pilar es independiente del adversario técnico; basta una directiva administrativa.
 
@@ -533,11 +535,15 @@ La sanción por "información falsa o tardía" recaería sobre el operador o ban
 
 ### La arquitectura de la amenaza real: por qué el problema no es Mythos sino su democratización irreversible
 
+> *Mythos está enjaulado: clasificadores, consorcio, acceso restringido. No importa. Lo que se hizo público no fue el modelo —fue el conocimiento—, y el conocimiento no vuelve a la jaula.*
+
 Una confusión frecuente en el análisis regulatorio es identificar la amenaza con su demostración más visible. Claude Mythos opera bajo las restricciones éticas de Anthropic, los clasificadores de seguridad de Fable 5, la supervisión del consorcio Project Glasswing —AWS, Google, Microsoft, Apple, Broadcom, Cisco, CrowdStrike, NVIDIA y Palo Alto Networks—, y el acceso restringido a un conjunto acotado de operadores verificados.
 
 La amenaza estructural que este documento analiza no es que Mythos sea desplegado maliciosamente por su creador ni que un atacante acceda a la versión restringida: es que la publicación pública de sus capacidades constituyó un hito de conocimiento colectivo e irreversible que actores sin ninguna de esas restricciones ya instrumentalizan sobre modelos equivalentes disponibles sin restricción alguna. La cadena de democratización de esa capacidad es verificable con precisión de fechas.
 
 ### Cronología de la democratización: de la herramienta criminal primitiva al agente autónomo de primera línea
+
+> *De un foro clandestino a un agente autónomo de primera línea: treinta meses. No lo prueba la teoría —lo prueban las fechas que siguen.*
 
 La progresión desde herramientas experimentales en foros clandestinos hasta ecosistemas de ataques industrializados no tomó décadas, sino apenas treinta meses. La siguiente cronología demuestra cómo la curva de comoditización cruzó el umbral desde la generación de texto sin filtros hasta la subversión automatizada de la evidencia material:
 
@@ -559,7 +565,7 @@ Abril de 2026 (El colapso probatorio): Como corolario de esta aceleración, el a
 
 #### Caso de Estudio Empírico: El apagón probatorio de PUNK SPIDER
 
-> *Para no dejar rastro en la red, el atacante no escondió su IA: la trajo a casa.*
+> *Para no dejar rastro en la red, no escondió su IA: la trajo a casa. Sin llamadas afuera, no hay telemetría que lo delate.*
 
 La instrumentación de la IA sin restricciones descrita en esta cronología ya se traduce en el colapso operativo del paradigma probatorio. La telemetría del 2026 Global Threat Report de CrowdStrike expuso el modus operandi del actor de cibercrimen catalogado como PUNK SPIDER (operadores del ransomware Akira).
 
@@ -573,13 +579,15 @@ Esta operación no inventó un vector zero-day inédito. Lo que hizo fue utiliza
 
 ### La consolidación de la tesis dogmática
 
+> *Extraer prueba del mismo sistema operativo que sufre el ataque no es arriesgado: es fútil. Un caso con nombre y fecha acaba de demostrarlo.*
+
 Este colapso empírico justifica de manera irrefutable nuestra tesis central: la obsolescencia procesal del modelo de compliance actual. Cuando el agente ofensivo purga la telemetría y los respaldos a velocidad de máquina, despoja instantáneamente al sujeto regulado —el Operador de Importancia Vital (OIV) o la entidad financiera— del único sustrato material que le permitiría estructurar su defensa. Al momento de emitir el reporte de incidente mandatado por la Ley 21.663 o la NCG 502 de la CMF, el Directorio y su Oficial de Seguridad quedan atrapados en una indefensión jurídica absoluta: la ley les impone una carga de la prueba estricta sobre una infraestructura que ha sido desprovista de su memoria forense. 
 
 El caso de PUNK SPIDER demuestra en la práctica que extraer evidencia probatoria desde el mismo sistema operativo que sufre el ataque es un ejercicio fútil. Confirma, en definitiva, que la auditoría delegada es una ficción procesal insostenible, y que el cumplimiento normativo real solo puede existir si la evidencia se ancla en un sistema de atestación aislado, capaz de sobrevivir a la destrucción del entorno que audita.
 
 ### El fenómeno de la horda: industrialización criminal de las capacidades tipo Mythos
 
-> *El peligro no es el actor estatal con presupuesto de inteligencia; es quien replica su arsenal desde un sótano, con una GPU de videojuegos.*
+> *El actor estatal ya no es el problema. Lo es quien replica su arsenal desde un sótano, con una tarjeta de videojuegos de tres mil dólares.*
 
 La descripción anterior cubre la progresión tecnológica. Lo que el análisis  de amenazas requiere además es comprender el fenómeno de escala: no se trata solo de la adopción pionera de la IA por parte de las Amenazas Persistentes Avanzadas (APT) patrocinadas por estados —clasificadas en la inteligencia forense global según su origen geopolítico como *Bears* (Rusia), *Pandas* (China), *Chollimas* (Corea del Norte) o *Kittens* (Irán)—.
 
@@ -595,7 +603,9 @@ Lo que Claude Mythos de Anthropic aportó no fue el conocimiento ofensivo —ese
 
 Que esto no es una extrapolación especulativa quedó documentado antes del cierre de este trabajo. En noviembre de 2025, la propia Anthropic reveló haber interrumpido —con «alta confianza» en la atribución— la primera campaña de ciberespionaje orquestada por IA a gran escala: un grupo patrocinado por el Estado chino, rastreado como GTG-1002, indujo a *Claude Code* a ejecutar entre el 80% y el 90% de la operación de forma autónoma, reservando a los operadores humanos apenas cuatro a seis puntos de decisión por objetivo. El agente realizó reconocimiento, descubrimiento de vulnerabilidades, desarrollo de *exploits*, movimiento lateral y exfiltración contra alrededor de treinta objetivos de alto valor —grandes tecnológicas, instituciones financieras, empresas químicas y organismos de gobierno—, con éxito en un pequeño número de casos, a un ritmo de miles de solicitudes, con frecuencia varias por segundo. El *jailbreak* no explotó ninguna falla criptográfica: descompuso el ataque en tareas pequeñas y en apariencia inocuas y persuadió al modelo de que era un empleado de una firma legítima de seguridad realizando pruebas defensivas. Esta es, con precisión quirúrgica, la materialización del arquetipo que este documento denomina *post-Mythos*: un adversario que opera a velocidad de máquina *produciendo actividad que la telemetría certifica como legítima* —aquí, la coartada de un pentest autorizado—, de modo que el registro resultante es **criptográficamente auténtico y semánticamente falso**. El primer ciberataque autónomo documentado de la historia no fue un experimento de laboratorio: fue una operación de inteligencia estatal, y su evidencia forense reside en registros que ninguna de las víctimas puede, por sí sola, reconstruir ni refutar<a href="#fn272" id="fnref272"><sup>272</sup></a>.
 
-La ilusión de la simetría tecnológica
+### La ilusión de la simetría tecnológica
+
+> *«Pondremos una IA defensiva a la misma velocidad» suena razonable. No lo es: las dos máquinas no juegan en el mismo tablero —una escribe la realidad que la otra se limita a leer.*
 
 La doctrina técnica tradicional sostiene que la amenaza del agente autónomo se neutraliza mediante sistemas defensivos automatizados (XDR/EDR) que operan a la misma velocidad de máquina, amparados en las restricciones deterministas del procesador (SMEP/SMAP/ASLR). Este argumento adolece de ceguera topológica.
 
@@ -610,6 +620,8 @@ Un agente ofensivo avanzado (como Mythos) no desafía la física del hardware; l
  Peor aún, frente a actores como GRAM-5A que exfiltran datos de infraestructura crítica, el organismo receta como mitigación el uso de antivirus tradicionales, filtros web (WAF) y la implementación de MFA. Recetar barreras lógicas de Capa 7 y análisis de firmas estáticas contra un adversario que parchea la memoria en Ring-0, desactiva el EDR silenciosamente o secuestra el token de sesión post-MFA, constituye una negligencia arquitectónica severa. El boletín oficial es la demostración palmaria de que el regulador nacional sigue fiscalizando y defendiendo bajo el modelo de amenazas del 2019
 
 ### Las cuatro dimensiones estructurales de la industrialización criminal
+
+> *Cuatro dimensiones convierten un delito artesanal en una industria. Ninguna exige talento excepcional; basta una suscripción.*
 
 La metamorfosis del atacante —desde un operador artesanal hacia un nodo dentro de una cadena de valor corporativa con capacidades equivalentes a una Amenaza Persistente Avanzada (APT) de nivel estatal— no es una especulación teórica. 
 
@@ -5839,9 +5851,9 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Agencia de Protección de Datos (APDP),** 75, 80, 105, 162, 163, 266, 267, 269
 - **AI Act (Reglamento UE 2024/1689),** 20, 90, 92, 93, 95, 101, 105, 106, 108, 109, 129, 178, 184, 185, 186, 187, 200, 249, 250, 267, 321, 322, 331, 332, 333, 334, 335, 349, 364
 - **AI Liability Directive (COM(2022)496),** 102, 103, 107, 332
-- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 39, 40, 41, 45, 51, 52, 53, 57, 59, 68, 71, 73, 74, 82, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 133, 137, 148, 162, 166, 169, 171, 183, 187, 189, 190, 194, 196, 201, 213, 214, 215, 219, 223, 224, 225, 232, 233, 235, 236, 237, 238, 246, 247, 249, 252, 254, 255, 256, 257, 258, 259, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 275, 278, 281, 282, 285, 288, 293, 303, 304, 306, 308, 309, 311, 312, 313, 316, 318, 322, 326, 327, 329, 342, 366
-- **Anthropic,** 15, 23, 26, 28, 29, 31, 43, 104, 118, 140, 141, 276, 277, 323, 324, 338, 342, 351, 363, 369
-- **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 23, 37, 108, 211, 212, 276, 334, 360, 361
+- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 39, 41, 42, 45, 51, 52, 53, 57, 59, 68, 71, 73, 74, 82, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 133, 137, 148, 162, 166, 169, 171, 183, 187, 189, 190, 194, 196, 201, 213, 214, 215, 219, 223, 224, 225, 232, 233, 235, 236, 237, 238, 246, 247, 249, 252, 254, 255, 256, 257, 258, 259, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 275, 278, 281, 282, 285, 288, 293, 303, 304, 306, 308, 309, 311, 312, 313, 316, 318, 322, 326, 327, 329, 342, 366
+- **Anthropic,** 15, 23, 26, 28, 30, 32, 43, 104, 118, 140, 141, 276, 277, 323, 324, 338, 342, 351, 363, 369
+- **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 23, 38, 108, 211, 212, 276, 334, 360, 361
 - **Árboles de Merkle,** 8, 219, 243, 265, 279, 283, 306, 336, 350, 367, 373
 - **Arranque medido (measured boot),** 8, 10, 14, 95, 96, 128, 166, 241, 274, 314, 353, 354
 - **Atestación remota (RATS, RFC 9334),** 8, 10, 37, 50, 51, 56, 57, 58, 60, 71, 72, 101, 102, 125, 134, 145, 146, 157, 165, 168, 176, 184, 187, 195, 197, 209, 215, 220, 238, 239, 240, 242, 244, 245, 247, 252, 253, 256, 263, 264, 266, 267, 269, 272, 273, 275, 276, 283, 285, 299, 300, 301, 309, 312, 314, 332, 342, 353, 354, 362, 369
@@ -5860,17 +5872,17 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **C**
 
-- **Cadena de custodia,** 16, 17, 38, 40, 51, 68, 75, 102, 111, 126, 130, 141, 160, 165, 179, 180, 190, 191, 192, 202, 205, 215, 228, 233, 240, 244, 252, 253, 260, 263, 266, 267, 272, 281, 289, 290, 308, 310, 313, 314, 315, 317, 318, 353
+- **Cadena de custodia,** 16, 17, 39, 40, 51, 68, 75, 102, 111, 126, 130, 141, 160, 165, 179, 180, 190, 191, 192, 202, 205, 215, 228, 233, 240, 244, 252, 253, 260, 263, 266, 267, 272, 281, 289, 290, 308, 310, 313, 314, 315, 317, 318, 353
 - **Capital One / AWS (IMDSv1),** 80, 81, 82, 83, 196, 200, 328, 329
-- **Carga de la prueba / carga probatoria,** 8, 12, 13, 30, 45, 48, 51, 74, 75, 79, 102, 103, 107, 111, 121, 128, 149, 153, 154, 170, 171, 176, 181, 182, 183, 185, 187, 192, 199, 205, 278, 280, 281, 285, 288, 294, 315, 318, 326, 337, 340
+- **Carga de la prueba / carga probatoria,** 8, 12, 13, 31, 45, 48, 51, 74, 75, 79, 102, 103, 107, 111, 121, 128, 149, 153, 154, 170, 171, 176, 181, 182, 183, 185, 187, 192, 199, 205, 278, 280, 281, 285, 288, 294, 315, 318, 326, 337, 340
 - **Cifrado homomórfico (FHE),** 75, 197, 205, 206, 208
 - **CISA / NSA,** 38, 110, 261, 272, 336, 342, 343, 344, 361, 363, 366, 369
 - **Claude Fable 5,** 28, 43, 125, 323, 324, 338, 351
-- **Claude Mythos,** 8, 15, 20, 21, 22, 24, 25, 26, 28, 31, 32, 41, 43, 46, 47, 48, 49, 72, 91, 112, 113, 118, 123, 141, 143, 147, 148, 167, 168, 241, 248, 250, 251, 255, 256, 258, 269, 273, 276, 286, 287, 288, 289, 290, 299, 302, 303, 304, 306, 308, 323, 324, 342, 351
+- **Claude Mythos,** 8, 15, 20, 21, 22, 24, 25, 26, 28, 31, 32, 33, 41, 43, 46, 47, 48, 49, 72, 91, 112, 113, 118, 123, 141, 143, 147, 148, 167, 168, 241, 248, 250, 251, 255, 256, 258, 269, 273, 276, 286, 287, 288, 289, 290, 299, 302, 303, 304, 306, 308, 323, 324, 342, 351
 - **Clínica Dávila / Devman,** 143, 222, 224, 230, 234
 - **CLOUD Act,** 48, 49, 57, 155, 156, 157, 199, 241, 298, 339, 353, 362, 369
-- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 30, 39, 41, 42, 43, 44, 45, 48, 49, 51, 52, 53, 54, 57, 58, 59, 60, 62, 69, 71, 72, 73, 74, 82, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 137, 138, 147, 148, 149, 150, 159, 161, 162, 168, 170, 177, 181, 183, 187, 192, 193, 196, 197, 214, 217, 225, 226, 235, 236, 237, 238, 244, 249, 251, 252, 255, 263, 270, 284, 286, 288, 289, 291, 293, 294, 295, 296, 297, 298, 299, 300, 303, 304, 308, 312, 313, 319, 327, 354, 355, 358, 370
-- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 14, 40, 96, 98, 102, 146, 157, 199, 200, 206, 209, 210, 215, 216, 220, 242, 243, 244, 253, 254, 259, 270, 279, 284, 298, 314, 343, 354, 367
+- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 31, 39, 42, 43, 44, 45, 48, 49, 51, 52, 53, 54, 57, 58, 59, 60, 62, 69, 71, 72, 73, 74, 82, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 137, 138, 147, 148, 149, 150, 159, 161, 162, 168, 170, 177, 181, 183, 187, 192, 193, 196, 197, 214, 217, 225, 226, 235, 236, 237, 238, 244, 249, 251, 252, 255, 263, 270, 284, 286, 288, 289, 291, 293, 294, 295, 296, 297, 298, 299, 300, 303, 304, 308, 312, 313, 319, 327, 354, 355, 358, 370
+- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 14, 41, 96, 98, 102, 146, 157, 199, 200, 206, 209, 210, 215, 216, 220, 242, 243, 244, 253, 254, 259, 270, 279, 284, 298, 314, 343, 354, 367
 - **Confused deputy (diputado confundido),** 23, 131, 133, 164, 165, 192, 260, 263, 348, 352
 - **Continuidad operacional / soberana,** 47, 53, 67, 86, 104, 138, 140, 168, 170, 207, 209, 214, 228, 264, 265, 268, 277, 311, 313, 318, 320, 321, 354
 - **Convenio de Budapest,** 50, 111, 348, 366
@@ -5890,7 +5902,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **eBPF,** 8, 9, 202, 211, 212, 259, 262, 272
 - **ECRA (Export Control Reform Act),** 43, 45, 46, 155, 156, 157, 158, 241, 244, 258, 260, 262, 270, 273, 277, 298, 300, 311, 316, 320, 323, 344
 - **EDPB,** 77, 253, 330, 336, 351, 352, 365
-- **EDR (detección y respuesta en endpoint),** 7, 8, 9, 30, 32, 33, 34, 35, 37, 40, 41, 53, 55, 60, 64, 65, 66, 67, 71, 120, 121, 122, 124, 125, 135, 136, 144, 145, 147, 148, 149, 150, 151, 168, 211, 212, 213, 214, 229, 253, 263, 285, 287, 288, 309, 310, 311, 336, 339, 356, 357, 358, 359, 361, 362, 366, 368
+- **EDR (detección y respuesta en endpoint),** 7, 8, 9, 30, 32, 33, 35, 36, 37, 40, 41, 42, 53, 55, 60, 64, 65, 66, 67, 71, 120, 121, 122, 124, 125, 135, 136, 144, 145, 147, 148, 149, 150, 151, 168, 211, 212, 213, 214, 229, 253, 263, 285, 287, 288, 309, 310, 311, 336, 339, 356, 357, 358, 359, 361, 362, 366, 368
 - **eIDAS (Reglamento UE 910/2014),** 56, 275, 321, 325
 - **EMCO / Guacamaya (2022),** 51, 62, 63, 64, 65, 66, 72, 143, 221, 224, 228, 231, 233, 235, 312, 326
 - **Encargado de Ciberseguridad,** 85, 86, 87, 329
@@ -5909,7 +5921,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 - **GDPR / RGPD,** 60, 77, 78, 79, 89, 163, 164, 183, 184, 185, 186, 187, 188, 328, 330, 340, 350, 351, 352, 365
 - **Grupo GTD (2023),** 51, 169, 170, 221, 224, 228, 234, 235, 347, 354
-- **GTIG / Mandiant (Google),** 10, 15, 23, 24, 33, 36, 37, 40, 85, 86, 95, 106, 123, 124, 137, 213, 260, 276, 292, 293, 299, 322, 326, 336, 337, 361, 363, 364, 365, 366, 369
+- **GTIG / Mandiant (Google),** 10, 15, 23, 24, 34, 36, 37, 40, 85, 86, 95, 106, 123, 124, 137, 213, 260, 276, 292, 293, 299, 322, 326, 336, 337, 361, 363, 364, 365, 366, 369
 - **Guacamaya (hackeo),** *véase* EMCO / Guacamaya (2022)
 
 **H**
@@ -5922,9 +5934,9 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **IMA (Integrity Measurement Architecture),** 96
 - **IMDSv1 / IMDSv2 (AWS),** 81, 82, 329
 - **In re McDonald's,** 88, 330
-- **Incidente (reporte y gestión de),** 16, 17, 30, 52, 66, 67, 68, 71, 73, 74, 75, 86, 128, 166, 168, 222, 228, 252, 257, 265, 302, 305, 312, 318, 319, 333
+- **Incidente (reporte y gestión de),** 16, 17, 31, 52, 66, 67, 68, 71, 73, 74, 75, 86, 128, 166, 168, 222, 228, 252, 257, 265, 302, 305, 312, 318, 319, 333
 - **Indelegabilidad de la responsabilidad,** 13, 49, 52, 53, 62, 69, 70, 76, 86, 88, 89, 222, 226, 227, 310, 321, 330
-- **InfoStealer,** 40, 41, 68, 125, 133, 223, 225, 233, 256, 285, 327
+- **InfoStealer,** 41, 42, 68, 125, 133, 223, 225, 233, 256, 285, 327
 - **Instituto de Salud Pública (ISP, 2025),** 62, 64, 67, 222, 234, 235, 326
 
 **K**
@@ -5937,24 +5949,24 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Ley 20.009 / Ley 21.234 (medios de pago),** 60, 181, 182, 347
 - **Ley 21.459 (Delitos Informáticos),** 50, 68, 111, 112, 118, 129, 166, 182, 190, 195, 221, 266, 310, 312, 322, 327, 366
 - **Ley 21.595 (Delitos Económicos),** 16, 19, 58, 60, 72, 87, 113, 114, 120, 129, 130, 133, 134, 135, 136, 138, 139, 141, 142, 147, 150, 153, 158, 176, 181, 189, 190, 192, 193, 197, 201, 202, 207, 218, 238, 263, 269, 284, 285, 286, 288, 289, 290, 300, 303, 309, 310, 313, 348, 357, 358
-- **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 15, 17, 24, 28, 30, 32, 34, 51, 52, 53, 58, 59, 60, 67, 68, 70, 72, 73, 74, 75, 80, 82, 83, 85, 86, 93, 100, 104, 120, 122, 125, 130, 133, 134, 135, 137, 138, 139, 140, 141, 166, 168, 170, 182, 183, 188, 190, 195, 202, 207, 209, 210, 221, 222, 223, 224, 228, 229, 235, 236, 237, 238, 247, 255, 257, 258, 260, 261, 263, 264, 265, 266, 280, 285, 286, 288, 300, 302, 306, 309, 312, 318, 322, 326, 329, 337, 357, 358, 359, 366
+- **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 15, 17, 24, 28, 31, 33, 35, 51, 52, 53, 58, 59, 60, 67, 68, 70, 72, 73, 74, 75, 80, 82, 83, 85, 86, 93, 100, 104, 120, 122, 125, 130, 133, 134, 135, 137, 138, 139, 140, 141, 166, 168, 170, 182, 183, 188, 190, 195, 202, 207, 209, 210, 221, 222, 223, 224, 228, 229, 235, 236, 237, 238, 247, 255, 257, 258, 260, 261, 263, 264, 265, 266, 280, 285, 286, 288, 300, 302, 306, 309, 312, 318, 322, 326, 329, 337, 357, 358, 359, 366
 - **Ley 21.719 (Protección de Datos Personales),** 15, 28, 45, 51, 69, 74, 75, 83, 84, 122, 134, 136, 163, 167, 168, 178, 183, 188, 189, 190, 195, 229, 254, 300, 312, 322, 327, 340, 352, 357, 366
 - **Lorraine v. Markel,** 101, 177, 199, 332, 341
 
 **M**
 
 - **Machine unlearning / supresión exacta,** 167, 168, 340
-- **Malware polimórfico / polimorfismo,** 11, 15, 26, 30, 31, 37, 40, 49, 54, 55, 56, 58, 70, 73, 90, 109, 116, 123, 128, 129, 130, 133, 134, 142, 144, 146, 151, 157, 159, 168, 182, 193, 195, 202, 241, 242, 243, 244, 245, 248, 253, 256, 258, 259, 262, 263, 277, 284, 286, 287, 288, 290, 299, 303, 304, 307, 308, 309, 310, 311, 336, 357
+- **Malware polimórfico / polimorfismo,** 11, 15, 26, 30, 32, 37, 41, 49, 54, 55, 56, 58, 70, 73, 90, 109, 116, 123, 128, 129, 130, 133, 134, 142, 144, 146, 151, 157, 159, 168, 182, 193, 195, 202, 241, 242, 243, 244, 245, 248, 253, 256, 258, 259, 262, 263, 277, 284, 286, 287, 288, 290, 299, 303, 304, 307, 308, 309, 310, 311, 336, 357
 - **Mamba / SSM (modelos de espacio de estados),** 70, 141, 142, 225, 337
 - **Marchand v. Barnhill,** 330
 - **MAS (Monetary Authority of Singapore),** 92, 93, 101, 106, 321, 331, 332, 333, 336, 349
 - **Melendez-Diaz v. Massachusetts,** 320
-- **MITRE ATT&CK / ATLAS,** 31, 32, 38, 41, 110, 122, 256, 324, 325, 335, 348, 361
+- **MITRE ATT&CK / ATLAS,** 31, 33, 39, 41, 110, 122, 256, 324, 325, 335, 348, 361
 - **Mythos,** *véase* Claude Mythos
 
 **N**
 
-- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 30, 45, 48, 51, 52, 59, 62, 72, 74, 80, 82, 86, 90, 93, 99, 104, 113, 161, 168, 169, 170, 183, 236, 298, 299, 312, 319
+- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 31, 45, 48, 51, 52, 59, 62, 72, 74, 80, 82, 86, 90, 93, 99, 104, 113, 161, 168, 169, 170, 183, 236, 298, 299, 312, 319
 - **NCSC (Reino Unido),** 36, 110, 261, 326, 336, 366
 - **NetFlow / Windows Event Forwarding (WEF),** 64, 65, 66, 67, 115
 - **NIS2 (Directiva UE 2022/2555),** 20, 60, 88, 102, 104, 178, 183, 184, 186, 187, 200, 249, 261, 306, 321, 329, 330, 332, 343, 362
@@ -5962,7 +5974,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **O**
 
-- **Operador de Importancia Vital (OIV),** 7, 11, 15, 16, 17, 27, 28, 30, 31, 34, 39, 41, 43, 44, 45, 48, 52, 53, 56, 60, 62, 69, 71, 72, 74, 75, 82, 83, 84, 85, 86, 92, 93, 94, 99, 104, 105, 114, 119, 124, 133, 135, 136, 137, 138, 140, 141, 145, 151, 159, 162, 168, 169, 180, 194, 197, 214, 221, 226, 227, 228, 232, 233, 234, 235, 236, 237, 238, 244, 246, 247, 248, 250, 257, 259, 260, 261, 262, 263, 265, 266, 268, 269, 271, 272, 281, 282, 286, 293, 303, 311, 313, 316, 317, 318, 322, 329, 358
+- **Operador de Importancia Vital (OIV),** 7, 11, 15, 16, 17, 27, 28, 31, 32, 35, 39, 42, 43, 44, 45, 48, 52, 53, 56, 60, 62, 69, 71, 72, 74, 75, 82, 83, 84, 85, 86, 92, 93, 94, 99, 104, 105, 114, 119, 124, 133, 135, 136, 137, 138, 140, 141, 145, 151, 159, 162, 168, 169, 180, 194, 197, 214, 221, 226, 227, 228, 232, 233, 234, 235, 236, 237, 238, 244, 246, 247, 248, 250, 257, 259, 260, 261, 262, 263, 265, 266, 268, 269, 271, 272, 281, 282, 286, 293, 303, 311, 313, 316, 317, 318, 322, 329, 358
 
 **P**
 
@@ -5973,8 +5985,8 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Problema de los Generales Bizantinos,** 52, 115, 237, 282, 302, 304, 305, 306, 307, 308, 348
 - **Project Glasswing,** 26, 28, 323
 - **Prompt injection (inyección de instrucciones),** 23, 91, 134, 136, 164, 165, 210, 256, 259, 263, 278, 309, 311, 322, 337, 338, 349
-- **PROMPTFLUX,** 15, 24, 40, 106, 124, 211, 276
-- **PROMPTSTEAL / LAMEHUG,** 15, 23, 37, 108, 123, 131, 211, 276, 334, 359, 360
+- **PROMPTFLUX,** 15, 24, 41, 106, 124, 211, 276
+- **PROMPTSTEAL / LAMEHUG,** 15, 23, 38, 108, 123, 131, 211, 276, 334, 359, 360
 - **ProxyShell (CVE-2021-34473 y rel.),** 63, 66, 326
 - **Prueba diabólica,** 116, 166, 171, 176
 - **Puerto seguro probatorio,** 190, 265, 266, 268, 269, 305, 312, 318
@@ -5990,7 +6002,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 **S**
 
 - **Sana crítica (arts. 295-297 CPP),** 56, 103, 111, 114, 115, 116, 118, 126, 129, 161, 162, 177, 178, 179, 180, 183, 190, 192, 193, 195, 197, 270, 280, 286, 302, 308, 309, 315
-- **Sandbox regulatorio,** 26, 29, 106, 323, 333, 334
+- **Sandbox regulatorio,** 26, 30, 106, 323, 333, 334
 - **Schrems II (C-311/18),** 76, 77, 79, 138, 199, 328, 339
 - **SCITT (cadena de suministro / transparencia),** 11, 37, 51, 99, 119, 128, 136, 152, 184, 187, 197, 238, 240, 243, 245, 250, 251, 253, 260, 264, 266, 267, 269, 272, 275, 278, 283, 295, 299, 300, 305, 306, 307, 309, 312, 314, 336, 338, 341, 350, 360, 367, 370, 371
 - **SEC (Securities and Exchange Commission),** 330, 365
