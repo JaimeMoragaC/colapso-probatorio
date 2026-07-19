@@ -4170,6 +4170,8 @@ La caducidad de las auditorías de papel frente a la Inteligencia Artificial ag�
 
 ### 5.1 La Confesión Europea: El Plan de Acción sobre IA y Ciberseguridad
 
+> *Bruselas no lo dijo con estas palabras, pero lo dijo: el modelo de cumplimiento que ella misma exportó al mundo ya no protege nada.*
+
 La caducidad del *compliance* de papel no es solo una deducción de la ingeniería; acaba de ser formalizada por la Comisión Europea. En su *Plan de Acción sobre Ciberseguridad e Inteligencia Artificial*, Europa ha reconocido oficialmente que tener marcos normativos ambiciosos (NIS2, DORA, AI Act) no garantiza la resiliencia cuando la IA de frontera altera asimétricamente la velocidad, la escala y la barrera técnica de los ataques<a href="#fn_ue_action_plan"><sup>279</sup></a>.
 
 Este sinceramiento del regulador europeo valida cada una de las tesis estructurales de este dictamen:
@@ -4182,17 +4184,23 @@ Como concluye el reporte europeo: *"En ciberseguridad, llegar tarde rara vez sal
 
 ### 5.2 El "Digital Omnibus" de la Unión Europea: La confesión de impotencia técnica
 
+> *Cuando un regulador aplaza sus propios plazos no está siendo flexible: está admitiendo que la norma que escribió no se puede cumplir.*
+
 En junio de 2026, el Parlamento Europeo y el Consejo adoptaron el *Digital Omnibus on AI*, un paquete de enmiendas de emergencia a la *EU AI Act* original. El principal objetivo práctico del *Omnibus* fue retrasar las fechas de cumplimiento forzoso para los sistemas de IA de alto riesgo hasta diciembre de 2027 y agosto de 2028<a href="#fn_eu_omnibus"><sup>275</sup></a>.
 
 El Boletín 16821-19 chileno fue redactado precisamente clonando la estructura original de la *EU AI Act*. Sin embargo, el retraso europeo opera como una confesión de impotencia técnica: el ecosistema corporativo descubrió que exigir gobernanza de IA mediante *checklists* administrativos (Capa 7) es inviable frente a la opacidad matemática de los modelos de frontera y vectores como *Mythos*. Las corporaciones carecen de los medios forenses para demostrar inmutabilidad sin una raíz de confianza dura. Si Chile persiste en importar un modelo administrativo que la propia Europa debió retrasar por inaplicable, el Estado estará legislando una ficción jurídica, exigiendo a los Operadores de Importancia Vital (OIV) un estándar de cumplimiento que la ciencia de la computación ya declaró insolvente.
 
 ### 5.3 Alemania (KI-MIG): La inteligencia artificial como infraestructura física
 
+> *Alemania dejó de tratar la IA como un producto que se regula y empezó a tratarla como una infraestructura que se protege. El cambio de categoría lo cambia todo.*
+
 El 11 de junio de 2026, el Bundestag alemán aprobó la Ley de Implementación de la Ley de IA de la UE (KI-MIG). Su rasgo más crítico para los viejos paradigmas fue negarse a entregarle la fiscalización de la IA a las agencias tradicionales de protección de datos. Alemania designó como autoridad suprema de vigilancia a la Agencia Federal de Redes (*Bundesnetzagentur*), el organismo encargado de fiscalizar los "fierros duros" críticos del Estado: telecomunicaciones, electricidad y redes ferroviarias<a href="#fn_alemania_kimig"><sup>276</sup></a>.
 
 Esta decisión destruye la ilusión de que el *software* de IA puede ser fiscalizado mediante la lectura de *logs* lógicos o formularios de impacto de datos. Al subordinar la IA a la agencia de telecomunicaciones físicas, el Estado más industrial de Europa admitió que la verdadera fiscalización de los modelos agénticos debe operar sobre la capa física (*hardware*), confirmando la tesis central de que la única atestación probatoria válida es aquella anclada criptográficamente en el silicio (SCITT/DICE), no en políticas de *software*.
 
 ### 5.4 Illinois, EE.UU.: El reconocimiento jurídico de Mythos y la aniquilación de la auto-certificación
+
+> *Cuando una legislatura escribe el problema en el texto de la ley, este deja de ser una hipótesis de ingeniería y pasa a ser un hecho normativo.*
 
 En julio de 2026, el estado de Illinois promulgó la *Artificial Intelligence Safety Measures Act* (SB 315), obligando por ley a que los modelos de frontera sean sometidos a auditorías anuales por parte de terceros independientes y exigiendo canales confidenciales de denuncia para *whistleblowers* corporativos<a href="#fn_illinois_sb315"><sup>277</sup></a>. 
 
@@ -4202,15 +4210,21 @@ Asimismo, al instaurar protecciones legales para empleados que denuncien inciden
 
 ### 5.5 China: Regulación estricta de la "IA Emocional" y el *vibe-hacking*
 
+> *China no reguló la IA por ética. La reguló porque entendió antes que nadie que el blanco del ataque ya no es la máquina, sino quien la lee.*
+
 De forma paralela, en julio de 2026, la Administración del Ciberespacio de China (CAC) instauró regulaciones específicas sobre los *Servicios de Interacción Antropomórfica de Inteligencia Artificial*<a href="#fn_china_ai_personals"><sup>278</sup></a>. Este marco, enfocado en sancionar la manipulación psicológica mediante "IA emocional" (avatares y compañeros virtuales), prohíbe algoritmos diseñados para inducir dependencia afectiva o aislamiento.
 
 Aunque de apariencia sociológica, su impacto probatorio es profundo. Al legislar contra el engaño emocional algorítmico, China reconoce jurídicamente que los modelos de lenguaje poseen una capacidad asimétrica de manipulación humana (*vibe-hacking*). Si la IA es capaz de subyugar la voluntad de usuarios humanos mediante interacciones semánticas persuasivas, la tesis de este dictamen —que un modelo agéntico ofensivo puede falsificar reportes semánticos y engañar rutinariamente a los analistas de Nivel 1 de un SOC— queda plenamente respaldada por la doctrina regulatoria global.
 
 ### 5.6 Francia (ANSSI) y el Mandato Post-Cuántico: La ineficacia del parche lógico
 
+> *Francia le puso fecha de defunción al cifrado que usted hoy considera seguro. No es una recomendación: es una prohibición con calendario.*
+
 Sumándose al cisma de julio, la ANSSI francesa estableció la prohibición inminente para certificar módulos de seguridad físicos (HSM/Tarjetas Inteligentes) que no implementen algoritmos post-cuánticos (PQC) incrustados en su *hardware*. Al negarse a certificar esquemas de seguridad que dependan exclusivamente de parches lógicos (*software*), Francia decretó el principio rector de nuestra arquitectura de atestación física: el software no puede defenderse a sí mismo frente a un atacante con privilegios de núcleo. Si la llave criptográfica no está soldada físicamente al silicio, un agente agéntico la extraerá de la memoria RAM a velocidad de máquina<a href="#fn_schneier_quantum"><sup>273</sup></a>.
 
 ### 5.7 La advertencia al legislador chileno
+
+> *Seis jurisdicciones se movieron en un mismo mes y en la misma dirección. Chile todavía discute el texto que ellas acaban de declarar insuficiente.*
 
 Los eventos de julio de 2026 configuran una señal internacional inequívoca. El modelo de seguridad corporativa basado en promesas comerciales y papeles timbrados ha abdicado formalmente frente al vector de ataque agéntico. 
 
@@ -5987,12 +6001,12 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Agencia de Protección de Datos (APDP),** 75, 80, 105, 164, 165, 269, 270, 272
 - **AI Act (Reglamento UE 2024/1689),** 21, 90, 92, 93, 95, 101, 105, 106, 108, 109, 130, 180, 186, 187, 188, 189, 202, 252, 253, 270, 324, 325, 334, 335, 336, 337, 338, 352, 367
 - **AI Liability Directive (COM(2022)496),** 102, 103, 107, 335
-- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 39, 41, 42, 45, 51, 52, 53, 54, 58, 60, 68, 71, 73, 74, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 131, 134, 138, 149, 163, 164, 168, 171, 173, 185, 189, 191, 192, 196, 198, 203, 216, 217, 218, 222, 227, 228, 236, 238, 239, 240, 241, 249, 250, 252, 255, 257, 258, 259, 260, 261, 262, 263, 264, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 278, 281, 284, 285, 288, 291, 296, 306, 307, 309, 311, 312, 314, 315, 316, 319, 321, 325, 329, 330, 332, 345, 369
+- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 39, 41, 42, 45, 51, 52, 53, 54, 58, 60, 68, 71, 73, 74, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 131, 134, 138, 149, 163, 164, 168, 171, 173, 185, 189, 191, 192, 196, 198, 203, 216, 217, 218, 222, 227, 228, 236, 238, 239, 240, 241, 249, 250, 252, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 278, 281, 284, 285, 288, 291, 296, 306, 307, 309, 311, 312, 314, 315, 316, 319, 321, 325, 329, 330, 332, 345, 369
 - **Anthropic,** 15, 23, 26, 28, 30, 32, 43, 104, 118, 141, 142, 279, 280, 326, 327, 341, 345, 354, 366, 372
 - **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 24, 38, 108, 214, 215, 279, 337, 363, 364
 - **Árboles de Merkle,** 8, 222, 246, 268, 282, 286, 309, 339, 353, 370, 376
 - **Arranque medido (measured boot),** 8, 10, 14, 95, 96, 129, 168, 244, 277, 317, 356, 357
-- **Atestación remota (RATS, RFC 9334),** 8, 10, 37, 51, 52, 57, 58, 60, 71, 72, 101, 102, 125, 134, 147, 159, 167, 170, 178, 186, 189, 197, 199, 212, 218, 223, 242, 243, 245, 247, 248, 250, 256, 259, 266, 267, 269, 270, 272, 275, 276, 278, 279, 286, 288, 302, 303, 304, 312, 315, 317, 335, 345, 356, 357, 365, 372
+- **Atestación remota (RATS, RFC 9334),** 8, 10, 37, 51, 52, 57, 58, 60, 71, 72, 101, 102, 125, 134, 147, 159, 167, 170, 178, 186, 189, 197, 199, 212, 218, 223, 242, 243, 245, 247, 248, 250, 256, 257, 259, 266, 267, 269, 270, 272, 275, 276, 278, 279, 286, 288, 302, 303, 304, 312, 315, 317, 335, 345, 356, 357, 365, 372
 
 **B**
 
@@ -6140,7 +6154,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Sana crítica (arts. 295-297 CPP),** 56, 103, 111, 114, 115, 116, 118, 126, 130, 163, 179, 180, 181, 182, 183, 185, 193, 194, 195, 196, 197, 199, 273, 283, 289, 305, 311, 312, 318
 - **Sandbox regulatorio,** 26, 30, 106, 326, 336, 337
 - **Schrems II (C-311/18),** 76, 77, 79, 139, 202, 331, 342
-- **SCITT (cadena de suministro / transparencia),** 11, 37, 52, 99, 119, 128, 137, 153, 154, 186, 189, 199, 242, 243, 246, 248, 253, 254, 256, 263, 267, 269, 270, 272, 275, 278, 281, 286, 298, 302, 303, 308, 309, 310, 312, 315, 318, 339, 341, 344, 353, 363, 370, 373, 374
+- **SCITT (cadena de suministro / transparencia),** 11, 37, 52, 99, 119, 128, 137, 153, 154, 186, 189, 199, 242, 243, 246, 248, 254, 257, 263, 267, 269, 270, 272, 275, 278, 281, 286, 298, 302, 303, 308, 309, 310, 312, 315, 318, 339, 341, 344, 353, 363, 370, 373, 374
 - **SEC (Securities and Exchange Commission),** 333, 368
 - **Servicio de Salud Araucanía Sur (2026),** 62, 68, 112, 134, 227, 228, 238, 260, 314, 330
 - **Sodinokibi,** *véase* BancoEstado / Sodinokibi (2020)
@@ -6150,8 +6164,8 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 - **Teoría de juegos / equilibrio de Nash,** *véase* Equilibrio de Nash / market for lemons
 - **Teoría de juegos de la atestación,** 52, 149, 305, 306, 308, 311, 316
-- **TOCTOU (time-of-check / time-of-use),** 11, 12, 97, 126, 127, 130, 132, 135, 146, 152, 167, 168, 169, 190, 193, 196, 197, 204, 231, 256, 259, 265, 283, 291, 295, 312, 313, 318, 356
-- **TPM (Trusted Platform Module),** 8, 14, 60, 95, 96, 97, 98, 101, 102, 129, 153, 167, 190, 196, 205, 242, 243, 244, 249, 256, 262, 266, 267, 273, 274, 275, 276, 280, 281, 282, 286, 287, 288, 299, 300, 301, 312, 317, 344, 345, 356, 357, 363, 370, 373, 374, 376
+- **TOCTOU (time-of-check / time-of-use),** 11, 12, 97, 126, 127, 130, 132, 135, 146, 152, 167, 168, 169, 190, 193, 196, 197, 204, 231, 256, 257, 259, 265, 283, 291, 295, 312, 313, 318, 356
+- **TPM (Trusted Platform Module),** 8, 14, 60, 95, 96, 97, 98, 101, 102, 129, 153, 167, 190, 196, 205, 242, 243, 244, 249, 257, 262, 266, 267, 273, 274, 275, 276, 280, 281, 282, 286, 287, 288, 299, 300, 301, 312, 317, 344, 345, 356, 357, 363, 370, 373, 374, 376
 
 **W**
 
