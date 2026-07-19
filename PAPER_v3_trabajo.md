@@ -99,40 +99,38 @@ Esta alteración silenciosa de la memoria volátil no es un caso teórico: es la
 El único mecanismo que ancla la orden es la firma medida —extender un registro PCR reiniciable con el hash del payload real inmediatamente antes de firmar, de modo que la atestación quede ligada a la instrucción concreta y no a lo que la interfaz exhibió—, que este documento desarrolla en §7.8.1.
 Ese andamiaje garantiza la indefensión: sin esa firma medida anclada en *hardware* —la única prueba empírica inmutable de la orden—, la evidencia forense no existe. En la blockchain, la transacción será eterna: criptográficamente perfecta, pero jurídicamente huérfana. Cuarenta y siete millones de dólares autorizados por la clave, sin prueba de quién dio la orden.
 
-## Arquitectura del Documento: El Frente Corporativo y Regulatorio
+## Arquitectura del Documento: El Mapa de la Vulnerabilidad
 
-Este documento aborda una única falla estructural —la ceguera forense derivada de la falta de atestación en silicio— y los efectos letales de esta vulnerabilidad ante ataques de IA Polimórfica. 
+Este documento aborda una única falla estructural: el colapso definitivo del *software* como mecanismo de auditoría confiable frente a la evasión de las IAs agenticas. Ante esta ceguera forense, el paradigma propuesto no busca encarecer el ataque sumando nuevas y costosas capas lógicas, sino *expulsar al adversario del plano lógico*, forzándolo a operar directamente sobre el hardware físico para así destruir por completo la rentabilidad y escalabilidad de la intrusión.
 
 Para garantizar el máximo impacto y rigor analítico, la exposición de este dictamen se concentra deliberadamente en un único ecosistema institucional: el mercado financiero y los Operadores de Importancia Vital (OIV). Analizaremos cómo la ceguera del *cloud computing* aniquila el valor de las certificaciones de ciberseguridad tradicionales (ISO 27001, SOC 2) y hace materialmente incumplibles los deberes de reporte exigidos por la ANCI (Ley 21.663) y la CMF (NCG 502).
 
 El foco de este documento recae estrictamente sobre el Directorio y la Alta Administración —como sujetos directos de responsabilidad penal y patrimonial por negligencia inexcusable bajo la Ley 21.595—, y sobre el CISO y el Oficial de Cumplimiento en su rol de garantes técnicos encargados de proveer la infraestructura probatoria que evite dicha condena.
 
-> **Nota de Alcance Jurisdiccional:** Aunque la física del ataque (Ring-0, subversión de memoria, ataques TOCTOU) descrita aquí secuestra inevitablemente el debido proceso, la dimensión de **valoración judicial** —el deber del adjudicador, el colapso de la "sana crítica" y el juez como periférico vulnerable— ha sido deliberadamente extraída de este dictamen. Ese frente se desarrolla a profundidad en el volumen complementario de esta serie: *La valoración judicial de la evidencia digital en la era de la IA generativa*.
-
-### Guía de lectura táctica interdisciplinaria
-
-La vulnerabilidad técnica subyacente (TOCTOU, carencia de SCITT) actúa como el hilo conductor de toda la obra. Sin embargo, para evitar la fatiga interdisciplinaria del lector, el documento permite las siguientes rutas de lectura acelerada:
-
-- 🚦 **Para perfiles de Ingeniería y CISO:** El núcleo de su exposición técnica reside en el **Capítulo 2** (Modelo de Amenaza) y el **Capítulo 4** (Análisis Crítico de Defensas Hiperescalares). Para avanzar ágilmente, el autor autoriza leer "en diagonal" las extensas minucias de derecho procesal chileno detalladas en la **Sección 3.8**, sin que ello quiebre el hilo conductor de la vulnerabilidad arquitectónica.
-- ⚖️ **Para Fiscales (Legal) y el Directorio Corporativo:** Su exposición fiduciaria y patrimonial se desglosa con absoluta crudeza en el **Capítulo 3** (Especialmente la Sección 3.8 sobre la Inversión de la Carga de la Prueba Penal) y el **Capítulo 6** (Requisitos de evidencia idónea frente al regulador). 
-
-Ambas disciplinas convergen, hacia el final del documento, en una solución arquitectónica idónea e ineludible: la Soberanía Forense anclada en hardware.
-
-Se incorpora un Glosario interdisciplinario (Anexo A) que traduce cada término técnico a su relevancia jurídica y viceversa. Una convicción atraviesa el documento: ningún lector necesita ser experto en las dos disciplinas para seguir el argumento; solo necesita aceptar que el problema no respeta la frontera entre ellas.
-
-<a id="mapa-argumento"></a>
-
-### El argumento en una página: mapa de dependencias e invariantes
-
-El documento es largo porque el problema es transversal, pero su columna vertebral es una sola cadena de inferencias. Quien la tenga presente puede entrar por cualquier sección sin perder el hilo:
-
-> §1.3.1 *(los dos hechos de 2026: el adversario agéntico y el apagón jurisdiccional)* ⇒ §2 *(modelo de amenaza: por qué el registro no atestado no prueba lo que dice)* ⇒ §3.6 *(quién soporta la carga de acreditar la fiabilidad de la máquina)* ⇒ §5.3 *(la indefensión probatoria bidireccional: ni la víctima acusa ni el imputado se exonera)* ⇒ §5–§6 y Anexo B *(el estándar de evidencia atestable que cierra la cadena)*.*
+### La asimetría fundamental: el tiempo del silicio vs. el tiempo humano
 
 Una asimetría fundamental recorre todo este trabajo y conviene fijarla desde aquí, pues reaparece en cada sección como su estribillo ineludible: *el choque frontal entre el tiempo de la máquina y el tiempo humano*. 
 
 Por un lado, el tiempo humano de respuesta al incidente, donde el plazo legal para reaccionar y reportar se mide en letárgicas horas (dos bajo la normativa de la CMF, tres ante la ANCI). Por el otro, el tiempo de la máquina subvertido por la Inteligencia Artificial agéntica, donde la interceptación y manipulación de la evidencia (ataques TOCTOU) ocurre en fracciones de milisegundo dentro de la memoria volátil, consumando el fraude antes de que el humano siquiera aparte la vista de la pantalla. 
 
 Todo lo demás en este documento es la disección de ese abismo cronológico, y de cómo el andamiaje probatorio del Estado colapsa al intentar gobernar la velocidad del silicio con la lentitud del papel.
+
+### Guía de lectura táctica (por perfil profesional)
+
+La vulnerabilidad técnica subyacente (TOCTOU, carencia de SCITT) actúa como el hilo conductor de toda la obra. Sin embargo, para evitar la fatiga interdisciplinaria del lector, el documento permite las siguientes rutas de lectura acelerada:
+
+- 🚦 **Para Arquitectos Cloud, CISO e Ingeniería:** El documento cruza densas capas de dogmática jurídica (Capítulos 4 al 6) que no son el objetivo principal de su disciplina. Para ir directo a la refutación técnica, se recomienda leer el **Capítulo 2** (Modelo de Amenaza), avanzar "en diagonal" sobre las discusiones de derecho administrativo, y aterrizar directamente en la **Sección 7.7** (Refutaciones arquitectónicas de élite) y en el **[Anexo E](#demostracion-ring-0)** (Explotación en Ring-0 y demostración de atestación en hardware).
+- ⚖️ **Para Abogados Litigantes, Fiscales y Directorios:** Su exposición de riesgo fiduciario y patrimonial (imputabilidad bajo la Ley 21.595) se desglosa con absoluta crudeza en el **Capítulo 3**, el **Capítulo 6** (Potestad sancionatoria de la ANCI) y la **Sección 7.8** (La CMF y la Ley Fintec). Pueden obviar la lectura profunda sobre latencia $O(1)$ o árboles de Merkle de los anexos, apoyándose en las conclusiones del cuerpo principal. 
+
+Ambas disciplinas convergen, hacia el final del documento, en una solución arquitectónica idónea e ineludible: la Soberanía Forense anclada en hardware. Se incorpora un Glosario interdisciplinario (Anexo A) que traduce cada término técnico a su relevancia jurídica y viceversa.
+
+<a id="mapa-argumento"></a>
+
+### El argumento en una cadena lógica: dependencias e invariantes
+
+El documento es largo porque el problema es transversal, pero su columna vertebral es una sola cadena de inferencias. Quien la tenga presente puede entrar por cualquier sección sin perder el hilo:
+
+> §1.3.1 *(los dos hechos de 2026: el adversario agéntico y el apagón jurisdiccional)* ⇒ §2 *(modelo de amenaza: por qué el registro no atestado no prueba lo que dice)* ⇒ §3.6 *(quién soporta la carga de acreditar la fiabilidad de la máquina)* ⇒ §5.3 *(la indefensión probatoria bidireccional: ni la víctima acusa ni el imputado se exonera)* ⇒ §5–§6 y Anexo B *(el estándar de evidencia atestable que cierra la cadena)*.
 
 De esa cadena se destilan siete invariantes —proposiciones que el documento prueba y que el lector puede llevarse como herramienta de trabajo—. Aparecen recuadradas, numeradas, en el punto exacto donde se demuestran:
 
@@ -199,7 +197,7 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 Una sola falla recorre todo lo que sigue: cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede probar qué ocurrió. En este frente, esa ceguera forense se cobra su precio en dinero, licencias y responsabilidad personal —la del gerente que reporta a ciegas, la del directorio que responde con su patrimonio, la del regulador que sanciona sobre una narrativa que el atacante escribió—. La certificación de papel no lo salva; la telemetría no lo prueba; y el día del incidente, el obligado descubre que su mejor evidencia es la coartada que el intruso dejó firmada en su propio servidor.
 
 
-> **La salida, anticipada.** Conviene fijar el destino antes de descender, porque todo lo que sigue converge en él. Contra un adversario de costo marginal cero no existe el muro perfecto; la defensa viable es una tríada: **Prevención** —encarecer cada paso del ataque hasta volverlo antieconómico—, **Prueba** —anclar la evidencia en un silicio que el atacante no controla, de modo que falsificarla deje huella— y **Soberanía** —que esa raíz de confianza responda a nosotros, no a la geopolítica de un tercero—. La Parte I diagnostica el colapso; la Parte II (§6 en adelante) construye esa salida.
+> **La salida, anticipada.** Conviene fijar el destino antes de descender, porque todo lo que sigue converge en él. Contra un adversario agéntico de costo marginal cero no existe el cortafuegos perfecto; la única defensa jurisdiccional viable es una tríada: **Fricción Física** —expulsar al adversario del plano lógico para destruir por completo la rentabilidad de su intrusión—, **Prueba Innegable** —anclar la evidencia en un silicio que el atacante no controla, de modo que falsificarla sea matemáticamente imposible— y **Soberanía** —que esa raíz de confianza responda a nosotros, no a la jurisdicción de un tercero—. La Parte I diagnostica el colapso; la Parte II (§6 en adelante) construye esa salida.
 
 ## PARTE I — EL COLAPSO {.parte}
 
@@ -209,21 +207,21 @@ Una sola falla recorre todo lo que sigue: cuando el sistema que produce el regis
 
 > *Dos hechos de 2026 —una IA que reescribe la memoria y un interruptor soberano a diez mil kilómetros— bastaron para vaciar de valor casi toda la evidencia digital del país. Este capítulo mide el daño; la Parte II construye el remedio.*
 
-Este documento formaliza el diagnóstico central de este trabajo. Para comprender por qué el modelo de confianza delegada —tanto la certificación documental, el "teatro de cumplimiento", como la atestación de *hardware* que los hiperescalares despliegan sobre silicio y *Verifier* extranjeros— colapsó de manera irreversible frente a los eventos de 2026, se impone por fuerza abandonar la lectura contingente de la contingencia y examinar la arquitectura estructural que hizo posible dicho colapso.
+Para comprender por qué el modelo de confianza delegada colapsó irreversiblemente en 2026 —tanto en su versión documental ("teatro de cumplimiento") como en la atestación de *hardware* que los hiperescalares ofrecen sobre verificadores remotos controlados por ellos mismos—, debemos abandonar el análisis superficial y diseccionar la vulnerabilidad a nivel de arquitectura.
 
-Durante dos décadas, el cumplimiento en ciberseguridad operó primordialmente como *escudo de responsabilidad*: certificaciones, cifrado y contratos que blindan al obligado frente al regulador o sancionador y como protección formal de los centros de decisiones , pero no como mecanismo para probar qué ocurrió. 
+Durante dos décadas, el cumplimiento en ciberseguridad operó como un mero *escudo de responsabilidad*: certificaciones (ISO 27001, SOC 2) y auditorías de procesos diseñadas para blindar al Directorio frente al regulador, pero jamás concebidas para frenar ataques en memoria volátil. La Ley de Goodhart explica este fracaso: el día en que la certificación de procesos pasó de ser un termómetro a convertirse en la *meta regulatoria*, dejó de medir la realidad. Se congeló en un teatro estático frente a un adversario agéntico que muta en el Ring-0 del sistema. Hasta aquí, el diagnóstico es evidente.
 
-Hay una ley que gobierna todo este colapso, y conviene enunciarla ahora porque usted va a verla operar **dos veces en un solo párrafo**. La formuló Goodhart: *cuando una medida se convierte en el objetivo, deja de ser una buena medida*. Aplíquela. El día en que la certificación de papel —SOC 2, ISO, el resto del catálogo— pasó de termómetro de seguridad a *meta regulatoria*, dejó de medir algo: se congeló en un teatro estático, elegante e inútil frente a un ataque que muta en Ring-0. Hasta aquí, probablemente ya lo intuía.
+Ahora viene la advertencia arquitectónica, y el error que el mercado está a punto de repetir. Suponga que la industria despierta y exige "atestación de *hardware*". Pareciera la cura definitiva, pero encierra una trampa pericial si se implementa como otro casillero que marcar. Muchos correrán a encender módulos TPM (*Trusted Platform Module*) o a contratar enclaves de *Confidential Computing* en la nube pública (Intel SGX/TDX, AMD SEV-SNP). 
 
-Ahora viene la parte incómoda —y es donde este documento le pide que no repita el error—. Suponga que el regulador reacciona y exige *atestación de hardware*. Parece la cura. No lo es, si la convierte en un casillero más que marcar: un enclave comercial (Intel SGX/TDX, AMD SEV-SNP), un TPM con arranque medido, un certificado de raíz de confianza del fabricante. Fíjese en lo que esas capas realmente certifican: el *arranque* o el *producto* —y bajo silicio extranjero—, jamás la instrucción que se ejecutó en el instante del incidente. Convierta *eso* en el objetivo y habrá levantado un teatro nuevo, más caro, con la misma ceguera. Goodhart cobra su peaje por segunda vez.
+Fíjese en lo que cada capa hace realmente. El TPM tradicional padece de ceguera dinámica: certifica criptográficamente el arranque de la máquina (*Measured Boot*), pero es ciego frente a la inyección de código en el milisegundo exacto del incidente. Los enclaves avanzados (como SGX) sí resuelven esto al atestar el código dinámico en ejecución, **pero introducen una vulnerabilidad jurisdiccional insalvable:** el motor remoto que verifica esa criptografía (el *Verifier* y la infraestructura de llaves PKI) sigue bajo el control exclusivo del hiperescalar o del fabricante extranjero. Si ese tercero sufre un apagón soberano, o es comprometido, la atestación pierde todo valor jurídico, porque el testigo es a la vez el dueño del tribunal. Goodhart cobra su peaje por segunda vez: el *hardware* seguro se volvió una simple métrica de *marketing cloud*.
 
-¿Qué resiste, entonces, la conversión del indicador en objetivo? Una sola cosa: atestar el *estado y la instrucción en ejecución*, bajo raíz de confianza soberana. No mide la representación documental del hecho —mide el hecho—. Y por eso, y solo por eso, no se puede gamear: ya no queda casillero que marcar; queda una realidad que probar.
+¿Cuál es la única configuración que resiste el asedio de un peritaje hostil? Separar físicamente la ejecución de la validación. Atestar la instrucción dinámica en el silicio, sí, pero **extrayendo la Raíz de Confianza (las llaves maestras y el motor de verificación) fuera del perímetro del proveedor de nube**, subordinándola a jurisdicción soberana. La física del microchip operará igual en cualquier latitud, pero la criptografía que audita a ese procesador no puede depender de un tercero que cobra por el servicio auditado. Solo al recuperar el control asimétrico de las llaves, el registro deja de ser una representación documental manipulable para convertirse en el hecho material mismo.
 
-### La muerte del estándar documental: Dos eventos de extinción
+### La Aniquilación del Estándar Documental: Dos Vectores de Ruptura Estructural
 
-> *Un estándar que reinó dos décadas murió en 2026 —de dos golpes que no pidieron permiso: una IA que reescribe la memoria y un interruptor soberano a diez mil kilómetros.*
+> *El andamiaje de confianza que sostuvo la ciberseguridad corporativa durante dos décadas fue pulverizado en 2026 por dos fuerzas asimétricas e incontenibles: la mutación polimórfica en memoria volátil y la interdependencia armada de la nube pública.*
 
-Este estándar obsoleto descansaba sobre un supuesto tácito —que toda evidencia producida por un entorno *cloud* o local no atestado refleja el hecho real— cuya vigencia ha sido aniquilada por la convergencia de dos eventos tectónicos en 2026:
+El modelo de cumplimiento obsoleto descansaba sobre una ficción procedimental —asumir ciegamente que los registros generados por un entorno *cloud* opaco o un servidor no atestado reflejan fielmente el hecho material—. Esa presunción de veracidad quedó definitivamente anulada por la convergencia de dos eventos tectónicos:
 
 - Primero, la irrupción pública de Mythos de Anthropic como corolario de una ola de adversarios que ya operan con modelos de lenguaje de código abierto sin restricciones éticas: APT28/PROMPTSTEAL ejecutó operaciones *live* en Ucrania usando LLMs de código abierto vía Hugging Face (GTIG, jun-2025)<a href="#fn1" id="fnref1"><sup>1</sup></a>; PROMPTFLUX desplegó motores de mutación *just-in-time* (GTIG, nov-2025)<a href="#fn1" id="fnref1"><sup>1</sup></a>; en mayo de 2026 el mismo cuerpo documentó con "alta confianza" el primer *zero-day* asistido por IA —un *bypass* de 2FA interceptado antes de su explotación masiva—<a href="#fn1" id="fnref1"><sup>1</sup></a>; y Mandiant M-Trends 2026 registra que el tiempo de entrega del adversario colapsó de horas a fracciones de minuto<a href="#fn2" id="fnref2"><sup>2</sup></a>, sobre quinientas mil horas de investigaciones de campo. 
 
@@ -262,9 +260,9 @@ La «Visión de Riesgo» del diagnóstico nacional de inteligencia de amenazas l
 
 Y aquí está el giro que la mayoría pasa por alto: el peligro definitivo no es que una mala configuración cloud facilite la intrusión inicial. Es que esa misma abstracción técnica destruye la cadena de custodia. Al delegar el cómputo en capas hiper-fragmentadas de software sin anclaje en hardware con control soberano, el operador no solo pierde el perímetro; pierde la capacidad de reconstruir y probar la verdad forense de lo que ocurrió dentro de sus propios activos.
 
-### La asimetría crítica: plazos de tres horas contra un adversario que actúa en minutos
+### La Asimetría Cronológica: Latencia Regulatoria frente a Velocidad de Máquina
 
-> *El reloj legal corre en horas; el de la máquina, en segundos. La ley exige reportar en tres horas un ataque que se consumó hace ciento setenta y nueve minutos.*
+> *El reloj legal mide la respuesta en letárgicas horas; el reloj del adversario consolida la intrusión en fracciones de milisegundo. La ley exige reportar un siniestro que el agente polimórfico ya consumó, borró y reescribió en la memoria volátil.*
 
 La conexión entre estas premisas técnicas y el colapso jurídico de la Ley 21.663 es inexorable: el legislador redactó un deber de reporte asfixiante (tres horas) presuponiendo que el OIV posee un mapa determinista y auditable de su red en tiempo real. La adopción de la nube y la IA descentralizada destruyeron esa presunción epistémica. 
 
@@ -296,6 +294,8 @@ Cuando apenas nace el deber de reportar, la evidencia del estado del sistema ya 
 Esta tensión entre el deber de reportar y la imposibilidad de reconstruir el incidente no es una singularidad chilena: la regla federal estadounidense CIRCIA, finalizada en 2026, impone a más de 300.000 operadores de infraestructura crítica reportar un incidente significativo en 72 horas y todo pago de rescate en 24; y una línea jurisprudencial en ascenso —la *negligent incident response*— erige el retardo mismo de la notificación en fuente autónoma de responsabilidad, desplazando la pregunta de «¿por qué dejó que ocurriera?» a «¿por qué tardó tanto en avisar?»<a href="#fn270" id="fnref270"><sup>270</sup></a>.
 
 El régimen chileno no es, pues, un rigor aislado, sino la versión local de una ola regulatoria global —y hereda, agravado por sus plazos más breves, el mismo vicio estructural: exige veracidad y prontitud sobre un registro que el adversario pudo reescribir antes de que el reloj empezara a correr.
+
+### El Vacío de Imputación: Indefensión Probatoria Bidireccional
 
 A esta asimetría temporal se suma un déficit de imputación que la doctrina tradicional ha diagnosticado de forma incompleta. Cuando el compromiso es ejecutado a velocidad de máquina por un agente autónomo, sin instrucción humana directa en tiempo real, el sistema de persecución choca contra un vacío probatorio que ni la Ley de Delitos Informáticos (21.459) ni la normativa de la CMF logran sortear.
 
@@ -520,37 +520,31 @@ Esto motivó la creación de Project Glasswing<a href="#fn17" id="fnref17"><sup>
 
 El 9 de junio, Anthropic lanzó Claude Fable 5<a href="#fn18" id="fnref18"><sup>18</sup></a> (versión pública con clasificadores de seguridad) y Mythos 5 (versión completa, restringida a Glasswing).
 
-### La amenaza estructural: Invisibilidad y La insuficiencia de la auditoría delegada
+### La amenaza estructural: Invisibilidad y La insuficiencia de la auditoría delegada {#amenaza-invisibilidad}
 
 > *Quien domina el núcleo no borra la evidencia: fabrica la que lo absuelve y la firma con la máquina que debía delatarlo.*
 
-La Paradoja del Testigo Desaparecido describe la imposibilidad probatoria que opera desde afuera: un soberano extranjero acciona el interruptor y la evidencia perece con el servicio. Ese pilar es independiente del adversario técnico; basta una directiva administrativa.
+La *Paradoja del Testigo Desaparecido* **[ ↳ Véase más adelante: La Paradoja del Testigo Desaparecido ](#paradoja-testigo)** describe la imposibilidad probatoria que opera desde afuera: un soberano extranjero acciona el interruptor y la evidencia perece con el servicio. Ese pilar es independiente del adversario técnico; basta una directiva administrativa.
 
 El segundo pilar opera desde adentro, mientras el servicio sigue vivo y la evidencia sigue generándose: es la capacidad de un adversario de manipular el entorno de ejecución en tiempo real, de modo que los registros que el auditor leerá reflejen lo que el adversario decidió que debía registrarse, no lo que ocurrió.
 
 Ambos pilares pueden concurrir o actuar por separado, pero convergen en la misma fatalidad jurídica: la auditoría delegada no registra la realidad. Registra un relato, ya sea porque el entorno fue silenciado por decreto, o falsificado por código.
 
-La magnitud de este segundo pilar —la falsificación por código— reordena los presupuestos de la seguridad nacional. La amenaza no radica en que un modelo de lenguaje burle sus filtros de contenido (guardrails), sino en que su capacidad demostrada para hallar vulnerabilidades profundas (zero-days en kernels auditados como OpenBSD) implica que puede ser instrumentalizado para corromper directamente el sustrato del sistema operativo anfitrión.
+La magnitud de este segundo pilar —la falsificación por código— reordena los presupuestos de la seguridad nacional. El peligro, conviene subrayarlo, no radica en que un modelo de lenguaje burle sus filtros de contenido (*guardrails*) para generar texto restringido. El peligro radica en que su capacidad empíricamente demostrada para hallar vulnerabilidades de corrupción de memoria (*zero-days* en *kernels* auditados como OpenBSD) implica que puede ser instrumentalizado para corromper directamente el sustrato del sistema operativo anfitrión. El primer ataque infringe las políticas de uso; el segundo compromete el tejido de la infraestructura crítica nacional.
 
-El peligro, conviene subrayarlo, no está en que el modelo genere *texto* restringido, sino en que su capacidad demostrada para encontrar vulnerabilidades de corrupción de memoria en entornos controlados implica que, en manos de un adversario, podría ser instrumentalizado para corromper estructuras de datos del *kernel* del sistema operativo anfitrión. El primer ataque infringe las políticas de uso; el segundo compromete el tejido de la infraestructura crítica nacional.
+La razón por la que este ataque compromete el tejido —y no solo un sistema aislado— es arquitectónica. Los 915 Operadores de Importancia Vital (OIV) y las miles de entidades fiscalizadas por la CMF no son islas; comparten pilas de *software* idénticas (*kernels* Linux, Active Directory, APIs). Mientras un investigador humano sondea un objetivo a la vez, el agente autónomo ejecuta un reconocimiento masivo y en paralelo sobre toda esta superficie. El cuello de botella que históricamente frenaba al adversario no era el *exploit*: era el reconocimiento.
 
-La razón por la que el segundo ataque compromete el tejido —y no solo un sistema— es estructural. Los 915 Operadores de Importancia Vital (OIV) y las miles de entidades fiscalizadas por la CMF no son islas; comparten pilas de software idénticas (kernels Linux, Active Directory, APIs). Un agente con razonamiento multi-paso no ataca un objetivo a la vez; ejecuta un reconocimiento masivo y en paralelo sobre toda esta superficie, identificando el vector exacto y encadenando la explotación en cascada a velocidad de máquina.
+Identificar qué versión exacta del *kernel* corre cada nodo, qué mitigaciones tiene activas (SMEP, SMAP, CFI), qué relaciones de confianza AD o *tokens* OAuth son traversables desde ese punto de entrada, y qué rutas evitan la segmentación de red... Ese trabajo de inteligencia que a un equipo humano le toma semanas por objetivo, un enjambre algorítmico lo ejecuta en paralelo sobre toda la superficie nacional en el mismo intervalo.
 
-Un *zero-day* en el *kernel* que un agente autónomo identifica no afecta a un OIV o a un banco de forma aislada: afecta a todos los que ejecutan ese componente.
+Lo que el adversario aporta no es un *exploit* mágico que ignora ASLR: es la capacidad de convertir el reconocimiento masivo en priorización quirúrgica. Identifica los tres nodos con el *stack* más homogéneo, el menor *hardening* activo y las *trust relationships* más permisivas, y concentra el fuego ahí, con la certeza de que la propagación en cascada hará el resto. Un *zero-day* en el *kernel* que un agente identifica no afecta a un OIV de forma aislada: afecta a todos los que ejecutan ese componente.
 
-Mientras un investigador humano sondea un objetivo a la vez, un agente con razonamiento multi-paso opera en paralelo sobre todo el ecosistema: no porque el compromiso final sea simultáneo —la explotación sigue siendo secuencial por diseño de los protocolos de red—, sino porque el cuello de botella que históricamente frenaba al adversario no era el *exploit*: era el reconocimiento.
+El argumento decisivo, sin embargo, no es la escala: es la invisibilidad. La vulnerabilidad de corrupción de memoria que modelos como *Mythos* hallaron en OpenBSD o FFmpeg opera por debajo del umbral de los sistemas de monitoreo estándar. **[ ↳ Véase Anexo E / Demostración Técnica: Explotación en Ring-0 y ceguera de los sensores de telemetría en espacio de usuario ](#demostracion-ring-0).**
 
-Identificar qué versión exacta del *kernel* corre cada nodo, qué mitigaciones tiene activas (SMEP, SMAP, CFI), qué relaciones de confianza AD o tokens OAuth son traversables desde ese punto de entrada, qué rutas evitan la segmentación —ese trabajo de inteligencia que a un equipo humano le toma semanas por objetivo, un agente lo ejecuta en paralelo sobre toda la superficie en el mismo intervalo.
+Un agente que explota el *kernel* puede fabricar simultáneamente el *log* que registra que *no* lo explotó. El tejido de la infraestructura crítica y del mercado de capitales permanece comprometido en bloque, mientras cada OIV afectado se cree limpio. La ANCI y la CMF reciben reportes de sistemas íntegros. La coordinación defensiva, sencillamente, nunca llega a activarse.
 
-Lo que el adversario autónomo aporta no es un *exploit* mágico que ignora ASLR: es la capacidad de convertir el reconocimiento masivo en priorización quirúrgica —identificar los tres nodos con el *stack* más homogéneo, el menor *hardening* activo y las *trust relationships* más permisivas, y concentrar el *exploit* ahí, con la certeza de que la propagación en cascada hace el resto.
+La consecuencia jurídica de esta ceguera es directa y letal. El Oficial de Seguridad (DPO) que reporta al amparo del art. 9 de la Ley 21.663 o el Directorio que emite un RIO bajo la NCG 502 de la CMF no están reportando lo que ocurrió: están reportando lo que el entorno comprometido les permitió observar. La certificación del art. 16 de la Ley 21.719 acredita el estado que el adversario diseñó para el verificador.
 
-El argumento decisivo, sin embargo, no es la escala: es la invisibilidad. La vulnerabilidad de corrupción de memoria que Mythos halló en OpenBSD y FFmpeg opera por debajo del umbral de los sistemas de monitoreo estándar, que leen registros generados en el mismo espacio de usuario comprometido. **Un agente que explota el *kernel* puede fabricar simultáneamente el *log* que registra que no lo explotó.** Cada OIV y entidad financiera afectada cree estar limpia; la ANCI y la CMF reciben reportes de sistemas íntegros; la respuesta coordinada nunca se activa.
-
-El tejido de la infraestructura crítica y del mercado de capitales permanece comprometido en bloque, mientras cada OIV afectado se cree limpio y la CMF recibe reportes de sistemas íntegros. La coordinación defensiva, sencillamente, nunca llega a activarse.
-
-La consecuencia jurídica es directa. El DPO que reporta al amparo del art. 9 Ley 21.663 o el Directorio que emite un RIO bajo la NCG 502 de la CMF no reportan lo que ocurrió: reportan lo que el entorno comprometido declaró que ocurrió. La acreditación del art. 16 Ley 21.719 certifica el estado que el adversario diseñó para que el verificador observe.
-
-La sanción por "información falsa o tardía" recaería sobre el operador o banco víctima —no sobre quien fabricó esa falsedad—. El regulador no audita la infraestructura; audita la representación de la infraestructura que el adversario le construyó. Esa es la ficción jurídica de la auditoría delegada no atestada.
+Bajo este modelo, la sanción por "información falsa o tardía" recaerá sobre el operador de la infraestructura o el banco víctima, no sobre quien fabricó esa falsedad en la memoria. El regulador no audita la infraestructura; audita la representación de la infraestructura que el adversario le construyó. Esa es la ficción jurídica de la auditoría delegada no atestada.
 
 ### La arquitectura de la amenaza real: por qué el problema no es Mythos sino su democratización irreversible
 
@@ -840,7 +834,7 @@ Los ocho episodios documentados permiten, leídos en paralelo, una taxonomía qu
 
 La invariante es absoluta: en los ocho casos, la columna de evidencia registra el mismo estado. No es coincidencia —es estructura.
 
-### La Paradoja del Testigo Desaparecido: el hallazgo que el derecho no ha procesado
+### La Paradoja del Testigo Desaparecido: el hallazgo que el derecho no ha procesado {#paradoja-testigo}
 
 > *El testigo no desaparece después del accidente: su desaparición es el accidente.*
 
@@ -885,7 +879,7 @@ En esta topología profunda, la jurisdicción no se defiende controlando la adua
 
 Esta cesión estructural del subsuelo técnico entrega el control total a dos amenazas asimétricas e invencibles en la superficie: por el flanco jurídico, al dueño del hipervisor sometido al apagón del CLOUD Act; y por el flanco técnico, al agente polimórfico (como Mythos) que consolida su asedio en la base de la memoria. Frente a ambos, el inquilino carece de poder para detectar la subversión y de atestación probatoria para defenderse en juicio.
 
-La verdadera dependencia, por tanto, no es territorial, sino arquitectónica. Retener pasivamente datos dentro de las fronteras físicas es una ficción procesal si la infraestructura completa que los procesa y los audita opera bajo el monopolio de un proveedor extranjero. La única respuesta soberana válida ante esta crisis es el aislamiento criptográfico: bóvedas de datos y sistemas de atestación donde la raíz de confianza local retenga el control exclusivo e indelegable de la medición de estado. 
+La verdadera dependencia, por tanto, no es territorial, sino arquitectónica. Retener pasivamente datos dentro de las fronteras físicas es una ficción procesal si la infraestructura completa que los procesa y los audita opera bajo el monopolio de un proveedor extranjero. La única respuesta soberana válida ante esta crisis es el aislamiento criptográfico: bóvedas de datos y sistemas de atestación donde se logre la extirpación definitiva del conflicto de interés. Esto significa, en rigor técnico, **extraer la Raíz de Confianza (las llaves maestras PKI y el motor de verificación o *Verifier*) fuera del perímetro del proveedor de nube**, subordinándola de manera exclusiva e indelegable a la jurisdicción del obligado o del Estado.
 
 ### La Soberanía como Estado Criptográfico (o la obsolescencia del mapa cartesiano)
 
@@ -5845,7 +5839,27 @@ V. Informes técnicos y de inteligencia de amenazas
 <a id="fn_informe_chile"></a>
 ## Anexo E. Implementación de referencia y prueba de ejecución
 
-Las afirmaciones de ingeniería de la Sección 6 —en particular la Ceremonia de
+### E.1 Demostración arquitectónica: Explotación en Ring-0 y ceguera de telemetría en espacio de usuario {#demostracion-ring-0}
+
+La afirmación del cuerpo principal respecto a que un agente autónomo puede fabricar un registro (*log*) que oculta su propia intrusión no es una conjetura teórica; es una consecuencia determinista de la arquitectura de *Von Neumann* y el modelo de anillos de privilegio (*Protection Rings*) de x86-64.
+
+Los sistemas de telemetría modernos (EDR/XDR) y los canales de auditoría nativos (como *Event Tracing for Windows* - ETW, o *auditd* en Linux) operan predominantemente mediante controladores instalados en el *kernel* (*Ring-0*). Su función es interceptar llamadas al sistema (*syscalls*) para monitorear la ejecución de procesos y el acceso a la red, empaquetar esos eventos, firmarlos criptográficamente y enviarlos a la nube del proveedor (SIEM).
+
+Sin embargo, cuando un adversario utiliza un *zero-day* de corrupción de memoria (como los identificados empíricamente por agentes IA en OpenBSD), el paradigma de seguridad colapsa por una falla de jerarquía: **el sensor (EDR) y el atacante comparten el mismo nivel de privilegio (*Ring-0*), o el atacante opera desde un nivel superior (ej. hipervisor en modo *VMX Root* o *System Management Mode* - SMM).**
+
+Al lograr ejecución de código arbitrario y acceso directo a la memoria física (*Direct Kernel Object Manipulation* - DKOM), el agente atacante no necesita "destruir" el EDR, lo cual generaría una alerta inmediata por pérdida de latido (*heartbeat*). En su lugar, ejecuta una ceguera selectiva mediante las siguientes primitivas:
+
+1. **Parcheo de Memoria (Inline Hooking/Trampolining):** El agente modifica en la RAM las funciones de *dispatch* de ETW o *auditd*. Cuando el sistema intenta reportar la inyección de código malicioso, el salto condicional (*JMP*) redirigido por el atacante obliga a la función a retornar un código de estado limpio (`STATUS_SUCCESS`), descartando silenciosamente la alerta antes de que sea procesada.
+2. **Manipulación de Búferes Asíncronos (TOCTOU sobre la telemetría):** El EDR no envía la telemetría a la nube en tiempo real (pues bloquearía la CPU). Acumula los eventos en búferes de memoria circular (*ring buffers*). El atacante, con acceso de lectura/escritura a la memoria del núcleo, localiza el búfer del EDR y sobrescribe los *bytes* de la carga útil maliciosa con *bytes* de tráfico benigno (por ejemplo, reemplazando un comando codificado en base64 por un *ping* rutinario).
+3. **Ceguera de Paginación (Shadow Page Tables):** Operando desde el hipervisor, el atacante desvincula la memoria física real de la memoria virtual que el sistema operativo (y por ende, el EDR) puede ver. El EDR escanea una memoria ilusoria, mientras el *malware* se ejecuta en páginas de RAM que han sido ocultadas a nivel del procesador físico.
+
+**Conclusión técnica:** Cuando el EDR finalmente lee el búfer, empaqueta el registro y aplica su firma digital (SHA-256 / RSA), **está firmando criptográficamente una falsedad**. La firma garantiza la integridad del documento en tránsito hacia la nube, pero el contenido del documento es una ficción manufacturada en la memoria volátil. La imposibilidad matemática de que el *software* audite su propia integridad estructural una vez comprometido el núcleo es el fundamento que invalida la telemetría *cloud* como prueba de cargo. La mitigación criptográficamente válida contra esta ceguera es requerir Atestación Remota (RATS) anclada en hardware.
+
+**[ ↩ Volver a la lectura principal: La amenaza estructural ](#amenaza-invisibilidad)**
+
+### E.2 Código fuente de la ceremonia atestada (Implementación)
+
+Las afirmaciones de ingeniería de la Sección 7 —en particular la Ceremonia de
 Firma Atestada de §7.8.1— no se presentan como una construcción teórica. Existe
 una implementación de referencia, ejecutable y verificable de forma
 independiente, cuyo código fuente completo se publica de manera abierta y se
@@ -5863,7 +5877,7 @@ administrador de recursos del núcleo (`/dev/tpmrm0`), sin privilegios de
 superusuario. No emplea simulador: la salida de atestación reproducida a
 continuación proviene de silicio físico.
 
-### E.1 Correspondencia con los tres pasos de §7.8.1
+#### Correspondencia con los tres pasos de §7.8.1
 
 La herramienta materializa exactamente los tres pasos descritos en el cuerpo del
 trabajo:
