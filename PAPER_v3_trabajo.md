@@ -1190,15 +1190,15 @@ Estas tres deficiencias existen siempre —antes de cualquier ataque—. Lo que 
 
 ### La Subversión Cognitiva: La cognición humana como payload del ataque
 
-El error más ingenuo de la dogmática procesal y del gobierno corporativo es creer que un compromiso en Ring-0 termina en los fierros. No es así. La alteración del servidor es solo el medio; el objetivo final del exploit es el cerebro de quien lee el reporte. Al dominar el sustrato físico donde nace la evidencia, la IA adversaria no necesita hackear la mente del Juez, del Directorio o del analista del SOC: simplemente la parasita.
+El error más ingenuo de la dogmática procesal y del gobierno corporativo es creer que un compromiso en Ring-0 termina en los fierros. No es así. La alteración del servidor es solo el medio; el objetivo final del exploit es el cerebro de quien lee el reporte. Al dominar el sustrato físico donde nace la evidencia, la IA adversaria no necesita hackear la mente del Directorio, del oficial de cumplimiento o del analista del SOC: simplemente la parasita.
 
-El agente autónomo les entrega una escenografía criptográficamente perfecta. El magistrado aplica su intocable «sana crítica» y el directorio su «juicio de negocios» con una pulcritud profesional intachable. Y esa es exactamente la trampa: el ataque está diseñado para utilizar esa misma diligencia en contra del sistema. Al inyectar una falsedad semántica desde la base de la memoria, el atacante delega en el humano el trabajo de validar el engaño. El raciocinio del juez o del gerente ya no es un escudo; es el mecanismo de blanqueo jurídico del fraude.
+El agente autónomo les entrega una escenografía criptográficamente perfecta. El directorio aplica su «juicio de negocios» y el oficial de cumplimiento su celo profesional con una pulcritud intachable. Y esa es exactamente la trampa: el ataque está diseñado para utilizar esa misma diligencia en contra del sistema. Al inyectar una falsedad semántica desde la base de la memoria, el atacante delega en el humano el trabajo de validar el engaño. El raciocinio del gerente ya no es un escudo; es el mecanismo de blanqueo jurídico del fraude.
 
-En estricto rigor de arquitectura de sistemas, esta dinámica es la explotación de una vulnerabilidad de air-gap bridging (salto de aislamiento) mediante un periférico biológico. Un agente autónomo confinado en la memoria del servidor (Ring-0) carece de los permisos físicos para despachar oficios a la CMF o emitir resoluciones judiciales. Para ejecutar esa escalada de privilegios hacia el plano institucional, la máquina utiliza al humano como su entorno de ejecución (runtime environment). 
+En estricto rigor de arquitectura de sistemas, esta dinámica es la explotación de una vulnerabilidad de air-gap bridging (salto de aislamiento) mediante un periférico biológico. Un agente autónomo confinado en la memoria del servidor (Ring-0) carece de los permisos físicos para despachar oficios a la CMF o firmar un reporte regulatorio vinculante. Para ejecutar esa escalada de privilegios hacia el plano institucional, la máquina utiliza al humano como su entorno de ejecución (runtime environment). 
 
-El log falsificado es el payload de entrada; el protocolo de compliance o la «sana crítica» opera como el compilador determinista; y la firma del directivo actúa como la función de salida (I/O) en el mundo real. En este esquema de Human-in-the-Loop subvertido, la mente del adjudicador no es engañada, es instrumentalizada: funciona como un simple conversor de protocolos que traduce una manipulación de silicio en una obligación de Estado.
+El log falsificado es el payload de entrada; el protocolo de compliance opera como el compilador determinista; y la firma del directivo actúa como la función de salida (I/O) en el mundo real. En este esquema de Human-in-the-Loop subvertido, la mente del decisor corporativo no es engañada, es instrumentalizada: funciona como un simple conversor de protocolos que traduce una manipulación de silicio en una obligación de Estado.
 
-Cuando el Gerente General firma el Reporte de Incidentes (RIO) de la CMF, o cuando el Juez dicta una sentencia basado en un log envenenado, no están cometiendo un simple error de apreciación. Están ejecutando, con absoluta convicción moral, la última línea de código del atacante. El tomador de decisiones pierde su calidad de adjudicador para degradarse al rol más humillante de la cadena: el tonto útil de la máquina, el vector final que convierte una manipulación de silicio en una verdad legal irrevocable.
+Cuando el Gerente General firma el Reporte de Incidentes (RIO) de la CMF sobre la base de un log envenenado, no está cometiendo un simple error de apreciación. Está ejecutando, con absoluta convicción moral, la última línea de código del atacante. El tomador de decisiones pierde su autonomía para degradarse al rol más humillante de la cadena: el tonto útil de la máquina, el vector final que convierte una manipulación de silicio en una verdad legal irrevocable.
 
 #### 1.3.3 El responsable de datos en 2026: firmó la responsabilidad, no el control
 
@@ -5831,7 +5831,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Agencia de Protección de Datos (APDP),** 75, 80, 105, 162, 163, 266, 267, 269
 - **AI Act (Reglamento UE 2024/1689),** 20, 90, 92, 93, 95, 101, 105, 106, 108, 109, 129, 178, 184, 185, 186, 187, 200, 249, 250, 267, 321, 322, 331, 332, 333, 334, 335, 349, 364
 - **AI Liability Directive (COM(2022)496),** 102, 103, 107, 332
-- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 38, 40, 41, 45, 51, 52, 53, 57, 59, 68, 71, 73, 74, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 133, 137, 148, 162, 166, 169, 171, 183, 187, 189, 190, 194, 196, 201, 213, 214, 215, 219, 223, 224, 225, 232, 233, 235, 236, 237, 238, 246, 247, 249, 252, 254, 255, 256, 257, 258, 259, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 275, 278, 281, 282, 285, 288, 293, 303, 304, 306, 308, 309, 311, 312, 313, 316, 318, 322, 326, 327, 329, 342, 366
+- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 38, 40, 41, 45, 51, 52, 53, 57, 59, 68, 71, 73, 74, 82, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 133, 137, 148, 162, 166, 169, 171, 183, 187, 189, 190, 194, 196, 201, 213, 214, 215, 219, 223, 224, 225, 232, 233, 235, 236, 237, 238, 246, 247, 249, 252, 254, 255, 256, 257, 258, 259, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 275, 278, 281, 282, 285, 288, 293, 303, 304, 306, 308, 309, 311, 312, 313, 316, 318, 322, 326, 327, 329, 342, 366
 - **Anthropic,** 15, 23, 26, 28, 29, 31, 43, 104, 118, 140, 141, 276, 277, 323, 324, 338, 342, 351, 363, 369
 - **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 23, 37, 108, 211, 212, 276, 334, 360, 361
 - **Árboles de Merkle,** 8, 219, 243, 265, 279, 283, 306, 336, 350, 367, 373
@@ -5861,7 +5861,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Claude Mythos,** 8, 15, 20, 21, 22, 24, 25, 26, 27, 28, 30, 31, 32, 41, 43, 46, 47, 48, 49, 72, 91, 112, 113, 118, 123, 141, 143, 147, 148, 167, 168, 241, 248, 250, 251, 255, 256, 258, 269, 273, 276, 286, 287, 288, 289, 290, 299, 302, 303, 304, 306, 308, 323, 324, 342, 351
 - **Clínica Dávila / Devman,** 143, 222, 224, 230, 234
 - **CLOUD Act,** 48, 49, 57, 155, 156, 157, 199, 241, 298, 339, 353, 362, 369
-- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 30, 38, 41, 42, 43, 44, 45, 48, 49, 51, 52, 53, 54, 57, 58, 59, 60, 62, 69, 71, 72, 73, 74, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 137, 138, 147, 148, 149, 150, 159, 161, 162, 168, 170, 177, 181, 183, 187, 192, 193, 196, 197, 214, 217, 225, 226, 235, 236, 237, 238, 244, 249, 251, 252, 255, 263, 270, 284, 286, 288, 289, 291, 293, 294, 295, 296, 297, 298, 299, 300, 303, 304, 308, 312, 313, 319, 327, 354, 355, 358, 370
+- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 30, 38, 41, 42, 43, 44, 45, 48, 49, 51, 52, 53, 54, 57, 58, 59, 60, 62, 69, 71, 72, 73, 74, 82, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 137, 138, 147, 148, 149, 150, 159, 161, 162, 168, 170, 177, 181, 183, 187, 192, 193, 196, 197, 214, 217, 225, 226, 235, 236, 237, 238, 244, 249, 251, 252, 255, 263, 270, 284, 286, 288, 289, 291, 293, 294, 295, 296, 297, 298, 299, 300, 303, 304, 308, 312, 313, 319, 327, 354, 355, 358, 370
 - **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 14, 40, 96, 98, 102, 146, 157, 199, 200, 206, 209, 210, 215, 216, 220, 242, 243, 244, 253, 254, 259, 270, 279, 284, 298, 314, 343, 354, 367
 - **Confused deputy (diputado confundido),** 23, 131, 133, 164, 165, 192, 260, 263, 348, 352
 - **Continuidad operacional / soberana,** 47, 53, 67, 86, 104, 138, 140, 168, 170, 207, 209, 214, 228, 264, 265, 268, 277, 311, 313, 318, 320, 321, 354
@@ -5929,7 +5929,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Ley 20.009 / Ley 21.234 (medios de pago),** 60, 181, 182, 347
 - **Ley 21.459 (Delitos Informáticos),** 50, 68, 111, 112, 118, 129, 166, 182, 190, 195, 221, 266, 310, 312, 322, 327, 366
 - **Ley 21.595 (Delitos Económicos),** 16, 19, 58, 60, 72, 87, 113, 114, 120, 129, 130, 133, 134, 135, 136, 138, 139, 141, 142, 147, 150, 153, 158, 176, 181, 189, 190, 192, 193, 197, 201, 202, 207, 218, 238, 263, 269, 284, 285, 286, 288, 289, 290, 300, 303, 309, 310, 313, 348, 357, 358
-- **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 15, 17, 24, 28, 30, 32, 34, 51, 52, 53, 58, 59, 60, 67, 68, 70, 72, 73, 74, 75, 80, 83, 85, 86, 93, 100, 104, 120, 122, 125, 130, 133, 134, 135, 137, 138, 139, 140, 141, 166, 168, 170, 182, 183, 188, 190, 195, 202, 207, 209, 210, 221, 222, 223, 224, 228, 229, 235, 236, 237, 238, 247, 255, 257, 258, 260, 261, 263, 264, 265, 266, 280, 285, 286, 288, 300, 302, 306, 309, 312, 318, 322, 326, 329, 337, 357, 358, 359, 366
+- **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 15, 17, 24, 28, 30, 32, 34, 51, 52, 53, 58, 59, 60, 67, 68, 70, 72, 73, 74, 75, 80, 82, 83, 85, 86, 93, 100, 104, 120, 122, 125, 130, 133, 134, 135, 137, 138, 139, 140, 141, 166, 168, 170, 182, 183, 188, 190, 195, 202, 207, 209, 210, 221, 222, 223, 224, 228, 229, 235, 236, 237, 238, 247, 255, 257, 258, 260, 261, 263, 264, 265, 266, 280, 285, 286, 288, 300, 302, 306, 309, 312, 318, 322, 326, 329, 337, 357, 358, 359, 366
 - **Ley 21.719 (Protección de Datos Personales),** 15, 28, 45, 51, 69, 74, 75, 83, 84, 122, 134, 136, 163, 167, 168, 178, 183, 188, 189, 190, 195, 229, 254, 300, 312, 322, 327, 340, 352, 357, 366
 - **Lorraine v. Markel,** 101, 177, 199, 332, 341
 
@@ -5946,7 +5946,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **N**
 
-- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 30, 45, 48, 51, 52, 59, 62, 72, 74, 80, 83, 86, 90, 93, 99, 104, 113, 161, 168, 169, 170, 183, 236, 298, 299, 312, 319
+- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 30, 45, 48, 51, 52, 59, 62, 72, 74, 80, 82, 86, 90, 93, 99, 104, 113, 161, 168, 169, 170, 183, 236, 298, 299, 312, 319
 - **NCSC (Reino Unido),** 36, 110, 261, 326, 336, 366
 - **NetFlow / Windows Event Forwarding (WEF),** 64, 65, 66, 67, 115
 - **NIS2 (Directiva UE 2022/2555),** 20, 60, 88, 102, 104, 178, 183, 184, 186, 187, 200, 249, 261, 306, 321, 329, 330, 332, 343, 362
@@ -5954,7 +5954,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **O**
 
-- **Operador de Importancia Vital (OIV),** 7, 11, 15, 16, 17, 27, 28, 30, 31, 34, 38, 41, 43, 44, 45, 48, 52, 53, 56, 60, 62, 69, 71, 72, 74, 75, 83, 84, 85, 86, 92, 93, 94, 99, 104, 105, 114, 119, 124, 133, 135, 136, 137, 138, 140, 141, 145, 151, 159, 162, 168, 169, 180, 194, 197, 214, 221, 226, 227, 228, 232, 233, 234, 235, 236, 237, 238, 244, 246, 247, 248, 250, 257, 259, 260, 261, 262, 263, 265, 266, 268, 269, 271, 272, 281, 282, 286, 293, 303, 311, 313, 316, 317, 318, 322, 329, 358
+- **Operador de Importancia Vital (OIV),** 7, 11, 15, 16, 17, 27, 28, 30, 31, 34, 38, 41, 43, 44, 45, 48, 52, 53, 56, 60, 62, 69, 71, 72, 74, 75, 82, 83, 84, 85, 86, 92, 93, 94, 99, 104, 105, 114, 119, 124, 133, 135, 136, 137, 138, 140, 141, 145, 151, 159, 162, 168, 169, 180, 194, 197, 214, 221, 226, 227, 228, 232, 233, 234, 235, 236, 237, 238, 244, 246, 247, 248, 250, 257, 259, 260, 261, 262, 263, 265, 266, 268, 269, 271, 272, 281, 282, 286, 293, 303, 311, 313, 316, 317, 318, 322, 329, 358
 
 **P**
 
@@ -5973,7 +5973,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **R**
 
-- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 17, 52, 53, 62, 72, 74, 83, 86, 99, 104, 113, 138, 168, 170, 235, 237, 251, 288, 304, 308, 319, 354, 355
+- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 17, 52, 53, 62, 72, 74, 82, 86, 99, 104, 113, 138, 168, 170, 235, 237, 251, 288, 304, 308, 319, 354, 355
 - **Ransomware 3.0,** 310, 336
 - **Res ipsa loquitur,** 99
 - **Responsabilidad proactiva (accountability),** 15, 16, 45, 74, 75, 84, 92, 93, 94, 95, 98, 101, 102, 106, 107, 108, 110, 111, 178, 183, 188, 189, 190, 254, 288, 309, 316, 317, 331, 332
@@ -5981,7 +5981,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **S**
 
-- **Sana crítica (arts. 295-297 CPP),** 56, 73, 74, 103, 111, 114, 115, 116, 118, 126, 129, 161, 162, 177, 178, 179, 180, 183, 190, 192, 193, 195, 197, 270, 280, 286, 302, 308, 309, 315
+- **Sana crítica (arts. 295-297 CPP),** 56, 103, 111, 114, 115, 116, 118, 126, 129, 161, 162, 177, 178, 179, 180, 183, 190, 192, 193, 195, 197, 270, 280, 286, 302, 308, 309, 315
 - **Sandbox regulatorio,** 26, 29, 106, 323, 333, 334
 - **Schrems II (C-311/18),** 76, 77, 79, 138, 199, 328, 339
 - **SCITT (cadena de suministro / transparencia),** 11, 36, 51, 99, 119, 128, 136, 152, 184, 187, 197, 238, 240, 243, 245, 250, 251, 253, 260, 264, 266, 267, 269, 272, 275, 278, 283, 295, 299, 300, 305, 306, 307, 309, 312, 314, 336, 338, 341, 350, 360, 367, 370, 371
