@@ -188,8 +188,6 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 </tbody>
 </table>
 
-<div style="page-break-before: always;"></div>
-
 <a id="sec1"></a>
 
 <div style="page-break-before: always;"></div>
