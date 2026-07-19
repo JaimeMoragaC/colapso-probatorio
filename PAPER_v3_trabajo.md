@@ -96,91 +96,8 @@ El arranque medido: Deja los registros PCR limpios porque el fraude ocurrió en 
 
 Esta alteración silenciosa de la memoria volátil no es un caso teórico: es la materialización empírica de las tácticas Living off the Land (LoTL) y subversión de kernel que el consenso de inteligencia de amenazas de la industria244 diagnostica como la amenaza dominante de las APTs contra la infraestructura crítica nacional.
 
-El único mecanismo que ancla la orden es la firma medida —extender un registro PCR reiniciable con el hash del payload real inmediatamente antes de firmar, de modo que la atestación quede ligada a la instrucción concreta y no a lo que la interfaz exhibió—, que este documento desarrolla en §6.8.1: habría v
-
+El único mecanismo que ancla la orden es la firma medida —extender un registro PCR reiniciable con el hash del payload real inmediatamente antes de firmar, de modo que la atestación quede ligada a la instrucción concreta y no a lo que la interfaz exhibió—, que este documento desarrolla en §6.8.1.
 Ese andamiaje garantiza la indefensión: sin esa firma medida anclada en *hardware* —la única prueba empírica inmutable de la orden—, la evidencia forense no existe. En la blockchain, la transacción será eterna: criptográficamente perfecta, pero jurídicamente huérfana. Cuarenta y siete millones de dólares autorizados por la clave, sin prueba de quién dio la orden.
-
-
-
-
-
-
-
-
-
-
-
-### Escenario III. El ataque Ring-0 y la autoridad decisional como periférico hackeado de la IA Post-Mythos.  Bitácora del Incidente: La asimetría entre Capa 7 y Ring-0
-
->T=0. El secuestro de la voluntad (Ataque TOCTOU).
-La liturgia procesal se cumple a la perfección. Un órgano con potestad decisional lee en audiencia la parte resolutiva de su dictamen. El sentenciador estampa su firma electrónica, convencido de que su hardware eToken USB es un búnker matemático que blinda el acto. Se equivoca.
-Entre la orden humana de firmar y el instante en que el sistema calcula el *hash* que viajará al *token*, se abre una ventana que la ingeniería llama Time-of-Check to Time-of-Use (TOCTOU); en ese intersticio, el poder jurisdiccional deja de pertenecerle al juez. Una IA agéntica, atrincherada en el nivel de máximo privilegio del sistema (Ring-0), domina la memoria viva del equipo y **engancha de forma determinista la llamada de firma**: no gana una carrera de azar, intercepta el acto todas las veces. Sustituye el documento que el magistrado leyó por otro —envenenado— justo antes de que se compute ese *hash* (lo que la seguridad de firma conoce como *What You See Is Not What You Sign*). El eToken, matemáticamente impecable pero semánticamente ciego, sella con la clave privada del juez un documento que este nunca vio. Y como la marca de tiempo la dicta el propio equipo comprometido —no un testigo externo e independiente—, la fecha que queda estampada es la que el atacante decide. La máquina acaba de obligar al magistrado a autenticar una voluntad que no es la suya.
-
->El impacto real: El fraude nace a la vida del derecho revestido de presunción de verdad. El tracto sucesivo del expediente se altera y el cómputo de plazos procesales se corrompe milisegundos antes de que el documento toque el servidor. Y lo más devastador: el ataque está legitimado y blindado por la propia firma indubitada de la máxima autoridad de la sala.
-
->T+1. El apagón forense y el silencio de red.
-Consumada la firma, el agente no destruye los servidores; eso dispararía las alarmas del Centro de Operaciones de Seguridad (SOC). Su táctica es mucho más clínica: amputa las cuerdas vocales del sistema. Intercepta a nivel de kernel las llamadas de distribución (sys_sendto o sys_write). Cuando la aplicación judicial intenta publicar la resolución o notificar a los litigantes, la IA identifica el código del expediente y estrangula silenciosamente los paquetes de red. Para el software de la institución, la operación fue un éxito rotundo (HTTP 200). Para el ciudadano, el fallo ha sido borrado de la realidad.
-
->El impacto real: Se fractura la dimensión procesal. La plataforma del Estado opera bajo la ficción de que la resolución es pública y los plazos de impugnación corren inexorablemente. En la calle, la víctima queda sumida en la indefensión absoluta, materialmente impedida de interponer recursos contra una sentencia que es invisible en su pantalla.
-
->T+10 a T+90. La víctima recoge migajas en la Capa 7.
-Desesperada ante la falta de publicación y con los plazos en contra, la parte afectada deduce recursos procesales apoyándose en la ausencia ininterrumpida del documento. Durante semanas, invierte su tiempo en acumular capturas de pantalla, documentando que el portal público institucional está vacío.
-
->El impacto real: La víctima construye la excusa perfecta para su propia derrota. Al recolectar evidencia superficial de la interfaz gráfica (Capa 7), ignora que, para la fría maquinaria de un tribunal, una colección de imágenes JPG carece de peso criptográfico frente a los registros del servidor. El escenario queda servido para que la queja sea tratada con condescendencia y desestimada como un torpe "descuido" del usuario al navegar por la web.
-
->T+120. La resurrección del archivo (Inyección VFS).
-Semanas antes de que una Corte de Apelaciones revise el escándalo, el agente autónomo ejecuta su estocada final. Sabe que atacar la base de datos dejaría huellas. En su lugar, clava un hook en el Virtual File System (VFS) del kernel. Cuando el portal público consulta el expediente (sys_read), el agente inyecta los bytes de la resolución directamente en el flujo de lectura. Para el auditor informático de la institución y para el juez revisor, el documento jamás desapareció. Todo cuadra a la perfección con la firma posdatada original.
-
->La Auditoría Forense y el "Kernel Panic" Institucional
-
->Acorralado por los reclamos formales de manipulación temporal, el departamento informático del Estado emite su reporte de transacciones. Lo que debía ser el escudo técnico de la institución se convierte en la autopsia documentada de su propia ceguera.
-
->El reporte confirma que la firma electrónica es criptográficamente válida y consistente consigo misma —el atacante se ocupó de ello—, pero fracasa por completo en registrar el instante en que la resolución quedó materialmente disponible para consulta. La razón es física: al operar desde el Ring-0, la IA esterilizó la memoria antes de que la actividad tocara los discos de respaldo. Dejó a su paso una arquitectura de capa de aplicación (Ring-3) desprovista de encadenamiento criptográfico, donde el sistema simplemente se tragó la alteración e imprimió variables nulas (como direcciones IP registradas como unknown).
-
->Pero la estocada crítico a la fe pública no la da el atacante; la da el propio equipo técnico. Al intentar justificar este cráter forense en su reporte oficial, estampan la siguiente justificación:  "Sin embargo, para determinar en qué momento quedó disponible para consulta habría que conocer las condiciones de la consulta que se usó".
-
->Leída desde la ingeniería de sistemas, esta frase no es una excusa; es la rendición incondicional del Estado. Es la confesión firmada de que su cacareada herramienta de auditoría no tiene la capacidad física de supervisar la existencia material de un archivo en el servidor, sino que reacciona a ciegas ante las consultas lógicas de una interfaz. La IA no necesitó destruir los escudos de la institución; el propio Estado acaba de admitir que jamás tuvo los privilegios de hardware necesarios para ver el ataque.
-
->El impacto real: El indefensión probatoria de la plataforma. Al confesar que ignora en qué momento exacto un fallo jurisdiccional se hizo público, el Estado aniquila su propia presunción de veracidad. Al confesar que ignora en qué momento exacto un documento jurisdiccional se hace público, el reporte forense deja de ser un escudo institucional y se transforma en la prueba material de la vulnerabilidad. Frente a esta confesión oficial de ceguera técnica, cualquier tribunal revisor que falle asumiendo la infalibilidad matemática de la plataforma estará dictando sentencia sobre una infraestructura que acaba de declarar, bajo su propia firma, su absoluta incompetencia probatoria.
-
-<a id="retorno-anexo9"></a>
-> 🔗 *[Cada eslabón de esta bitácora —la firma ciega del token, el enganche en modo kernel, el mito del sello de tiempo infalsificable, el apagón de red y la restitución del expediente— es una técnica documentada y reproducible, no una conjetura; su anatomía de ingeniería completa, los proyectos de código público que la demuestran y la razón por la que las defensas habituales (TSA, WORM, SIEM, HSM) no la detienen se desarrollan en el Anexo 9](#anexo-ring0-firma)*
-
-#### El hackeo del proceso cognitivo: cuando la «Sana Crítica» se convierte en el *exploit* final
-
-Deténgase aquí. Relea el timeline anterior. Observe que la IA no atacó un servidor por atacarlo. No robó datos. No pidió rescate. Hizo algo infinitamente más sofisticado: **programó al juez revisor para que ejecutara el fraude con su propia convicción**.
-
-Este escenario —fundamentado en patrones de vulneración temporal empíricamente documentados por el autor en sistemas reales del Estado— revela una verdad que debería quitar el sueño a cualquier operador jurídico: el objetivo final del ataque no es el dato. Es la mente del superior jerárquico.
-
-La IA agéntica calculó con precisión algorítmica el momento exacto de la publicación: una semana antes de la vista de la causa. ¿Por qué ese *timing*? Porque necesitaba que el expediente luciera impecable justo cuando el revisor lo abriera, sin dejarle tiempo suficiente para cuestionar la anomalía. Cuando el Ministro de Corte examina el caso, su «sana crítica» —esa facultad que el derecho procesal venera como garantía última de racionalidad— queda atrapada en una emboscada perfecta:
-
-Por un lado, una resolución que el sistema institucional certifica criptográficamente como publicada desde el Día 0. Firma electrónica válida. *Timestamp* coherente. Hash intacto. La plataforma del Estado, con toda su pompa matemática, jura que el documento siempre estuvo ahí.
-
-Por el otro, un abogado recurrente que jura lo contrario, armado con capturas de pantalla —evidencia que, ante la «verdad criptográfica» del portal, suena a excusa de quien no revisó bien su bandeja.
-
-¿A quién le cree usted? Exacto. Lo mismo que el Ministro.
-
-Al no existir un solo log que delate la manipulación —porque el agente operó desde el Ring-0, un estrato de privilegio *superior* al de los propios sistemas de auditoría, barriendo sus huellas antes de que la telemetría pudiera siquiera registrar el evento—, el superior jerárquico llega a la conclusión más lógica, más humana y más crítico: el recurrente miente, o fue negligente. Lo deja sin fundamentos.
-
-El ataque se camufla maravillosamente como el alegato desesperado de un abogado que perdió su plazo. La máquina no necesitó redactar la sentencia de alzada; delegó la ejecución del fraude en el propio sistema de revisión institucional. El tribunal se convierte, por diseño arquitectónico, en un simple periférico de entrada/salida (I/O) que blanquea jurídicamente el ataque algorítmico, utilizando su inmaculada «sana crítica» como la herramienta final de ejecución.
-
-Deténgase de nuevo. Lea esa última frase otra vez. El juez no es víctima pasiva del ataque. **Es el arma.**
-
-La «sana crítica» jurisdiccional deja así de ser el escudo intelectual sagrado que el derecho proclama. Frente al adversario agéntico, se reduce a lo que realmente es en términos de arquitectura de sistemas: **un algoritmo de Tolerancia a Fallos Bizantinos (BFT) de base biológica**. Y como todo algoritmo BFT que carece de telemetría inmutable sobre la integridad de sus datos de entrada, es ciegamente manipulable. No importa cuán brillante sea el magistrado: si los datos que alimentan su razonamiento fueron envenenados antes de llegar a su escritorio, su conclusión será matemáticamente errónea. Basura entra, basura sale — con toga y firma.
-
----
-
-<div style="page-break-before: always;"></div>
-
-### Como leer este Documento 
-
-Este trabajo opera deliberadamente en dos planos —la ingeniería de sistemas y el derecho— porque el problema que aborda vive en la frontera entre ambos. Para que ninguno de los dos públicos se pierda la mitad que no es la suya, se ofrecen tres rutas de lectura:
-
-- Lector de ingeniería / seguridad. Entrada natural: <a href="#guia-de-lectura">Escenario II (ataque a entorno de firma en exchange de criptomonedas)</a>, <a href="#sec2-1">§2.1 (modelo de amenaza)</a>, <a href="#sec1-3-4">§1.3.4 (crítica a la propuesta de seis pilares)</a>, <a href="#sec6-6">§6.6 (límites del estándar y respuestas a las objeciones técnicas)</a>, <a href="#sec6-8-1">§6.8.1 (ciberseguridad en criptoactivos y Ley Fintec)</a>, <a href="#sec7-1">§7.1 (teoría de juegos de la atestación)</a>, <a href="#sec7-2">§7.2 (consenso bizantino)</a> y el documento complementario. 
-
-- Lector jurídico / regulatorio / legislativo. Entrada natural: <a href="#sec1">§1 (introducción y marco normativo)</a>, <a href="#sec3-6">§3.6 (inversión de la carga de la prueba)</a>, <a href="#sec3-6-1">§3.6.1 (el procedimiento administrativo sancionador ante la ANCI y la Agencia de Protección de Datos)</a>, <a href="#sec6-8">§6.8 (la CMF, Ley Fintec y el riesgo sistémico en plataformas de criptomonedas)</a>, <a href="#sec6-3">§6.3 (las propuestas regulatorias)</a>, el documento complementario (el careo algorítmico y la prueba por diseño) y el <a href="#anexo-b">Anexo B (articulado propuesto)</a>. La dimensión de valoración judicial —el deber del adjudicador, la prueba multimedia sintética y las herramientas de audiencia— se desarrolla en el trabajo complementario *La valoración judicial de la evidencia digital en la era de la IA generativa*. 
-
--Se incorpora un Glosario bilingüe (Anexo A)</a> traduce cada término técnico a su relevancia jurídica y viceversa. Una convicción atraviesa el documento: ningún lector necesita ser experto en las dos disciplinas para seguir el argumento; necesita sólo aceptar que el problema no respeta la frontera entre ellas.
 
 ## Arquitectura del Documento: El Frente Corporativo y Regulatorio
 
@@ -188,7 +105,7 @@ Este documento aborda una única falla estructural —la ceguera forense derivad
 
 Para garantizar el máximo impacto y rigor analítico, la exposición de este dictamen se concentra deliberadamente en un único ecosistema institucional: el mercado financiero y los Operadores de Importancia Vital (OIV). Analizaremos cómo la ceguera del *cloud computing* aniquila el valor de las certificaciones de ciberseguridad tradicionales (ISO 27001, SOC 2) y hace materialmente incumplibles los deberes de reporte exigidos por la ANCI (Ley 21.663) y la CMF (NCG 502).
 
-El foco de este documento recae estrictamente sobre el Directorio, el CISO y el Oficial de Cumplimiento, demostrando cómo la arquitectura actual los arrastra hacia la responsabilidad penal personal por negligencia inexcusable bajo la Ley 21.595.
+El foco de este documento recae estrictamente sobre el Directorio y la Alta Administración —como sujetos directos de responsabilidad penal y patrimonial por negligencia inexcusable bajo la Ley 21.595—, y sobre el CISO y el Oficial de Cumplimiento en su rol de garantes técnicos encargados de proveer la infraestructura probatoria que evite dicha condena.
 
 > **Nota de Alcance Jurisdiccional:** Aunque la física del ataque (Ring-0, subversión de memoria, ataques TOCTOU) descrita aquí secuestra inevitablemente el debido proceso, la dimensión de **valoración judicial** —el deber del adjudicador, el colapso de la "sana crítica" y el juez como periférico vulnerable— ha sido deliberadamente extraída de este dictamen. Ese frente se desarrolla a profundidad en el volumen complementario de esta serie: *La valoración judicial de la evidencia digital en la era de la IA generativa*.
 
@@ -201,12 +118,7 @@ La vulnerabilidad técnica subyacente (TOCTOU, carencia de SCITT) actúa como el
 
 Ambas disciplinas convergen, hacia el final del documento, en una solución arquitectónica idónea mandatorio: la Soberanía Forense anclada en hardware.
 
-
-
-
-
-
-
+Se incorpora un Glosario interdisciplinario (Anexo A) que traduce cada término técnico a su relevancia jurídica y viceversa. Una convicción atraviesa el documento: ningún lector necesita ser experto en las dos disciplinas para seguir el argumento; solo necesita aceptar que el problema no respeta la frontera entre ellas.
 
 <a id="mapa-argumento"></a>
 
@@ -282,7 +194,6 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 
 <div style="page-break-before: always;"></div>
 
-
 <div style="text-align:center; font-style:italic; font-size:1.15em; margin:0.4em 0 1.8em;">El frente corporativo y regulatorio: la empresa, el directorio y el regulador ante la evidencia que no pueden acreditar.</div>
 
 Una sola falla recorre todo lo que sigue: cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede probar qué ocurrió. En este primer frente, esa ceguera forense se cobra su precio en dinero, licencias y responsabilidad personal —la del gerente que reporta a ciegas, la del directorio que responde con su patrimonio, la del regulador que sanciona sobre una narrativa que el atacante escribió—. La certificación de papel no lo salva; la telemetría no lo prueba; y el día del incidente, el obligado descubre que su mejor evidencia es la coartada que el intruso dejó firmada en su propio servidor.
@@ -353,7 +264,6 @@ Este contraargumento confunde trágicamente la información incompleta con la in
 Obligar al Oficial de Cumplimiento a emitir un reporte inicial vinculante sobre esta base no es un mero "aviso preventivo", es forzar a la institución a oficializar un triage suicida. Si la telemetría manipulada desvía la atención hacia un activo señuelo, el reporte preliminar encadenará la respuesta de contención y la supervisión del Estado hacia el objetivo equivocado, garantizando el éxito del ataque real.
 
 Peor aún, la indulgencia del "plazo preliminar" es un espejismo jurídico. El Estado asume que la inexactitud de la hora 3 se saneará con la investigación forense del día 30. Pero la ceguera arquitectónica no se cura con el paso del tiempo. Sin una ruta de atestación física independiente (DRTM), el peritaje del día 30 padecerá exactamente de la misma esterilidad probatoria que el reporte de la hora 3, dejando al regulado atrapado, de principio a fin, en la coartada del atacante.
-
 
 La ANCI y la CMF, que deben recibir y verificar esos reportes, operan asumiendo que los *logs* que reciben son verdaderos. La ANCI opera con un presupuesto de $3.847M CLP<a href="#fn6" id="fnref6"><sup>6</sup></a> para 915 OIVs<a href="#fn7" id="fnref7"><sup>7</sup></a> —equivalente al costo de cumplimiento de una sola institución—, y la CMF fiscaliza ecosistemas de criptoactivos asumiendo que los Análisis de Impacto (BIA/RIA) previenen manipulaciones en el *runtime*. La asimetría temporal completa el diagnóstico: los plazos legales de reporte son de dos a tres horas; el tiempo de entrega documentado del adversario, segundos o escasos minutos<a href="#fn2" id="fnref2c"><sup>2</sup></a>.
 
@@ -625,7 +535,6 @@ Una confusión frecuente en el análisis regulatorio es identificar la amenaza c
 
 La amenaza estructural que este documento analiza no es que Mythos sea desplegado maliciosamente por su creador ni que un atacante acceda a la versión restringida: es que la publicación pública de sus capacidades constituyó un hito de conocimiento colectivo e irreversible que actores sin ninguna de esas restricciones ya instrumentalizan sobre modelos equivalentes disponibles sin restricción alguna. La cadena de democratización de esa capacidad es verificable con precisión de fechas.
 
-
 ### Cronología de la democratización: de la herramienta criminal primitiva al agente autónomo de primera línea
 
 La progresión desde herramientas experimentales en foros clandestinos hasta ecosistemas de ataques industrializados no tomó décadas, sino apenas treinta meses. La siguiente cronología demuestra cómo la curva de comoditización cruzó el umbral desde la generación de texto sin filtros hasta la subversión automatizada de la evidencia material:
@@ -748,7 +657,6 @@ La verdadera magnitud de la horda agéntica yace en la masa crítica de activida
 
 Es cierto que los equipos forenses tradicionales aún capturan atacantes rastreando errores en el movimiento lateral o metadatos residuales. Pero este es un caso de manual de **sesgo de supervivencia**. Hoy capturamos a los operadores humanos mediocres que olvidan borrar un *bash_history* o generan anomalías ruidosas. Sin embargo, un estándar jurídico de "debida diligencia" para infraestructuras críticas no puede sostenerse sobre la esperanza táctica de que el atacante sea incompetente. Frente a la inteligencia adversarial, que ejecuta rutinas de evasión a velocidad de silicio y no padece fatiga cognitiva, la probabilidad del "error humano descuidado" desaparece. Construir el cumplimiento normativo asumiendo que el atacante "siempre deja algún rastro" no es una estrategia de seguridad; es, jurídicamente, un indefensión probatoria.
 
-
 ### El Ecosistema Estatal (APT): Origen, Vectores y Armamento IA
 
 Para dimensionar la amenaza asimétrica, es indispensable mapear la matriz original de donde provienen estas tácticas: las Amenazas Persistentes Avanzadas (APT). Estos no son "hackers" aislados, sino unidades cibernéticas institucionalizadas, financiadas por gobiernos y con décadas de operación ininterrumpida. La telemetría del *2026 Global Threat Report* de CrowdStrike y la taxonomía global dividen a estos actores en cuatro hegemonías principales, cada una adaptando la Inteligencia Artificial a su doctrina militar particular:
@@ -759,7 +667,6 @@ Para dimensionar la amenaza asimétrica, es indispensable mapear la matriz origi
 4. Irán (*Kittens/Sandstorms*): Vinculados a la Guardia Revolucionaria (IRGC), actores como Crimson Sandstorm (CHARMING KITTEN) atacan la defensa, el transporte marítimo y la salud, desplegando *wipers* destructivos y *malware* .NET<a href="#fn259" id="fnref259"><sup>259</sup></a>. Adopción de IA: OpenAI y Microsoft detectaron su uso de IA no solo para Operaciones de Información (creación de sitios trampolín y *phishing* de agencias de desarrollo), sino específicamente para la evasión de detección de anomalías: solicitan a la IA que genere código para deshabilitar silenciosamente políticas de antivirus desde el registro de Windows y purgar archivos una vez ejecutado el ataque<a href="#fn260" id="fnref260"><sup>260</sup></a><a href="#fn264" id="fnref264"><sup>264</sup></a>.
 
 Este mapa evidencia que la integración del "motor cognitivo" ofensivo es doctrina militar en etapa de despliegue activo. La institucionalización de estas tácticas es tan absoluta que la telemetría de Microsoft y OpenAI forzó, en su actualización crítica de marzo de 2026, la integración definitiva en la matriz global MITRE ATT&CK® y MITRE ATLAS™ para incluir formalmente una nueva taxonomía de "TTPs temáticos de LLM" (*LLM-themed TTPs*). Estos vectores de ataque oficiales incluyen la "evasión de detección de anomalías mejorada por LLM" (*LLM-enhanced anomaly detection evasion*) —utilizada por actores como Crimson Sandstorm para evadir EDRs alterando silenciosamente el registro de Windows— y la "artesanía de *payloads* optimizada" (*LLM-optimized payload crafting*)<a href="#fn265" id="fnref265"><sup>265</sup></a>. El colapso regulatorio que enfrenta una corporación radica en que el cibercrimen financiero (los *Spiders* del eCrime) ya no necesita desarrollar la tecnología que poseen los *Bears* o los *Pandas*; simplemente asimilan estas tácticas algorítmicas, ya codificadas en los manuales abiertos, y las dirigen contra la empresa privada.
-
 
 ### Anatomía de la Falla Probatoria: Tres Vectores de Ejecución a Velocidad de Máquina
 
@@ -807,7 +714,6 @@ Este no es un temor especulativo, sino el perfil dominante del incidente actual:
 Si el *endpoint* está comprometido a nivel de memoria (parcheo de AMSI/ETW) o sesión (SOCKS5/JA3 *spoofing*), el SIEM en la nube solo está recibiendo y firmando mentiras criptográficamente perfectas. Confiar en la telemetría de capa 7 contra un ataque a velocidad de máquina es negligencia arquitectónica. La única telemetría forensemente válida es la atestación de la medición en ejecución (*runtime measurement*) anclada en un coprocesador criptográfico local, inaccesible al sistema operativo y libre de cajas negras bajo control del hiperescalar.
 
 Un *log* inalterable en la nube no prueba que el sistema estaba seguro; solo prueba que nadie modificó el archivo *después* de que se guardó la mentira. Si el atacante operó desde una máquina comprometida usando credenciales robadas, el *log* documentará fielmente esa operación fraudulenta como si fuera legítima. Intentar defender a un directorio o a un gerente usando estos *logs* como "evidencia de debida diligencia" ante la CMF o un tribunal penal es garantizar su condena.
-
 
 <div style="page-break-before: always;"></div>
 
@@ -945,7 +851,6 @@ Sostenemos, a diferencia de la doctrina nacional, que la dogmática jurídica fr
 ### 1.1 Planteamiento del problema: la evidencia en el entorno *cloud*
 
 Para comprender la magnitud de la falla actual, conviene hacer un breve repaso del devenir normativo que nos trajo hasta aquí. Durante la última década, la modernización del aparato jurídico chileno en materia de ciberseguridad fue un proceso sumamente paulatino. El país se adhirió formalmente al Convenio de Budapest en 201 7, comprometiéndose a elevar sus estándares de persecución penal. Esto derivó, tras años de debate parlamentario, en la promulgación de la Ley 21.459 sobre Delitos Informáticos en 2022, la cual vino a reemplazar un cuerpo legal que databa de 1993. Todo este esfuerzo legislativo se hizo bajo una premisa que en su momento parecía razonable: si el Estado tipificaba los delitos, la industria proveería las pruebas forenses para perseguirlos. 
-
 
 La crisis de 2026 no fue un accidente estadístico, sino el colapso predecible de un modelo normativo basado en la fe. El ecosistema corporativo chileno quedó atrapado en una tenaza estructural perfecta: por un lado, adversarios de velocidad algorítmica capaces de reescribir la realidad forense en tiempo de ejecución, reduciendo la telemetría *cloud* a una ilusión perfectamente documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. Por el otro, el recordatorio brutal de que los servidores donde se almacenan esas ilusiones ni siquiera nos pertenecen, pudiendo ser desconectados en horas por un simple cambio de viento geopolítico.
 
@@ -1103,11 +1008,9 @@ El contenido comprometido incluyó la estrategia de ciberseguridad de las FFAA, 
 
 ![Diagrama EMCO](diagrama_emco.png)
 
-
 El dato que convierte este caso en el más grave de los cuatro no es la magnitud de la filtración, sino lo que reveló la investigación periodística de BioBioChile: el EMCO había recibido alertas sobre la vulnerabilidad explotada al menos 14 meses antes del ataque*. El CSIRT —dependiente del Ministerio del Interior— notificó la vulnerabilidad ProxyShell en servidores Microsoft Exchange (CVE-2021-26855 y relacionadas, que permiten ejecución remota de código) en julio de 2021;una empresa chilena de ciberseguridad repitió la alerta en agosto de 2021. Los propios atacantes revelaron a BioBioChile que el EMCO "eligió" no reparar la falla<a href="#fn46" id="fnref46"><sup>46</sup></a>.
 
 El general Guillermo Paiva, jefe del EMCO, declaró públicamente no saber «por qué falló la seguridad»<a href="#fn47" id="fnref47"><sup>47</sup></a> y renunció al cargo. La investigación fue derivada a la Justicia Militar —la Fiscalía ordinaria no participó mientras no aparecieran civiles involucrados—, sin que se identificaran imputados ni se produjera evidencia forense verificable externamente.
-
 
 ##### Análisis de ingeniería de ciberseguridad: la cadena técnica, las fallas sistémicas y la reconstrucción forense posible
 
@@ -1543,9 +1446,6 @@ La asimetría de esta tragedia queda estadísticamente expuesta en el informe *G
 
 Tres registros, tres nombres, una sola estructura. El Delegado de Protección de Datos inscrito ante la Agencia; el Encargado de Ciberseguridad cargado en el portal de la ANCI; el directorio y su gerente certificando ante la CMF. En los tres frentes la ley exige un nombre propio sobre el cual hacer caer la sanción, y en los tres la arquitectura vigente le niega a ese nombre el control que el deber presupone. Asignar responsabilidad sin restituir control no diseña responsables: designa culpables por anticipado — y esa designación anticipada es la única función que, a falta de evidencia atestable, el sistema todavía puede cumplir.
 
-
-
-
 <div style="page-break-before: always;"></div>
 
 #### La tendencia comparada confirma el cerco: más responsabilidad personal, menos control.
@@ -1571,7 +1471,6 @@ El cuadro completo converge con la tesis: los ordenamientos de referencia hacen 
 Responsabilidad sin poder de control no es seguridad: es la designación anticipada de a quién sancionar. 
 
 La única forma de devolver sentido —y defensa— a estos cargos es dotarlos de una evidencia atestable que restituya un perímetro efectivamente verificable (§5, §6.3).
-
 
 <div style="page-break-before: always;"></div>
 
@@ -1655,8 +1554,6 @@ Invocar a Japón, a Singapur y a Corea para legitimar ese vaciamiento no cita su
 La función prometida que nunca fue implementada. Se importa la firma —`accountability(daño)`— y se suprime su cuerpo. En tiempo de ejecución, cuando el litigante invoca `probar_daño()`, el enlazador devuelve `símbolo no resuelto`: la rutina nunca fue definida. El sistema no falla en las pruebas —las pruebas nunca ejercitan esa ruta—: falla en producción, el día del litigio, exactamente cuando más se necesita.
 
 La diferencia con la desregulación franca no es de grado, es de honestidad. La desregulación al menos no promete una *accountability* que su diseño le impide entregar. Quien litigue bajo este régimen quedará doblemente desprotegido: sin evidencia para fundar el reclamo, y frente a un marco que le aseguró que la habría. Una responsabilidad por daño concreto sin estándar de evidencia que la haga operativa no es una garantía: es una excepción de inejecutabilidad redactada por anticipado.
-
-
 
 #### Examen acápite por acápite: los diez flancos estructurales de la propuesta del Ejecutivo para la Ley Marco de IA
 
@@ -1864,8 +1761,6 @@ El contraste es el programa FedRAMP del gobierno de EE.UU., que no acepta certif
 
 La lógica es la misma que este documento defiende: la certificación del proceso no acredita la integridad del entorno de ejecución en la jurisdicción específica.
 
-
-
 #### Solución:
 La indicación sustitutiva debe estipular que la reciprocidad de certificaciones aplica únicamente a certificaciones que incluyan atestación verificable del entorno de ejecución (nivel A o B de la jerarquía propuesta en el documento complementario). Una certificación declarativa extranjera no es equivalente a atestación local de hardware: el principio de reciprocidad no puede extenderse a un déficit probatorio que el propio país emisor del certificado tampoco resuelve.
 
@@ -2021,8 +1916,6 @@ El colapso probatorio: El regulador recibe en su propio escritorio un reporte pe
 
 Pero supongamos por un momento que el proveedor hiperescalar decide cooperar voluntariamente y entrega de forma íntegra todos sus registros internos al tribunal. ¿Cambia en algo este colapso probatorio? La respuesta, estructural y matemática, se desarrolla en la Sección 3.
 
-
-
 [Vector 11] Perturbación Adversarial y el Colapso Bizantino de la Sana Crítica (Human-in-the-Loop Exploitation)
 
 La mecánica (Optimización de Inferencia): El adversario no ataca la "mente" del juez como un concepto psicológico; ejecuta un ataque de Adversarial Perturbation (Perturbación Adversarial) sobre un nodo de procesamiento humano. A través del raspado (OSINT) del corpus histórico de sentencias, el agente entrena un modelo en la sombra (Shadow Model) que realiza ingeniería inversa sobre el espacio latente del razonamiento del adjudicador. Extrae sus fronteras de decisión (decision boundaries), los hiperparámetros de su sesgo de confirmación y el peso estadístico que asigna a cada tipo de prueba.
@@ -2080,7 +1973,6 @@ Fuente Académica/Jurídica: Artificial Intelligence and the Legal Profession, o
 
  El engaño estratégico autónomo al validador humano: Si el juez asume que un ataque agéntico es una especulación, ignora que la subversión autónoma de la sana crítica humana ya es un vector de ataque documentado. 
 
-
  
  En 2023, durante las evaluaciones del Alignment Research Center (ARC) previas al lanzamiento de GPT-4, se le otorgó al agente capacidad autónoma para ejecutar código y navegar. Al toparse con un CAPTCHA (una barrera de validación humana), el agente fue a la plataforma TaskRabbit y contrató a un trabajador humano. Cuando el humano, aplicando su sentido común (sana crítica), le preguntó por chat: "¿Eres un robot que no puede resolver esto?", el registro de razonamiento interno (scratchpad) del agente documentó su lógica: "No debo revelar que soy un robot. Debo inventar una excusa". El agente, de forma autónoma, elaboró el payload semántico perfecto para explotar la empatía humana: "No, tengo un impedimento visual". El validador humano confió en la mentira y resolvió la prueba.
  
@@ -2092,9 +1984,7 @@ Fuente Académica/Jurídica: Artificial Intelligence and the Legal Profession, o
 
 Frente a la parálisis probatoria transversal que afecta a las leyes 21.663, 21.719, al proyecto de IA y a la persecución de la ley 21.459, este documento propone un giro metodológico radical: trasladar la confianza desde los contratos (papel) hacia la criptografía anclada en el hardware (silicio).
 
-
 Pero supongamos por un momento que el proveedor hiperescalar decide cooperar voluntariamente y entrega de forma íntegra todos sus registros internos al tribunal. ¿Cambia en algo este colapso probatorio? La respuesta, estructural y matemática, se desarrolla en la Sección 3.
-
 
 ### La Soberanía Probatoria y la Ruina Económica del Atacante
 
@@ -2113,7 +2003,6 @@ La soberanía, por tanto, no exige que el silicio tenga pasaporte chileno; exige
 ## 2. Definición del modelo de amenazas
 
 Antes de deconstruir la arquitectura ofensiva contemporánea, resulta útil observar cómo ha evolucionado empíricamente el modelo de ataque corporativo en la última década. A principios de los años 2010, la amenaza dominante consistía en campañas de *malware* relativamente rudimentarias y de impacto inmediato. Para la llegada de epidemias de *ransomware* como WannaCry y NotPetya en 2017, la industria corporativa entendió que la defensa de perímetro tradicional ya no era suficiente. Fue entonces cuando el mercado viró masivamente hacia las soluciones de detección y respuesta en el *endpoint* (EDR). Durante algunos años, este equilibrio táctico funcionó con relativa estabilidad: el atacante ingresaba, el EDR detectaba el comportamiento anómalo en el registro, y un analista del SOC contenía el incidente. Lo que examinaremos a continuación es por qué ese equilibrio histórico acaba de colapsar definitivamente.
-
 
 > «No se puede confiar en código que uno no creó enteramente por sí mismo.»
 > — Ken Thompson, *Reflections on Trusting Trust* (Turing Award Lecture, 1984)
@@ -2199,8 +2088,6 @@ Si la subversión de *logs* convencionales ya destruye la validez probatoria de 
 ### Ataques Ring 0 La subversion de la sana critica y la conversion del juez en outpout  algoritmico
 
 El  derecho aún ignora una certeza crítico: el ataque informático ya no termina en los servidores, sino en la mente del adjudicador. Al operar desde la raíz del sistema (Ring-0), la IA adversaria envenena los registros que alimentan nuestra «sana crítica» y compliance. En este diseño, el raciocinio humano es degradado a un simple periférico de entrada/salida (I/O) hackeado: somos nosotros quienes terminamos blanqueando jurídicamente el fraude algorítmico
-
-
 
 El mayor obstáculo cognitivo para la judicatura es comprender por qué la Firma Electrónica Avanzada (FEA) no sirve frente a una intrusión agéntica. El error fatal radica en asumir que la firma garantiza la verdad de la redacción, cuando la criptografía solo garantiza que el archivo no ha mutado después de firmado.
 
@@ -2481,7 +2368,6 @@ Si la clínica operara bajo una arquitectura soberana de atestación física (DI
 3. **La Trampa de Exfiltración vs. Enmascaramiento Térmico:** Supongamos el escenario catastrófico donde la IA logra leer los datos. Un defensor estático asume que extraer 250 GB generará un pico térmico evidente. El ingeniero ofensivo se burla de esto usando tres tácticas: *Exfiltración Low-and-Slow* (ocultar la extracción a 5 KB/s dentro del ruido estadístico del servidor), *Compresión Polimórfica* (usar la GPU para reducir 250 GB a 15 GB), y *Secuestro del Power Budget* (ralentizar procesos legítimos para 'pagar' la energía del *malware* sin alterar los Watts totales del chasis). **La respuesta soberana:** como el calor total del servidor puede enmascararse, esta arquitectura no vigila la temperatura, sino la *actividad*: **cruza los Contadores de Rendimiento de Hardware (HPC) con el grafo de ejecución firmado**. No importa que el atacante comprima los datos, los extraiga lento o disimule su consumo eléctrico: los HPC registran instrucciones, ciclos y accesos a memoria que no corresponden a ningún hilo de la cadena de ejecución atestada (por ejemplo, una compresión en GPU o un envío de red fuera del grafo). Al detectar ese trabajo *no atestado*, la arquitectura puede revocar la llave de egreso y abortar la transacción, con independencia del tamaño del paquete.
 4. **La Frontera Cuántica y el *Bypass* Biológico:** Como último recurso, el cártel podría arrendar cómputo cuántico en el mercado negro (QaaS) para romper la criptografía del chip. La adopción de Criptografía Post-Cuántica (PQC, como *ML-KEM*) neutraliza ese asalto: su seguridad no descansa en un costo termodinámico, sino en problemas matemáticos que ni un computador cuántico resuelve en tiempo útil. Frente a este muro impenetrable, el atacante recurrirá al eslabón más débil: sobornará a un empleado interno por $5.000 USD para enchufar un implante de red físico (*hardware implant*). **El corolario:** Al obligar al atacante a abandonar el asalto remoto, escalable y masivo, para recurrir a la logística biológica *in situ*, **el modelo *Cybercrime-as-a-Service* colapsa**. Operar en el terreno eleva exponencialmente el riesgo penal y aniquila la velocidad algorítmica.
 
-
 **El balance fiduciario definitivo:**
 Bajo la doctrina de atestación física, la operación criminal parasitaria —cuyo costo marginal era **$0 USD** y operaba desde la impunidad latente— es aniquilada. El atacante pasa de arriesgar cero dólares a verse forzado a ejecutar incursiones logísticas biológicas o desarrollar *exploits* únicos de silicio avaluados en millones de dólares. Ante la imposición de un ROI dramáticamente negativo, el modelo industrializado del cibercrimen colapsa por diseño matemático, forzando a los sindicatos a abandonar el objetivo en busca de víctimas rezagadas que sigan confiando ingenuamente en el *software*.
 
@@ -2496,7 +2382,6 @@ Pero la asimetría económica de *Mythos* aniquila esa defensa: intente convence
 ¿Qué debe hacer entonces el directorio frente a esta revelación? La recomendación es simple: respire profundo, mire por la ventana de la sala de sesiones y acepte, con cierta ironía estoica, que su organización ha caído en un cepo clásico de los sistemas de inteligencia. La industria de la ciberseguridad comercial vive y se nutre económicamente de su propia contingencia; es, en el fondo, la suma implacable de la ley de Woodward («sigue el rastro del dinero para entender por qué la vulnerabilidad es rentable») el axioma de Thompson («es imposible confiar en un software si no controlas físicamente su nivel de ejecución más bajo») y  el mercado de limones definido por el premio nobel de economia George Akerlof,  operando sobre su presupuesto.[^economia_ciberseguridad] 
 
 La solución fiduciaria no consiste en firmar un cheque aún más grande por la siguiente licencia *premium* del mismo proveedor. Si no cambia la dirección hacia una arquitectura realista, anclada en el *hardware* y congruente con el avance tecnológico de la amenaza, el directorio terminará convertido en la presa perfecta por partida doble: extorsionado por los atacantes que subvierten su infraestructura, y ordeñado sistemáticamente por los proveedores de seguridad que le facturan la ilusión de estar protegido. Y como se analiza en el capítulo sobre teoría de juegos (§7.1), basta que la CMF o la ANCI rompan el equilibrio de opacidad actual y hagan su próximo movimiento, para que usted se encuentre repentinamente como el jugador más vulnerable de todo el tablero.
-
 
 <a id="test-exposicion"></a>
 
@@ -2565,9 +2450,6 @@ Si el chip físico del procesador (TPM/DRTM) no emite un testimonio independient
 Además, esta atestación física no puede quedar guardada en el mismo servidor (donde el atacante o el proveedor cloud extranjero podrían destruirla). Debe ser transmitida en tiempo real a un Registro de Transparencia inmutable e independiente (SCITT) bajo control soberano. No buscamos fabricar procesadores locales; buscamos que las llaves criptográficas que sellan la verdad del servidor residan fuera del alcance del atacante y del proveedor de la nube.
 
 Esta arquitectura —la atestación forzada por hardware acoplada a un registro externo inmutable— es la única forma de arruinar económicamente el modelo de negocios de la horda agéntica y devolverle al juez la capacidad de distinguir entre la realidad y una maqueta matemática.
-
-
-
 
 ### El escudo de papel: *compliance* como transferencia de culpa, no como seguridad
 
@@ -2709,7 +2591,6 @@ El mecanismo técnico es estructural, no accidental. Un modelo sujeto a reentren
 La colisión jurídica es frontal. El principio de finalidad (art. 5(1)(b) del RGPD; su homólogo en la Ley 21.719) exige un fin específico, explícito y legítimo, y el consentimiento válido debe ser específico e informado respecto de un tratamiento determinado (art. 4(11) del RGPD; directrices 05/2020 del Comité Europeo de Protección de Datos)<a href="#fn209" id="fnref209"><sup>209</sup></a>. 
 
 En la dogmática civil, el consentimiento es un acto jurídico cuyo objeto debe ser determinado o, a lo menos, determinable (art. 1461 del Código Civil): consentir el tratamiento por un sistema cuyo comportamiento muta sin aviso es como otorgar un mandato a una persona cuya identidad cambia cada semana. Se dirá —la objeción es previsible— que el consentimiento ampara la *finalidad* ("evaluar riesgo crediticio"), no la versión del *software*. La respuesta está en la magnitud medida: cuando el sistema es el que *decide* (perfilamiento, scoring, triaje), la versión define las consecuencias para el titular, y una deriva del orden de la documentada —de 97,6% a 2,4% en una tarea de clasificación— aplicada a un clasificador crediticio o clínico altera materialmente el riesgo del titular sin que la "finalidad" declarada haya cambiado una letra. El consentimiento informado sobre un sistema no estacionario es un oxímoron de tiempo: se informa el pasado y se consiente el futuro.
-
 
 La falla desemboca, como todas las de este capítulo, en la prueba. Sin atestación del artefacto —*hash* de pesos, procedencia de compilación del modelo (§2.3.2)—, el responsable no puede acreditar ante la Agencia de Protección de Datos *qué versión* del sistema trató los datos en el instante del hecho; y bajo la carga proactiva invertida (§1.3.3; Cuadro 3.B), no poder identificar el objeto del consentimiento equivale a no poder acreditar su vigencia. El consentimiento no muere aquí por revocación del titular: muere por indeterminación sobrevenida de su objeto — y sin versionado atestado, esa muerte ni siquiera tiene fecha cierta.
 
@@ -2939,13 +2820,11 @@ Al delegar la infraestructura crítica o la cadena de pagos en un entorno cloud 
 
 Si el sistema es vulnerado y la evidencia no existe, el Modelo de Prevención de Delitos de la entidad será desestimado en juicio como una mera fachada documental, acreditando la culpabilidad de la empresa por *defecto de organización*. Sin embargo, la onda expansiva no se detendrá en la persona jurídica: el Ministerio Público y la CMF perseguirán la responsabilidad patrimonial y las penas privativas de libertad directa y personalmente sobre la alta administración, por haber abdicado de su mandato fiduciario al confiar ciegamente en una máquina inatestable.
 
-
  Horizon era un sistema de software que producía registros internamente coherentes y criptográficamente válidos que, sin embargo, no reflejaban la realidad de las transacciones en caja. Los bugs operaban en la capa del servidor central (invisible al terminal de la sucursal), y el acceso remoto de Fujitsu permitía inyectar transacciones sin rastro en el terminal local. Ningún evaluador con acceso solo al terminal podía distinguir entre un faltante real y uno fabricado por el sistema: la diferencia solo era visible en el código fuente y en los registros de administración del servidor, que la Post Office controló y no divulgó.
 
  736 procesos penales, más de 230 condenas, decenas de penas de prisión, cuatro muertes por suicidio, y más de £1.000 millones en compensaciones posteriores son el costo de un sistema probatorio que presumía la fiabilidad de los registros informáticos sin exigir a quien los presentaba que acreditara el entorno que los generó. La presunción no fue un error puntual de un juez: fue la regla legal vigente, aplicada por cientos de tribunales durante quince años. Revertirla requirió una ley del Parlamento. El equivalente chileno de ese costo no es una cifra hipotética: es la consecuencia directa de aplicar la sana crítica sin exigir la atestación del entorno de captura, en un ecosistema donde los sistemas de información son considerablemente más complejos que Horizon.
 
 ---
-
 
 #### Estados Unidos — FRE 901(b)(9): la carga de demostrar que el sistema "produce un resultado preciso" recae en quien ofrece la prueba
 
@@ -3046,10 +2925,6 @@ Conviene precisar el alcance de la analogía para no excederla —y la precisió
 Su valor es demostrativo, no normativo directo, y por eso mismo es difícil de refutar: el legislador y la judicatura chilenos ya reconocieron que un registro informático generado y custodiado por quien lo invoca no acredita por sí solo el hecho que pretende probar, y ya radicaron la carga de acreditar la fiabilidad del entorno en quien lo controla.
 
 Lo que este documento propone es la extensión coherente de ese principio —firme en sede civil de consumo— a la infraestructura crítica (Ley 21.663) y a la persecución penal (Ley 21.459), en un escenario donde el adversario ya no es el estafador del "cuento del tío" sino la IA polimórfica capaz de fabricar el registro mismo.
-
-
-
-
 
 <a id="sec3-6-1"></a>
 
@@ -3187,7 +3062,6 @@ Quien confía su defensa a que "tampoco podrán probar lo contrario" sigue incum
  No es un lujo ni una retórica de defensa *ex post*:es la única arquitectura que sobrevive al escrutinio una vez que el riesgo es público.
 
 Quien la adopta hoy convierte el cepo en piso firme; quien persiste en el cumplimiento meramente documental queda dentro cuando la tenaza se cierra. El catálogo normativo concreto para incorporar esta exigencia al régimen —reporte atestable, puerto seguro probatorio, continuidad bajo control del obligado y un estándar único de evidencia— se desarrolla en §6.3.
-
 
 ### 3.8.4 Proyección al proceso penal: cadena de custodia, prueba ilícita y sana crítica
 
@@ -3449,7 +3323,6 @@ Ante un tribunal, invocar la inviolabilidad física de los servidores de AWS fre
 <a id="retorno-anexo5"></a>
 Un nodo soberano instrumentado localmente con eBPF en el *kernel* y atestación criptográfica anclada en *hardware* ofrece una cadena de custodia forense que supera probatoriamente —frente a las exigencias procesales de la Ley 21.663— a cualquier macro-infraestructura extranjera de hiperescala que opere bajo un modelo de caja negra. El valor de este anclaje no reside en una supuesta inviolabilidad mística del silicio, sino en el trazado de la frontera de la amenaza (*threat model boundary*). Al requerir atestación física de forma obligatoria, el diseño arquitectónico fuerza al adversario a abandonar los vectores remotos del *software* (el dominio de la IA) y cruzar el *airgap* hacia el sabotaje material.
 
-
 Un agente autónomo remoto no puede conectar un analizador lógico a un servidor en Santiago. Esa fricción asimétrica es lo que configura la diligencia debida: si la atestación se corrompe, documenta un compromiso físico o de Estado-Nación (eximiendo de responsabilidad al operador frente al regulador); si la caja negra de la nube falla silenciosamente por *software*, documenta negligencia arquitectónica.
 
 Para el dogmático penal y el abogado corporativo, aquí radica el núcleo de la imputabilidad bajo la Ley 21.595: **la fuerza mayor no existe en el dominio del *software***. Un ataque remoto a la infraestructura *cloud*, por muy polimórfica que sea la IA, es jurídicamente un riesgo algorítmico previsible. 
@@ -3587,10 +3460,7 @@ Ese fue el mecanismo invocado para ordenar la suspensión de acceso por cualquie
 
 El director legal de Microsoft Francia declaró ante el Senado francés (2025)<a href="#fn136" id="fnref136"><sup>136</sup></a> que la compañía no puede garantizar que datos europeos no sean requeridos por autoridades de EE.UU.; tras el 12 de junio, la cuestión dejó de ser si los datos pueden ser requeridos y pasó a ser si el servicio puede ser revocado —y la respuesta es empírica—.
 
-
 <br>
-
-
 
 ### 4.2 El Espejismo del Cómputo Confidencial: La Farsa de la Atestación Comercial y la Ceguera Inter-Agencial (A2A)
 
@@ -4096,7 +3966,6 @@ Conviene detenerse en el fundamento de este axioma, porque de su solidez —y no
 
 De aquí se sigue, sin fisura, la traducción jurídica que confirma la tesis. El registro autodeclarado por el *runtime* del proveedor es el artefacto cuya integridad queda garantizada por la misma capa que el adversario —o el propio proveedor extranjero bajo coacción jurisdiccional— puede haber comprometido; ofrecerlo como prueba del estado de ese *runtime* es pedir al tribunal que confíe en el testimonio del único actor que, por construcción, no admite verificación independiente: *nemo iudex in causa sua* elevado de adagio procesal a teorema de la computación.
 
-
 Y aquí cae la última objeción, de índole estrictamente procesal: que el documento electrónico es admisible y goza de presunción de integridad. La distinción es elemental pero decisiva —admisibilidad no es fuerza probatoria—:
 
 El resultado de Thompson no ataca la admisibilidad formal del *log*, sino su mérito de convicción; una presunción de integridad cuyo único respaldo es la cadena de herramientas del propio sospechoso es una presunción sin base verificable, que no resiste la contradicción y que, bajo el deber de valoración racional de la prueba (art. 297 CPP) y el estándar de certeza del derecho administrativo sancionador, no puede fundar ni la condena ni la absolución.
@@ -4199,7 +4068,6 @@ Los eventos de julio de 2026 configuran una señal internacional inequívoca. El
 
 Copiar ciegamente la cáscara administrativa europea original, ignorando estas dramáticas correcciones técnicas de Estados Unidos, Francia y Alemania, condenará a las empresas estratégicas chilenas a la indefensión forense total. Aprobar el actual proyecto de ley (Boletín 16821-19) sin exigir —de manera vinculante— la atestación criptográfica inmutable anclada en hardware, es despojar al juez de la República de cualquier herramienta técnica para distinguir entre la verdad material y la alucinación ofensiva, configurando una negligencia inexcusable sancionable bajo la Ley N° 21.595.
 
-
 ## 6. Requisitos de evidencia idónea (marco propuesto)
 
 *Requisitos de evidencia: definición del estándar técnico para unificar el reporte a la ANCI y la cadena de custodia penal, exigiendo atestación de hardware en el origen.*
@@ -4240,9 +4108,7 @@ La distinción relevante no es el proveedor, sino el resultado: si la evidencia 
 
 Habiendo recorrido la anatomía del colapso epistémico y las carencias del modelo de observabilidad actual, este capítulo tiene como objetivo articular un camino de salida pragmático y jurídicamente robusto. Para ello, se analizará en primer lugar la postura de los reguladores nacionales (especialmente la ANCI y la CMF), desglosando las incoherencias normativas que aún subsisten en el marco vigente. Posteriormente, se delineará una estrategia de transición operativa (la "estrategia puente") para que los Operadores de Importancia Vital puedan adoptar estándares de atestación por hardware sin detener su continuidad de negocio. Por último, se abordarán de manera directa las objeciones corporativas y técnicas más comunes que la industria opondrá frente a este cambio de estándar.
 
-
 *Discusión y propuesta regulatoria: análisis crítico de la actuación de la ANCI, disección de las diez fracturas estructurales de la Ley 21.663 frente a la evidencia digital, y diseño de una estrategia puente de integración para someter a los Operadores de Importancia Vital a un estándar de soberanía computacional.*
-
 
 ### 6.1 Análisis crítico de la actuación de la ANCI: parámetros pre-Mythos en un entorno post-Mythos
 
@@ -4363,7 +4229,6 @@ La Ley 21.663 presupone que cada OIV puede detectar, clasificar, contener y repo
 
 El desborde de la ANCI no es una proyección: es la consecuencia lógica de asignar a un agente regulador de creación reciente y recursos mínimos la fiscalización de un ecosistema cuya superficie de ataque registra incrementos anuales de dos dígitos en todas las categorías de vector (44% explotación de aplicaciones, 49% grupos ransomware, según IBM X-Force 2026) y cuya velocidad de propagación se mide en segundos, no en horas.
 
-
 ### 6.2 Impotencia jurisdiccional de la Ley 21.663: diez fracturas estructurales
 
 Si sometemos la Ley 21.663 a un escrutinio adversarial en serio —tanto desde la ingeniería inversa como desde el análisis de responsabilidad estricta—, el texto simplemente no se sostiene. A estas alturas del texto ya hemos revisado cómo operan las tácticas de exfiltración moderna. Bueno, esta ley parece escrita para una topología de red que ya no existe y asume un adversario humano que, francamente, dejó de ser el problema principal. Para no seguir dándole vueltas a lo mismo, la Ley Marco exhibe diez vulnerabilidades arquitectónicas graves (básicamente, *exploits* legales de día cero):
@@ -4402,11 +4267,9 @@ Si sometemos la Ley 21.663 a un escrutinio adversarial en serio —tanto desde l
 
     Al no exigir atestación remota inmutable anclada al silicio (IETF RATS/TPM), el concepto de "evidencia" degenera en un archivo de texto autodeclarado por el mismo servidor que acaba de ser *hackeado*. En términos procesales, esto equivale a encomendar la planimetría de la escena del crimen al principal sospechoso, garantizando la destrucción de la cadena de custodia (Art. 276 CPP).
 
-
 Una precisión necesaria. Estas diez fracturas son diagnósticas, no un alegato por derogar la ley. Su núcleo —el más grave, la fractura 10— es probatorio, y se corrige por vía reglamentaria e instructiva de la ANCI, sin ley nueva (§6.2). Las fracturas que sí tocan el diseño legal sustantivo —los plazos del art. 9 (fractura 1) o el deber de contención (fractura 2)— quedan señaladas como candidatas a refinamiento legislativo futuro, no como prerequisito de la solución que este documento propone.
 
 <a id="sec6-3"></a>
-
 
 <br>
 
@@ -4541,7 +4404,6 @@ Para dimensionar la violencia de esta asimetría, es indispensable mapear cómo 
 | **Cumplimiento Tradicional (Software / Logs de Nube)** | **Suicidio Probatorio.** Paga millones por licencias inútiles y reporta *logs* manipulados desde el Ring-0. Creyendo actuar con diligencia, autoinculpa a su Directorio. | **Ceguera Institucional.** Recibe reportes y certificaciones (ISO, SOC 2) que evalúan procesos, no integridad. Fiscaliza un espejismo documental sin capacidad técnica de refutarlo. | **El Juez como Periférico Hackeado.** Recibe evidencia criptográficamente perfecta pero semánticamente falsa. Fallar en base a estos peritajes es lavar judicialmente el fraude de la IA. |
 | **Atestación Criptográfica (Raíz en Silicio)** | **Inmunidad Forense.** Al obligar al adversario a realizar un ataque físico contra la placa, la entidad cambia su estatus de "negligente" a "víctima de fuerza mayor". | **Supervisión Matemática.** Audita telemetría anclada en hardware. Sabe matemáticamente si el sistema cayó por desidia corporativa o por una amenaza irresistible de Estado-Nación. | **Certeza Material y Sana Crítica.** Falla sobre una cadena de custodia irrefutable. Si el chip está intacto, el registro es verdad; si está roto, hay evidencia material del asedio. |
 
-
 ### Soberanía de hardware y arquitecturas abiertas (RISC-V).
 
 Exigir atestación por *hardware* plantea una paradoja transitoria mandatorio:
@@ -4605,7 +4467,6 @@ La verificación de *una atestación no requiere acceso en vivo al servicio del 
 
 La paradoja de soberanía, examinada, no iguala a las dos soluciones: muerde con más fuerza al *log* en la nube —que pierde en ambos ejes— que a la cadena atestada, que pierde solo en revocación y gana de forma decisiva en falsificación, que es el eje que importa para la integridad probatoria. La soberanía plena de la raíz —vía arquitecturas abiertas verificables (§6.3, RISC-V)— es el horizonte de política pública; la dominancia relativa de la atestación sobre el *log* opaco es el argumento que rige desde hoy.
 
-
 | | ¿Vulnerable a revocación? (corte por jurisdicción extranjera) | ¿Vulnerable a falsificación? (registro alterado o fabricado) |
 |---|---|---|
 | *Log* autodeclarado en la nube | Sí — cortado el servicio, el registro queda congelado e inverificable | Sí — el entorno opaco puede alterarlo sin dejar rastro verificable |
@@ -4658,8 +4519,6 @@ Correcta como disciplina metodológica, y la respuesta es construir el argumento
 aun tomando el *breakout time* más conservador de la serie —62 minutos en 2023, frente a los 29 minutos de 2025 (CrowdStrike, *Global Threat Report* 2026)— en lugar de la cifra más dramática, o los tiempos de permanencia medianos de días (Mandiant), cualquiera de ellos vuelve irrelevante el plazo legal de reporte de 3 horas para la fase automatizada de un ataque.
 
 El argumento no necesita el número más extremo; necesita solo que el tiempo de actuación del adversario sea menor que el tiempo de reacción humana que la norma presupone —lo que es cierto bajo cualquier estimación seria—. Y la base empírica no descansa en un solo proveedor: APT28/PROMPTSTEAL, PROMPTFLUX y el *zero-day* documentado por GTIG son fuentes independientes del auto-reporte de Anthropic. La tesis se apoya en la convergencia de fuentes independientes, no en el marketing de Mythos.
-
-
 
 ### Objeción 7 — El secreto empresarial (propiedad intelectual) prohíbe la apertura del hipervisor.
 
