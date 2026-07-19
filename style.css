@@ -30,6 +30,7 @@
   }
 }
 body {
+  counter-reset: expediente;
   font-family: 'Garamond', 'Palatino Linotype', 'Times New Roman', serif;
   text-align: justify;
   line-height: 1.35;
@@ -104,6 +105,7 @@ h2.movimiento {
   border-top: 3px solid #000;
 }
 h4.expediente {
+  counter-increment: expediente;
   font-family: "Helvetica", Arial, sans-serif;
   font-weight: 700;
   font-size: 0.95em;
@@ -115,6 +117,16 @@ h4.expediente {
   padding: 0.55em 0.9em;
   margin-top: 2.2em;
   margin-bottom: 0.7em;
+}
+h4.expediente::before {
+  content: "\25AA  CASO N.\00BA " counter(expediente);
+  display: block;
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #555555;
+  margin-bottom: 0.25em;
 }
 a {
   color: #000000;
