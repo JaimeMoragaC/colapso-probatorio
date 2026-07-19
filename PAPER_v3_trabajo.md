@@ -192,7 +192,7 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 
 <div style="page-break-before: always;"></div>
 
-<div style="text-align:center; font-style:italic; font-size:1.15em; margin:0.4em 0 1.8em;">El frente corporativo y regulatorio: la empresa, el directorio y el regulador ante la evidencia que no pueden acreditar.</div>
+<div style="text-align:center; font-weight:bold; font-size:1.4em; margin:0.4em 0 1.8em;">EL FRENTE CORPORATIVO Y REGULATORIO: LA EMPRESA, EL DIRECTORIO Y EL REGULADOR ANTE LA EVIDENCIA QUE NO PUEDEN ACREDITAR.</div>
 
 Una sola falla recorre todo lo que sigue: cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede probar qué ocurrió. En este primer frente, esa ceguera forense se cobra su precio en dinero, licencias y responsabilidad personal —la del gerente que reporta a ciegas, la del directorio que responde con su patrimonio, la del regulador que sanciona sobre una narrativa que el atacante escribió—. La certificación de papel no lo salva; la telemetría no lo prueba; y el día del incidente, el obligado descubre que su mejor evidencia es la coartada que el intruso dejó firmada en su propio servidor.
 
