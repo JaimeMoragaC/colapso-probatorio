@@ -5023,4 +5023,3 @@ Conviene ser doblemente preciso sobre el alcance de esta garantía —y la preci
 Tolerancia a fallos bizantinos. La integridad de un sistema *frente a un oráculo potencialmente malicioso no se resuelve con protocolos secuenciales que arrastran un *Single Point of Failure* en el sensor (como VCP), sino con verdadera tolerancia a fallos bizantinos (bitácoras SCITT con consenso distribuido previo). Un nodo traidor no puede alterar el historial si una red criptográfica lo audita continuamente.
 >
 El reporte como atestación, no acto de fe. La autoridad no debe estructurar la recepción de incidentes como un acto de fe en el *log* del proveedor, sino exigir que la evidencia se genere sobre un registro tolerante a fallos. El reporte regulatorio deja de ser una declaración vulnerable y pasa a ser una atestación matemáticamente inalterable, devolviéndole la soberanía epistémica al Estado.
-
