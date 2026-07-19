@@ -194,7 +194,7 @@ De esa cadena se destilan siete invariantes —proposiciones que el documento pr
 
 <div style="text-align:center; font-weight:bold; font-size:1.4em; margin:0.4em 0 1.8em;">EL FRENTE CORPORATIVO Y REGULATORIO: LA EMPRESA, EL DIRECTORIO Y EL REGULADOR ANTE LA EVIDENCIA QUE NO PUEDEN ACREDITAR.</div>
 
-Una sola falla recorre todo lo que sigue: cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede probar qué ocurrió. En este primer frente, esa ceguera forense se cobra su precio en dinero, licencias y responsabilidad personal —la del gerente que reporta a ciegas, la del directorio que responde con su patrimonio, la del regulador que sanciona sobre una narrativa que el atacante escribió—. La certificación de papel no lo salva; la telemetría no lo prueba; y el día del incidente, el obligado descubre que su mejor evidencia es la coartada que el intruso dejó firmada en su propio servidor.
+Una sola falla recorre todo lo que sigue: cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede probar qué ocurrió. En este frente, esa ceguera forense se cobra su precio en dinero, licencias y responsabilidad personal —la del gerente que reporta a ciegas, la del directorio que responde con su patrimonio, la del regulador que sanciona sobre una narrativa que el atacante escribió—. La certificación de papel no lo salva; la telemetría no lo prueba; y el día del incidente, el obligado descubre que su mejor evidencia es la coartada que el intruso dejó firmada en su propio servidor.
 
 ## 1. Introducción
 
@@ -863,7 +863,7 @@ No se sostiene aquí que la nube sea "ficción" y lo local "verdad". Existe un e
 
 ### 1.2 Arquitectura del dictamen
 
-Este análisis desarrolla una crítica probatoria estructural, diseñada para fundamentar el contra-interrogatorio pericial ante tribunales y agencias reguladoras. Se articula a través de siete axiomas secuenciales: el primero destruye la premisa probatoria de la seguridad *cloud* contemporánea, y los seis restantes construyen el único estándar probatorio soberano capaz de sobrevivir al escrutinio legal y técnico:
+Este análisis desarrolla una crítica probatoria estructural, diseñada para fundamentar el contra-interrogatorio pericial ante tribunales y agencias reguladoras. Se articula a través de ocho ejes secuenciales: el primero destruye la premisa probatoria de la seguridad *cloud* contemporánea, y los siete restantes construyen el único estándar probatorio soberano capaz de sobrevivir al escrutinio legal y técnico:
 
 1. Crítica de ingeniería al modelo regulatorio (a desarrollarse en la Sección 1.3 a continuación). Demostración del vacío probatorio transversal en la Ley 21.663, la Ley 21.719, el Capítulo 20-10 de la RAN (banca tradicional) y la NCG 502 (Fintech) de la CMF, junto con las Instrucciones Técnicas de la ANCI, probando que un régimen normativo *ex post* fracasa si no exige primero una atestación forense de la cadena de delegación.
 
@@ -873,11 +873,13 @@ Este análisis desarrolla una crítica probatoria estructural, diseñada para fu
 
 4. Análisis crítico de las defensas hiperescalares (Sección 4). Demostración técnica de por qué los modelos contractuales *cloud* colapsan ante ataques de núcleo, fundamentado en resultados establecidos de la ciencia de la computación y la ingeniería de sistemas (La Arquitectura del Fracaso) y validado empíricamente a través de incidentes nacionales (EMCO, GTD, IFX).
 
-5. Requisitos de evidencia idónea (Sección 5). Definición de un estándar probatorio determinista anclado en el silicio (basado en IETF SCITT/RATS) para unificar la cadena de custodia penal y desplazar el *compliance* documental hacia la confianza cero en ejecución.
+5. El cisma regulatorio global (Sección 5). El punto de inflexión de julio de 2026: cómo las jurisdicciones de referencia abdicaron del *compliance* documental de papel, y la lección que ese giro le impone a Chile.
 
-6. Discusión y propuesta regulatoria (Sección 6). Análisis crítico de la actuación de la ANCI y la CMF, y disección de las diez fracturas estructurales de la Ley 21.663 y la regulación financiera vigente (NCG 502 / Ley Fintec). Se propone una estrategia puente de integración para OIVs y entidades financieras, y se responden frontalmente las objeciones institucionales.
+6. Requisitos de evidencia idónea (Sección 6). Definición de un estándar probatorio determinista anclado en el silicio (basado en IETF SCITT/RATS) para unificar la cadena de custodia penal y desplazar el *compliance* documental hacia la confianza cero en ejecución.
 
-7. Profundizaciones en la frontera entre la prueba y la máquina (Sección 7). Análisis dogmático final sobre la teoría de juegos de la atestación —explicando por qué la opacidad comercial es el equilibrio actual de mercado (§7.1)—, y el replanteamiento del reporte de incidentes bajo los axiomas del consenso bizantino (§7.2).
+7. Discusión y propuesta regulatoria (Sección 7). Análisis crítico de la actuación de la ANCI y la CMF, y disección de las diez fracturas estructurales de la Ley 21.663 y la regulación financiera vigente (NCG 502 / Ley Fintec). Se propone una estrategia puente de integración para OIVs y entidades financieras, y se responden frontalmente las objeciones institucionales.
+
+8. Profundizaciones en la frontera entre la prueba y la máquina (Sección 8). Análisis dogmático final sobre la teoría de juegos de la atestación —explicando por qué la opacidad comercial es el equilibrio actual de mercado (§8.1)—, y el replanteamiento del reporte de incidentes bajo los axiomas del consenso bizantino (§8.2).
 
 ### 1.3 Crítica de ingeniería al modelo regulatorio: demostración del vacío probatorio en las leyes 21.663, 21.719, la RAN 20-10, la NCG 502 y las instrucciones de la ANCI
 
@@ -2379,7 +2381,7 @@ Pero la asimetría económica de *Mythos* aniquila esa defensa: intente convence
 
 ¿Qué debe hacer entonces el directorio frente a esta revelación? La recomendación es simple: respire profundo, mire por la ventana de la sala de sesiones y acepte, con cierta ironía estoica, que su organización ha caído en un cepo clásico de los sistemas de inteligencia. La industria de la ciberseguridad comercial vive y se nutre económicamente de su propia contingencia; es, en el fondo, la suma implacable de la ley de Woodward («sigue el rastro del dinero para entender por qué la vulnerabilidad es rentable») el axioma de Thompson («es imposible confiar en un software si no controlas físicamente su nivel de ejecución más bajo») y  el mercado de limones definido por el premio nobel de economia George Akerlof,  operando sobre su presupuesto.[^economia_ciberseguridad] 
 
-La solución fiduciaria no consiste en firmar un cheque aún más grande por la siguiente licencia *premium* del mismo proveedor. Si no cambia la dirección hacia una arquitectura realista, anclada en el *hardware* y congruente con el avance tecnológico de la amenaza, el directorio terminará convertido en la presa perfecta por partida doble: extorsionado por los atacantes que subvierten su infraestructura, y ordeñado sistemáticamente por los proveedores de seguridad que le facturan la ilusión de estar protegido. Y como se analiza en el capítulo sobre teoría de juegos (§7.1), basta que la CMF o la ANCI rompan el equilibrio de opacidad actual y hagan su próximo movimiento, para que usted se encuentre repentinamente como el jugador más vulnerable de todo el tablero.
+La solución fiduciaria no consiste en firmar un cheque aún más grande por la siguiente licencia *premium* del mismo proveedor. Si no cambia la dirección hacia una arquitectura realista, anclada en el *hardware* y congruente con el avance tecnológico de la amenaza, el directorio terminará convertido en la presa perfecta por partida doble: extorsionado por los atacantes que subvierten su infraestructura, y ordeñado sistemáticamente por los proveedores de seguridad que le facturan la ilusión de estar protegido. Y como se analiza en el capítulo sobre teoría de juegos (§8.1), basta que la CMF o la ANCI rompan el equilibrio de opacidad actual y hagan su próximo movimiento, para que usted se encuentre repentinamente como el jugador más vulnerable de todo el tablero.
 
 <a id="test-exposicion"></a>
 
@@ -2832,7 +2834,7 @@ Lo decisivo es la asignación de la carga: no es la contraparte quien debe proba
 
 La analogía con la auditoría *cloud* autodeclarada es exacta: una validación ofrecida por el propio operador del sistema, sin posibilidad de escrutinio independiente del entorno que produjo el registro, no satisface la carga de acreditar que el sistema "produce un resultado preciso". Sobre esta base, la doctrina contemporánea (Roth, *Machine Testimony*, 2017) sostiene que los sistemas complejos y de IA poseen cualidades cuasi-testimoniales: como no es posible contrainterrogar a un *log*, su confiabilidad solo puede escrutarse accediendo al diseño, a las tasas de error y al entorno de ejecución del sistema<a href="#fn124" id="fnref124"><sup>124</sup></a>.
 
-Conviene precisar el encuadre —para no confundir registro y testimonio—: la doctrina dominante no trata el *output* de máquina como prueba de oídas (*hearsay*), pues carece de declarante humano (FRE 801; cf. §2.1 y §8); el control se ejerce en sede de autenticación (FRE 901), y es ahí donde la carga del proponente resulta dirimente.
+Conviene precisar el encuadre —para no confundir registro y testimonio—: la doctrina dominante no trata el *output* de máquina como prueba de oídas (*hearsay*), pues carece de declarante humano (FRE 801; cf. §2.1); el control se ejerce en sede de autenticación (FRE 901), y es ahí donde la carga del proponente resulta dirimente.
 
 #### Unión Europea — la carga *ex ante*: NIS2 y el AI Act trasladan la atestación al diseño
 
@@ -3861,15 +3863,15 @@ Cuadro 5.D — Matriz de solapamiento regulatorio ANCI × CMF
 
 Dos consecuencias dogmáticas se siguen de la matriz.
 
-Primera: la doble ventanilla no es redundancia supervisora; es ceguera correlacionada. El cuadrante (a) parece el más protegido del sistema —dos reguladores, dos plazos, dos formatos—. Pero ambos reportes se alimentan del mismo registro autodeclarado, generado por la misma infraestructura del mismo proveedor. En los términos del análisis bizantino de §7.2: dos observadores que interrogan al mismo testigo comprometido no suman tolerancia a fallos; replican el mismo error con membrete distinto. La supervisión dual multiplica el costo administrativo del obligado sin añadir un bit de verificabilidad — y multiplica también su exposición sancionatoria, porque el mismo *log* insuficiente puede fundar cargos paralelos ante dos autoridades (§3.8.1).
+Primera: la doble ventanilla no es redundancia supervisora; es ceguera correlacionada. El cuadrante (a) parece el más protegido del sistema —dos reguladores, dos plazos, dos formatos—. Pero ambos reportes se alimentan del mismo registro autodeclarado, generado por la misma infraestructura del mismo proveedor. En los términos del análisis bizantino de §8.2: dos observadores que interrogan al mismo testigo comprometido no suman tolerancia a fallos; replican el mismo error con membrete distinto. La supervisión dual multiplica el costo administrativo del obligado sin añadir un bit de verificabilidad — y multiplica también su exposición sancionatoria, porque el mismo *log* insuficiente puede fundar cargos paralelos ante dos autoridades (§3.8.1).
 
 Segunda: el cuadrante (c) es la brecha que ninguna de las dos nóminas ve. Las aseguradoras concentran datos de salud comparables a los de los prestadores calificados OIV (P5), las fintech operan nativas en nube extranjera (P4) y la infraestructura de valores custodia registros cuya integridad *es* el activo custodiado (P7) — y nada de eso está alcanzado por el régimen de evidencia, reporte y sanción de la Ley 21.663. Para ese cuadrante, el único estándar probatorio exigible es el de la CMF. Y aquí el análisis alcanza su punto de mayor rendimiento práctico.
 
-La RAN 20-7 y el derecho de auditoría probatoriamente vacío. La normativa de externalización vigente ya obliga a las entidades a mantener derechos de auditoría y de acceso sobre los servicios tercerizados —incluida la nube—. Pero ese derecho se satisface hoy entregando al auditor el informe SOC 2 del proveedor y el acceso a la misma telemetría autodeclarada que este documento ha examinado: es la versión contractual del *checkbox* que §4.5 denuncia — un derecho de auditoría que no puede producir más verdad que la que el auditado decide mostrar. La corrección no exige ley nueva: exige que el estándar de suficiencia del derecho de auditoría incorpore la atestación (§6.9). Y la ventana para hacerlo está literalmente abierta: el 7 de abril de 2026 la CMF puso en consulta pública la actualización integral del Capítulo 20-7, junto con el nuevo archivo normativo I28 sobre servicios externalizados, con vigencia proyectada al 1 de enero de 2027<a href="#fn224" id="fnref224b"><sup>224</sup></a>. El "shock asimétrico" que §7.1 postula en abstracto tiene, así, fecha, expediente y plazo de comentarios: la matriz de pagos del equilibrio de la opacidad puede alterarse con un párrafo en esa norma.
+La RAN 20-7 y el derecho de auditoría probatoriamente vacío. La normativa de externalización vigente ya obliga a las entidades a mantener derechos de auditoría y de acceso sobre los servicios tercerizados —incluida la nube—. Pero ese derecho se satisface hoy entregando al auditor el informe SOC 2 del proveedor y el acceso a la misma telemetría autodeclarada que este documento ha examinado: es la versión contractual del *checkbox* que §4.5 denuncia — un derecho de auditoría que no puede producir más verdad que la que el auditado decide mostrar. La corrección no exige ley nueva: exige que el estándar de suficiencia del derecho de auditoría incorpore la atestación (§6.9). Y la ventana para hacerlo está literalmente abierta: el 7 de abril de 2026 la CMF puso en consulta pública la actualización integral del Capítulo 20-7, junto con el nuevo archivo normativo I28 sobre servicios externalizados, con vigencia proyectada al 1 de enero de 2027<a href="#fn224" id="fnref224b"><sup>224</sup></a>. El "shock asimétrico" que §8.1 postula en abstracto tiene, así, fecha, expediente y plazo de comentarios: la matriz de pagos del equilibrio de la opacidad puede alterarse con un párrafo en esa norma.
 
 El precedente empírico del cuadrante financiero. El patrón del cuadrante (c) y la debilidad de la doble ventanilla no son hipotéticos. Como se demostró en la autopsia forense de los casos testigo analizados al inicio de este documento (ver §1.3.1 *supra*, Banco de Chile y Redbanc), el adversario de Estado ya operó dos veces sobre el corazón del perímetro CMF chileno, explotando exactamente estas mismas vulnerabilidades (P1, P2 y P6) años antes de que existiera el deber legal de la Ley 21.663. El fraude SWIFT por manipulación del plano de control (ceguera por distracción) y la infiltración por credenciales legítimas operaron bajo las defensas perimetrales convencionales sin que la evidencia pudiera ser atestada de forma independiente, demostrando la esterilidad estructural de la doble ventanilla si esta no incorpora la atestación. 
 
-Una precisión final de perímetros, para que esta subsección no incurra en el defecto que corrige: la CMF no agota los reguladores paralelos. Los sistemas de pago de alto valor responden al Banco Central de Chile (LBTR y cámaras de compensación, Compendio de Normas Financieras); las administradoras de fondos de pensiones —las 26 OIV de "previsión social" del Cuadro 5.B— responden a la Superintendencia de Pensiones, no a la CMF; y análoga fragmentación rige en salud (Superintendencia de Salud), telecomunicaciones (SUBTEL), energía y combustibles (SEC) y servicios sanitarios (SISS). El análisis se concentra en la CMF por dos razones que el propio documento ya estableció: es el regulador del sector de mayor densidad de interconexión, y es el único actor con capacidad asimétrica de romper el equilibrio de la opacidad (§7.1). Pero la conclusión escala a todos los perímetros: cada regulador sectorial consume hoy la misma clase de evidencia no atestada, y ninguno ha fijado un estándar de suficiencia que la distinga de la evidencia fabricada.
+Una precisión final de perímetros, para que esta subsección no incurra en el defecto que corrige: la CMF no agota los reguladores paralelos. Los sistemas de pago de alto valor responden al Banco Central de Chile (LBTR y cámaras de compensación, Compendio de Normas Financieras); las administradoras de fondos de pensiones —las 26 OIV de "previsión social" del Cuadro 5.B— responden a la Superintendencia de Pensiones, no a la CMF; y análoga fragmentación rige en salud (Superintendencia de Salud), telecomunicaciones (SUBTEL), energía y combustibles (SEC) y servicios sanitarios (SISS). El análisis se concentra en la CMF por dos razones que el propio documento ya estableció: es el regulador del sector de mayor densidad de interconexión, y es el único actor con capacidad asimétrica de romper el equilibrio de la opacidad (§8.1). Pero la conclusión escala a todos los perímetros: cada regulador sectorial consume hoy la misma clase de evidencia no atestada, y ninguno ha fijado un estándar de suficiencia que la distinga de la evidencia fabricada.
 
 ### 4.8 La imposibilidad probatoria bidireccional y La neutralización de la potestad sancionadora
 
@@ -4930,21 +4932,21 @@ Al introducir esta cláusula, la entidad financiera y el  Estado dejan de ser v�
 
 > *Como se demuestra extensamente en el trabajo complementario de esta serie ("La valoración judicial de la evidencia digital en la era de la IA generativa"), la mente del juez humano opera con recursos finitos (racionalidad limitada). Frente a un registro digital opaco, originado en Ring-0 y no atestado criptográficamente en origen, el sistema procesal de "Sana Crítica" colapsa. El tribunal se convierte en un periférico cognitivo vulnerable que procesará ciegamente la falsificación algorítmica (Mythos) como verdad empírica, consolidando la indefensión probatoria de la víctima y la impunidad corporativa.*
 
-## Profundizaciones en la frontera entre la prueba y la máquina
+## 8. Profundizaciones en la frontera entre la prueba y la máquina
 
-*Profundizaciones en la frontera entre la prueba y la máquina: análisis dogmático sobre la teoría de juegos de la atestación, el equilibrio corporativo de la opacidad (§7.1) y la aplicación de la teoría del consenso bizantino al reporte de incidentes ante el regulador (§7.2).*
+*Profundizaciones en la frontera entre la prueba y la máquina: análisis dogmático sobre la teoría de juegos de la atestación, el equilibrio corporativo de la opacidad (§8.1) y la aplicación de la teoría del consenso bizantino al reporte de incidentes ante el regulador (§8.2).*
 
 Habiendo expuesto el colapso probatorio del marco regulatorio (Sección 1), la anatomía de la amenaza autónoma (Sección 2) y la arquitectura técnica que resuelve el vacío (Secciones 3, 4 y 6), resta responder a la pregunta final, la más incómoda del documento: si la atestación criptográfica es la única respuesta matemática y jurídicamente viable ante el riesgo sistémico, ¿por qué la industria no la exige y el Estado no la fiscaliza?
 
 Esta sección se ubica deliberadamente al cierre del estudio porque demuestra que el fracaso de la ciberseguridad actual no es un problema de inmadurez tecnológica ni de negligencia corporativa, sino un*problema de incentivos estructurados y de topología de la confianza. Ninguna ley que exhorte a la "seguridad" o al "reporte" funcionará si ignora estas dos fuerzas subyacentes.
 
-Para probarlo, esta sección final aborda el problema desde la frontera donde la ingeniería y el derecho colisionan: primero, utilizando la *Teoría de Juegos* (§7.1) para demostrar por qué la opacidad *cloud* no es una falla del mercado, sino un equilibrio de Nash perfecto bajo las reglas probatorias vigentes; y segundo, aplicando la teoría de sistemas distribuidos (*Consenso Bizantino*, §7.2) para exponer cómo la Ley 21.663 fuerza al Estado a depender de un diseño de reporte que la ingeniería de redes descartó hace cuarenta años por ser matemáticamente incapaz de tolerar fallos maliciosos.
+Para probarlo, esta sección final aborda el problema desde la frontera donde la ingeniería y el derecho colisionan: primero, utilizando la *Teoría de Juegos* (§8.1) para demostrar por qué la opacidad *cloud* no es una falla del mercado, sino un equilibrio de Nash perfecto bajo las reglas probatorias vigentes; y segundo, aplicando la teoría de sistemas distribuidos (*Consenso Bizantino*, §8.2) para exponer cómo la Ley 21.663 fuerza al Estado a depender de un diseño de reporte que la ingeniería de redes descartó hace cuarenta años por ser matemáticamente incapaz de tolerar fallos maliciosos.
 
 Estas no son digresiones académicas, sino la clausura argumentativa del *whitepaper*: la demostración final de que la transición hacia la evidencia atestada no es una simple preferencia técnica, sino la única salida estructural a un empate sistémico diseñado para proteger la impunidad.
 
-<a id="sec7-1"></a>
+<a id="sec8-1"></a>
 
-### 7.1 Teoría de juegos de la atestación: por qué la opacidad es el equilibrio actual
+### 8.1 Teoría de juegos de la atestación: por qué la opacidad es el equilibrio actual
 
 *En una frase: nadie atesta no porque nadie quiera, sino porque, con las reglas de hoy, la opacidad es la jugada racional de todos a la vez —y solo cambiando los pagos, no exhortando a la virtud, se rompe ese empate.*
 
@@ -4987,9 +4989,9 @@ La consecuencia de política pública es contraintuitiva y por eso valiosa: *el 
 
 La jerarquía graduada hace exactamente eso: convierte la atestación en estrategia dominante para los actores de alto riesgo —presunción e inmunidad para quien atesta, nivel inferior para quien pudiendo no lo hizo (ver documento complementario)— y, al hacerlo, mueve el equilibrio del peor cuadrante al mejor. La virtud aquí no se predica; se hace conveniente.
 
-<a id="sec7-2"></a>
+<a id="sec8-2"></a>
 
-### 7.2 El reporte de incidentes como problema de consenso bizantino
+### 8.2 El reporte de incidentes como problema de consenso bizantino
 
 *En una frase: la dependencia ciega del regulador en los registros del proveedor cloud es, en términos de ingeniería, un sistema centralizado sin tolerancia a fallos bizantinos; la solución no es exigir más reportes, sino descentralizar la confianza (SCITT).*
 
@@ -5028,7 +5030,7 @@ El recorrido analítico de este documento ha transitado, de forma deliberada e i
 
 La arquitectura legal e institucional de la ciberseguridad nacional se sostiene hoy sobre una ficción probatoria: la presunción de que los registros emitidos por un proveedor de infraestructura en la nube reflejan fielmente la realidad del entorno de ejecución.
 
-El análisis cruzado de este documento —que transita desde la teoría de sistemas distribuidos hasta la dogmática del derecho procesal, penal y corporativo— demuestra que esta presunción ha colapsado, introduciendo cuatro giros axiomát icos inéditos a nivel global en el debate sobre la gobernanza de la Inteligencia Artificial:
+El análisis cruzado de este documento —que transita desde la teoría de sistemas distribuidos hasta la dogmática del derecho procesal, penal y corporativo— demuestra que esta presunción ha colapsado, introduciendo cuatro giros axiomáticos inéditos a nivel global en el debate sobre la gobernanza de la Inteligencia Artificial:
 
 - En primer lugar, la articulación jurisprudencial del Problema Bizantino contra el Derecho Corporativo. La ingeniería conoce la falla bizantina desde 1982 para la sincronización de servidores, pero este documento cruza la frontera epistémica al utilizarla para cuestionar la validez procesal del modelo de *Compliance* actual. Al demostrar que la dependencia en auditorías corporativas delegadas (ISO 27001, SOC 2, o reportes a la SEC y la ANCI) choca con un teorema matemático de sistemas distribuidos, el documento socava su admisibilidad bajo las reglas de la Sana Crítica. Es una síntesis epistémico-legal inédita que priva de gran parte de su contenido probatorio a la industria de la certificación frente a la IA polimórfica.
 
@@ -5826,80 +5828,80 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **A**
 
-- **Agencia de Protección de Datos (APDP),** 13, 27, 86, 91, 115, 155, 156, 157, 238, 239, 241
-- **AI Act (Reglamento UE 2024/1689),** 11, 34, 100, 102, 103, 105, 111, 115, 116, 118, 119, 132, 170, 184, 239, 289, 290, 299, 300, 301, 302, 303, 317
-- **AI Liability Directive (COM(2022)496),** 112, 113, 117, 300
-- **ANCI (Agencia Nacional de Ciberseguridad),** 3, 8, 9, 12, 13, 15, 16, 21, 23, 24, 26, 27, 28, 30, 31, 32, 33, 35, 43, 50, 59, 61, 62, 64, 65, 66, 69, 72, 80, 82, 85, 94, 95, 96, 97, 109, 115, 117, 118, 121, 122, 123, 125, 129, 133, 136, 140, 155, 156, 159, 161, 163, 174, 175, 176, 177, 179, 180, 181, 185, 193, 198, 201, 202, 203, 208, 210, 212, 214, 222, 224, 226, 227, 228, 229, 230, 231, 232, 233, 235, 236, 237, 238, 239, 240, 241, 242, 243, 246, 249, 252, 253, 256, 257, 262, 271, 272, 274, 276, 277, 279, 280, 281, 284, 286, 290, 294, 295, 297, 310, 332
-- **Anthropic,** 11, 29, 38, 41, 42, 50, 51, 53, 114, 142, 143, 144, 247, 248, 291, 292, 306, 310, 319, 331, 335
-- **APT28 (PROMPTSTEAL/LAMEHUG),** 29, 38, 58, 118, 191, 192, 247, 302, 328, 329
-- **Árboles de Merkle,** 2, 14, 17, 198, 218, 237, 250, 254, 274, 304, 318, 334, 339
-- **Arranque medido (measured boot),** 5, 17, 19, 28, 35, 36, 105, 106, 131, 158, 216, 245, 282, 321, 322
-- **Atestación remota (RATS, RFC 9334),** 1, 2, 17, 19, 35, 36, 58, 63, 64, 69, 70, 72, 83, 84, 111, 112, 130, 137, 151, 158, 168, 180, 182, 190, 193, 198, 199, 214, 215, 216, 218, 219, 221, 222, 225, 226, 228, 235, 236, 238, 239, 241, 242, 244, 246, 247, 254, 256, 268, 269, 270, 277, 280, 282, 300, 310, 321, 322, 330, 335
+- **Agencia de Protección de Datos (APDP),** 75, 80, 105, 162, 163, 266, 267, 269
+- **AI Act (Reglamento UE 2024/1689),** 20, 90, 92, 93, 95, 101, 105, 106, 108, 109, 129, 178, 184, 185, 186, 187, 200, 249, 250, 267, 321, 322, 331, 332, 333, 334, 335, 349, 364
+- **AI Liability Directive (COM(2022)496),** 102, 103, 107, 332
+- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 38, 40, 41, 45, 51, 52, 53, 57, 59, 68, 71, 73, 74, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 133, 137, 148, 162, 166, 169, 171, 183, 187, 189, 190, 194, 196, 201, 213, 214, 215, 219, 223, 224, 225, 232, 233, 235, 236, 237, 238, 246, 247, 249, 252, 254, 255, 256, 257, 258, 259, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 275, 278, 281, 282, 285, 288, 293, 303, 304, 306, 308, 309, 311, 312, 313, 316, 318, 322, 326, 327, 329, 342, 366
+- **Anthropic,** 15, 23, 26, 28, 29, 31, 43, 104, 118, 140, 141, 276, 277, 323, 324, 338, 342, 351, 363, 369
+- **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 23, 37, 108, 211, 212, 276, 334, 360, 361
+- **Árboles de Merkle,** 8, 219, 243, 265, 279, 283, 306, 336, 350, 367, 373
+- **Arranque medido (measured boot),** 8, 10, 14, 95, 96, 128, 166, 241, 274, 314, 353, 354
+- **Atestación remota (RATS, RFC 9334),** 8, 10, 36, 50, 51, 56, 57, 58, 60, 71, 72, 101, 102, 125, 134, 145, 146, 157, 165, 168, 176, 184, 187, 195, 197, 209, 215, 220, 238, 239, 240, 242, 244, 245, 247, 252, 253, 256, 263, 264, 266, 267, 269, 272, 273, 275, 276, 283, 285, 299, 300, 301, 309, 312, 314, 332, 342, 353, 354, 362, 369
 
 **B**
 
-- **BadRAM / Battering RAM,** 151, 183, 190, 194, 217, 219, 225, 267, 311
-- **Banco de Chile / Redbanc (Lazarus, 2018),** 9, 74, 82, 83, 201, 203, 209, 210, 211, 213, 323
-- **BancoEstado / Sodinokibi (2020),** 9, 28, 74, 81, 84, 97, 121, 180, 201, 203, 204, 205, 207, 209, 210, 278, 295
-- **Bates v Post Office (escándalo Horizon),** 11, 34, 69, 85, 133, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 174, 184, 278, 288, 290, 305, 309, 315, 322
+- **BadRAM / Battering RAM,** 157, 210, 215, 242, 244, 253, 298, 343
+- **Banco de Chile / Redbanc (Lazarus, 2018),** 62, 70, 71, 143, 222, 225, 234, 235, 236, 237, 355
+- **BancoEstado / Sodinokibi (2020),** 13, 62, 69, 70, 72, 86, 111, 195, 222, 225, 226, 227, 228, 232, 234, 235, 310, 327
+- **Bates v Post Office (escándalo Horizon),** 20, 56, 73, 130, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 200, 201, 310, 320, 322, 337, 341, 347, 354
 - **Bizantino, problema de los Generales,** *véase* Problema de los Generales Bizantinos
-- **BlackMamba,** 128, 304
-- **Boletín 16821-19 (proyecto de ley de IA),** 13, 15, 100, 137, 236, 237, 238, 239, 242, 281, 284, 285, 286
-- **BSI (Alemania),** 120, 149, 289, 303, 304, 310, 330, 335
-- **Bullcoming v. New Mexico,** 288
+- **BlackMamba,** 123, 336
+- **Boletín 16821-19 (proyecto de ley de IA),** 90, 134, 249, 250, 252, 264, 265, 266, 267, 271, 313, 316, 317, 318
+- **BSI (Alemania),** 110, 156, 321, 335, 336, 342, 362, 369
+- **Bullcoming v. New Mexico,** 320
 
 **C**
 
-- **Cadena de custodia,** 3, 11, 12, 26, 30, 31, 59, 61, 64, 80, 86, 112, 121, 133, 144, 145, 154, 158, 159, 171, 172, 177, 180, 194, 206, 209, 216, 219, 224, 226, 232, 235, 238, 239, 243, 252, 258, 259, 276, 278, 281, 282, 283, 285, 286, 321
-- **Capital One / AWS (IMDSv1),** 9, 12, 91, 92, 93, 94, 181, 184, 296, 297
-- **Carga de la prueba / carga probatoria,** 11, 14, 17, 24, 26, 27, 28, 46, 47, 52, 64, 85, 86, 90, 112, 113, 117, 121, 123, 126, 131, 146, 147, 162, 163, 168, 173, 175, 183, 251, 255, 256, 263, 283, 286, 294, 305, 308
-- **Cifrado homomórfico (FHE),** 86, 182, 186, 187
-- **CISA / NSA,** 58, 120, 233, 242, 304, 310, 311, 312, 329, 330, 331, 332, 335
-- **Claude Fable 5,** 42, 50, 130, 291, 292, 306, 319
-- **Claude Mythos,** 2, 3, 5, 8, 13, 17, 29, 34, 35, 37, 39, 41, 42, 45, 46, 47, 48, 50, 53, 54, 61, 84, 101, 122, 123, 128, 144, 216, 223, 227, 228, 230, 244, 247, 257, 258, 259, 268, 271, 272, 274, 276, 291, 292, 310, 319
-- **Clínica Dávila / Devman,** 22, 200, 201, 202, 209
-- **CLOUD Act,** 23, 24, 47, 48, 70, 148, 149, 150, 183, 216, 267, 307, 321, 330, 335
-- **CMF (Comisión para el Mercado Financiero),** 3, 8, 9, 12, 14, 15, 18, 19, 21, 23, 24, 26, 27, 29, 30, 31, 32, 33, 35, 36, 42, 43, 44, 46, 48, 49, 50, 52, 59, 62, 64, 65, 66, 67, 69, 71, 72, 74, 81, 82, 84, 85, 94, 95, 97, 98, 102, 109, 110, 115, 123, 126, 133, 140, 141, 153, 155, 156, 160, 162, 169, 179, 181, 196, 203, 204, 210, 211, 212, 213, 214, 220, 224, 227, 235, 255, 257, 258, 260, 262, 263, 264, 265, 266, 267, 268, 269, 271, 272, 276, 277, 280, 281, 287, 295, 322, 323, 326, 336
-- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 12, 17, 19, 23, 28, 35, 36, 61, 106, 108, 112, 151, 183, 189, 190, 193, 194, 195, 198, 217, 218, 219, 225, 226, 231, 250, 255, 267, 282, 311, 322, 334
-- **Confused deputy (diputado confundido),** 11, 38, 134, 136, 157, 158, 178, 232, 235, 316, 320
-- **Continuidad operacional / soberana,** 3, 10, 13, 22, 26, 30, 45, 65, 79, 97, 114, 141, 142, 160, 162, 187, 188, 205, 236, 237, 240, 248, 279, 281, 286, 288, 289, 322
-- **Convenio de Budapest,** 63, 121, 316, 332
-- **Crawford v. Washington,** 288
-- **CSIRT Nacional,** 66, 75, 76, 161, 230, 232, 274, 294, 295, 315, 332
+- **Cadena de custodia,** 16, 17, 38, 40, 51, 68, 75, 102, 111, 126, 130, 141, 160, 165, 179, 180, 190, 191, 192, 202, 205, 215, 228, 233, 240, 244, 252, 253, 260, 263, 266, 267, 272, 281, 289, 290, 308, 310, 313, 314, 315, 317, 318, 353
+- **Capital One / AWS (IMDSv1),** 80, 81, 82, 83, 196, 200, 328, 329
+- **Carga de la prueba / carga probatoria,** 8, 12, 13, 30, 45, 48, 51, 74, 75, 79, 102, 103, 107, 111, 121, 128, 149, 153, 154, 170, 171, 176, 181, 182, 183, 185, 187, 192, 199, 205, 278, 280, 281, 285, 288, 294, 315, 318, 326, 337, 340
+- **Cifrado homomórfico (FHE),** 75, 197, 205, 206, 208
+- **CISA / NSA,** 37, 110, 261, 272, 336, 342, 343, 344, 361, 363, 366, 369
+- **Claude Fable 5,** 28, 43, 125, 323, 324, 338, 351
+- **Claude Mythos,** 8, 15, 20, 21, 22, 24, 25, 26, 27, 28, 30, 31, 32, 41, 43, 46, 47, 48, 49, 72, 91, 112, 113, 118, 123, 141, 143, 147, 148, 167, 168, 241, 248, 250, 251, 255, 256, 258, 269, 273, 276, 286, 287, 288, 289, 290, 299, 302, 303, 304, 306, 308, 323, 324, 342, 351
+- **Clínica Dávila / Devman,** 143, 222, 224, 230, 234
+- **CLOUD Act,** 48, 49, 57, 155, 156, 157, 199, 241, 298, 339, 353, 362, 369
+- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 30, 38, 41, 42, 43, 44, 45, 48, 49, 51, 52, 53, 54, 57, 58, 59, 60, 62, 69, 71, 72, 73, 74, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 137, 138, 147, 148, 149, 150, 159, 161, 162, 168, 170, 177, 181, 183, 187, 192, 193, 196, 197, 214, 217, 225, 226, 235, 236, 237, 238, 244, 249, 251, 252, 255, 263, 270, 284, 286, 288, 289, 291, 293, 294, 295, 296, 297, 298, 299, 300, 303, 304, 308, 312, 313, 319, 327, 354, 355, 358, 370
+- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 14, 40, 96, 98, 102, 146, 157, 199, 200, 206, 209, 210, 215, 216, 220, 242, 243, 244, 253, 254, 259, 270, 279, 284, 298, 314, 343, 354, 367
+- **Confused deputy (diputado confundido),** 23, 131, 133, 164, 165, 192, 260, 263, 348, 352
+- **Continuidad operacional / soberana,** 47, 53, 67, 86, 104, 138, 140, 168, 170, 207, 209, 214, 228, 264, 265, 268, 277, 311, 313, 318, 320, 321, 354
+- **Convenio de Budapest,** 50, 111, 348, 366
+- **Crawford v. Washington,** 320
+- **CSIRT Nacional,** 32, 53, 63, 64, 69, 150, 169, 258, 260, 306, 326, 327, 347, 366
 
 **D**
 
 - **Daubert (fiabilidad pericial),** —
-- **Debido proceso (Art. 19 N°3 CPR),** 24, 33, 68, 70, 121, 123, 143, 144, 154, 171, 175, 180, 195, 229, 247, 251, 309, 310, 312
-- **DeepSeek-R1,** 51, 52, 57, 60, 292, 294, 327
-- **Delegado de Protección de Datos (DPO),** 26, 30, 50, 95, 97, 99, 137, 269, 279, 295, 298
-- **DICE (Device Identifier Composition Engine),** 249, 310
+- **Debido proceso (Art. 19 N°3 CPR),** 11, 16, 19, 56, 58, 111, 113, 140, 142, 160, 179, 187, 194, 216, 257, 276, 280, 281, 341, 342, 344
+- **DeepSeek-R1,** 29, 30, 35, 39, 324, 326, 359
+- **Delegado de Protección de Datos (DPO),** 16, 28, 84, 86, 87, 89, 134, 300, 311, 327, 330
+- **DICE (Device Identifier Composition Engine),** 278, 342
 
 **E**
 
-- **eBPF,** 4, 17, 18, 24, 185, 191, 192, 231, 234, 243
-- **ECRA (Export Control Reform Act),** 23, 24, 42, 43, 44, 45, 148, 149, 150, 151, 216, 219, 230, 232, 234, 241, 244, 248, 267, 269, 279, 284, 288, 291, 312
-- **EDPB,** 88, 226, 298, 304, 319
-- **EDR (detección y respuesta en endpoint),** 16, 17, 18, 26, 52, 54, 56, 57, 61, 62, 68, 73, 76, 77, 78, 79, 83, 124, 125, 127, 129, 130, 139, 146, 191, 192, 193, 226, 235, 256, 277, 278, 279, 304, 307, 324, 325, 326, 327, 329, 330, 332, 335
-- **eIDAS (Reglamento UE 910/2014),** 69, 246, 289, 293
-- **EMCO / Guacamaya (2022),** 9, 22, 64, 74, 75, 76, 77, 78, 84, 200, 202, 206, 209, 210, 280, 294
-- **Encargado de Ciberseguridad,** 96, 97, 297
-- **Equilibrio de Nash / market for lemons,** 270, 271, 273, 276, 278, 281, 308
-- **Evidencia con proveniencia atestada,** 13, 111, 112, 238, 239, 280, 282, 285, 286, 287
+- **eBPF,** 8, 9, 202, 211, 212, 259, 262, 272
+- **ECRA (Export Control Reform Act),** 43, 45, 46, 155, 156, 157, 158, 241, 244, 258, 260, 262, 270, 273, 277, 298, 300, 311, 316, 320, 323, 344
+- **EDPB,** 77, 253, 330, 336, 351, 352, 365
+- **EDR (detección y respuesta en endpoint),** 7, 8, 9, 30, 32, 34, 35, 37, 40, 41, 53, 55, 60, 64, 65, 66, 67, 71, 120, 121, 122, 124, 125, 135, 136, 144, 145, 147, 148, 149, 150, 151, 168, 211, 212, 213, 214, 229, 253, 263, 285, 287, 288, 309, 310, 311, 336, 339, 356, 357, 358, 359, 361, 362, 366, 368
+- **eIDAS (Reglamento UE 910/2014),** 56, 275, 321, 325
+- **EMCO / Guacamaya (2022),** 51, 62, 63, 64, 65, 66, 72, 143, 221, 224, 228, 231, 233, 235, 312, 326
+- **Encargado de Ciberseguridad,** 85, 86, 87, 329
+- **Equilibrio de Nash / market for lemons,** 302, 303, 305, 308, 310, 313, 340
+- **Evidencia con proveniencia atestada,** 101, 102, 266, 267, 312, 313, 317, 318, 319
 
 **F**
 
-- **FedRAMP,** 23, 115, 148, 150, 190, 191, 288, 311
-- **FISA 702,** 88, 90, 91, 296
-- **FraudGPT,** 51, 57, 292
-- **FRE 901(b)(9),** 11, 34, 111, 112, 132, 169, 170, 178, 184, 288, 290, 296, 300, 309, 310
-- **FTC (Federal Trade Commission),** 98, 298
+- **FedRAMP,** 105, 155, 156, 210, 211, 320, 343
+- **FISA 702,** 77, 79, 80, 328
+- **FraudGPT,** 29, 35, 324
+- **FRE 901(b)(9),** 20, 101, 102, 129, 177, 178, 192, 199, 320, 322, 328, 332, 341, 342
+- **FTC (Federal Trade Commission),** 88, 330
 
 **G**
 
-- **GDPR / RGPD,** 73, 88, 89, 90, 99, 156, 157, 296, 298, 308, 318, 319, 320
-- **Grupo GTD (2023),** 11, 64, 161, 162, 200, 202, 205, 209, 210, 315, 322
-- **GTIG / Mandiant (Google),** 19, 29, 38, 39, 55, 57, 62, 105, 116, 128, 232, 247, 261, 262, 268, 290, 294, 304, 305, 329, 331, 332, 335
+- **GDPR / RGPD,** 60, 77, 78, 79, 89, 163, 164, 183, 184, 185, 186, 187, 188, 328, 330, 340, 350, 351, 352, 365
+- **Grupo GTD (2023),** 51, 169, 170, 221, 224, 228, 234, 235, 347, 354
+- **GTIG / Mandiant (Google),** 10, 15, 23, 24, 33, 36, 37, 39, 85, 86, 95, 106, 123, 124, 137, 213, 260, 276, 292, 293, 299, 322, 326, 336, 337, 361, 363, 364, 365, 366, 369
 - **Guacamaya (hackeo),** *véase* EMCO / Guacamaya (2022)
 
 **H**
@@ -5908,100 +5910,100 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **I**
 
-- **IFX Networks / ChileCompra (2023),** 11, 22, 23, 140, 142, 200, 202, 205, 209, 210, 233, 241, 307, 308, 320, 321, 326
-- **IMA (Integrity Measurement Architecture),** 106
-- **IMDSv1 / IMDSv2 (AWS),** 92, 93, 297
-- **In re McDonald's,** 98, 298
-- **Incidente (reporte y gestión de),** 13, 15, 21, 24, 26, 30, 31, 52, 64, 65, 78, 79, 80, 82, 84, 85, 86, 97, 131, 159, 160, 201, 205, 225, 229, 237, 270, 273, 280, 286, 287, 301
-- **Indelegabilidad de la responsabilidad,** 9, 28, 48, 65, 74, 81, 87, 97, 98, 99, 201, 204, 278, 289, 298
-- **InfoStealer,** 61, 62, 80, 129, 136, 187, 201, 203, 208, 228, 255, 295
-- **Instituto de Salud Pública (ISP, 2025),** 9, 74, 76, 79, 200, 209, 210, 294
+- **IFX Networks / ChileCompra (2023),** 137, 139, 143, 221, 224, 228, 233, 235, 261, 269, 339, 340, 352, 353, 358
+- **IMA (Integrity Measurement Architecture),** 96
+- **IMDSv1 / IMDSv2 (AWS),** 81, 82, 329
+- **In re McDonald's,** 88, 330
+- **Incidente (reporte y gestión de),** 16, 17, 30, 52, 66, 67, 68, 71, 73, 74, 75, 86, 128, 166, 168, 222, 228, 252, 257, 265, 302, 305, 312, 318, 319, 333
+- **Indelegabilidad de la responsabilidad,** 13, 49, 52, 53, 62, 69, 70, 76, 86, 88, 89, 222, 226, 227, 310, 321, 330
+- **InfoStealer,** 40, 41, 68, 125, 133, 223, 225, 233, 256, 285, 327
+- **Instituto de Salud Pública (ISP, 2025),** 62, 64, 67, 222, 234, 235, 326
 
 **K**
 
-- **KRITIS / § 8a BSIG (Alemania),** 114, 115, 120, 242, 289, 303, 310
+- **KRITIS / § 8a BSIG (Alemania),** 104, 105, 110, 272, 321, 335, 342
 
 **L**
 
-- **Ley 19.880 (Procedimiento Administrativo),** 109, 113, 175, 313
-- **Ley 20.009 / Ley 21.234 (medios de pago),** 73, 173, 315
-- **Ley 21.459 (Delitos Informáticos),** 10, 30, 63, 80, 121, 122, 124, 133, 159, 173, 177, 180, 200, 238, 278, 280, 290, 295, 332
-- **Ley 21.595 (Delitos Económicos),** 3, 14, 25, 26, 33, 71, 72, 84, 123, 124, 125, 132, 133, 136, 137, 138, 139, 141, 142, 144, 145, 146, 151, 168, 196, 214, 235, 255, 256, 257, 258, 269, 271, 277, 278, 281, 316, 325, 326
-- **Ley 21.663 (Marco de Ciberseguridad),** 3, 13, 16, 21, 22, 29, 30, 31, 39, 50, 52, 56, 64, 65, 71, 72, 79, 80, 82, 84, 85, 86, 91, 94, 96, 103, 110, 114, 125, 126, 130, 133, 136, 137, 138, 140, 141, 142, 144, 159, 160, 162, 173, 174, 175, 176, 177, 180, 182, 185, 187, 188, 190, 200, 201, 202, 205, 206, 211, 212, 213, 214, 222, 227, 229, 230, 232, 233, 235, 236, 237, 238, 251, 256, 257, 269, 270, 274, 277, 280, 286, 290, 294, 297, 305, 325, 326, 327, 332
-- **Ley 21.719 (Protección de Datos Personales),** 3, 29, 44, 50, 64, 81, 85, 86, 94, 95, 126, 137, 139, 156, 160, 170, 175, 176, 177, 180, 226, 269, 280, 290, 295, 308, 319, 325, 332
-- **Lorraine v. Markel,** 111, 169, 184, 300, 309
+- **Ley 19.880 (Procedimiento Administrativo),** 99, 103, 187, 345
+- **Ley 20.009 / Ley 21.234 (medios de pago),** 60, 181, 182, 347
+- **Ley 21.459 (Delitos Informáticos),** 50, 68, 111, 112, 118, 129, 166, 182, 190, 195, 221, 266, 310, 312, 322, 327, 366
+- **Ley 21.595 (Delitos Económicos),** 16, 19, 58, 60, 72, 87, 113, 114, 120, 129, 130, 133, 134, 135, 136, 138, 139, 141, 142, 147, 150, 153, 158, 176, 181, 189, 190, 192, 193, 197, 201, 202, 207, 218, 238, 263, 269, 284, 285, 286, 288, 289, 290, 300, 303, 309, 310, 313, 348, 357, 358
+- **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 15, 17, 24, 28, 30, 32, 34, 51, 52, 53, 58, 59, 60, 67, 68, 70, 72, 73, 74, 75, 80, 83, 85, 86, 93, 100, 104, 120, 122, 125, 130, 133, 134, 135, 137, 138, 139, 140, 141, 166, 168, 170, 182, 183, 188, 190, 195, 202, 207, 209, 210, 221, 222, 223, 224, 228, 229, 235, 236, 237, 238, 247, 255, 257, 258, 260, 261, 263, 264, 265, 266, 280, 285, 286, 288, 300, 302, 306, 309, 312, 318, 322, 326, 329, 337, 357, 358, 359, 366
+- **Ley 21.719 (Protección de Datos Personales),** 15, 28, 45, 51, 69, 74, 75, 83, 84, 122, 134, 136, 163, 167, 168, 178, 183, 188, 189, 190, 195, 229, 254, 300, 312, 322, 327, 340, 352, 357, 366
+- **Lorraine v. Markel,** 101, 177, 199, 332, 341
 
 **M**
 
-- **Machine unlearning / supresión exacta,** 160, 308
-- **Malware polimórfico / polimorfismo,** 2, 3, 9, 29, 36, 41, 47, 52, 53, 61, 66, 67, 69, 70, 82, 85, 100, 119, 128, 131, 132, 133, 136, 137, 145, 151, 153, 173, 178, 179, 180, 185, 216, 217, 218, 219, 220, 224, 225, 228, 230, 231, 234, 235, 248, 255, 257, 258, 268, 271, 272, 275, 276, 277, 278, 279, 304, 325
-- **Mamba / SSM (modelos de espacio de estados),** 11, 82, 144, 145, 203, 305
-- **Marchand v. Barnhill,** 298
-- **MAS (Monetary Authority of Singapore),** 102, 103, 111, 116, 289, 299, 300, 301, 304, 317
-- **Melendez-Diaz v. Massachusetts,** 288
-- **MITRE ATT&CK / ATLAS,** 53, 54, 59, 61, 120, 126, 228, 292, 293, 303, 316, 329
+- **Machine unlearning / supresión exacta,** 167, 168, 340
+- **Malware polimórfico / polimorfismo,** 11, 15, 26, 29, 31, 37, 40, 49, 54, 55, 56, 58, 70, 73, 90, 109, 116, 123, 128, 129, 130, 133, 134, 142, 144, 146, 151, 157, 159, 168, 182, 193, 195, 202, 241, 242, 243, 244, 245, 248, 253, 256, 258, 259, 262, 263, 277, 284, 286, 287, 288, 290, 299, 303, 304, 307, 308, 309, 310, 311, 336, 357
+- **Mamba / SSM (modelos de espacio de estados),** 70, 141, 142, 225, 337
+- **Marchand v. Barnhill,** 330
+- **MAS (Monetary Authority of Singapore),** 92, 93, 101, 106, 321, 331, 332, 333, 336, 349
+- **Melendez-Diaz v. Massachusetts,** 320
+- **MITRE ATT&CK / ATLAS,** 31, 32, 38, 40, 110, 122, 256, 324, 325, 335, 348, 361
 - **Mythos,** *véase* Claude Mythos
 
 **N**
 
-- **NCG 502 (CMF, obligaciones Fintec),** 3, 8, 15, 19, 21, 22, 23, 29, 31, 36, 43, 46, 50, 52, 64, 65, 72, 74, 84, 85, 91, 94, 97, 100, 103, 109, 114, 123, 155, 160, 161, 162, 211, 267, 268, 281, 287
-- **NCSC (Reino Unido),** 57, 120, 233, 294, 304, 332
-- **NetFlow / Windows Event Forwarding (WEF),** 76, 77, 78, 79
-- **NIS2 (Directiva UE 2022/2555),** 11, 34, 73, 98, 112, 114, 170, 184, 233, 274, 289, 297, 298, 300, 311, 330
-- **NIST,** 21, 76, 105, 131, 148, 149, 150, 228, 292, 305, 306, 309, 316, 318
+- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 30, 45, 48, 51, 52, 59, 62, 72, 74, 80, 83, 86, 90, 93, 99, 104, 113, 161, 168, 169, 170, 183, 236, 298, 299, 312, 319
+- **NCSC (Reino Unido),** 36, 110, 261, 326, 336, 366
+- **NetFlow / Windows Event Forwarding (WEF),** 64, 65, 66, 67, 115
+- **NIS2 (Directiva UE 2022/2555),** 20, 60, 88, 102, 104, 178, 183, 184, 186, 187, 200, 249, 261, 306, 321, 329, 330, 332, 343, 362
+- **NIST,** 64, 95, 128, 135, 151, 155, 156, 256, 290, 324, 337, 338, 341, 348, 350
 
 **O**
 
-- **Operador de Importancia Vital (OIV),** 3, 8, 9, 12, 13, 16, 21, 22, 29, 30, 31, 42, 43, 44, 46, 49, 50, 52, 53, 56, 59, 62, 65, 66, 68, 72, 74, 82, 83, 84, 85, 86, 94, 95, 96, 97, 102, 103, 104, 109, 114, 115, 129, 136, 138, 139, 140, 141, 142, 144, 153, 155, 160, 161, 172, 174, 179, 180, 200, 204, 206, 208, 209, 210, 211, 212, 213, 214, 220, 222, 224, 229, 231, 232, 233, 234, 235, 237, 238, 240, 241, 242, 243, 252, 253, 256, 262, 271, 279, 281, 284, 285, 286, 290, 297, 326
+- **Operador de Importancia Vital (OIV),** 7, 11, 15, 16, 17, 27, 28, 30, 31, 34, 38, 41, 43, 44, 45, 48, 52, 53, 56, 60, 62, 69, 71, 72, 74, 75, 83, 84, 85, 86, 92, 93, 94, 99, 104, 105, 114, 119, 124, 133, 135, 136, 137, 138, 140, 141, 145, 151, 159, 162, 168, 169, 180, 194, 197, 214, 221, 226, 227, 228, 232, 233, 234, 235, 236, 237, 238, 244, 246, 247, 248, 250, 257, 259, 260, 261, 262, 263, 265, 266, 268, 269, 271, 272, 281, 282, 286, 293, 303, 311, 313, 316, 317, 318, 322, 329, 358
 
 **P**
 
-- **PDPC / IMDA (Singapur),** 102, 289, 299, 300, 303
-- **Plano de control (Control Plane),** 3, 9, 11, 22, 24, 36, 43, 74, 82, 83, 92, 94, 138, 139, 140, 141, 143, 161, 185, 208, 213, 220, 223, 234, 249, 269, 279, 281, 311, 318, 320, 321, 325
-- **Pliny the Liberator,** 130, 291, 306, 332
-- **Preservación provisoria (Art. 218 bis CPP),** 121, 123, 145, 177, 178, 179, 181, 316, 332
-- **Problema de los Generales Bizantinos,** 14, 15, 27, 64, 212, 253, 270, 272, 273, 274, 275, 276, 316
-- **Project Glasswing,** 41, 50, 291
-- **Prompt injection (inyección de instrucciones),** 2, 37, 101, 138, 139, 157, 183, 190, 228, 231, 235, 249, 277, 279, 290, 305, 306, 317
-- **PROMPTFLUX,** 29, 38, 61, 116, 128, 191, 247
-- **PROMPTSTEAL / LAMEHUG,** 29, 38, 58, 118, 128, 134, 191, 247, 302, 327, 328
-- **ProxyShell (CVE-2021-34473 y rel.),** 75, 78, 294
-- **Prueba diabólica,** 159, 163, 168
-- **Puerto seguro probatorio,** 13, 26, 177, 237, 238, 240, 241, 273, 280, 286
+- **PDPC / IMDA (Singapur),** 92, 321, 331, 332, 335
+- **Plano de control (Control Plane),** 44, 45, 53, 62, 70, 71, 81, 83, 114, 135, 136, 137, 138, 139, 140, 168, 202, 230, 233, 237, 244, 248, 262, 278, 300, 310, 313, 343, 350, 352, 353, 357
+- **Pliny the Liberator,** 125, 323, 338, 365
+- **Preservación provisoria (Art. 218 bis CPP),** 111, 113, 191, 192, 193, 194, 196, 348, 366
+- **Problema de los Generales Bizantinos,** 52, 115, 237, 282, 302, 304, 305, 306, 307, 308, 348
+- **Project Glasswing,** 26, 28, 323
+- **Prompt injection (inyección de instrucciones),** 23, 91, 134, 136, 164, 165, 210, 256, 259, 263, 278, 309, 311, 322, 337, 338, 349
+- **PROMPTFLUX,** 15, 24, 40, 106, 124, 211, 276
+- **PROMPTSTEAL / LAMEHUG,** 15, 23, 37, 108, 123, 131, 211, 276, 334, 359, 360
+- **ProxyShell (CVE-2021-34473 y rel.),** 63, 66, 326
+- **Prueba diabólica,** 116, 166, 171, 176
+- **Puerto seguro probatorio,** 190, 265, 266, 268, 269, 305, 312, 318
 
 **R**
 
-- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 8, 31, 65, 74, 84, 85, 94, 97, 109, 114, 123, 141, 160, 162, 211, 212, 213, 258, 272, 277, 287, 322, 323
-- **Ransomware 3.0,** 278, 304
-- **Res ipsa loquitur,** 109
-- **Responsabilidad proactiva (accountability),** 3, 10, 25, 29, 31, 36, 44, 85, 86, 95, 102, 103, 104, 105, 108, 111, 112, 116, 117, 118, 120, 121, 170, 175, 176, 177, 226, 258, 277, 284, 285, 299, 300
-- **Responsable de la información / del tratamiento,** 9, 85, 86, 94, 95, 104, 115, 160, 175, 271, 295, 298
+- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 17, 52, 53, 62, 72, 74, 83, 86, 99, 104, 113, 138, 168, 170, 235, 237, 251, 288, 304, 308, 319, 354, 355
+- **Ransomware 3.0,** 310, 336
+- **Res ipsa loquitur,** 99
+- **Responsabilidad proactiva (accountability),** 15, 16, 45, 74, 75, 84, 92, 93, 94, 95, 98, 101, 102, 106, 107, 108, 110, 111, 178, 183, 188, 189, 190, 254, 288, 309, 316, 317, 331, 332
+- **Responsable de la información / del tratamiento,** 74, 75, 83, 84, 94, 105, 168, 183, 303, 327, 330
 
 **S**
 
-- **Sana crítica (arts. 295-297 CPP),** 11, 12, 22, 68, 113, 121, 124, 133, 154, 155, 169, 170, 171, 172, 177, 178, 179, 180, 251, 257, 276, 277, 283
-- **Sandbox regulatorio,** 10, 41, 51, 116, 291, 301, 302
-- **Schrems II (C-311/18),** 87, 88, 90, 141, 184, 296, 307
-- **SCITT (cadena de suministro / transparencia),** 58, 64, 109, 131, 138, 182, 188, 214, 215, 218, 221, 226, 232, 236, 238, 239, 241, 243, 246, 249, 254, 264, 268, 269, 274, 275, 277, 280, 283, 304, 306, 309, 318, 328, 333, 336, 337
-- **SEC (Securities and Exchange Commission),** 298
-- **Servicio de Salud Araucanía Sur (2026),** 9, 11, 22, 74, 80, 122, 137, 173, 201, 203, 210, 229, 279, 295
+- **Sana crítica (arts. 295-297 CPP),** 56, 73, 74, 103, 111, 114, 115, 116, 118, 126, 129, 161, 162, 177, 178, 179, 180, 183, 190, 192, 193, 195, 197, 270, 280, 286, 302, 308, 309, 315
+- **Sandbox regulatorio,** 26, 29, 106, 323, 333, 334
+- **Schrems II (C-311/18),** 76, 77, 79, 138, 199, 328, 339
+- **SCITT (cadena de suministro / transparencia),** 11, 36, 51, 99, 119, 128, 136, 152, 184, 187, 197, 238, 240, 243, 245, 250, 251, 253, 260, 264, 266, 267, 269, 272, 275, 278, 283, 295, 299, 300, 305, 306, 307, 309, 312, 314, 336, 338, 341, 350, 360, 367, 370, 371
+- **SEC (Securities and Exchange Commission),** 330, 365
+- **Servicio de Salud Araucanía Sur (2026),** 62, 68, 112, 133, 223, 225, 235, 257, 311, 327
 - **Sodinokibi,** *véase* BancoEstado / Sodinokibi (2020)
-- **State v. Pickett (TrueAllele),** 34, 112, 169, 184, 191, 247, 288, 300, 309, 312
+- **State v. Pickett (TrueAllele),** 20, 102, 177, 199, 211, 277, 320, 332, 341, 344
 
 **T**
 
 - **Teoría de juegos / equilibrio de Nash,** *véase* Equilibrio de Nash / market for lemons
-- **Teoría de juegos de la atestación,** 15, 27, 64, 270, 271, 273, 276, 281
-- **TOCTOU (time-of-check / time-of-use),** 11, 107, 130, 132, 135, 137, 158, 159, 178, 180, 181, 185, 205, 225, 226, 228, 234, 251, 261, 277, 278, 283, 321
-- **TPM (Trusted Platform Module),** 13, 14, 17, 28, 72, 105, 106, 107, 108, 111, 112, 131, 158, 179, 185, 214, 216, 221, 222, 226, 231, 235, 236, 241, 242, 243, 244, 248, 249, 250, 254, 255, 265, 266, 267, 277, 282, 309, 310, 321, 322, 328, 333, 334, 336, 337, 339
+- **Teoría de juegos de la atestación,** 52, 148, 302, 303, 305, 308, 313
+- **TOCTOU (time-of-check / time-of-use),** 11, 12, 97, 125, 126, 127, 129, 131, 134, 144, 145, 150, 165, 166, 167, 188, 191, 194, 195, 201, 228, 252, 253, 256, 262, 280, 288, 292, 309, 310, 315, 353
+- **TPM (Trusted Platform Module),** 8, 14, 60, 95, 96, 97, 98, 101, 102, 128, 152, 165, 188, 194, 202, 239, 240, 241, 246, 253, 259, 263, 264, 270, 271, 272, 273, 277, 278, 279, 283, 284, 285, 296, 297, 298, 309, 314, 341, 342, 353, 354, 360, 367, 370, 371, 373
 
 **W**
 
-- **WormGPT,** 51, 57, 292, 294
+- **WormGPT,** 28, 35, 324, 326
 
 **X**
 
-- **XBOW,** 51, 57, 61, 292
+- **XBOW,** 29, 35, 41, 324
 
 
 <!-- COLOFON -->
