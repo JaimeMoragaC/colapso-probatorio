@@ -212,6 +212,8 @@ Ahora viene la parte incómoda —y es donde este documento le pide que no repit
 
 ### La muerte del estándar documental: Dos eventos de extinción
 
+> *Un estándar que reinó dos décadas murió en 2026 —de dos golpes que no pidieron permiso: una IA que reescribe la memoria y un interruptor soberano a diez mil kilómetros.*
+
 Este estándar obsoleto descansaba sobre un supuesto tácito —que toda evidencia producida por un entorno *cloud* o local no atestado refleja el hecho real— cuya vigencia ha sido aniquilada por la convergencia de dos eventos tectónicos en 2026:
 
 - Primero, la irrupción pública de Mythos de Anthropic como corolario de una ola de adversarios que ya operan con modelos de lenguaje de código abierto sin restricciones éticas: APT28/PROMPTSTEAL ejecutó operaciones *live* en Ucrania usando LLMs de código abierto vía Hugging Face (GTIG, jun-2025)<a href="#fn1" id="fnref1"><sup>1</sup></a>; PROMPTFLUX desplegó motores de mutación *just-in-time* (GTIG, nov-2025)<a href="#fn1" id="fnref1"><sup>1</sup></a>; en mayo de 2026 el mismo cuerpo documentó con "alta confianza" el primer *zero-day* asistido por IA —un *bypass* de 2FA interceptado antes de su explotación masiva—<a href="#fn1" id="fnref1"><sup>1</sup></a>; y Mandiant M-Trends 2026 registra que el tiempo de entrega del adversario colapsó de horas a fracciones de minuto<a href="#fn2" id="fnref2"><sup>2</sup></a>, sobre quinientas mil horas de investigaciones de campo. 
@@ -225,6 +227,8 @@ La tesis es probatoria, no técnica: en un entorno donde el adversario polimórf
 Ese déficit probatorio recae directamente sobre quien custodia y utiliza la información, y lo hace de forma transversal a todo el entramado normativo que este documento analiza. Bajo el principio de responsabilidad proactiva de la Ley 21.719, el deber de debido cuidado en la custodia de datos no se satisface acreditando que se contrató a un proveedor certificado, sino *pudiendo demostrar* —con evidencia verificable e independiente— que el tratamiento se mantuvo íntegro.
 
 ### La trampa regulatoria: Responsabilidad personal frente a la ceguera forense
+
+> *La trampa no se cierra el día del ataque. Se cierra el día del incidente —cuando el regulador exige la cadena de custodia y el directorio descubre que nunca la tuvo.*
 
 Cuente cuántos de estos deberes caen sobre usted a la vez —y con qué reloj cada uno—, porque la misma exigencia estructural reaparece, idéntica, bajo cada régimen. La industria ya lo admite: el prólogo del *Reporte Entel 2026* reconoce el "doble desafío: responder a un adversario sofisticado y cumplir con una regulación más exigente"<a href="#fn233" id="fnref233"><sup>233</sup></a>.
 
@@ -250,6 +254,8 @@ La «Visión de Riesgo» del diagnóstico nacional de inteligencia de amenazas l
 Y aquí está el giro que la mayoría pasa por alto: el peligro definitivo no es que una mala configuración cloud facilite la intrusión inicial. Es que esa misma abstracción técnica destruye la cadena de custodia. Al delegar el cómputo en capas hiper-fragmentadas de software sin anclaje en hardware con control soberano, el operador no solo pierde el perímetro; pierde la capacidad de reconstruir y probar la verdad forense de lo que ocurrió dentro de sus propios activos.
 
 ### La asimetría crítica: plazos de tres horas contra un adversario que actúa en minutos
+
+> *El reloj legal corre en horas; el de la máquina, en segundos. La ley exige reportar en tres horas un ataque que se consumó hace ciento setenta y nueve minutos.*
 
 La conexión entre estas premisas técnicas y el colapso jurídico de la Ley 21.663 es inexorable: el legislador redactó un deber de reporte asfixiante (tres horas) presuponiendo que el OIV posee un mapa determinista y auditable de su red en tiempo real. La adopción de la nube y la IA descentralizada destruyeron esa presunción epistémica. 
 
@@ -313,6 +319,8 @@ Ampliar el ámbito de la imputación sin resolver primero el estándar de la evi
 La laguna, en definitiva, no es legislativa en su origen —es arquitectónica— y la respuesta correcta es la inversa a la que instintivamente propone la dogmática: antes de definir quién responde, hay que definir qué evidencia acredita que algo ocurrió y cómo se preserva desde su origen, con absoluta independencia del proveedor.
 
 ### La epistemología de la evidencia digital: Las Invariantes Post-Mythos
+
+> *Dos reglas gobiernan hoy toda prueba digital, y ninguna se enseña en la facultad: la coherencia no prueba nada, y la autenticidad no vive en el archivo. Bastan para desarmar un peritaje.*
 
 Para comprender la magnitud de la crisis actual, debemos cruzar una frontera que tradicionalmente separa a dos mundos: el **derecho probatorio** y la **ingeniería de sistemas**. El diseño regulatorio que propone este documento (desarrollado en la Sección 6 y el Anexo B) nace precisamente en ese cruce.
 
@@ -5851,7 +5859,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 **A**
 
 - **Agencia de Protección de Datos (APDP),** 75, 80, 105, 162, 163, 266, 267, 269
-- **AI Act (Reglamento UE 2024/1689),** 20, 90, 92, 93, 95, 101, 105, 106, 108, 109, 129, 178, 184, 185, 186, 187, 200, 249, 250, 267, 321, 322, 331, 332, 333, 334, 335, 349, 364
+- **AI Act (Reglamento UE 2024/1689),** 21, 90, 92, 93, 95, 101, 105, 106, 108, 109, 129, 178, 184, 185, 186, 187, 200, 249, 250, 267, 321, 322, 331, 332, 333, 334, 335, 349, 364
 - **AI Liability Directive (COM(2022)496),** 102, 103, 107, 332
 - **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 17, 18, 19, 28, 39, 41, 42, 45, 51, 52, 53, 57, 59, 68, 71, 73, 74, 82, 83, 84, 85, 87, 99, 105, 107, 108, 111, 112, 113, 114, 121, 124, 130, 133, 137, 148, 162, 166, 169, 171, 183, 187, 189, 190, 194, 196, 201, 213, 214, 215, 219, 223, 224, 225, 232, 233, 235, 236, 237, 238, 246, 247, 249, 252, 254, 255, 256, 257, 258, 259, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 275, 278, 281, 282, 285, 288, 293, 303, 304, 306, 308, 309, 311, 312, 313, 316, 318, 322, 326, 327, 329, 342, 366
 - **Anthropic,** 15, 23, 26, 28, 30, 32, 43, 104, 118, 140, 141, 276, 277, 323, 324, 338, 342, 351, 363, 369
@@ -5865,7 +5873,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **BadRAM / Battering RAM,** 157, 210, 215, 242, 244, 253, 298, 343
 - **Banco de Chile / Redbanc (Lazarus, 2018),** 62, 70, 71, 143, 222, 225, 234, 235, 236, 237, 355
 - **BancoEstado / Sodinokibi (2020),** 13, 62, 69, 70, 72, 86, 111, 195, 222, 225, 226, 227, 228, 232, 234, 235, 310, 327
-- **Bates v Post Office (escándalo Horizon),** 20, 56, 73, 130, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 200, 201, 310, 320, 322, 337, 341, 347, 354
+- **Bates v Post Office (escándalo Horizon),** 21, 56, 73, 130, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 200, 201, 310, 320, 322, 337, 341, 347, 354
 - **Bizantino, problema de los Generales,** *véase* Problema de los Generales Bizantinos
 - **BlackMamba,** 123, 336
 - **Boletín 16821-19 (proyecto de ley de IA),** 90, 134, 249, 250, 252, 264, 265, 266, 267, 271, 313, 316, 317, 318
@@ -5894,9 +5902,9 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 **D**
 
 - **Daubert (fiabilidad pericial),** —
-- **Debido proceso (Art. 19 N°3 CPR),** 11, 16, 19, 56, 58, 111, 113, 140, 142, 160, 179, 187, 194, 216, 257, 276, 280, 281, 341, 342, 344
+- **Debido proceso (Art. 19 N°3 CPR),** 11, 16, 20, 56, 58, 111, 113, 140, 142, 160, 179, 187, 194, 216, 257, 276, 280, 281, 341, 342, 344
 - **DeepSeek-R1,** 29, 30, 36, 39, 324, 326, 359
-- **Delegado de Protección de Datos (DPO),** 16, 28, 84, 86, 87, 89, 134, 300, 311, 327, 330
+- **Delegado de Protección de Datos (DPO),** 17, 28, 84, 86, 87, 89, 134, 300, 311, 327, 330
 - **DICE (Device Identifier Composition Engine),** 278, 342
 
 **E**
@@ -5916,7 +5924,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **FedRAMP,** 105, 155, 156, 210, 211, 320, 343
 - **FISA 702,** 77, 79, 80, 328
 - **FraudGPT,** 29, 36, 324
-- **FRE 901(b)(9),** 20, 101, 102, 129, 177, 178, 192, 199, 320, 322, 328, 332, 341, 342
+- **FRE 901(b)(9),** 21, 101, 102, 129, 177, 178, 192, 199, 320, 322, 328, 332, 341, 342
 - **FTC (Federal Trade Commission),** 88, 330
 
 **G**
@@ -5971,7 +5979,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 31, 45, 48, 51, 52, 59, 62, 72, 74, 80, 82, 86, 90, 93, 99, 104, 113, 161, 168, 169, 170, 183, 236, 298, 299, 312, 319
 - **NCSC (Reino Unido),** 36, 110, 261, 326, 336, 366
 - **NetFlow / Windows Event Forwarding (WEF),** 64, 65, 66, 67, 115
-- **NIS2 (Directiva UE 2022/2555),** 20, 60, 88, 102, 104, 178, 183, 184, 186, 187, 200, 249, 261, 306, 321, 329, 330, 332, 343, 362
+- **NIS2 (Directiva UE 2022/2555),** 21, 60, 88, 102, 104, 178, 183, 184, 186, 187, 200, 249, 261, 306, 321, 329, 330, 332, 343, 362
 - **NIST,** 64, 95, 128, 135, 151, 155, 156, 256, 290, 324, 337, 338, 341, 348, 350
 
 **O**
@@ -6010,7 +6018,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **SEC (Securities and Exchange Commission),** 330, 365
 - **Servicio de Salud Araucanía Sur (2026),** 62, 68, 112, 133, 223, 225, 235, 257, 311, 327
 - **Sodinokibi,** *véase* BancoEstado / Sodinokibi (2020)
-- **State v. Pickett (TrueAllele),** 20, 102, 177, 199, 211, 277, 320, 332, 341, 344
+- **State v. Pickett (TrueAllele),** 21, 102, 177, 199, 211, 277, 320, 332, 341, 344
 
 **T**
 
