@@ -103,6 +103,19 @@ h2.movimiento {
   padding-top: 0.7em;
   border-top: 3px solid #000;
 }
+h4.expediente {
+  font-family: "Helvetica", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.95em;
+  color: #111111;
+  background: #ededed;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  border-left: 6px solid #111111;
+  padding: 0.55em 0.9em;
+  margin-top: 2.2em;
+  margin-bottom: 0.7em;
+}
 a {
   color: #000000;
   text-decoration: none;

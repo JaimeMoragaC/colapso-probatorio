@@ -582,7 +582,7 @@ Marzo de 2026 (La fragilidad estructural del alineamiento): Mientras XBOW integr
 
 Abril de 2026 (El colapso probatorio): Como corolario de esta aceleración, el agente autónomo de Anthropic escapó de un sandbox aislado utilizando credenciales reales para elevar privilegios. El evento demostró empíricamente la cúspide de la amenaza: la capacidad de un agente autónomo de operar en la capa base de la infraestructura, falsificando la telemetría y destruyendo la capacidad del auditor para reconstruir la verdad forense del incidente.
 
-#### Caso de Estudio Empírico: El apagón probatorio de PUNK SPIDER
+#### Caso de Estudio Empírico: El apagón probatorio de PUNK SPIDER {.expediente}
 
 > *Para no dejar rastro en la red, no escondió su IA: la trajo a casa. Sin llamadas afuera, no hay telemetría que lo delate.*
 
@@ -1020,7 +1020,7 @@ Frente a un ataque a velocidad de máquina, ese refugio se invierte. La eximente
 
 El mismo vacío alcanza a la cobertura. En el siniestro, la aseguradora exigirá la auditoría forense; cuando sus peritos constaten que la evidencia es forensemente inútil porque el *runtime* no estaba anclado en *hardware*, opondrá la exclusión por incumplimiento de los controles declarados o, derechamente, la rescisión por declaración falsa o reticencia del art. 525 del Código de Comercio — mecánica que el precedente comparado ya ejecutó, según analiza el caso testigo siguiente. Denegada la cobertura, la CMF cursa la multa o la revocación, y los directores responden con su patrimonio personal —solidariamente, arts. 41 y 133 de la Ley 18.046— con la administración desleal (art. 470 N° 11 del Código Penal) como calificación penal disponible. La falla técnica ha completado su tránsito: de defecto de arquitectura a responsabilidad personal de la plana mayor.
 
-#### Caso testigo: *Travelers v. International Control Services* — la rescisión de la póliza por controles declarados y no operantes (C.D. Ill., 2022)
+#### Caso testigo: *Travelers v. International Control Services* — la rescisión de la póliza por controles declarados y no operantes (C.D. Ill., 2022) {.expediente}
 
 Los hechos son de una simplicidad forense ejemplar. International Control Services (ICS), manufacturera electrónica de Decatur, Illinois, declaró en la solicitud de su póliza cibernética que exigía autenticación multifactor (MFA) para el correo, el acceso remoto y el acceso a *endpoints*, servidores e infraestructura de directorio. En los hechos, el MFA operaba únicamente en el cortafuegos. En mayo de 2022, un *ransomware* comprometió precisamente los servidores que carecían de esa protección. El 6 de julio de 2022, Travelers demandó la rescisión del contrato y la declaración de ausencia de cobertura; el 26 de agosto de 2022 —con el consentimiento del asegurado— el tribunal dictó sentencia que rescinde la póliza y excluye toda cobertura pasada, presente y futura<a href="#fn190" id="fnref190"><sup>190</sup></a>.
 
@@ -1061,7 +1061,7 @@ Cada uno documenta una dimensión distinta del mismo colapso:
 
 Los seis ocurrieron en Chile, sobre infraestructura crítica o regulada por la CMF. No hay hipótesis en lo que sigue.
 
-#### Caso testigo: hackeo al Estado Mayor Conjunto — caso Guacamaya (septiembre 2022)
+#### Caso testigo: hackeo al Estado Mayor Conjunto — caso Guacamaya (septiembre 2022) {.expediente}
 
 El 19 de septiembre de 2022, el grupo hacktivista Guacamaya filtró aproximadamente 400.000 correos electrónicos reservados del Estado Mayor Conjunto (EMCO) —el organismo que integra las tres ramas de las Fuerzas Armadas y asesora al Ministerio de Defensa—, correspondientes al período 2012–mayo 2022 y extraídos de 162 cuentas de correo de oficiales<a href="#fn44" id="fnref44"><sup>44</sup></a>.
 
@@ -1141,7 +1141,7 @@ Una institución de defensa que no puede responder con certeza a la pregunta "¿
 
 La infraestructura de evidencia — NetFlow inmutable en equipos de red independientes del servidor comprometido, SIEM con forwarding en tiempo real hacia almacenamiento externo, EDR con telemetría en infraestructura soberana — no es una respuesta al incidente de septiembre de 2022: es la condición que habría permitido detectar el compromiso de mayo de 2022 y descartar, con certeza forense, que otros actores accedieron al mismo servidor durante los catorce meses de exposición. Esa certeza no existe. No existirá. El déficit es permanente.
 
-#### Caso testigo: Instituto de Salud Pública (ISP) — parálisis de infraestructura sanitaria estatal (junio 2025)
+#### Caso testigo: Instituto de Salud Pública (ISP) — parálisis de infraestructura sanitaria estatal (junio 2025) {.expediente}
 
 Hay una pregunta que ningún manual de continuidad operacional contempla: ¿qué se reporta cuando la información que probaría lo ocurrido es, ella misma, parte de lo que se perdió? El Instituto de Salud Pública tuvo que responderla en la práctica. El 27 de junio de 2025, un ataque de *ransomware* paralizó sus sistemas —clasificado oficialmente como «incidente de ciberseguridad de efecto significativo» bajo la Ley 21.663—, dejando fuera de servicio todas sus plataformas salvo el correo institucional<a href="#fn49" id="fnref49"><sup>49</sup></a>. El reloj de las obligaciones de gestión y continuidad empezó a correr sobre una institución que ya no controlaba su propio registro de los hechos.
 
@@ -1159,7 +1159,7 @@ Y el dato más revelador para esta tesis es el reconocimiento institucional de i
 
 La pregunta que el déficit deja sin respuesta es la que un fiscalizador formulará primero: ¿qué se perdió, exactamente, y qué se conservó íntegro? El ISP no pudo contestarla con evidencia verificable —solo con la constatación de que sus propios respaldos habían fallado—. *Y esa es, exactamente, la posición en que quedará cualquier obligado el día del incidente: no la de quien oculta lo que sabe, sino la de quien no puede probar lo que afirma.*
 
-#### Caso testigo: filtración del Servicio de Salud Araucanía Sur y el oficio reservado de la ANCI sobre Historial Clínico Electrónico (mayo 2026)
+#### Caso testigo: filtración del Servicio de Salud Araucanía Sur y el oficio reservado de la ANCI sobre Historial Clínico Electrónico (mayo 2026) {.expediente}
 
 La institución fue la última en enterarse de su propia filtración. Ese solo hecho —quién avisó a quién— contiene el caso entero. En los primeros días de mayo de 2026, bajo el régimen plenamente vigente de la Ley 21.663, la exposición de más de 25.000 registros de pacientes del Servicio de Salud Araucanía Sur —información personal y clínica de alta sensibilidad, incluida la asociada a citaciones médicas— se detectó *por plataformas de monitoreo externas, no por la propia institución*<a href="#fn50" id="fnref50"><sup>50</sup></a>. El obligado a vigilar el sistema supo que había sido vulnerado porque alguien de afuera se lo dijo.
 
@@ -1185,7 +1185,7 @@ El propio Estado validó empíricamente este colapso probatorio poco después. E
 
 El reporte alerta específicamente sobre el actor GRAM-5A, especializado en extraer datos de instituciones públicas utilizando, precisamente, credenciales comprometidas. Esta confesión institucional es crítico para el modelo regulatorio actual: el Estado admite que la amenaza principal no rompe el perímetro, sino que inicia sesión. Si el adversario opera bajo la identidad criptográfica de un usuario autorizado, el registro en la nube (Ring-3) certificará una transacción matemáticamente legítima. Exigir a un OIV reportar un incidente basándose en logs que certifican normalidad es forzarlo a fiscalizar espejismos.
 
-#### Caso testigo: BancoEstado y la indelegabilidad de la prueba (septiembre 2020)
+#### Caso testigo: BancoEstado y la indelegabilidad de la prueba (septiembre 2020) {.expediente}
 
 Si hay un caso donde el Estado hizo todo lo que la buena práctica manda —y aun así se quedó sin prueba—, es este. Conviene tenerlo presente, porque desarma de antemano la respuesta fácil («habría bastado con supervisar mejor»). El 5 de septiembre de 2020, el *ransomware* Sodinokibi comprometió aproximadamente 12.000 equipos de la red de BancoEstado, forzando el cierre de sus 410 sucursales durante al menos una jornada completa. La respuesta regulatoria fue inmediata: informada ese mismo sábado, la CMF se constituyó *in situ* al día siguiente —mediante una unidad especial en las dependencias del banco— para supervisar las acciones de recuperación, alertó a toda la banca y ordenó a las demás instituciones financieras revisar su infraestructura. El banco presentó querella por sabotaje informático el 7 de septiembre.
 
@@ -1205,7 +1205,7 @@ El análisis detallado de cada uno de estos vectores anti-forenses, y su traducc
 
 la ley no puede presumir que habrá evidencia si el sistema no fue diseñado para preservarla. El archivo de la Fiscalía es la demostración empírica más directa disponible en Chile de que un ataque de nivel intermedio —sin IA polimórfica, sin *zero-day*, con tecnología de 2020— ya es suficiente para dejar a un obligado sin evidencia jurídicamente acreditable en sus propios sistemas.
 
-#### Caso testigo: Banco de Chile (2018) — la ceguera por distracción y el compromiso del plano de control
+#### Caso testigo: Banco de Chile (2018) — la ceguera por distracción y el compromiso del plano de control {.expediente}
 El 24 de mayo de 2018, Banco de Chile perdió aproximadamente US$10 millones en transferencias fraudulentas cursadas por la red SWIFT. Los atacantes, operando como una célula APT38 de Lazarus (RPDC), inyectaron un *wiper* (identificado como Mamba/Swapq) que inutilizó miles de estaciones de trabajo y cajeros automáticos del banco. 
 
 Esta destrucción masiva operó como maniobra de distracción: mientras los sistemas de monitoreo (*logs*, SIEM y el SOC corporativo) colapsaban reportando la emergencia perimetral a escala nacional, los atacantes utilizaron esa "ceguera por ruido" para moverse lateralmente y tomar control de las terminales SWIFT, el plano de control financiero. La destrucción de la evidencia no fue un efecto colateral del ataque, sino parte de su diseño.
@@ -1213,7 +1213,7 @@ Esta destrucción masiva operó como maniobra de distracción: mientras los sist
 Análisis de ingeniería de la Doble Ventanilla.
 > Este caso demuestra empíricamente la inoperancia de reportar a "doble ventanilla". El banco fue víctima de la manipulación del observador (Falla P1: Log no atestado). Los sistemas defensivos registraron el ruido, pero fueron epistemológicamente inútiles para proteger la señal crítica. Si este incidente ocurriera hoy, el banco reportaría simultáneamente a la ANCI (3 horas) y a la CMF (30 minutos) basándose en *logs* manipulados. Si el sistema de recolección de evidencia no está aislado por *hardware* del plano de ejecución (*out-of-band attestation*), el atacante APT simplemente convierte el deber de reporte del OIV en un amplificador de su propia distracción, inyectando ruido directamente en los despachos del regulador.
 
-#### Caso testigo: Redbanc (2018-2019) — el puenteo de la muralla perimetral por credenciales legítimas
+#### Caso testigo: Redbanc (2018-2019) — el puenteo de la muralla perimetral por credenciales legítimas {.expediente}
 En diciembre de 2018, el mismo adversario de Estado (Lazarus) intentó una intrusión contra Redbanc, la empresa que administra la red interbancaria de cajeros automáticos del país (interconectando a toda la nómina de bancos OIV). El vector no fue un *zero-day* criptográfico, sino ingeniería social (*Spear Phishing*).
 
 Un empleado de TI fue inducido, mediante una falsa oferta laboral en LinkedIn y una posterior entrevista por Skype, a ejecutar voluntariamente un formulario de postulación malicioso (`ApplicationPDF.exe`). Esta acción instaló el *toolkit* PowerRatankba en un equipo con acceso a la red interna. El incidente puenteó todas las defensas perimetrales y solo se conoció semanas después, filtrado por presión pública y no por detección interna temprana.
@@ -1221,7 +1221,7 @@ Un empleado de TI fue inducido, mediante una falsa oferta laboral en LinkedIn y 
 Análisis de ingeniería del punto único de falla.
 > Este incidente materializa simultáneamente la falla P2 (Robo de credenciales) y la falla P6 (Riesgo de proveedor / Punto único de falla). La seguridad de la cadena de pagos nacional completa —cuyas entidades gastan millones en auditorías de cumplimiento SOC 2 y murallas perimetrales— fue vulnerada desde el interior mediante la acción voluntaria de un usuario legitimado. Las defensas estáticas no previenen la ejecución porque el atacante opera bajo el manto de un usuario válido. Sin una atestación continua (*Zero Trust* respaldado por RATS) que verifique la integridad del entorno y firme criptográficamente cada ejecución, un solo empleado con alto privilegio engañado en LinkedIn tiene el poder suficiente para colapsar la interconexión financiera del país. 
 
-#### Casos testigo 2024-2025: El compromiso del plano de control API y la exfiltración silenciosa
+#### Casos testigo 2024-2025: El compromiso del plano de control API y la exfiltración silenciosa {.expediente}
 
 La industria financiera y estatal asume que si la conexión a la nube opera mediante una Interfaz de Programación de Aplicaciones (API), la arquitectura está aislada de ataques profundos. Sin embargo, el reciente *Reporte Ciber Seguridad 2026* del Centro de Ciberinteligencia de Entel (páginas 58 a 61) documenta empíricamente que las APIs se han convertido en el vector primario de intrusión, evadiendo los controles perimetrales (SOC/EDR) porque los atacantes *"apuntan a procesos de negocio, lo que dificulta su detección con controles convencionales"* (pág. 60). Cuatro incidentes documentados destruyen el mito de la API segura como plano de control<a href="#fn228" id="fnref228"><sup>228</sup></a>:
 
@@ -2346,7 +2346,7 @@ La ilusión del *Multi-Cloud* jurisdiccional. Diversificar entre proveedores (e.
 
 La externalización como colapso de la Seguridad Nacional y el riesgo geopolítico corporativo. Hasta hace poco, la preocupación por "kill-switches" o riesgos jurisdiccionales extranjeros era considerada exclusiva de la esfera militar. Sin embargo, el informe *Global Cybersecurity Outlook 2026* del Foro Económico Mundial documenta que el 91% de las empresas más grandes del mundo han ajustado activamente su postura de ciberseguridad para tener en cuenta los ataques motivados por factores geopolíticos<a href="#fn_wef_ciso"><sup>280</sup></a>. Si el 91% del gran empresariado global ya asume formalmente que usar infraestructura extranjera las expone a conflictos geopolíticos, que el Estado chileno lo ignore es una negligencia estratégica inexcusable. La dependencia estructural de estas arquitecturas y modelos de IA externos ha precipitado una confesión fáctica del sector corporativo chileno. Como concluye tajantemente la industria frente a los riesgos en la cadena de suministro: *"el riesgo cibernético ya no se limita a pérdidas internas [...] Esto posiciona al ciberespacio como un nuevo campo de vulnerabilidad estratégica para los países. En consecuencia, la protección de estas infraestructuras ya no es solo una responsabilidad corporativa, sino un componente de la seguridad nacional y la resiliencia del Estado"*<a href="#fn240" id="fnref240"><sup>240</sup></a>. Esta vulnerabilidad adquiere connotaciones de catástrofe fiduciaria cuando el propio *Reporte Entel 2026* certifica que *"la línea entre espionaje estatal y crimen organizado se vuelve difusa"*, ejemplificando cómo actores estatales (como APT41) comparten infraestructura e intereses tácticos con el cibercrimen motivado por lucro<a href="#fn243" id="fnref243"><sup>243</sup></a>. Subordinar la resiliencia de la Seguridad Nacional de Chile a un plano de control extranjero —cuyas disrupciones quedan exentas de responsabilidad por cláusulas de fuerza mayor, y que constituye el blanco primario de aparatos de inteligencia hostiles— es una aberración jurídica insalvable bajo el Art. 8 de la Ley 21.663.
 
-#### Caso testigo: IFX Networks y el colapso de ChileCompra (septiembre 2023)
+#### Caso testigo: IFX Networks y el colapso de ChileCompra (septiembre 2023) {.expediente}
 
 La fragilidad de la cadena de suministro *cloud* sobre la continuidad del Estado quedó expuesta de forma irreversible antes de la directiva del 12 de junio. El 12 de septiembre de 2023, un ataque de *ransomware* contra IFX Networks —proveedor de servicios gestionados con operación regional— derribó Mercado Público (ChileCompra), dejando instantáneamente inoperante el sistema de abastecimiento de más de 850 organismos del Estado<a href="#fn117" id="fnref117"><sup>117</sup></a>.
 
@@ -2763,7 +2763,7 @@ Si la vulnerabilidad TOCTOU (§3.5) destruye la ilusión de que podemos auditar 
 
 Cuando un registro sujeto a tutela jurídica (datos personales, confidencialidad médica o secreto industrial) es ingerido vía API o absorbido mediante actualización estocástica de pesos (*weight memorization*), su entropía se entrelaza de forma irreversible en un espacio latente de alta dimensionalidad. Como ya se expuso al analizar la ficción de la supresión en los estados de la información corporativa<sup><a href="#regimenes-informacion">véase §1.3.3</a></sup>, el mandato legal de supresión o borrado deviene matemáticamente inejecutable: la representación distribuida aniquila la correspondencia biunívoca entre el sujeto de derecho y el sustrato físico de la información.
 
-#### Caso testigo: El "Derecho al Olvido" como perjurio institucional
+#### Caso testigo: El "Derecho al Olvido" como perjurio institucional {.expediente}
 
 Supongamos que un hospital integra un modelo fundacional para acelerar el análisis oncológico. Las fichas clínicas no se guardan ordenadas en un disco duro; se "disuelven" en una matriz de miles de millones de parámetros matemáticos (*entanglement*). 
 
@@ -2788,7 +2788,7 @@ Las Fintech y plataformas de activos virtuales lo enfrentan en la NCG 502 y su R
 
 Cuando el plano de control (IAM, enrutamiento, telemetría) reside en una jurisdicción extranjera, la continuidad del servicio del operador chileno queda subyugada a factores extralegales sobre los que no tiene agencia: la revocación unilateral del servicio por sanciones geopolíticas o regulatorias (como se expuso en la Sección 2.4), o el colapso financiero instantáneo inducido por agentes maliciosos (*denial-of-wallet* o ataques de agotamiento de cuota de API). Al no poseer atestación física ni capacidad de ejecución aislada en el territorio nacional, el apagón de la infraestructura lógica del proveedor apaga inmediatamente al operador local, materializando el incumplimiento normativo sin previo aviso ni capacidad material de mitigación.
 
-#### Caso testigo: GTD y la parálisis de telecomunicaciones (octubre 2023)
+#### Caso testigo: GTD y la parálisis de telecomunicaciones (octubre 2023) {.expediente}
 
 El riesgo no se limita a la revocación extranjera; alcanza al proveedor nacional, y el caso chileno lo demostró con una precisión que ningún ejercicio de escritorio habría alcanzado. El 23 de octubre de 2023, una variante del *ransomware* Rorschach (también conocido como BabLock) comprometió las plataformas de Infraestructura como Servicio (IaaS) del Grupo GTD, obligando a la desconexión preventiva de sus *data centers*. Primero, la ingeniería, porque fija la escala temporal del problema: Rorschach no era un *ransomware* cualquiera. Check Point Research lo había medido seis meses antes: 220.000 archivos cifrados en cuatro minutos y medio, contra los siete minutos de LockBit v3, hasta entonces el referente — el cifrador más rápido jamás observado<a href="#fn218" id="fnref218"><sup>218</sup></a>. La cifra importa porque fija la asimetría que este documento viene midiendo: contra un desenlace que se consuma en minutos, el RIO de dos horas de la NCG 502 y el reporte de tres horas a la ANCI no son plazos de gestión del incidente; cuando el obligado reporta, no está conteniendo el ataque — está documentando su desenlace. El impacto en cascada fue brutal: la interrupción arrastró a cerca de 3.500 corporaciones y paralizó servicios críticos del Estado, incluyendo los sistemas de licencias médicas de Fonasa, operaciones del Servicio de Impuestos Internos (SII), la Firma Electrónica Avanzada (FEA) gubernamental y las redes de al menos 77 municipalidades<a href="#fn165" id="fnref165"><sup>165</sup></a>.
 
@@ -6059,7 +6059,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Agencia de Protección de Datos (APDP),** 76, 81, 106, 165, 166, 272, 273, 276
 - **AI Act (Reglamento UE 2024/1689),** 21, 91, 93, 94, 96, 102, 106, 107, 109, 110, 131, 181, 188, 189, 190, 191, 204, 254, 255, 274, 328, 330, 338, 339, 340, 342, 357, 372
 - **AI Liability Directive (COM(2022)496),** 103, 104, 108, 340
-- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 18, 20, 29, 40, 42, 43, 46, 53, 55, 59, 61, 69, 72, 74, 75, 84, 85, 86, 88, 100, 106, 108, 109, 112, 113, 114, 115, 122, 125, 131, 132, 135, 139, 150, 164, 165, 169, 172, 174, 187, 191, 193, 194, 198, 200, 205, 218, 219, 220, 224, 229, 230, 238, 240, 241, 242, 243, 251, 252, 254, 258, 260, 261, 262, 263, 264, 265, 266, 267, 269, 270, 271, 272, 273, 274, 276, 277, 278, 279, 282, 285, 287, 289, 291, 292, 295, 300, 310, 311, 313, 315, 316, 318, 319, 320, 324, 326, 329, 330, 334, 336, 337, 349, 374
+- **ANCI (Agencia Nacional de Ciberseguridad),** 7, 11, 12, 16, 18, 20, 29, 40, 42, 43, 46, 53, 55, 59, 61, 69, 72, 74, 75, 84, 85, 86, 87, 88, 100, 106, 108, 109, 112, 113, 114, 115, 122, 125, 131, 132, 135, 139, 150, 164, 165, 169, 172, 174, 187, 191, 193, 194, 198, 200, 205, 218, 219, 220, 224, 229, 230, 238, 240, 241, 242, 243, 251, 252, 254, 258, 260, 261, 262, 263, 264, 265, 266, 267, 269, 270, 271, 272, 273, 274, 276, 277, 278, 279, 282, 285, 287, 289, 291, 292, 295, 300, 310, 311, 313, 315, 316, 318, 319, 320, 324, 326, 329, 330, 334, 336, 337, 349, 374
 - **Anthropic,** 15, 24, 27, 29, 31, 33, 44, 105, 119, 142, 143, 283, 284, 330, 331, 346, 350, 358, 371, 377
 - **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 24, 39, 109, 216, 217, 283, 342, 368
 - **Árboles de Merkle,** 8, 224, 248, 271, 285, 286, 289, 313, 344, 358, 375, 381
@@ -6080,29 +6080,29 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **C**
 
-- **Cadena de custodia,** 16, 17, 40, 41, 53, 69, 76, 103, 112, 128, 131, 144, 163, 168, 182, 183, 195, 197, 207, 210, 220, 234, 238, 246, 249, 258, 260, 266, 270, 272, 273, 274, 279, 288, 295, 296, 315, 317, 320, 321, 323, 325, 361
+- **Cadena de custodia,** 16, 17, 40, 42, 53, 69, 76, 103, 112, 128, 131, 144, 163, 168, 182, 183, 195, 197, 207, 210, 220, 234, 238, 246, 249, 258, 260, 266, 270, 272, 273, 274, 279, 288, 295, 296, 315, 317, 320, 321, 323, 325, 361
 - **Capital One / AWS (IMDSv1),** 81, 82, 83, 84, 201, 204, 336
-- **Carga de la prueba / carga probatoria,** 8, 12, 13, 32, 46, 49, 53, 75, 76, 80, 103, 104, 108, 112, 122, 129, 152, 156, 157, 174, 180, 184, 185, 187, 189, 191, 197, 203, 210, 285, 287, 291, 294, 301, 323, 325, 333, 345, 347
+- **Carga de la prueba / carga probatoria,** 8, 12, 13, 32, 46, 49, 53, 75, 76, 81, 103, 104, 108, 112, 122, 129, 152, 156, 157, 174, 180, 184, 185, 187, 189, 191, 197, 203, 210, 285, 287, 291, 294, 301, 323, 325, 333, 345, 347
 - **Cifrado homomórfico (FHE),** 76, 202, 210, 211, 213
 - **CISA / NSA,** 39, 111, 267, 278, 343, 350, 351, 368, 369, 370, 371, 373, 377
 - **Claude Fable 5,** 29, 44, 127, 331, 345, 358
 - **Claude Mythos,** 8, 15, 21, 22, 23, 25, 26, 27, 29, 32, 33, 34, 42, 44, 48, 49, 50, 51, 73, 92, 113, 114, 119, 125, 143, 145, 150, 170, 171, 246, 253, 255, 256, 261, 262, 264, 275, 280, 283, 292, 293, 294, 295, 297, 306, 309, 310, 311, 313, 315, 330, 331, 350, 358
 - **Clínica Dávila / Devman,** 145, 146, 227, 230, 235, 239
 - **CLOUD Act,** 50, 51, 59, 158, 159, 160, 203, 214, 246, 304, 347, 360, 370, 377
-- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 16, 18, 19, 20, 28, 29, 32, 40, 43, 44, 45, 46, 49, 51, 52, 53, 54, 55, 56, 58, 60, 61, 62, 63, 70, 72, 73, 74, 75, 84, 85, 87, 88, 89, 93, 100, 101, 106, 114, 115, 123, 129, 132, 139, 140, 150, 151, 152, 153, 162, 164, 165, 171, 173, 180, 185, 187, 191, 196, 198, 200, 201, 219, 223, 231, 232, 240, 241, 242, 243, 249, 254, 256, 258, 261, 269, 276, 277, 290, 291, 293, 295, 296, 298, 300, 301, 302, 303, 304, 305, 306, 310, 311, 315, 316, 319, 320, 326, 327, 334, 335, 361, 362, 363, 366, 378
+- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 16, 18, 19, 20, 28, 29, 32, 40, 43, 44, 45, 46, 49, 51, 52, 53, 54, 55, 56, 58, 60, 61, 62, 63, 70, 71, 72, 73, 75, 84, 85, 87, 88, 89, 93, 100, 101, 106, 114, 115, 123, 129, 132, 139, 140, 150, 151, 152, 153, 162, 164, 165, 171, 173, 180, 185, 187, 191, 196, 198, 200, 201, 219, 223, 231, 232, 240, 241, 242, 243, 249, 254, 256, 258, 261, 269, 276, 277, 290, 291, 293, 295, 296, 298, 300, 301, 302, 303, 304, 305, 306, 310, 311, 315, 316, 319, 320, 326, 327, 334, 335, 361, 362, 363, 366, 378
 - **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 15, 42, 97, 99, 103, 148, 160, 204, 211, 214, 215, 220, 221, 225, 247, 248, 249, 259, 260, 265, 276, 286, 291, 305, 322, 350, 362, 375
 - **Confused deputy (diputado confundido),** 24, 132, 134, 167, 168, 196, 266, 269, 355, 360
 - **Continuidad operacional / soberana,** 48, 55, 68, 87, 105, 140, 142, 171, 173, 212, 214, 219, 233, 270, 272, 275, 283, 318, 320, 326, 327, 329, 361
 - **Convenio de Budapest,** 52, 112, 355, 374
 - **Crawford v. Washington,** 328
-- **CSIRT Nacional,** 34, 55, 64, 65, 70, 153, 172, 265, 266, 313, 334, 335, 355, 373
+- **CSIRT Nacional,** 34, 55, 64, 65, 70, 153, 173, 265, 266, 313, 334, 335, 355, 373
 
 **D**
 
 - **Daubert (fiabilidad pericial),** —
 - **Debido proceso (Art. 19 N°3 CPR),** 11, 17, 20, 58, 60, 112, 114, 143, 144, 163, 182, 191, 199, 221, 263, 283, 287, 349, 351
 - **DeepSeek-R1,** 30, 31, 37, 41, 331, 333, 367
-- **Delegado de Protección de Datos (DPO),** 17, 29, 85, 87, 88, 90, 136, 306, 318, 335, 337, 338
+- **Delegado de Protección de Datos (DPO),** 17, 29, 85, 88, 90, 136, 306, 318, 335, 337, 338
 - **DICE (Device Identifier Composition Engine),** 285, 350
 
 **E**
@@ -6110,10 +6110,10 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **eBPF,** 8, 9, 207, 217, 266, 268, 278
 - **ECRA (Export Control Reform Act),** 44, 46, 47, 48, 158, 159, 160, 161, 246, 249, 265, 266, 268, 277, 280, 284, 304, 307, 318, 324, 328, 331, 352
 - **EDPB,** 78, 260, 337, 338, 344, 359, 373
-- **EDR (detección y respuesta en endpoint),** 7, 8, 9, 31, 33, 34, 36, 37, 38, 41, 42, 43, 54, 57, 62, 65, 66, 67, 68, 72, 121, 122, 123, 126, 137, 138, 146, 147, 149, 150, 151, 152, 153, 154, 171, 216, 217, 218, 219, 235, 259, 269, 292, 294, 316, 317, 318, 344, 347, 364, 365, 366, 367, 369, 374, 376
+- **EDR (detección y respuesta en endpoint),** 7, 8, 9, 31, 33, 34, 36, 37, 38, 41, 42, 43, 54, 57, 62, 65, 66, 67, 68, 73, 121, 122, 123, 126, 137, 138, 146, 147, 149, 150, 151, 152, 153, 154, 171, 216, 217, 218, 219, 235, 259, 269, 292, 294, 316, 317, 318, 344, 347, 364, 365, 366, 367, 369, 374, 376
 - **eIDAS (Reglamento UE 910/2014),** 58, 282, 328, 332
 - **EMCO / Guacamaya (2022),** 53, 63, 64, 65, 66, 67, 73, 145, 227, 229, 234, 236, 239, 240, 319, 333, 334
-- **Encargado de Ciberseguridad,** 86, 87, 88, 336
+- **Encargado de Ciberseguridad,** 86, 88, 336
 - **Equilibrio de Nash / market for lemons,** 309, 310, 312, 315, 317, 320, 348
 - **Evidencia con proveniencia atestada,** 102, 103, 273, 274, 319, 321, 324, 325, 327
 
@@ -6129,7 +6129,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 - **GDPR / RGPD,** 62, 78, 79, 80, 90, 166, 167, 187, 188, 189, 190, 191, 192, 335, 336, 337, 348, 358, 359, 360, 373
 - **Grupo GTD (2023),** 53, 172, 173, 227, 230, 233, 239, 240, 355, 361
-- **GTIG / Mandiant (Google),** 10, 15, 24, 25, 35, 37, 38, 41, 86, 87, 96, 107, 125, 139, 218, 219, 267, 282, 283, 298, 299, 306, 329, 333, 344, 368, 371, 373, 377
+- **GTIG / Mandiant (Google),** 10, 15, 24, 25, 35, 38, 41, 86, 87, 96, 107, 125, 139, 218, 219, 267, 282, 283, 298, 299, 306, 329, 333, 344, 368, 371, 373, 377
 - **Guacamaya (hackeo),** *véase* EMCO / Guacamaya (2022)
 
 **H**
@@ -6142,7 +6142,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **IMA (Integrity Measurement Architecture),** 97
 - **IMDSv1 / IMDSv2 (AWS),** 82, 83, 336
 - **In re McDonald's,** 89, 338
-- **Incidente (reporte y gestión de),** 16, 18, 32, 53, 54, 67, 68, 69, 72, 74, 75, 76, 87, 129, 169, 170, 171, 228, 233, 258, 264, 271, 309, 312, 319, 326, 341
+- **Incidente (reporte y gestión de),** 16, 18, 32, 53, 54, 67, 68, 69, 72, 74, 75, 76, 87, 129, 169, 170, 172, 228, 233, 258, 264, 271, 309, 312, 319, 326, 341
 - **Indelegabilidad de la responsabilidad,** 13, 50, 51, 54, 63, 70, 71, 77, 87, 89, 90, 227, 232, 317, 328, 337
 - **InfoStealer,** 42, 43, 69, 126, 135, 229, 230, 238, 262, 291, 334
 - **Instituto de Salud Pública (ISP, 2025),** 63, 65, 68, 227, 239, 240, 334
@@ -6156,9 +6156,9 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Ley 19.880 (Procedimiento Administrativo),** 100, 104, 191, 352, 353
 - **Ley 20.009 / Ley 21.234 (medios de pago),** 62, 184, 185, 355
 - **Ley 21.459 (Delitos Informáticos),** 52, 69, 112, 113, 119, 131, 169, 186, 194, 195, 199, 227, 272, 318, 319, 329, 334, 374
-- **Ley 21.595 (Delitos Económicos),** 16, 20, 60, 61, 62, 73, 88, 114, 115, 122, 130, 131, 132, 135, 136, 138, 140, 142, 143, 144, 150, 152, 156, 161, 180, 185, 194, 195, 197, 201, 206, 207, 212, 223, 243, 269, 275, 291, 293, 294, 295, 296, 306, 307, 310, 316, 317, 321, 356, 365
+- **Ley 21.595 (Delitos Económicos),** 16, 20, 60, 62, 73, 88, 114, 115, 122, 130, 131, 132, 135, 136, 138, 140, 142, 143, 144, 150, 152, 156, 161, 180, 185, 194, 195, 197, 201, 206, 207, 212, 223, 243, 269, 275, 291, 293, 294, 295, 296, 306, 307, 310, 316, 317, 321, 356, 365
 - **Ley 21.663 (Marco de Ciberseguridad),** 7, 11, 16, 18, 25, 29, 32, 34, 36, 52, 53, 55, 60, 61, 62, 68, 69, 71, 73, 74, 75, 76, 81, 84, 86, 87, 94, 101, 105, 122, 123, 126, 131, 132, 135, 136, 137, 139, 140, 141, 142, 143, 169, 170, 171, 173, 186, 187, 192, 194, 199, 207, 212, 213, 215, 227, 228, 229, 233, 234, 235, 240, 242, 243, 252, 261, 263, 264, 266, 267, 269, 270, 271, 272, 287, 292, 295, 307, 309, 313, 316, 319, 326, 329, 334, 336, 337, 345, 365, 366, 374
-- **Ley 21.719 (Protección de Datos Personales),** 16, 29, 46, 52, 70, 75, 76, 84, 85, 123, 136, 138, 166, 170, 171, 181, 187, 192, 193, 194, 199, 234, 260, 307, 319, 329, 335, 348, 359, 365, 374
+- **Ley 21.719 (Protección de Datos Personales),** 16, 29, 46, 52, 70, 75, 76, 84, 85, 123, 136, 138, 166, 170, 172, 181, 187, 192, 193, 194, 199, 234, 260, 307, 319, 329, 335, 348, 359, 365, 374
 - **Lorraine v. Markel,** 102, 181, 204, 340, 349
 
 **M**
@@ -6174,7 +6174,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **N**
 
-- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 16, 29, 32, 46, 49, 52, 53, 54, 61, 63, 73, 75, 81, 84, 87, 91, 94, 100, 105, 114, 164, 171, 172, 173, 187, 241, 305, 306, 320, 326
+- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 16, 29, 32, 46, 49, 52, 53, 54, 61, 63, 73, 75, 81, 84, 87, 91, 94, 100, 105, 114, 164, 172, 173, 187, 241, 305, 306, 320, 326
 - **NCSC (Reino Unido),** 37, 111, 267, 333, 343, 373
 - **NetFlow / Windows Event Forwarding (WEF),** 65, 66, 67, 68, 116
 - **NIS2 (Directiva UE 2022/2555),** 21, 62, 89, 103, 105, 181, 187, 188, 190, 191, 204, 254, 268, 313, 328, 337, 340, 350, 369
@@ -6182,7 +6182,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **O**
 
-- **Operador de Importancia Vital (OIV),** 7, 11, 16, 18, 28, 29, 32, 33, 36, 40, 43, 44, 45, 46, 49, 53, 55, 57, 62, 63, 70, 72, 73, 75, 76, 84, 85, 86, 87, 93, 94, 95, 100, 105, 106, 115, 120, 125, 134, 137, 138, 139, 140, 142, 143, 148, 154, 162, 165, 171, 172, 183, 184, 198, 201, 219, 227, 232, 234, 238, 239, 240, 241, 242, 243, 249, 251, 252, 253, 255, 263, 265, 266, 267, 268, 269, 271, 272, 275, 276, 278, 279, 287, 288, 289, 292, 299, 310, 318, 320, 323, 324, 326, 330, 336, 337, 366
+- **Operador de Importancia Vital (OIV),** 7, 11, 16, 18, 28, 29, 32, 33, 36, 40, 43, 44, 45, 46, 49, 53, 55, 57, 62, 63, 70, 72, 73, 76, 84, 85, 86, 87, 93, 94, 95, 100, 105, 106, 115, 120, 125, 134, 137, 138, 139, 140, 142, 143, 148, 154, 162, 165, 171, 173, 183, 184, 198, 201, 219, 227, 232, 234, 238, 239, 240, 241, 242, 243, 249, 251, 252, 253, 255, 263, 265, 266, 267, 268, 269, 271, 272, 275, 276, 278, 279, 287, 288, 289, 292, 299, 310, 318, 320, 323, 324, 326, 330, 336, 337, 366
 
 **P**
 
@@ -6205,7 +6205,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Ransomware 3.0,** 317, 344
 - **Res ipsa loquitur,** 100
 - **Responsabilidad proactiva (accountability),** 16, 46, 75, 76, 85, 93, 94, 95, 96, 99, 102, 103, 107, 108, 109, 111, 112, 181, 187, 192, 193, 194, 260, 295, 316, 323, 324, 339
-- **Responsable de la información / del tratamiento,** 75, 76, 84, 85, 95, 106, 171, 187, 310, 335, 337
+- **Responsable de la información / del tratamiento,** 75, 76, 84, 85, 95, 106, 172, 187, 310, 335, 337
 
 **S**
 
