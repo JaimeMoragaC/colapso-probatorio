@@ -2056,6 +2056,8 @@ La soberanía, por tanto, no exige que el silicio tenga pasaporte chileno; exige
 
 ## 2. Definición del modelo de amenazas
 
+> *No se puede legislar contra una amenaza que no se ha nombrado. Aquí se nombra: tres tipos, un mismo efecto —la evidencia deja de probar.*
+
 Antes de deconstruir la arquitectura ofensiva contemporánea, resulta útil observar cómo ha evolucionado empíricamente el modelo de ataque corporativo en la última década. A principios de los años 2010, la amenaza dominante consistía en campañas de *malware* relativamente rudimentarias y de impacto inmediato. Para la llegada de epidemias de *ransomware* como WannaCry y NotPetya en 2017, la industria corporativa entendió que la defensa de perímetro tradicional ya no era suficiente. Fue entonces cuando el mercado viró masivamente hacia las soluciones de detección y respuesta en el *endpoint* (EDR). Durante algunos años, este equilibrio táctico funcionó con relativa estabilidad: el atacante ingresaba, el EDR detectaba el comportamiento anómalo en el registro, y un analista del SOC contenía el incidente. Lo que examinaremos a continuación es por qué ese equilibrio histórico acaba de colapsar definitivamente.
 
 > «No se puede confiar en código que uno no creó enteramente por sí mismo.»
@@ -2461,6 +2463,8 @@ El modelo de asimetría económica de *Mythos* deja de ser abstracto en cuanto s
 *Tres horas para reportar; segundos o escasos minutos para el adversario. La pregunta no es si su organización es diligente, sino si puede probarlo cuando el registro lo escribió quien la atacó.*
 
 ## 3. Taxonomía del fracaso del modelo transaccional
+
+> *El modelo de cumplimiento no falla por descuido. Falla por diseño: se construyó para un mundo donde la máquina no mentía.*
 
 *Taxonomía del colapso probatorio y brecha metodológica: articulación de las fallas sistémicas del modelo de cumplimiento tradicional frente a la IA. Incluye la inversión de la carga probatoria sobre la fiabilidad de la máquina (§3.6) y la brecha de método entre el razonamiento jurídico y el computacional —el error de nivel: juzgar el *output* en vez del proceso generativo que lo produjo—.*
 
@@ -3232,6 +3236,8 @@ El juez no puede otorgar fiabilidad científica a un registro cuyo propio cifrad
 Toda la arquitectura de fiscalización de la Ley 21.663, las multas de la Ley 21.719 y la persecución penal de la Ley 21.459 descansan sobre *logs* y esquemas de cifrado que, sometidos a la sana crítica, serán desestimados por cualquier tribunal frente a una defensa técnica mínimamente preparada.
 
 ## 4. Análisis crítico de las defensas hiperescalares
+
+> *AWS, Google y Microsoft no venden mentiras. Venden algo peor: certezas que dejan de valer en el milisegundo exacto en que usted las necesita.*
 
 *Análisis crítico de las defensas hiperescalares: demostración técnica de por qué las defensas tradicionales en la nube y los modelos contractuales colapsan ante ataques de bajo nivel (TOCTOU) y eventos de revocación jurisdiccional.*
 
@@ -4072,6 +4078,8 @@ Aceptar esta claudicación regulatoria no es un mero formalismo administrativo; 
 
 ## 5. El cisma regulatorio global (Julio 2026): La abdicación del *compliance* de papel y la lección para Chile
 
+> *En 2026, los reguladores del mundo empezaron a confesar en voz baja lo que este documento dice en voz alta. Aquí están esas confesiones.*
+
 La caducidad de las auditorías de papel frente a la Inteligencia Artificial agéntica dejó de ser una advertencia teórica. Entre junio y julio de 2026, las principales potencias regulatorias del mundo iniciaron un cisma legislativo sin precedentes, abandonando *de facto* la presunción de seguridad del *compliance* administrativo tradicional (ISO, SOC 2). Analizar este colapso global es imperativo, pues expone que el actual proyecto de ley de IA de Chile (Boletín 16821-19) —basado en modelos documentales obsoletos— corre el riesgo de nacer forensemente muerto.
 
 ### 5.1 La Confesión Europea: El Plan de Acción sobre IA y Ciberseguridad
@@ -4124,6 +4132,8 @@ Copiar ciegamente la cáscara administrativa europea original, ignorando estas d
 
 ## 6. Requisitos de evidencia idónea (marco propuesto)
 
+> *Hasta aquí, el diagnóstico. Desde aquí, la salida —y es una sola: prueba que ni el investigado ni el atacante puedan tocar.*
+
 *Requisitos de evidencia: definición del estándar técnico para unificar el reporte a la ANCI y la cadena de custodia penal, exigiendo atestación de hardware en el origen.*
 
 Durante las primeras etapas de investigación para este documento, la hipótesis de trabajo inicial asumía que servicios de recolección centralizada (como AWS CloudTrail o Microsoft Sentinel) resolvían este problema de raíz. Parecía razonable concluir —como lo hace la propia CMF— que bastaba con pagar una licencia de auditoría de grado empresarial para garantizar la inmutabilidad de la prueba. Sin embargo, tras modelar la secuencia de ejecución de un ataque a nivel de núcleo, se hizo dolorosamente evidente que estábamos repitiendo el mismo error estructural: el servicio de auditoría sigue siendo un proceso de software que corre sobre el mismo sustrato que el adversario ya controla.
@@ -4159,6 +4169,8 @@ La distinción relevante no es el proveedor, sino el resultado: si la evidencia 
 <div style="page-break-before: always;"></div>
 
 ## 7. Discusión y propuesta regulatoria
+
+> *La solución no exige leyes nuevas. Exige algo más difícil: dejar de creerle a la máquina por costumbre.*
 
 Habiendo recorrido la anatomía del colapso epistémico y las carencias del modelo de observabilidad actual, este capítulo tiene como objetivo articular un camino de salida pragmático y jurídicamente robusto. Para ello, se analizará en primer lugar la postura de los reguladores nacionales (especialmente la ANCI y la CMF), desglosando las incoherencias normativas que aún subsisten en el marco vigente. Posteriormente, se delineará una estrategia de transición operativa (la "estrategia puente") para que los Operadores de Importancia Vital puedan adoptar estándares de atestación por hardware sin detener su continuidad de negocio. Por último, se abordarán de manera directa las objeciones corporativas y técnicas más comunes que la industria opondrá frente a este cambio de estándar.
 
@@ -4988,6 +5000,8 @@ Al introducir esta cláusula, la entidad financiera y el  Estado dejan de ser v�
 
 ## 8. Profundizaciones en la frontera entre la prueba y la máquina
 
+> *Queda una pregunta incómoda: si la salida es tan clara, ¿por qué nadie la exige? La respuesta no es técnica —es teoría de juegos.*
+
 *Profundizaciones en la frontera entre la prueba y la máquina: análisis dogmático sobre la teoría de juegos de la atestación, el equilibrio corporativo de la opacidad (§8.1) y la aplicación de la teoría del consenso bizantino al reporte de incidentes ante el regulador (§8.2).*
 
 Habiendo expuesto el colapso probatorio del marco regulatorio (Sección 1), la anatomía de la amenaza autónoma (Sección 2) y la arquitectura técnica que resuelve el vacío (Secciones 3, 4 y 6), resta responder a la pregunta final, la más incómoda del documento: si la atestación criptográfica es la única respuesta matemática y jurídicamente viable ante el riesgo sistémico, ¿por qué la industria no la exige y el Estado no la fiscaliza?
@@ -5079,6 +5093,8 @@ Tolerancia a fallos bizantinos. La integridad de un sistema *frente a un orácul
 El reporte como atestación, no acto de fe. La autoridad no debe estructurar la recepción de incidentes como un acto de fe en el *log* del proveedor, sino exigir que la evidencia se genere sobre un registro tolerante a fallos. El reporte regulatorio deja de ser una declaración vulnerable y pasa a ser una atestación matemáticamente inalterable, devolviéndole la soberanía epistémica al Estado.
 
 ## 9. Conclusiones
+
+> *Empezó en un milisegundo dentro de la memoria y terminó en la sala del directorio. En cada plano, el mismo vacío. Esto es lo que queda en pie.*
 
 El recorrido analítico de este documento ha transitado, de forma deliberada e irreversible, desde la constatación de un déficit probatorio puntual hasta la demostración de un colapso estructural de magnitud sistémica. Comenzó en Ring-0 —en el milisegundo en que el atacante autónomo reescribe la memoria antes de que el sensor la lea— y terminó en la sala del directorio, en el despacho del regulador y en la audiencia del tribunal: el mismo vacío de evidencia que el adversario explota en el sustrato físico se reproduce, con precisión matemática, en cada estrato del sistema de responsabilidades que debería acotarlo. Las Secciones 2 a 8 no son capítulos independientes: son la misma tesis demostrada en sucesivos planos —ingeniería, derecho penal, derecho administrativo, teoría de juegos y sistemas distribuidos—, hasta que ya no queda ángulo desde el que la presunción de integridad del *log* no atestado pueda sostenerse. De esa convergencia se extraen los siguientes hallazgos.
 
@@ -5906,7 +5922,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **C**
 
-- **Cadena de custodia,** 16, 17, 39, 40, 52, 68, 75, 102, 111, 127, 130, 142, 161, 166, 180, 181, 191, 192, 193, 203, 206, 216, 229, 234, 241, 245, 253, 254, 261, 264, 267, 268, 273, 282, 290, 291, 309, 311, 314, 315, 316, 318, 319, 354
+- **Cadena de custodia,** 16, 17, 39, 40, 52, 68, 75, 102, 111, 127, 130, 142, 161, 166, 180, 181, 191, 192, 193, 203, 206, 216, 229, 234, 241, 245, 253, 255, 261, 264, 267, 268, 273, 282, 290, 291, 309, 311, 314, 315, 316, 318, 319, 354
 - **Capital One / AWS (IMDSv1),** 80, 81, 82, 83, 197, 201, 329, 330
 - **Carga de la prueba / carga probatoria,** 8, 12, 13, 31, 45, 48, 52, 74, 75, 79, 102, 103, 107, 111, 121, 128, 150, 154, 155, 171, 172, 177, 182, 183, 184, 186, 188, 193, 200, 206, 279, 281, 282, 286, 289, 295, 316, 319, 327, 338, 341
 - **Cifrado homomórfico (FHE),** 75, 198, 206, 207, 209
@@ -5915,7 +5931,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Claude Mythos,** 8, 15, 20, 21, 22, 25, 26, 28, 31, 32, 33, 41, 43, 47, 48, 49, 50, 72, 91, 112, 113, 118, 123, 142, 144, 148, 149, 168, 169, 242, 249, 251, 252, 256, 257, 259, 270, 274, 277, 287, 288, 289, 290, 291, 300, 303, 304, 305, 307, 309, 324, 325, 343, 352
 - **Clínica Dávila / Devman,** 144, 223, 225, 231, 235
 - **CLOUD Act,** 49, 50, 58, 156, 157, 158, 200, 242, 299, 340, 354, 363, 370
-- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 31, 39, 42, 43, 44, 45, 48, 50, 51, 52, 53, 54, 55, 57, 59, 60, 61, 62, 69, 71, 72, 73, 74, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 138, 139, 148, 149, 150, 151, 160, 162, 163, 169, 171, 178, 182, 184, 188, 193, 194, 197, 198, 215, 218, 226, 227, 236, 237, 238, 239, 245, 250, 252, 253, 256, 264, 271, 285, 287, 289, 290, 292, 294, 295, 296, 297, 298, 299, 300, 301, 304, 305, 309, 313, 314, 320, 328, 355, 356, 359, 371
+- **CMF (Comisión para el Mercado Financiero),** 9, 10, 11, 12, 15, 16, 17, 18, 19, 27, 28, 31, 39, 42, 43, 44, 45, 48, 50, 51, 52, 53, 54, 55, 57, 59, 60, 61, 62, 69, 71, 72, 73, 74, 83, 84, 86, 87, 88, 92, 99, 100, 105, 113, 114, 122, 127, 130, 138, 139, 148, 149, 150, 151, 160, 162, 163, 169, 171, 178, 182, 184, 188, 193, 194, 197, 198, 215, 218, 226, 227, 236, 237, 238, 239, 245, 250, 252, 253, 256, 264, 271, 285, 287, 289, 290, 292, 294, 295, 296, 297, 298, 299, 300, 301, 304, 305, 309, 310, 313, 314, 320, 328, 355, 356, 359, 371
 - **Cómputo confidencial (SEV-SNP, TDX, SGX),** 8, 10, 14, 41, 96, 98, 102, 147, 158, 200, 201, 207, 210, 211, 216, 217, 221, 243, 244, 245, 254, 255, 260, 271, 280, 285, 299, 315, 344, 355, 368
 - **Confused deputy (diputado confundido),** 24, 131, 133, 165, 166, 193, 261, 264, 349, 353
 - **Continuidad operacional / soberana,** 47, 54, 67, 86, 104, 139, 141, 169, 171, 208, 210, 215, 229, 265, 266, 269, 278, 312, 314, 319, 321, 322, 355
@@ -5934,14 +5950,14 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 **E**
 
 - **eBPF,** 8, 9, 203, 212, 213, 260, 263, 273
-- **ECRA (Export Control Reform Act),** 43, 45, 46, 47, 156, 157, 158, 159, 242, 245, 259, 261, 263, 271, 274, 278, 299, 301, 312, 317, 321, 324, 345
-- **EDPB,** 77, 254, 331, 337, 352, 353, 366
+- **ECRA (Export Control Reform Act),** 43, 45, 46, 47, 156, 157, 158, 159, 242, 245, 260, 261, 263, 271, 274, 278, 299, 301, 312, 317, 321, 324, 345
+- **EDPB,** 77, 255, 331, 337, 352, 353, 366
 - **EDR (detección y respuesta en endpoint),** 7, 8, 9, 30, 32, 33, 35, 36, 37, 40, 41, 42, 53, 56, 61, 64, 65, 66, 67, 71, 120, 121, 122, 124, 125, 135, 136, 145, 146, 148, 149, 150, 151, 152, 169, 212, 213, 214, 215, 230, 254, 264, 286, 288, 289, 310, 311, 312, 337, 340, 357, 358, 359, 360, 362, 363, 367, 369
 - **eIDAS (Reglamento UE 910/2014),** 57, 276, 322, 326
 - **EMCO / Guacamaya (2022),** 52, 62, 63, 64, 65, 66, 72, 144, 222, 225, 229, 232, 234, 236, 313, 327
 - **Encargado de Ciberseguridad,** 85, 86, 87, 330
 - **Equilibrio de Nash / market for lemons,** 303, 304, 306, 309, 311, 314, 341
-- **Evidencia con proveniencia atestada,** 101, 102, 267, 268, 313, 314, 318, 319, 320
+- **Evidencia con proveniencia atestada,** 101, 102, 267, 268, 313, 315, 318, 319, 320
 
 **F**
 
@@ -5968,7 +5984,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **IMA (Integrity Measurement Architecture),** 96
 - **IMDSv1 / IMDSv2 (AWS),** 81, 82, 330
 - **In re McDonald's,** 88, 331
-- **Incidente (reporte y gestión de),** 16, 17, 31, 52, 53, 66, 67, 68, 71, 73, 74, 75, 86, 128, 167, 169, 223, 229, 253, 258, 266, 303, 306, 313, 319, 320, 334
+- **Incidente (reporte y gestión de),** 16, 17, 31, 52, 53, 66, 67, 68, 71, 73, 74, 75, 86, 128, 167, 169, 223, 229, 253, 259, 266, 303, 306, 313, 319, 320, 334
 - **Indelegabilidad de la responsabilidad,** 13, 49, 50, 53, 62, 69, 70, 76, 86, 88, 89, 223, 227, 228, 311, 322, 331
 - **InfoStealer,** 41, 42, 68, 125, 133, 224, 226, 234, 257, 286, 328
 - **Instituto de Salud Pública (ISP, 2025),** 62, 64, 67, 223, 235, 236, 327
@@ -6000,11 +6016,11 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **N**
 
-- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 31, 45, 48, 51, 52, 53, 60, 62, 72, 74, 80, 83, 86, 90, 93, 99, 104, 113, 162, 169, 170, 171, 184, 237, 299, 300, 313, 320
+- **NCG 502 (CMF, obligaciones Fintec),** 10, 11, 15, 16, 28, 31, 45, 48, 51, 52, 53, 60, 62, 72, 74, 80, 83, 86, 90, 93, 99, 104, 113, 162, 169, 170, 171, 184, 237, 299, 300, 314, 320
 - **NCSC (Reino Unido),** 36, 110, 262, 327, 337, 367
 - **NetFlow / Windows Event Forwarding (WEF),** 64, 65, 66, 67, 115
 - **NIS2 (Directiva UE 2022/2555),** 21, 61, 88, 102, 104, 179, 184, 185, 187, 188, 201, 250, 262, 307, 322, 330, 331, 333, 344, 363
-- **NIST,** 64, 95, 128, 136, 152, 156, 157, 257, 291, 325, 338, 339, 342, 349, 351
+- **NIST,** 64, 95, 128, 136, 152, 156, 157, 257, 258, 291, 325, 338, 339, 342, 349, 351
 
 **O**
 
@@ -6013,7 +6029,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 **P**
 
 - **PDPC / IMDA (Singapur),** 92, 322, 332, 333, 336
-- **Plano de control (Control Plane),** 44, 45, 53, 62, 70, 71, 81, 83, 114, 135, 136, 138, 139, 140, 141, 169, 203, 231, 234, 238, 245, 249, 263, 279, 301, 311, 314, 344, 351, 353, 354, 358
+- **Plano de control (Control Plane),** 44, 45, 53, 62, 70, 71, 81, 83, 114, 135, 136, 138, 139, 140, 141, 169, 203, 231, 234, 238, 245, 249, 263, 279, 301, 312, 314, 344, 351, 353, 354, 358
 - **Pliny the Liberator,** 125, 324, 339, 366
 - **Preservación provisoria (Art. 218 bis CPP),** 111, 113, 192, 193, 194, 195, 197, 349, 367
 - **Problema de los Generales Bizantinos,** 52, 115, 238, 283, 303, 305, 306, 307, 308, 309, 349
@@ -6027,7 +6043,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **R**
 
-- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 17, 52, 53, 62, 72, 74, 83, 86, 99, 104, 113, 139, 169, 171, 236, 238, 252, 289, 305, 309, 320, 355, 356
+- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 17, 52, 53, 62, 72, 74, 83, 86, 99, 104, 113, 139, 169, 171, 236, 238, 252, 289, 305, 310, 320, 355, 356
 - **Ransomware 3.0,** 311, 337
 - **Res ipsa loquitur,** 99
 - **Responsabilidad proactiva (accountability),** 15, 16, 45, 74, 75, 84, 92, 93, 94, 95, 98, 101, 102, 106, 107, 108, 110, 111, 179, 184, 189, 190, 191, 255, 289, 310, 317, 318, 332, 333
@@ -6038,7 +6054,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Sana crítica (arts. 295-297 CPP),** 56, 103, 111, 114, 115, 116, 118, 126, 130, 162, 163, 178, 179, 180, 181, 184, 191, 193, 194, 196, 198, 271, 281, 287, 303, 309, 310, 316
 - **Sandbox regulatorio,** 26, 30, 106, 324, 334, 335
 - **Schrems II (C-311/18),** 76, 77, 79, 139, 200, 329, 340
-- **SCITT (cadena de suministro / transparencia),** 11, 37, 52, 99, 119, 128, 136, 153, 185, 188, 198, 239, 241, 244, 246, 251, 252, 254, 261, 265, 267, 268, 270, 273, 276, 279, 284, 296, 300, 301, 306, 307, 308, 310, 313, 315, 337, 339, 342, 351, 361, 368, 371, 372
+- **SCITT (cadena de suministro / transparencia),** 11, 37, 52, 99, 119, 128, 136, 153, 185, 188, 198, 239, 241, 244, 246, 251, 252, 254, 261, 265, 267, 268, 270, 273, 276, 279, 284, 296, 300, 301, 306, 307, 308, 310, 313, 316, 337, 339, 342, 351, 361, 368, 371, 372
 - **SEC (Securities and Exchange Commission),** 331, 366
 - **Servicio de Salud Araucanía Sur (2026),** 62, 68, 112, 134, 224, 226, 236, 258, 312, 328
 - **Sodinokibi,** *véase* BancoEstado / Sodinokibi (2020)
