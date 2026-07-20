@@ -330,7 +330,7 @@ Ampliar el ámbito de la imputación sin resolver primero el estándar de la evi
 
 La laguna, en definitiva, no es legislativa en su origen —es arquitectónica— y la respuesta correcta es la inversa a la que instintivamente propone la dogmática: antes de definir quién responde, hay que definir qué evidencia acredita que algo ocurrió y cómo se preserva desde su origen, con absoluta independencia del proveedor.
 
-### La epistemología de la evidencia digital: Las Invariantes Post-Mythos
+### La epistemología de la evidencia digital: Las Invariantes
 
 > *Dos reglas gobiernan hoy toda prueba digital, y ninguna se enseña en la facultad: la coherencia no prueba nada, y la autenticidad no vive en el archivo. Bastan para desarmar un peritaje.*
 
