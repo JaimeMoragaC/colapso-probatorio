@@ -1,5 +1,5 @@
 ---
-title: "La Ficción de la Ciberseguridad Corporativa: Certificaciones de papel, CISOs silenciados y el abismo del compliance: cuando el humano es solo el eslabón dócil del engaño."
+title: "La Ficción de la Ciberseguridad Corporativa: Ceguera forense, apagones jurisdiccionales y el Teorema del Non Liquet Algorítmico."
 author: "Jaime Marcelo Moraga Carrasco. Abogado."
 date: "Julio 2026"
 keywords: ["Ciberseguridad", "Derecho Probatorio", "Inteligencia Artificial", "CMF", "Fintech", "Criptomonedas", "Ley 21.663", "Atestación de Hardware"]
