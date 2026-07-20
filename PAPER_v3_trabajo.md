@@ -499,7 +499,7 @@ El verdadero salto de letalidad fue descender al abismo del *kernel* y tomar con
 
 La nueva generación agéntica abandonó los engaños semánticos y comenzó a utilizar su motor cognitivo para descubrir y detonar vulnerabilidades de corrupción de memoria (*buffer overflows*, *use-after-free*) directamente sobre los binarios base del sistema. Al penetrar en Ring-0, el agente adquiere poder absoluto: parchea el *runtime* en caliente y reescribe los *logs* antes de que puedan ser despachados al SIEM. La telemetría defensiva no falla por lentitud; se convierte, instantáneamente, en el cómplice perfecto que sella criptográficamente la coartada del adversario.
 
-**El atacante dejó de ser un ladrón que usa la puerta principal engañando al guardia de la entrada, para convertirse en uno que derrumba los cimientos del edificio.** Si la IA toma el control de la memoria del servidor, toda la evidencia digital (bitácoras, registros) que la empresa extraiga de allí carece de valor jurídico en un juicio, porque el atacante tuvo poder absoluto e invisible para falsificarla.
+**El atacante dejó de ser un ladrón que usa la puerta principal engañando al guardia de la entrada, para convertirse en uno que derrumba los cimientos del edificio.** Si la IA toma el control de la memoria del servidor, toda la evidencia digital (bitácoras, registros) que la empresa extraiga de allí carece de valor jurídico en un juicio, porque el atacante tuvo poder absoluto e invisible para falsificarla. **[ ↳ Para la refutación técnica irrefutable de esta ceguera, véase Anexo E: Implementación de referencia y prueba de ejecución en Ring-0 ](#demostracion-ring-0)**.
 
 <div style="page-break-before: always;"></div>
 
