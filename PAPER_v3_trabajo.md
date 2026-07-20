@@ -382,6 +382,8 @@ La salida a esta crisis probatoria no requiere inventar nuevas leyes, sino actua
 
 El deber de cumplimiento ya no se satisface mostrando un certificado en un marco; se cumple probando matemáticamente el *origen* inmaculado de la evidencia.
 
+### Hoja de Ruta de la Introducción
+
 Esta introducción avanza en dos movimientos. El primero rastrea la genealogía empírica de la Inteligencia Artificial ofensiva, demostrando que la exfiltración agéntica no fue una anomalía imprevista, sino el punto de fuga inevitable de una vulnerabilidad sistémica gestada durante cinco años. El segundo (§1.1 y §1.2) enuncia el problema de investigación y la estructura de las contribuciones, para culminar (§1.3) con la crítica ingenieril directa al modelo regulatorio chileno.
 
 ### LA GENEALOGÍA DEL VECTOR: HACIA EL FIN DEL PARADIGMA PRE-MYTHOS
