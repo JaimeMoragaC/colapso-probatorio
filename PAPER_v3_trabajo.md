@@ -5292,6 +5292,20 @@ Una obra que se dice primera en algo se debe, antes que nada, un mapa honesto de
 
 **El vacío, en dos cuñas.** Reunidas, estas cuatro corrientes prueban la madurez del problema y encierran, por lo que omiten, la contribución de este documento. La primera cuña es **doctrinal**: nadie formula el colapso como *simétrico* —indescargable por el Estado y por el obligado a la vez— ni lo nombra por lo que es, el regreso del *non liquet* que la carga de la prueba ya no resuelve, con su remedio soberano —la raíz de confianza bajo jurisdicción nacional— y su aterrizaje en el régimen chileno. La segunda es **de método**: en el corpus revisado, el Ring-0 asoma en dos revisiones y a nivel de catálogo; el TOCTOU, en ninguna; y en ninguna el mecanismo de nivel *kernel* se suelda a la teoría de la prueba. Este documento desciende a ese mecanismo con código funcional y lo hace subir hasta la dogmática. Los juristas no bajan al silicio; los técnicos no suben al derecho; los anti-forenses catalogan sin soldar. Esa soldadura —doctrina simétrica del *non liquet* algorítmico e ingeniería de Ring-0/TOCTOU atada a la carga de la prueba— es el vacío que las páginas anteriores llenan. No se reclama, pues, haber visto primero que la IA quiebra la prueba: se reclama la primera formulación sistemática de ese quiebre como doctrina, para el régimen chileno.
 
+### 8.4 La doctrina a prueba: los puntos ciegos de las soluciones convergentes
+
+> *La literatura del §8.3 asegura el registro. Ninguna asegura su origen. Y un registro inmutable de un dato falso no es prueba: es una mentira con sello de tiempo.*
+
+Las soluciones reseñadas comparten un supuesto que la doctrina de este documento convierte en su talón de Aquiles: proteger la *inmutabilidad* del registro no protege la *veracidad* del dato registrado. Es la INVARIANTE 01 aplicada ya no a un *log* de nube, sino a las arquitecturas que pretenden reemplazarlo. Conviene demostrarlo sobre el caso técnicamente más elegante del corpus, porque si la doctrina muerde ahí, muerde en todos.
+
+**El caso: *SelectVote Byzantine Fault Tolerance for Evidence Custody*<a href="#fn300" id="fnref300b"><sup>300</sup></a>.** Frente a la latencia y la incertidumbre de los registros distribuidos, SelectVote propone una arquitectura matemáticamente notable: un consenso bizantino de finalidad determinista que infiere los votos de la estructura del grafo —eliminando el intercambio explícito de mensajes y llevando la comunicación por debajo del costo cuadrático clásico—, complementado con un marco de compensación ambiental que valida el peso físico de la evidencia detectando variaciones sub-gramo mediante sensores de humedad, temperatura y presión. Construye, en suma, una bóveda criptográfica sólida en la capa de red.
+
+**El punto ciego: el Ring 0 del nodo local.** El modelo de amenaza de SelectVote asume nodos "semi-confiables" donde el *hardware* y el sistema operativo del *smart locker* empaquetan los datos físicos y los firman con ECDSA antes de enviarlos. Es exactamente la superficie que una IA agéntica polimórfica necesita. No ataca la red ni intenta quebrar el consenso: escala privilegios hasta el Ring 0 —evadiendo el análisis heurístico por mutación de su firma de ejecución— e intercepta las *syscalls* que comunican al procesador con el puente de Wheatstone de las celdas de carga y los sensores ambientales. En los milisegundos entre la lectura del voltaje (*Time-of-Check*) y la firma de la transacción (*Time-of-Use*) —el mismo vector TOCTOU que este documento demuestra en §2 y en el [Anexo E](#demostracion-ring-0)—, inyecta valores de peso y temperatura fabricados. El nodo firma datos corruptos con claves válidas y la red los aprueba. La tolerancia bizantina —diseñada para resistir hasta un tercio de nodos maliciosos— graba la falsificación de forma determinista y permanente en el grafo.
+
+**El colapso del propio umbral.** El protocolo conserva su integridad mientras menos de un tercio de los testigos actúe de forma maliciosa. Pero una IA autopoiética se propaga lateralmente y se autoensambla: si infecta en silencio a suficientes *lockers* de un mismo circuito judicial, deja de alterar una lectura aislada y captura el mecanismo de supermayoría —el 67 % que da finalidad a las transacciones—, con lo que puede orquestar transferencias de evidencia fantasma, validadas de forma cruzada entre sus propios nodos comprometidos. La garantía matemática del consenso se convierte en el instrumento de la falsificación.
+
+**El veredicto.** SelectVote confunde inmutabilidad criptográfica con veracidad del dato. Sin una raíz de confianza que atestigüe el estado de ejecución del nodo —el Ring 0 donde nace la lectura—, el marco de compensación ambiental es un oráculo ciego: mide con precisión sub-gramo un valor que el atacante ya escribió. Es la INVARIANTE 01 y la INVARIANTE 02 en una sola frase: la coherencia del registro no prueba su veracidad, y la autenticidad no vive en el dato firmado, sino en la procedencia atestada de quien lo produjo. Un registro inmutable de datos falsificados no refuerza la cadena de custodia: la clausura con sello de tiempo. Lo que a esta arquitectura le falta no es más consenso, sino lo que el §6 exige —atestación del *runtime* en el propio nodo: filtrado en *kernel* (eBPF/XDP), aislamiento de la lógica de aplicación y medición del estado antes de la firma—. Sin esa capa, el mejor protocolo distribuido solo acelera la grabación de la mentira. El patrón se repetirá en cada solución que asegure el registro y no su origen.
+
 ## 9. Conclusiones
 
 > *Empezó en un milisegundo dentro de la memoria y terminó en la sala del directorio. En cada plano, el mismo vacío. Esto es lo que queda en pie.*
@@ -6180,79 +6194,79 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 **A**
 
 - **Agencia de Protección de Datos (APDP),** 79, 83, 108, 167, 168, 275, 276, 279
-- **AI Act (Reglamento UE 2024/1689),** 22, 93, 95, 96, 98, 104, 108, 109, 111, 112, 133, 183, 190, 191, 192, 193, 206, 257, 258, 277, 334, 335, 344, 345, 346, 347, 348, 362, 380
-- **AI Liability Directive (COM(2022)496),** 105, 106, 110, 345
-- **ANCI (Agencia Nacional de Ciberseguridad),** 8, 12, 13, 18, 19, 20, 21, 30, 42, 44, 45, 48, 55, 56, 57, 61, 63, 71, 74, 76, 77, 86, 88, 89, 90, 102, 108, 110, 111, 115, 117, 118, 124, 128, 133, 134, 137, 141, 152, 167, 171, 174, 176, 189, 193, 195, 196, 200, 202, 208, 220, 221, 222, 226, 231, 232, 240, 243, 244, 246, 254, 255, 257, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 272, 273, 274, 275, 276, 277, 279, 280, 281, 282, 285, 288, 290, 292, 294, 295, 298, 303, 313, 314, 316, 319, 322, 324, 325, 326, 329, 331, 335, 339, 340, 342, 355, 382
-- **Anthropic,** 16, 25, 28, 30, 31, 34, 46, 107, 121, 144, 145, 286, 287, 336, 351, 355, 363, 365, 377, 385
-- **APT28 (PROMPTSTEAL/LAMEHUG),** 16, 26, 41, 111, 218, 219, 286, 347, 374, 375
-- **Árboles de Merkle,** 9, 13, 226, 251, 274, 288, 289, 292, 316, 318, 349, 365, 378, 379, 383, 390
-- **Arranque medido (measured boot),** 9, 11, 16, 98, 99, 132, 171, 249, 284, 327, 367, 369
-- **Atestación remota (RATS, RFC 9334),** 9, 11, 40, 54, 55, 60, 61, 62, 64, 74, 75, 104, 105, 128, 137, 150, 162, 170, 173, 182, 190, 193, 201, 203, 217, 222, 227, 246, 247, 248, 250, 251, 253, 254, 261, 262, 265, 273, 274, 275, 276, 278, 281, 283, 284, 285, 286, 292, 295, 309, 310, 322, 325, 327, 345, 355, 363, 367, 369, 376, 378, 385, 387
+- **AI Act (Reglamento UE 2024/1689),** 22, 93, 95, 96, 98, 104, 108, 109, 111, 112, 133, 183, 190, 191, 192, 193, 206, 257, 258, 277, 335, 336, 345, 346, 347, 348, 349, 363, 381
+- **AI Liability Directive (COM(2022)496),** 105, 106, 110, 346
+- **ANCI (Agencia Nacional de Ciberseguridad),** 8, 12, 13, 18, 19, 20, 21, 30, 42, 44, 45, 48, 55, 56, 57, 61, 63, 71, 74, 76, 77, 86, 88, 89, 90, 102, 108, 110, 111, 115, 117, 118, 124, 128, 133, 134, 137, 141, 152, 167, 171, 174, 176, 189, 193, 195, 196, 200, 202, 208, 220, 221, 222, 226, 231, 232, 240, 243, 244, 246, 254, 255, 257, 260, 261, 263, 264, 265, 266, 267, 268, 269, 270, 272, 273, 274, 275, 276, 277, 279, 280, 281, 282, 285, 288, 290, 292, 294, 295, 298, 303, 313, 314, 316, 320, 323, 325, 326, 327, 330, 332, 336, 340, 341, 343, 356, 383
+- **Anthropic,** 16, 25, 28, 30, 31, 34, 46, 107, 121, 144, 145, 286, 287, 337, 352, 356, 364, 366, 378, 386
+- **APT28 (PROMPTSTEAL/LAMEHUG),** 16, 26, 41, 111, 218, 219, 286, 348, 375, 376
+- **Árboles de Merkle,** 9, 13, 226, 251, 274, 288, 289, 292, 316, 318, 350, 366, 379, 380, 384, 391
+- **Arranque medido (measured boot),** 9, 11, 16, 98, 99, 132, 171, 249, 284, 328, 368, 370
+- **Atestación remota (RATS, RFC 9334),** 9, 11, 40, 54, 55, 60, 61, 62, 64, 74, 75, 104, 105, 128, 137, 150, 162, 170, 173, 182, 190, 193, 201, 203, 217, 222, 227, 246, 247, 248, 250, 251, 253, 254, 261, 262, 265, 273, 274, 275, 276, 278, 281, 283, 284, 285, 286, 292, 295, 309, 310, 323, 326, 328, 346, 356, 364, 368, 370, 377, 379, 386, 388
 
 **B**
 
-- **BadRAM / Battering RAM,** 162, 217, 223, 249, 252, 262, 308, 356, 362, 363
-- **Banco de Chile / Redbanc (Lazarus, 2018),** 65, 74, 147, 230, 232, 233, 241, 242, 243, 245, 369
-- **BancoEstado / Sodinokibi (2020),** 14, 65, 72, 73, 76, 89, 114, 201, 230, 233, 234, 235, 240, 241, 242, 323, 340
-- **Bates v Post Office (escándalo Horizon),** 22, 60, 76, 133, 134, 176, 177, 178, 179, 180, 181, 182, 184, 185, 207, 208, 323, 333, 335, 350, 354, 360, 368
+- **BadRAM / Battering RAM,** 162, 217, 223, 249, 252, 262, 308, 357, 363, 364
+- **Banco de Chile / Redbanc (Lazarus, 2018),** 65, 74, 147, 230, 232, 233, 241, 242, 243, 245, 370
+- **BancoEstado / Sodinokibi (2020),** 14, 65, 72, 73, 76, 89, 114, 201, 230, 233, 234, 235, 240, 241, 242, 324, 341
+- **Bates v Post Office (escándalo Horizon),** 22, 60, 76, 133, 134, 176, 177, 178, 179, 180, 181, 182, 184, 185, 207, 208, 324, 334, 336, 351, 355, 361, 369
 - **Bizantino, problema de los Generales,** *véase* Problema de los Generales Bizantinos
-- **BlackMamba,** 127, 349
-- **Boletín 16821-19 (proyecto de ley de IA),** 93, 138, 257, 258, 260, 274, 275, 276, 281, 326, 329, 331
-- **BSI (Alemania),** 113, 161, 334, 348, 349, 355, 376, 385
-- **Bullcoming v. New Mexico,** 333
+- **BlackMamba,** 127, 350
+- **Boletín 16821-19 (proyecto de ley de IA),** 93, 138, 257, 258, 260, 274, 275, 276, 281, 327, 330, 332
+- **BSI (Alemania),** 113, 161, 335, 349, 350, 356, 377, 386
+- **Bullcoming v. New Mexico,** 334
 
 **C**
 
-- **Cadena de custodia,** 17, 18, 19, 42, 43, 55, 72, 78, 105, 114, 115, 130, 133, 146, 155, 165, 170, 184, 185, 197, 199, 209, 212, 222, 236, 241, 248, 252, 260, 262, 269, 273, 275, 276, 277, 282, 291, 298, 299, 320, 323, 325, 327, 328, 330, 331, 367
-- **Capital One / AWS (IMDSv1),** 84, 85, 86, 87, 203, 206, 341, 342
-- **Carga de la prueba / carga probatoria,** 9, 14, 48, 51, 55, 77, 79, 83, 105, 106, 110, 115, 124, 132, 154, 158, 159, 176, 182, 186, 187, 189, 191, 193, 199, 205, 212, 288, 290, 294, 297, 304, 318, 319, 321, 328, 331, 339, 350, 353, 379
+- **Cadena de custodia,** 17, 18, 19, 42, 43, 55, 72, 78, 105, 114, 115, 130, 133, 146, 155, 165, 170, 184, 185, 197, 199, 209, 212, 222, 236, 241, 248, 252, 260, 262, 269, 273, 275, 276, 277, 282, 291, 298, 299, 320, 321, 324, 326, 328, 329, 331, 332, 368
+- **Capital One / AWS (IMDSv1),** 84, 85, 86, 87, 203, 206, 342, 343
+- **Carga de la prueba / carga probatoria,** 9, 14, 48, 51, 55, 77, 79, 83, 105, 106, 110, 115, 124, 132, 154, 158, 159, 176, 182, 186, 187, 189, 191, 193, 199, 205, 212, 288, 290, 294, 297, 304, 318, 319, 322, 329, 332, 340, 351, 354, 380
 - **Cifrado homomórfico (FHE),** 78, 204, 212, 213, 215
-- **CISA / NSA,** 41, 113, 270, 281, 349, 355, 356, 375, 377, 378, 382, 385
-- **Claude Fable 5,** 30, 46, 129, 336, 337, 351, 365
-- **Claude Mythos,** 9, 16, 17, 23, 24, 27, 28, 30, 34, 44, 46, 50, 51, 52, 53, 76, 94, 115, 116, 121, 127, 145, 147, 152, 172, 173, 249, 255, 258, 259, 264, 265, 267, 278, 283, 286, 295, 296, 297, 298, 300, 309, 312, 313, 314, 316, 320, 336, 355, 365
+- **CISA / NSA,** 41, 113, 270, 281, 350, 356, 357, 376, 378, 379, 383, 386
+- **Claude Fable 5,** 30, 46, 129, 337, 338, 352, 366
+- **Claude Mythos,** 9, 16, 17, 23, 24, 27, 28, 30, 34, 44, 46, 50, 51, 52, 53, 76, 94, 115, 116, 121, 127, 145, 147, 152, 172, 173, 249, 255, 258, 259, 264, 265, 267, 278, 283, 286, 295, 296, 297, 298, 300, 309, 312, 313, 314, 316, 321, 337, 356, 366
 - **Clínica Dávila / Devman,** 147, 148, 229, 232, 237, 241
-- **CLOUD Act,** 52, 53, 61, 160, 161, 162, 205, 216, 249, 307, 352, 367, 376, 377, 385
-- **CMF (Comisión para el Mercado Financiero),** 10, 11, 12, 13, 17, 18, 19, 20, 21, 29, 30, 42, 45, 46, 47, 48, 51, 53, 55, 56, 57, 58, 61, 62, 63, 64, 65, 72, 73, 74, 76, 77, 78, 86, 87, 88, 89, 90, 91, 95, 102, 103, 108, 116, 117, 118, 125, 131, 134, 141, 142, 152, 153, 154, 155, 164, 166, 167, 173, 175, 182, 187, 189, 193, 198, 200, 202, 204, 221, 225, 233, 234, 243, 244, 245, 246, 252, 257, 259, 260, 264, 272, 279, 280, 293, 294, 296, 298, 299, 301, 303, 304, 305, 306, 307, 308, 309, 313, 314, 320, 325, 326, 332, 340, 363, 368, 369, 373, 387
-- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 9, 11, 16, 43, 99, 101, 105, 150, 162, 206, 207, 213, 216, 217, 222, 223, 227, 249, 250, 251, 261, 262, 263, 268, 279, 289, 294, 308, 327, 356, 362, 368, 383, 384
-- **Confused deputy (diputado confundido),** 26, 134, 137, 169, 170, 198, 269, 272, 361, 366
-- **Continuidad operacional / soberana,** 50, 57, 70, 90, 107, 142, 144, 173, 175, 214, 216, 221, 236, 273, 275, 278, 286, 323, 325, 331, 333, 334, 368
-- **Convenio de Budapest,** 54, 114, 361, 382
-- **Crawford v. Washington,** 333
-- **CSIRT Nacional,** 36, 57, 66, 67, 72, 155, 175, 268, 269, 316, 339, 340, 360, 378, 382, 384
+- **CLOUD Act,** 52, 53, 61, 160, 161, 162, 205, 216, 249, 307, 353, 368, 377, 378, 386
+- **CMF (Comisión para el Mercado Financiero),** 10, 11, 12, 13, 17, 18, 19, 20, 21, 29, 30, 42, 45, 46, 47, 48, 51, 53, 55, 56, 57, 58, 61, 62, 63, 64, 65, 72, 73, 74, 76, 77, 78, 86, 87, 88, 89, 90, 91, 95, 102, 103, 108, 116, 117, 118, 125, 131, 134, 141, 142, 152, 153, 154, 155, 164, 166, 167, 173, 175, 182, 187, 189, 193, 198, 200, 202, 204, 221, 225, 233, 234, 243, 244, 245, 246, 252, 257, 259, 260, 264, 272, 279, 280, 293, 294, 296, 298, 299, 301, 303, 304, 305, 306, 307, 308, 309, 313, 314, 321, 326, 327, 333, 341, 364, 369, 370, 374, 388
+- **Cómputo confidencial (SEV-SNP, TDX, SGX),** 9, 11, 16, 43, 99, 101, 105, 150, 162, 206, 207, 213, 216, 217, 222, 223, 227, 249, 250, 251, 261, 262, 263, 268, 279, 289, 294, 308, 328, 357, 363, 369, 384, 385
+- **Confused deputy (diputado confundido),** 26, 134, 137, 169, 170, 198, 269, 272, 362, 367
+- **Continuidad operacional / soberana,** 50, 57, 70, 90, 107, 142, 144, 173, 175, 214, 216, 221, 236, 273, 275, 278, 286, 324, 326, 332, 334, 335, 369
+- **Convenio de Budapest,** 54, 114, 362, 383
+- **Crawford v. Washington,** 334
+- **CSIRT Nacional,** 36, 57, 66, 67, 72, 155, 175, 268, 269, 316, 340, 341, 361, 379, 383, 385
 
 **D**
 
 - **Daubert (fiabilidad pericial),** —
-- **Debido proceso (Art. 19 N°3 CPR),** 18, 21, 60, 62, 114, 116, 145, 146, 165, 184, 193, 201, 223, 266, 286, 290, 354, 357, 363
-- **DeepSeek-R1,** 31, 32, 39, 42, 337, 339, 374
-- **Delegado de Protección de Datos (DPO),** 18, 30, 88, 90, 92, 138, 309, 323, 340, 343
-- **DICE (Device Identifier Composition Engine),** 288, 355
+- **Debido proceso (Art. 19 N°3 CPR),** 18, 21, 60, 62, 114, 116, 145, 146, 165, 184, 193, 201, 223, 266, 286, 290, 355, 358, 364
+- **DeepSeek-R1,** 31, 32, 39, 42, 338, 340, 375
+- **Delegado de Protección de Datos (DPO),** 18, 30, 88, 90, 92, 138, 309, 324, 341, 344
+- **DICE (Device Identifier Composition Engine),** 288, 356
 
 **E**
 
-- **eBPF,** 9, 10, 209, 219, 269, 271, 281
-- **ECRA (Export Control Reform Act),** 46, 48, 49, 50, 160, 161, 162, 163, 249, 251, 268, 269, 271, 280, 283, 287, 307, 310, 323, 329, 333, 336, 357
-- **EDPB,** 80, 262, 343, 349, 366, 381
-- **EDR (detección y respuesta en endpoint),** 8, 9, 10, 12, 32, 35, 37, 38, 40, 43, 44, 56, 59, 64, 67, 68, 69, 70, 75, 123, 124, 125, 128, 139, 140, 148, 149, 151, 152, 153, 154, 155, 156, 173, 218, 219, 220, 221, 237, 262, 272, 295, 297, 322, 323, 324, 349, 352, 370, 371, 372, 373, 374, 376, 382, 385, 386
-- **eIDAS (Reglamento UE 910/2014),** 60, 285, 334, 338
-- **EMCO / Guacamaya (2022),** 55, 65, 66, 67, 68, 69, 76, 147, 229, 232, 236, 239, 241, 242, 324, 339
-- **Encargado de Ciberseguridad,** 88, 89, 90, 342
-- **Equilibrio de Nash / market for lemons,** 312, 313, 315, 320, 322, 326, 353
-- **Evidencia con proveniencia atestada,** 104, 105, 276, 277, 325, 326, 329, 330, 331, 332
+- **eBPF,** 9, 10, 209, 219, 269, 271, 281, 320
+- **ECRA (Export Control Reform Act),** 46, 48, 49, 50, 160, 161, 162, 163, 249, 251, 268, 269, 271, 280, 283, 287, 307, 310, 324, 330, 334, 337, 358
+- **EDPB,** 80, 262, 344, 350, 367, 382
+- **EDR (detección y respuesta en endpoint),** 8, 9, 10, 12, 32, 35, 37, 38, 40, 43, 44, 56, 59, 64, 67, 68, 69, 70, 75, 123, 124, 125, 128, 139, 140, 148, 149, 151, 152, 153, 154, 155, 156, 173, 218, 219, 220, 221, 237, 262, 272, 295, 297, 323, 324, 325, 350, 353, 371, 372, 373, 374, 375, 377, 383, 386, 387
+- **eIDAS (Reglamento UE 910/2014),** 60, 285, 335, 339
+- **EMCO / Guacamaya (2022),** 55, 65, 66, 67, 68, 69, 76, 147, 229, 232, 236, 239, 241, 242, 325, 340
+- **Encargado de Ciberseguridad,** 88, 89, 90, 343
+- **Equilibrio de Nash / market for lemons,** 312, 313, 315, 321, 323, 327, 354
+- **Evidencia con proveniencia atestada,** 104, 105, 276, 277, 326, 327, 330, 331, 332, 333
 
 **F**
 
-- **FedRAMP,** 108, 160, 161, 217, 218, 333, 356, 362
-- **FISA 702,** 80, 82, 83, 341
-- **FraudGPT,** 31, 39, 337
-- **FRE 901(b)(9),** 22, 104, 105, 132, 133, 183, 198, 206, 333, 335, 341, 345, 354
-- **FTC (Federal Trade Commission),** 91, 343
+- **FedRAMP,** 108, 160, 161, 217, 218, 334, 357, 363
+- **FISA 702,** 80, 82, 83, 342
+- **FraudGPT,** 31, 39, 338
+- **FRE 901(b)(9),** 22, 104, 105, 132, 133, 183, 198, 206, 334, 336, 342, 346, 355
+- **FTC (Federal Trade Commission),** 91, 344
 
 **G**
 
-- **GDPR / RGPD,** 64, 80, 81, 83, 92, 168, 169, 189, 190, 191, 192, 193, 194, 341, 343, 353, 363, 364, 365, 366, 378, 379, 381
-- **Grupo GTD (2023),** 55, 174, 175, 229, 232, 236, 241, 242, 360, 368
-- **GTIG / Mandiant (Google),** 11, 17, 26, 36, 39, 40, 43, 89, 98, 109, 127, 141, 220, 221, 270, 285, 286, 301, 302, 309, 335, 339, 349, 375, 377, 378, 381, 382, 385
+- **GDPR / RGPD,** 64, 80, 81, 83, 92, 168, 169, 189, 190, 191, 192, 193, 194, 342, 344, 354, 364, 365, 366, 367, 379, 380, 382
+- **Grupo GTD (2023),** 55, 174, 175, 229, 232, 236, 241, 242, 361, 369
+- **GTIG / Mandiant (Google),** 11, 17, 26, 36, 39, 40, 43, 89, 98, 109, 127, 141, 220, 221, 270, 285, 286, 301, 302, 309, 336, 340, 350, 376, 378, 379, 382, 383, 386
 - **Guacamaya (hackeo),** *véase* EMCO / Guacamaya (2022)
 
 **H**
@@ -6261,100 +6275,100 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **I**
 
-- **IFX Networks / ChileCompra (2023),** 141, 143, 147, 229, 232, 235, 236, 241, 242, 270, 279, 352, 353, 367, 372
+- **IFX Networks / ChileCompra (2023),** 141, 143, 147, 229, 232, 235, 236, 241, 242, 270, 279, 353, 354, 368, 373
 - **IMA (Integrity Measurement Architecture),** 99
-- **IMDSv1 / IMDSv2 (AWS),** 84, 85, 86, 341, 342
-- **In re McDonald's,** 91, 343
-- **Incidente (reporte y gestión de),** 18, 19, 33, 55, 56, 69, 70, 71, 74, 76, 77, 78, 90, 131, 171, 172, 174, 230, 235, 261, 267, 274, 312, 315, 325, 331, 332, 346
-- **Indelegabilidad de la responsabilidad,** 14, 43, 52, 53, 56, 65, 72, 73, 79, 89, 91, 92, 230, 234, 235, 321, 323, 334, 343
-- **InfoStealer,** 44, 71, 128, 137, 231, 232, 240, 265, 294, 340
-- **Instituto de Salud Pública (ISP, 2025),** 65, 68, 70, 229, 241, 242, 339
+- **IMDSv1 / IMDSv2 (AWS),** 84, 85, 86, 342, 343
+- **In re McDonald's,** 91, 344
+- **Incidente (reporte y gestión de),** 18, 19, 33, 55, 56, 69, 70, 71, 74, 76, 77, 78, 90, 131, 171, 172, 174, 230, 235, 261, 267, 274, 312, 315, 326, 332, 333, 347
+- **Indelegabilidad de la responsabilidad,** 14, 43, 52, 53, 56, 65, 72, 73, 79, 89, 91, 92, 230, 234, 235, 322, 324, 335, 344
+- **InfoStealer,** 44, 71, 128, 137, 231, 232, 240, 265, 294, 341
+- **Instituto de Salud Pública (ISP, 2025),** 65, 68, 70, 229, 241, 242, 340
 
 **K**
 
-- **KRITIS / § 8a BSIG (Alemania),** 107, 108, 113, 281, 334, 348, 355
+- **KRITIS / § 8a BSIG (Alemania),** 107, 108, 113, 281, 335, 349, 356
 
 **L**
 
-- **Ley 19.880 (Procedimiento Administrativo),** 102, 106, 193, 358
-- **Ley 20.009 / Ley 21.234 (medios de pago),** 64, 186, 187, 360
-- **Ley 21.459 (Delitos Informáticos),** 54, 71, 114, 115, 122, 133, 171, 188, 196, 197, 201, 229, 275, 323, 325, 335, 340, 382
-- **Ley 21.595 (Delitos Económicos),** 13, 18, 21, 33, 35, 62, 64, 75, 90, 116, 117, 124, 132, 133, 134, 137, 138, 140, 142, 144, 145, 146, 152, 154, 159, 163, 182, 187, 196, 197, 199, 204, 208, 209, 214, 225, 246, 272, 278, 294, 296, 297, 298, 299, 309, 310, 313, 322, 326, 361, 371, 372
-- **Ley 21.663 (Marco de Ciberseguridad),** 8, 12, 17, 19, 27, 30, 33, 35, 37, 55, 57, 62, 63, 64, 70, 71, 73, 76, 77, 78, 83, 86, 87, 88, 89, 96, 103, 107, 124, 125, 128, 133, 134, 137, 138, 139, 141, 142, 143, 144, 145, 171, 172, 173, 175, 188, 189, 194, 196, 201, 209, 215, 216, 217, 229, 230, 231, 235, 236, 237, 243, 244, 245, 246, 255, 264, 266, 267, 269, 270, 272, 273, 274, 275, 290, 295, 298, 310, 312, 316, 322, 325, 331, 335, 339, 342, 350, 371, 373, 382
-- **Ley 21.719 (Protección de Datos Personales),** 17, 30, 48, 55, 72, 78, 86, 87, 88, 125, 138, 140, 168, 173, 174, 183, 189, 194, 195, 196, 201, 236, 263, 310, 325, 335, 340, 353, 366, 371, 382
-- **Lorraine v. Markel,** 104, 183, 206, 345, 354
+- **Ley 19.880 (Procedimiento Administrativo),** 102, 106, 193, 359
+- **Ley 20.009 / Ley 21.234 (medios de pago),** 64, 186, 187, 361
+- **Ley 21.459 (Delitos Informáticos),** 54, 71, 114, 115, 122, 133, 171, 188, 196, 197, 201, 229, 275, 324, 326, 336, 341, 383
+- **Ley 21.595 (Delitos Económicos),** 13, 18, 21, 33, 35, 62, 64, 75, 90, 116, 117, 124, 132, 133, 134, 137, 138, 140, 142, 144, 145, 146, 152, 154, 159, 163, 182, 187, 196, 197, 199, 204, 208, 209, 214, 225, 246, 272, 278, 294, 296, 297, 298, 299, 309, 310, 313, 323, 327, 362, 372, 373
+- **Ley 21.663 (Marco de Ciberseguridad),** 8, 12, 17, 19, 27, 30, 33, 35, 37, 55, 57, 62, 63, 64, 70, 71, 73, 76, 77, 78, 83, 86, 87, 88, 89, 96, 103, 107, 124, 125, 128, 133, 134, 137, 138, 139, 141, 142, 143, 144, 145, 171, 172, 173, 175, 188, 189, 194, 196, 201, 209, 215, 216, 217, 229, 230, 231, 235, 236, 237, 243, 244, 245, 246, 255, 264, 266, 267, 269, 270, 272, 273, 274, 275, 290, 295, 298, 310, 312, 316, 323, 326, 332, 336, 340, 343, 351, 372, 374, 383
+- **Ley 21.719 (Protección de Datos Personales),** 17, 30, 48, 55, 72, 78, 86, 87, 88, 125, 138, 140, 168, 173, 174, 183, 189, 194, 195, 196, 201, 236, 263, 310, 326, 336, 341, 354, 367, 372, 383
+- **Lorraine v. Markel,** 104, 183, 206, 346, 355
 
 **M**
 
-- **Machine unlearning / supresión exacta,** 173, 353
-- **Malware polimórfico / polimorfismo,** 16, 17, 19, 28, 32, 34, 40, 42, 44, 52, 58, 59, 60, 62, 73, 77, 93, 112, 119, 127, 131, 132, 134, 137, 138, 146, 148, 151, 156, 162, 164, 173, 188, 199, 201, 209, 248, 249, 250, 251, 252, 256, 262, 265, 267, 268, 272, 287, 294, 295, 297, 298, 299, 309, 313, 314, 317, 319, 320, 321, 323, 324, 349, 371
-- **Mamba / SSM (modelos de espacio de estados),** 74, 145, 146, 232, 350
-- **Marchand v. Barnhill,** 343
-- **MAS (Monetary Authority of Singapore),** 95, 96, 104, 109, 334, 344, 345, 346, 349, 362
-- **Melendez-Diaz v. Massachusetts,** 333
-- **MITRE ATT&CK / ATLAS,** 34, 41, 44, 113, 125, 265, 337, 338, 348, 361, 375, 376
+- **Machine unlearning / supresión exacta,** 173, 354
+- **Malware polimórfico / polimorfismo,** 16, 17, 19, 28, 32, 34, 40, 42, 44, 52, 58, 59, 60, 62, 73, 77, 93, 112, 119, 127, 131, 132, 134, 137, 138, 146, 148, 151, 156, 162, 164, 173, 188, 199, 201, 209, 248, 249, 250, 251, 252, 256, 262, 265, 267, 268, 272, 287, 294, 295, 297, 298, 299, 309, 313, 314, 317, 319, 320, 321, 323, 324, 325, 350, 372
+- **Mamba / SSM (modelos de espacio de estados),** 74, 145, 146, 232, 351
+- **Marchand v. Barnhill,** 344
+- **MAS (Monetary Authority of Singapore),** 95, 96, 104, 109, 335, 345, 346, 347, 350, 363
+- **Melendez-Diaz v. Massachusetts,** 334
+- **MITRE ATT&CK / ATLAS,** 34, 41, 44, 113, 125, 265, 338, 339, 349, 362, 376, 377
 - **Mythos,** *véase* Claude Mythos
 
 **N**
 
-- **NCG 502 (CMF, obligaciones Fintec),** 11, 12, 17, 18, 30, 33, 48, 51, 55, 56, 63, 65, 76, 77, 83, 86, 90, 93, 96, 102, 107, 116, 166, 174, 175, 189, 243, 308, 309, 325, 332
-- **NCSC (Reino Unido),** 39, 113, 270, 339, 349, 382
+- **NCG 502 (CMF, obligaciones Fintec),** 11, 12, 17, 18, 30, 33, 48, 51, 55, 56, 63, 65, 76, 77, 83, 86, 90, 93, 96, 102, 107, 116, 166, 174, 175, 189, 243, 308, 309, 326, 333
+- **NCSC (Reino Unido),** 39, 113, 270, 340, 350, 383
 - **NetFlow / Windows Event Forwarding (WEF),** 67, 68, 69, 70, 118
-- **NIS2 (Directiva UE 2022/2555),** 22, 64, 91, 105, 107, 183, 189, 190, 192, 193, 206, 257, 271, 316, 334, 342, 343, 345, 356, 376, 378
-- **NIST,** 67, 98, 131, 139, 157, 160, 161, 266, 299, 337, 350, 351, 354, 361, 362, 364
+- **NIS2 (Directiva UE 2022/2555),** 22, 64, 91, 105, 107, 183, 189, 190, 192, 193, 206, 257, 271, 316, 335, 343, 344, 346, 357, 377, 379
+- **NIST,** 67, 98, 131, 139, 157, 160, 161, 266, 299, 338, 351, 352, 355, 362, 363, 365
 
 **O**
 
-- **Operador de Importancia Vital (OIV),** 8, 12, 17, 18, 19, 29, 30, 32, 33, 35, 37, 42, 44, 46, 47, 48, 51, 56, 57, 59, 64, 65, 72, 74, 75, 78, 79, 86, 87, 88, 89, 90, 95, 96, 97, 102, 107, 108, 117, 122, 128, 136, 139, 140, 141, 142, 144, 145, 150, 156, 164, 167, 173, 175, 185, 186, 200, 203, 221, 228, 229, 234, 236, 240, 241, 242, 243, 244, 245, 246, 252, 254, 256, 258, 261, 266, 268, 269, 270, 271, 272, 274, 275, 278, 279, 281, 282, 290, 291, 292, 295, 302, 313, 323, 325, 328, 330, 331, 335, 342, 372
+- **Operador de Importancia Vital (OIV),** 8, 12, 17, 18, 19, 29, 30, 32, 33, 35, 37, 42, 44, 46, 47, 48, 51, 56, 57, 59, 64, 65, 72, 74, 75, 78, 79, 86, 87, 88, 89, 90, 95, 96, 97, 102, 107, 108, 117, 122, 128, 136, 139, 140, 141, 142, 144, 145, 150, 156, 164, 167, 173, 175, 185, 186, 200, 203, 221, 228, 229, 234, 236, 240, 241, 242, 243, 244, 245, 246, 252, 254, 256, 258, 261, 266, 268, 269, 270, 271, 272, 274, 275, 278, 279, 281, 282, 290, 291, 292, 295, 302, 313, 324, 326, 329, 331, 332, 336, 343, 373
 
 **P**
 
-- **PDPC / IMDA (Singapur),** 95, 334, 344, 345, 348
-- **Plano de control (Control Plane),** 47, 48, 57, 65, 74, 75, 85, 86, 117, 138, 140, 141, 142, 143, 144, 174, 209, 238, 241, 245, 252, 255, 271, 272, 287, 310, 323, 325, 356, 364, 367, 371
-- **Pliny the Liberator,** 129, 336, 351, 382
-- **Preservación provisoria (Art. 218 bis CPP),** 114, 116, 197, 198, 199, 200, 203, 361, 382
-- **Problema de los Generales Bizantinos,** 55, 118, 244, 291, 292, 312, 314, 315, 316, 317, 318, 319, 361
-- **Project Glasswing,** 28, 30, 336
-- **Prompt injection (inyección de instrucciones),** 25, 94, 138, 140, 169, 170, 217, 265, 268, 272, 288, 321, 324, 335, 350, 351, 363, 364
+- **PDPC / IMDA (Singapur),** 95, 335, 345, 346, 349
+- **Plano de control (Control Plane),** 47, 48, 57, 65, 74, 75, 85, 86, 117, 138, 140, 141, 142, 143, 144, 174, 209, 238, 241, 245, 252, 255, 271, 272, 287, 310, 324, 326, 357, 365, 368, 372
+- **Pliny the Liberator,** 129, 337, 352, 383
+- **Preservación provisoria (Art. 218 bis CPP),** 114, 116, 197, 198, 199, 200, 203, 362, 383
+- **Problema de los Generales Bizantinos,** 55, 118, 244, 291, 292, 312, 314, 315, 316, 317, 318, 319, 320, 362
+- **Project Glasswing,** 28, 30, 337
+- **Prompt injection (inyección de instrucciones),** 25, 94, 138, 140, 169, 170, 217, 265, 268, 272, 288, 323, 325, 336, 351, 352, 364, 365
 - **PROMPTFLUX,** 17, 26, 44, 109, 127, 218, 286
-- **PROMPTSTEAL / LAMEHUG,** 16, 26, 41, 111, 127, 135, 218, 286, 347, 373, 374
-- **ProxyShell (CVE-2021-34473 y rel.),** 66, 67, 69, 339
+- **PROMPTSTEAL / LAMEHUG,** 16, 26, 41, 111, 127, 135, 218, 286, 348, 374, 375
+- **ProxyShell (CVE-2021-34473 y rel.),** 66, 67, 69, 340
 - **Prueba diabólica,** 119, 171, 176, 182
-- **Puerto seguro probatorio,** 196, 275, 277, 279, 315, 325, 331
+- **Puerto seguro probatorio,** 196, 275, 277, 279, 315, 326, 332
 
 **R**
 
-- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 19, 55, 56, 65, 76, 77, 86, 90, 102, 107, 116, 142, 173, 175, 243, 245, 259, 298, 314, 320, 332, 368, 369
-- **Ransomware 3.0,** 323, 349
+- **RAN 20-7 / 20-8 / 20-10 (normativa CMF),** 19, 55, 56, 65, 76, 77, 86, 90, 102, 107, 116, 142, 173, 175, 243, 245, 259, 298, 314, 321, 333, 369, 370
+- **Ransomware 3.0,** 324, 350
 - **Res ipsa loquitur,** 102
-- **Responsabilidad proactiva (accountability),** 17, 18, 48, 77, 78, 79, 88, 95, 96, 97, 98, 101, 104, 105, 109, 110, 111, 113, 114, 183, 189, 194, 195, 196, 263, 298, 320, 328, 330, 344, 345
-- **Responsable de la información / del tratamiento,** 77, 78, 86, 88, 97, 108, 174, 189, 313, 340, 343, 363
+- **Responsabilidad proactiva (accountability),** 17, 18, 48, 77, 78, 79, 88, 95, 96, 97, 98, 101, 104, 105, 109, 110, 111, 113, 114, 183, 189, 194, 195, 196, 263, 298, 321, 329, 331, 345, 346
+- **Responsable de la información / del tratamiento,** 77, 78, 86, 88, 97, 108, 174, 189, 313, 341, 344, 364
 
 **S**
 
-- **Sana crítica (arts. 295-297 CPP),** 59, 106, 114, 117, 118, 119, 121, 122, 129, 133, 166, 167, 182, 184, 185, 186, 189, 197, 198, 199, 200, 201, 203, 280, 289, 290, 296, 312, 318, 319, 322, 328, 379
-- **Sandbox regulatorio,** 28, 31, 109, 336, 346, 347
-- **Schrems II (C-311/18),** 79, 80, 81, 82, 142, 206, 341, 352
-- **SCITT (cadena de suministro / transparencia),** 13, 40, 55, 102, 122, 131, 140, 157, 190, 193, 203, 246, 248, 251, 253, 258, 259, 262, 269, 274, 275, 276, 278, 282, 284, 285, 288, 292, 305, 309, 310, 315, 316, 317, 322, 325, 327, 349, 351, 354, 365, 374, 383, 387, 388
-- **SEC (Securities and Exchange Commission),** 343, 381
-- **Servicio de Salud Araucanía Sur (2026),** 65, 71, 115, 137, 231, 232, 242, 266, 324, 339, 340
+- **Sana crítica (arts. 295-297 CPP),** 59, 106, 114, 117, 118, 119, 121, 122, 129, 133, 166, 167, 182, 184, 185, 186, 189, 197, 198, 199, 200, 201, 203, 280, 289, 290, 296, 312, 318, 320, 323, 329, 380
+- **Sandbox regulatorio,** 28, 31, 109, 337, 347, 348
+- **Schrems II (C-311/18),** 79, 80, 81, 82, 142, 206, 342, 353
+- **SCITT (cadena de suministro / transparencia),** 13, 40, 55, 102, 122, 131, 140, 157, 190, 193, 203, 246, 248, 251, 253, 258, 259, 262, 269, 274, 275, 276, 278, 282, 284, 285, 288, 292, 305, 309, 310, 315, 316, 317, 323, 326, 328, 350, 352, 355, 366, 375, 384, 388, 389
+- **SEC (Securities and Exchange Commission),** 344, 382
+- **Servicio de Salud Araucanía Sur (2026),** 65, 71, 115, 137, 231, 232, 242, 266, 325, 340, 341
 - **Sodinokibi,** *véase* BancoEstado / Sodinokibi (2020)
-- **State v. Pickett (TrueAllele),** 22, 105, 183, 206, 218, 286, 333, 345, 354, 357
+- **State v. Pickett (TrueAllele),** 22, 105, 183, 206, 218, 286, 334, 346, 355, 358
 
 **T**
 
 - **Teoría de juegos / equilibrio de Nash,** *véase* Equilibrio de Nash / market for lemons
-- **Teoría de juegos de la atestación,** 55, 152, 312, 313, 315, 319, 326
-- **TOCTOU (time-of-check / time-of-use),** 12, 13, 100, 129, 130, 133, 135, 138, 149, 155, 170, 171, 172, 194, 197, 200, 202, 208, 235, 261, 262, 265, 271, 289, 290, 297, 302, 318, 319, 321, 323, 327, 367, 379, 386
-- **TPM (Trusted Platform Module),** 9, 16, 64, 98, 99, 100, 101, 104, 105, 132, 157, 170, 194, 200, 209, 247, 248, 249, 253, 254, 261, 262, 268, 273, 274, 279, 280, 281, 282, 283, 287, 288, 289, 292, 294, 306, 307, 308, 322, 327, 354, 355, 367, 369, 374, 378, 383, 387, 388, 390
+- **Teoría de juegos de la atestación,** 55, 152, 312, 313, 315, 320, 327
+- **TOCTOU (time-of-check / time-of-use),** 12, 13, 100, 129, 130, 133, 135, 138, 149, 155, 170, 171, 172, 194, 197, 200, 202, 208, 235, 261, 262, 265, 271, 289, 290, 297, 302, 318, 319, 322, 324, 328, 368, 380, 387
+- **TPM (Trusted Platform Module),** 9, 16, 64, 98, 99, 100, 101, 104, 105, 132, 157, 170, 194, 200, 209, 247, 248, 249, 253, 254, 261, 262, 268, 273, 274, 279, 280, 281, 282, 283, 287, 288, 289, 292, 294, 306, 307, 308, 323, 328, 355, 356, 368, 370, 375, 379, 384, 388, 389, 391
 
 **W**
 
-- **WormGPT,** 31, 39, 337, 339
+- **WormGPT,** 31, 39, 338, 340
 
 **X**
 
-- **XBOW,** 31, 39, 44, 337
+- **XBOW,** 31, 39, 44, 338
 
 
 <!-- COLOFON -->
