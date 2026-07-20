@@ -1,5 +1,5 @@
 ---
-title: "La Ficción de la Ciberseguridad Corporativa: Ceguera forense, apagones jurisdiccionales y el Teorema del Non Liquet Algorítmico."
+title: "La Ficción de la Ciberseguridad Corporativa: Ceguera forense, apagones jurisdiccionales y la Paradoja del Non Liquet Algorítmico."
 author: "Jaime Marcelo Moraga Carrasco. Abogado."
 date: "Julio 2026"
 keywords: ["Ciberseguridad", "Derecho Probatorio", "Inteligencia Artificial", "CMF", "Fintech", "Criptomonedas", "Ley 21.663", "Atestación de Hardware"]

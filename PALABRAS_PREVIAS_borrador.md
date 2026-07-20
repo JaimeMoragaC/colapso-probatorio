@@ -30,7 +30,7 @@ Pero el desplazamiento más profundo no está en cómo el derecho mira a la máq
 
 Mi tesis destruye ese supuesto. Cuando el sustrato probatorio lo produce un agente autónomo que es a la vez actor y escribano, operando más rápido que toda supervisión, la carga se vuelve indescargable —simétricamente—. El Estado no puede probar la infracción; el obligado no puede probar su diligencia. Y como ninguno puede, asignar la carga a cualquiera de los dos es un acto arbitrario: una ficción —la que da nombre a esta obra—.
 
-Es el regreso del *non liquet*, en una forma que la carga de la prueba ya no puede resolver. A esto —el *non liquet* resucitado por la autonomía algorítmica— lo llamo el **teorema del *non liquet* algorítmico**: la contribución que estas páginas se proponen demostrar.
+Es el regreso del *non liquet*, en una forma que la carga de la prueba ya no puede resolver. A esto —el *non liquet* resucitado por la autonomía algorítmica— lo llamo la **paradoja del *non liquet* algorítmico**: la contribución que estas páginas se proponen demostrar.
 
 Lo que sigue retoma el formato formal. En su elaboración, utilicé Inteligencia Artificial generativa avanzada como copiloto táctico. Analizar una amenaza polimórfica que muta a velocidad de silicio utilizando la liturgia dogmática del siglo XIX garantiza publicar un diagnóstico tecnológicamente muerto. Para auditar la frontera, es imperativo operar desde ella. 
 
