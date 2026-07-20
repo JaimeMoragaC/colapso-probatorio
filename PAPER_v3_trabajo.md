@@ -349,7 +349,7 @@ Esta ceguera compartida se desmitifica a través de dos reglas absolutas —las 
 
 **El engaño por diseño:** Para un ingeniero o un auditor, un archivo de *log* (registro) impecable, con formato perfecto y firmas criptográficas consistentes, suele ser sinónimo de seguridad. Pero si un adversario tomó el control profundo del sistema (Ring-0) de donde salió ese log, la máquina no está ocultando un rastro de forma torpe; está fabricando una falsificación perfecta desde la raíz. 
 
-En términos jurídicos, creerle a un documento solo porque "luce bien" y está firmado, equivale a creerle a un testigo exclusivamente porque su relato suena fluido. Un buen perjuro —o un malware avanzado en el núcleo de la máquina— también produce historias sin contradicciones. Si el atacante controla la memoria RAM de la computadora, la mentira quedará registrada matemáticamente con la misma fidelidad que la verdad.
+En términos jurídicos, creerle a un documento solo porque "luce bien" y está firmado, equivale a creerle a un testigo exclusivamente porque su relato suena fluido. Un buen perjuro —o un adversario agéntico operando en el núcleo de la máquina— también produce historias sin contradicciones. Si el atacante controla la memoria RAM de la computadora, la mentira quedará registrada matemáticamente con la misma fidelidad que la verdad.
 
 ---
 
