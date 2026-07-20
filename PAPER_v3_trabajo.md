@@ -122,6 +122,8 @@ La vulnerabilidad técnica subyacente (TOCTOU, carencia de SCITT) actúa como el
 - 🚦 **Para Arquitectos Cloud, CISO e Ingeniería:** El documento cruza densas capas de dogmática jurídica (Capítulos 4 al 6) que no son el objetivo principal de su disciplina. Para ir directo a la refutación técnica, se recomienda leer el **Capítulo 2** (Modelo de Amenaza), avanzar "en diagonal" sobre las discusiones de derecho administrativo, y aterrizar directamente en la **Sección 7.7** (Refutaciones arquitectónicas de élite) y en el **[Anexo E](#demostracion-ring-0)** (Explotación en Ring-0 y demostración de atestación en hardware).
 - ⚖️ **Para Abogados Litigantes, Fiscales y Directorios:** Su exposición de riesgo fiduciario y patrimonial (imputabilidad bajo la Ley 21.595) se desglosa con absoluta crudeza en el **Capítulo 3**, el **Capítulo 6** (Potestad sancionatoria de la ANCI) y la **Sección 7.8** (La CMF y la Ley Fintec). Pueden obviar la lectura profunda sobre latencia $O(1)$ o árboles de Merkle de los anexos, apoyándose en las conclusiones del cuerpo principal. 
 
+**Dos carriles, a lo largo de todo el texto.** Además de estas rutas, el cuerpo intercala dos marcas recurrentes de una sola línea que traducen cada pasaje al idioma de la otra disciplina: **🔧 *En clave de ingeniería*** reduce un argumento jurídico al mecanismo técnico que lo sostiene, y **⚖️ *Corolario probatorio*** convierte un hallazgo técnico en su consecuencia ante el tribunal o el regulador. Cada lector puede seguir su carril y usar el del otro como resumen —sin soltar el hilo—.
+
 Ambas disciplinas convergen, hacia el final del documento, en una solución arquitectónica idónea e ineludible: la Soberanía Forense anclada en hardware. Se incorpora un Glosario interdisciplinario (Anexo A) que traduce cada término técnico a su relevancia jurídica y viceversa.
 
 <a id="mapa-argumento"></a>
@@ -2530,6 +2532,8 @@ El Suicidio Probatorio y el paradigma "Assume Breach". La industria de la cibers
 Si la intrusión es técnicamente inevitable, el Modelo de Prevención de Delitos (Ley 21.595) de una corporación no puede basarse en la ficción de repeler el ataque, sino en la capacidad forense de probar, de forma inmutable, qué ocurrió durante el mismo. Asumir la brecha en el papel, pero operar en la práctica con sistemas de auditoría (SIEM/EDR) que pueden ser alterados por el atacante una vez dentro, constituye un acto de indefensión probatoria premeditado por parte de la alta dirección. 
 
 Esta tolerancia corporativa al colapso forense refleja lo que Bruce Schneier denomina *Cybersecurity Mission Creep*<a href="#fn_schneier_mission" id="fnref_schneier_mission"><sup>271</sup></a>: la industria prefiere expandir infinitamente los perímetros de "ciberseguridad" y apelar a la "complejidad técnica" como excusa, para evadir la rendición de cuentas sobre un fallo fundacional de diseño (la ausencia de atestación del Ring-0).
+
+> 🔧 **En clave de ingeniería.** Cada figura que sigue en este capítulo —el ciberseguro, el consentimiento, la minimización, la supresión, la cadena de custodia— falla por la misma razón: un registro nacido en un *runtime* que nadie atesta. No son varios problemas legales; es un solo defecto técnico refractado a través del derecho. Al lector técnico le basta retener eso: lo demás es el catálogo de sus consecuencias jurídicas.
 
 ### La Tensión Epistémica del Actual Estándar Probatorio
 > *El derecho probatorio nació para documentos que se falsifican a mano. Su tensión de fondo es simple: sigue tratando al registro digital como si envejeciera igual que el papel.*
@@ -6173,7 +6177,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Agencia de Protección de Datos (APDP),** 79, 83, 108, 167, 168, 274, 275, 278
 - **AI Act (Reglamento UE 2024/1689),** 22, 93, 95, 96, 98, 104, 108, 109, 111, 112, 133, 183, 190, 191, 192, 193, 206, 256, 257, 276, 332, 334, 342, 343, 344, 345, 346, 347, 361, 379
 - **AI Liability Directive (COM(2022)496),** 105, 106, 110, 344
-- **ANCI (Agencia Nacional de Ciberseguridad),** 8, 12, 13, 18, 19, 20, 21, 30, 42, 44, 45, 48, 55, 56, 57, 61, 63, 71, 74, 76, 77, 86, 88, 89, 90, 102, 108, 110, 111, 115, 117, 118, 124, 128, 133, 134, 137, 141, 152, 166, 167, 171, 174, 176, 189, 193, 195, 196, 200, 202, 208, 220, 221, 222, 226, 231, 232, 240, 242, 243, 244, 245, 253, 254, 256, 260, 262, 263, 264, 265, 266, 267, 268, 269, 271, 272, 273, 274, 275, 276, 278, 279, 280, 281, 284, 287, 289, 291, 293, 294, 297, 302, 312, 313, 315, 318, 321, 323, 324, 325, 328, 330, 334, 338, 341, 353, 381
+- **ANCI (Agencia Nacional de Ciberseguridad),** 8, 12, 13, 18, 19, 20, 21, 30, 42, 44, 45, 48, 55, 56, 57, 61, 63, 71, 74, 76, 77, 86, 88, 89, 90, 102, 108, 110, 111, 115, 117, 118, 124, 128, 133, 134, 137, 141, 152, 167, 171, 174, 176, 189, 193, 195, 196, 200, 202, 208, 220, 221, 222, 226, 231, 232, 240, 242, 243, 244, 245, 253, 254, 256, 260, 262, 263, 264, 265, 266, 267, 268, 269, 271, 272, 273, 274, 275, 276, 278, 279, 280, 281, 284, 287, 289, 291, 293, 294, 297, 302, 312, 313, 315, 318, 321, 323, 324, 325, 328, 330, 334, 338, 341, 353, 381
 - **Anthropic,** 16, 25, 28, 30, 31, 34, 46, 107, 121, 144, 145, 285, 286, 335, 350, 354, 361, 364, 376, 384
 - **APT28 (PROMPTSTEAL/LAMEHUG),** 16, 26, 41, 111, 218, 219, 285, 346, 373, 374
 - **Árboles de Merkle,** 9, 13, 226, 250, 273, 287, 288, 291, 315, 317, 348, 363, 377, 382
@@ -6194,7 +6198,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **C**
 
-- **Cadena de custodia,** 17, 18, 19, 42, 43, 55, 72, 78, 105, 114, 115, 130, 133, 146, 165, 170, 184, 185, 197, 199, 209, 212, 222, 236, 240, 248, 251, 260, 262, 268, 272, 274, 275, 276, 281, 290, 297, 298, 319, 322, 324, 326, 327, 329, 330, 366
+- **Cadena de custodia,** 17, 18, 19, 42, 43, 55, 72, 78, 105, 114, 115, 130, 133, 146, 155, 165, 170, 184, 185, 197, 199, 209, 212, 222, 236, 240, 248, 251, 260, 262, 268, 272, 274, 275, 276, 281, 290, 297, 298, 319, 322, 324, 326, 327, 329, 330, 366
 - **Capital One / AWS (IMDSv1),** 84, 85, 86, 87, 203, 206, 340
 - **Carga de la prueba / carga probatoria,** 9, 14, 48, 51, 55, 77, 79, 83, 105, 106, 110, 115, 124, 132, 154, 158, 159, 176, 182, 186, 187, 189, 191, 193, 199, 205, 212, 287, 289, 293, 296, 303, 317, 320, 327, 330, 338, 349, 352, 377, 378
 - **Cifrado homomórfico (FHE),** 78, 204, 212, 213, 215
@@ -6270,7 +6274,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Ley 19.880 (Procedimiento Administrativo),** 102, 106, 193, 357
 - **Ley 20.009 / Ley 21.234 (medios de pago),** 64, 186, 187, 359
 - **Ley 21.459 (Delitos Informáticos),** 54, 71, 114, 115, 122, 133, 171, 188, 196, 197, 201, 229, 274, 322, 324, 334, 338, 381
-- **Ley 21.595 (Delitos Económicos),** 13, 18, 21, 33, 35, 62, 64, 75, 90, 116, 117, 124, 132, 133, 134, 137, 138, 140, 142, 144, 145, 146, 152, 154, 158, 163, 182, 187, 196, 197, 199, 204, 208, 209, 214, 225, 245, 271, 277, 293, 295, 296, 297, 298, 308, 309, 312, 321, 325, 360, 370, 371
+- **Ley 21.595 (Delitos Económicos),** 13, 18, 21, 33, 35, 62, 64, 75, 90, 116, 117, 124, 132, 133, 134, 137, 138, 140, 142, 144, 145, 146, 152, 154, 159, 163, 182, 187, 196, 197, 199, 204, 208, 209, 214, 225, 245, 271, 277, 293, 295, 296, 297, 298, 308, 309, 312, 321, 325, 360, 370, 371
 - **Ley 21.663 (Marco de Ciberseguridad),** 8, 12, 17, 19, 27, 30, 33, 35, 37, 55, 57, 62, 63, 64, 70, 71, 73, 76, 77, 78, 83, 86, 87, 88, 89, 96, 103, 107, 124, 125, 128, 133, 134, 137, 138, 139, 141, 142, 143, 144, 145, 171, 172, 173, 175, 188, 189, 194, 196, 201, 209, 215, 216, 217, 229, 230, 231, 235, 236, 237, 242, 244, 245, 254, 263, 265, 266, 268, 269, 271, 272, 273, 274, 289, 294, 297, 309, 311, 315, 321, 323, 330, 334, 338, 341, 349, 370, 371, 372, 381
 - **Ley 21.719 (Protección de Datos Personales),** 17, 30, 48, 55, 72, 78, 86, 87, 88, 125, 138, 140, 168, 173, 174, 183, 189, 194, 195, 196, 201, 236, 262, 309, 324, 334, 339, 352, 365, 370, 381
 - **Lorraine v. Markel,** 104, 183, 206, 344, 353
@@ -6292,7 +6296,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **NCSC (Reino Unido),** 39, 113, 269, 337, 338, 347, 380
 - **NetFlow / Windows Event Forwarding (WEF),** 67, 68, 69, 70, 118
 - **NIS2 (Directiva UE 2022/2555),** 22, 64, 91, 105, 107, 183, 189, 190, 192, 193, 206, 256, 270, 315, 332, 341, 344, 354, 375, 377
-- **NIST,** 67, 98, 131, 139, 156, 160, 161, 265, 298, 336, 349, 350, 352, 359, 361, 363
+- **NIST,** 67, 98, 131, 139, 157, 160, 161, 265, 298, 336, 349, 350, 352, 359, 361, 363
 
 **O**
 
@@ -6323,7 +6327,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 
 **S**
 
-- **Sana crítica (arts. 295-297 CPP),** 59, 106, 114, 117, 118, 119, 121, 122, 129, 133, 166, 182, 184, 185, 186, 189, 197, 198, 199, 200, 201, 203, 279, 288, 289, 295, 311, 317, 318, 321, 327, 378
+- **Sana crítica (arts. 295-297 CPP),** 59, 106, 114, 117, 118, 119, 121, 122, 129, 133, 166, 167, 182, 184, 185, 186, 189, 197, 198, 199, 200, 201, 203, 279, 288, 289, 295, 311, 317, 318, 321, 327, 378
 - **Sandbox regulatorio,** 28, 31, 109, 335, 344, 345
 - **Schrems II (C-311/18),** 79, 80, 81, 82, 142, 206, 339, 340, 351
 - **SCITT (cadena de suministro / transparencia),** 13, 40, 55, 102, 122, 131, 140, 157, 190, 193, 203, 246, 247, 250, 252, 258, 262, 268, 273, 274, 275, 277, 281, 283, 284, 287, 291, 304, 308, 309, 314, 315, 316, 321, 323, 324, 326, 348, 350, 352, 363, 373, 382, 386, 387
