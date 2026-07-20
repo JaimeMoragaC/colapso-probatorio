@@ -965,6 +965,8 @@ En todos estos regímenes, el acto de reporte no constituye un mero trámite inf
 
 Más crítico aún para el gobierno corporativo, la entrega de información inexacta, incompleta o tardía —precisamente el resultado ineludible de fundamentar un reporte en telemetría *cloud* envenenada— configura de forma objetiva las infracciones de "entrega de información falsa al regulador" y "obstrucción a la fiscalización". Bajo la arquitectura de la Ley N° 21.595 (Ley de Delitos Económicos), esta disonancia probatoria trasciende la multa administrativa y gatilla la responsabilidad penal de la persona jurídica, consolidando el incumplimiento fiduciario directo del Directorio al certificar como segura una infraestructura cuya indemnidad forense era materialmente inatestable<a href="#fn3" id="fnref3b"><sup>3</sup></a>.
 
+> 🔧 **En clave de ingeniería.** El plazo de tres horas no es el problema de fondo; el problema es que la telemetría que alimentaría ese reporte se genera en el mismo *runtime* que el atacante controla. Ningún plazo salva a un sensor que vive dentro del entorno comprometido: el defecto es arquitectónico, no de proceso. Y esa falla técnica es, exactamente, la que deja al directorio sin eximente penal.
+
 #### La subversión de la Ley 19.799: La firma electrónica como arma de falsificación perfecta
 
 El colapso sistémico se consolida al confrontar esta ceguera con la *Ley 19.799 sobre Documentos Electrónicos, Firma Electrónica y Servicios de Certificación*. La arquitectura procesal chilena descansa sobre la presunción legal de que la criptografía asimétrica (Infraestructura de Llave Pública o PKI) garantiza autoría e integridad. Si el documento cuenta con Firma Electrónica Avanzada (FEA), la ley le otorga el peso de un instrumento público, haciendo *plena prueba* en juicio (Art. 5). En la actualidad, los proveedores *cloud* firman digitalmente sus *logs* de auditoría (ej. AWS CloudTrail) en la capa de *software* (Ring-3) para certificar que el archivo no ha sido modificado *ex post*, y las instituciones reguladas presentan estos *logs* ante tribunales y agencias amparándose en este ciego blindaje probatorio.
@@ -1231,6 +1233,8 @@ Análisis de ingeniería: La ceguera estructural ante el ataque API.
 > Estos casos comparten una invariante técnica crítico: el atacante no "rompe" el *firewall* ni desencripta discos; simplemente interroga a la API. Como la exfiltración ocurre explotando autorizaciones defectuosas (BOLA, *Broken Object Level Authorization*) o abusando de la lógica de negocio, la plataforma en la nube registra la transacción como "tráfico legítimo". Para cuando la entidad local advierte que la sesión fue secuestrada, el servidor de *logs* en EE.UU. o Irlanda solo atestigua que un "usuario válido" descargó la base de datos. Sin aislamiento físico de la evidencia y atestación criptográfica de *hardware* (RATS), la API es simplemente una puerta trasera institucionalizada.
 
 Este deber probatorio presupone algo que rara vez se examina: que el obligado pueda acreditar, con evidencia fiable, qué ocurrió —en horas, no en meses, y de modo que resista impugnación—. Toda la arquitectura sancionatoria de estos regímenes —la Ley 21.663, la RAN 20-10 y la NCG 502 de la CMF— descansa, silenciosamente, sobre la confiabilidad de la evidencia del incidente. Es justamente ahí donde el abrupto cambio tecnológico y geopolítico de 2026, detonado por Mythos, abre una grieta.
+
+> 🔧 **En clave de ingeniería.** Seis incidentes, seis sectores, un mismo patrón: en todos, la evidencia nació en un entorno que nadie pudo atestar de forma independiente. No fallaron los procesos ni las personas; faltó una raíz de confianza *fuera* del dominio que el atacante comprometió. Ese es el hueco que ninguna certificación de papel cierra —y el que el resto del documento se dedica a tapar.
 
 #### 1.3.2 Confiar el registro al sospechoso: por qué la evidencia *cloud* no atestable no puede probar nada
 
@@ -6095,7 +6099,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **APT28 (PROMPTSTEAL/LAMEHUG),** 15, 25, 39, 109, 216, 217, 283, 342, 369, 370
 - **Árboles de Merkle,** 8, 12, 224, 248, 271, 285, 286, 289, 313, 344, 359, 377
 - **Arranque medido (measured boot),** 8, 10, 15, 96, 97, 130, 169, 246, 281, 322, 362, 363
-- **Atestación remota (RATS, RFC 9334),** 8, 10, 38, 52, 53, 58, 59, 60, 61, 72, 73, 102, 103, 126, 135, 148, 160, 168, 171, 180, 188, 191, 199, 201, 214, 220, 225, 244, 245, 247, 249, 250, 252, 258, 259, 262, 270, 271, 272, 273, 275, 278, 280, 281, 282, 283, 289, 292, 306, 307, 316, 319, 321, 339, 350, 357, 362, 363, 371, 373, 378, 380
+- **Atestación remota (RATS, RFC 9334),** 8, 10, 38, 52, 53, 58, 59, 60, 62, 72, 73, 102, 103, 126, 135, 148, 160, 168, 171, 180, 188, 191, 199, 201, 214, 220, 225, 244, 245, 247, 249, 250, 252, 258, 259, 262, 270, 271, 272, 273, 275, 278, 280, 281, 282, 283, 289, 292, 306, 307, 316, 319, 321, 339, 350, 357, 362, 363, 371, 373, 378, 380
 
 **B**
 
@@ -6195,7 +6199,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 **M**
 
 - **Machine unlearning / supresión exacta,** 171, 348
-- **Malware polimórfico / polimorfismo,** 15, 16, 18, 27, 31, 33, 38, 42, 50, 56, 58, 60, 71, 74, 91, 110, 117, 124, 129, 130, 132, 135, 144, 146, 149, 154, 160, 162, 171, 186, 197, 199, 206, 207, 246, 247, 248, 249, 250, 254, 259, 262, 264, 265, 269, 284, 291, 292, 294, 295, 296, 306, 310, 311, 314, 315, 316, 317, 319, 344, 366
+- **Malware polimórfico / polimorfismo,** 15, 16, 18, 27, 31, 33, 38, 42, 50, 56, 57, 58, 60, 71, 75, 91, 110, 117, 124, 129, 130, 132, 135, 144, 146, 149, 154, 160, 162, 171, 186, 197, 199, 206, 207, 246, 247, 248, 249, 250, 254, 259, 262, 264, 265, 269, 284, 291, 292, 294, 295, 296, 306, 310, 311, 314, 315, 316, 317, 319, 344, 366
 - **Mamba / SSM (modelos de espacio de estados),** 72, 143, 144, 230, 344
 - **Marchand v. Barnhill,** 338
 - **MAS (Monetary Authority of Singapore),** 93, 94, 102, 107, 329, 339, 341, 343, 356
@@ -6254,7 +6258,7 @@ verificable por terceros y no depende de la buena fe de *qui en la presenta.
 - **Teoría de juegos / equilibrio de Nash,** *véase* Equilibrio de Nash / market for lemons
 - **Teoría de juegos de la atestación,** 53, 150, 309, 310, 312, 315, 320
 - **TOCTOU (time-of-check / time-of-use),** 11, 98, 127, 128, 131, 133, 136, 147, 153, 168, 169, 170, 192, 195, 198, 199, 206, 233, 259, 262, 268, 286, 287, 294, 299, 316, 317, 322, 362, 379
-- **TPM (Trusted Platform Module),** 8, 15, 61, 62, 96, 97, 98, 99, 102, 103, 130, 155, 168, 192, 198, 207, 244, 245, 246, 251, 259, 265, 270, 271, 276, 277, 278, 279, 280, 284, 285, 286, 289, 291, 303, 304, 305, 316, 321, 322, 348, 349, 350, 362, 363, 368, 369, 373, 376, 380, 381
+- **TPM (Trusted Platform Module),** 8, 15, 62, 96, 97, 98, 99, 102, 103, 130, 155, 168, 192, 198, 207, 244, 245, 246, 251, 259, 265, 270, 271, 276, 277, 278, 279, 280, 284, 285, 286, 289, 291, 303, 304, 305, 316, 321, 322, 348, 349, 350, 362, 363, 368, 369, 373, 376, 380, 381
 
 **W**
 
