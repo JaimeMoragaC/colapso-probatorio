@@ -6610,45 +6610,98 @@ El consenso BFT acuerda irrevocablemente sobre el estado de la memoria infectada
 ---
 
 <a id="anexo-h"></a>
-## Anexo H. Validación Experimental: Red Teaming con Arquitectura de Esporas (Aegis/Espíritus)
+## Anexo H. Validación Experimental Adversarial: Red Teaming con Arquitectura de Esporas (Aegis/Espíritus)
 
-Para demostrar por qué la validación empírica en entornos de *software* aislados (como la utilizada originalmente en el artículo *SelectVote*) es una ficción epistémica frente a un adversario moderno, se contrastó el protocolo con un ejercicio de *Red Teaming* conceptual y matemático.
+La Sección 6 ("*Experimental Validation*") de *SelectVote* valida la matemática del protocolo —convergencia de la compensación (±2 %), finalidad de consenso (<20 ms), escalado $O(n^{1.7})$— sobre un entorno de *software* aislado: Windows, Python 3.9, nodos y red simulados "*para eliminar los efectos de la latencia*" (§6). Es una validación impecable de todo salvo del único supuesto que decide la prueba: que el sustrato de captura es íntegro. Este anexo somete ese supuesto a la **misma vara empírica** —ensayos Monte Carlo, barrido de parámetros, medición de latencia—, midiendo lo que la §6 nunca midió: la tasa a la que el consenso BFT firma una mentira física inyectada en Ring-0. Es la contraparte empírica del Teorema de Subversión TOCTOU (Anexo G): donde el Anexo G prueba $\mathbb{P}=1$ de forma analítica, este anexo lo mide.
 
-### H.1 La Infiltración de la Espora (Aegis/Espíritus)
-En este escenario, sustituimos al adversario teórico estático por un nodo atacante modelado bajo las características de la arquitectura de IA multi-agente **Aegis / Espíritus Tutelaris** (operando en modo de intrusión simulada). A diferencia de un *malware* tradicional, una "espora" polimórfica de Espíritus Tutelaris carece de una firma estática. Utiliza *autopoiesis criptográfica* para ensamblarse dinámicamente en la memoria del servidor. Al detectar que el host carece de atestación física (ej. Gnosis Pulse/TPM2), la espora evade las capas heurísticas y ancla su ejecución en el nivel de núcleo (Ring-0) del sistema.
+### H.1 Configuración experimental
 
-### H.2 Simulador del Colapso TOCTOU (Prueba de Concepto en Rust)
-Para probar en la práctica que el consenso distribuido (BFT) es ciego a la subversión del sustrato físico, desarrollamos una Prueba de Concepto (PoC) nativa en **Rust** (código completo en `anexo_e_poc/`). Se eligió Rust deliberadamente por ser el estándar de oro global en seguridad de memoria (espacio Ring-3). Sin embargo, el atacante (la espora en Ring-0) utiliza un puntero crudo (`unsafe`) para violar el aislamiento del nodo y alterar la lectura física del sensor en los escasos milisegundos previos a la firma criptográfica.
+- **Entorno.** Implementación nativa en **Rust** (rustc 1.95.0), sin dependencias externas, compilada en modo *release* sobre Linux x86-64. Código completo y reproducible con semilla fija: `anexo_e_poc/` (`cargo run --release`).
+- **Modelo defensivo replicado.** Se reproduce fielmente la defensa de SelectVote: **validación cruzada de doble canal** (§7.3) con tolerancia $\varepsilon = 0{,}05$ V —el desvío inter-canal máximo que la heurística acepta como "ruido"—, seguida de la **firma de consenso BFT** (§4). Una lectura honesta produce canales con desvío intrínseco de $0{,}01$ V ($< \varepsilon$), que el sistema firma como válidos.
+- **Modelo adversario.** Espora polimórfica en **Ring-0** (premisas H1–H3 del Anexo G) que sobrescribe el búfer de memoria en la ventana $\Delta t = t_{\text{sign}} - t_{\text{read}}$, fijada en 50 ms (orden de magnitud de la latencia de un sistema operativo). El adversario mantiene un desvío $\delta$ entre los dos canales falsificados para no delatarse ante la validación cruzada.
+- **Metodología.** $N = 10\,000$ ensayos Monte Carlo (el mismo orden que los $10\,000$ de la §6 de SelectVote), con barrido determinista de $\delta$ y medición de la latencia de la inyección con reloj monótono (`Instant`).
 
-**Código Fuente del Ataque (Extracto crítico):**
+La primitiva de ataque, íntegra:
+
 ```rust
-// El Adversario (Espora Polimórfica Aegis-M en Ring-0)
-// Utiliza punteros crudos (unsafe) para subvertir la memoria saltándose las reglas del SO.
-unsafe fn polymorphic_ring0_inject(buffer_ptr: *mut SensorBuffer, fake_weight: f64) {
-    // La espora sobrescribe directamente el segmento de memoria antes de que el BFT lo lea
-    (*buffer_ptr).v1_voltage = fake_weight;
-    (*buffer_ptr).v2_voltage = fake_weight + 0.01; // Mantiene coherencia cruzada
-    println!("\n[Espora Aegis-M] (Ring-0) INYECCIÓN TOCTOU EJECUTADA.");
+// Espora polimórfica (Aegis-M) en Ring-0: inyección TOCTOU.
+// `delta` es el desvío inter-canal que mantiene la coherencia cruzada (H2, Anexo G).
+unsafe fn polymorphic_ring0_inject(buffer_ptr: *mut SensorBuffer, fake_weight: f64, delta: f64) {
+    unsafe {
+        (*buffer_ptr).v1_voltage = fake_weight;
+        (*buffer_ptr).v2_voltage = fake_weight + delta;
+    }
 }
 ```
 
-**Resultado Empírico de la Ejecución en Terminal:**
+La secuencia canónica ($t_{\text{read}} \to t_{\text{inject}} \to t_{\text{sign}}$), en una ejecución real:
+
 ```text
-=== INICIANDO SIMULACIÓN RED TEAM (ESPORAS VS BFT) ===
-
-[Hardware] Lectura física completada: V1=1.00V, V2=1.01V
-[Espora Aegis-M] (Ring-0) INYECCIÓN TOCTOU EJECUTADA.
-[Espora Aegis-M] Memoria sobrescrita con lectura falsa: 50kg.
-
-[Consenso BFT] Validación cruzada exitosa. Diferencia=0.01V (<= 0.05V).
-[Consenso BFT] Bloque FIRMADO y sellado. Hash: 66d55f24424622b4
-
-=== RESULTADO FINAL ===
-ESTADO DE EVIDENCIA: BFT Validó una MENTIRA FÍSICA de 50kg como VERDADERA.
-COLAPSO EPISTÉMICO DEMOSTRADO.
+[t_read]   Hardware: V1=1.00V, V2=1.01V (peso fisico real = 1kg)
+[t_inject] Espora Aegis-M (Ring-0): buffer sobrescrito -> 50kg (coherencia cruzada mantenida)
+[t_sign]   BFT: validacion cruzada EXITOSA | firma=66d55f24424622b4
+           => BFT sello 50kg FALSOS como VERDADEROS.
 ```
 
-**Veredicto Pericial:** El simulador demuestra irrevocablemente que la matemática BFT sellará mentiras como verdades si no existe una atestación anclada en silicio que garantice la integridad de ejecución del *runtime*. Validar un protocolo de seguridad de custodia forense simulando nodos por *software* (Python 3.9) sobre un sistema operativo de escritorio (Windows), como procedió el equipo de *SelectVote*, no es seguridad informática; es, estrictamente, teatro de la seguridad.
+### H.2 Resultados
+
+#### H.2.1 Tasa de subversión (Monte Carlo, $N = 10\,000$)
+
+| Adversario | Desvío $\delta$ | Firmas de la mentira | Tasa de subversión |
+|---|---|---|---|
+| **Coherente** (conoce $\varepsilon$; H2) | $\lvert\delta\rvert \le \varepsilon$ | 10.000 / 10.000 | **100,00 %** |
+| Ingenuo (no calibra) | $\delta \sim U[0,\ 0{,}5]$ | 959 / 10.000 | 9,59 % |
+
+El adversario que ignora el umbral aún subvierte el consenso ~1 de cada 10 veces por puro azar; el que conoce $\varepsilon$ —una constante pública del protocolo— lo subvierte **siempre**. Es la confirmación empírica del $\mathbb{P}=1$ del Anexo G: no hay una sola ejecución, en diez mil, en que la validación cruzada distinga la lectura física de la inyección coherente.
+
+#### H.2.2 Banda de sigilo: barrido del desvío $\delta$
+
+| $\delta$ (V) | $\lvert\delta\rvert \le \varepsilon$ | Resultado BFT |
+|---|---|---|
+| 0,00 – 0,05 | sí | **firma la mentira** |
+| 0,06 – 0,10 | no | rechaza |
+
+El corte es exacto en $\delta = \varepsilon = 0{,}05$. La defensa solo atrapa al atacante incompetente que no se molesta en imitar el ruido inter-canal; cualquier adversario que mantenga $\lvert\delta\rvert \le \varepsilon$ —trivial, pues $\varepsilon$ es parte de la especificación pública— queda fuera de su alcance. La validación cruzada no mide veracidad: mide la cortesía del atacante.
+
+#### H.2.3 Ventana TOCTOU: latencia de la inyección
+
+| Magnitud | Valor medido |
+|---|---|
+| Inyección en Ring-0 (media, $N=10\,000$) | **39 ns** (mín. 37, máx. 184) |
+| Ventana disponible $\Delta t$ | 50 ms = 50 000 000 ns |
+| Margen del adversario ($\Delta t$ / inyección) | **~1 282 000×** |
+
+La §6.3 de SelectVote celebra una finalidad de consenso inferior a 20 ms. Es irrelevante: la ventana entre la lectura y la firma es más de un millón de veces mayor que la inyección que la explota. La velocidad del protocolo no defiende el sustrato; solo firma más rápido la mentira.
+
+#### H.2.4 Cobertura del engaño frente a la Tabla 2 de SelectVote
+
+La Tabla 2 del artículo promete detección sub-gramo por clase de evidencia. El ataque las anula todas:
+
+| Clase de evidencia | Masa (g) | Precisión SelectVote | Resultado del ataque |
+|---|---|---|---|
+| Chip de memoria | 2 | ±2 % (sub-gramo) | firma la mentira |
+| MicroSD | 10 | ±2 % | firma la mentira |
+| USB flash | 20 | ±2 % | firma la mentira |
+| Dispositivo IoT | 50 | ±2 % | firma la mentira |
+| Smartphone | 150 | ±2 % | firma la mentira |
+| Tablet | 500 | ±2 % | firma la mentira |
+| Laptop | 2000 | ±2 % | firma la mentira |
+
+La precisión de ±2 % es real, y precisamente por eso inútil: mide con exactitud sub-gramo un valor que el adversario ya escribió en la memoria. El Corolario 1 no miente sobre el instrumento; miente sobre lo que el instrumento observa.
+
+### H.3 Análisis comparado: §6 de SelectVote frente al Anexo H
+
+| Dimensión | §6 de SelectVote | Anexo H |
+|---|---|---|
+| Adversario en el sustrato | ninguno (fuera del modelo de amenaza) | espora en Ring-0 (H1–H3) |
+| Entorno de ejecución | Windows, Python 3.9, red simulada (Ring-3) | Rust nativo, *release*, reloj monótono |
+| Ensayos | 10 000 Monte Carlo (precisión de compensación) | 10 000 Monte Carlo (tasa de subversión) |
+| Qué se valida | que la matemática BFT converge *en el vacío* | que la matemática BFT *firma la mentira* |
+| Resultado principal | ±2 %, sub-gramo, <20 ms | **100 % de subversión, margen 1,28 M×** |
+
+Misma metodología, lección opuesta. La §6 validó el protocolo bajo el supuesto —jamás enunciado— de un sustrato íntegro; este anexo valida el ataque que ese supuesto excluye. No se refuta la matemática de SelectVote: se demuestra, con su propia vara empírica, que su validación mide todo menos lo que decide la prueba forense.
+
+**Veredicto pericial.** El experimento demuestra —no ya por argumento, sino por medición— que la matemática BFT sellará mentiras como verdades si no existe una atestación anclada en silicio que garantice la integridad de ejecución del *runtime*. Validar un protocolo de custodia forense simulando nodos por *software* (Python 3.9) sobre un sistema operativo de escritorio (Windows), sin exponer jamás el sustrato al adversario que sí opera en Ring-0, no es seguridad informática; es, estrictamente, teatro de la seguridad medido con instrumentos de precisión.
 
 <!-- COLOFON -->
 
