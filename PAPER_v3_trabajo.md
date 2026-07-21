@@ -3716,6 +3716,37 @@ Actores avanzados realizan todo el ciclo de vida de la intrusión utilizando her
 #### 4. Persistencia plurianual y la insuficiencia del "Log Retention"
 Se documentó que ciertas puertas traseras (como `BRICKSTORM`) mantuvieron un tiempo de permanencia medio de 393 días. Además, los atacantes ejecutan borrados masivos de registros históricos y manipulan marcas de tiempo (*timestomping*). En conexión con nuestra tesis, esto destruye la exigencia legal de "retención de logs de 90 días" criticada en el Capítulo 1.3. Si el atacante lleva 393 días dentro del sistema modificando las fechas y borrando huellas, el *log* que el OIV le entrega al regulador o al juez es un documento forense adulterado por el adversario.
 
+<a id="sec4-4-1"></a>
+
+### 4.4.1 Mapa de cobertura: MITRE ATT&CK frente a la atestación
+
+> *La pregunta del ingeniero no es "¿mi EDR ve esto?" —ya sabemos que no—. Es "¿qué queda probado cuando mi EDR falla?".*
+
+Las secciones anteriores demostraron la ceguera capa por capa. Esta tabla la ordena en el lenguaje del defensor —la matriz MITRE ATT&CK— y confronta tres testigos frente a las técnicas que el adversario polimórfico ejecuta a diario: el EDR/SIEM en el host, el arranque medido del TPM clásico y la atestación con proveniencia anclada fuera del dominio. Léase la última columna con cuidado: **no** promete detección omnisciente —esa carrera está perdida (§4.9)—, sino no-repudio.
+
+| Técnica (MITRE ATT&CK) | EDR / SIEM en el host (Ring 0) | Arranque medido / TPM clásico (PCR 0–7) | Atestación con proveniencia (raíz fuera del dominio) |
+|---|---|---|---|
+| **T1059.001 — PowerShell / LoTL** (*malware-free*) · §2.1 V4, Escenario I | Lo ve y lo **aprueba**: proceso y binario legítimos, nada que *hashear* (82 % *malware-free*). Lo registra como "administración normal". | Ciego: ocurre mucho después del arranque. | No lo bloquea ni lo llama malicioso; **ancla fuera del host el registro de lo ejecutado**. Después nadie —ni el obligado ni el adversario— reescribe ese hecho. Valor: **no-repudio**, no detección (INV-02). |
+| **T1055 — Process Injection** · §2.1 V4/V7 | Ciego: audita la firma estática; el código vive en la RAM de un proceso lícito (`svchost.exe`). Certifica la exfiltración como "tráfico autorizado". | Ciego (post-arranque): PCR 0–7 miden el arranque, no la memoria viva. | **Solo con medición en *runtime*** (IMA/DRTM, PCR reasignables) †: el estado mutado deja de reconciliar con la cita remota. No "ve" la inyección; hace que el estado post-inyección **falle la atestación** —el hueco es la prueba— (INV-01/03). |
+| **T1014 — Rootkit / DKOM** · §4.3 | Ciego por diseño: el objeto de *kernel* manipulado **es** el reportero; alimenta memoria falsificada (*ghosting*). | Ciego (post-arranque). | Con medición de *runtime* †, la divergencia del estado del *kernel* rompe la continuidad de la cadena. No persigue al *rootkit*: constata que el entorno **dejó de ser el medido**. |
+| **T1562.001 — Impair Defenses: Disable/Modify Tools** · §4.3 (BLOCKADE SPIDER) | No puede reportar su **propia** neutralización: con SSO comprometido, el atacante altera las reglas del EDR para excluirse; el panel sigue "verde". | Ciego (post-arranque). | La integridad del sensor se mide **fuera** de él †: si se desactiva o altera, su medición diverge o **sus atestaciones cesan**. El silencio deja de ser "verde"; la **ausencia** es la señal, y no se falsifica desde Ring-0 (INV-03). |
+| **T1562.006 — Impair Defenses: Indicator Blocking** (unhook ETW / *ghosting* eBPF) · §4.3 | Ciego: el sensor es desenganchado/parcheado en RAM (cinco líneas de eBPF anulan un SOC 2 de mil páginas). | Ciego (post-arranque). | Igual: la medición externa del sensor delata su desenganche como ruptura. **El hueco, no la alerta, es lo que prueba** †. |
+| **T1070.001 — Indicator Removal: Clear Logs** · §4.4 #4, Escenario I | Ciego: el registro fue borrado (`del /f /q …*.log`); la falta de alertas se confunde con la falta de brecha. | Ciego. | **El caso más fuerte.** El ancla externa está fuera del alcance de Ring-0: borrar el *log* local no borra el ancla. La **discrepancia** entre lo local y lo anclado **es** la prueba (INV-01/06). No requiere medición de *runtime*. |
+| **T1070.006 — Indicator Removal: Timestomp** · §4.4 #4 (BRICKSTORM, 393 días) | Ciego: confía en las marcas de tiempo del propio sistema, que el atacante reescribe. | Ciego. | Un ancla temporal externa (sello monótono / cita RATS) **no se puede antedatar**: todo desfase entre el *mtime* local y el ancla es dirimente. La línea de tiempo deja de descansar en el reloj del auditado (§4.6, Lamport/CAP). |
+| **(Anillo -1) Guest OS Bypass — clonado de disco desde el hipervisor** · §4.4 #1 | Ciego por diseño: el atacante opera **por debajo** del EDR; clona `ntds.dit` desde el almacenamiento sin tocar la VM. | Irrelevante: mide el arranque del *guest*, no al hipervisor que lo contiene. | **Garantía condicional, y el documento no lo oculta.** Solo sirve si la raíz se ancla **fuera y por debajo** del hipervisor, bajo control soberano (§6). Si el adversario posee el Anillo -1 **y** el silicio (Plundervolt/Battering RAM, §4.2; Obj. 1, §7.6), la atestación también se degrada. Es el **límite declarado**, no un punto ciego. |
+
+> **Cómo se lee esta tabla (y qué NO afirma).** La última columna no promete un sensor omnisciente que "detecte" cada técnica en tiempo real —esa es justamente la carrera heurística que §4.9 y las conclusiones dan por perdida ante un adversario polimórfico—. Afirma algo más modesto y más difícil de refutar: **la manipulación se vuelve visible como una ruptura o una ausencia en una cadena cuya raíz está fuera del dominio comprometido, y esa ausencia no es falsificable desde Ring-0.** Tres condiciones acotan su alcance; omitirlas sería el mismo sobre-reclamo que este documento reprocha a la industria:
+>
+> † **Requiere medición en *runtime*** (IMA, DRTM, PCR reasignables o atestación continua), no el mero *measured boot*: contra las técnicas residentes en memoria (T1055, T1014, T1562), el TPM que solo mide el arranque es tan ciego como el EDR. Las filas de T1562 suponen, además, que la integridad del propio sensor está atestada —capacidad que no todo despliegue RATS incluye—.
+>
+> ‡ **Sujeta al límite TOCTOU** (§2.1, Vector 7; §7.6, Obj. 2): el muestreo es discreto; un ciclo mutar-ejecutar-restaurar más rápido que el intervalo de medición puede evadir una instantánea. La atestación **eleva el costo y estrecha la ventana**; no la cierra.
+>
+> § **Degrada si el adversario controla el Anillo -1 y el silicio** (§4.2; §7.6, Obj. 1): por eso el remedio no es "más *hardware*", sino una raíz de confianza **soberana y externa** al proveedor.
+>
+> Donde la atestación es incontestable es en las técnicas que atacan el *registro* mismo (familia T1070): el ancla externa no se puede borrar ni antedatar desde dentro del sistema. Esa es la forma más pura de la doctrina —**INV-03: la desaparición del testigo no ocurre después del hecho; es el hecho.**
+
+> ⚖️ **Corolario para el ingeniero.** La tabla no cambia lo que su EDR detecta; cambia lo que queda **probado** cuando el EDR falla. El eje no es *detección* sino *no-repudio*: no se trata de "ver el ataque", sino de que la mentira del sistema comprometido deje un hueco que **ningún privilegio local pueda tapar**.
+
 <a id="sec4-5"></a>
 
 ### 4.5 La objeción del registro abundante: por qué preservar no es probar
