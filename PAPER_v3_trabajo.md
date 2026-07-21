@@ -6609,15 +6609,16 @@ El consenso BFT acuerda irrevocablemente sobre el estado de la memoria infectada
 
 ---
 
-### Anexo E. Validación Experimental: Red Teaming con Arquitectura de Esporas (Aegis/Espíritus)
+<a id="anexo-h"></a>
+## Anexo H. Validación Experimental: Red Teaming con Arquitectura de Esporas (Aegis/Espíritus)
 
 Para demostrar por qué la validación empírica en entornos de *software* aislados (como la utilizada originalmente en el artículo *SelectVote*) es una ficción epistémica frente a un adversario moderno, se contrastó el protocolo con un ejercicio de *Red Teaming* conceptual y matemático.
 
-#### E.1 La Infiltración de la Espora (Aegis/Espíritus)
+### H.1 La Infiltración de la Espora (Aegis/Espíritus)
 En este escenario, sustituimos al adversario teórico estático por un nodo atacante modelado bajo las características de la arquitectura de IA multi-agente **Aegis / Espíritus Tutelaris** (operando en modo de intrusión simulada). A diferencia de un *malware* tradicional, una "espora" polimórfica de Espíritus Tutelaris carece de una firma estática. Utiliza *autopoiesis criptográfica* para ensamblarse dinámicamente en la memoria del servidor. Al detectar que el host carece de atestación física (ej. Gnosis Pulse/TPM2), la espora evade las capas heurísticas y ancla su ejecución en el nivel de núcleo (Ring-0) del sistema.
 
-#### E.2 Simulador del Colapso TOCTOU (Prueba de Concepto en Rust)
-Para probar en la práctica que el consenso distribuido (BFT) es ciego a la subversión del sustrato físico, desarrollamos una Prueba de Concepto (PoC) nativa en **Rust**. Se eligió Rust deliberadamente por ser el estándar de oro global en seguridad de memoria (espacio Ring-3). Sin embargo, el atacante (la espora en Ring-0) utiliza un puntero crudo (`unsafe`) para violar el aislamiento del nodo y alterar la lectura física del sensor en los escasos milisegundos previos a la firma criptográfica.
+### H.2 Simulador del Colapso TOCTOU (Prueba de Concepto en Rust)
+Para probar en la práctica que el consenso distribuido (BFT) es ciego a la subversión del sustrato físico, desarrollamos una Prueba de Concepto (PoC) nativa en **Rust** (código completo en `anexo_e_poc/`). Se eligió Rust deliberadamente por ser el estándar de oro global en seguridad de memoria (espacio Ring-3). Sin embargo, el atacante (la espora en Ring-0) utiliza un puntero crudo (`unsafe`) para violar el aislamiento del nodo y alterar la lectura física del sensor en los escasos milisegundos previos a la firma criptográfica.
 
 **Código Fuente del Ataque (Extracto crítico):**
 ```rust
@@ -6648,7 +6649,6 @@ COLAPSO EPISTÉMICO DEMOSTRADO.
 ```
 
 **Veredicto Pericial:** El simulador demuestra irrevocablemente que la matemática BFT sellará mentiras como verdades si no existe una atestación anclada en silicio que garantice la integridad de ejecución del *runtime*. Validar un protocolo de seguridad de custodia forense simulando nodos por *software* (Python 3.9) sobre un sistema operativo de escritorio (Windows), como procedió el equipo de *SelectVote*, no es seguridad informática; es, estrictamente, teatro de la seguridad.
-
 
 <!-- COLOFON -->
 
