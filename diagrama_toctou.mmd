@@ -1,0 +1,20 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'textColor': '#000000'}}}%%
+flowchart LR
+    subgraph Teoría ["1. Modelo Teórico (SelectVote)"]
+        direction TB
+        A1[Sensor Físico] --> B1[Memoria]
+        B1 --> C1[Validación Cruzada]
+        C1 --> D1[Firma BFT]
+        D1 --> E1[(Ledger)]
+    end
+
+    subgraph Realidad ["2. Realidad (Ataque TOCTOU)"]
+        direction TB
+        A2[Sensor Físico] --> B2[Memoria Ring-0]
+        B2 -.-> X2{IA Inyecta V_falso} -.-> B2
+        B2 --> C2[Validación Cruzada]
+        C2 --> D2[Firma BFT]
+        D2 --> E2[(Ledger)]
+    end
+
+    Teoría ~~~ Realidad

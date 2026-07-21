@@ -14,7 +14,7 @@ if [ -f PALABRAS_PREVIAS_borrador.md ]; then
   INCLUDE_BEFORE="--include-before-body=.preface.fragment.html"
 fi
 
-pandoc PAPER_v3_trabajo.md -o PAPER_v3_Formato_Institucional.html --standalone \
+pandoc PAPER_v3_trabajo.md -o PAPER_v3_Formato_Institucional.html --standalone --self-contained \
   --template=template.html \
   $INCLUDE_BEFORE \
   -V lang=es --toc --toc-depth=4
