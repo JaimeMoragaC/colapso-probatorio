@@ -11,6 +11,60 @@ linestretch: 1.15
 papersize: letter
 ---
 
+### Palabras previas del autor
+
+El análisis jurídico tradicional exige prescindir de la primera persona. Estas páginas son la única excepción: el lector merece saber desde dónde está escrito lo que sigue.
+
+Soy abogado, pero este problema no llegó a mi escritorio; salí a buscarlo. Todo empezó con una certeza inquietante: el derecho aún no se ha dado cuenta de que el ataque informático ya no se detiene en los servidores. Las IAs polimórficas agénticas poseen hoy la potencia de cálculo para operar desde el nivel más profundo del sistema (Ring-0) y secuestrar nuestra propia credibilidad humana e institucional, utilizándola como su arma definitiva.
+
+Si esta IA polimórfica envenena los registros que sostienen nuestras auditorías forenses, el ataque trasciende la máquina: instrumentaliza al Directorio y al regulador como el *exploit* final. Al comprometer el Ring-0, el humano deja de ser el garante de la fe pública para convertirse, arquitectónicamente, en un periférico de entrada/salida (I/O) *hackeado*, destinado a timbrar y blanquear jurídicamente un fraude algorítmico. Bajo este asedio, la "sana crítica" judicial se revela como un algoritmo biológico de tolerancia a fallos bizantinos (BFT) que fracasa inexorablemente por diseño cuando sus fuentes digitales nacen subvertidas.
+
+Para el Directorio y el oficial de cumplimiento, la duda adquiere entonces una gravedad patrimonial y penal extrema: ¿qué será de la verdad el día en que el atacante comprometa a la máquina para que ésta, con perfecta fidelidad criptográfica, nos mienta en la cara? La capacidad ya existe. Lo único que falta es el incentivo —y este análisis demuestra que ese incentivo es económicamente irresistible—.
+
+Busqué respuestas en la ley, la doctrina y las certificaciones. No había nada. El derecho le cree a la máquina con la ingenuidad de quien nunca ha visto un registro adulterado. Operamos bajo una fe *de facto* que ninguna norma ordena, pero que reguladores, directorios y auditores practican a diario. Esa fe ciega no la firmaría ningún ingeniero honesto, pero nadie lo denuncia porque el proveedor vende tranquilidad y el certificador timbra papel.
+
+La verdadera dimensión de esta fe ciega no radica en que el derecho ignore a la máquina, sino en la trampa arquitectónica con la que intenta controlarla. El sistema normativo delega en el ser humano la facultad y el deber indelegable de detectar la anomalía, pero lo deja completamente desarmado, exigiéndole auditar una amenaza de precisión criptográfica utilizando únicamente su entendimiento analógico y sus métricas de control superficial. Al no proveerle herramientas de validación técnica que operen a la misma velocidad y profundidad que el atacante, el derecho no está protegiendo el raciocinio humano; lo está utilizando como un escudo de carne para legitimar su propia ceguera tecnológica.
+
+Me quedé solo con la pregunta, así que hice lo que se supone que un abogado no hace: me metí en las tripas de la máquina. Y lo hice con la misma clase de herramienta que este libro analiza. Asistentes de inteligencia artificial generativa fueron mis copilotos técnicos, sometidos a validación cruzada adversarial —incluyendo modelos locales en un esquema de control multilateral— para no ceder jamás el escrutinio final. Lo que este documento condena no es el uso de la IA, sino la delegación ciega de la responsabilidad humana ante ella. Bajo ese rigor, bajamos por las capas buscando suelo firme: de la aplicación al sistema operativo; del kernel —el Ring-0, donde el que manda no rinde cuentas— al arranque, al *firmware* y al silicio.
+
+No hablo con metáforas. Durante 222 días de desarrollo ininterrumpido y documentado criptográficamente construí código defensivo —sensores, firmas, quórums de verificación en TypeScript, Rust, C y eBPF— y logré desplegar una arquitectura operativa de 48.766 líneas de código puro y funcional en un margen de meses.
+
+Es matemática pura que demuestra que, usando agentes, tuve el poder de fuego de un equipo completo de ingenieros de élite trabajando 24/7. Esta es la prueba empírica y tangible de que la asimetría del atacante hoy tiene costo marginal cero.
+
+Solté contra mis propias defensas a agentes de la misma especie que este libro describe. Los rompí más veces de las que los defendí. De las entrañas del sistema no se puede opinar de oídas. Fui, y me manché. Y que haya necesitado copilotos de IA para penetrar el kernel y atacar mis defensas no debilita la conclusión, la refuerza: si un abogado puede hacerlo, la escalada del ataque que aquí describo no es especulación académica.
+
+Este fue el desconcierto que ordenó mi tesis: No hay punto de apoyo inexpugnable. Cada medida que implementé, respaldada por los agentes y por la ciencia de la ciberseguridad, cayó ante un adversario con el privilegio y el incentivo suficientes. Contra un adversario agéntico —el patrón post-Mythos, operando a velocidad de máquina y costo marginal cero— la detección perfecta es un mito. La inteligencia artificial nos desplaza de la cadena de decisiones con la misma naturalidad e indiferencia con la que el agua desplaza al aire al entrar en un recipiente: no lo hace porque tenga voluntad, lo hace por pura densidad operativa. Pretender detener esto con barreras lógicas es intentar contener el mar con una cuchara.
+
+De ahí surgió la única conclusión intelectualmente honesta que atraviesa este trabajo: el ataque consumado no se detiene, se encarece. La defensa real no levanta muros perfectos; altera la ecuación económica del adversario. Se trata de impedir la fuga, negar el botín y obligar a que el crimen deje una huella sellada en un silicio que responda a nosotros, y no a la geopolítica de un tercero. Es la única tesis que queda en pie cuando ves caer todas las demás.
+
+Con esa certeza volví a mirar el derecho. Frente a adversarios que son pura potencia de cálculo, la regulación avanza en la dirección equivocada: trata a la IA como a un niño malcriado, exigiéndole alineamiento moral. Es como exigirle a un campeón de velocidad que recite versos de Platón en plena carrera: una incomprensión absoluta de la física del problema. Reducimos a escala humana algo que no la tiene y legislamos para el espejo. Pagamos hoy la hipoteca semántica que John McCarthy firmó en 1955 al bautizarla «inteligencia artificial» para conseguir financiamiento<a href="#fn_1" id="fnref_1"><sup>1</sup></a>. Ignoramos a Turing, que se negó a definir la inteligencia por considerarlo absurdo<a href="#fn_2" id="fnref_2"><sup>2</sup></a>, y olvidamos la advertencia brutal de Dijkstra: preguntarse si las máquinas piensan es tan relevante como preguntarse si los submarinos nadan<a href="#fn_3" id="fnref_3"><sup>3</sup></a>. Mientras la ley discute si el submarino nada, el submarino sigue avanzando bajo el agua.
+
+Pero el desplazamiento más profundo no está en cómo el derecho mira a la máquina, sino en lo que la máquina le hace a los cimientos de la prueba. El derecho moderno abolió el *non liquet* —el juez que se abstiene por falta de claridad— inventando la carga de la prueba: en la duda, pierde quien cargaba con probar. Ese mecanismo asume una cosa que siempre fue cierta hasta ahora: que la carga es descargable por alguien.
+
+Mi tesis destruye ese supuesto. Cuando el sustrato probatorio lo produce un agente autónomo que es a la vez actor y escribano, operando más rápido que toda supervisión, la carga se vuelve indescargable —simétricamente—. El Estado no puede probar la infracción; el obligado no puede probar su diligencia. Y como ninguno puede, asignar la carga a cualquiera de los dos es un acto arbitrario: una ficción —la que da nombre a esta obra—.
+
+Es el regreso del *non liquet*, en una forma que la carga de la prueba ya no puede resolver. A esto —el *non liquet* resucitado por la autonomía algorítmica— lo llamo **la paradoja del *non liquet* algorítmico**: la contribución que estas páginas se proponen demostrar.
+
+Lo que sigue retoma el formato formal. En su elaboración, utilicé Inteligencia Artificial generativa avanzada como copiloto táctico. Analizar una amenaza polimórfica que muta a velocidad de silicio utilizando la liturgia dogmática del siglo XIX garantiza publicar un diagnóstico tecnológicamente muerto. Para auditar la frontera, es imperativo operar desde ella. 
+
+**Este documento no fue "generado por una IA". Fue sometido a un motor de consenso adversarial utilizando cuatro inteligencias artificiales de frontera distintas. Se configuraron bajo una estricta arquitectura de *Red Teaming* cruzado: lo que un modelo redactaba, los otros tres tenían la instrucción explícita de destruirlo técnica y legalmente. Las más de 200.000 palabras que componen este tratado son exclusivamente las tesis que sobrevivieron al asedio algorítmico de cuatro redes neuronales distintas operando en conflicto. Aquí no hay "alucinaciones"; hay validación técnica por consenso adversarial.**
+
+Sin embargo, ninguna máquina diseñó esta tesis ni sustituyó mi juicio crítico. Todo el análisis jurídico y la investigación de ingeniería son íntegramente míos. Los algoritmos no tienen título de abogado ni responden patrimonialmente. Estos argumentos los firma y defiende quien asume la responsabilidad legal y pericial sobre ellos.
+
+Las tesis, los errores y la responsabilidad son exclusivamente míos. El proceso completo está sellado en el tiempo mediante un motor criptográfico propio (código nativo Rust / TPM local) anclado a una raíz de confianza en *hardware*. La integridad matemática de este manuscrito puede ser verificada empíricamente (véase Anexo F), porque un documento que exige la muerte de la certificación de papel no podía permitirse una prueba menor.
+
+**Jaime Marcelo Moraga Carrasco**  
+justiciachile@gmail.com  
+Temuco, Araucanía, Chile — Julio de 2026
+
+<div style="font-size: 0.85em; border-top: 1px solid #ccc; margin-top: 20px; padding-top: 10px;">
+<a id="fn_1"></a><sup>1</sup> McCarthy, J. et al., <em>A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence</em>, 1955.<br>
+<a id="fn_2"></a><sup>2</sup> Turing, A. M., <em>«Computing Machinery and Intelligence»</em>, Mind, 1950.<br>
+<a id="fn_3"></a><sup>3</sup> Dijkstra, E. W., <em>«The threats to computing science»</em> (EWD898), 1984.
+</div>
+
+---
+
 <a id="guia-de-lectura"></a>
 
 ### Escenario I.  El Operador de Importancia Vital: cuando la evidencia del Estado se borra a sí misma
