@@ -20,3 +20,6 @@ scratch/
 test.*
 fe_ciega*.txt
 *_RESPALDO.md
+
+# Artefactos de build de Rust (PoC del Anexo E)
+anexo_e_poc/target/

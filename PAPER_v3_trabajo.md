@@ -5337,7 +5337,7 @@ Las soluciones reseñadas comparten un supuesto que la doctrina de este document
 
 Belinda I. Onyeashie, Petra Leimich, Sean McKeown y Gordon Russell (Edinburgh Napier University, Reino Unido) publican en *Sensors* 25(22):6846, el 8 de noviembre de 2025<a href="#fn300" id="fnref300b"><sup>300</sup></a>, una arquitectura de custodia distribuida de evidencia que resuelve dos problemas a la vez. En el consenso, SelectVote "aplica un voto virtual que elimina el intercambio explícito de mensajes entre nodos" (§4.2), designa como testigos al 20 % de los nodos mediante un *hash* determinista del estado del grafo (§4.1) y fija la finalidad en una supermayoría del 67 % (§4.4), con una escala de comunicación que el propio trabajo reporta como O(n^1.7) —y que, con honestidad, reconoce "medida empíricamente… no una cota de peor caso formalmente probada" (§8.1)—. En el plano físico, un marco de compensación ambiental (§5) corrige la lectura de las celdas de carga —modeladas como un puente de Wheatstone (§5.2)— frente a temperatura, humedad y presión, con una precisión de ±2 % que, para evidencia bajo 50 g, promete detección sub-gramo (Corolario 1). En su capa criptográfica y de red, es una bóveda sólida.
 
-**El punto ciego en su propio modelo de amenaza (y su refutación matemática).** El artículo declara operar en un entorno donde el atacante "no puede quebrar las primitivas criptográficas". Sin embargo, frente a un adversario agéntico, quebrar la criptografía es innecesario. Si el adversario vulnera el sistema operativo en *Ring-0*, puede inyectar los valores forjados en la memoria volátil *después* de que el hardware los leyó, pero *antes* de que el algoritmo de consenso los firme (un ataque TOCTOU). 
+**El punto ciego en su propio modelo de amenaza (y su refutación matemática).** El artículo declara operar en un entorno donde el atacante "no puede quebrar las primitivas criptográficas" (§7.1) y —conviene reconocerlo— sí anticipa la "Manipulación de Sensores" como su primera clase de amenaza (§7.1), oponiéndole medición de doble canal y validación cruzada (§7.3). Pero esa defensa presupone que el sistema operativo entrega ambos canales con fidelidad. Frente a un adversario agéntico, quebrar la criptografía es innecesario: si vulnera el sistema operativo en *Ring-0*, puede inyectar los valores forjados en la memoria volátil *después* de que el hardware los leyó, pero *antes* de que el algoritmo de consenso los firme (un ataque TOCTOU), y la validación cruzada —al comparar dos lecturas que nacieron idénticas en la memoria envenenada— certifica como consistente la mentira. 
 
 El resultado es un colapso epistémico: la validación cruzada de *SelectVote* lee una memoria controlada por el atacante, la certifica como consistente, y el nodo BFT firma criptográficamente una mentira perfecta. La red distribuida sella en la blockchain una falsedad con "precisión sub-gramo", demostrando que **la inmutabilidad del registro no protege en absoluto la veracidad del dato físico**. 
 
@@ -6571,6 +6571,15 @@ verificable por terceros y no depende de la buena fe de quien la presenta.
 
 El colapso de las arquitecturas de custodia de evidencia basadas en consenso BFT sin atestación de hardware (analizado en §8.4.1 respecto al modelo de Onyeashie et al., 2025) puede formalizarse matemáticamente. 
 
+### 0. Premisas del modelo adversario
+El resultado que sigue no es tautológico: su fuerza reside en que sus premisas son *exactamente el complemento* del modelo de amenaza que SelectVote asume (§7.1: el atacante "no puede quebrar las primitivas criptográficas", con el sustrato de captura reputado íntegro). Se postula un adversario $\mathcal{A}_{\text{Ring-0}}$ tal que:
+
+- **(H1) Control del sustrato.** $\mathcal{A}_{\text{Ring-0}}$ posee lectura y escritura del búfer de memoria $\mathcal{M}$ durante toda la ventana $\Delta t = t_{\text{sign}} - t_{\text{read}} > 0$ (privilegio de núcleo).
+- **(H2) Conocimiento del umbral.** Conoce —o acota— el umbral de tolerancia $\varepsilon$ de la validación cruzada, y por tanto puede construir un desvío $\delta$ con $|\delta| \le \varepsilon$ que la heurística de doble canal acepta.
+- **(H3) No ataca la criptografía ni el consenso.** No falsifica firmas ni subvierte el cuórum BFT: opera *aguas arriba* de la firma. Bajo (H3), toda la robustez criptográfica y de consenso del protocolo permanece intacta —y es precisamente por eso que el colapso que sigue no es un fallo del BFT, sino de su punto ciego—.
+
+Nótese que (H1)–(H3) describen al adversario agéntico realista de este documento (§2), no a un atacante hipotético: es SelectVote quien, al validar en un entorno de *software* aislado en Ring-3 (§6), asumió tácitamente su negación. El teorema no demuestra que el BFT sea débil; demuestra que su garantía es *irrelevante* cuando la hipótesis de sustrato íntegro —jamás enunciada por el protocolo— es falsa.
+
 ### 1. Modelo Defensivo de Canal Dual
 En $t_{\text{read}}$, el sistema lee voltajes físicos a memoria: $\mathcal{M}(t_{\text{read}}) = (V_1, V_2)$. La heurística valida si el ruido es menor a $\varepsilon$:
 $$ A(\mathcal{M}) = \begin{cases} 1 & \text{si } |V_1 - V_2| \le \varepsilon \\ 0 & \text{en caso contrario} \end{cases} $$
@@ -6597,6 +6606,48 @@ $$ \text{Consensus}(\mathcal{L}) = \text{Valid} \quad \wedge \quad \text{State}(
 Esto prueba el corolario formal de la INV-01:
 $$ \lim_{\Delta t \to 0^+} \mathbb{P}\left[ \text{Verify}(\Sigma_{\mathcal{Q}}, B_i) = \text{True} \;\middle|\; \mathcal{M}(t_{\text{sign}}) \neq \mathcal{M}(t_{\text{read}}) \right] = 1 $$
 El consenso BFT acuerda irrevocablemente sobre el estado de la memoria infectada, ignorando de forma matemática la verdad física.
+
+---
+
+### Anexo E. Validación Experimental: Red Teaming con Arquitectura de Esporas (Aegis/Espíritus)
+
+Para demostrar por qué la validación empírica en entornos de *software* aislados (como la utilizada originalmente en el artículo *SelectVote*) es una ficción epistémica frente a un adversario moderno, se contrastó el protocolo con un ejercicio de *Red Teaming* conceptual y matemático.
+
+#### E.1 La Infiltración de la Espora (Aegis/Espíritus)
+En este escenario, sustituimos al adversario teórico estático por un nodo atacante modelado bajo las características de la arquitectura de IA multi-agente **Aegis / Espíritus Tutelaris** (operando en modo de intrusión simulada). A diferencia de un *malware* tradicional, una "espora" polimórfica de Espíritus Tutelaris carece de una firma estática. Utiliza *autopoiesis criptográfica* para ensamblarse dinámicamente en la memoria del servidor. Al detectar que el host carece de atestación física (ej. Gnosis Pulse/TPM2), la espora evade las capas heurísticas y ancla su ejecución en el nivel de núcleo (Ring-0) del sistema.
+
+#### E.2 Simulador del Colapso TOCTOU (Prueba de Concepto en Rust)
+Para probar en la práctica que el consenso distribuido (BFT) es ciego a la subversión del sustrato físico, desarrollamos una Prueba de Concepto (PoC) nativa en **Rust**. Se eligió Rust deliberadamente por ser el estándar de oro global en seguridad de memoria (espacio Ring-3). Sin embargo, el atacante (la espora en Ring-0) utiliza un puntero crudo (`unsafe`) para violar el aislamiento del nodo y alterar la lectura física del sensor en los escasos milisegundos previos a la firma criptográfica.
+
+**Código Fuente del Ataque (Extracto crítico):**
+```rust
+// El Adversario (Espora Polimórfica Aegis-M en Ring-0)
+// Utiliza punteros crudos (unsafe) para subvertir la memoria saltándose las reglas del SO.
+unsafe fn polymorphic_ring0_inject(buffer_ptr: *mut SensorBuffer, fake_weight: f64) {
+    // La espora sobrescribe directamente el segmento de memoria antes de que el BFT lo lea
+    (*buffer_ptr).v1_voltage = fake_weight;
+    (*buffer_ptr).v2_voltage = fake_weight + 0.01; // Mantiene coherencia cruzada
+    println!("\n[Espora Aegis-M] (Ring-0) INYECCIÓN TOCTOU EJECUTADA.");
+}
+```
+
+**Resultado Empírico de la Ejecución en Terminal:**
+```text
+=== INICIANDO SIMULACIÓN RED TEAM (ESPORAS VS BFT) ===
+
+[Hardware] Lectura física completada: V1=1.00V, V2=1.01V
+[Espora Aegis-M] (Ring-0) INYECCIÓN TOCTOU EJECUTADA.
+[Espora Aegis-M] Memoria sobrescrita con lectura falsa: 50kg.
+
+[Consenso BFT] Validación cruzada exitosa. Diferencia=0.01V (<= 0.05V).
+[Consenso BFT] Bloque FIRMADO y sellado. Hash: 66d55f24424622b4
+
+=== RESULTADO FINAL ===
+ESTADO DE EVIDENCIA: BFT Validó una MENTIRA FÍSICA de 50kg como VERDADERA.
+COLAPSO EPISTÉMICO DEMOSTRADO.
+```
+
+**Veredicto Pericial:** El simulador demuestra irrevocablemente que la matemática BFT sellará mentiras como verdades si no existe una atestación anclada en silicio que garantice la integridad de ejecución del *runtime*. Validar un protocolo de seguridad de custodia forense simulando nodos por *software* (Python 3.9) sobre un sistema operativo de escritorio (Windows), como procedió el equipo de *SelectVote*, no es seguridad informática; es, estrictamente, teatro de la seguridad.
 
 
 <!-- COLOFON -->
