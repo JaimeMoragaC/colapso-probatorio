@@ -5,14 +5,14 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-# Prefacio: AHORA vive integrado en el cuerpo de PAPER_v3_trabajo.md (antes de
-# Escenario I), no como fragmento front-matter inyectado. Se desactiva la inyección
-# separada de PALABRAS_PREVIAS_borrador.md para evitar que el prefacio salga DUPLICADO.
+# Prefacio (Palabras previas del autor): se renderiza como fragmento y se inyecta
+# vía include-before-body, que el template coloca ANTES del bloque "ANÁLISIS
+# CIENTÍFICO-JURÍDICO..." de la portada (por pedido: las palabras del autor van primero).
 INCLUDE_BEFORE=""
-# if [ -f PALABRAS_PREVIAS_borrador.md ]; then
-#   pandoc PALABRAS_PREVIAS_borrador.md -o .preface.fragment.html
-#   INCLUDE_BEFORE="--include-before-body=.preface.fragment.html"
-# fi
+if [ -f PALABRAS_PREVIAS_borrador.md ]; then
+  pandoc PALABRAS_PREVIAS_borrador.md -o .preface.fragment.html
+  INCLUDE_BEFORE="--include-before-body=.preface.fragment.html"
+fi
 
 pandoc PAPER_v3_trabajo.md -o PAPER_v3_Formato_Institucional.html --standalone \
   --template=template.html \
