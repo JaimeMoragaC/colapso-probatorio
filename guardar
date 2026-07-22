@@ -35,15 +35,40 @@ git add -u -- .
 
 # Sello de tiempo opcional (prueba de existencia anclada a Bitcoin).
 if [ "$DO_TS" -eq 1 ]; then
-  if command -v ots >/dev/null 2>&1; then
+  # Resolver el binario 'ots': PATH primero, luego el venv conocido, luego OTS_BIN.
+  OTS_BIN="${OTS_BIN:-}"
+  if [ -z "$OTS_BIN" ]; then
+    if command -v ots >/dev/null 2>&1; then
+      OTS_BIN="ots"
+    elif [ -x "/home/jaime/Descargas/antigravity/.venv/bin/ots" ]; then
+      OTS_BIN="/home/jaime/Descargas/antigravity/.venv/bin/ots"
+    fi
+  fi
+
+  if [ -n "$OTS_BIN" ]; then
     for f in PAPER_v3_trabajo.md PAPER_v3_Formato_Institucional.pdf; do
-      if [ -f "$f" ]; then
-        ots stamp "$f" || echo "aviso: no se pudo sellar $f (¿calendarios inaccesibles?)" >&2
+      [ -f "$f" ] || continue
+      # 'ots stamp' se NIEGA a sobrescribir un .ots existente (Errno 17: File exists).
+      # Para re-sellar el contenido nuevo: respaldamos el proof anterior en .ots.bak
+      # (gitignored) y lo retiramos; si el sello falla, lo restauramos.
+      if [ -f "$f.ots" ]; then
+        cp -f -- "$f.ots" "$f.ots.bak"
+        rm -f -- "$f.ots"
+      fi
+      if "$OTS_BIN" stamp "$f"; then
         if [ -f "$f.ots" ]; then git add -- "$f.ots"; fi
+      else
+        echo "aviso: no se pudo sellar $f (¿calendarios inaccesibles?)" >&2
+        # El nuevo sello no se creó: restaurar el proof anterior desde el respaldo.
+        if [ ! -f "$f.ots" ] && [ -f "$f.ots.bak" ]; then
+          cp -f -- "$f.ots.bak" "$f.ots"
+          echo "aviso: restaurado $f.ots desde el respaldo .bak" >&2
+        fi
       fi
     done
   else
-    echo "aviso: 'ots' no está instalado; se omite el sello. (pip install opentimestamps-client)" >&2
+    echo "aviso: 'ots' no está en PATH ni en el venv; se omite el sello." >&2
+    echo "       (instala con 'pip install opentimestamps-client', o exporta OTS_BIN=/ruta/a/ots)" >&2
   fi
 fi
 
