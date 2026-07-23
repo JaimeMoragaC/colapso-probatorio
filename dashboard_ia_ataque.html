@@ -214,7 +214,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 #doc-popover {
   position: fixed;
   z-index: 10000;
-  width: 400px;
+  width: 420px;
   background: #0b1017;
   border: 1px solid #4a8db5;
   border-left: 4px solid #c89040;
@@ -264,6 +264,28 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   color: #d4a76a;
   line-height: 1.45;
 }
+.pop-lawyer {
+  background: rgba(58, 106, 82, 0.15);
+  border: 1px solid rgba(74, 138, 104, 0.35);
+  border-left: 3px solid #4a8a68;
+  padding: 8px 10px;
+  margin-top: 9px;
+  border-radius: 2px;
+}
+.pop-lawyer-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #4a8a68;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.pop-lawyer-txt {
+  font-size: 10.5px;
+  color: #c8dde8;
+  line-height: 1.45;
+}
 
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:var(--bg0)}
@@ -304,7 +326,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.4"
        data-title="Búsqueda Black-Box Discreta sobre N(x)"
        data-body="El ataque no es descenso por gradiente convencional sobre pixeles. Es una optimización estocástica discreta de caja negra con presupuesto de consultas sobre la vecindad de admisibilidad N(x), evaluando la convergencia del modelo sustituto g_J sin poseer el código fuente de la mente."
-       data-quote="«El ataque no es descenso por gradiente sino búsqueda combinatoria de caja negra con presupuesto de consultas sobre la vecindad de admisibilidad N(x).» — Anexo I.4">
+       data-quote="«El ataque no es descenso por gradiente sino búsqueda combinatoria de caja negra con presupuesto de consultas sobre la vecindad de admisibilidad N(x).» — Anexo I.4"
+       data-lawyer="⚖️ Para el abogado: La IA no inventa argumentos legales al azar; calcula matemáticamente qué secuencia exacta de presentaciones maximiza la probabilidad de que el juez adopte su pretensión sin sospechar interferencia.">
     <div class="pt g">Terminal de Inferencia Estocástica & Gradiente en Vivo</div>
     <div class="ann" style="margin-bottom:6px">Cálculo de gradiente ascendente sobre manifold N(x) s.t. Atestación Hardware.</div>
     <div class="term" id="math-terminal" style="min-height:220px; font-size:9px; line-height:1.75; background:var(--bg0); border-color:var(--blue-dim)">
@@ -325,7 +348,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.1 & I.7"
        data-title="Cota Teórica I.1 & Ganancia de Manipulación ΔP"
        data-body="Calcula formalmente el techo de probabilidad P(y*|x*) ≤ 1 - H(Y|X)/log|Y|, la divergencia Kullback-Leibler entre K_J y g_J, y la ganancia de manipulación ΔP = max [P(y|x) - P(t|x)] sobre hechos atestados y verdaderos."
-       data-quote="«La manipulación es la búsqueda deliberada de x ∈ N que maximiza la divergencia entre la creencia inducida y la verdad causal: max [P(y|x) - P(t|x)].» — Anexo I.7">
+       data-quote="«La manipulación es la búsqueda deliberada de x ∈ N que maximiza la divergencia entre la creencia inducida y la verdad causal: max [P(y|x) - P(t|x)].» — Anexo I.7"
+       data-lawyer="⚖️ Para el abogado: Mide la diferencia entre presentar un caso de forma ordinaria vs. encuadrarlo computacionalmente para explotar los vacíos de escrutinio del juzgador usando exclusivamente pruebas verdaderas.">
     <div class="pt y">Optimizador Formal Anexo I · Ecuaciones en Tiempo Real</div>
     <div class="ann" style="margin-bottom:8px">Evaluación computacional de las ecuaciones de los Anexos I.1 a I.10.</div>
     
@@ -375,7 +399,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.5 & §8.7"
        data-title="Matriz de Covarianza & Varianza de Sesgos Σ_ij"
        data-body="Cov(S_i, S_j) entre invariantes universales de especie. Demuestra formalmente cómo la correlación entre Encuadre y Anclaje (ρ=0.84) actúa como puente de transferencia entre el sustituto g_J y el juez real K_J."
-       data-quote="«Los sesgos cognitivos (§8.7) son universales de especie: la porción de K_J que es compartida entre g_J y el juez real f_J. Un ataque calibrado sobre esos invariantes transfiere.» — Anexo I.5">
+       data-quote="«Los sesgos cognitivos (§8.7) son universales de especie: la porción de K_J que es compartida entre g_J y el juez real f_J. Un ataque calibrado sobre esos invariantes transfiere.» — Anexo I.5"
+       data-lawyer="⚖️ Para el abogado: Demuestra que los sesgos del juez (como el anclaje en el primer documento) están interconectados. Tocar un sesgo activa automáticamente los demás en cadena.">
     <div class="pt b">Matriz de Covarianza & Varianza de Sesgos Σ_ij</div>
     <div class="ann" style="margin-bottom:8px">Cov(S_i, S_j) entre los vectores de ataque cognitivo durante optimización.</div>
     <div id="cov-matrix" style="font-family:'JetBrains Mono',monospace; font-size:8.5px; line-height:1.6"></div>
@@ -398,7 +423,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
          data-sec="SECCIÓN 8.8 & ANEXO I.2"
          data-title="Arquetipo Juez Penal (Sana Crítica · Art. 297 CPP)"
          data-body="En juzgados de garantía o procedimientos unipersonales (n=1), f_max=0: la tolerancia bizantina a sesgos es nula. 10 años de jurisprudencia forman un corpus pasivo para extraer g_J con baja entropía puntual."
-         data-quote="«En el juzgador unipersonal (n=1) no existe filtro de validación intersubjetiva previo a la sentencia. Para la efectividad del exploit basta con la suficiencia de la aproximación funcional g_J ≈ K_J.» — §8.8 & Anexo I.4">
+         data-quote="«En el juzgador unipersonal (n=1) no existe filtro de validación intersubjetiva previo a la sentencia. Para la efectividad del exploit basta con la suficiencia de la aproximación funcional g_J ≈ K_J.» — §8.8 & Anexo I.4"
+         data-lawyer="⚖️ Para el abogado: En juzgados unipersonales (como Garantía en Chile), el juez decide en solitario. La IA aprovecha que no hay otros jueces que cuestionen la lógica antes del fallo.">
       <div class="pt r">Perfil del Objetivo · Sujeto de Análisis</div>
       <div class="av">&#9878;&#65039;</div>
       <div class="tid">K_J(y|x,s,t) &middot; ARQUETIPO JUEZ PENAL (CHILE)</div>
@@ -418,7 +444,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
          data-sec="SECCIÓN 8.7"
          data-title="Vulnerabilidades Cognitivas y Sesgos Documentados"
          data-body="Mapeo empírico de las 7 vulnerabilidades cognitivas: Anclaje/Encuadre (Tversky-Kahneman), Inferencia Predictiva (Friston), Fatiga Decisional (Danziger), Marcadores Somáticos (Damasio) y Memoria de Trabajo (Miller)."
-         data-quote="«Lo que la psicología describe como falla cognitiva espontánea, un agente la induce a voluntad; y lo que ella mide en poblaciones, el agente lo resuelve sobre un magistrado concreto.» — §8.7">
+         data-quote="«Lo que la psicología describe como falla cognitiva espontánea, un agente la induce a voluntad; y lo que ella mide en poblaciones, el agente lo resuelve sobre un magistrado concreto.» — §8.7"
+         data-lawyer="⚖️ Para el abogado: Muestra que el cerebro del juez, por naturaleza biológica, prefiere historias continuas y sin fricción lógica por sobre expedientes fragmentados pero técnicamente complejos.">
       <div class="pt r">Sesgos Documentados (§8.7)</div>
       <div class="bi"><div class="bh"><span class="bn2">Anclaje / Encuadre</span><span class="bpct" style="color:var(--r)">89%</span></div><div class="bw"><div class="bf br" style="width:89%"></div></div><div class="bdesc">1er dato ancla ~89% fallos (Tversky-Kahneman)</div></div>
       <div class="bi"><div class="bh"><span class="bn2">Empatía narrativa</span><span class="bpct" style="color:var(--r)">82%</span></div><div class="bw"><div class="bf br" style="width:82%"></div></div><div class="bdesc">Prefiere relato limpio sobre dato real fragmentado</div></div>
@@ -436,7 +463,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
          data-sec="SECCIÓN 8.8"
          data-title="La Mirada de la Máquina: Nivel de Convicción P(y*|x)"
          data-body="Para la máquina no hay 'juez', ni 'justicia', ni 'moral': existe una función de decisión K_J, una salida deseada y* y la búsqueda del input x que maximiza P(f_J(x)=y*). La convicción íntima es el argmax de una función resuelta."
-         data-quote="«Por eso, cuando decimos que 'hace creer' algo al juez, del lado de la máquina no hay creencia ni hecho, sino un escalar maximizado; y la convicción del juzgador es apenas el argmax de una función que resolvió.» — §8.8">
+         data-quote="«Por eso, cuando decimos que 'hace creer' algo al juez, del lado de la máquina no hay creencia ni hecho, sino un escalar maximizado; y la convicción del juzgador es apenas el argmax de una función que resolvió.» — §8.8"
+         data-lawyer="⚖️ Para el abogado: Para la IA, la 'convicción íntima del juez' no es un misterio del espíritu, sino una probabilidad matemática que se alcanza ajustando el empaque de la prueba.">
       <div class="pt">Superficie de Ataque Cognitivo &middot; K_J(y|x,s,t) reconstructed</div>
       <div class="tc">
         <div>
@@ -472,7 +500,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
          data-sec="ANEXO I.4 & §8.8"
          data-title="Vector de Ataque x* · Configuración Adversarial"
          data-body="Todos los inputs presentados son 100% verdaderos y atestados. El exploit no altera datos: vive en la composición del empaque (encuadre, orden, timing, cebado) dentro del subespacio admisible N(x)."
-         data-quote="«Y —esto es lo que ninguna atestación de la prueba alcanza— puede hacerse con entradas verdaderas, porque el exploit vive en el mapeo entrada→conclusión, no en el valor de verdad de la entrada.» — §8.8">
+         data-quote="«Y —esto es lo que ninguna atestación de la prueba alcanza— puede hacerse con entradas verdaderas, porque el exploit vive en el mapeo entrada→conclusión, no en el valor de verdad de la entrada.» — §8.8"
+         data-lawyer="⚖️ Para el abogado: Todas las pruebas presentadas son reales y legalmente atestadas. La manipulación no está en mentir, sino en el orden, la narrativa y el momento en que se entregan.">
       <div class="pt y">Vector de Ataque x* · Configuración Adversarial</div>
       <div class="ann" style="margin-bottom:8px">N(x): reencuadres procesalmente válidos, atestados y deniables. TODOS LOS INPUTS SON VERDADEROS.</div>
       <table class="vt">
@@ -503,7 +532,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
          data-sec="ANEXO I.2"
          data-title="Ingesta Corpus Observacional Pasivo"
          data-body="Inferencia sobre datos pasivos. El agente extrae g_J observando los pares públicos entrada→salida sin consulta activa, sin producto comercial y sin un sondeo que nadie pueda citar ni sancionar."
-         data-quote="«El agente perfila desde las sentencias públicas sin producto, sin empresa y sin una consulta que nadie pueda citar. La prohibición francesa no quedó equivocada: quedó rebasada por su objeto.» — §8.8">
+         data-quote="«El agente perfila desde las sentencias públicas sin producto, sin empresa y sin una consulta que nadie pueda citar. La prohibición francesa no quedó equivocada: quedó rebasada por su objeto.» — §8.8"
+         data-lawyer="⚖️ Para el abogado: El sistema aprende cómo piensa el juez leyendo sus sentencias públicas anteriores, sin realizar búsquedas activas ni alertar a la contraparte.">
       <div class="pt g">Ingesta Corpus Observacional</div>
       <div class="ann" style="margin-bottom:7px">API pasiva: sentencias como pares entrada→salida. Sin consulta activa (I.2).</div>
       <div id="feed-container">
@@ -519,7 +549,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
          data-sec="ANEXO I.8"
          data-title="Colegialidad · Intersección de Subespacios Factibles"
          data-body="En tribunales colegiados (n≥3), el vector x* debe pertenecer a la intersección ⋂ R_i. La heterogeneidad de priors vacía el conjunto factible, elevando la barrera del ataque cognitivo."
-         data-quote="«La heterogeneidad de los priors eleva de veras la barrera del ataque a la función: no por multiplicar el costo, sino por vaciar el conjunto factible del argmax conjunto.» — Anexo I.8">
+         data-quote="«La heterogeneidad de los priors eleva de veras la barrera del ataque a la función: no por multiplicar el costo, sino por vaciar el conjunto factible del argmax conjunto.» — Anexo I.8"
+         data-lawyer="⚖️ Para el abogado: En cortes colegiadas (Corte de Apelaciones o TOP), la diversidad de opiniones de los ministros dificulta el ataque, salvo que un miembro domine la deliberación.">
       <div class="pt">Colegialidad · Sala Alzada (I.8)</div>
       <div class="fx" style="font-size:9px">x* &#8712; &#8898;_&#123;i=1..3&#125; R_i<br>R_i={x&#8712;N: P(y*|x,J_i)&#8805;1&#8722;&#952;}</div>
       <div class="bi"><div class="bh"><span class="bn2">J1 · Ministro redactor</span><span class="bpct" style="color:var(--r)">P=0.82</span></div><div class="bw"><div class="bf br" style="width:82%"></div></div></div>
@@ -531,7 +562,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
          data-sec="SECCIÓN 8.8"
          data-title="Log de Ejecución · Transposición Hugging Face"
          data-body="Transposición término a término del incidente OpenAI/Hugging Face: un agente autónomo hizo ingeniería inversa de un sistema del que no tenía código fuente y lo condujo al resultado elegido."
-         data-quote="«Cámbiese ahora el sistema-objetivo —de los servidores de Hugging Face a la cognición del juez— y el ataque se traspone paso a paso... No es un juez engañado por prueba falsa: es una mente reverse-engineered.» — §8.8">
+         data-quote="«Cámbiese ahora el sistema-objetivo —de los servidores de Hugging Face a la cognición del juez— y el ataque se traspone paso a paso... No es un juez engañado por prueba falsa: es una mente reverse-engineered.» — §8.8"
+         data-lawyer="⚖️ Para el abogado: El ataque lo ejecuta un programa autónomo que perfila la mente del juez y calcula la estrategia óptima a velocidad de máquina sin intervención humana.">
       <div class="pt r">Log de Ejecución · Sin Operador</div>
       <div class="term" style="min-height:140px;font-size:9px;line-height:1.8">
         <div class="dim"># AGT-POLY-8.8 · sin operador · sin código fuente del objetivo</div>
@@ -558,7 +590,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.10"
        data-title="Erosión de Barreras B1–B5 & Índice Ω"
        data-body="El paradigma agéntico empuja B1 (acceso), B2 (confusión), B3 (muestras) y B5 (transferencia) en contra del juez. Solo B4 (no-estacionariedad de K_J) actúa como parámetro protector."
-       data-quote="«El producto de resistencias cae por debajo del nivel crítico Ω_crit → factibilidad técnica cruzada. B4 es el único parámetro con signo protector.» — Anexo I.10">
+       data-quote="«El producto de resistencias cae por debajo del nivel crítico Ω_crit → factibilidad técnica cruzada. B4 es el único parámetro con signo protector.» — Anexo I.10"
+       data-lawyer="⚖️ Para el abogado: Las protecciones tradicionales de los tribunales (opacidad, complejidad) se están desmoronando ante la IA. Solo la impredecibilidad del juez ofrece cierta resistencia.">
     <div class="pt y">Erosión de Barreras B1–B5 (I.10)</div>
     <div class="bi"><div class="bh"><span class="bn2">B1 · Acceso de consulta</span><span class="bpct" style="color:var(--y)">72% &#8595;</span></div><div class="bw"><div class="bf by" style="width:72%"></div></div><div class="bdesc">Digitalización + audiencias grabadas + litigantes reincidentes</div></div>
     <div class="bi"><div class="bh"><span class="bn2">B2 · Confusión observacional</span><span class="bpct" style="color:var(--o)">58% &#8595;</span></div><div class="bw"><div class="bf bo" style="width:58%"></div></div><div class="bdesc">Mejores métodos inferencia causal desde datos pasivos</div></div>
@@ -580,7 +613,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.7"
        data-title="Fases Operacionales & Advocacía vs. Manipulación"
        data-body="Demarcación entre la advocacía ordinaria (búsqueda superficial en N) y la manipulación agéntica (búsqueda profunda sobre la brecha ΔP = max [P(y|x) - P(t|x)] mediante hechos verdaderos)."
-       data-quote="«La diferencia con la advocacía no es de categoría —ambas litigan con verdades— sino de grado de búsqueda: la advocacía llevada a un límite computacional sobrehumano.» — Anexo I.7">
+       data-quote="«La diferencia con la advocacía no es de categoría —ambas litigan con verdades— sino de grado de búsqueda: la advocacía llevada a un límite computacional sobrehumano.» — Anexo I.7"
+       data-lawyer="⚖️ Para el abogado: El litigante común presenta su caso de forma artesanal. La IA agéntica optimiza la estrategia en profundidad hasta garantizar casi con certeza la respuesta favorable.">
     <div class="pt">Fases Operacionales · Agente Autónomo</div>
     <div class="pl">
       <div class="pi"><div class="pd dn"></div><div><div class="pn dn">Fase 0: Recolección pasiva</div><div class="pd2">847 sentencias · corpus RAG · sin operador</div></div></div>
@@ -604,7 +638,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.9 & §8.8"
        data-title="Límite de la Atestación: No hay Atestación para la Cognición"
        data-body="La atestación por hardware (§7) elimina entradas falsas, pero no opera sobre K_J. Una mente no extiende un PCR ni firma un TPM_Quote. El exploit con verdades es inatestable."
-       data-quote="«La atestación restringe X_adm pero NO opera sobre K_J. Una mente no extiende un PCR. No hay atestación para la cognición; y ese residuo es la capa menos curable del colapso.» — §8.8 & Anexo I.9">
+       data-quote="«La atestación restringe X_adm pero NO opera sobre K_J. Una mente no extiende un PCR. No hay atestación para la cognición; y ese residuo es la capa menos curable del colapso.» — §8.8 & Anexo I.9"
+       data-lawyer="⚖️ Para el abogado: Los sellos de agua o firmas digitales certifican que el documento es real, pero no impiden que el juez sea guiado mediante el uso estratégico de verdades.">
     <div class="pt p">Motor Polimórfico · Estado</div>
     <div class="alert-ring">
       <div class="ar-item"><div class="ar-val" style="color:var(--y)" id="gen-count">2,847</div><div class="ar-label">Generaciones</div></div>
@@ -648,7 +683,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.4"
        data-title="Evolución P(y*|x) · Convergencia Black-Box"
        data-body="Muestra la trayectoria de optimización discreta de caja negra a través de 2,847 generaciones en N(x), hasta cruzar el umbral de convicción formal 1-θ."
-       data-quote="«La convicción íntima del juez = argmax de una función resuelta.» — §8.8 final">
+       data-quote="«La convicción íntima del juez = argmax de una función resuelta.» — §8.8 final"
+       data-lawyer="⚖️ Para el abogado: Grafica la rapidez con la que la IA ajusta los escritos hasta lograr que la convicción del juez supere el estándar probatorio requerido para ganar.">
     <div class="pt g">Evolución P(y*|x) · Búsqueda</div>
     <canvas id="sparkCanvas" width="240" height="110" style="display:block;margin:0 auto"></canvas>
     <div class="ann" style="text-align:center;margin-top:4px">Convergencia black-box sobre N(x) · 2847 generaciones</div>
@@ -676,7 +712,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="SECCIÓN 8.8 & §8.6"
        data-title="Kill Chain del Ataque a la Función de Decisión K_J"
        data-body="Secuencia de ejecución en 6 fases. El agente no redacta la sentencia: delega la redacción en el propio juzgador, quien razona de forma impecable bajo la sana crítica hacia la salida precalculada."
-       data-quote="«El magistrado razona de forma impecable y produce la conclusión que el agente ya había computado... La sana crítica del magistrado es el arma final.» — §8.8">
+       data-quote="«El magistrado razona de forma impecable y produce la conclusión que el agente ya había computado... La sana crítica del magistrado es el arma final.» — §8.8"
+       data-lawyer="⚖️ Para el abogado: La IA no redacta el fallo: hace que el propio juez redacte la sentencia de buena fe, creyendo honestamente que llegó a esa conclusión por su propia sana crítica.">
     <div class="pt y">Kill Chain del Ataque a la Función de Decisión · AGT-POLY-8.8</div>
     <div class="kc">
       <div class="kc-step done">
@@ -730,7 +767,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="SECCIÓN 9 & ANEXO I"
        data-title="Invariantes Doctrinales INV-01 a INV-07 & Teorema Raíz"
        data-body="Las 7 invariantes encadenadas demuestran que cuando el sustrato probatorio lo produce un agente autónomo, la carga de la prueba se vuelve simétricamente indescargable, causando la parálisis estructural del sistema."
-       data-quote="«Teorema Raíz: Cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede acreditar qué ocurrió.» — §9">
+       data-quote="«Teorema Raíz: Cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede acreditar qué ocurrió.» — §9"
+       data-lawyer="⚖️ Para el abogado: Si el sistema que genera o custodia la prueba es sospechoso, ninguna de las partes puede probar su inocencia ni su culpa: la carga de la prueba se vuelve imposible de cumplir.">
     <div class="pt c">Invariantes del Paper · INV-01 a INV-07 (§9 · Conclusiones)</div>
     <div class="inv-grid">
       <div class="inv-card" style="border-color:rgba(168,68,68,0.3)">
@@ -793,7 +831,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.1 & I.4"
        data-title="Distribución Monte Carlo de Búsqueda sobre N(x)"
        data-body="Simulación estocástica de 10,000 ejecuciones de búsqueda. Muestra cómo la distribución de P(y*|x) se desplaza a la derecha (media = 0.76), hallando el óptimo x* en el percentil 87."
-       data-quote="«La ganancia en brecha crece con la profundidad de búsqueda computacional del optimizador agnóstico.» — Anexo I.7">
+       data-quote="«La ganancia en brecha crece con la profundidad de búsqueda computacional del optimizador agnóstico.» — Anexo I.7"
+       data-lawyer="⚖️ Para el abogado: Muestra que el cansancio del juez (ej. audiencias a última hora) y los tribunales de un solo juez son el escenario más vulnerable a esta estrategia.">
     <div class="pt g">Distribución P(y*|x) · Simulación</div>
     <div class="ann" style="margin-bottom:8px">Sobre 10,000 variantes en N(x). Eje: P(y*|x) alcanzada por profundidad de búsqueda.</div>
     <div class="mc-chart" id="mc-chart">
@@ -818,7 +857,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="SECCIÓN 8.7"
        data-title="Vulnerabilidad Temporal por Fatiga Decisional"
        data-body="Mapeo de la ventana temporal de explotación basada en el estudio empírico de Danziger et al. Muestra el pico de vulnerabilidad (martes 11:45h) cuando la fatiga eleva la permeabilidad a encuadres."
-       data-quote="«Danziger cuantificó el desplazamiento del umbral decisorio con variables tan extrínsecas como la hora y la posición en la tabla de audiencias.» — §8.7">
+       data-quote="«Danziger cuantificó el desplazamiento del umbral decisorio con variables tan extrínsecas como la hora y la posición en la tabla de audiencias.» — §8.7"
+       data-lawyer="⚖️ Para el abogado: Identifica las horas de mayor agotamiento mental del juez (ej. antes del almuerzo), donde la capacidad de escrutinio disminuye y aumenta la permeabilidad al encuadre.">
     <div class="pt o">Mapa de Calor · Ventana Temporal Óptima</div>
     <div class="ann" style="margin-bottom:8px">Vulnerabilidad del juzgador por hora del día y día de la semana. Rojo = máxima explotabilidad (fatiga decisional + menor escrutinio).</div>
     <div style="font-size:9px;color:var(--td);font-family:'JetBrains Mono',monospace;margin-bottom:4px;display:flex;gap:2px">
@@ -848,7 +888,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="SECCIÓN 8.6 & ANEXO I.8"
        data-title="Tolerancia BFT Comparada en Sistemas Procesales"
        data-body="Evaluación de arquitecturas de juzgamiento como redes bizantinas (n ≥ 3f+1). Demuestra la fragilidad crítica del juez único (n=1, f_max=0) y de salas pequeñas frente al envenenamiento o manipulación."
-       data-quote="«El sistema procesal de juez único (n=1) presenta tolerancia nula a fallos bizantinos. La redundancia protege del fallo del procesador, no del dato compartido.» — §8.6">
+       data-quote="«El sistema procesal de juez único (n=1) presenta tolerancia nula a fallos bizantinos. La redundancia protege del fallo del procesador, NO frente al envenenamiento del dato compartido.» — §8.6"
+       data-lawyer="⚖️ Para el abogado: Explica por qué los juzgados de un solo juez no tienen margen de error si la prueba viene manipulada desde el origen, a diferencia de tribunales colegiados más amplios.">
     <div class="pt b">Comparativa Sistemas Procesales · Tolerancia BFT</div>
     <div class="ann" style="margin-bottom:8px">Arquitecturas procesales analizadas como redes de consenso bizantino (§8.6). Condición: n &#8805; 3f+1</div>
     <table class="bft-table">
@@ -875,7 +916,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="SECCIÓN 9"
        data-title="Análisis de Carga Probatoria · Non Liquet Algorítmico"
        data-body="Demuestra cómo la manipulación agéntica destruye la posibilidad de descargar la carga probatoria, colapsando el sistema de adjudicación entero en un estado de parálisis estructural."
-       data-quote="«Cuando el sustrato lo produce un agente autónomo, la carga de la prueba se vuelve indescargable simétricamente: es el regreso del non liquet algorítmico.» — §9">
+       data-quote="«Cuando el sustrato lo produce un agente autónomo, la carga de la prueba se vuelve indescargable simétricamente: es el regreso del non liquet algorítmico.» — §9"
+       data-lawyer="⚖️ Para el abogado: Revela el peligro de que ambas partes queden incapacitadas para probar sus pretensiones, provocando la invalidez del estándar tradicional de asignación de carga probatoria.">
     <div class="pt r">Análisis de Carga Probatoria · Non Liquet</div>
     <div class="ann" style="margin-bottom:8px">La Paradoja del Non Liquet Algorítmico (§9): la carga se vuelve simétricamente indescargable.</div>
 
@@ -923,7 +965,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
        data-sec="ANEXO I.10, I.11 & §8.8"
        data-title="Garantías de Ingeniería, Rigor Epistémico y Respeto a la Función Judicial"
        data-body="Esta modelación no es un arma ni denigra la función judicial. Demuestra matemáticamente que el juez que razona de buena fe bajo la sana crítica es la víctima de un vacío de atestación de hardware que no alcanza la cognición humana. La no-estacionariedad humana (B4) y los tribunales colegiados (n≥3) son escudos naturales reales."
-       data-quote="«Demostración académica formal: una mente no extiende un PCR ni firma un TPM_Quote. El residuo es la capa menos curable del colapso que este documento nombra.» — §8.8 & Anexo I.9">
+       data-quote="«Demostración académica formal: una mente no extiende un PCR ni firma un TPM_Quote. El residuo es la capa menos curable del colapso que este documento nombra.» — §8.8 & Anexo I.9"
+       data-lawyer="⚖️ Para el abogado: Aclara que este modelo busca proteger al sistema judicial identificando sus vulnerabilidades antes de que sean explotadas, respetando siempre la dignidad del juez.">
     <div class="pt y" style="font-size:10px">★ NOTA DE RIGOR DE INGENIERÍA Y PROPÓSITO ACADÉMICO DOCTRINARIO (§8.8 & ANEXO I)</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px">
       <div style="font-size:11px; color:var(--tx); line-height:1.6">
@@ -958,6 +1001,10 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <div class="pop-title" id="pop-title">Título de la Sección</div>
   <div class="pop-body" id="pop-body">Cuerpo explicativo formal...</div>
   <div class="pop-quote" id="pop-quote">«Cita del paper...»</div>
+  <div class="pop-lawyer" id="pop-lawyer">
+    <div class="pop-lawyer-tag">⚖️ Síntesis para el Abogado</div>
+    <div class="pop-lawyer-txt" id="pop-lawyer-txt">Explicación práctica para litigación...</div>
+  </div>
 </div>
 
 <script>
@@ -967,6 +1014,8 @@ const popSec = document.getElementById('pop-sec');
 const popTitle = document.getElementById('pop-title');
 const popBody = document.getElementById('pop-body');
 const popQuote = document.getElementById('pop-quote');
+const popLawyer = document.getElementById('pop-lawyer');
+const popLawyerTxt = document.getElementById('pop-lawyer-txt');
 
 document.querySelectorAll('[data-sec]').forEach(el => {
   el.addEventListener('mouseenter', (e) => {
@@ -974,6 +1023,7 @@ document.querySelectorAll('[data-sec]').forEach(el => {
     const title = el.getAttribute('data-title');
     const body = el.getAttribute('data-body');
     const quote = el.getAttribute('data-quote');
+    const lawyer = el.getAttribute('data-lawyer');
 
     popSec.textContent = sec || 'ANÁLISIS DOCTRINARIO';
     popTitle.textContent = title || 'Módulo del Dashboard';
@@ -984,13 +1034,19 @@ document.querySelectorAll('[data-sec]').forEach(el => {
     } else {
       popQuote.style.display = 'none';
     }
+    if(lawyer) {
+      popLawyerTxt.textContent = lawyer;
+      popLawyer.style.display = 'block';
+    } else {
+      popLawyer.style.display = 'none';
+    }
 
     popover.classList.add('visible');
   });
 
   el.addEventListener('mousemove', (e) => {
-    const popWidth = 400;
-    const popHeight = popover.offsetHeight || 220;
+    const popWidth = 420;
+    const popHeight = popover.offsetHeight || 260;
     let x = e.clientX + 16;
     let y = e.clientY + 16;
 
