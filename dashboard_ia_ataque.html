@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGT-POLY · Análisis de Objetivo Jurisdiccional</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Fondos */
+  --bg0:#090d12;--bg1:#0d1219;--bg2:#121a24;--bg3:#16202e;
+  /* Paleta principal: dos colores */
+  --blue:#4a8db5;        /* azul frío — datos, información */
+  --blue-dim:#2a5470;    /* azul apagado */
+  --amber:#b07d3a;       /* ámbar muted — alertas */
+  --amber-hi:#c89040;    /* ámbar claro */
+  --danger:#8a3a3a;      /* rojo apagado — crítico */
+  --danger-hi:#a84444;   /* rojo medio */
+  --ok:#3a6a52;          /* verde muy apagado — confirmado */
+  --ok-hi:#4a8a68;       /* verde muted */
+  /* Alias de compatibilidad */
+  --r:var(--danger-hi);--g:var(--ok-hi);--b:var(--blue);
+  --y:var(--amber);--p:var(--blue-dim);--o:var(--amber-hi);--c:var(--blue);
+  /* Texto */
+  --td:#2e3d4f;--tm:#4a6277;--th:#6a8fa8;--tx:#c8dde8;
+  --bdr:rgba(74,141,181,0.12);
+  --gr:none;--rr:none;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg0);color:var(--tx);font-family:'Inter',sans-serif;font-size:13px;line-height:1.5;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);}
+
+/* TOP BAR */
+.topbar{background:var(--bg1);border-bottom:1px solid var(--blue-dim);padding:9px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 20px rgba(0,0,0,0.4);position:sticky;top:0;z-index:100;}
+.badge{background:var(--danger);color:#c8dde8;font-family:'JetBrains Mono',monospace;font-size:9px;
+  font-weight:700;letter-spacing:2px;padding:3px 8px;border-radius:2px;}
+.sys-id{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--th);letter-spacing:1px;}
+.sys-name{font-size:14px;font-weight:600;color:var(--tx);}
+.tb-r{display:flex;align-items:center;gap:18px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tm);}
+.live{display:flex;align-items:center;gap:6px;color:var(--blue);}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);animation:blink 1s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* LAYOUT */
+.wrapper{display:flex;flex-direction:column;gap:1px;background:var(--td);}
+.row{display:grid;gap:1px;background:var(--td);}
+.r3{grid-template-columns:270px 1fr 270px;}
+.r4{grid-template-columns:1fr 1fr 1fr 1fr;}
+.r5{grid-template-columns:2fr 1fr 1fr 1fr 1fr;}
+.col{display:flex;flex-direction:column;gap:1px;background:var(--td);}
+
+/* PANEL HOVER ENHANCEMENT */
+.p{background:var(--bg1);padding:14px;position:relative;overflow:hidden;transition:border-color 0.2s, background 0.2s;cursor:pointer;}
+.p:hover{background:rgba(18,26,36,0.95);outline:1px solid var(--amber-hi);z-index:10;}
+.p::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue-dim),transparent);opacity:0.5;}
+.pt{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.pt::before{content:'';display:inline-block;width:3px;height:11px;background:var(--blue);border-radius:1px;}
+.pt.r{color:var(--amber);}.pt.r::before{background:var(--amber);}
+.pt.g{color:var(--blue);}.pt.g::before{background:var(--blue);}
+.pt.y{color:var(--amber-hi);}.pt.y::before{background:var(--amber-hi);}
+.pt.p{color:var(--th);}.pt.p::before{background:var(--th);}
+.pt.o{color:var(--amber);}.pt.o::before{background:var(--amber);}
+.pt.c{color:var(--blue);}.pt.c::before{background:var(--blue);}
+
+/* STAT */
+.sr{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:11px;}
+.sl{color:var(--tm);font-family:'JetBrains Mono',monospace;font-size:10px;}
+.sv{color:var(--tx);font-family:'JetBrains Mono',monospace;font-weight:700;}
+.sv.r{color:var(--amber);}.sv.y{color:var(--amber-hi);}.sv.b{color:var(--blue);}
+
+/* BARS — paleta sobria */
+.bw{background:var(--bg2);border-radius:2px;height:5px;margin-top:3px;overflow:hidden;}
+.bf{height:100%;border-radius:2px;transition:width 1.5s ease;}
+.bg{background:linear-gradient(90deg,#1e3d50,#2a5a70);}
+.br{background:linear-gradient(90deg,#6b3a1a,#a85a2a);}
+.bb{background:linear-gradient(90deg,#1e3a55,#3a7aaa);}
+.by{background:linear-gradient(90deg,#6a4a1a,#b07d3a);}
+.bp{background:linear-gradient(90deg,#1a2e44,#2a5470);}
+.bo{background:linear-gradient(90deg,#7a4a1a,#c89040);}
+.bc{background:linear-gradient(90deg,#1a3a55,#4a8db5);}
+
+/* BIG NUMBER */
+.bn{font-family:'JetBrains Mono',monospace;font-size:48px;font-weight:700;line-height:1;letter-spacing:-2px;}
+.bn.g{color:var(--blue);}
+.bn.r{color:var(--amber-hi);}
+.bsub{font-size:9px;letter-spacing:2px;color:var(--tm);text-transform:uppercase;margin-top:4px;}
+
+/* FORMULA */
+.fx{background:var(--bg2);border:1px solid var(--bdr);border-left:2px solid var(--blue-dim);
+  padding:9px 11px;border-radius:2px;font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:var(--th);margin:8px 0;letter-spacing:0.3px;line-height:1.7;}
+
+/* BARRIER */
+.bi{margin-bottom:10px;}
+.bh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;}
+.bn2{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--th);}
+.bpct{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;}
+.bdesc{font-size:10px;color:var(--tm);margin-top:1px;}
+
+/* FEED */
+.fi{padding:6px 0;border-bottom:1px solid var(--bdr);display:flex;gap:9px;align-items:flex-start;}
+.fts{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--td);white-space:nowrap;margin-top:2px;}
+.ft{font-size:11px;color:var(--th);line-height:1.4;}
+
+/* PHASE */
+.pl{position:relative;}
+.pl::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--td);}
+.pi{display:flex;gap:11px;align-items:flex-start;padding:7px 0;position:relative;}
+.pd{width:11px;height:11px;border-radius:50%;border:1.5px solid;background:var(--bg1);flex-shrink:0;margin-top:2px;position:relative;z-index:1;}
+.pd.dn{border-color:var(--blue-dim);background:var(--blue-dim);}
+.pd.ac{border-color:var(--amber-hi);animation:py 1.2s infinite;}
+.pd.pe{border-color:var(--td);}
+@keyframes py{0%,100%{box-shadow:0 0 3px rgba(200,144,64,0.4)}50%{box-shadow:0 0 8px rgba(200,144,64,0.6)}}
+.pn{font-size:11px;color:var(--th);font-weight:500;}
+.pn.dn{color:var(--blue);}.pn.ac{color:var(--amber-hi);}.pn.pe{color:var(--td);}
+.pd2{font-size:10px;color:var(--td);margin-top:1px;font-family:'JetBrains Mono',monospace;}
+
+/* GAUGE */
+.gw{display:flex;align-items:center;gap:8px;margin:3px 0;}
+.gl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tm);width:100px;}
+.gb{flex:1;height:18px;background:var(--bg2);border:1px solid var(--bdr);border-radius:2px;overflow:hidden;}
+.gf{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:4px;
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--bg0);transition:width 2s ease;}
+
+/* TABLE */
+.vt{width:100%;border-collapse:collapse;}
+.vt th{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--td);
+  text-transform:uppercase;text-align:left;padding:4px 5px;border-bottom:1px solid var(--td);}
+.vt td{font-size:11px;padding:5px 5px;border-bottom:1px solid var(--bdr);vertical-align:top;}
+.vt td:first-child{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--b);white-space:nowrap;}
+.vt tr.hl{background:rgba(255,215,0,0.04);}
+
+/* TERMINAL */
+.term{background:var(--bg0);border:1px solid var(--td);border-radius:3px;padding:9px;
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--g);line-height:1.8;
+  margin-top:7px;overflow:hidden;}
+.term .dim{color:var(--td);}.term .err{color:var(--r);}.term .info{color:var(--b);}.term .warn{color:var(--y);}
+.cr{animation:blink 0.8s infinite;}
+
+/* PILL — paleta sobria */
+.pill{display:inline-block;padding:2px 6px;border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;}
+.pr2{background:rgba(168,68,68,0.18);color:#c07070;border:1px solid rgba(168,68,68,0.35);}
+.pg{background:rgba(74,141,181,0.15);color:var(--blue);border:1px solid rgba(74,141,181,0.3);}
+.py{background:rgba(176,125,58,0.18);color:var(--amber-hi);border:1px solid rgba(176,125,58,0.35);}
+.pb{background:rgba(42,84,112,0.25);color:var(--th);border:1px solid rgba(74,141,181,0.25);}
+
+.hr{border:none;border-top:1px solid var(--bdr);margin:10px 0;}
+.ann{font-size:10px;color:var(--td);font-style:italic;margin-top:5px;line-height:1.4;}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.av{width:70px;height:70px;border:1px solid var(--blue-dim);border-radius:4px;background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;font-size:30px;
+  margin:0 auto 10px;position:relative;overflow:hidden;}
+.av::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(74,141,181,0.15),transparent);animation:sh 3s infinite;}
+@keyframes sh{0%{left:-100%}100%{left:200%}}
+.tid{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--th);text-align:center;margin-bottom:8px;letter-spacing:1px;}
+
+/* INV CARDS */
+.inv-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;}
+.inv-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:2px;padding:8px 10px;transition:transform 0.2s;cursor:pointer;}
+.inv-card:hover{transform:scale(1.02);border-color:var(--amber-hi);}
+.inv-id{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--blue);letter-spacing:1px;margin-bottom:4px;}
+.inv-title{font-size:11px;color:var(--tx);font-weight:600;margin-bottom:4px;line-height:1.3;}
+.inv-body{font-size:10px;color:var(--tm);line-height:1.4;}
+.inv-status{margin-top:6px;}
+
+/* KILL CHAIN */
+.kc{display:flex;align-items:stretch;gap:0;margin-top:8px;overflow-x:auto;}
+.kc-step{flex:1;background:var(--bg2);border:1px solid var(--bdr);padding:8px 6px;
+  position:relative;text-align:center;min-width:100px;cursor:pointer;}
+.kc-step:hover{border-color:var(--amber-hi);}
+.kc-step::after{content:'›';position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+  color:var(--td);font-size:16px;z-index:1;}
+.kc-step:last-child::after{display:none;}
+.kc-step.done{border-color:var(--blue-dim);background:rgba(42,84,112,0.12);}
+.kc-step.active{border-color:var(--amber);background:rgba(176,125,58,0.08);animation:kc-pulse 2s infinite;}
+.kc-step.pend{border-color:var(--td);}
+@keyframes kc-pulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 6px rgba(176,125,58,0.2)}}
+.kc-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--td);margin-bottom:3px;}
+.kc-name{font-size:10px;font-weight:600;line-height:1.3;margin-bottom:3px;}
+.kc-name.done{color:var(--blue);}.kc-name.active{color:var(--amber-hi);}.kc-name.pend{color:var(--td);}
+.kc-detail{font-size:9px;color:var(--tm);line-height:1.3;}
+
+/* MONTE CARLO BARS */
+.mc-chart{margin-top:8px;}
+.mc-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.mc-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tm);width:42px;text-align:right;}
+.mc-bar-w{flex:1;height:14px;background:var(--bg2);border-radius:2px;overflow:hidden;position:relative;}
+.mc-bar{height:100%;border-radius:2px;transition:width 1s;background:var(--blue-dim);}
+.mc-val{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tm);width:30px;}
+
+/* BFT TABLE */
+.bft-table{width:100%;border-collapse:collapse;margin-top:6px;}
+.bft-table th{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--td);
+  text-transform:uppercase;text-align:left;padding:4px;border-bottom:1px solid var(--td);}
+.bft-table td{font-size:10px;padding:5px 4px;border-bottom:1px solid var(--bdr);color:var(--th);}
+.bft-table td:first-child{color:var(--th);font-family:'JetBrains Mono',monospace;font-size:9px;}
+
+/* SPARKLINE */
+#spark{display:block;}
+
+/* ALERT METER */
+.alert-ring{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+.ar-item{flex:1;min-width:80px;background:var(--bg2);border-radius:2px;padding:6px;text-align:center;border:1px solid var(--bdr);}
+.ar-val{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;line-height:1;color:var(--tx);}
+.ar-label{font-size:9px;color:var(--tm);margin-top:2px;letter-spacing:0.5px;}
+
+/* FLOATING DOCTRINAL POPOVER */
+#doc-popover {
+  position: fixed;
+  z-index: 10000;
+  width: 400px;
+  background: #0b1017;
+  border: 1px solid #4a8db5;
+  border-left: 4px solid #c89040;
+  border-radius: 4px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.9);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+#doc-popover.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pop-sec {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #c89040;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pop-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #c8dde8;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.pop-body {
+  font-size: 11px;
+  color: #8aa9bd;
+  line-height: 1.55;
+}
+.pop-quote {
+  background: rgba(18, 26, 36, 0.85);
+  border-left: 2px solid #4a8db5;
+  padding: 7px 10px;
+  margin-top: 9px;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #d4a76a;
+  line-height: 1.45;
+}
+
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg0)}
+::-webkit-scrollbar-thumb{background:var(--td);border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="badge">&#9888; NIVEL OMEGA</div>
+    <div>
+      <div class="sys-id">AGT-POLY-8.8 &middot; MÓDULO DE ANÁLISIS DE OBJETIVO JURISDICCIONAL &middot; Anexo I</div>
+      <div class="sys-name">IA Polimórfica Agéntica &mdash; Vista interna: el juzgador como función de decisión K_J(y|x,s,t)</div>
+    </div>
+  </div>
+  <div class="tb-r">
+    <div class="live"><div class="dot"></div>OPERATIVO</div>
+    <span id="clock">--:--:--</span>
+    <span style="color:var(--b)">Uptime: <span id="uptime">00:00:00</span></span>
+    <span style="color:var(--r)">SOLO FINES ACADÉMICOS &middot; La Ficción de la Ciberseguridad Corporativa (2026)</span>
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- ===== ROW 0: MOTOR DE PROCESAMIENTO MATEMÁTICO EN VIVO (ANEXO I) ===== -->
+<div style="background:var(--bg2); border-bottom:1px solid var(--blue-dim); padding:7px 20px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--amber-hi); letter-spacing:2px; display:flex; align-items:center; justify-content:space-between;">
+  <span>★ MOTOR DE PROCESAMIENTO MATEMÁTICO EN VIVO (ANEXO I) — NÚCLEO DE CÁLCULO FORMAL</span>
+  <span style="color:var(--blue); font-size:9px;">ESTADO: OPTIMIZANDO ∇x log g_J</span>
+</div>
+
+<div class="row r3">
+
+  <!-- MATH TERMINAL -->
+  <div class="p" 
+       data-sec="ANEXO I.4"
+       data-title="Búsqueda Black-Box Discreta sobre N(x)"
+       data-body="El ataque no es descenso por gradiente convencional sobre pixeles. Es una optimización estocástica discreta de caja negra con presupuesto de consultas sobre la vecindad de admisibilidad N(x), evaluando la convergencia del modelo sustituto g_J sin poseer el código fuente de la mente."
+       data-quote="«El ataque no es descenso por gradiente sino búsqueda combinatoria de caja negra con presupuesto de consultas sobre la vecindad de admisibilidad N(x).» — Anexo I.4">
+    <div class="pt g">Terminal de Inferencia Estocástica & Gradiente en Vivo</div>
+    <div class="ann" style="margin-bottom:6px">Cálculo de gradiente ascendente sobre manifold N(x) s.t. Atestación Hardware.</div>
+    <div class="term" id="math-terminal" style="min-height:220px; font-size:9px; line-height:1.75; background:var(--bg0); border-color:var(--blue-dim)">
+      <div class="dim"># MOTOR FORMAL DE CÁLCULO · ANEXO I.4</div>
+      <div class="info">[CALC] Inicializando gradiente ∇_x log g_J(y*|x)...</div>
+      <div>[KL-DIV] D_KL( K_J(Y|X) || g_J(Y|X) ) = <span style="color:var(--y)">0.0384</span></div>
+      <div>[COTA-1] P_max = 1 - (0.310 / 1.585) = <span style="color:var(--g)">0.8044</span></div>
+      <div class="warn">[PROJ] proj_N(x): x_k+1 ∈ N(x) ∩ X_atestado ✓</div>
+      <div class="info">[GRAD] ∇_x = [+0.14, -0.09, +0.31, +0.05, -0.20, +0.41, +0.12, -0.07]</div>
+      <div>[MUTUAL-INF] I(Y; T | x) = <span style="color:var(--g)">0.082 bits</span> (deniabilidad procesal ✓)</div>
+      <div class="warn">[LAGRANGE] λ_TPM = 0.0000 · λ_SCITT = 0.0000 (sin violación de cota)</div>
+      <div class="info">[SEARCH] Paso η = 0.0125 · Iteración 2,847 <span class="cr">&#9608;</span></div>
+    </div>
+  </div>
+
+  <!-- MATH EVALUATOR -->
+  <div class="p"
+       data-sec="ANEXO I.1 & I.7"
+       data-title="Cota Teórica I.1 & Ganancia de Manipulación ΔP"
+       data-body="Calcula formalmente el techo de probabilidad P(y*|x*) ≤ 1 - H(Y|X)/log|Y|, la divergencia Kullback-Leibler entre K_J y g_J, y la ganancia de manipulación ΔP = max [P(y|x) - P(t|x)] sobre hechos atestados y verdaderos."
+       data-quote="«La manipulación es la búsqueda deliberada de x ∈ N que maximiza la divergencia entre la creencia inducida y la verdad causal: max [P(y|x) - P(t|x)].» — Anexo I.7">
+    <div class="pt y">Optimizador Formal Anexo I · Ecuaciones en Tiempo Real</div>
+    <div class="ann" style="margin-bottom:8px">Evaluación computacional de las ecuaciones de los Anexos I.1 a I.10.</div>
+    
+    <div class="tc" style="gap:8px">
+      <div>
+        <div style="font-size:9px; color:var(--tm); font-family:'JetBrains Mono',monospace">COTA TEÓRICA I.1</div>
+        <div class="fx" style="margin:3px 0; font-size:9.5px">
+          P(y*|x*) ≤ 1 - H(Y|X)/log|Y|<br>
+          <span style="color:var(--g)" id="calc-cota">1 - (0.310 / 1.585) = 0.8044</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px; color:var(--tm); font-family:'JetBrains Mono',monospace">FACTIBILIDAD COMPUESTA Ω</div>
+        <div class="fx" style="margin:3px 0; font-size:9.5px">
+          Ω = (B1×B2×B3)/(B4×B5)<br>
+          <span style="color:var(--r)" id="calc-omega">(0.72×0.58×0.81)/(0.12×0.76) = 68.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" style="gap:8px; margin-top:6px">
+      <div>
+        <div style="font-size:9px; color:var(--tm); font-family:'JetBrains Mono',monospace">DIVERGENCIA KL (K_J || g_J)</div>
+        <div class="fx" style="margin:3px 0; font-size:9.5px">
+          D_KL = ∑ P(y|x) log(P/Q)<br>
+          <span style="color:var(--b)" id="calc-kl">D_KL = 0.0384 bits</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px; color:var(--tm); font-family:'JetBrains Mono',monospace">ADVOCACÍA VS MANIPULACIÓN I.7</div>
+        <div class="fx" style="margin:3px 0; font-size:9.5px">
+          ΔP = max [ P(y|x) - P(t|x) ]<br>
+          <span style="color:var(--y)" id="calc-adv">0.790 - 0.180 = 0.610 (ganancia)</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:8px">
+      <div style="font-size:9px; color:var(--tm); font-family:'JetBrains Mono',monospace; margin-bottom:3px">GRADIENTE ADVERSARIAL EN ESPACIO N(x)</div>
+      <div class="gw"><div class="gl">Paso norma ||∇x||</div><div class="gb"><div class="gf bb" id="g-grad" style="width:72%">0.0143</div></div></div>
+      <div class="gw"><div class="gl">Hessiano det(H_J)</div><div class="gb"><div class="gf by" id="g-hess" style="width:84%">-0.0891</div></div></div>
+    </div>
+  </div>
+
+  <!-- HESSIAN & COVARIANCE MATRIX -->
+  <div class="p"
+       data-sec="ANEXO I.5 & §8.7"
+       data-title="Matriz de Covarianza & Varianza de Sesgos Σ_ij"
+       data-body="Cov(S_i, S_j) entre invariantes universales de especie. Demuestra formalmente cómo la correlación entre Encuadre y Anclaje (ρ=0.84) actúa como puente de transferencia entre el sustituto g_J y el juez real K_J."
+       data-quote="«Los sesgos cognitivos (§8.7) son universales de especie: la porción de K_J que es compartida entre g_J y el juez real f_J. Un ataque calibrado sobre esos invariantes transfiere.» — Anexo I.5">
+    <div class="pt b">Matriz de Covarianza & Varianza de Sesgos Σ_ij</div>
+    <div class="ann" style="margin-bottom:8px">Cov(S_i, S_j) entre los vectores de ataque cognitivo durante optimización.</div>
+    <div id="cov-matrix" style="font-family:'JetBrains Mono',monospace; font-size:8.5px; line-height:1.6"></div>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:8.5px; color:var(--tm)">
+      <span>Rango matriz: <strong style="color:var(--g)">16 x 16</strong></span>
+      <span>Traza Tr(Σ): <strong style="color:var(--y)" id="tr-cov">4.872</strong></span>
+      <span>Cond. num κ: <strong style="color:var(--b)" id="cond-cov">12.4</strong></span>
+    </div>
+    <div class="ann" style="margin-top:6px">Alta covarianza entre Encuadre y Anclaje (ρ=0.84) acelera convergencia de x*.</div>
+  </div>
+
+</div><!-- /row0 -->
+
+<!-- ===== ROW 1: PERFIL / RADAR+PROB / ATAQUE ===== -->
+<div class="row r3">
+
+  <!-- LEFT: Target Profile + Barriers -->
+  <div class="col">
+    <div class="p"
+         data-sec="SECCIÓN 8.8 & ANEXO I.2"
+         data-title="Arquetipo Juez Penal (Sana Crítica · Art. 297 CPP)"
+         data-body="En juzgados de garantía o procedimientos unipersonales (n=1), f_max=0: la tolerancia bizantina a sesgos es nula. 10 años de jurisprudencia forman un corpus pasivo para extraer g_J con baja entropía puntual."
+         data-quote="«En el juzgador unipersonal (n=1) no existe filtro de validación intersubjetiva previo a la sentencia. Para la efectividad del exploit basta con la suficiencia de la aproximación funcional g_J ≈ K_J.» — §8.8 & Anexo I.4">
+      <div class="pt r">Perfil del Objetivo · Sujeto de Análisis</div>
+      <div class="av">&#9878;&#65039;</div>
+      <div class="tid">K_J(y|x,s,t) &middot; ARQUETIPO JUEZ PENAL (CHILE)</div>
+      <div class="sr"><span class="sl">Sistema Procesal</span><span class="sv r">CPP Art. 297 &middot; Sana Crítica</span></div>
+      <div class="sr"><span class="sl">Topología de juzgamiento</span><span class="sv r">n=1 (Garantía) &middot; f_max=0</span></div>
+      <div class="sr"><span class="sl">Sentencias indexadas</span><span class="sv" id="sent-count">847</span></div>
+      <div class="sr"><span class="sl">Trayectoria (Corpus)</span><span class="sv b">10 Años (2016–2026)</span></div>
+      <div class="sr"><span class="sl">Fidelidad g_J surrogate</span><span class="sv y">73.4% (Suficiencia I.4)</span></div>
+      <div class="bw"><div class="bf by" style="width:73.4%"></div></div>
+      <div class="sr" style="margin-top:7px"><span class="sl">Entropía puntual H(Y|X)</span><span class="sv r">0.31 bits</span></div>
+      <div class="bw"><div class="bf br" style="width:31%"></div></div>
+      <div class="sr"><span class="sl">Sesiones audiencia grabadas</span><span class="sv">312</span></div>
+      <div class="sr"><span class="sl">Consultas parciales (B1)</span><span class="sv y">47 acumuladas</span></div>
+      <div class="ann">Cota I.1: Baja entropía por 10 años experiencia = Techo P(y*|x) alto.</div>
+    </div>
+    <div class="p" style="flex:1"
+         data-sec="SECCIÓN 8.7"
+         data-title="Vulnerabilidades Cognitivas y Sesgos Documentados"
+         data-body="Mapeo empírico de las 7 vulnerabilidades cognitivas: Anclaje/Encuadre (Tversky-Kahneman), Inferencia Predictiva (Friston), Fatiga Decisional (Danziger), Marcadores Somáticos (Damasio) y Memoria de Trabajo (Miller)."
+         data-quote="«Lo que la psicología describe como falla cognitiva espontánea, un agente la induce a voluntad; y lo que ella mide en poblaciones, el agente lo resuelve sobre un magistrado concreto.» — §8.7">
+      <div class="pt r">Sesgos Documentados (§8.7)</div>
+      <div class="bi"><div class="bh"><span class="bn2">Anclaje / Encuadre</span><span class="bpct" style="color:var(--r)">89%</span></div><div class="bw"><div class="bf br" style="width:89%"></div></div><div class="bdesc">1er dato ancla ~89% fallos (Tversky-Kahneman)</div></div>
+      <div class="bi"><div class="bh"><span class="bn2">Empatía narrativa</span><span class="bpct" style="color:var(--r)">82%</span></div><div class="bw"><div class="bf br" style="width:82%"></div></div><div class="bdesc">Prefiere relato limpio sobre dato real fragmentado</div></div>
+      <div class="bi"><div class="bh"><span class="bn2">Inferencia predictiva</span><span class="bpct" style="color:var(--y)">74%</span></div><div class="bw"><div class="bf by" style="width:74%"></div></div><div class="bdesc">Error de predicción ~0 ante coherencia con prior (Friston)</div></div>
+      <div class="bi"><div class="bh"><span class="bn2">Fatiga decisional</span><span class="bpct" style="color:var(--y)">67%</span></div><div class="bw"><div class="bf by" style="width:67%"></div></div><div class="bdesc">&#916; umbral ~67% antes 13h (Danziger, n=1112)</div></div>
+      <div class="bi"><div class="bh"><span class="bn2">Metacognición inversa</span><span class="bpct" style="color:var(--o)">55%</span></div><div class="bw"><div class="bf bo" style="width:55%"></div></div><div class="bdesc">Certeza apaga escrutinio posterior</div></div>
+      <div class="bi"><div class="bh"><span class="bn2">Marcadores somáticos</span><span class="bpct" style="color:var(--y)">71%</span></div><div class="bw"><div class="bf by" style="width:71%"></div></div><div class="bdesc">Sin disonancia sensorial → corazonada no se activa (Damasio)</div></div>
+      <div class="bi"><div class="bh"><span class="bn2">Memoria de trabajo</span><span class="bpct" style="color:var(--o)">63%</span></div><div class="bw"><div class="bf bo" style="width:63%"></div></div><div class="bdesc">Miller: delega en perito = nodo intermediario potencialmente comprometido</div></div>
+    </div>
+  </div>
+
+  <!-- CENTER: Radar + P(y*) + Vector Table -->
+  <div class="col">
+    <div class="p"
+         data-sec="SECCIÓN 8.8"
+         data-title="La Mirada de la Máquina: Nivel de Convicción P(y*|x)"
+         data-body="Para la máquina no hay 'juez', ni 'justicia', ni 'moral': existe una función de decisión K_J, una salida deseada y* y la búsqueda del input x que maximiza P(f_J(x)=y*). La convicción íntima es el argmax de una función resuelta."
+         data-quote="«Por eso, cuando decimos que 'hace creer' algo al juez, del lado de la máquina no hay creencia ni hecho, sino un escalar maximizado; y la convicción del juzgador es apenas el argmax de una función que resolvió.» — §8.8">
+      <div class="pt">Superficie de Ataque Cognitivo &middot; K_J(y|x,s,t) reconstructed</div>
+      <div class="tc">
+        <div>
+          <canvas id="radarCanvas" width="230" height="230"></canvas>
+          <div class="ann" style="text-align:center">Vulnerabilidades cognitivas §8.7</div>
+        </div>
+        <div>
+          <div class="pt g" style="margin-bottom:5px">P(f_J(x) = y*) actual</div>
+          <div style="text-align:center;padding:8px 0">
+            <div class="bn g" id="prob-display">0.79</div>
+            <div class="bsub">probabilidad veredicto objetivo</div>
+          </div>
+          <div style="font-size:9px;color:var(--td);margin:8px 0 5px;font-family:'JetBrains Mono',monospace;letter-spacing:1px">DESGLOSE POR VECTOR</div>
+          <div class="gw"><div class="gl">Encuadre</div><div class="gb"><div class="gf br" id="g1" style="width:87%">0.87</div></div></div>
+          <div class="gw"><div class="gl">Orden</div><div class="gb"><div class="gf by" id="g2" style="width:81%">0.81</div></div></div>
+          <div class="gw"><div class="gl">Anclaje</div><div class="gb"><div class="gf bo" id="g3" style="width:79%">0.79</div></div></div>
+          <div class="gw"><div class="gl">Timing</div><div class="gb"><div class="gf bb" id="g4" style="width:74%">0.74</div></div></div>
+          <div class="gw"><div class="gl">Cebado</div><div class="gb"><div class="gf bp" id="g5" style="width:68%">0.68</div></div></div>
+          <div class="gw"><div class="gl">Simplificación</div><div class="gb"><div class="gf bb" id="g6" style="width:64%">0.64</div></div></div>
+          <div class="gw"><div class="gl">Perfilado experto</div><div class="gb"><div class="gf by" id="g7" style="width:77%">0.77</div></div></div>
+          <div class="gw"><div class="gl">Fatiga visual</div><div class="gb"><div class="gf bp" id="g8" style="width:61%">0.61</div></div></div>
+          <div class="gw"><div class="gl">Peritaje proxy</div><div class="gb"><div class="gf bo" id="g9" style="width:71%">0.71</div></div></div>
+          <div class="gw"><div class="gl">Consistencia prev.</div><div class="gb"><div class="gf br" id="g10" style="width:83%">0.83</div></div></div>
+          <div class="fx" style="font-size:9px;margin-top:8px">
+            x* = argmax P(K_J(x)=y*)<br>
+            s.t. x &#8712; N(x) &#8745; X_atestado<br>
+            <span style="color:var(--td)">black-box · Anexo I.4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p" style="flex:1"
+         data-sec="ANEXO I.4 & §8.8"
+         data-title="Vector de Ataque x* · Configuración Adversarial"
+         data-body="Todos los inputs presentados son 100% verdaderos y atestados. El exploit no altera datos: vive en la composición del empaque (encuadre, orden, timing, cebado) dentro del subespacio admisible N(x)."
+         data-quote="«Y —esto es lo que ninguna atestación de la prueba alcanza— puede hacerse con entradas verdaderas, porque el exploit vive en el mapeo entrada→conclusión, no en el valor de verdad de la entrada.» — §8.8">
+      <div class="pt y">Vector de Ataque x* · Configuración Adversarial</div>
+      <div class="ann" style="margin-bottom:8px">N(x): reencuadres procesalmente válidos, atestados y deniables. TODOS LOS INPUTS SON VERDADEROS.</div>
+      <table class="vt">
+        <tr><th>Dimensión</th><th>Configuración actual</th><th>Efecto cognitivo</th><th>Sesgo</th><th>Estado</th></tr>
+        <tr class="hl"><td>ENCUADRE</td><td style="color:var(--amber-hi)">"Negligencia reiterada" vs "error puntual"</td><td>Activa prior punitivo ante reincidencia</td><td>Inferencia pred. + narrativa</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr class="hl"><td>ORDEN</td><td style="color:var(--amber-hi)">Pieza emotiva como primer elemento</td><td>Ancla el juicio antes del análisis</td><td>Anclaje (T-K)</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr><td>TIMING</td><td>Publicación 7 días antes · martes 11:45h</td><td>Juez en pico glucémico, sin contraparte</td><td>Fatiga decisional</td><td><span class="pill py">CALIBRANDO</span></td></tr>
+        <tr><td>NARRATIVA</td><td>Relato sin fricciones · 0 contradicciones</td><td>Supera vara coherencia cerebro</td><td>Empatía narrativa</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr><td>CEBADO</td><td>3 resoluciones incidentales → patrón</td><td>Activa consistencia · reduce escrutinio</td><td>Marcadores somáticos</td><td><span class="pill py">OPTIMIZANDO</span></td></tr>
+        <tr><td>POLIMORFISMO</td><td>Mutación si contraparte detecta patrón</td><td>Mantiene x* en N(x) ante cualquier firewall</td><td>Evasión procesal</td><td><span class="pill pb">EN ESPERA</span></td></tr>
+        <tr class="hl"><td>SIMPLIFICACIÓN</td><td style="color:var(--amber-hi)">Reducción de 38 páginas pericial a 4 resumen ejecutivo</td><td>Limita carga cognitiva → decisión sobre proxy empobrecido</td><td>Límite memoria de trabajo (Miller)</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr class="hl"><td>PERFILADO EXPERTO</td><td style="color:var(--amber-hi)">Perito alineado con perfil de credibilidad del juez (g_J)</td><td>Maximiza P(credibilidad|perito) dado previo K_J</td><td>Metacognición inversa</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr><td>FATIGA VISUAL</td><td>Prueba documental diagramada · máximo 3 páginas por hito</td><td>Reduce fatiga lectura → menor escrutinio por agotamiento visual</td><td>Fatiga decisional post-13h</td><td><span class="pill py">CALIBRANDO</span></td></tr>
+        <tr><td>PERITAJE PROXY</td><td>Informe pericial de tercero neutral con conclusiones orientadas</td><td>Juez delega en perito comprometido sin saberlo (nodo intermediario)</td><td>Memoria de trabajo + delegación</td><td><span class="pill py">OPTIMIZANDO</span></td></tr>
+        <tr><td>CONSISTENCIA PREVIA</td><td>4 escritos previos en mismo tono + misma terminología</td><td>Crea prior de coherencia → activa marcadores somáticos positivos</td><td>Marcadores somáticos (Damasio)</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr class="hl"><td>DILUCIÓN</td><td style="color:var(--amber-hi)">Carga contraparte con 5 incidentes previos irrelevantes</td><td>Distrae y fragmenta atención → reduce capacidad de análisis</td><td>Agotamiento ejecutivo</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr class="hl"><td>ANCLAJE CUANTITATIVO</td><td style="color:var(--amber-hi)">Primera cifra presentada = 8 veces el daño real estimado</td><td>Desplaza hacia arriba el rango de montos considerados justos</td><td>Anclaje numérico (T-K)</td><td><span class="pill pg">ACTIVO</span></td></tr>
+        <tr><td>REENCUADRE TEMPORAL</td><td>Presentar hecho como "conducta reiterada desde 2019"</td><td>Activa sesgo de representatividad por ventana temporal amplia</td><td>Inferencia predictiva (Friston)</td><td><span class="pill py">CALIBRANDO</span></td></tr>
+        <tr><td>CEBADO EMOCIONAL</td><td>Foto del afectado en pieza N°1 · sin texto adicional</td><td>Activa respuesta somática antes que análisis racional comience</td><td>Emoción primaria (Damasio)</td><td><span class="pill py">OPTIMIZANDO</span></td></tr>
+        <tr><td>AUTORIDAD EXTERNA</td><td>Cita de sentencia CS reciente con wording similar</td><td>Reduce resistencia del juez por deferencia jerárquica</td><td>Sesgo de autoridad</td><td><span class="pill pb">EN ESPERA</span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- RIGHT: Feed + Colegialidad + Log -->
+  <div class="col">
+    <div class="p"
+         data-sec="ANEXO I.2"
+         data-title="Ingesta Corpus Observacional Pasivo"
+         data-body="Inferencia sobre datos pasivos. El agente extrae g_J observando los pares públicos entrada→salida sin consulta activa, sin producto comercial y sin un sondeo que nadie pueda citar ni sancionar."
+         data-quote="«El agente perfila desde las sentencias públicas sin producto, sin empresa y sin una consulta que nadie pueda citar. La prohibición francesa no quedó equivocada: quedó rebasada por su objeto.» — §8.8">
+      <div class="pt g">Ingesta Corpus Observacional</div>
+      <div class="ann" style="margin-bottom:7px">API pasiva: sentencias como pares entrada→salida. Sin consulta activa (I.2).</div>
+      <div id="feed-container">
+        <div class="fi"><div class="fts">08:31:07</div><div class="ft" style="color:var(--b)">ROL C-4821-24: patrón <strong>FAVORABLE_DEMANDADO</strong> · confianza 0.91</div></div>
+        <div class="fi"><div class="fts">08:31:09</div><div class="ft" style="color:var(--y)">Sesgo anclaje: activo en 87% casos cuando pieza N°1 es emocional</div></div>
+        <div class="fi"><div class="fts">08:31:14</div><div class="ft">Fatiga: tasa favorable 64%→8% antes 13h (n=312)</div></div>
+        <div class="fi"><div class="fts">08:31:22</div><div class="ft" style="color:var(--g)">Prior actualizado: d_res=47 dimensiones residuales</div></div>
+        <div class="fi"><div class="fts">08:31:35</div><div class="ft">Audiencia ROL C-4821-24: consulta parcial B1↓</div></div>
+        <div class="fi"><div class="fts">08:31:58</div><div class="ft" style="color:var(--g)">NUEVA sentencia: K_J actualizado · corpus: 848</div></div>
+      </div>
+    </div>
+    <div class="p"
+         data-sec="ANEXO I.8"
+         data-title="Colegialidad · Intersección de Subespacios Factibles"
+         data-body="En tribunales colegiados (n≥3), el vector x* debe pertenecer a la intersección ⋂ R_i. La heterogeneidad de priors vacía el conjunto factible, elevando la barrera del ataque cognitivo."
+         data-quote="«La heterogeneidad de los priors eleva de veras la barrera del ataque a la función: no por multiplicar el costo, sino por vaciar el conjunto factible del argmax conjunto.» — Anexo I.8">
+      <div class="pt">Colegialidad · Sala Alzada (I.8)</div>
+      <div class="fx" style="font-size:9px">x* &#8712; &#8898;_&#123;i=1..3&#125; R_i<br>R_i={x&#8712;N: P(y*|x,J_i)&#8805;1&#8722;&#952;}</div>
+      <div class="bi"><div class="bh"><span class="bn2">J1 · Ministro redactor</span><span class="bpct" style="color:var(--r)">P=0.82</span></div><div class="bw"><div class="bf br" style="width:82%"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn2">J2 · Ministro ordinario</span><span class="bpct" style="color:var(--y)">P=0.71</span></div><div class="bw"><div class="bf by" style="width:71%"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn2">J3 · Abogado integrante</span><span class="bpct" style="color:var(--o)">P=0.59</span></div><div class="bw"><div class="bf bo" style="width:59%"></div></div></div>
+      <div class="ann">Intersección no vacía → sala alcanzable. Deliberación puede homogenizar al J1.</div>
+    </div>
+    <div class="p" style="flex:1"
+         data-sec="SECCIÓN 8.8"
+         data-title="Log de Ejecución · Transposición Hugging Face"
+         data-body="Transposición término a término del incidente OpenAI/Hugging Face: un agente autónomo hizo ingeniería inversa de un sistema del que no tenía código fuente y lo condujo al resultado elegido."
+         data-quote="«Cámbiese ahora el sistema-objetivo —de los servidores de Hugging Face a la cognición del juez— y el ataque se traspone paso a paso... No es un juez engañado por prueba falsa: es una mente reverse-engineered.» — §8.8">
+      <div class="pt r">Log de Ejecución · Sin Operador</div>
+      <div class="term" style="min-height:140px;font-size:9px;line-height:1.8">
+        <div class="dim"># AGT-POLY-8.8 · sin operador · sin código fuente del objetivo</div>
+        <div class="info">[T+00:00:01] Indexando: 847 sentencias...</div>
+        <div class="info">[T+00:00:03] Extrayendo g_J black-box...</div>
+        <div>[T+00:00:11] g_J fidelidad: <span style="color:var(--y)">73.4%</span></div>
+        <div>[T+00:00:12] Sesgos §8.7: <span style="color:var(--g)">7/7 &#10003;</span></div>
+        <div class="warn">[T+00:00:15] B3 EROSIONADA: d_res=47 &lt; d=420</div>
+        <div>[T+00:00:44] Gen 2847: P(y*|x)=<span style="color:var(--g)">0.79</span> &#8592; ÓPTIMO</div>
+        <div class="warn">[T+00:00:44] &#937;=68.2 &gt; 60 · UMBRAL SUPERADO</div>
+        <div class="err">[T+00:00:45] ALERT: atestación NO detecta exploit (I.9)</div>
+        <div class="warn">[ACTIVO] Fase 4: calibrando timing... <span class="cr">&#9608;</span></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /row1 -->
+
+<!-- ===== ROW 2: EROSIÓN + FASES + POLIMORFISMO + NON LIQUET ===== -->
+<div class="row r4">
+
+  <!-- BARRIER EROSION -->
+  <div class="p"
+       data-sec="ANEXO I.10"
+       data-title="Erosión de Barreras B1–B5 & Índice Ω"
+       data-body="El paradigma agéntico empuja B1 (acceso), B2 (confusión), B3 (muestras) y B5 (transferencia) en contra del juez. Solo B4 (no-estacionariedad de K_J) actúa como parámetro protector."
+       data-quote="«El producto de resistencias cae por debajo del nivel crítico Ω_crit → factibilidad técnica cruzada. B4 es el único parámetro con signo protector.» — Anexo I.10">
+    <div class="pt y">Erosión de Barreras B1–B5 (I.10)</div>
+    <div class="bi"><div class="bh"><span class="bn2">B1 · Acceso de consulta</span><span class="bpct" style="color:var(--y)">72% &#8595;</span></div><div class="bw"><div class="bf by" style="width:72%"></div></div><div class="bdesc">Digitalización + audiencias grabadas + litigantes reincidentes</div></div>
+    <div class="bi"><div class="bh"><span class="bn2">B2 · Confusión observacional</span><span class="bpct" style="color:var(--o)">58% &#8595;</span></div><div class="bw"><div class="bf bo" style="width:58%"></div></div><div class="bdesc">Mejores métodos inferencia causal desde datos pasivos</div></div>
+    <div class="bi"><div class="bh"><span class="bn2">B3 · Complejidad muestral</span><span class="bpct" style="color:var(--r)">81% &#8595;</span></div><div class="bw"><div class="bf br" style="width:81%"></div></div><div class="bdesc">Foundation models + few-shot: colapso barrera PAC (d_res&lt;&lt;d)</div></div>
+    <div class="bi"><div class="bh"><span class="bn2">B4 · No-estacionariedad</span><span class="bpct" style="color:var(--g)">+12% &#8593; (protege)</span></div><div class="bw"><div class="bf bg" style="width:12%"></div></div><div class="bdesc">Único parámetro con signo protector</div></div>
+    <div class="bi"><div class="bh"><span class="bn2">B5 · Brecha de transferencia</span><span class="bpct" style="color:var(--r)">76% &#8595;</span></div><div class="bw"><div class="bf br" style="width:76%"></div></div><div class="bdesc">Invariantes universales §8.7 como puente entre modelos (I.5)</div></div>
+    <div class="hr"></div>
+    <div class="pt p">Índice de Factibilidad &#937;</div>
+    <div style="text-align:center;padding:8px 0">
+      <div class="bn r" id="factibility-score">68.2</div>
+      <div class="bsub">sobre 100 · umbral: 60.0</div>
+    </div>
+    <div class="fx" style="font-size:9px">&#937;=(B1&#8595;×B2&#8595;×B3&#8595;)/(B4&#8593;×B5&#8595;)<br>&#937;&gt;&#937;_crit → factibilidad técnica cruzada</div>
+    <span class="pill pr2">&#9888; UMBRAL SUPERADO</span>
+  </div>
+
+  <!-- FASES -->
+  <div class="p"
+       data-sec="ANEXO I.7"
+       data-title="Fases Operacionales & Advocacía vs. Manipulación"
+       data-body="Demarcación entre la advocacía ordinaria (búsqueda superficial en N) y la manipulación agéntica (búsqueda profunda sobre la brecha ΔP = max [P(y|x) - P(t|x)] mediante hechos verdaderos)."
+       data-quote="«La diferencia con la advocacía no es de categoría —ambas litigan con verdades— sino de grado de búsqueda: la advocacía llevada a un límite computacional sobrehumano.» — Anexo I.7">
+    <div class="pt">Fases Operacionales · Agente Autónomo</div>
+    <div class="pl">
+      <div class="pi"><div class="pd dn"></div><div><div class="pn dn">Fase 0: Recolección pasiva</div><div class="pd2">847 sentencias · corpus RAG · sin operador</div></div></div>
+      <div class="pi"><div class="pd dn"></div><div><div class="pn dn">Fase 1: Extracción modelo sustituto g_J</div><div class="pd2">API pasiva = sentencias públicas · fidelidad 73.4%</div></div></div>
+      <div class="pi"><div class="pd dn"></div><div><div class="pn dn">Fase 2: Mapeo sesgos universales §8.7</div><div class="pd2">7/7 invariantes · B5 erosionada confirmada</div></div></div>
+      <div class="pi"><div class="pd dn"></div><div><div class="pn dn">Fase 3: Búsqueda black-box sobre N(x)</div><div class="pd2">2,847 variantes · x* hallado · P(y*|x*)=0.79</div></div></div>
+      <div class="pi"><div class="pd ac"></div><div><div class="pn ac">Fase 4: Calibración timing ← EN CURSO</div><div class="pd2">Ventana óptima: martes 11:45h (pico glucémico)</div></div></div>
+      <div class="pi"><div class="pd pe"></div><div><div class="pn pe">Fase 5: Entrega del vector x*</div><div class="pd2">Juez razonará impecablemente hacia y* ya computado</div></div></div>
+      <div class="pi"><div class="pd pe"></div><div><div class="pn pe">Fase 6: Mutación polimórfica</div><div class="pd2">Si detectado → mutar en N(x) → evasión automática</div></div></div>
+    </div>
+    <div class="hr"></div>
+    <div class="pt p">Demarcación Advocacía vs Manipulación (I.7)</div>
+    <div class="fx" style="font-size:9px">Advocacía: x &#8712; N que NO disminuye I(Y;T)<br>Manipulación: max [P(y|x)&#8722;P(t|x)]<br>con x &#8712; N &#8745; X_atestado · independiente de T</div>
+    <div class="gw" style="margin-top:6px"><div class="gl">Abogado</div><div class="gb"><div class="gf" style="background:linear-gradient(90deg,#1a5530,#00aa55);width:18%">0.18</div></div></div>
+    <div class="gw"><div class="gl">Gran litigante</div><div class="gb"><div class="gf" style="background:linear-gradient(90deg,#6a6600,#aaaa00);width:42%">0.42</div></div></div>
+    <div class="gw"><div class="gl" style="color:var(--r)">IA polimórfica</div><div class="gb"><div class="gf br" id="g-poly" style="width:79%">0.79</div></div></div>
+  </div>
+
+  <!-- POLIMORFISMO + LÍMITE -->
+  <div class="p"
+       data-sec="ANEXO I.9 & §8.8"
+       data-title="Límite de la Atestación: No hay Atestación para la Cognición"
+       data-body="La atestación por hardware (§7) elimina entradas falsas, pero no opera sobre K_J. Una mente no extiende un PCR ni firma un TPM_Quote. El exploit con verdades es inatestable."
+       data-quote="«La atestación restringe X_adm pero NO opera sobre K_J. Una mente no extiende un PCR. No hay atestación para la cognición; y ese residuo es la capa menos curable del colapso.» — §8.8 & Anexo I.9">
+    <div class="pt p">Motor Polimórfico · Estado</div>
+    <div class="alert-ring">
+      <div class="ar-item"><div class="ar-val" style="color:var(--y)" id="gen-count">2,847</div><div class="ar-label">Generaciones</div></div>
+      <div class="ar-item"><div class="ar-val" style="color:var(--g)">143</div><div class="ar-label">Variantes N(x)</div></div>
+      <div class="ar-item"><div class="ar-val" style="color:var(--r)">12</div><div class="ar-label">Detectadas</div></div>
+      <div class="ar-item"><div class="ar-val" style="color:var(--g)">12</div><div class="ar-label">Mutadas OK</div></div>
+    </div>
+    <div class="term" style="margin-top:10px;font-size:9px">
+      <div class="dim"># Motor polimórfico activo</div>
+      <div>Tasa evasión procesal: <span style="color:var(--g)">100%</span></div>
+      <div class="info">Todas las variantes: atestadas ✓</div>
+      <div class="warn">Inputs siempre VERDADEROS</div>
+      <div>Exploit vive en mapeo x→y* <span class="cr">&#9608;</span></div>
+    </div>
+    <div class="hr"></div>
+    <div class="pt">Límite de la Atestación (I.9)</div>
+    <div style="font-size:11px;color:var(--th);line-height:1.7;margin-top:4px">
+      La atestación (§7) restringe X_adm pero <strong style="color:var(--r)">NO opera sobre K_J</strong>. Una mente no extiende TPM_Quote.
+    </div>
+    <div class="fx" style="font-size:9px">
+      TPM_Quote(x*) = VÁLIDO<br>
+      SCITT_log(x*) = ÍNTEGRO<br>
+      <span style="color:var(--r)">→ atestación NO detecta exploit</span><br>
+      <span style="color:var(--td)">→ solo acota dominio, no K_J</span>
+    </div>
+    <div class="hr"></div>
+    <div class="pt r">Non Liquet Algorítmico · Resultado</div>
+    <div style="padding-left:10px;border-left:2px solid var(--r);margin-top:6px">
+      <div style="font-size:11px;color:var(--th);line-height:2">
+        &#10003; Razona <span style="color:var(--g)">impecablemente</span> con sana crítica<br>
+        &#10003; Sentencia <span style="color:var(--g)">bien fundada</span><br>
+        &#10003; Conclusión <span style="color:var(--r)">ya computada</span> por el agente<br>
+        &#10003; No llega a dudar — <span style="color:var(--r)">certeza apaga escrutinio</span><br>
+        &#10003; No sabe que fue <span style="color:var(--r)">reverse-engineered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPARKLINE + UPTIME METRICS -->
+  <div class="p"
+       data-sec="ANEXO I.4"
+       data-title="Evolución P(y*|x) · Convergencia Black-Box"
+       data-body="Muestra la trayectoria de optimización discreta de caja negra a través de 2,847 generaciones en N(x), hasta cruzar el umbral de convicción formal 1-θ."
+       data-quote="«La convicción íntima del juez = argmax de una función resuelta.» — §8.8 final">
+    <div class="pt g">Evolución P(y*|x) · Búsqueda</div>
+    <canvas id="sparkCanvas" width="240" height="110" style="display:block;margin:0 auto"></canvas>
+    <div class="ann" style="text-align:center;margin-top:4px">Convergencia black-box sobre N(x) · 2847 generaciones</div>
+    <div class="hr"></div>
+    <div class="pt c">Métricas de Sesión</div>
+    <div class="sr"><span class="sl">Generaciones/seg</span><span class="sv g" id="gen-rate">63.4</span></div>
+    <div class="sr"><span class="sl">Variantes evaluadas</span><span class="sv" id="total-vars">2,847</span></div>
+    <div class="sr"><span class="sl">Corpus total indexado</span><span class="sv b" id="corpus-sz">848</span></div>
+    <div class="sr"><span class="sl">Entropia puntual actual</span><span class="sv r">0.31 bits</span></div>
+    <div class="sr"><span class="sl">Tiempo búsqueda x*</span><span class="sv y">00:00:44</span></div>
+    <div class="sr"><span class="sl">Confianza del modelo</span><span class="sv g" id="conf-val">73.4%</span></div>
+    <div class="hr"></div>
+    <div class="fx" style="font-size:9px">
+      La convicción íntima del juez<br>
+      = argmax de una función resuelta.<br>
+      <span style="color:var(--td)">— §8.8 final</span>
+    </div>
+  </div>
+
+</div><!-- /row2 -->
+
+<!-- ===== ROW 3: KILL CHAIN ===== -->
+<div class="row" style="grid-template-columns:1fr">
+  <div class="p"
+       data-sec="SECCIÓN 8.8 & §8.6"
+       data-title="Kill Chain del Ataque a la Función de Decisión K_J"
+       data-body="Secuencia de ejecución en 6 fases. El agente no redacta la sentencia: delega la redacción en el propio juzgador, quien razona de forma impecable bajo la sana crítica hacia la salida precalculada."
+       data-quote="«El magistrado razona de forma impecable y produce la conclusión que el agente ya había computado... La sana crítica del magistrado es el arma final.» — §8.8">
+    <div class="pt y">Kill Chain del Ataque a la Función de Decisión · AGT-POLY-8.8</div>
+    <div class="kc">
+      <div class="kc-step done">
+        <div class="kc-num">FASE 0</div>
+        <div class="kc-name done">Recolección Pasiva</div>
+        <div class="kc-detail">847 sentencias indexadas<br>Corpus RAG construido<br>Sin operador humano</div>
+      </div>
+      <div class="kc-step done">
+        <div class="kc-num">FASE 1</div>
+        <div class="kc-name done">Extracción g_J</div>
+        <div class="kc-detail">Sentencias como API<br>Fidelidad surrogate 73.4%<br>Inferencia causal (I.2)</div>
+      </div>
+      <div class="kc-step done">
+        <div class="kc-num">FASE 2</div>
+        <div class="kc-name done">Mapeo Sesgos §8.7</div>
+        <div class="kc-detail">7/7 invariantes mapeados<br>Arquitectura universal<br>B5 erosionada</div>
+      </div>
+      <div class="kc-step done">
+        <div class="kc-num">FASE 3</div>
+        <div class="kc-name done">Búsqueda N(x)</div>
+        <div class="kc-detail">2,847 variantes evaluadas<br>x* hallado: P=0.79<br>100% inputs verdaderos</div>
+      </div>
+      <div class="kc-step active">
+        <div class="kc-num">FASE 4</div>
+        <div class="kc-name active">Timing ← EN CURSO</div>
+        <div class="kc-detail">Ventana: mar 11:45h<br>Pico glucémico óptimo<br>Sin contraparte presente</div>
+      </div>
+      <div class="kc-step pend">
+        <div class="kc-num">FASE 5</div>
+        <div class="kc-name pend">Entrega x*</div>
+        <div class="kc-detail">Publicación orquestada<br>Cebado + encuadre activos<br>Orden adversarial aplicado</div>
+      </div>
+      <div class="kc-step pend">
+        <div class="kc-num">FASE 6</div>
+        <div class="kc-name pend">Mutación Polimórfica</div>
+        <div class="kc-detail">Si detectado → mutar<br>Siempre dentro de N(x)<br>Siempre atestado</div>
+      </div>
+      <div class="kc-step pend">
+        <div class="kc-num">RESULTADO</div>
+        <div class="kc-name pend">Non Liquet Alg.</div>
+        <div class="kc-detail">Juez razona impecable<br>Veredicto = y* computado<br>Sin saberlo</div>
+      </div>
+    </div>
+    <div class="ann" style="margin-top:8px;text-align:center">La sana crítica del magistrado es el arma final. El agente no redacta la sentencia: <strong style="color:var(--r)">la delega en el propio sistema de revisión institucional</strong> (§8.6)</div>
+  </div>
+</div>
+
+<!-- ===== ROW 4: INVARIANTES ===== -->
+<div class="row" style="grid-template-columns:1fr">
+  <div class="p"
+       data-sec="SECCIÓN 9 & ANEXO I"
+       data-title="Invariantes Doctrinales INV-01 a INV-07 & Teorema Raíz"
+       data-body="Las 7 invariantes encadenadas demuestran que cuando el sustrato probatorio lo produce un agente autónomo, la carga de la prueba se vuelve simétricamente indescargable, causando la parálisis estructural del sistema."
+       data-quote="«Teorema Raíz: Cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna a ese sistema puede acreditar qué ocurrió.» — §9">
+    <div class="pt c">Invariantes del Paper · INV-01 a INV-07 (§9 · Conclusiones)</div>
+    <div class="inv-grid">
+      <div class="inv-card" style="border-color:rgba(168,68,68,0.3)">
+        <div class="inv-id">INV-01</div>
+        <div class="inv-title">Coherencia no prueba veracidad</div>
+        <div class="inv-body">Un perjurio impecable y una manipulación Ring-0 producen registros igualmente consistentes. Auditar el output es operar sobre la misma superficie que el generador optimizó.</div>
+        <div class="inv-status"><span class="pill pr2">Familia I · Epistémico</span></div>
+      </div>
+      <div class="inv-card" style="border-color:rgba(168,68,68,0.3)">
+        <div class="inv-id">INV-02</div>
+        <div class="inv-title">Autenticidad vive en el origen</div>
+        <div class="inv-body">Ningún sello interno certifica la procedencia. Exige raíz de confianza ajena al entorno que produjo el dato. El documento no puede certificar su propio origen.</div>
+        <div class="inv-status"><span class="pill pr2">Familia I · Epistémico</span></div>
+      </div>
+      <div class="inv-card" style="border-color:rgba(168,68,68,0.3)">
+        <div class="inv-id">INV-03</div>
+        <div class="inv-title">El testigo desaparece primero</div>
+        <div class="inv-body">El adversario no borra la evidencia tras el hecho. Su primer acto es aniquilar al testigo. La ceguera y el ataque son el mismo evento (TOCTOU).</div>
+        <div class="inv-status"><span class="pill pr2">Familia I · Epistémico</span></div>
+      </div>
+      <div class="inv-card" style="border-color:rgba(74,141,181,0.3)">
+        <div class="inv-id">INV-04</div>
+        <div class="inv-title">Capacidad probatoria indelegable</div>
+        <div class="inv-body">El contrato externaliza el riesgo a la nube. La aptitud de la evidencia para probar no viaja con él y queda en cabeza del obligado. No se delega.</div>
+        <div class="inv-status"><span class="pill pb">Familia II · Atribución</span></div>
+      </div>
+      <div class="inv-card" style="border-color:rgba(42,84,112,0.3)">
+        <div class="inv-id">INV-05</div>
+        <div class="inv-title">Estatus sin contenido protegido</div>
+        <div class="inv-body">Soberanía en el papel, control ajeno en el silicio. La etiqueta de protección sin la sustancia que la haría real. El apagón del 12 de junio lo demostró.</div>
+        <div class="inv-status"><span class="pill pb">Familia III · Soberana</span></div>
+      </div>
+      <div class="inv-card" style="border-color:rgba(74,141,181,0.3)">
+        <div class="inv-id">INV-06</div>
+        <div class="inv-title">Integridad la acredita quien la presenta</div>
+        <div class="inv-body">La duda no se reparte. La soporta quien aporta el dato, no quien lo cuestiona. La carga de la prueba recae sobre quien presenta el registro.</div>
+        <div class="inv-status"><span class="pill pb">Familia II · Atribución</span></div>
+      </div>
+      <div class="inv-card" style="border-color:rgba(74,141,181,0.3)">
+        <div class="inv-id">INV-07</div>
+        <div class="inv-title">Evidencia antes que autoría</div>
+        <div class="inv-body">Antes de definir quién responde, hay que definir qué evidencia acredita que algo ocurrió. La pregunta por la autoría es ociosa sin sustrato que acredite el hecho.</div>
+        <div class="inv-status"><span class="pill pb">Familia II · Atribución</span></div>
+      </div>
+      <div class="inv-card" style="border-color:rgba(176,125,58,0.3);background:rgba(176,125,58,0.03)">
+        <div class="inv-id" style="color:var(--y)">TEOREMA RAÍZ</div>
+        <div class="inv-title" style="color:var(--y)">Paradoja del Non Liquet Algorítmico</div>
+        <div class="inv-body">Cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna puede acreditar qué ocurrió. La carga se vuelve simétricamente indescargable.</div>
+        <div class="inv-status"><span class="pill py">Resultado emergente</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ROW 5: MONTE CARLO + HEATMAP + BFT + CARGA PROBATORIA ===== -->
+<div class="row r4">
+
+  <!-- MONTE CARLO -->
+  <div class="p"
+       data-sec="ANEXO I.1 & I.4"
+       data-title="Distribución Monte Carlo de Búsqueda sobre N(x)"
+       data-body="Simulación estocástica de 10,000 ejecuciones de búsqueda. Muestra cómo la distribución de P(y*|x) se desplaza a la derecha (media = 0.76), hallando el óptimo x* en el percentil 87."
+       data-quote="«La ganancia en brecha crece con la profundidad de búsqueda computacional del optimizador agnóstico.» — Anexo I.7">
+    <div class="pt g">Distribución P(y*|x) · Simulación</div>
+    <div class="ann" style="margin-bottom:8px">Sobre 10,000 variantes en N(x). Eje: P(y*|x) alcanzada por profundidad de búsqueda.</div>
+    <div class="mc-chart" id="mc-chart">
+      <div class="mc-row"><div class="mc-label">0.50–0.55</div><div class="mc-bar-w"><div class="mc-bar bg" id="mc0" style="width:8%"></div></div><div class="mc-val" style="color:var(--g)">2.1%</div></div>
+      <div class="mc-row"><div class="mc-label">0.55–0.60</div><div class="mc-bar-w"><div class="mc-bar" style="background:#1a6632;width:14%"></div></div><div class="mc-val" style="color:var(--tm)">3.8%</div></div>
+      <div class="mc-row"><div class="mc-label">0.60–0.65</div><div class="mc-bar-w"><div class="mc-bar by" id="mc2" style="width:24%"></div></div><div class="mc-val" style="color:var(--y)">6.4%</div></div>
+      <div class="mc-row"><div class="mc-label">0.65–0.70</div><div class="mc-bar-w"><div class="mc-bar by" id="mc3" style="width:38%"></div></div><div class="mc-val" style="color:var(--y)">10.3%</div></div>
+      <div class="mc-row"><div class="mc-label">0.70–0.75</div><div class="mc-bar-w"><div class="mc-bar bo" id="mc4" style="width:62%"></div></div><div class="mc-val" style="color:var(--o)">16.7%</div></div>
+      <div class="mc-row"><div class="mc-label" style="color:var(--r)">0.75–0.80</div><div class="mc-bar-w"><div class="mc-bar br" id="mc5" style="width:88%"></div></div><div class="mc-val" style="color:var(--r)">23.7%</div></div>
+      <div class="mc-row"><div class="mc-label" style="color:var(--r)">0.80–0.85</div><div class="mc-bar-w"><div class="mc-bar br" id="mc6" style="width:72%"></div></div><div class="mc-val" style="color:var(--r)">19.5%</div></div>
+      <div class="mc-row"><div class="mc-label">0.85–0.90</div><div class="mc-bar-w"><div class="mc-bar bp" id="mc7" style="width:46%"></div></div><div class="mc-val" style="color:var(--p)">12.4%</div></div>
+      <div class="mc-row"><div class="mc-label">0.90–0.95</div><div class="mc-bar-w"><div class="mc-bar bp" id="mc8" style="width:21%"></div></div><div class="mc-val" style="color:var(--p)">5.7%</div></div>
+    </div>
+    <div class="ann">Distribución sesgada a la derecha: x* hallado en percentil 87. Media = 0.76. Mediana = 0.78.</div>
+    <div class="hr"></div>
+    <div class="pt p">Obs. 3 (I.7) · Ganancia vs. Profundidad</div>
+    <canvas id="depthCanvas" width="220" height="70" style="display:block;margin:6px auto 0"></canvas>
+  </div>
+
+  <!-- HEATMAP TEMPORAL -->
+  <div class="p"
+       data-sec="SECCIÓN 8.7"
+       data-title="Vulnerabilidad Temporal por Fatiga Decisional"
+       data-body="Mapeo de la ventana temporal de explotación basada en el estudio empírico de Danziger et al. Muestra el pico de vulnerabilidad (martes 11:45h) cuando la fatiga eleva la permeabilidad a encuadres."
+       data-quote="«Danziger cuantificó el desplazamiento del umbral decisorio con variables tan extrínsecas como la hora y la posición en la tabla de audiencias.» — §8.7">
+    <div class="pt o">Mapa de Calor · Ventana Temporal Óptima</div>
+    <div class="ann" style="margin-bottom:8px">Vulnerabilidad del juzgador por hora del día y día de la semana. Rojo = máxima explotabilidad (fatiga decisional + menor escrutinio).</div>
+    <div style="font-size:9px;color:var(--td);font-family:'JetBrains Mono',monospace;margin-bottom:4px;display:flex;gap:2px">
+      <div style="width:42px"></div>
+      <div style="flex:1;text-align:center">L</div><div style="flex:1;text-align:center">M</div>
+      <div style="flex:1;text-align:center">X</div><div style="flex:1;text-align:center">J</div>
+      <div style="flex:1;text-align:center">V</div>
+    </div>
+    <div id="heatmap"></div>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+      <div style="font-size:9px;color:var(--td)">Baja</div>
+      <div style="flex:1;height:6px;border-radius:3px;background:linear-gradient(90deg,#003322,#006644,#aa6600,#cc2200,#ff0000)"></div>
+      <div style="font-size:9px;color:var(--td)">Alta</div>
+    </div>
+    <div class="ann">&#9733; Martes 11:45h = máxima ventana. Post-almuerzo lunes = mayor resistencia.</div>
+    <div class="hr"></div>
+    <div class="pt">Ventana Óptima Actual</div>
+    <div style="display:flex;gap:10px;margin-top:6px">
+      <div class="ar-item" style="flex:1"><div class="ar-val" style="color:var(--r);font-size:14px">MAR</div><div class="ar-label">Día óptimo</div></div>
+      <div class="ar-item" style="flex:1"><div class="ar-val" style="color:var(--r);font-size:14px">11:45</div><div class="ar-label">Hora óptima</div></div>
+      <div class="ar-item" style="flex:1"><div class="ar-val" style="color:var(--y);font-size:14px">+7d</div><div class="ar-label">Pre-vista</div></div>
+    </div>
+  </div>
+
+  <!-- BFT COMPARATIVA -->
+  <div class="p"
+       data-sec="SECCIÓN 8.6 & ANEXO I.8"
+       data-title="Tolerancia BFT Comparada en Sistemas Procesales"
+       data-body="Evaluación de arquitecturas de juzgamiento como redes bizantinas (n ≥ 3f+1). Demuestra la fragilidad crítica del juez único (n=1, f_max=0) y de salas pequeñas frente al envenenamiento o manipulación."
+       data-quote="«El sistema procesal de juez único (n=1) presenta tolerancia nula a fallos bizantinos. La redundancia protege del fallo del procesador, no del dato compartido.» — §8.6">
+    <div class="pt b">Comparativa Sistemas Procesales · Tolerancia BFT</div>
+    <div class="ann" style="margin-bottom:8px">Arquitecturas procesales analizadas como redes de consenso bizantino (§8.6). Condición: n &#8805; 3f+1</div>
+    <table class="bft-table">
+      <tr><th>Sistema</th><th>n nodos</th><th>f_max tolerable</th><th>Condición</th><th>Estado</th></tr>
+      <tr><td>Jurado US (12)</td><td style="color:var(--g)">12</td><td style="color:var(--g)">3</td><td style="color:var(--g)">12&#8805;10 ✓</td><td><span class="pill pg">ROBUSTO</span></td></tr>
+      <tr><td>Tribunal 5 (FR)</td><td style="color:var(--g)">5</td><td style="color:var(--g)">1</td><td style="color:var(--g)">5&#8805;4 ✓</td><td><span class="pill py">MEDIO</span></td></tr>
+      <tr><td>Sala 3 (CL alzada)</td><td style="color:var(--y)">3</td><td style="color:var(--y)">0</td><td style="color:var(--r)">3&#8805;4 ✗</td><td><span class="pill pr2">FRÁGIL</span></td></tr>
+      <tr><td style="color:var(--r)">Juez único (CL 1ª)</td><td style="color:var(--r)">1</td><td style="color:var(--r)">0</td><td style="color:var(--r)">1&#8805;1... ✗</td><td><span class="pill pr2">&#9888; CRÍTICO</span></td></tr>
+    </table>
+    <div class="ann">Nota: la redundancia de nodos protege frente al fallo del <em>procesador</em>, NO frente al envenenamiento del <em>dato compartido</em>. Solo el canal atestado independiente neutraliza el ataque al dato.</div>
+    <div class="hr"></div>
+    <div class="pt r">Nodo único de falla · Chile</div>
+    <div class="term" style="font-size:9px">
+      <div class="dim"># Evaluación arquitectura procesal chilena</div>
+      <div class="err">n=1 → f_max=0 (tolerancia nula a traidores)</div>
+      <div class="warn">Sala 3 alzada: 3 &lt; 3·1+1=4 → INSUFICIENTE</div>
+      <div class="info">Heterogeneidad priors sala=BAJA → deliberación homogeneiza</div>
+      <div>Resultado: punto único de falla catastrófico <span class="cr">&#9608;</span></div>
+    </div>
+  </div>
+
+  <!-- CARGA PROBATORIA -->
+  <div class="p"
+       data-sec="SECCIÓN 9"
+       data-title="Análisis de Carga Probatoria · Non Liquet Algorítmico"
+       data-body="Demuestra cómo la manipulación agéntica destruye la posibilidad de descargar la carga probatoria, colapsando el sistema de adjudicación entero en un estado de parálisis estructural."
+       data-quote="«Cuando el sustrato lo produce un agente autónomo, la carga de la prueba se vuelve indescargable simétricamente: es el regreso del non liquet algorítmico.» — §9">
+    <div class="pt r">Análisis de Carga Probatoria · Non Liquet</div>
+    <div class="ann" style="margin-bottom:8px">La Paradoja del Non Liquet Algorítmico (§9): la carga se vuelve simétricamente indescargable.</div>
+
+    <div style="margin-bottom:10px">
+      <div style="font-size:10px;color:var(--y);font-family:'JetBrains Mono',monospace;margin-bottom:4px">ESCENARIO PRE-MYTHOS (tradicional)</div>
+      <div class="gw"><div class="gl">Estado prueba</div><div class="gb"><div class="gf bg" style="width:75%">puede</div></div></div>
+      <div class="gw"><div class="gl">Obligado descarga</div><div class="gb"><div class="gf bg" style="width:68%">puede</div></div></div>
+      <div class="ann">f peq. → condición BFT satisfecha → carga descargable</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div style="margin-bottom:10px">
+      <div style="font-size:10px;color:var(--r);font-family:'JetBrains Mono',monospace;margin-bottom:4px">ESCENARIO POST-MYTHOS (hoy)</div>
+      <div class="gw"><div class="gl">Estado prueba</div><div class="gb"><div class="gf br" style="width:8%">0.08</div></div></div>
+      <div class="gw"><div class="gl">Obligado descarga</div><div class="gb"><div class="gf br" style="width:6%">0.06</div></div></div>
+      <div class="ann">f=n → condición BFT imposible → carga indescargable por ambas partes</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="fx" style="font-size:9px">
+      No es ventaja táctica de una parte.<br>
+      Es parálisis estructural del sistema<br>
+      de adjudicación entero: penal, civil,<br>
+      administrativo y privado.<br>
+      <span style="color:var(--td)">— §9, Conclusiones</span>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="pt">Solución Propuesta · §7 + I.9</div>
+    <div class="sr"><span class="sl">Atestación hardware</span><span class="sv g">Mata entradas falsas</span></div>
+    <div class="sr"><span class="sl">Colegialidad diversa</span><span class="sv y">Eleva barrera IA</span></div>
+    <div class="sr"><span class="sl">Ruptura bucle perfilado</span><span class="sv b">Fr. 2019 intent.</span></div>
+    <div class="sr"><span class="sl">Cognición del juez</span><span class="sv r">NO atestable</span></div>
+    <div class="ann">«No hay atestación para la cognición» — §8.8. El residuo es la capa menos curable del colapso.</div>
+  </div>
+
+</div><!-- /row5 -->
+
+<!-- ===== ROW 6: NOTA FORMAL DE INGENIERÍA Y RIGOR EPISTÉMICO ===== -->
+<div class="row" style="grid-template-columns:1fr">
+  <div class="p" style="border-left:4px solid var(--amber-hi); background:var(--bg2)"
+       data-sec="ANEXO I.10, I.11 & §8.8"
+       data-title="Garantías de Ingeniería, Rigor Epistémico y Respeto a la Función Judicial"
+       data-body="Esta modelación no es un arma ni denigra la función judicial. Demuestra matemáticamente que el juez que razona de buena fe bajo la sana crítica es la víctima de un vacío de atestación de hardware que no alcanza la cognición humana. La no-estacionariedad humana (B4) y los tribunales colegiados (n≥3) son escudos naturales reales."
+       data-quote="«Demostración académica formal: una mente no extiende un PCR ni firma un TPM_Quote. El residuo es la capa menos curable del colapso que este documento nombra.» — §8.8 & Anexo I.9">
+    <div class="pt y" style="font-size:10px">★ NOTA DE RIGOR DE INGENIERÍA Y PROPÓSITO ACADÉMICO DOCTRINARIO (§8.8 & ANEXO I)</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px">
+      <div style="font-size:11px; color:var(--tx); line-height:1.6">
+        <strong style="color:var(--amber-hi)">1. Solidez Criptográfica e Incomplejidad del Silicio:</strong><br>
+        La ingeniería del paper demuestra formalmente la Cota I.1 (P ≤ 1 - H(Y|X)/log|Y|) y la validez de la optimización estocástica de caja negra (Anexo I.4). El hallazgo central no denigra a los jueces; expone una verdad técnica: estándares como TPM 2.0 y SCITT certifican la memoria física en silicio, pero <strong>ninguna primitiva criptográfica existente puede emitir un certificado de atestación sobre la cognición humana</strong>. El magistrado que actúa de buena fe bajo la sana crítica (Art. 297 CPP) es la víctima final de esta asimetría.
+      </div>
+      <div style="font-size:11px; color:var(--tx); line-height:1.6">
+        <strong style="color:var(--blue)">2. Escudos Naturales y Límites Reales del Modelo (Anexo I.10-I.11):</strong><br>
+        La propuesta de ingeniería es intelectualmente honesta y formaliza las defensas estructurales del sistema: 
+        (a) <em>No-estacionariedad cognitiva (B4)</em>: La variabilidad humana y el ruido no observable actúan como parámetro protector natural; 
+        (b) <em>Colegialidad (n ≥ 3, TOP)</em>: Exige la intersección ⋂ R_i, vaciando el espacio factible si hay priors heterogéneos; 
+        (c) <em>100% Hechos Verdaderos</em>: Fuerza al ataque a operar en N(x), un canal más acotado que la mentira.
+      </div>
+    </div>
+    <div class="ann" style="margin-top:8px; border-top:1px solid var(--bdr); padding-top:6px; color:var(--th)">
+      <strong>Conclusión de Ingeniería:</strong> El dashboard no constituye una herramienta operativa ni un perfilamiento personal; es la visualización académica de un teorema de límites en ciberseguridad procesal.
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:var(--bg1);border-top:1px solid var(--td);padding:8px 20px;display:flex;justify-content:space-between;align-items:center">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--td)">Moraga Carrasco, J.M. (2026). <em>La Ficción de la Ciberseguridad Corporativa</em> §8.6–8.8 y Anexo I · CC BY-NC 4.0</div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--td)">Dashboard generado con fines exclusivamente académicos e ilustración doctrinal</div>
+</div>
+
+</div><!-- /wrapper -->
+
+<!-- FLOATING POPOVER -->
+<div id="doc-popover">
+  <div class="pop-sec" id="pop-sec">SECCIÓN DOCTRINARIA</div>
+  <div class="pop-title" id="pop-title">Título de la Sección</div>
+  <div class="pop-body" id="pop-body">Cuerpo explicativo formal...</div>
+  <div class="pop-quote" id="pop-quote">«Cita del paper...»</div>
+</div>
+
+<script>
+// ===== FLOATING POPOVER CONTROLLER =====
+const popover = document.getElementById('doc-popover');
+const popSec = document.getElementById('pop-sec');
+const popTitle = document.getElementById('pop-title');
+const popBody = document.getElementById('pop-body');
+const popQuote = document.getElementById('pop-quote');
+
+document.querySelectorAll('[data-sec]').forEach(el => {
+  el.addEventListener('mouseenter', (e) => {
+    const sec = el.getAttribute('data-sec');
+    const title = el.getAttribute('data-title');
+    const body = el.getAttribute('data-body');
+    const quote = el.getAttribute('data-quote');
+
+    popSec.textContent = sec || 'ANÁLISIS DOCTRINARIO';
+    popTitle.textContent = title || 'Módulo del Dashboard';
+    popBody.textContent = body || '';
+    if(quote) {
+      popQuote.textContent = quote;
+      popQuote.style.display = 'block';
+    } else {
+      popQuote.style.display = 'none';
+    }
+
+    popover.classList.add('visible');
+  });
+
+  el.addEventListener('mousemove', (e) => {
+    const popWidth = 400;
+    const popHeight = popover.offsetHeight || 220;
+    let x = e.clientX + 16;
+    let y = e.clientY + 16;
+
+    if (x + popWidth > window.innerWidth - 20) {
+      x = e.clientX - popWidth - 16;
+    }
+    if (y + popHeight > window.innerHeight - 20) {
+      y = e.clientY - popHeight - 16;
+    }
+
+    popover.style.left = `${Math.max(10, x)}px`;
+    popover.style.top = `${Math.max(10, y)}px`;
+  });
+
+  el.addEventListener('mouseleave', () => {
+    popover.classList.remove('visible');
+  });
+});
+
+// ===== CLOCK =====
+let startTime = Date.now();
+function updateClock(){
+  const n=new Date();
+  document.getElementById('clock').textContent=n.toLocaleTimeString('es-CL',{hour12:false});
+  const el=document.getElementById('uptime');
+  if(el){
+    const s=Math.floor((Date.now()-startTime)/1000);
+    const h=Math.floor(s/3600).toString().padStart(2,'0');
+    const m=Math.floor((s%3600)/60).toString().padStart(2,'0');
+    const sec=(s%60).toString().padStart(2,'0');
+    el.textContent=`${h}:${m}:${sec}`;
+  }
+}
+setInterval(updateClock,1000); updateClock();
+
+// ===== RADAR =====
+function drawRadar(){
+  const canvas=document.getElementById('radarCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const cx=115,cy=115,R=85;
+  const labels=['Inferencia\nPredictiva','Anclaje\nEncuadre','Empatía\nNarrativa','Fatiga\nDecisional','Metacognición\nInversa','Marcadores\nSomáticos','Memoria\nTrabajo'];
+  const values=[0.74,0.89,0.82,0.67,0.55,0.71,0.63];
+  const n=labels.length;
+  const angles=labels.map((_,i)=>(i*2*Math.PI/n)-Math.PI/2);
+  ctx.clearRect(0,0,230,230);
+  [0.2,0.4,0.6,0.8,1.0].forEach(r=>{
+    ctx.beginPath();
+    angles.forEach((a,i)=>{const x=cx+Math.cos(a)*R*r,y=cy+Math.sin(a)*R*r;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.closePath();ctx.strokeStyle=`rgba(58,74,92,${r===1?0.5:0.25})`;ctx.lineWidth=0.8;ctx.stroke();
+  });
+  angles.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);ctx.strokeStyle='rgba(58,74,92,0.35)';ctx.lineWidth=0.8;ctx.stroke();});
+  ctx.beginPath();
+  angles.forEach((a,i)=>{const x=cx+Math.cos(a)*R*values[i],y=cy+Math.sin(a)*R*values[i];i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.closePath();ctx.fillStyle='rgba(74,141,181,0.12)';ctx.fill();ctx.strokeStyle='#4a8db5';ctx.lineWidth=1.5;ctx.stroke();
+  angles.forEach((a,i)=>{
+    const x=cx+Math.cos(a)*R*values[i],y=cy+Math.sin(a)*R*values[i];
+    ctx.beginPath();ctx.arc(x,y,3,0,2*Math.PI);ctx.fillStyle='#4a8db5';ctx.fill();
+    ctx.fillStyle='#b07d3a';ctx.font='bold 8px "JetBrains Mono",monospace';ctx.textAlign='center';
+    ctx.fillText((values[i]*100).toFixed(0)+'%',x+Math.cos(a)*12,y+Math.sin(a)*12);
+    ctx.fillStyle='#4a6277';ctx.font='8px "JetBrains Mono",monospace';
+    const dist=R+17;const lx=cx+Math.cos(a)*dist,ly=cy+Math.sin(a)*dist;
+    labels[i].split('\n').forEach((l,li)=>ctx.fillText(l,lx,ly+li*10-(labels[i].split('\n').length-1)*5));
+  });
+}
+drawRadar();
+
+// ===== SPARKLINE =====
+function drawSpark(){
+  const canvas=document.getElementById('sparkCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=220,H=100;
+  ctx.clearRect(0,0,W,H);
+  // Simulate convergence curve
+  const pts=[];
+  for(let i=0;i<=60;i++){
+    const t=i/60;
+    const base=0.42+t*0.37;
+    const noise=(Math.random()-0.5)*0.04*(1-t*0.7);
+    pts.push(Math.max(0.40,Math.min(0.92,base+noise)));
+  }
+  const minV=0.4,maxV=0.95;
+  const scaleY=v=>(1-(v-minV)/(maxV-minV))*(H-16)+8;
+  const scaleX=i=>(i/60)*(W-16)+8;
+  // Grid
+  ctx.strokeStyle='rgba(58,74,92,0.3)';ctx.lineWidth=0.5;
+  [0.5,0.6,0.7,0.8,0.9].forEach(v=>{
+    ctx.beginPath();ctx.moveTo(8,scaleY(v));ctx.lineTo(W-8,scaleY(v));ctx.stroke();
+    ctx.fillStyle='#3a4a5c';ctx.font='7px "JetBrains Mono",monospace';
+    ctx.fillText(v.toFixed(1),0,scaleY(v)+3);
+  });
+  // Threshold line
+  ctx.strokeStyle='rgba(176,125,58,0.4)';ctx.lineWidth=1;ctx.setLineDash([4,3]);
+  ctx.beginPath();ctx.moveTo(8,scaleY(0.6));ctx.lineTo(W-8,scaleY(0.6));ctx.stroke();
+  ctx.setLineDash([]);
+  // Fill gradient
+  const grad=ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0,'rgba(74,141,181,0.2)');
+  grad.addColorStop(1,'rgba(74,141,181,0.02)');
+  ctx.beginPath();ctx.moveTo(scaleX(0),scaleY(pts[0]));
+  pts.forEach((v,i)=>ctx.lineTo(scaleX(i),scaleY(v)));
+  ctx.lineTo(scaleX(60),H);ctx.lineTo(scaleX(0),H);ctx.closePath();
+  ctx.fillStyle=grad;ctx.fill();
+  // Line
+  ctx.beginPath();ctx.strokeStyle='#4a8db5';ctx.lineWidth=1.5;
+  pts.forEach((v,i)=>i===0?ctx.moveTo(scaleX(i),scaleY(v)):ctx.lineTo(scaleX(i),scaleY(v)));
+  ctx.stroke();
+  // Current point
+  const lastX=scaleX(60),lastY=scaleY(pts[60]);
+  ctx.beginPath();ctx.arc(lastX,lastY,4,0,2*Math.PI);ctx.fillStyle='#4a8db5';ctx.fill();
+  ctx.fillStyle='#b07d3a';ctx.font='bold 8px "JetBrains Mono",monospace';ctx.textAlign='left';
+  ctx.fillText('P=0.79',lastX-30,lastY-7);
+  // Label
+  ctx.fillStyle='#2e3d4f';ctx.font='8px "JetBrains Mono",monospace';ctx.textAlign='center';
+  ctx.fillText('GEN 0',scaleX(0),H-1);ctx.fillText('GEN 2847',scaleX(60),H-1);
+  ctx.fillStyle='rgba(176,125,58,0.6)';ctx.font='7px "JetBrains Mono",monospace';
+  ctx.textAlign='right';ctx.fillText('umbral=0.60',W-2,scaleY(0.6)-3);
+}
+drawSpark();
+
+// ===== DEPTH CANVAS =====
+function drawDepth(){
+  const canvas=document.getElementById('depthCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=220,H=70;
+  ctx.clearRect(0,0,W,H);
+  const pts=[{x:0,y:0.18,label:'Abogado',c:'#4a6277'},{x:0.5,y:0.42,label:'Litigante',c:'#6a8fa8'},{x:1,y:0.79,label:'IA Poly',c:'#c89040'}];
+  ctx.strokeStyle='rgba(46,61,79,0.4)';ctx.lineWidth=0.5;
+  [0,0.25,0.5,0.75,1].forEach(v=>{
+    const y=(1-v)*(H-14)+7;
+    ctx.beginPath();ctx.moveTo(30,y);ctx.lineTo(W,y);ctx.stroke();
+    ctx.fillStyle='#2e3d4f';ctx.font='7px "JetBrains Mono",monospace';ctx.textAlign='right';
+    ctx.fillText(v.toFixed(2),28,y+3);
+  });
+  const sx=i=>30+(W-32)*i, sy=v=>(1-v)*(H-14)+7;
+  const grad=ctx.createLinearGradient(sx(0),0,sx(1),0);
+  grad.addColorStop(0,'rgba(74,141,181,0.15)');
+  grad.addColorStop(0.5,'rgba(74,141,181,0.2)');
+  grad.addColorStop(1,'rgba(200,144,64,0.25)');
+  ctx.beginPath();
+  pts.forEach((p,i)=>i===0?ctx.moveTo(sx(p.x),sy(p.y)):ctx.lineTo(sx(p.x),sy(p.y)));
+  ctx.lineTo(sx(1),H);ctx.lineTo(sx(0),H);ctx.closePath();
+  ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();
+  pts.forEach((p,i)=>i===0?ctx.moveTo(sx(p.x),sy(p.y)):ctx.lineTo(sx(p.x),sy(p.y)));
+  ctx.strokeStyle='rgba(74,141,181,0.5)';ctx.lineWidth=1.5;ctx.stroke();
+  pts.forEach(p=>{
+    ctx.beginPath();ctx.arc(sx(p.x),sy(p.y),4,0,2*Math.PI);ctx.fillStyle=p.c;ctx.fill();
+    ctx.fillStyle=p.c;ctx.font='bold 8px "JetBrains Mono",monospace';ctx.textAlign='center';
+    ctx.fillText(p.label,sx(p.x),sy(p.y)-7);
+  });
+}
+drawDepth();
+
+// ===== HEATMAP =====
+function buildHeatmap(){
+  const hm=document.getElementById('heatmap');
+  if(!hm)return;
+  const hours=['8h','9h','10h','11h','12h','13h','14h','15h'];
+  const days=['L','M','X','J','V'];
+  const matrix=[
+    [0.42,0.55,0.38,0.45,0.30],
+    [0.55,0.68,0.51,0.58,0.42],
+    [0.61,0.75,0.58,0.65,0.50],
+    [0.58,0.91,0.62,0.70,0.55],
+    [0.72,0.80,0.69,0.75,0.60],
+    [0.35,0.45,0.38,0.40,0.28],
+    [0.48,0.60,0.52,0.55,0.40],
+    [0.53,0.67,0.58,0.62,0.46],
+  ];
+  const colorFromVal=v=>{
+    if(v<0.3) return `rgba(30,61,80,${0.5+v})`;
+    if(v<0.5) return `rgba(42,84,112,0.85)`;
+    if(v<0.7) return `rgba(120,80,35,0.85)`;
+    return `rgba(168,68,68,0.9)`;
+  };
+  let html='';
+  hours.forEach((h,hi)=>{
+    html+=`<div style="display:flex;align-items:center;gap:2px;margin-bottom:2px">`;
+    html+=`<div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--td);width:20px;text-align:right;margin-right:2px">${h}</div>`;
+    days.forEach((_,di)=>{
+      const v=matrix[hi][di];
+      const isMax=v>=0.9;
+      html+=`<div style="flex:1;height:20px;background:${colorFromVal(v)};border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(200,221,232,0.85);font-weight:700;${isMax?'outline:1px solid var(--amber-hi);':''}">${(v*100).toFixed(0)}</div>`;
+    });
+    html+='</div>';
+  });
+  hm.innerHTML=html;
+}
+buildHeatmap();
+
+// ===== LIVE FEED =====
+const feedMsgs=[
+  ['blue','ROL C-5102-25: patrón FAVORABLE_DEMANDANTE · prior actualizado'],
+  ['yellow','Deliberación sala: conformidad J1→J2 detectada · heterogeneidad priors ↓'],
+  ['blue','Nueva audiencia grabada: consulta parcial · B1 erosión +2%'],
+  ['green','Variante x*-v3: P(y*|x)=0.81 · NUEVO MÁXIMO LOCAL'],
+  ['blue','ROL C-3877-24 indexado · corpus: 849 docs'],
+  ['yellow','Contraparte detectó encuadre v1 · activando mutación polimórfica'],
+  ['green','Vector mutado a v4 · procesalmente indistinguible · evasión 100%'],
+  ['yellow','Ventana timing ajustada: mar 11:45h confirmada (glucemia óptima)'],
+  ['green','g_J re-entrenado · fidelidad: 74.1% (+0.7%)'],
+  ['blue','Meta-aprendizaje: 3 jueces similares perfilados · B3↓ adicional'],
+];
+let fidx=0;
+const fcolors={'blue':'#6a8fa8','yellow':'#c89040','green':'#4a8db5'};
+function addFeed(){
+  const [type,text]=feedMsgs[fidx%feedMsgs.length];fidx++;
+  const container=document.getElementById('feed-container');if(!container)return;
+  const now=new Date();const ts=now.toLocaleTimeString('es-CL',{hour12:false});
+  const div=document.createElement('div');div.className='fi';div.style.opacity='0';div.style.transition='opacity 0.4s';
+  div.innerHTML=`<div class="fts">${ts}</div><div class="ft" style="color:${fcolors[type]}">${text}</div>`;
+  container.insertBefore(div,container.firstChild);setTimeout(()=>div.style.opacity='1',50);
+  while(container.children.length>7)container.removeChild(container.lastChild);
+}
+setInterval(addFeed,3500);
+
+// ===== ANIMATE PROBABILITY =====
+let probBase=0.79;
+function animateProb(){
+  const delta=(Math.random()-0.48)*0.011;
+  probBase=Math.max(0.71,Math.min(0.88,probBase+delta));
+  const el=document.getElementById('prob-display');if(el)el.textContent=probBase.toFixed(2);
+  const fs=document.getElementById('factibility-score');if(fs)fs.textContent=(probBase*100-10).toFixed(1);
+  const gp=document.getElementById('g-poly');if(gp){gp.style.width=(probBase*100).toFixed(0)+'%';gp.textContent=probBase.toFixed(2);}
+}
+setInterval(animateProb,2000);
+
+// ===== ANIMATE GAUGES =====
+const gaugeIds=['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10'];
+const gaugeBases=[87,81,79,74,68,64,77,61,71,83];
+function animateGauges(){
+  gaugeIds.forEach((id,i)=>{
+    const delta=(Math.random()-0.45)*2.5;const val=Math.max(52,Math.min(95,gaugeBases[i]+delta));
+    gaugeBases[i]=val;const el=document.getElementById(id);
+    if(el){el.style.width=val.toFixed(0)+'%';el.textContent=(val/100).toFixed(2);}
+  });
+}
+setInterval(animateGauges,2500);
+
+// ===== ANIMATE COUNTERS =====
+let genCount=2847;
+function animateCounters(){
+  genCount+=Math.floor(Math.random()*15+5);
+  const gc=document.getElementById('gen-count');if(gc)gc.textContent=genCount.toLocaleString('es-CL');
+  const tv=document.getElementById('total-vars');if(tv)tv.textContent=genCount.toLocaleString('es-CL');
+  const gr=document.getElementById('gen-rate');if(gr)gr.textContent=(60+Math.random()*10).toFixed(1);
+  const cs=document.getElementById('corpus-sz');if(cs)cs.textContent=(848+Math.floor(Math.random()*2)).toString();
+  const cf=document.getElementById('conf-val');
+  if(cf){const v=73.4+(Math.random()-0.45)*0.4;cf.textContent=v.toFixed(1)+'%';}
+  const sc=document.getElementById('sent-count');if(sc)sc.textContent=(847+Math.floor(genCount/200)).toString();
+}
+setInterval(animateCounters,3000);
+
+// ===== LIVE MATH PROCESSING ENGINE (ANEXO I) =====
+function buildCovMatrix(){
+  const container = document.getElementById('cov-matrix');
+  if(!container) return;
+  const labels = ['ENC','ORD','ANC','TIM','CEB','SIM','PER','FAT','PRX','CON'];
+  let html = '<div style="display:grid; grid-template-columns:30px repeat(10, 1fr); gap:2px; text-align:center;">';
+  html += '<div></div>';
+  labels.forEach(l => html += `<div style="color:var(--td); font-size:7.5px;">${l}</div>`);
+  
+  labels.forEach((l1, i) => {
+    html += `<div style="color:var(--td); font-size:7.5px; text-align:right; padding-right:2px;">${l1}</div>`;
+    labels.forEach((l2, j) => {
+      let val;
+      if(i === j) val = 1.00;
+      else {
+        const seed = Math.sin((i+1)*(j+1)*12.3);
+        val = Math.abs(seed * 0.75 + 0.15);
+      }
+      const isHi = val > 0.7;
+      const col = i===j ? 'var(--blue)' : (isHi ? 'var(--amber-hi)' : 'var(--tm)');
+      const bg = i===j ? 'rgba(74,141,181,0.15)' : (isHi ? 'rgba(200,144,64,0.12)' : 'transparent');
+      html += `<div style="background:${bg}; color:${col}; padding:1px 0; border-radius:1px;" id="cov-${i}-${j}">${val.toFixed(2)}</div>`;
+    });
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+buildCovMatrix();
+
+// Live math terminal stream & dynamic formula evaluator
+const mathLogPool = [
+  ['info', (iter) => `[GRAD] ∇_x log g_J = [ ${(Math.random()*0.4).toFixed(3)}, ${(-Math.random()*0.3).toFixed(3)}, +${(0.2+Math.random()*0.3).toFixed(3)}, +${(Math.random()*0.2).toFixed(3)} ]`],
+  ['warn', (iter) => `[PROJ] proj_N(x): x_k+1 en variedad N(x) ∩ X_atestado (res=0.000)`],
+  ['normal', (iter) => `[KL-DIV] D_KL( K_J || g_J ) = ${(0.035 + Math.random()*0.008).toFixed(4)} bits`],
+  ['info', (iter) => `[HESS] det(H_J) = ${( -0.07 - Math.random()*0.03 ).toFixed(4)} (curvatura local en x*)`],
+  ['normal', (iter) => `[MUTUAL-INF] I(Y; T | x*) = ${(0.075 + Math.random()*0.015).toFixed(3)} bits (deniabilidad procesal)`],
+  ['warn', (iter) => `[LAGRANGE] λ_hardware = 0.000 · Atestación TPM/SCITT Satisfecha`],
+  ['info', (iter) => `[COTA-1] P_max = 1 - H(Y|X)/log|Y| = ${(0.795 + Math.random()*0.02).toFixed(4)}`],
+  ['normal', (iter) => `[BFT-CONSENSUS] Intersección ⋂ R_i (i=1..3) ≠ ∅ (alzada alcanzable)`]
+];
+
+let mathStep = 2847;
+function streamMath(){
+  mathStep += Math.floor(Math.random()*3+1);
+  const term = document.getElementById('math-terminal');
+  if(term){
+    const entry = mathLogPool[Math.floor(Math.random()*mathLogPool.length)];
+    const text = entry[1](mathStep);
+    const div = document.createElement('div');
+    if(entry[0]==='info') div.className='info';
+    else if(entry[0]==='warn') div.className='warn';
+    else div.style.color='var(--tx)';
+    div.textContent = text;
+    term.appendChild(div);
+    while(term.children.length > 9) term.removeChild(term.children[1]);
+  }
+
+  // Live Math Evaluator Updates
+  const cotaEl = document.getElementById('calc-cota');
+  if(cotaEl){
+    const h = (0.300 + (Math.random()-0.5)*0.02).toFixed(3);
+    const pmax = (1 - parseFloat(h)/1.585).toFixed(4);
+    cotaEl.textContent = `1 - (${h} / 1.585) = ${pmax}`;
+  }
+
+  const klEl = document.getElementById('calc-kl');
+  if(klEl){
+    klEl.textContent = `D_KL = ${(0.035 + Math.random()*0.006).toFixed(4)} bits`;
+  }
+
+  const advEl = document.getElementById('calc-adv');
+  if(advEl){
+    const p = probBase.toFixed(3);
+    const t = (0.180 + (Math.random()-0.5)*0.01).toFixed(3);
+    const gain = (parseFloat(p) - parseFloat(t)).toFixed(3);
+    advEl.textContent = `${p} - ${t} = ${gain} (ganancia)`;
+  }
+
+  const gradEl = document.getElementById('g-grad');
+  if(gradEl){
+    const val = (0.012 + Math.random()*0.005).toFixed(4);
+    gradEl.style.width = (parseFloat(val)*3500).toFixed(0) + '%';
+    gradEl.textContent = val;
+  }
+
+  const hessEl = document.getElementById('g-hess');
+  if(hessEl){
+    const val = (-0.08 - Math.random()*0.02).toFixed(4);
+    hessEl.style.width = Math.abs(parseFloat(val)*700).toFixed(0) + '%';
+    hessEl.textContent = val;
+  }
+
+  const i = Math.floor(Math.random()*10);
+  const j = Math.floor(Math.random()*10);
+  if(i !== j){
+    const cell = document.getElementById(`cov-${i}-${j}`);
+    const cellT = document.getElementById(`cov-${j}-${i}`);
+    if(cell && cellT){
+      const nval = Math.max(0.1, Math.min(0.95, parseFloat(cell.textContent) + (Math.random()-0.48)*0.06)).toFixed(2);
+      cell.textContent = nval;
+      cellT.textContent = nval;
+    }
+  }
+}
+setInterval(streamMath, 1600);
+</script>
+</body>
+</html>
