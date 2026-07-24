@@ -475,17 +475,23 @@
     </div>
   </div>
 
-  <!-- FIGURA REAL DEL EXPERIMENTO ANEXO I (generada por la simulación Rust) -->
+  <!-- EXPERIMENTO ANEXO I — EN VIVO (el mismo Rust compilado a WebAssembly) -->
   <div class="grid" style="margin-top:12px">
     <div class="p" data-sec="I.3" style="border-left:4px solid var(--cyan); background:var(--bg2)">
-      <div class="pt" style="font-size:10px;color:var(--cyan)">★ EXPERIMENTO ANEXO I · Adversarial Oracle Extraction contra K_J — figura desde DATOS REALES (Rust)</div>
-      <div style="font-size:10.5px;color:var(--ink2);line-height:1.45;margin:6px 0 10px">
-        Esta figura <b>no es un mockup</b>: la genera la simulación en <b>Rust puro, sin dependencias, reproducible con semilla fija</b>. Surrogate <code>g_J</code> entrenado con observación parcial (I.3), ataque black-box sobre <code>N(x)</code>, colapso de colegialidad <code>&#8898;R&#7562;</code> (I.8) y activación de invariantes por ablación (I.7). <b>K_J es sintético</b> y así se declara (I.11) — no es medición sobre jueces reales.
+      <div class="pt" style="font-size:10px;color:var(--cyan)">★ EXPERIMENTO ANEXO I · Adversarial Oracle Extraction contra K_J — EN VIVO (Rust &rarr; WebAssembly)</div>
+      <div style="font-size:10.5px;color:var(--ink2);line-height:1.45;margin:6px 0 8px">
+        Esta figura la computa <b>el mismo código Rust</b> compilado a <b>WebAssembly</b>, en tu navegador — no un JavaScript que la finge. Mueve los parámetros y se <b>recalcula la simulación real</b>: surrogate <code>g_J</code>, ataque black-box sobre <code>N(x)</code>, colapso de colegialidad <code>&#8898;R&#7562;</code> (I.8), activación por ablación (I.7). <b>K_J es sintético</b> y así se declara (I.11).
       </div>
-      <a href="anexo_i_poc/figure.svg" target="_blank" title="Abrir la figura a tamaño completo">
-        <img src="anexo_i_poc/figure.svg" alt="Figura del experimento Anexo I generada desde la simulación en Rust" style="width:100%;border-radius:6px;border:1px solid var(--line);display:block">
-      </a>
-      <div class="proof-run" style="margin-top:10px">cd anexo_i_poc/ &amp;&amp; cargo run --release   # genera esta figura + CSVs + metrics.txt</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:6px 0 10px">
+        <label style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">Presupuesto δ de N(x): <b id="wLblBud" style="color:var(--sig)">0.90</b><br><input id="wBud" type="range" min="10" max="200" value="90" style="width:130px"></label>
+        <label style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">Heterogeneidad σ (I.8): <b id="wLblHet" style="color:var(--sig)">1.00</b><br><input id="wHet" type="range" min="0" max="200" value="100" style="width:130px"></label>
+        <label style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">Semilla K_J: <b id="wLblSeed" style="color:var(--sig)">3141</b><br><input id="wSeed" type="range" min="1" max="9999" value="3141" style="width:130px"></label>
+        <span id="wStatus" style="font-family:var(--mono);font-size:9px;color:var(--mut)">cargando WASM&hellip;</span>
+      </div>
+      <div id="figIBox" style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
+        <img src="anexo_i_poc/figure.svg" alt="Figura del experimento Anexo I" style="width:100%;display:block">
+      </div>
+      <div class="proof-run" style="margin-top:10px">cargo build --release --target wasm32-unknown-unknown --lib   #  el .wasm que corre aquí   ·   cargo run --release   #  nativo + CSVs</div>
     </div>
   </div>
 
@@ -1000,6 +1006,35 @@ setInterval(()=>{
     if(docTip.contains(e.target) || e.target.closest('.p, .kpi, [data-sec]')) return;
     docTip.classList.remove('active'); activeTipPanel = null;
   });
+})();
+</script>
+<script>
+/* Loader del experimento Anexo I: instancia el .wasm (mismo Rust) y recomputa la figura en vivo. */
+(function(){
+  const box=document.getElementById('figIBox'), st=document.getElementById('wStatus');
+  const bud=document.getElementById('wBud'), het=document.getElementById('wHet'), sd=document.getElementById('wSeed');
+  const lb=document.getElementById('wLblBud'), lh=document.getElementById('wLblHet'), ls=document.getElementById('wLblSeed');
+  if(!box||!bud) return;
+  let W=null, timer=null;
+  function labels(){ lb.textContent=(bud.value/100).toFixed(2); lh.textContent=(het.value/100).toFixed(2); ls.textContent=sd.value; }
+  function draw(){
+    if(!W) return;
+    st.textContent='computando la simulación…';
+    setTimeout(()=>{
+      try{
+        const ptr=W.render_svg_wasm((+sd.value)>>>0, Math.round(bud.value*10), (+het.value));
+        const len=W.svg_len();
+        const svg=new TextDecoder().decode(new Uint8Array(W.memory.buffer, ptr, len));
+        box.innerHTML=svg;
+        st.textContent='✓ recomputado en vivo · Rust → WASM';
+      }catch(e){ st.textContent='error WASM: '+e.message; }
+    }, 12);
+  }
+  function deb(){ labels(); clearTimeout(timer); timer=setTimeout(draw, 200); }
+  [bud,het,sd].forEach(el=>el.addEventListener('input', deb));
+  fetch('anexo_i_poc/anexo_i.wasm').then(r=>r.arrayBuffer()).then(b=>WebAssembly.instantiate(b,{}))
+    .then(({instance})=>{ W=instance.exports; labels(); draw(); })
+    .catch(()=>{ st.textContent='WASM no disponible — se muestra la figura estática'; });
 })();
 </script>
 </body>
