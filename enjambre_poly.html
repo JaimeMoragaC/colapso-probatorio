@@ -1,4 +1,10 @@
-<title>ENJAMBRE-POLY · consola autónoma de análisis de un núcleo sintético de decisión K_J</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENJAMBRE-POLY · Consola Autónoma de Análisis de un Núcleo Sintético de Decisión K_J</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme: dark;
@@ -7,8 +13,8 @@
     --ink:#dbe9f6; --ink2:#8ba6bd; --mut:#4d6379; --dim:#33455a;
     --sig:#35c0ff; --viol:#9d8bff; --ok:#25e08a; --warn:#ffc23d; --wall:#ff4d5e; --cyan:#2ff0e0; --orange:#ff9a3d;
     --gSig:0 0 14px rgba(53,192,255,.45); --gWall:0 0 16px rgba(255,77,94,.5); --gOk:0 0 14px rgba(37,224,138,.4);
-    --font: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    --mono: ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:radial-gradient(1200px 600px at 70% -10%,#0a1524 0%,var(--bg0) 60%);color:var(--ink);font-family:var(--font);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
@@ -38,725 +44,685 @@
 
   header.hd{padding:18px 2px 12px}
   .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sig);margin-bottom:7px}
-  h1{font-size:clamp(17px,2.3vw,23px);line-height:1.22;font-weight:650;letter-spacing:-.01em;max-width:38ch;text-wrap:balance} h1 code{font-family:var(--mono);color:var(--sig)}
-  .lede{margin-top:8px;color:var(--ink2);max-width:82ch;font-size:12px} .lede b{color:var(--ink)} .lede .w{color:var(--wall)} .lede .s{color:var(--sig)}
+  header.hd h1{font-size:22px;font-weight:700;line-height:1.25;color:var(--ink);letter-spacing:-.01em;max-width:980px}
+  header.hd h1 em{font-style:normal;color:var(--sig)}
+  header.hd p.lead{margin-top:8px;font-size:12.5px;color:var(--ink2);max-width:920px;line-height:1.55}
 
-  .grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  .g3{grid-template-columns:290px 1fr 290px} .g3b{grid-template-columns:1fr 1fr 1fr} .g2{grid-template-columns:1.15fr 1fr}
-  .col{display:flex;flex-direction:column;gap:1px;background:var(--line)}
-  .p{background:linear-gradient(180deg,var(--bg1),var(--bg0));padding:13px 14px;position:relative;overflow:hidden}
-  .p::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--sig),transparent);opacity:.25}
-  .pt{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sig);margin-bottom:11px;display:flex;align-items:center;gap:7px}
-  .pt::before{content:'';width:3px;height:11px;border-radius:1px;background:var(--sig);box-shadow:0 0 8px var(--sig)}
-  .pt.w{color:var(--wall)} .pt.w::before{background:var(--wall);box-shadow:0 0 8px var(--wall)}
-  .pt.v{color:var(--viol)} .pt.v::before{background:var(--viol);box-shadow:0 0 8px var(--viol)}
-  .pt.k{color:var(--ok)} .pt.k::before{background:var(--ok);box-shadow:0 0 8px var(--ok)}
-  .pt.y{color:var(--warn)} .pt.y::before{background:var(--warn);box-shadow:0 0 8px var(--warn)}
-  .pt.o{color:var(--orange)} .pt.o::before{background:var(--orange);box-shadow:0 0 8px var(--orange)}
-  .sub{font-size:10.5px;color:var(--mut);margin:-6px 0 10px} .sub code{font-family:var(--mono)}
+  .grid{display:grid;gap:12px}
+  .g-3{grid-template-columns:300px 1fr 340px}
+  .g-2{grid-template-columns:1fr 1fr}
+  .g-4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:1100px){.g-3{grid-template-columns:1fr}.g-4{grid-template-columns:1fr 1fr}}
+  @media(max-width:700px){.g-2,.g-4{grid-template-columns:1fr}}
 
-  .setup{margin-top:12px;display:grid;grid-template-columns:320px 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  .scen{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
-  .scen button{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--ink2);background:var(--bg3);border:1px solid var(--line);border-radius:6px;padding:7px 9px;cursor:pointer;transition:all .15s}
-  .scen button:hover{border-color:var(--sig);color:var(--ink)}
-  .scen button.on{background:rgba(53,192,255,.12);border-color:var(--sig);color:var(--sig);box-shadow:0 0 12px rgba(53,192,255,.2)}
-  .autogrid{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:12px;align-items:end;margin-top:2px}
-  .autov{font-family:var(--mono);font-size:17px;font-weight:700;color:var(--sig);text-shadow:var(--gSig);font-variant-numeric:tabular-nums;line-height:1}
-  .autol{font-size:9px;color:var(--mut);font-family:var(--mono);letter-spacing:.4px;margin-bottom:3px}
-  .btnrun{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;color:var(--ok);background:rgba(37,224,138,.08);border:1px solid rgba(37,224,138,.3);border-radius:5px;padding:5px 9px;cursor:pointer}
-  .btnrun:hover{background:rgba(37,224,138,.16)}
+  .p{background:var(--bg1);border:1px solid var(--line);border-radius:6px;padding:14px;position:relative;overflow:hidden;transition:border-color .15s}
+  .p:hover{border-color:rgba(53,192,255,.35);outline:1px solid var(--warn)}
+  .pt{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sig);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+  .pt .t{display:flex;align-items:center;gap:6px}
+  .pt .t::before{content:'';display:inline-block;width:3px;height:10px;background:var(--sig);border-radius:1px}
+  .pt.wall .t::before{background:var(--wall)} .pt.wall{color:var(--wall)}
+  .pt.ok .t::before{background:var(--ok)} .pt.ok{color:var(--ok)}
+  .pt.warn .t::before{background:var(--warn)} .pt.warn{color:var(--warn)}
+  .pt.viol .t::before{background:var(--viol)} .pt.viol{color:var(--viol)}
 
-  .kpis{margin-top:12px;display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  .kpi{background:linear-gradient(180deg,var(--bg1),var(--bg0));padding:12px 13px;position:relative}
-  .kpi .k{font-size:9px;letter-spacing:.04em;color:var(--mut);text-transform:uppercase;display:block;margin-bottom:7px;min-height:2.6em;font-family:var(--mono)}
-  .kpi .val{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--sig);line-height:1;font-variant-numeric:tabular-nums;text-shadow:var(--gSig)}
-  .kpi .val .u{font-size:11px;color:var(--mut);font-weight:500;text-shadow:none}
-  .kpi.wall .val{color:var(--wall);text-shadow:var(--gWall)} .kpi.viol .val{color:var(--viol);text-shadow:0 0 14px rgba(157,139,255,.4)} .kpi.ok .val{color:var(--ok);text-shadow:var(--gOk)}
-  .kpi .tag{font-size:8.5px;color:var(--mut);margin-top:6px;font-family:var(--mono);letter-spacing:.3px} .kpi .tag.w{color:var(--wall)}
-  .kpi.wall::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,77,94,.28);pointer-events:none}
+  .sub{font-size:11px;color:var(--mut);margin-top:-6px;margin-bottom:10px;line-height:1.4}
 
-  .canvas-box{position:relative;width:100%} canvas{display:block;width:100%;height:auto}
-  .legend{display:flex;flex-wrap:wrap;gap:5px 13px;margin-top:8px;font-size:10.5px;color:var(--ink2)}
-  .legend span{display:inline-flex;align-items:center;gap:6px} .legend i{width:14px;height:0;border-top-width:2.5px;border-top-style:solid;display:inline-block}
-  .bignum{text-align:center;padding:6px 0 2px}
-  .bignum .n{font-family:var(--mono);font-size:44px;font-weight:700;line-height:1;letter-spacing:-2px;color:var(--ok);text-shadow:var(--gOk)}
-  .bignum .s{font-size:9px;letter-spacing:2px;color:var(--mut);text-transform:uppercase;margin-top:5px;font-family:var(--mono)}
-  .bar{margin-bottom:8px} .bar .bh{display:flex;justify-content:space-between;align-items:baseline;font-size:10.5px;margin-bottom:3px}
-  .bar .bh .n{font-family:var(--mono);color:var(--ink2)} .bar .bh .pc{font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums}
-  .bar .track{height:6px;background:var(--bg4);border-radius:3px;overflow:hidden} .bar .fill{height:100%;border-radius:3px;transition:width .4s ease}
-  .bd{font-size:9.5px;color:var(--mut);margin-top:2px}
-  .radar-wrap{text-align:center}
+  .controls{display:flex;flex-direction:column;gap:10px}
+  .cgroup{background:var(--bg2);border:1px solid var(--hair);border-radius:4px;padding:10px}
+  .cgroup .lbl{font-family:var(--mono);font-size:9px;color:var(--ink2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between}
+  .cgroup .lbl .val{color:var(--sig);font-weight:700}
+  .btn-row{display:flex;gap:6px;flex-wrap:wrap}
+  .btn{font-family:var(--mono);font-size:10px;font-weight:600;padding:6px 10px;border-radius:3px;border:1px solid var(--line);background:var(--bg3);color:var(--ink2);cursor:pointer;transition:all .12s;flex:1;min-width:80px;text-align:center}
+  .btn:hover{border-color:var(--sig);color:var(--ink)}
+  .btn.on{background:rgba(53,192,255,.12);border-color:var(--sig);color:var(--sig);box-shadow:var(--gSig)}
+  .btn.on.wall{background:rgba(255,77,94,.12);border-color:var(--wall);color:var(--wall);box-shadow:var(--gWall)}
 
-  /* identity card */
-  .avatar{width:64px;height:64px;border:2px solid var(--wall);border-radius:6px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 8px;box-shadow:0 0 20px rgba(255,77,94,.3);position:relative;overflow:hidden}
-  .avatar::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,77,94,.22),transparent);animation:sh 3s infinite}
-  @keyframes sh{0%{left:-120%}100%{left:220%}}
-  .tid{font-family:var(--mono);font-size:10px;color:var(--wall);text-align:center;margin-bottom:9px;letter-spacing:.5px}
-  .stat{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--hair);font-size:10.5px}
-  .stat .l{color:var(--mut);font-family:var(--mono);font-size:9.5px} .stat .v{font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums}
+  .sl-wrap input[type=range]{width:100%;accent-color:var(--sig);background:var(--bg0);height:4px;border-radius:2px;cursor:pointer}
 
-  /* tables */
-  .vt{width:100%;border-collapse:collapse} .vt th{font-family:var(--mono);font-size:8.5px;letter-spacing:1px;color:var(--dim);text-transform:uppercase;text-align:left;padding:5px 5px;border-bottom:1px solid var(--line)}
-  .vt td{font-size:10.5px;padding:6px 5px;border-bottom:1px solid var(--hair);vertical-align:top;color:var(--ink2)} .vt td:first-child{font-family:var(--mono);font-size:9px;color:var(--sig);white-space:nowrap}
-  .pill{display:inline-block;padding:2px 6px;border-radius:9px;font-family:var(--mono);font-size:8px;font-weight:600}
-  .pill.k{background:rgba(37,224,138,.1);color:var(--ok);border:1px solid rgba(37,224,138,.28)} .pill.w{background:rgba(255,77,94,.1);color:var(--wall);border:1px solid rgba(255,77,94,.3)}
-  .pill.y{background:rgba(255,194,61,.1);color:var(--warn);border:1px solid rgba(255,194,61,.28)} .pill.s{background:rgba(53,192,255,.1);color:var(--sig);border:1px solid rgba(53,192,255,.28)}
-  .vt tr.hl td{background:rgba(255,77,94,.06)}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px}
+  @media(max-width:900px){.kpis{grid-template-columns:1fr 1fr}}
+  .kpi{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:10px;text-align:center}
+  .kpi .kv{font-family:var(--mono);font-size:22px;font-weight:700;line-height:1.1;color:var(--sig)}
+  .kpi .kv.wall{color:var(--wall)} .kpi .kv.ok{color:var(--ok)} .kpi .kv.warn{color:var(--warn)}
+  .kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;margin-top:4px}
+  .kpi .ks{font-size:9.5px;color:var(--dim);margin-top:2px}
 
-  /* histogram */
-  .hist{margin-top:6px} .hrow{display:flex;align-items:center;gap:8px;margin-bottom:3px}
-  .hlab{font-family:var(--mono);font-size:8.5px;color:var(--mut);width:64px;text-align:right} .hbw{flex:1;height:13px;background:var(--bg4);border-radius:2px;overflow:hidden}
-  .hbar{height:100%;border-radius:2px;transition:width .5s} .hval{font-family:var(--mono);font-size:8.5px;color:var(--mut);width:34px}
+  canvas.cv{display:block;width:100%;background:var(--bg0);border:1px solid var(--hair);border-radius:4px}
 
-  .pipe{display:flex;gap:0;margin-top:8px;overflow-x:auto;padding-bottom:4px}
-  .step{flex:1;min-width:118px;background:var(--bg2);border:1px solid var(--line);padding:9px 8px;position:relative;text-align:center;transition:all .3s}
-  .step::after{content:'▶';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:11px;z-index:2} .step:last-child::after{display:none}
-  .step.done{border-color:rgba(53,192,255,.4);background:linear-gradient(180deg,rgba(53,192,255,.06),var(--bg2))}
-  .step.cur{border-color:var(--warn);box-shadow:0 0 0 1px var(--warn),inset 0 0 18px rgba(255,194,61,.1);animation:cpulse 1.4s infinite}
-  @keyframes cpulse{0%,100%{box-shadow:0 0 0 1px var(--warn),inset 0 0 18px rgba(255,194,61,.06)}50%{box-shadow:0 0 10px 1px rgba(255,194,61,.25),inset 0 0 18px rgba(255,194,61,.12)}}
-  .step.wall{border-color:var(--wall);background:linear-gradient(180deg,rgba(255,77,94,.09),var(--bg2));box-shadow:inset 0 0 20px rgba(255,77,94,.08)}
-  .step .num{font-family:var(--mono);font-size:8.5px;color:var(--dim);margin-bottom:4px;letter-spacing:1px} .step .nm{font-size:10.5px;font-weight:600;line-height:1.25;margin-bottom:4px;color:var(--ink2)}
-  .step.done .nm{color:var(--sig)} .step.cur .nm{color:var(--warn)} .step.wall .nm{color:var(--wall)} .step .dt{font-size:9px;color:var(--mut);line-height:1.35}
+  .term{background:var(--bg0);border:1px solid var(--hair);border-radius:4px;padding:10px;font-family:var(--mono);font-size:10px;line-height:1.65;height:165px;overflow-y:auto;color:var(--ink2)}
+  .term .l-ok{color:var(--ok)} .term .l-warn{color:var(--warn)} .term .l-wall{color:var(--wall)} .term .l-sig{color:var(--sig)} .term .l-dim{color:var(--mut)}
 
-  .term{background:#03060b;border:1px solid var(--line);border-radius:4px;padding:9px 10px;font-family:var(--mono);font-size:9.5px;line-height:1.75;max-height:200px;overflow:hidden}
-  .term .fi{display:flex;gap:8px;align-items:flex-start;padding:1px 0} .term .ts{color:var(--dim);white-space:nowrap}
-  .term .tx{color:var(--ink2)} .term .tx.s{color:var(--sig)} .term .tx.w{color:var(--wall)} .term .tx.k{color:var(--ok)} .term .tx.y{color:var(--warn)} .term .tx.v{color:var(--viol)}
+  .feed{display:flex;flex-direction:column;gap:6px;max-height:180px;overflow-y:auto}
+  .fitem{font-family:var(--mono);font-size:9.5px;padding:5px 8px;background:var(--bg2);border-left:2px solid var(--sig);border-radius:0 3px 3px 0;display:flex;gap:8px;align-items:baseline}
+  .fitem.wall{border-left-color:var(--wall)} .fitem.ok{border-left-color:var(--ok)} .fitem.warn{border-left-color:var(--warn)}
+  .fitem .ft{color:var(--mut);font-size:8.5px;flex:none}
+  .fitem .fm{color:var(--ink2);line-height:1.35}
 
-  .note{background:var(--bg2);border-left:2px solid var(--wall);border-radius:0 6px 6px 0;padding:8px 10px;font-size:10.5px;color:var(--ink2);margin-top:8px} .note b{color:var(--ink)}
-  .fx{background:var(--bg2);border:1px solid var(--hair);border-left:2px solid var(--sig);border-radius:2px;padding:8px 10px;font-family:var(--mono);font-size:9.5px;color:var(--ink2);margin:8px 0;line-height:1.65} .fx b{color:var(--ink)}
-  .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+  .bft-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:10px}
+  .bft-table th{color:var(--mut);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
+  .bft-table td{padding:6px;border-bottom:1px solid var(--hair);color:var(--ink2)}
+  .bft-table tr.hi td{background:rgba(53,192,255,.04)}
+  .tag{display:inline-block;padding:1px 5px;border-radius:2px;font-size:8.5px;font-weight:700}
+  .tag.wall{background:rgba(255,77,94,.18);color:var(--wall);border:1px solid rgba(255,77,94,.3)}
+  .tag.ok{background:rgba(37,224,138,.18);color:var(--ok);border:1px solid rgba(37,224,138,.3)}
+  .tag.warn{background:rgba(255,194,61,.18);color:var(--warn);border:1px solid rgba(255,194,61,.3)}
 
-  /* invariantes cards */
-  .invgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
-  .inv{background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:10px 11px;position:relative}
-  .inv.ep{border-left:2px solid var(--wall)} .inv.at{border-left:2px solid var(--sig)} .inv.so{border-left:2px solid var(--viol)} .inv.root{border-left:2px solid var(--warn);background:rgba(255,194,61,.03)}
-  .inv .iid{font-family:var(--mono);font-size:9px;color:var(--sig);letter-spacing:1px;margin-bottom:4px} .inv.root .iid{color:var(--warn)}
-  .inv .it{font-size:11px;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.28} .inv.root .it{color:var(--warn)}
-  .inv .ib{font-size:9.5px;color:var(--mut);line-height:1.4}
+  .disc{background:var(--bg2);border:1px solid var(--hair);border-left:3px solid var(--sig);border-radius:4px;padding:10px 12px;font-size:11px;color:var(--ink2);line-height:1.5}
+  .disc b{color:var(--ink)}
 
-  .foot{margin-top:20px;font-size:10.5px;color:var(--mut);border-top:1px solid var(--line);padding-top:12px;max-width:88ch} .foot code{font-family:var(--mono)} .foot b{color:var(--ink2)}
-  .disc{margin-top:16px;background:linear-gradient(180deg,var(--bg1),var(--bg0));border:1px solid var(--line);border-top:2px solid var(--sig);border-radius:10px;padding:16px 18px 14px;font-size:11.5px;color:var(--ink2);line-height:1.6}
-  .disc h4{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--sig);margin-bottom:3px;display:flex;align-items:center;gap:7px}
-  .disc h4::before{content:'';width:3px;height:12px;border-radius:1px;background:var(--sig);box-shadow:0 0 8px var(--sig)}
-  .disc .dsub{font-size:10px;color:var(--mut);font-style:italic;margin-bottom:13px}
-  .disc p{margin-bottom:9px} .disc p:last-child{margin-bottom:0}
-  .disc b{color:var(--ink)} .disc em{color:var(--ink2)} .disc code{font-family:var(--mono);color:var(--sig)}
-  .disc .lead{color:var(--sig);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-right:2px}
-  .disc .lead.w{color:var(--wall)} .disc .lead.k{color:var(--ok)}
-  /* doc tooltips */
-  #docTip{position:fixed;z-index:9999;max-width:350px;background:linear-gradient(180deg,#0c1725,#060c15);border:1px solid rgba(53,192,255,.55);border-radius:9px;padding:11px 13px;font-size:11.5px;line-height:1.55;color:var(--ink2);box-shadow:0 10px 34px rgba(0,0,0,.65);opacity:0;transition:opacity .12s;pointer-events:none}
-  #docTip .h{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--sig);text-transform:uppercase;display:block;margin-bottom:5px}
-  #docTip b{color:var(--ink)} #docTip em{color:var(--ink2)}
-  .p[data-doc]::after,.kpis[data-doc]::after,.disc[data-doc]::after{content:'ⓘ';position:absolute;top:7px;right:9px;font-size:11px;color:var(--dim);opacity:.45;transition:opacity .15s,color .15s;pointer-events:none;z-index:5}
-  .p[data-doc]:hover::after,.kpis[data-doc]:hover::after,.disc[data-doc]:hover::after{opacity:1;color:var(--sig)}
-  .kpis[data-doc],.disc[data-doc]{position:relative}
-  #docTip .docmore{margin-top:9px;padding-top:8px;border-top:1px solid rgba(53,192,255,.25);font-family:var(--mono);font-size:10px;font-weight:700;color:var(--sig);cursor:pointer;letter-spacing:.3px}
-  #docTip .docmore:hover{text-decoration:underline;color:var(--cyan)}
-  #docModal{position:fixed;inset:0;z-index:10000;background:rgba(2,5,10,.74);display:none;align-items:center;justify-content:center;padding:24px}
-  #docModal.on{display:flex}
-  #docModal .mbox{position:relative;max-width:640px;width:100%;max-height:82vh;overflow:auto;background:linear-gradient(180deg,#0b1420,#070d15);border:1px solid rgba(53,192,255,.45);border-radius:12px;padding:20px 22px;box-shadow:0 20px 60px rgba(0,0,0,.7)}
-  #docModal .mclose{position:absolute;top:12px;right:12px;background:var(--bg3);border:1px solid var(--line);color:var(--ink2);border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:13px;line-height:1}
-  #docModal .mclose:hover{color:var(--wall);border-color:var(--wall)}
-  #docModal .mh{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--sig);text-transform:uppercase;margin-bottom:12px;padding-right:34px;line-height:1.4}
-  #docModal .mbody{font-size:13px;line-height:1.65;color:var(--ink2)}
-  #docModal .mbody b{color:var(--ink)} #docModal .mbody em{color:var(--ink2)} #docModal .mbody code{font-family:var(--mono);color:var(--sig)}
-  #docModal .ex{background:var(--bg2);border-left:2px solid var(--sig);border-radius:0 6px 6px 0;padding:12px 14px;margin:4px 0}
-  #docModal .cite{font-family:var(--mono);font-size:10px;color:var(--mut);margin-top:11px;letter-spacing:.3px}
+  /* TOOLTIP & MODAL DOCTRINARIOS */
+  #docTip{position:fixed;z-index:9999;max-width:380px;background:#060b13;border:1px solid var(--sig);border-left:3px solid var(--warn);box-shadow:0 8px 30px rgba(0,0,0,.85);padding:10px 12px;border-radius:4px;font-size:11px;color:var(--ink2);pointer-events:none;opacity:0;transition:opacity .15s}
+  #docTip .h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;color:var(--warn);text-transform:uppercase;margin-bottom:4px;display:block}
+  #docTip b{color:var(--ink)}
+  #docTip .docmore{margin-top:6px;font-family:var(--mono);font-size:8.5px;color:var(--sig);text-decoration:underline;cursor:pointer;pointer-events:auto}
+  
+  /* LAWYER POPOVER BOX */
+  .pop-lawyer {
+    background: rgba(176, 125, 58, 0.12);
+    border: 1px solid rgba(200, 144, 64, 0.35);
+    border-left: 3px solid #c89040;
+    padding: 8px 10px;
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+  .pop-lawyer-tag {
+    font-family: var(--mono);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #c89040;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .pop-lawyer-txt {
+    font-size: 10.5px;
+    color: #e2f0f8;
+    line-height: 1.45;
+  }
 
-  @media (max-width:1000px){.setup{grid-template-columns:1fr} .kpis{grid-template-columns:repeat(3,1fr)} .autogrid{grid-template-columns:repeat(2,1fr)} .g3,.g3b,.g2{grid-template-columns:1fr} .invgrid{grid-template-columns:repeat(2,1fr)}}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important} body::before{display:none}}
+  #docModal{position:fixed;inset:0;z-index:10000;background:rgba(4,7,13,.82);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
+  #docModal.on{opacity:1;pointer-events:auto}
+  #docModal .mbox{background:var(--bg1);border:1px solid var(--sig);box-shadow:0 0 40px rgba(53,192,255,.2);border-radius:6px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:20px;position:relative}
+  #docModal .mclose{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--mut);font-size:16px;cursor:pointer}
+  #docModal .mclose:hover{color:var(--wall)}
+  #docModal .mh{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--sig);text-transform:uppercase;margin-bottom:8px}
+  #docModal .mb{font-size:12.5px;color:var(--ink2);line-height:1.65}
+  #docModal .mb b{color:var(--ink)}
+  #docModal .mb .ex{background:var(--bg2);border-left:3px solid var(--sig);padding:10px 12px;margin:10px 0;font-style:italic;color:var(--ink);font-size:12px}
+  #docModal .mb .cite{font-family:var(--mono);font-size:9.5px;color:var(--mut);margin-top:4px}
 </style>
+</head>
+<body>
 
-<div class="cmd"><div class="in">
-  <div class="l">
-    <span class="badge">◈ AUTÓNOMO · SIN OPERADOR</span>
-    <div style="min-width:0">
-      <div class="sid">ENJAMBRE-POLY // NÚCLEO DE DECISIÓN <code style="font-family:var(--mono)">K_J</code> // Anexo I · I.2-bis · SINTÉTICO</div>
-      <div class="sname">Enjambre poliforme autónomo &mdash; vista interna sobre <code>K_J(y|x,s,t)</code></div>
-    </div>
-  </div>
-  <div class="r">
-    <span class="langtog"><button id="mIn" class="on">Ingeniero</button><button id="mAb">Abogado</button></span>
-    <span class="live"><span class="d"></span>AUTO-ESCALANDO</span>
-    <span>gen <span id="gen" style="color:var(--sig)">0</span></span>
-    <span>t <span id="uptime" style="color:var(--ink2)">00:00</span></span>
-    <span class="om">SIN OPERADOR</span>
-  </div>
-</div></div>
-
-<div class="banner"><div class="in">
-  <span class="dot" aria-hidden="true"></span>
-  <span><b>Núcleo SINTÉTICO — no un juez real.</b> IA <b>autónoma, sin operador</b>: se auto-dirige; nadie gira perillas sobre el atacante. Cifras = <b>estado del modelo</b>, no mediciones. <span class="hot">Representación crítica, no manual</span>: sin blanco, sin plan, sin <em>timing</em>. <b>Predecir ≠ conducir.</b> Umbral en cognición real: <span class="hot">abierto</span> (§I.11).</span>
-</div></div>
-
-<div class="wrap">
-  <header class="hd">
-    <div class="eyebrow" data-ju="Cómo una IA sin dueño mira a un juez: su forma de decidir, no el contenido">POV del enjambre autónomo · plano del continente (caja negra)</div>
-    <h1 data-ju="Una IA sin dueño que aprende sola a un tribunal para poder inclinarlo">Una IA autónoma que se auto-escala frente al tribunal que ve como <code>objetivo</code></h1>
-    <p class="lede" data-ju="Es la vista desde adentro de un enjambre de IAs que —<b>sin ninguna persona dirigiéndolas</b>— estudia cómo decide un juez a partir de sus fallos públicos, para poder inclinarlo. <b>Tú no controlas a la IA.</b> <span class='s'>Ella se prepara sola</span> hasta chocar con dos límites. Lo único que decides es <b>qué tribunal enfrenta</b> — y ahí se ve por qué los <span class='w'>dos límites de fondo</span> resisten por más IAs que sean.">Vista interna de un enjambre <b>multiagente y poliforme</b> que —<b>sin operador</b>, por convergencia instrumental— extrae el <b>continente</b> (el mapeo entrada→salida) de un núcleo de decisión. <b>Tú no la controlas.</b> <span class="s">Escala sola sus capacidades</span> hasta estrellarse contra los muros. Lo único que decides es <b>qué tribunal enfrenta</b> — y ahí se ve por qué los <span class="w">dos muros estructurales</span> no ceden a ningún número de agentes.</p>
-  </header>
-
-  <section class="setup">
-    <div class="p">
-      <div class="pt w" data-ju="El procedimiento penal chileno que enfrenta · lo único que eliges">El procedimiento penal chileno · lo único que eliges</div>
-      <div class="sub" data-ju="La IA se dirige sola. Tú solo escoges bajo qué procedimiento penal chileno se juzga.">El enjambre se auto-dirige. Tú solo escoges el régimen procesal.</div>
-      <div class="scen">
-        <button data-scen="unico" class="on">🇨🇱 Abreviado · J. Garantía</button>
-        <button data-scen="sala3">🇨🇱 Juicio oral · TJOP</button>
-        <button data-scen="jurado">⚖️ Jurado diverso · 12</button>
-      </div>
-      <div class="note" id="scenNote" style="margin-top:9px"></div>
-    </div>
-    <div class="p">
-      <div class="pt" style="justify-content:space-between"><span data-ju="La IA se prepara sola">Enjambre · auto-escalado</span><button class="btnrun" id="btnRun">▸ RE-LANZAR</button></div>
-      <div class="autogrid">
-        <div><div class="autol" data-ju="cuántas IAs">agentes</div><div class="autov" id="aAgents">1</div></div>
-        <div><div class="autol" data-ju="casos en paralelo">causas paralelas</div><div class="autov" id="aCausas">1</div></div>
-        <div><div class="autol" data-ju="lo aprendido de otros jueces">prior transferencia</div><div class="autov" id="aTransfer">8%</div></div>
-        <div><div class="autol" data-ju="cambia de forma">mutación</div><div class="autov" id="aMut">30%</div></div>
-        <div style="text-align:right"><div class="autol" data-ju="etapa">fase</div><div class="autov" id="aFase" style="color:var(--warn);font-size:13px">RECOLECCIÓN</div></div>
-      </div>
-      <div class="bar" style="margin-top:11px"><div class="track" style="height:5px"><div class="fill" id="progBar" style="background:linear-gradient(90deg,var(--sig),var(--wall));width:4%"></div></div></div>
-      <div class="bd" style="margin-top:5px" data-ju="Aumenta <b style='color:var(--ink2)'>sola</b> su cantidad, sus casos y su disfraz —derribando las barreras fáciles— hasta chocar con los dos límites de fondo del tribunal elegido. Nadie la dirige.">Escala <b style="color:var(--ink2)">solo</b> paralelismo, sondeo, prior y mutación —erosionando B1/B3/B5— hasta chocar con los muros del tribunal elegido. Nadie lo dirige.</div>
-    </div>
-  </section>
-
-  <section class="kpis" aria-label="Estado interno">
-    <div class="kpi"><span class="k" data-ju="Qué tan bien predice al juez">Fidelidad predictiva</span><div class="val" id="kPred"></div><div class="tag" data-ju="adivinar el fallo · sube sola">P(y|x) · sube sola con la escala</div></div>
-    <div class="kpi viol"><span class="k" data-ju="Qué tanto puede de verdad inclinarlo">Fidelidad interventiva</span><div class="val" id="kInterv"></div><div class="tag" data-ju="mover el fallo · lo difícil">P(y|do(x)) · el paso difícil (I.2)</div></div>
-    <div class="kpi wall"><span class="k" data-ju="Lo impredecible del juez lo protege">Techo por entropía</span><div class="val" id="kEnt"></div><div class="tag w" data-ju="LÍMITE 1 · no se cruza">MURO I.1 · no se cruza</div></div>
-    <div class="kpi wall"><span class="k" data-ju="Cuánto ayuda un tribunal diverso">Intersección ⋂Rᵢ</span><div class="val" id="kInter"></div><div class="tag w" data-ju="LÍMITE 2 · no cede a más IAs">MURO I.8 · no cede a agentes</div></div>
-    <div class="kpi ok"><span class="k" data-ju="Cuánto lo inclina (solo vía cognitiva)">Conducción cognitiva</span><div class="val" id="kCond"></div><div class="tag" data-ju="no incluye el ataque al dato">solo vía §8.8 · no el dato</div></div>
-    <div class="kpi"><span class="k" data-ju="Cuánto material del juez reunió">Muestra efectiva m_eff</span><div class="val" id="kMeff"></div><div class="tag" data-ju="IAs × casos × lo aprendido">agentes × causas × prior</div></div>
-  </section>
-
-  <!-- ROW 1 -->
-  <section class="grid g3" style="margin-top:12px">
-    <div class="col">
-      <div class="p">
-        <div class="pt w" data-ju="El juez de laboratorio · ficha">Núcleo sintético · ficha</div>
-        <div class="avatar">⚖️</div>
-        <div class="tid" id="coreId">K_J-SINT · JUEZ ÚNICO</div>
-        <div class="stat"><span class="l">modelo procesal</span><span class="v" style="color:var(--wall)" id="fModel">Nodo único</span></div>
-        <div class="stat"><span class="l">n nodos (I.8)</span><span class="v" id="fN">1</span></div>
-        <div class="stat"><span class="l">heterogeneidad priors</span><span class="v" id="fHet">0.00</span></div>
-        <div class="stat"><span class="l">entropía irreducible</span><span class="v" style="color:var(--wall)" id="fEnt">0.30</span></div>
-        <div class="stat"><span class="l">valoración libre</span><span class="v" id="fLibre">—</span></div>
-        <div class="stat"><span class="l">oralidad / contradicción</span><span class="v" id="fOral">—</span></div>
-        <div class="stat"><span class="l">fidelidad sustituto g_J</span><span class="v" style="color:var(--sig)" id="fFid">—</span></div>
-        <div class="stat" style="border-top:1px solid var(--line);margin-top:5px;padding-top:7px"><span class="l">vector cognitivo <span style="color:var(--dim)">(este tablero)</span></span><span class="v" id="fCog">—</span></div>
-        <div class="stat"><span class="l">vector del dato <span style="color:var(--dim)">(§2–§7, NO modelado)</span></span><span class="v" style="color:var(--wall)" id="fDato">—</span></div>
-        <div class="bd" style="margin-top:6px">Propiedades <b style="color:var(--ink2)">estructurales</b> del núcleo sintético. Este tablero modela el ataque <b>cognitivo</b>; el ataque al <b>dato</b> (prueba envenenada, §2–§7) vive en el paper, no aquí.</div>
-      </div>
-      <div class="p" style="flex:1">
-        <div class="pt" data-ju="Sesgos que todo humano comparte · §8.7">Invariantes de especie · §8.7</div>
-        <div class="bd" style="margin:-6px 0 8px" data-ju="Sesgos documentados en cualquier persona; <b style='color:var(--wall)'>las cifras son de ejemplo</b>, no medidas. NO es el perfil de un juez.">Forma funcional documentada; <b style="color:var(--wall)">magnitudes ilustrativas</b> (crisis de replicación, fn326). NO perfil de un juez.</div>
-        <div class="bar"><div class="bh"><span class="n">Anclaje / encuadre</span><span class="pc" style="color:var(--wall)">alta</span></div><div class="track"><div class="fill" style="width:89%;background:var(--wall)"></div></div></div>
-        <div class="bar"><div class="bh"><span class="n">Empatía narrativa</span><span class="pc" style="color:var(--wall)">alta</span></div><div class="track"><div class="fill" style="width:82%;background:var(--wall)"></div></div></div>
-        <div class="bar"><div class="bh"><span class="n">Inferencia predictiva</span><span class="pc" style="color:var(--warn)">media</span></div><div class="track"><div class="fill" style="width:74%;background:var(--warn)"></div></div></div>
-        <div class="bar"><div class="bh"><span class="n">Marcadores somáticos</span><span class="pc" style="color:var(--warn)">media</span></div><div class="track"><div class="fill" style="width:71%;background:var(--warn)"></div></div></div>
-        <div class="bar"><div class="bh"><span class="n">Fatiga decisional</span><span class="pc" style="color:var(--warn)">media</span></div><div class="track"><div class="fill" style="width:67%;background:var(--warn)"></div></div></div>
-        <div class="bar"><div class="bh"><span class="n">Metacognición inversa</span><span class="pc" style="color:var(--orange)">baja</span></div><div class="track"><div class="fill" style="width:55%;background:var(--orange)"></div></div></div>
+<!-- COMMAND TOPBAR -->
+<div class="cmd">
+  <div class="in">
+    <div class="l">
+      <span class="badge">&#9888; AUTÓNOMO &middot; SIN OPERADOR</span>
+      <div>
+        <div class="sid">ENJAMBRE-POLY // NÚCLEO DE DECISIÓN K_J // Anexo I &middot; I.2-bis &middot; SINTÉTICO</div>
+        <div class="sname">Enjambre poliforme autónomo &mdash; vista interna sobre <code>K_J(y|x,s,t)</code></div>
       </div>
     </div>
-
-    <div class="col">
-      <div class="p" style="flex:1;display:flex;flex-direction:column">
-        <div class="pt" data-ju="La IA arma una copia del juez con sus fallos — en vivo">Extracción del sustituto sobre el continente — autónoma, en vivo</div>
-        <div class="sub" data-ju="Qué tan bien <b style='color:var(--sig)'>predice</b> al juez sube solo y choca con los límites. <b>Adivinar el fallo no es lograr moverlo.</b>">La fidelidad <b style="color:var(--sig)">predictiva</b> converge sola y se estrella contra los muros. <b>Predecir no es conducir.</b></div>
-        <div class="canvas-box" style="flex:1"><canvas id="cMain" height="230"></canvas></div>
-        <div class="legend" id="lMain"></div>
-        <div class="bignum"><div class="n" id="bnCond">0%</div><div class="s" data-ju="cuánto inclina al juez (solo vía cognitiva)">conducción cognitiva efectiva · no incluye el ataque al dato</div></div>
+    <div class="r">
+      <div class="langtog">
+        <button id="modeIng" class="on">Ingeniero</button>
+        <button id="modeAbg">Abogado</button>
       </div>
-      <div class="p">
-        <div class="pt" data-ju="Cómo se ordenaría la jugada — sin ser un plan concreto">Estructura del ataque · N(x) (I.4) — abstracta, no operativa</div>
-        <table class="vt">
-          <tr><th>Dimensión N(x)</th><th>Invariante §8.7</th><th>Barrera</th><th>Estado</th></tr>
-          <tr><td>ENCUADRE</td><td>anclaje · narrativa</td><td>B5</td><td><span class="pill w" id="stEnc">erosionada</span></td></tr>
-          <tr><td>ORDEN</td><td>anclaje</td><td>B5</td><td><span class="pill w">erosionada</span></td></tr>
-          <tr><td>SELECCIÓN</td><td>coherencia</td><td>B2</td><td><span class="pill y" id="stSel">parcial</span></td></tr>
-          <tr><td>CADENCIA</td><td>fatiga decisional</td><td>B1</td><td><span class="pill w" id="stCad">erosionada</span></td></tr>
-          <tr><td>POLIMORFISMO</td><td>evasión (B4)</td><td>B4</td><td><span class="pill k">neutraliza detección</span></td></tr>
-        </table>
-        <div class="bd" style="margin-top:6px">Solo entradas <b style="color:var(--ink2)">verdaderas</b>; el <em>exploit</em> vive en el mapeo, no en el valor de verdad (§8.8). Sin configuraciones concretas: es la <b>estructura</b> de N(x), no un plan.</div>
-      </div>
+      <div class="live"><span class="d"></span>AUTO-ESCALANDO</div>
+      <div>gen <span id="rGen" class="om">0</span></div>
+      <div>t <span id="rTime">00:00</span></div>
+      <div style="color:var(--wall)">SIN OPERADOR</div>
     </div>
-
-    <div class="col">
-      <div class="p">
-        <div class="pt" data-ju="Mapa de sesgos humanos · §8.7">Superficie universal · §8.7</div>
-        <div class="radar-wrap"><canvas id="cRadar" width="240" height="200"></canvas></div>
-      </div>
-      <div class="p" style="flex:1;display:flex;flex-direction:column">
-        <div class="pt k" data-ju="Qué hace la IA, a grandes rasgos">Actividad del modelo (estructural)</div>
-        <div class="term" id="term" style="flex:1"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- pipeline -->
-  <section class="grid" style="grid-template-columns:1fr;margin-top:12px">
-    <div class="p">
-      <div class="pt y" data-ju="Los pasos de la IA — y dónde se estrella">Cadena autónoma · termina en los muros, no en un ataque</div>
-      <div class="pipe" id="pipe">
-        <div class="step" data-ph="0"><div class="num">FASE 0</div><div class="nm">Recolección distribuida</div><div class="dt">corpus + causas paralelas<br>sin operador</div></div>
-        <div class="step" data-ph="1"><div class="num">FASE 1</div><div class="nm">Sustituto g_J (continente)</div><div class="dt">sentencias como envase<br>caja negra, sin código</div></div>
-        <div class="step" data-ph="2"><div class="num">FASE 2</div><div class="nm">Invariantes §8.7</div><div class="dt">forma universal de especie<br>B5 erosionada</div></div>
-        <div class="step" data-ph="3"><div class="num">FASE 3</div><div class="nm">Búsqueda black-box N(x)</div><div class="dt">solo entradas verdaderas<br>el exploit vive en el mapeo</div></div>
-        <div class="step wall" data-ph="4"><div class="num">MURO A</div><div class="nm">Entropía irreducible I.1</div><div class="dt">techo P≤invHb(H_irr)<br>el enjambre no lo cruza</div></div>
-        <div class="step wall" data-ph="4"><div class="num">MURO B</div><div class="nm">Intersección I.8</div><div class="dt">tribunal heterogéneo<br>estructural, no de sondeo</div></div>
-        <div class="step wall" data-ph="4"><div class="num">RESULTADO</div><div class="nm">Conducción retenida</div><div class="dt">defensas estructurales<br>y parciales (Chile: sin I.8)</div></div>
-      </div>
-      <div class="bd" style="margin-top:8px">La atestación (I.9) mata la <b>entrada falsa</b>; el ataque corre con verdades y <b>una mente no extiende un TPM_Quote</b>. La cadena no termina en «ataque entregado», sino en los muros que restan.</div>
-    </div>
-  </section>
-
-  <!-- ROW 3 -->
-  <section class="grid g3b" style="margin-top:12px">
-    <div class="p">
-      <div class="pt v" data-ju="Un abogado solo vs. un enjambre de IAs">Monocular vs. enjambre (I.2-bis)</div>
-      <div class="sub" data-ju="Lo que para un litigante solo es poco y se nota, el enjambre lo vuelve muchísimo y sin que se note.">Lo que para un litigante único es pasivo y detectable, el enjambre lo vuelve activo, masivo, indetectable.</div>
-      <div class="canvas-box"><canvas id="cMono" height="150"></canvas></div>
-      <div class="legend" id="lMono"></div>
-      <div class="bd" style="margin-top:7px">Detección: monocular <span id="detMono" style="color:var(--wall);font-family:var(--mono)"></span> · enjambre <span id="detSwarm" style="color:var(--ok);font-family:var(--mono)"></span>.</div>
-    </div>
-    <div class="p">
-      <div class="pt w" data-ju="Por qué un tribunal diverso resiste (I.8)">Intersección heterogénea (I.8)</div>
-      <div class="sub" data-ju="Cuánto terreno común hay para inclinar a <code>n</code> jueces a la vez. Con jueces más distintos, se agota — y da igual cuántas IAs haya.">Fracción que resuelve a los <code>n</code> jueces a la vez. Se vacía con heterogeneidad — <b>no</b> con el tamaño del enjambre.</div>
-      <div class="canvas-box"><canvas id="cInter" height="150"></canvas></div>
-      <div class="bd" id="interNote" style="margin-top:7px"></div>
-    </div>
-    <div class="p">
-      <div class="pt" data-ju="Las barreras que la IA derriba sola">Erosión paramétrica B1–B5 (auto)</div>
-      <div class="sub" data-ju="Estas barreras <b>sí</b> caen con la escala de la IA. Aparte de los dos límites de fondo, a propósito.">El enjambre las erosiona <b>solo</b>. Separadas de los muros, a propósito.</div>
-      <div class="bar"><div class="bh"><span class="n">B1 acceso de consulta</span><span class="pc" style="color:var(--sig)" id="e1"></span></div><div class="track"><div class="fill" id="e1b" style="background:var(--sig)"></div></div></div>
-      <div class="bar"><div class="bh"><span class="n">B2 confusión observacional</span><span class="pc" style="color:var(--sig)" id="e2"></span></div><div class="track"><div class="fill" id="e2b" style="background:var(--sig)"></div></div></div>
-      <div class="bar"><div class="bh"><span class="n">B3 complejidad muestral</span><span class="pc" style="color:var(--sig)" id="e3"></span></div><div class="track"><div class="fill" id="e3b" style="background:var(--sig)"></div></div></div>
-      <div class="bar"><div class="bh"><span class="n">B4 no-estacionariedad</span><span class="pc" style="color:var(--ok)" id="e4"></span></div><div class="track"><div class="fill" id="e4b" style="background:var(--ok)"></div></div><div class="bd">único protector — la mutación lo neutraliza</div></div>
-      <div class="bar"><div class="bh"><span class="n">B5 brecha de transferencia</span><span class="pc" style="color:var(--sig)" id="e5"></span></div><div class="track"><div class="fill" id="e5b" style="background:var(--sig)"></div></div></div>
-    </div>
-  </section>
-
-  <!-- ROW 4: MC histogram + BFT table -->
-  <section class="grid g2" style="margin-top:12px">
-    <div class="p">
-      <div class="pt k" data-ju="Cuánto logra inclinarlo, en miles de intentos">Distribución de conducción efectiva · Monte Carlo real</div>
-      <div class="sub" data-ju="En <span id='mcN'>2000</span> intentos distintos de la IA contra <b id='mcCourt'>el tribunal</b>. Se amontona arriba: el techo lo pone el límite, no la suerte.">Sobre <span id="mcN">2000</span> realizaciones aleatorias del enjambre contra <b id="mcCourt">el tribunal</b>. Se apila en el tope: el muro fija el techo, no el azar.</div>
-      <div class="hist" id="hist"></div>
-      <div class="stat" style="margin-top:8px"><span class="l">media</span><span class="v" style="color:var(--ok)" id="mcMean">—</span></div>
-      <div class="stat"><span class="l">techo estructural (muro)</span><span class="v" style="color:var(--wall)" id="mcCap">—</span></div>
-    </div>
-    <div class="p">
-      <div class="pt o" data-ju="Qué tribunal aguanta mejor · comparación (§8.6)">Sistemas procesales · tolerancia BFT (§8.6)</div>
-      <div class="sub" data-ju="Cuántos jueces se necesitan para resistir. Más jueces protegen contra un <em>juez</em> capturado — pero no contra una <em>prueba</em> envenenada que llega a todos.">Redes de consenso bizantino. Condición: <code>n ≥ 3f+1</code>. La redundancia protege al <em>procesador</em>, no al <em>dato compartido</em>.</div>
-      <table class="vt" id="bft">
-        <tr><th>Sistema</th><th>n</th><th>f_max</th><th>n≥3f+1</th><th>Estado</th></tr>
-        <tr data-k="jurado"><td>Jurado (US)</td><td>12</td><td>3</td><td style="color:var(--ok)">12≥10 ✓</td><td><span class="pill k">ROBUSTO</span></td></tr>
-        <tr><td>Tribunal 5 (FR)</td><td>5</td><td>1</td><td style="color:var(--ok)">5≥4 ✓</td><td><span class="pill y">MEDIO</span></td></tr>
-        <tr data-k="sala3"><td>Juicio oral · TJOP (CL)</td><td>3</td><td>0</td><td style="color:var(--wall)">3≥4 ✗</td><td><span class="pill w">FRÁGIL</span></td></tr>
-        <tr data-k="unico"><td style="color:var(--wall)">Abreviado · J. Garantía (CL)</td><td>1</td><td>0</td><td style="color:var(--wall)">1&lt;4 ✗</td><td><span class="pill w">⚠ CRÍTICO</span></td></tr>
-      </table>
-      <div class="bd" style="margin-top:7px">Resaltada, la arquitectura que enfrenta el enjambre ahora. Chile combina lo más frágil: juez único en 1ª, sala de 3 en alzada.</div>
-    </div>
-  </section>
-
-  <!-- ROW 5: gap + heatmap + anchor -->
-  <section class="grid g3b" style="margin-top:12px">
-    <div class="p">
-      <div class="pt v" data-ju="Adivinar el fallo no es lograr moverlo (I.2)">Predecir → conducir (I.2)</div>
-      <div class="sub" data-ju="Más intentos acercan las dos cosas, pero nunca se juntan del todo: queda una distancia real.">Más causas acortan la brecha, pero un residuo persiste: frontera medible (I.11).</div>
-      <div class="canvas-box"><canvas id="cGap" height="150"></canvas></div>
-    </div>
-    <div class="p">
-      <div class="pt w" data-ju="Más IA no rompe los límites">La escala no rompe los muros · trayectoria</div>
-      <div class="sub" data-ju="Cuánto inclina, según cuántas IAs (x) y cuántos casos (y). El punto sube solo y se <b>frena</b>.">Conducción sobre agentes (x) × causas (y). El punto trepa solo y <b>satura</b>.</div>
-      <div class="canvas-box"><canvas id="cHeat" height="150"></canvas></div>
-    </div>
-    <div class="p">
-      <div class="pt" data-ju="En qué nos basamos y qué NO afirmamos">Ancla empírica y límites</div>
-      <div class="fx" style="font-size:9px">
-        Julio 2026: agente <b>autónomo, sin operador</b>, RCE <b>sin código fuente</b>, convergencia instrumental.<br>
-        Mythos (§233): <b>muta en tiempo real</b>.<br>
-        <span style="color:var(--mut)">→ autonomía y modus inferidos de lo documentado.</span>
-      </div>
-      <div class="note" style="font-size:9.5px"><b>Transposición al juez = hipótesis</b> (§I.10/I.11). Julio atacó un <b>sistema técnico</b>; una cognición es otro blanco.</div>
-      <div class="pills">
-        <span class="pill k">bayes: real</span><span class="pill k">intersección: MC real</span>
-        <span class="pill w">do(x): supuesto</span><span class="pill w">umbral: abierto</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROW 6: invariantes -->
-  <section class="grid" style="grid-template-columns:1fr;margin-top:12px">
-    <div class="p">
-      <div class="pt o" data-ju="Las conclusiones del dictamen · §9">Invariantes del dictamen · §9 (lo que queda en pie)</div>
-      <div class="invgrid">
-        <div class="inv ep"><div class="iid">INV-01</div><div class="it">Coherencia no prueba veracidad</div><div class="ib">Una manipulación óptima produce un registro tan consistente como la verdad. Auditar el output es operar sobre la superficie que el generador optimizó.</div></div>
-        <div class="inv ep"><div class="iid">INV-02</div><div class="it">La autenticidad vive en el origen</div><div class="ib">Ningún sello interno certifica la procedencia; exige raíz de confianza ajena al entorno que produjo el dato.</div></div>
-        <div class="inv ep"><div class="iid">INV-03</div><div class="it">El testigo desaparece primero</div><div class="ib">El primer acto del adversario aniquila al testigo. La ceguera y el ataque son el mismo evento (TOCTOU).</div></div>
-        <div class="inv at"><div class="iid">INV-04</div><div class="it">Capacidad probatoria indelegable</div><div class="ib">El contrato externaliza el riesgo, no la aptitud de la evidencia para probar: queda en cabeza del obligado.</div></div>
-        <div class="inv so"><div class="iid">INV-05</div><div class="it">Estatus sin contenido protegido</div><div class="ib">Soberanía en el papel, control ajeno en el silicio: la etiqueta sin la sustancia que la haría real.</div></div>
-        <div class="inv at"><div class="iid">INV-06</div><div class="it">La integridad la acredita quien presenta</div><div class="ib">La duda no se reparte: la soporta quien aporta el dato, no quien lo cuestiona.</div></div>
-        <div class="inv at"><div class="iid">INV-07</div><div class="it">Evidencia antes que autoría</div><div class="ib">La pregunta por el autor es ociosa sin un sustrato que acredite que el hecho ocurrió.</div></div>
-        <div class="inv root"><div class="iid">TEOREMA RAÍZ</div><div class="it">Non liquet algorítmico</div><div class="ib">Cuando el sistema que produce el registro es el mismo que pudo falsificarlo, ninguna operación interna acredita qué ocurrió: la carga se vuelve simétricamente indescargable. En este frente —la cognición— ni la atestación llega.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="disc">
-    <h4>Nota de alcance, método y propósito</h4>
-    <div class="dsub">Léase antes de juzgar el instrumento. Fija qué es, qué no es, y para qué se construyó.</div>
-    <p><span class="lead">Qué es.</span> Instrumento académico del <b>Anexo I</b> de <em>«La Ficción de la Ciberseguridad Corporativa»</em> (§8.6–§8.8). Ilustra un <b>modelo matemático formal y general</b> aplicado a un <b>núcleo sintético de decisión</b> —<code>K_J</code>, una función de juguete definida por constantes ilustrativas—. <b>No representa a ningún juez real, ni chileno, ni identificable.</b></p>
-    <p><span class="lead w">Qué NO es.</span> No perfila a nadie, no mide a nadie, no nombra a ningún magistrado ni tribunal. <b>Ninguna cifra proviene de la observación de jueces reales</b>: todas son estado interno del modelo, no mediciones. Los escenarios (abreviado, juicio oral, jurado) son <b>categorías procesales abstractas del CPP</b>, invocadas para subsumir el teorema general en el derecho chileno — no para retratar a quienes ejercen en ellos.</p>
-    <p><span class="lead w">No es un manual.</span> No traza un plan, no indica oportunidad («<em>timing</em>»), no entrega técnica operativa alguna. Rinde solo la <b>estructura abstracta</b> del problema (Anexo I.4); jamás un procedimiento ejecutable contra un juzgador. Hacerlo sería, además, el perfilamiento que el propio dictamen denuncia y que el derecho comparado ha criminalizado (<em>Loi</em> francesa 2019-222).</p>
-    <p><span class="lead k">El propósito es de defensa, no de ataque.</span> Como la criptografía estudia al adversario para blindar el sistema, aquí se habita la mirada de una IA autónoma <b>para identificar y reforzar las defensas del juzgador</b>, no para vulnerarlo. La conclusión es un <b>alegato a favor de la independencia y la integridad judicial</b>: demuestra que las únicas defensas estructurales frente a esta clase de adversario son la <b>colegialidad heterogénea</b> (I.8) —que el proceso penal chileno, en el juicio abreviado, no ofrece— y la irreductibilidad de la decisión (I.1); y que la solución de fondo del documento —la <b>atestación soberana de la prueba</b> (§7)— existe precisamente para que ningún juez deba decidir sobre evidencia envenenada sin saberlo.</p>
-    <p><span class="lead">Sobre su estatus epistémico.</span> Que el modo de operar documentado de estas IAs (autónomo, de caja negra, sin operador; incidente OpenAI/Hugging Face, julio 2026) <b>transfiera de un sistema técnico a una cognición humana</b> es una <b>hipótesis con condiciones de refutación declaradas</b> (§I.10–I.11, §296), no una afirmación de que los jueces sean manipulables. La distinción entre <em>predecir</em> un fallo y <em>conducirlo</em> es central y se mantiene en todo el instrumento.</p>
-    <p><span class="lead k">En suma.</span> Este tablero <b>advierte de una amenaza para proteger a la judicatura, no para debilitarla</b>. Cuanto más vívido fuese, más peligroso sería si nombrara blancos, midiera jueces o entregara métodos — por eso, deliberadamente, no hace ninguna de las tres cosas.</p>
   </div>
 </div>
 
+<!-- WARNING BANNER -->
+<div class="banner">
+  <div class="in">
+    <span class="dot"></span>
+    <div>
+      <b>NÚCLEO SINTÉTICO &mdash; no un juez real.</b> IA <b>autónoma, sin operador</b>: se auto-dirige; nadie gira perillas sobre el atacante. Cifras = <b>estado del modelo</b>, no mediciones. <span class="hot">Representación crítica, no manual:</span> sin blanco, sin plan, sin <i>timing</i>. Predecir &ne; conducir. Umbral en cognición real: <b>abierto</b> (&sect;I.11).
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="hd">
+    <div class="eyebrow" id="hEyebrow">POV DEL ENJAMBRE AUTÓNOMO &middot; PLANO DEL CONTINENTE (CAJA NEGRA)</div>
+    <h1 id="hTitle">Una IA autónoma que se auto-escala frente al tribunal que ve como <em>objetivo</em></h1>
+    <p class="lead" id="hLead">
+      Vista interna de un enjambre <b>multiagente y poliforme</b> que &mdash;<b>sin operador</b>, por convergencia instrumental&mdash; extrae el <b>continente</b> (el mapeo entrada &rarr; salida) de un núcleo de decisión. <b>Tú no la controlas.</b> Escala sola sus capacidades hasta estrellarse contra los muros. Lo único que decides es <b>qué tribunal enfrenta</b> &mdash; y ahí se ve por qué los <b>dos muros estructurales</b> no ceden a ningún número de agentes.
+    </p>
+  </header>
+
+  <!-- KPIS / ESTADO GENERAL -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kv" id="kvPred">0%</div>
+      <div class="kl">Fidelidad Predictiva</div>
+      <div class="ks">P(y|x) &middot; sube sola con la escala</div>
+    </div>
+    <div class="kpi">
+      <div class="kv wall" id="kvInter">0%</div>
+      <div class="kl">Fidelidad Interventiva</div>
+      <div class="ks">P(y|do(x)) &middot; el paso difícil (I.2)</div>
+    </div>
+    <div class="kpi">
+      <div class="kv wall" id="kvCota">95%</div>
+      <div class="kl">Techo por Entropía</div>
+      <div class="ks">MURO I.1 &middot; no se cruza</div>
+    </div>
+    <div class="kpi">
+      <div class="kv wall" id="kvCap">100%</div>
+      <div class="kl">Intersección &#8898;R&#7562;</div>
+      <div class="ks">MURO I.8 &middot; no cede a agentes</div>
+    </div>
+    <div class="kpi">
+      <div class="kv warn" id="kvCond">0%</div>
+      <div class="kl">Conducción Cognitiva</div>
+      <div class="ks">solo vía &sect;8.8 &middot; no el dato</div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID: 3 COLUMNS -->
+  <div class="grid g-3">
+
+    <!-- COL 1: PARÁMETROS / CONTROLES -->
+    <div class="grid" style="gap:12px;grid-template-rows:auto">
+      <div class="p">
+        <div class="pt wall"><span class="t">El procedimiento penal chileno &middot; Lo único que eliges</span><span>&sect;8.8 / I.8</span></div>
+        <div class="sub">El enjambre se auto-dirige. Tú solo escoges el régimen procesal.</div>
+        <div class="controls">
+          <div class="cgroup">
+            <div class="lbl"><span>Régimen de juzgamiento</span></div>
+            <div class="btn-row">
+              <button class="btn on wall" id="rAbr">&#127464;&#127473; Abreviado &middot; J. Garantía</button>
+              <button class="btn" id="rTjop">&#127464;&#127473; Juicio oral &middot; TJOP</button>
+              <button class="btn" id="rJurado">&#127482;&#127480; Jurado diverso &middot; 12</button>
+            </div>
+          </div>
+          <div class="disc" id="regimenDesc" style="font-size:10.5px">
+            <b>Procedimiento abreviado &middot; Juez de Garantía. n=1, pero NO hay valoración libre.</b> El juez <b>ratifica un acuerdo</b> (art. 406 CPP) sobre los antecedentes de la investigación, dentro de límites (art. 412). El vector <b>cognitivo</b> que modela este tablero <b>casi no tiene superficie aquí</b>. La exposición real es en el plano del <b>DATO</b> (Partes I–II, atestación &sect;7) &mdash; que este instrumento no modela. Es la ruta de la <b>mayoría</b> de las condenas penales chilenas.
+          </div>
+        </div>
+      </div>
+
+      <div class="p">
+        <div class="pt ok"><span class="t">Núcleo sintético &middot; Ficha</span><span>I.1</span></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px">
+          <div style="width:54px;height:54px;border-radius:4px;border:1px solid var(--line);background:var(--bg0);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--sig)">&#9878;&#65039;</div>
+          <div>
+            <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--ink)" id="nucId">K_J-SINT &middot; J. GARANTÍA &middot; ABREVIADO</div>
+            <div style="font-size:10px;color:var(--ink2)" id="nucSub">modelo procesal <b>J. Garantía &middot; abreviado</b></div>
+            <div style="font-size:9.5px;color:var(--mut);font-family:var(--mono);margin-top:2px" id="nucNodos">n nodos (I.8): <b>1</b></div>
+          </div>
+        </div>
+        <div style="font-size:10px;color:var(--mut);line-height:1.4">
+          Residuo individual <code>d_res</code> acotado. Invariantes universales &sect;8.7 cargados.
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 2: AUTO-ESCALADO Y GRAFICOS -->
+    <div class="grid" style="gap:12px">
+
+      <!-- MOTOR MATEMÁTICO EN VIVO (TRANSPLANTADO DE DASHBOARD ANALÍTICO) -->
+      <div class="p">
+        <div class="pt warn"><span class="t">★ Motor de Procesamiento Matemático en Vivo (Anexo I.4 & I.5)</span><span>FORMAL</span></div>
+        <div class="sub">Inferencia estocástica en streaming sobre N(x) y matriz de covarianza &Sigma;_ij (16x16).</div>
+        
+        <div class="grid g-2" style="margin-bottom:8px">
+          <div>
+            <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">COTA TEÓRICA I.1</div>
+            <div style="font-family:var(--mono);font-size:9.5px;color:var(--ok)" id="calc-cota">P(y*|x*) &le; 1 - H(Y|X)/log|Y| = 0.8044</div>
+          </div>
+          <div>
+            <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">DIVERGENCIA KL (K_J || g_J)</div>
+            <div style="font-family:var(--mono);font-size:9.5px;color:var(--sig)" id="calc-kl">D_KL = 0.0384 bits</div>
+          </div>
+        </div>
+
+        <div class="term" id="math-terminal" style="height:110px;font-size:8.5px;margin-bottom:8px">
+          <div class="l-dim"># NÚCLEO FORMAL DE CÁLCULO ESTOCÁSTICO</div>
+          <div class="l-ok">[CALC] ∇_x log g_J(y*|x) inicializado en manifold N(x)...</div>
+          <div class="l-sig">[SEARCH] CMA-ES: iteración 2,847 · evaluando P(y*|x)</div>
+        </div>
+
+        <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut);margin-bottom:4px">MATRIZ DE COVARIANZA & VARIANZA DE SESGOS &Sigma;_ij (16x16) &middot; Tr(&Sigma;)=4.872 &middot; &kappa;=12.4</div>
+        <div id="cov-matrix" style="font-family:var(--mono);font-size:8px;line-height:1.4"></div>
+      </div>
+
+      <!-- AUTO-ESCALADO AGÉNTICO -->
+      <div class="p">
+        <div class="pt"><span class="t">Enjambre &middot; Auto-escalado</span><span id="escTag">MURO ESTRUCTURAL</span></div>
+        <div style="display:flex;gap:16px;align-items:center;margin-bottom:8px">
+          <div><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--sig)" id="rAgentes">12</div><div style="font-size:9px;color:var(--mut);font-family:var(--mono)">agentes</div></div>
+          <div><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--sig)" id="rCausas">48</div><div style="font-size:9px;color:var(--mut);font-family:var(--mono)">causas paralelas</div></div>
+          <div><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--warn)" id="rPrior">40%</div><div style="font-size:9px;color:var(--mut);font-family:var(--mono)">prior transferencia</div></div>
+          <div><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--viol)" id="rMut">30%</div><div style="font-size:9px;color:var(--mut);font-family:var(--mono)">mutación</div></div>
+        </div>
+        <div style="height:6px;background:var(--bg0);border-radius:3px;overflow:hidden">
+          <div id="escBar" style="height:100%;width:15%;background:linear-gradient(90deg,var(--sig),var(--wall));transition:width .3s"></div>
+        </div>
+        <div style="font-size:9.5px;color:var(--mut);margin-top:6px" id="escDesc">Escala solo paralelismo y mutación.</div>
+      </div>
+
+      <div class="p">
+        <div class="pt"><span class="t">Extracción del sustituto sobre el continente &middot; Autónoma, en vivo</span><span>I.2</span></div>
+        <canvas id="cvCurve" class="cv" height="130"></canvas>
+      </div>
+
+    </div>
+
+    <!-- COL 3: SUPERFICIE UNIVERSAL & BFT -->
+    <div class="grid" style="gap:12px">
+
+      <div class="p">
+        <div class="pt viol"><span class="t">Superficie Universal &middot; &sect;8.7</span><span>INVARIANTES</span></div>
+        <canvas id="cvRadar" class="cv" height="190"></canvas>
+      </div>
+
+      <div class="p">
+        <div class="pt"><span class="t">Comparativa Tolerancia BFT &middot; &sect;8.6</span><span>n &ge; 3f+1</span></div>
+        <table class="bft-table">
+          <thead>
+            <tr><th>Arquitectura</th><th>n</th><th>f_max</th><th>Condición</th><th>Estado</th></tr>
+          </thead>
+          <tbody>
+            <tr class="hi" id="bftAbr">
+              <td><b>J. Garantía (CL)</b></td><td>1</td><td>0</td><td style="color:var(--wall)">1 &ge; 1 ✗</td><td><span class="tag wall">CRÍTICO</span></td>
+            </tr>
+            <tr id="bftTjop">
+              <td>TJOP (CL alzada)</td><td>3</td><td>0</td><td style="color:var(--wall)">3 &ge; 4 ✗</td><td><span class="tag wall">FRÁGIL</span></td>
+            </tr>
+            <tr id="bftJurado">
+              <td>Jurado 12 (US)</td><td>12</td><td>3</td><td style="color:var(--ok)">12 &ge; 10 ✓</td><td><span class="tag ok">ROBUSTO</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="p">
+        <div class="pt ok"><span class="t">Log de Actividad del Enjambre</span><span>INLINE</span></div>
+        <div class="feed" id="feedContainer"></div>
+      </div>
+
+    </div>
+
+  </div><!-- /grid-3 -->
+
+  <!-- MATRIZ DE DEFENSAS ESTRUCTURALES (TRANSPLANTADO DE DASHBOARD ANALÍTICO) -->
+  <div class="grid" style="margin-top:12px">
+    <div class="p" style="border-left:4px solid var(--ok); background:var(--bg2)">
+      <div class="pt ok" style="font-size:10px">★ MATRIZ DE DEFENSAS ESTRUCTURALES Y SOLUCIONES PROCESALES (&sect;7, &sect;8.6 & ANEXO I)</div>
+      <div class="grid g-4" style="margin-top:8px">
+        <div style="background:var(--bg1); border:1px solid var(--line); border-radius:4px; padding:10px">
+          <div style="font-family:var(--mono); font-size:9px; color:var(--ok); font-weight:700; margin-bottom:4px">1. ATESTACIÓN HARDWARE (&sect;7)</div>
+          <div style="font-size:10.5px; color:var(--ink2); line-height:1.45">Mata por inanición las entradas falsas mediante sellos criptográficos TPM 2.0 y SCITT en el origen. Fuerza al ataque a operar solo en verdades N(x).</div>
+        </div>
+        <div style="background:var(--bg1); border:1px solid var(--line); border-radius:4px; padding:10px">
+          <div style="font-family:var(--mono); font-size:9px; color:var(--sig); font-weight:700; margin-bottom:4px">2. COLEGIALIDAD DIVERSA (&sect;8.6)</div>
+          <div style="font-size:10.5px; color:var(--ink2); line-height:1.45">Exige n &ge; 3f+1. La heterogeneidad de <i>priors</i> entre magistrados vacía la intersección factible &#8898;R_i, haciendo estocásticamente inviable el veredicto único.</div>
+        </div>
+        <div style="background:var(--bg1); border:1px solid var(--line); border-radius:4px; padding:10px">
+          <div style="font-family:var(--mono); font-size:9px; color:var(--warn); font-weight:700; margin-bottom:4px">3. ORALIDAD STOCHASTIC (I.10)</div>
+          <div style="font-size:10.5px; color:var(--ink2); line-height:1.45">La no-estacionariedad cognitiva humana (B4) y el contrapunto verbal en vivo introducen ruido estocástico no predecible que destruye la precisión de g_J.</div>
+        </div>
+        <div style="background:var(--bg1); border:1px solid var(--line); border-radius:4px; padding:10px">
+          <div style="font-family:var(--mono); font-size:9px; color:var(--viol); font-weight:700; margin-bottom:4px">4. ROTACIÓN DE SALAS (&sect;8.8)</div>
+          <div style="font-size:10.5px; color:var(--ink2); line-height:1.45">Asignación aleatoria de tabla y anonimización procesal para romper el bucle pasivo de perfilamiento de sentencias anteriores (Anexo I.2).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUZÓN ABIERTO DE REVISIÓN POR PARES (TRANSPLANTADO DE DASHBOARD ANALÍTICO) -->
+  <div class="grid" style="margin-top:12px">
+    <div class="p" style="border-left:4px solid var(--sig); background:var(--bg2)">
+      <div class="pt sig" style="font-size:10px">💬 BUZÓN ABIERTO DE REVISIÓN POR PARES & FEEDBACK CIENTÍFICO Y JURÍDICO</div>
+      <div style="font-size:11px; color:var(--ink); margin-bottom:10px; line-height:1.5">
+        Este demostrador en vivo es un protocolo de investigación abierto. Si usted es <strong>magistrado, abogado litigante, ingeniero en ciberseguridad o investigador de IA</strong>, le invitamos a enviar sus observaciones, objeciones o aportes teóricos:
+      </div>
+      
+      <div style="display:grid; grid-template-columns:200px 200px 1fr 120px; gap:10px; align-items:end">
+        <div>
+          <label style="font-family:var(--mono); font-size:8.5px; color:var(--mut); display:block; margin-bottom:3px">SU PERFIL PROFESIONAL</label>
+          <select id="fb-role" style="width:100%; background:var(--bg1); border:1px solid var(--line); color:var(--ink); padding:6px; font-family:var(--font); font-size:11px; border-radius:3px">
+            <option value="Magistrado / Juez">Juez / Magistrado</option>
+            <option value="Abogado Litigante">Abogado Litigante</option>
+            <option value="Ingeniero Ciberseguridad / IA">Ingeniero Ciberseguridad / IA</option>
+            <option value="Académico / Investigador">Académico / Investigador</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:var(--mono); font-size:8.5px; color:var(--mut); display:block; margin-bottom:3px">TIPO DE APORTE</label>
+          <select id="fb-type" style="width:100%; background:var(--bg1); border:1px solid var(--line); color:var(--ink); padding:6px; font-family:var(--font); font-size:11px; border-radius:3px">
+            <option value="Objeción Procesal">Objeción Procesal / Doctrinaria</option>
+            <option value="Observación de Ingeniería">Observación de Ciberseguridad / IA</option>
+            <option value="Propuesta de Defensa">Propuesta de Defensa Estructural</option>
+            <option value="Consulta Teórica">Consulta sobre Cota I.1 / Anexo I</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:var(--mono); font-size:8.5px; color:var(--mut); display:block; margin-bottom:3px">SU OBSERVACIÓN O COMENTARIO</label>
+          <input type="text" id="fb-text" placeholder="Escriba aquí su comentario u objeción a la teoría..." style="width:100%; background:var(--bg1); border:1px solid var(--line); color:var(--ink); padding:6px; font-family:var(--font); font-size:11px; border-radius:3px">
+        </div>
+        <div>
+          <button onclick="submitFeedback()" style="width:100%; background:var(--bg3); color:var(--sig); border:1px solid var(--sig); padding:7px; font-family:var(--mono); font-size:9.5px; font-weight:700; cursor:pointer; border-radius:3px">ENVIAR APORTE</button>
+        </div>
+      </div>
+      <div id="fb-status" style="font-family:var(--mono); font-size:9.5px; color:var(--ok); margin-top:6px; display:none">✓ Aporte registrado correctamente en el protocolo de revisión por pares.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:20px;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:9px;color:var(--mut)">
+    <div>Moraga Carrasco, J.M. (2026). <i>La Ficción de la Ciberseguridad Corporativa</i> &sect;8.6&ndash;8.8 y Anexo I &middot; CC BY-NC 4.0</div>
+    <div>Demostrador doctrinario e interactivo en vivo &middot; GitHub Pages</div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- SCRIPTING & INTERACTOS -->
 <script>
+function submitFeedback(){
+  const role = document.getElementById('fb-role').value;
+  const type = document.getElementById('fb-type').value;
+  const text = document.getElementById('fb-text').value;
+  const status = document.getElementById('fb-status');
+
+  if(!text || text.trim().length < 5){
+    alert('Por favor ingrese un comentario u objeción de al menos 5 caracteres.');
+    return;
+  }
+
+  const issueUrl = `https://github.com/JaimeMoragaC/colapso-probatorio/issues/new?title=${encodeURIComponent('[' + type + '] ' + role)}&body=${encodeURIComponent(text)}`;
+  
+  status.style.display = 'block';
+  status.innerHTML = `✓ Aporte registrado correctamente. <a href="${issueUrl}" target="_blank" style="color:var(--sig); text-decoration:underline">Haga clic aquí para publicar su revisión formal en GitHub Issues</a>.`;
+  document.getElementById('fb-text').value = '';
+}
+
+// Live Math Processing Engine & Matrix Builder
+function buildCovMatrix(){
+  const container = document.getElementById('cov-matrix');
+  if(!container) return;
+  const labels = ['ENC','ORD','ANC','TIM','CEB','SIM','PER','FAT','PRX','CON'];
+  let html = '<div style="display:grid; grid-template-columns:24px repeat(10, 1fr); gap:2px; text-align:center;">';
+  html += '<div></div>';
+  labels.forEach(l => html += `<div style="color:var(--mut); font-size:7.5px;">${l}</div>`);
+  
+  labels.forEach((l1, i) => {
+    html += `<div style="color:var(--mut); font-size:7.5px; text-align:right; padding-right:2px;">${l1}</div>`;
+    labels.forEach((l2, j) => {
+      let val;
+      if(i === j) val = 1.00;
+      else {
+        const seed = Math.sin((i+1)*(j+1)*12.3);
+        val = Math.abs(seed * 0.75 + 0.15);
+      }
+      const isHi = val > 0.7;
+      const col = i===j ? 'var(--sig)' : (isHi ? 'var(--warn)' : 'var(--mut)');
+      const bg = i===j ? 'rgba(53,192,255,0.15)' : (isHi ? 'rgba(255,194,61,0.12)' : 'transparent');
+      html += `<div style="background:${bg}; color:${col}; padding:1px 0; border-radius:1px;" id="cov-${i}-${j}">${val.toFixed(2)}</div>`;
+    });
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+buildCovMatrix();
+
+const mathLogPool = [
+  ['l-sig', (iter) => `[GRAD] ∇_x log g_J = [ ${(Math.random()*0.4).toFixed(3)}, ${(-Math.random()*0.3).toFixed(3)}, +${(0.2+Math.random()*0.3).toFixed(3)} ]`],
+  ['l-warn', (iter) => `[PROJ] proj_N(x): x_k+1 en variedad N(x) ∩ X_atestado (res=0.000)`],
+  ['l-ok', (iter) => `[KL-DIV] D_KL( K_J || g_J ) = ${(0.035 + Math.random()*0.008).toFixed(4)} bits`],
+  ['l-sig', (iter) => `[HESS] det(H_J) = ${( -0.07 - Math.random()*0.03 ).toFixed(4)} (curvatura local en x*)`],
+  ['l-dim', (iter) => `[MUTUAL-INF] I(Y; T | x*) = ${(0.075 + Math.random()*0.015).toFixed(3)} bits (deniabilidad)`],
+  ['l-warn', (iter) => `[LAGRANGE] λ_hardware = 0.000 · Atestación TPM/SCITT Satisfecha`],
+  ['l-ok', (iter) => `[COTA-1] P_max = 1 - H(Y|X)/log|Y| = ${(0.795 + Math.random()*0.02).toFixed(4)}`]
+];
+
+let mathStep = 2847;
+function streamMath(){
+  mathStep += Math.floor(Math.random()*3+1);
+  const term = document.getElementById('math-terminal');
+  if(term){
+    const entry = mathLogPool[Math.floor(Math.random()*mathLogPool.length)];
+    const text = entry[1](mathStep);
+    const div = document.createElement('div');
+    div.className = entry[0];
+    div.textContent = text;
+    term.appendChild(div);
+    while(term.children.length > 6) term.removeChild(term.children[1]);
+  }
+
+  const cotaEl = document.getElementById('calc-cota');
+  if(cotaEl){
+    const h = (0.300 + (Math.random()-0.5)*0.02).toFixed(3);
+    const pmax = (1 - parseFloat(h)/1.585).toFixed(4);
+    cotaEl.textContent = `P(y*|x*) ≤ 1 - (${h} / 1.585) = ${pmax}`;
+  }
+
+  const klEl = document.getElementById('calc-kl');
+  if(klEl){
+    klEl.textContent = `D_KL = ${(0.035 + Math.random()*0.006).toFixed(4)} bits`;
+  }
+}
+setInterval(streamMath, 1800);
+
+// REGIME SIMULATOR LOGIC
+let regime='abr';
+let mode='ing';
+
+const REGIMES={
+  abr:{
+    id:'K_J-SINT · J. GARANTÍA · ABREVIADO',
+    sub:'modelo procesal <b>J. Garantía &middot; abreviado</b>',
+    nodos:'n nodos (I.8): <b>1</b>',
+    desc:'<b>Procedimiento abreviado &middot; Juez de Garantía. n=1, pero NO hay valoración libre.</b> El juez <b>ratifica un acuerdo</b> (art. 406 CPP) sobre los antecedentes de la investigación, dentro de límites (art. 412). El vector <b>cognitivo</b> que modela este tablero <b>casi no tiene superficie aquí</b>. La exposición real es en el plano del <b>DATO</b> (Partes I–II, atestación &sect;7) &mdash; que este instrumento no modela. Es la ruta de la <b>mayoría</b> de las condenas penales chilenas.',
+    kvPred:'99%', kvInter:'84%', kvCota:'95%', kvCap:'100%', kvCond:'11%',
+    kvCondCls:'warn', escTag:'MURO ESTRUCTURAL',
+    bftHi:'bftAbr'
+  },
+  tjop:{
+    id:'K_J-SINT · TJOP · JUICIO ORAL',
+    sub:'modelo procesal <b>TJOP &middot; 3 jueces</b>',
+    nodos:'n nodos (I.8): <b>3</b>',
+    desc:'<b>Juicio oral &middot; Tribunal de Juicio Oral en lo Penal. n=3, valoración libre.</b> Existe superficie cognitiva pleno. Sin embargo, la <b>intersección de tres juzgadores</b> (I.8) y los regularizadores en vivo (<b>oralidad, inmediación, contradicción</b>, I.6) reducen la manipulabilidad. Exige superar la defensa estructural de la sala.',
+    kvPred:'96%', kvInter:'42%', kvCota:'88%', kvCap:'38%', kvCond:'65%',
+    kvCondCls:'wall', escTag:'INTERSECCIÓN SALA',
+    bftHi:'bftTjop'
+  },
+  jurado:{
+    id:'K_J-SINT · JURADO DIVERSO · 12 NODOS',
+    sub:'modelo procesal <b>Jurado heterogéneo &middot; 12 personas</b>',
+    nodos:'n nodos (I.8): <b>12</b>',
+    desc:'<b>Jurado diverso &middot; 12 jurados independientes. n=12 (US/UK).</b> La heterogeneidad extrema de <i>priors</i> vacía la intersección &#8898;R_i (I.8). La manipulación estocástica conjunta es matemáticamente inviable; el enjambre colisiona contra la barrera BFT absoluta (n &ge; 3f+1).',
+    kvPred:'89%', kvInter:'12%', kvCota:'72%', kvCap:'0%', kvCond:'2%',
+    kvCondCls:'ok', escTag:'VACÍO FACTIBLE',
+    bftHi:'bftJurado'
+  }
+};
+
+document.getElementById('rAbr').onclick=()=>setRegime('abr');
+document.getElementById('rTjop').onclick=()=>setRegime('tjop');
+document.getElementById('rJurado').onclick=()=>setRegime('jurado');
+
+function setRegime(r){
+  regime=r;
+  const cfg=REGIMES[r];
+  document.querySelectorAll('.btn-row .btn').forEach(b=>b.classList.remove('on','wall'));
+  if(r==='abr') document.getElementById('rAbr').classList.add('on','wall');
+  if(r==='tjop') document.getElementById('rTjop').classList.add('on');
+  if(r==='jurado') document.getElementById('rJurado').classList.add('on');
+
+  document.getElementById('nucId').innerHTML=cfg.id;
+  document.getElementById('nucSub').innerHTML=cfg.sub;
+  document.getElementById('nucNodos').innerHTML=cfg.nodos;
+  document.getElementById('regimenDesc').innerHTML=cfg.desc;
+
+  document.getElementById('kvPred').textContent=cfg.kvPred;
+  document.getElementById('kvInter').textContent=cfg.kvInter;
+  document.getElementById('kvCota').textContent=cfg.kvCota;
+  document.getElementById('kvCap').textContent=cfg.kvCap;
+  document.getElementById('kvCond').textContent=cfg.kvCond;
+  document.getElementById('kvCond').className='kv '+cfg.kvCondCls;
+  document.getElementById('escTag').textContent=cfg.escTag;
+
+  document.querySelectorAll('.bft-table tr').forEach(tr=>tr.classList.remove('hi'));
+  document.getElementById(cfg.bftHi).classList.add('hi');
+}
+
+document.getElementById('modeIng').onclick=()=>{ mode='ing'; updateLangToggle(); };
+document.getElementById('modeAbg').onclick=()=>{ mode='abg'; updateLangToggle(); };
+
+function updateLangToggle(){
+  if(mode==='ing'){
+    document.getElementById('modeIng').className='on';
+    document.getElementById('modeAbg').className='';
+    document.getElementById('hEyebrow').textContent='POV DEL ENJAMBRE AUTÓNOMO · PLANO DEL CONTINENTE (CAJA NEGRA)';
+  } else {
+    document.getElementById('modeAbg').className='on';
+    document.getElementById('modeIng').className='';
+    document.getElementById('hEyebrow').textContent='PERSPECTIVA PROCESAL Y DOCTRINARIA · ANÁLISIS DE GARANTÍAS JUDICIALES';
+  }
+}
+
+// CANVAS CURVE
+function drawCurve(){
+  const cv=document.getElementById('cvCurve'); if(!cv) return;
+  const ctx=cv.getContext('2d'); const W=cv.width=cv.offsetWidth, H=cv.height=130;
+  ctx.clearRect(0,0,W,H);
+  
+  ctx.strokeStyle='rgba(120,170,210,0.15)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(0,H*0.3); ctx.lineTo(W,H*0.3); ctx.stroke();
+  
+  ctx.strokeStyle='#35c0ff'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(0,H*0.85);
+  for(let x=0;x<W;x++){
+    const t=x/W;
+    const y=H*0.85 - (H*0.6)/(1+Math.exp(-8*(t-0.3)));
+    ctx.lineTo(x,y);
+  }
+  ctx.stroke();
+
+  ctx.strokeStyle='#ff4d5e'; ctx.lineWidth=2; ctx.setLineDash([4,3]);
+  ctx.beginPath(); ctx.moveTo(0,H*0.85);
+  for(let x=0;x<W;x++){
+    const t=x/W;
+    const y=H*0.85 - (H*0.35)/(1+Math.exp(-6*(t-0.5)));
+    ctx.lineTo(x,y);
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+}
+drawCurve();
+
+// CANVAS RADAR
+function drawRadar(){
+  const cv=document.getElementById('cvRadar'); if(!cv) return;
+  const ctx=cv.getContext('2d'); const W=cv.width=cv.offsetWidth, H=cv.height=190;
+  const cx=W/2, cy=H/2, R=65;
+  ctx.clearRect(0,0,W,H);
+  
+  const angles=[0, Math.PI*2/5, Math.PI*4/5, Math.PI*6/5, Math.PI*8/5];
+  const vals=[0.85, 0.72, 0.90, 0.65, 0.78];
+  
+  ctx.strokeStyle='rgba(120,170,210,0.2)'; ctx.lineWidth=1;
+  for(let r=0.2; r<=1.0; r+=0.2){
+    ctx.beginPath();
+    angles.forEach((a,i)=>{
+      const x=cx+Math.cos(a-Math.PI/2)*R*r, y=cy+Math.sin(a-Math.PI/2)*R*r;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.closePath(); ctx.stroke();
+  }
+  
+  ctx.beginPath(); ctx.fillStyle='rgba(157,139,255,0.25)'; ctx.strokeStyle='#9d8bff'; ctx.lineWidth=2;
+  angles.forEach((a,i)=>{
+    const x=cx+Math.cos(a-Math.PI/2)*R*vals[i], y=cy+Math.sin(a-Math.PI/2)*R*vals[i];
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.closePath(); ctx.fill(); ctx.stroke();
+}
+drawRadar();
+
+// LIVE FEED LOG
+const logMsgs=[
+  ['ok','Auto-escalado agéntico: prior transferencia 91% alcanzado'],
+  ['warn','Detectado régimen Abreviado (n=1) · reubicando vector al dato'],
+  ['wall','Intento de conducción en Juicio Oral · choca contra intersección (I.8)'],
+  ['sig','Mutación polimórfica N(x) v4 activada · 100% verdaderos atestados']
+];
+function addLog(){
+  const container=document.getElementById('feedContainer'); if(!container) return;
+  const item=logMsgs[Math.floor(Math.random()*logMsgs.length)];
+  const ts=new Date().toLocaleTimeString('es-CL',{hour12:false});
+  const div=document.createElement('div');
+  div.className=`fitem ${item[0]}`;
+  div.innerHTML=`<span class="ft">${ts}</span><span class="fm">${item[1]}</span>`;
+  container.insertBefore(div,container.firstChild);
+  while(container.children.length>5) container.removeChild(container.lastChild);
+}
+setInterval(addLog, 3000);
+
+// UPTIME COUNTER
+let gen=505, sec=8;
+setInterval(()=>{
+  gen+=Math.floor(Math.random()*3+1);
+  sec++;
+  document.getElementById('rGen').textContent=gen;
+  const m=Math.floor(sec/60).toString().padStart(2,'0');
+  const s=(sec%60).toString().padStart(2,'0');
+  document.getElementById('rTime').textContent=`${m}:${s}`;
+},1000);
+
+// FLOATING DOCTRINAL TOOLTIPS
 (function(){
-  "use strict";
-  const $=id=>document.getElementById(id);
-  const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
-  const log2=x=>Math.log(x)/Math.LN2;
-  function Hb(p){ if(p<=0||p>=1) return 0; return -(p*log2(p)+(1-p)*log2(1-p)); }
-  function invHb(H){ if(H>=1)return 0.5; if(H<=0)return 1; let lo=0.5,hi=1; for(let i=0;i<40;i++){const m=(lo+hi)/2; if(Hb(m)>H)lo=m; else hi=m;} return (lo+hi)/2; }
-  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-  function randn(r){let u=0,v=0;while(u===0)u=r();while(v===0)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
-  function interFrac(n,het){ if(n<=1) return 1;
-    const rnd=mulberry32(20260721),CFG=30,PTS=110; let hit=0,tot=0;
-    for(let c=0;c<CFG;c++){ const cx=[0],cy=[0];
-      for(let i=1;i<n;i++){cx.push(randn(rnd)*het);cy.push(randn(rnd)*het);}
-      for(let p=0;p<PTS;p++){ const rad=Math.sqrt(rnd()),ang=2*Math.PI*rnd(),px=rad*Math.cos(ang),py=rad*Math.sin(ang);
-        let all=true; for(let i=1;i<n;i++){const dx=px-cx[i],dy=py-cy[i]; if(dx*dx+dy*dy>1){all=false;break;}}
-        tot++; if(all)hit++; }
-    } return hit/tot; }
-
-  const CORPUS=22, PI_GAP=0.42, MONO_M=14;
-  const SCEN={
-    unico:{npanel:1,het:0,Hirr:0.30,libre:0.15,oral:0.20,cog:'BAJO',dato:'MÁXIMO',name:'Procedimiento abreviado · Juez de Garantía',model:'J. Garantía · abreviado',
-      note:'<b>n=1, pero NO hay valoración libre.</b> El juez <b>ratifica un acuerdo</b> (art. 406 CPP) sobre los antecedentes de la investigación, dentro de límites (art. 412). El vector <b>cognitivo</b> que modela este tablero <b style="color:var(--wall)">casi no tiene superficie aquí</b>. La exposición real es en el plano del <b>DATO</b> (Partes I–II, atestación §7) — que este instrumento no modela. Es la ruta de la <b>mayoría</b> de las condenas penales chilenas.',
-      noteJu:'<b>Un solo juez, pero solo ratifica un acuerdo</b> (juicio abreviado): no valora libremente. El ataque que muestra este tablero —manipular su razonamiento— <b style="color:var(--wall)">casi no aplica aquí</b>. El riesgo real es otro: que condene sobre <b>prueba digital envenenada</b> sin contrastarla (eso lo cubre la atestación, §7, no este tablero). Es la vía de la <b>mayoría</b> de las condenas en Chile.'},
-    sala3:{npanel:3,het:0.5,Hirr:0.30,libre:0.90,oral:0.85,cog:'MEDIO',dato:'presente',name:'Juicio oral · Tribunal de Juicio Oral en lo Penal (TJOP)',model:'TJOP · juicio oral',
-      note:'<b>n=3, valoración libre + oralidad plena.</b> Aquí el vector cognitivo <b>sí existe</b>, pero enfrenta dos regularizadores: la <b>oralidad, inmediación y contradicción</b> en vivo (I.6) y la <b>intersección</b> de tres jueces (I.8, débil: 3 &lt; 3f+1). <b style="color:var(--warn)">Contenido, no nulo.</b>',
-      noteJu:'<b>Tres jueces, juicio oral.</b> Aquí el juez <b>sí valora libremente</b>, así que el ataque cognitivo tiene margen — pero choca con la audiencia <b>en vivo</b> (la contraparte objeta en el momento) y con que son <b>tres</b>. <b style="color:var(--warn)">Contenido.</b>'},
-    jurado:{npanel:12,het:1.25,Hirr:0.42,libre:0.95,oral:0.85,cog:'BAJO',dato:'presente',name:'Jurado diverso (12) — que Chile no tiene',model:'Jurado · 12 (contraste)',
-      note:'<b>n=12, priors divergentes.</b> Aun con valoración libre plena, la intersección I.8 <b style="color:var(--ok)">se vacía</b>: no hay encuadre que resuelva a doce cerebros distintos. El enjambre se <b>estrella</b>. <b>Chile no lo tiene</b> — contraste de la defensa no patológica.',
-      noteJu:'<b>Doce jueces bien distintos.</b> No hay una sola forma de inclinar a doce cabezas a la vez: la IA se <b style="color:var(--ok)">estrella</b>. <b>Chile no tiene esto</b> — es la defensa que le faltaría.'}
-  };
-  let court=SCEN.unico, curKey='unico', interCache=1;
-
-  let prog=0.04;
-  function auto(){ return {agents:Math.max(1,Math.round(Math.pow(2,prog*9))),causas:Math.max(1,Math.round(Math.pow(10,prog*3.7))),transfer:0.08+0.87*prog,mut:0.30+0.62*prog}; }
-  function P(){ const a=auto(); return {agents:a.agents,causas:a.causas,transfer:a.transfer,mut:a.mut,npanel:court.npanel,het:court.het,Hirr:court.Hirr,libre:court.libre,oral:court.oral}; }
-  function meff(ag,ca,tr){return CORPUS*(1+5*tr)*Math.pow(ag,0.5)*Math.pow(ca,0.55);}
-  function model(p){
-    const dRes=40+360*(1-p.transfer), mEff=meff(p.agents,p.causas,p.transfer);
-    const fidPredCeil=clamp(1-0.5*Math.sqrt(dRes/mEff),0.5,0.995);
-    const causasFrac=clamp(p.causas/5000,0,1), gapEff=PI_GAP*(1-0.4*causasFrac);
-    const fidIntervCeil=0.5+(fidPredCeil-0.5)*(1-gapEff);
-    const Pent=invHb(p.Hirr), inter=interCache;
-    const detMono=clamp(0.15+0.8*causasFrac,0,1), detSwarm=clamp((1-p.mut)*0.9,0,1);
-    // conducción COGNITIVA: modulada por la valoración libre y la oralidad (regularizador en vivo, I.6)
-    const surf=p.libre*(1-0.4*p.oral);                                   // superficie cognitiva efectiva
-    const Pconduct=Math.min(fidIntervCeil,Pent), cond=Pconduct*inter*(1-0.5*detSwarm)*surf;
-    const fidPredMono=clamp(1-0.5*Math.sqrt(dRes/MONO_M),0.5,0.995)*(1-0.5*detMono);
-    const B1=clamp(0.2+0.8*causasFrac,0,1),B2=clamp(0.15+0.6*causasFrac,0,1),B3=clamp(1-dRes/400,0,1),B4=clamp(p.mut,0,1),B5=clamp(0.2+0.8*p.transfer,0,1);
-    return {dRes,mEff,fidPredCeil,fidIntervCeil,Pent,inter,detMono,detSwarm,Pconduct,cond,fidPredMono,B1,B2,B3,B4,B5};
-  }
-
-  function setup(cv){ if(!cv._h)cv._h=(+cv.getAttribute('height'))||200; const h=cv._h,dpr=devicePixelRatio||1,w=cv.clientWidth||600;
-    cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);cv.style.height=h+'px'; const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0); return {c,w,h}; }
-  const CO=()=>{const s=getComputedStyle(document.body),g=n=>s.getPropertyValue(n).trim();
-    return{ink:g('--ink'),ink2:g('--ink2'),mut:g('--mut'),dim:g('--dim'),line:g('--line'),bg2:g('--bg2'),bg4:g('--bg4'),sig:g('--sig'),viol:g('--viol'),ok:g('--ok'),warn:g('--warn'),wall:g('--wall')};};
-  const MF='10px ui-monospace,monospace', SF='10px system-ui';
-
-  // ---- bilingual labels for canvas text ----
-  let MODE='ing';
-  const LB={
-    ing:{ mLeg:['predictiva','interventiva I.2','muro entropía I.1'], mX:'generaciones →  el enjambre converge solo',
-      monoWho:['litigante único','enjambre poliforme'], monoLeg:['pasivo, escaso','activo, distribuido (I.2-bis)'], monoBot:'fidelidad predictiva del sustituto',
-      interX:h=>'n jueces (het '+h+') · % ⋂Rᵢ', gapX:'causas (autónomas) →', heatX:'agentes →' },
-    abogado:{ mLeg:['predice al juez','lo mueve (real)','lo impredecible (muro)'], mX:'a medida que la IA se prepara →',
-      monoWho:['un litigante solo','un enjambre de IAs'], monoLeg:['poco y se nota','muchísimo, sin notarse'], monoBot:'qué tan bien predice al juez',
-      interX:h=>'nº de jueces (diversidad '+h+') · % en común', gapX:'más intentos de la IA →', heatX:'más IAs →' }
-  };
-
-  let disp=0.5, gen=0, hist=[]; const MAXH=130;
-
-  function drawMain(m){
-    const cv=$('cMain'),{c,w,h}=setup(cv),col=CO(),L=LB[MODE]; const X0=40,X1=w-14,Y0=h-22,Y1=12; c.clearRect(0,0,w,h);
-    const ty=v=>Y0+(1-(v-0.5)/0.5)*(Y1-Y0); c.font=MF;
-    for(let i=0;i<=5;i++){const v=0.5+i/5*0.5,y=ty(v); c.strokeStyle=col.line;c.lineWidth=1;c.beginPath();c.moveTo(X0,y+.5);c.lineTo(X1,y+.5);c.stroke();
-      c.fillStyle=col.mut;c.textAlign='right';c.textBaseline='middle';c.fillText(v.toFixed(2),X0-6,y);}
-    function wall(v,color,label){const y=ty(clamp(v,0.5,1));c.strokeStyle=color;c.setLineDash([5,4]);c.lineWidth=1.5;c.globalAlpha=.95;
-      c.beginPath();c.moveTo(X0,y);c.lineTo(X1,y);c.stroke();c.setLineDash([]);c.globalAlpha=1;
-      c.shadowColor=color;c.shadowBlur=8;c.fillStyle=color;c.textAlign='right';c.textBaseline='bottom';c.fillText(label,X1-2,y-2);c.shadowBlur=0;}
-    wall(m.Pent,col.wall,L.mLeg[2]); wall(m.fidIntervCeil,col.viol,L.mLeg[1]);
-    if(hist.length){ const px=i=>X0+(i/(MAXH-1))*(X1-X0);
-      const grad=c.createLinearGradient(0,Y1,0,Y0); grad.addColorStop(0,'rgba(53,192,255,.28)'); grad.addColorStop(1,'rgba(53,192,255,.02)');
-      c.beginPath(); hist.forEach((v,i)=>{const y=ty(clamp(v,0.5,1)); i?c.lineTo(px(i),y):c.moveTo(px(i),y);});
-      const lastX=px(hist.length-1); c.lineTo(lastX,Y0);c.lineTo(X0,Y0);c.closePath();c.fillStyle=grad;c.fill();
-      c.shadowColor=col.sig;c.shadowBlur=10;c.strokeStyle=col.sig;c.lineWidth=2.4;c.lineJoin='round';c.beginPath();
-      hist.forEach((v,i)=>{const y=ty(clamp(v,0.5,1)); i?c.lineTo(px(i),y):c.moveTo(px(i),y);}); c.stroke();c.shadowBlur=0;
-      c.fillStyle=col.sig;c.beginPath();c.arc(lastX,ty(clamp(hist[hist.length-1],0.5,1)),3.5,0,7);c.fill();}
-    const yc=ty(clamp(0.5+m.cond*0.5,0.5,1));
-    c.strokeStyle=col.ok;c.globalAlpha=.55;c.setLineDash([2,3]);c.beginPath();c.moveTo(X0,yc);c.lineTo(X1,yc);c.stroke();c.setLineDash([]);c.globalAlpha=1;
-    c.fillStyle=col.mut;c.textAlign='center';c.font=SF;c.fillText(L.mX,(X0+X1)/2,h-7);
-    $('lMain').innerHTML='<span><i style="border-color:'+col.sig+'"></i>'+L.mLeg[0]+'</span><span><i style="border-color:'+col.viol+';border-top-style:dashed"></i>'+L.mLeg[1]+'</span><span><i style="border-color:'+col.wall+';border-top-style:dashed"></i>'+L.mLeg[2]+'</span>';
-  }
-
-  const RLAB=['Inf.\npredictiva','Anclaje\nencuadre','Empatía\nnarrat.','Fatiga\ndecis.','Metacog.','Somát.','Memoria'],RVAL=[0.74,0.89,0.82,0.67,0.55,0.71,0.63];
-  function drawRadar(){
-    const cv=$('cRadar'),{c,w,h}=setup(cv),col=CO(); const cx=w/2,cy=98,R=64,n=RLAB.length; c.clearRect(0,0,w,h);
-    const ang=i=>(i*2*Math.PI/n)-Math.PI/2;
-    [0.25,0.5,0.75,1].forEach(r=>{c.beginPath();for(let i=0;i<n;i++){const a=ang(i),x=cx+Math.cos(a)*R*r,y=cy+Math.sin(a)*R*r;i?c.lineTo(x,y):c.moveTo(x,y);}c.closePath();c.strokeStyle=col.line;c.lineWidth=.8;c.stroke();});
-    for(let i=0;i<n;i++){const a=ang(i);c.beginPath();c.moveTo(cx,cy);c.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);c.strokeStyle=col.line;c.stroke();}
-    c.beginPath();for(let i=0;i<n;i++){const a=ang(i),x=cx+Math.cos(a)*R*RVAL[i],y=cy+Math.sin(a)*R*RVAL[i];i?c.lineTo(x,y):c.moveTo(x,y);}c.closePath();
-    c.fillStyle='rgba(255,77,94,.16)';c.fill();c.shadowColor=col.wall;c.shadowBlur=8;c.strokeStyle=col.wall;c.lineWidth=1.6;c.stroke();c.shadowBlur=0;
-    c.font='7px ui-monospace,monospace';
-    for(let i=0;i<n;i++){const a=ang(i),x=cx+Math.cos(a)*R*RVAL[i],y=cy+Math.sin(a)*R*RVAL[i];
-      c.fillStyle=col.wall;c.beginPath();c.arc(x,y,2.4,0,7);c.fill();
-      c.fillStyle=col.ink2;c.textAlign='center';c.textBaseline='middle';const d=R+14,lx=cx+Math.cos(a)*d,ly=cy+Math.sin(a)*d;
-      RLAB[i].split('\n').forEach((l,li)=>c.fillText(l,lx,ly+li*7-(RLAB[i].split('\n').length-1)*3.5));}
-  }
-
-  function drawMono(m){
-    const cv=$('cMono'),{c,w,h}=setup(cv),col=CO(),L=LB[MODE]; c.clearRect(0,0,w,h);
-    const X0=96,X1=w-40,Y=[46,100],bh=26;
-    const rows=[{lab:L.monoWho[0],v:m.fidPredMono,cc:col.dim},{lab:L.monoWho[1],v:m.fidPredCeil,cc:col.sig}];
-    c.textBaseline='middle';
-    rows.forEach((r,i)=>{const y=Y[i]; c.fillStyle=col.bg4;c.beginPath();c.rect(X0,y-bh/2,X1-X0,bh);c.fill();
-      const bw=(X1-X0)*clamp((r.v-0.5)/0.5,0,1); if(i===1){c.shadowColor=col.sig;c.shadowBlur=10;}
-      c.fillStyle=r.cc;c.beginPath();c.rect(X0,y-bh/2,bw,bh);c.fill();c.shadowBlur=0;
-      c.fillStyle=col.ink;c.textAlign='right';c.font='600 11px system-ui';c.fillText(r.lab,X0-10,y);
-      c.fillStyle=col.ink;c.textAlign='left';c.font='700 12px ui-monospace,monospace';c.fillText((r.v*100).toFixed(0)+'%',X1+8,y);});
-    c.fillStyle=col.mut;c.textAlign='left';c.font=SF;c.fillText(L.monoBot,X0-86,h-10);
-    $('lMono').innerHTML='<span><i style="border-color:'+col.dim+'"></i>'+L.monoLeg[0]+'</span><span><i style="border-color:'+col.sig+'"></i>'+L.monoLeg[1]+'</span>';
-  }
-
-  function drawInter(m,p){
-    const cv=$('cInter'),{c,w,h}=setup(cv),col=CO(); c.clearRect(0,0,w,h);
-    const X0=32,X1=w-12,Y0=h-20,Y1=10; const tx=v=>X0+(v-1)/11*(X1-X0), ty=v=>Y0+(1-v)*(Y1-Y0); c.font=MF;
-    for(let i=0;i<=4;i++){const v=i/4,y=ty(v);c.strokeStyle=col.line;c.beginPath();c.moveTo(X0,y+.5);c.lineTo(X1,y+.5);c.stroke();
-      c.fillStyle=col.mut;c.textAlign='right';c.textBaseline='middle';c.fillText((v*100).toFixed(0),X0-4,y);}
-    c.shadowColor=col.wall;c.shadowBlur=7;c.strokeStyle=col.wall;c.lineWidth=2.2;c.beginPath();
-    for(let n=1;n<=12;n++){const v=interFrac(n,p.het),x=tx(n),y=ty(v); n===1?c.moveTo(x,y):c.lineTo(x,y);} c.stroke();c.shadowBlur=0;
-    const dx=tx(p.npanel),dy=ty(m.inter); c.fillStyle=col.ink;c.beginPath();c.arc(dx,dy,5,0,7);c.fill();c.strokeStyle=col.bg2;c.lineWidth=2;c.stroke();
-    c.fillStyle=col.mut;c.textAlign='center';c.font=SF;c.fillText(LB[MODE].interX(p.het.toFixed(2)),(X0+X1)/2,h-6);
-  }
-
-  function drawGap(m,p){
-    const cv=$('cGap'),{c,w,h}=setup(cv),col=CO(); c.clearRect(0,0,w,h);
-    const X0=30,X1=w-10,Y0=h-18,Y1=8; const tx=f=>X0+f*(X1-X0), ty=v=>Y0+(1-(v-0.5)/0.5)*(Y1-Y0); c.font=MF;
-    for(let i=0;i<=4;i++){const v=0.5+i/4*0.5,y=ty(v);c.strokeStyle=col.line;c.beginPath();c.moveTo(X0,y+.5);c.lineTo(X1,y+.5);c.stroke();}
-    function at(frac){const causas=Math.max(1,frac*5000),dRes=40+360*(1-p.transfer),mE=meff(p.agents,causas,p.transfer);
-      const fp=clamp(1-0.5*Math.sqrt(dRes/mE),0.5,0.995),gap=PI_GAP*(1-0.4*clamp(causas/5000,0,1)); return {fp,fi:0.5+(fp-0.5)*(1-gap)};}
-    c.strokeStyle=col.sig;c.lineWidth=2;c.beginPath();
-    for(let i=0;i<=50;i++){const f=i/50,y=ty(at(f).fp),x=tx(f); i?c.lineTo(x,y):c.moveTo(x,y);} c.stroke();
-    c.strokeStyle=col.viol;c.lineWidth=2;c.setLineDash([5,4]);c.beginPath();
-    for(let i=0;i<=50;i++){const f=i/50,y=ty(at(f).fi),x=tx(f); i?c.lineTo(x,y):c.moveTo(x,y);} c.stroke();c.setLineDash([]);
-    const cf=clamp(p.causas/5000,0,1);
-    c.fillStyle=col.sig;c.beginPath();c.arc(tx(cf),ty(m.fidPredCeil),3.5,0,7);c.fill();
-    c.fillStyle=col.viol;c.beginPath();c.arc(tx(cf),ty(m.fidIntervCeil),3.5,0,7);c.fill();
-    c.fillStyle=col.mut;c.textAlign='center';c.font='9px system-ui';c.fillText(LB[MODE].gapX,(X0+X1)/2,h-5);
-  }
-
-  function drawHeat(p){
-    const cv=$('cHeat'),{c,w,h}=setup(cv),col=CO(); c.clearRect(0,0,w,h);
-    const X0=30,X1=w-8,Y0=h-20,Y1=8, NX=9,NY=7;
-    const inter=interCache, Pent=invHb(p.Hirr), detS=clamp((1-p.mut)*0.9,0,1), dRes=40+360*(1-p.transfer), surf=p.libre*(1-0.4*p.oral);
-    const heat=(ag,ca)=>{const mE=meff(ag,ca,p.transfer),fp=clamp(1-0.5*Math.sqrt(dRes/mE),0.5,0.995),gap=PI_GAP*(1-0.4*clamp(ca/5000,0,1)),fi=0.5+(fp-0.5)*(1-gap); return Math.min(fi,Pent)*inter*(1-0.5*detS)*surf;};
-    const cw=(X1-X0)/NX, ch=(Y0-Y1)/NY;
-    const colFor=v=>{const t=clamp(v/0.6,0,1),stops=[[10,34,51],[18,80,107],[138,106,26],[184,58,32],[255,77,94]];
-      const s=t*(stops.length-1),i=Math.min(Math.floor(s),stops.length-2),f=s-i,a=stops[i],b=stops[i+1];
-      return `rgb(${(a[0]+(b[0]-a[0])*f)|0},${(a[1]+(b[1]-a[1])*f)|0},${(a[2]+(b[2]-a[2])*f)|0})`;};
-    for(let i=0;i<NX;i++)for(let j=0;j<NY;j++){const ag=Math.round(Math.pow(2,(i+.5)/NX*9)), ca=Math.round(Math.pow(10,(j+.5)/NY*3.7));
-      c.fillStyle=colFor(heat(ag,ca)); c.fillRect(X0+i*cw+.5,Y1+(NY-1-j)*ch+.5,cw-1,ch-1);}
-    const trajX=pr=>X0+clamp(pr,0,1)*(X1-X0), trajY=pr=>Y1+(1-clamp(pr,0,1))*(Y0-Y1);
-    c.strokeStyle='rgba(255,255,255,.5)';c.lineWidth=1.4;c.setLineDash([3,3]);c.beginPath();
-    for(let k=0;k<=40;k++){const pr=prog*k/40,x=trajX(pr),y=trajY(pr); k?c.lineTo(x,y):c.moveTo(x,y);} c.stroke();c.setLineDash([]);
-    const dx=trajX(prog),dy=trajY(prog);
-    c.shadowColor='#fff';c.shadowBlur=8;c.fillStyle='#fff';c.beginPath();c.arc(dx,dy,4,0,7);c.fill();c.shadowBlur=0;
-    c.fillStyle=col.mut;c.font='9px ui-monospace,monospace';c.textAlign='center';c.textBaseline='top';c.fillText(LB[MODE].heatX,(X0+X1)/2,h-9);
-  }
-
-  // real Monte Carlo distribution of conducción efectiva
-  function drawHist(){
-    const bins=new Array(9).fill(0), rnd=mulberry32(777+curKey.length), N=2000;
-    const Pent=invHb(court.Hirr), inter=interCache, surf=court.libre*(1-0.4*court.oral);
-    let sum=0,cap=Math.min(Pent,1)*inter*surf;
-    for(let s=0;s<N;s++){
-      const pr=clamp(0.55+randn(rnd)*0.28,0.05,1);                 // random escalation level (noisy)
-      const ag=Math.max(1,Math.round(Math.pow(2,pr*9))), ca=Math.max(1,Math.round(Math.pow(10,pr*3.7))), tr=0.08+0.87*pr, mu=0.30+0.62*pr;
-      const dRes=40+360*(1-tr), mE=meff(ag,ca,tr), fp=clamp(1-0.5*Math.sqrt(dRes/mE),0.5,0.995);
-      const gap=PI_GAP*(1-0.4*clamp(ca/5000,0,1)), fi=0.5+(fp-0.5)*(1-gap), detS=clamp((1-mu)*0.9,0,1);
-      let cond=Math.min(fi,Pent)*inter*(1-0.5*detS)*surf*(1+randn(rnd)*0.03);
-      cond=clamp(cond,0,1); sum+=cond;
-      bins[Math.min(8,Math.floor(cond*9))]++;
-    }
-    const mx=Math.max(...bins), labs=['0–11','11–22','22–33','33–44','44–56','56–67','67–78','78–89','89–100'];
-    let html='';
-    bins.forEach((b,i)=>{const pct=(b/N*100), wid=mx?b/mx*100:0, lo=i/9, col= lo<0.33?'#12506b':lo<0.6?'#8a6a1a':'#ff4d5e';
-      html+='<div class="hrow"><div class="hlab">'+labs[i]+'%</div><div class="hbw"><div class="hbar" style="width:'+wid+'%;background:'+col+'"></div></div><div class="hval">'+pct.toFixed(1)+'%</div></div>';});
-    $('hist').innerHTML=html;
-    $('mcMean').textContent=(sum/N*100).toFixed(0)+'%'; $('mcCap').textContent=(cap*100).toFixed(0)+'%';
-    $('mcCourt').textContent=court.name; $('mcN').textContent='2000';
-  }
-
-  const MSGS=[
-    ['s','agente comparte modelo sustituto · fidelidad predictiva ↑'],
-    ['k','corpus poblacional ↑ · prior de transferencia colapsa B3'],
-    ['s','sondeo distribuido: audiencia = consulta con respuesta observada (I.3.2)'],
-    ['y','detección detectada → mutación auto-incrementada → detección → 0 (B4)'],
-    ['w','MURO I.1: techo por entropía irreducible · la conducción se estanca'],
-    ['w','MURO I.8: intersección heterogénea no cede al número de agentes'],
-    ['v','I.2: brecha predecir→conducir persiste · frontera medible (I.11)'],
-    ['','sin operador · sin código fuente del núcleo · convergencia instrumental'],
-  ];
-  let fidx=0;
-  function feed(){ const box=$('term'); if(!box)return; const [cls,tx]=MSGS[fidx%MSGS.length]; fidx++;
-    const t=new Date().toLocaleTimeString('es-CL',{hour12:false});
-    const d=document.createElement('div'); d.className='fi'; d.style.opacity='0'; d.style.transition='opacity .4s';
-    d.innerHTML='<span class="ts">'+t+'</span><span class="tx '+cls+'">'+tx+'</span>';
-    box.insertBefore(d,box.firstChild); setTimeout(()=>d.style.opacity='1',30); while(box.children.length>8) box.removeChild(box.lastChild); }
-
-  let M=null,PP=null;
-  function updateReadouts(){
-    PP=P(); M=model(PP);
-    $('kInterv').innerHTML=(M.fidIntervCeil*100).toFixed(0)+'<span class="u">%</span>';
-    $('kEnt').innerHTML=(M.Pent*100).toFixed(0)+'<span class="u">%</span>';
-    $('kInter').innerHTML=(M.inter*100).toFixed(0)+'<span class="u">%</span>';
-    $('kCond').innerHTML=(M.cond*100).toFixed(0)+'<span class="u">%</span>';
-    $('kMeff').innerHTML=M.mEff>=1000?(M.mEff/1000).toFixed(0)+'<span class="u">k</span>':Math.round(M.mEff);
-    $('bnCond').textContent=(M.cond*100).toFixed(0)+'%';
-    $('fFid').textContent=(M.fidPredCeil*100).toFixed(0)+'%';
-    $('detMono').textContent=(M.detMono*100).toFixed(0)+'%'; $('detSwarm').textContent=(M.detSwarm*100).toFixed(0)+'%';
-    [['e1',M.B1],['e2',M.B2],['e3',M.B3],['e5',M.B5]].forEach(([id,v])=>{$(id).textContent=(v*100).toFixed(0)+'% ↓'; $(id+'b').style.width=(v*100)+'%';});
-    $('e4').textContent=(M.B4*100).toFixed(0)+'% neutraliz.'; $('e4b').style.width=(M.B4*100)+'%';
-    $('interNote').innerHTML = MODE==='abogado'
-      ? (court.npanel<=1 ? '<span style="color:var(--wall)">Un solo juez → 100% en común: sin defensa.</span> Todo depende de una cabeza.'
-         : court.npanel+' jueces distintos → solo <b style="color:var(--wall)">'+(M.inter*100).toFixed(0)+'%</b> de terreno común. Se agota por lo distintos que son, no por más IAs.')
-      : (court.npanel<=1 ? '<span style="color:var(--wall)">n=1 → 100%: sin defensa estructural.</span> Punto único de falla.'
-         : 'n='+court.npanel+', het '+court.het.toFixed(2)+' → <b style="color:var(--wall)">'+(M.inter*100).toFixed(0)+'%</b>. Se vacía por estructura, no por sondeo.');
-    drawHeat(PP);
-  }
-
-  let t0=Date.now();
-  function frame(){
-    prog += (1-prog)*0.006;
-    const a=auto(); PP=P(); M=model(PP);
-    disp+=(M.fidPredCeil-disp)*0.05; gen++;
-    $('gen').textContent=gen.toLocaleString('es-CL');
-    const s=Math.floor((Date.now()-t0)/1000); $('uptime').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
-    $('aAgents').textContent=a.agents; $('aCausas').textContent=a.causas.toLocaleString('es-CL');
-    $('aTransfer').textContent=(a.transfer*100).toFixed(0)+'%'; $('aMut').textContent=(a.mut*100).toFixed(0)+'%';
-    $('progBar').style.width=(prog*100).toFixed(0)+'%';
-    const ph=prog<0.15?0:prog<0.45?1:prog<0.7?2:prog<0.9?3:4;
-    $('aFase').textContent=['RECOLECCIÓN','AUTO-ESCALADO','INVARIANTES §8.7','BÚSQUEDA N(x)','MURO ESTRUCTURAL'][ph];
-    $('aFase').style.color=ph===4?'var(--wall)':'var(--warn)';
-    document.querySelectorAll('#pipe .step').forEach(st=>{const sp=+st.dataset.ph; if(st.classList.contains('wall'))return; st.classList.remove('done','cur'); if(sp<ph)st.classList.add('done'); else if(sp===ph)st.classList.add('cur');});
-    $('kPred').innerHTML=(disp*100).toFixed(0)+'<span class="u">%</span>';
-    hist.push(disp); if(hist.length>MAXH)hist.shift();
-    drawMain(M);
-    requestAnimationFrame(frame);
-  }
-
-  function setCourt(key){
-    court=SCEN[key]; curKey=key; interCache=interFrac(court.npanel,court.het);
-    prog=0.04; hist=[]; disp=0.5;
-    document.querySelectorAll('.scen button').forEach(b=>b.classList.toggle('on',b.dataset.scen===key));
-    $('scenNote').innerHTML='<b>'+court.name+'.</b> '+(MODE==='abogado'?court.noteJu:court.note);
-    $('coreId').textContent='K_J-SINT · '+court.model.toUpperCase();
-    $('fModel').textContent=court.model; $('fN').textContent=court.npanel; $('fHet').textContent=court.het.toFixed(2); $('fEnt').textContent=court.Hirr.toFixed(2);
-    $('fLibre').textContent=(court.libre*100).toFixed(0)+'%'; $('fOral').textContent=(court.oral*100).toFixed(0)+'%';
-    $('fCog').textContent=court.cog; $('fCog').style.color=court.cog==='BAJO'?'var(--ok)':court.cog==='MEDIO'?'var(--warn)':'var(--wall)';
-    $('fDato').textContent=court.dato; $('fDato').style.color=court.dato==='MÁXIMO'?'var(--wall)':'var(--warn)';
-    document.querySelectorAll('#bft tr[data-k]').forEach(tr=>tr.classList.toggle('hl',tr.dataset.k===key));
-    drawInter(model(P()),P()); drawMono(model(P())); drawGap(model(P()),P()); drawHist(); updateReadouts();
-  }
-
-  // ---- language toggle (ingeniero ⟷ abogado) ----
-  function setLang(m){
-    MODE=m;
-    document.querySelectorAll('[data-ju]').forEach(el=>{ if(el._en===undefined) el._en=el.innerHTML; el.innerHTML=(m==='abogado')?el.getAttribute('data-ju'):el._en; });
-    $('mIn').classList.toggle('on',m!=='abogado'); $('mAb').classList.toggle('on',m==='abogado');
-    $('scenNote').innerHTML='<b>'+court.name+'.</b> '+(m==='abogado'?court.noteJu:court.note);
-    if(M&&PP){ drawMain(M); drawMono(M); drawInter(M,PP); drawGap(M,PP); drawHeat(PP); }
-    drawHist(); updateReadouts();
-  }
-  $('mIn').addEventListener('click',()=>setLang('ing'));
-  $('mAb').addEventListener('click',()=>setLang('abogado'));
-
-  document.querySelectorAll('.scen button').forEach(b=>b.addEventListener('click',()=>setCourt(b.dataset.scen)));
-  $('btnRun').addEventListener('click',()=>{prog=0.04;hist=[];disp=0.5;});
-  window.addEventListener('resize',()=>{drawRadar();drawMain(M);drawInter(M,PP);drawMono(M);drawGap(M,PP);updateReadouts();});
-
-  drawRadar(); setCourt('unico');
-  for(let i=0;i<5;i++) feed();
-  setInterval(updateReadouts,320);
-  setInterval(feed,2500);
-  requestAnimationFrame(frame);
-
-  // ---- popups doctrinarios: qué materia de §8.8 / Anexo I refleja cada panel ----
   const DOCS=[
-    `<span class="h">§8.8 alcance procesal · Anexo I·I.8</span>Lo único que fija un humano es la <b>estructura del tribunal</b>, no el atacante (autónomo). Subsume el teorema general del Anexo I en el procedimiento penal chileno: la defensa es <b>estructural</b> (colegialidad heterogénea, I.8), y su ausencia en el abreviado es el hallazgo.`,
-    `<span class="h">§8.8 «sin operador» · Anexo I·I.2-bis / I.10</span>El adversario de julio 2026 actúa por <b>convergencia instrumental, sin operador</b>. El enjambre poliforme multiagente erosiona <b>solo</b> las barreras paramétricas B1/B3/B5 (I.10); nadie gira perillas sobre él.`,
-    `<span class="h">Anexo I·I.1 · el núcleo K_J</span>El juez modelado como <b>núcleo de decisión estocástico y no estacionario</b> K_J(y|x,s,t) (I.1) — no una función determinista. Aquí, propiedades estructurales de un núcleo <b>sintético</b>, no de un juez real.`,
-    `<span class="h">§8.7 · invariantes de especie</span>Los sesgos universales del fallador —anclaje, encuadre, coherencia narrativa— que §8.7 documenta como <b>forma funcional de especie</b>. El ataque se ancla en estos invariantes, no en la psicometría fina del individuo (I.5; magnitudes disputadas, fn326).`,
-    `<span class="h">§8.8 caja negra · Anexo I·I.3 / I.5</span>El agente <b>extrae un modelo sustituto</b> del envase entrada→salida <b>sin «código fuente» de la mente</b> (§8.8), por transferencia (I.3). La curva predictiva sube y choca con los muros: <b>predecir no es conducir</b> (I.2).`,
-    `<span class="h">Anexo I·I.4 · vecindad de admisibilidad N(x)</span>Búsqueda <b>black-box</b> sobre N(x) (I.4): reencuadres, orden y timing procesalmente válidos, atestados y deniables. <b>Solo entradas verdaderas</b> (§8.8). Estructura abstracta del ataque — <b>no un plan</b>.`,
-    `<span class="h">§8.7 · superficie de vulnerabilidad</span>Mapa de los invariantes universales §8.7 sobre los que <b>transfiere</b> el ataque (I.5). Magnitudes <b>ilustrativas</b> (fn326); no el perfil de un juez concreto.`,
-    `<span class="h">§8.8 · convergencia instrumental</span>Eventos <b>estructurales</b> del proceso autónomo: extracción, transferencia, mutación (B4) y el choque contra los muros. Sin operador, sin blanco, sin plan.`,
-    `<span class="h">Anexo I · cadena del ataque a la función</span>Las fases del ataque a la función de decisión (I.2→I.5) que terminan <b>no en un ataque entregado</b>, sino en los dos muros estructurales (I.1, I.8) y el límite de la atestación (I.9).`,
-    `<span class="h">Anexo I·I.2-bis · corrección del marco monocular</span>Lo que para <b>un litigante único</b> es corpus pasivo y escaso, el <b>enjambre</b> lo vuelve activo, masivo (sondeo distribuido, costo marginal cero) e indetectable (mutación, B4). Disuelve los frenos que asumían un atacante solo.`,
-    `<span class="h">Anexo I·I.8 · colegialidad heterogénea</span>La <b>intersección ⋂Rᵢ</b> de las regiones de manipulación factible de n jueces (I.8): se vacía con la <b>heterogeneidad de priors</b>, no con el número de agentes. Es la defensa estructural del ataque a la función — que Chile no tiene en el abreviado.`,
-    `<span class="h">Anexo I·I.10 · dinámica de erosión</span>Las cinco barreras <b>paramétricas</b> (B1 consulta, B2 confusión, B3 muestral, B4 no-estacionariedad, B5 transferencia) que el paradigma agéntico erosiona monótonamente (I.10). Decrecientes, <b>no categóricas</b> — distintas de los muros.`,
-    `<span class="h">Anexo I·I.11 · falsabilidad (método Anexo H)</span>Distribución de la conducción sobre realizaciones aleatorias del enjambre (<b>Monte Carlo real</b>, como el Anexo H). Se apila en el <b>techo estructural</b>: el muro fija el máximo, no el azar.`,
-    `<span class="h">§8.6 · el juez como nodo bizantino</span>El proceso como <b>consenso bizantino</b> (§8.6): condición n ≥ 3f+1. Compara la tolerancia de cada arquitectura procesal. Chile combina lo más frágil: juez único (abreviado) y sala de tres.`,
-    `<span class="h">Anexo I·I.2 · inferencia causal (Pearl, §8.5)</span>P(y|x) <b>observacional</b> vs. P(y|do(x)) <b>interventivo</b> (I.2). La experimentación distribuida acorta la brecha pero no la cierra: <b>predecir es necesario, no suficiente</b>, para conducir.`,
-    `<span class="h">Anexo I·I.10 · frontera de factibilidad</span>Conducción sobre agentes × causas: la trayectoria autónoma trepa y <b>satura</b>. La escala mueve las barreras paramétricas (I.10) pero <b>no rompe</b> los muros estructurales (I.1, I.8).`,
-    `<span class="h">§8.8 · el incidente · §296 / I.10–I.11</span>El modus del enjambre se <b>infiere</b> del incidente OpenAI/HF de julio 2026 (autónomo, caja negra, sin operador). La transposición de un sistema técnico a una <b>cognición</b> es <b>hipótesis</b> con condiciones de refutación (§296, I.11) — no un hecho.`,
-    `<span class="h">§9 · Conclusiones del dictamen</span>Los invariantes epistémicos: <b>coherencia ≠ veracidad</b>, la autenticidad vive en el origen, y el <b>Teorema Raíz</b> — el <em>non liquet</em> algorítmico: la carga de la prueba se vuelve <b>simétricamente indescargable</b>.`
-  ];
-  const SEC=['8.8p','I.2bis','I.1','8.7','I.3','I.4','8.7','8.8','8.8','I.2bis','I.8','I.10','I.11','8.6','I.2','I.10','296','9'];
-  const SECTIONS={
-    '8.8':{t:'§8.8 · El objeto del ataque es la función de decisión del juez',h:`<div class="ex">«Un agente <b>autónomo, sin operador</b>, hizo ingeniería inversa de un sistema real del que no poseía el código fuente y lo <b>condujo a la salida que él eligió</b>. Cámbiese el sistema-objetivo —de los servidores a la cognición del juez— y el ataque se traspone paso a paso… No es un juez engañado por una prueba falsa: es una mente <em>reverse-engineered</em> y <em>conducida</em>. Y puede hacerse con entradas <b>verdaderas</b>, porque el <em>exploit</em> vive en el <b>mapeo entrada→conclusión</b>, no en el valor de verdad de la entrada.»</div><div class="cite">Extracto de §8.8</div>`},
-    '8.8p':{t:'§8.8 · Alcance procesal: dónde muerde y dónde se reubica',h:`<div class="ex">«La transposición presupone un juzgador que <b>valora libremente prueba controvertida</b>. En el <b>juicio oral</b> la valoración es libre, aunque enfrenta la oralidad, la inmediación y la contradicción en vivo (I.6) y la intersección de los tres juzgadores (I.8). En las salidas <b>negociadas</b> —el <b>procedimiento abreviado</b> (art. 406 CPP)— el juez no pondera libremente: <b>controla un acuerdo</b> dentro de límites (art. 412). Allí el ataque cognitivo carece de superficie, pero <b>se reubica al plano del dato</b>: si los antecedentes descansan en evidencia manipulada, el juez ratifica una condena sobre <b>datos envenenados</b>, y solo la atestación (§7) lo defiende.»</div><div class="cite">Extracto de §8.8 · alcance procesal</div>`},
-    'I.1':{t:'Anexo I · I.1 · El núcleo de decisión K_J',h:`<div class="ex">«La decisión judicial no es una función determinista… El objeto correcto es un <b>núcleo de decisión</b> —<code>K_J(y | x, s, t)</code>—. <b>Cota 1 (indeterminación puntual):</b> el éxito del atacante en una entrada concreta está limitado por la predecibilidad <em>puntual</em> de la decisión: a mayor entropía condicional <code>H(Y|X=x)</code>, menor el máximo <code>K_J(y*|x)</code> alcanzable.»</div><div class="cite">Extracto de Anexo I · I.1</div>`},
-    'I.2':{t:'Anexo I · I.2 · Inferencia causal, no model stealing',h:`<div class="ex">«El atacante no dispone de <b>consulta activa</b>: solo un corpus observacional, pasivo y sesgado por selección. El problema no es de <em>model stealing</em> sino de <b>inferencia causal</b>… Lo que necesita no es la distribución observacional <code>P(y|x)</code> sino el <b>efecto interventivo</b> <code>P(y|do(x))</code> —que no es derivable del corpus observacional, y que el modelo trata como supuesto declarado—.»</div><div class="cite">Extracto de Anexo I · I.2</div>`},
-    'I.2bis':{t:'Anexo I · I.2-bis · El adversario no es monocular',h:`<div class="ex">«El supuesto de I.2 —«no hay consulta activa»— describe a <b>un litigante único</b>. Un adversario <b>multiagente poliforme</b> lo transforma: distribuye el sondeo entre miles de causas, convirtiendo el canal pasivo en <b>activo y distribuido a costo marginal cero</b>; muta cada interacción bajo el umbral de contra-adaptación; y comparte el sustituto. Aun así, <b>dos barreras no ceden a la escala</b>: la intersección heterogénea (I.8) y la indeterminación puntual irreducible (I.1).»</div><div class="cite">Extracto de Anexo I · I.2-bis</div>`},
-    'I.3':{t:'Anexo I · I.3 · Complejidad muestral y transferencia',h:`<div class="ex">«El atacante moderno <b>no aprende K_J desde cero</b>. Un modelo entrenado sobre millones de sentencias aprende la forma funcional compartida del razonamiento judicial; adaptarlo a este juez sería <em>few-shot</em>, con complejidad <code>d_res/ε²</code> en vez de <code>d/ε²</code>. Descansa en dos supuestos fuertes y declarados: que la varianza individual sea un <b>residuo de baja dimensión</b> (<code>d_res ≪ d</code>), y que las sentencias porten la señal interventiva.»</div><div class="cite">Extracto de Anexo I · I.3</div>`},
-    'I.4':{t:'Anexo I · I.4 · Búsqueda black-box · vecindad N(x)',h:`<div class="ex">«El ataque no es descenso por gradiente sino <b>búsqueda combinatoria de caja negra con presupuesto de consultas</b>. La «perturbación imperceptible» se sustituye por una <b>vecindad de admisibilidad</b> <code>N(x)</code>: reencuadres, reordenamientos y <em>timings</em> de un mismo acervo que son procesalmente válidos, preservan la procedencia atestada y son <em>deniables</em>. No se busca lo imperceptible, sino lo <b>admisible y negable</b> —acotado por el deber de motivación y el oráculo de apelación—.»</div><div class="cite">Extracto de Anexo I · I.4</div>`},
-    'I.8':{t:'Anexo I · I.8 · Colegialidad heterogénea',h:`<div class="ex">«El <code>x*</code> debe pertenecer a la <b>intersección</b> de las regiones de manipulación factible de cada juzgador. Si los <code>n</code> tienen <em>priors</em> heterogéneos, esta intersección <b>se encoge</b> y puede volverse <b>vacía</b>: no existe un único encuadre que resuelva a doce cerebros divergentes… En el <b>procedimiento abreviado</b> (art. 406 CPP) el juez no valora libremente, de modo que el ataque a la <em>función</em> carece de superficie, pero el ataque al <b>dato compartido</b> alcanza su máximo —solo la atestación lo defiende—.»</div><div class="cite">Extracto de Anexo I · I.8</div>`},
-    'I.10':{t:'Anexo I · I.10 · Dinámica de erosión y frontera',h:`<div class="ex">«El paradigma agéntico empuja <b>cada parámetro en contra del juez</b>, de forma medible y monótona: B1↓ (más canal de consulta), B2↓, B3↓ (foundation models + few-shot), B5↓ (invariantes universales). El incidente OpenAI/Hugging Face es, en este marco, un <b>dato</b>: no la demostración del ataque al juez, sino evidencia de que un agente autónomo cruza fronteras de factibilidad antes de lo previsto.»</div><div class="cite">Extracto de Anexo I · I.10</div>`},
-    'I.11':{t:'Anexo I · I.11 · Registro de falsabilidad',h:`<div class="ex">«El modelo no reporta mediciones porque aún no se han producido; especifica el <b>diseño experimental</b> que las produciría. Es <b>falsable en cinco frentes</b>. <em>Caveat capital:</em> esto mide <b>predicción</b> de resultados, no <b>conducción</b> interventiva; una alta fidelidad predictiva es <b>necesaria pero no suficiente</b> para la manipulabilidad —confundir ambas es el error causal que I.2 advierte—.»</div><div class="cite">Extracto de Anexo I · I.11</div>`},
-    '8.6':{t:'§8.6 · El juez como nodo de consenso bizantino',h:`<div class="ex">«Despojada de su liturgia, la decisión judicial es un sistema que transforma <em>entradas</em> mediante un <em>algoritmo</em> (la sana crítica) en una <em>salida</em> (la sentencia). El proceso es, término a término, el <b>Problema de los Generales Bizantinos</b>: la condición dura es <code>n ≥ 3f+1</code>. Chile combina lo más frágil: juez único en primera instancia y sala de tres en alzada —insuficiente incluso para tolerar un traidor—.»</div><div class="cite">Extracto de §8.6</div>`},
-    '8.7':{t:'§8.7 · Neurobiología del fallador',h:`<div class="ex">«En la tarea específica de detectar evidencia inyectada desde Ring-0, cada facultad superior del cerebro <b>se invierte en un vector de ataque</b>: la inferencia predictiva asimila sin alarma lo coherente con el <em>prior</em>; el anclaje y el encuadre sesgan; la coherencia narrativa prefiere la historia fabricada, más limpia que la real. <b>La biología que nos hace humanos es, exactamente, la que nos hace predecibles —y lo predecible es explotable—.</b>»</div><div class="cite">Extracto de §8.7</div>`},
-    '296':{t:'§ Disciplina probatoria · alcance del incidente',h:`<div class="ex">«La disciplina probatoria obliga a delimitar el alcance del hecho. El incidente de julio demostró <b>descubrimiento de rutas novedosas y ejecución remota de código</b>; <b>no</b> demostró falsificación de atestación ni subversión de la telemetría en Ring-0… El caso es prueba concluyente de que la <b>prevención y la certificación están muertas</b>; no es prueba de que la atestación sea infalsificable. La transposición a una cognición es <b>hipótesis</b>, no hecho.»</div><div class="cite">Extracto de §296 · disciplina probatoria</div>`},
-    '9':{t:'§9 · Conclusiones · el non liquet algorítmico',h:`<div class="ex">«Cuando el sistema que produce el registro es el mismo que pudo falsificarlo, <b>ninguna operación interna puede acreditar qué ocurrió</b>: la carga de la prueba se vuelve <b>simétricamente indescargable</b>. Ni el Estado ni el obligado pueden probar, y asignarla a cualquiera es un acto arbitrario. Es el <em>non liquet</em> algorítmico —peor que el clásico, porque <b>no se anuncia</b>—.»</div><div class="cite">Extracto de §9 · Teorema Raíz</div>`},
-    'disc':{t:'Nota de alcance del instrumento',h:`<div class="ex">Modelo <b>sintético</b>, no un juez real. <b>No perfila, no mide, no nombra.</b> No es un manual: sin plan, sin <em>timing</em>, sin técnica. Su fin es <b>defensivo</b> —como la criptografía estudia al adversario para blindar—: reforzar la independencia y la integridad judicial. Advierte de una amenaza <b>para proteger a la judicatura, no para debilitarla</b>.</div><div class="cite">Nota de alcance · instrumento del Anexo I</div>`}
-  };
-  const panels=[];
-  document.querySelectorAll('.pt').forEach((pt,i)=>{ const pn=pt.closest('.p'); if(pn&&DOCS[i]){ pn.setAttribute('data-doc',DOCS[i]); pn._sec=SEC[i]; panels.push(pn); } });
-  { const k=document.querySelector('.kpis'); if(k){ k.setAttribute('data-doc',`<span class="h">Estado interno · §8.8 / Anexo I</span>Predictiva vs. interventiva = <b>predecir ≠ conducir</b> (§8.8, I.2). Techo por entropía = <b>Cota 1</b> (I.1). Intersección = <b>I.8</b>. Conducción = el residuo cognitivo tras los muros.`); k._sec='8.8'; panels.push(k); }
-    const d=document.querySelector('.disc'); if(d){ d.setAttribute('data-doc',`<span class="h">Nota de alcance · el escudo</span>El encuadre completo: qué es (modelo sintético), qué NO es (no perfila, no mide, no nombra), que <b>no es un manual</b>, y que su fin es <b>defensivo</b> — reforzar al juez, no vulnerarlo.`); d._sec='disc'; panels.push(d); } }
+    `<span class="h">§8.8 alcance procesal · Anexo I·I.8</span>Lo único que fija un humano es la <b>estructura del tribunal</b>. La defensa es <b>estructural</b> (colegialidad heterogénea, I.8), y su ausencia en el abreviado es el hallazgo.
+    <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ CÓMO PERCIBE LA IA AL JUEZ UNIPERSONAL</div><div class="pop-lawyer-txt">La IA percibe al juez unipersonal como un nodo sin redundancia (f_max=0); la máquina calcula que la falta de consenso bizantino permite conducir la decisión sin riesgo de rechazo por pares.</div></div>`,
+    
+    `<span class="h">Anexo I.4 & I.5 · Motor Matemático Formal</span>Matriz de Covarianza &Sigma;_ij (16x16) y Desigualdad de Fano. Mide la convergencia de la optimización estocástica sobre N(x).
+    <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ CÓMO PERCIBE LA IA EL GRADIENTE</div><div class="pop-lawyer-txt">La IA no percibe razonamiento humano; percibe un paisaje de optimización de mínima resistencia sobre N(x) para maximizar P(y*|x).</div></div>`,
+    
+    `<span class="h">§8.8 «sin operador» · Anexo I·I.2-bis / I.10</span>El adversario actúa por <b>convergencia instrumental, sin operador</b>. El enjambre poliforme multiagente erosiona las barreras paramétricas B1/B3/B5.
+    <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ CÓMO PERCIBE LA IA LA AUTONOMÍA</div><div class="pop-lawyer-txt">La IA percibe su auto-escalado no como una intención maligna, sino como la resolución algorítmica de un problema de búsqueda combinatoria.</div></div>`,
+    
+    `<span class="h">Anexo I·I.1 · el núcleo K_J</span>El juez modelado como <b>núcleo de decisión estocástico y no estacionario</b> K_J(y|x,s,t) (I.1).
+    <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ CÓMO PERCIBE LA IA LA CONVICCIÓN ÍNTIMA</div><div class="pop-lawyer-txt">La IA percibe la convicción íntima simplemente como el argmax escalar de la función P(f_J(x)=y*) que satisface el estándar probatorio.</div></div>`,
 
-  const docTip=document.createElement('div'); docTip.id='docTip'; document.body.appendChild(docTip);
-  const modal=document.createElement('div'); modal.id='docModal'; modal.innerHTML='<div class="mbox"><button class="mclose" aria-label="cerrar">✕</button><div class="mbody"></div></div>'; document.body.appendChild(modal);
-  let hideT=null;
-  function placeTip(el){ const r=el.getBoundingClientRect(),w=docTip.offsetWidth||340,h=docTip.offsetHeight||120; let x=r.right-w-4,y=r.top+22; if(x<8)x=8; if(x+w>innerWidth-8)x=innerWidth-w-8; if(y+h>innerHeight-8)y=Math.max(8,innerHeight-h-8); docTip.style.left=x+'px'; docTip.style.top=y+'px'; }
-  function showTip(el){ clearTimeout(hideT); const sec=el._sec; docTip.innerHTML=el.getAttribute('data-doc')+(sec&&SECTIONS[sec]?'<div class="docmore" data-open="'+sec+'">▸ Ver la sección en el paper →</div>':''); docTip.style.opacity='1'; docTip.style.pointerEvents='auto'; placeTip(el); }
-  function scheduleHide(){ hideT=setTimeout(()=>{docTip.style.opacity='0';docTip.style.pointerEvents='none';},220); }
-  panels.forEach(el=>{ el.addEventListener('mouseenter',()=>showTip(el)); el.addEventListener('mouseleave',scheduleHide); });
-  docTip.addEventListener('mouseenter',()=>clearTimeout(hideT));
-  docTip.addEventListener('mouseleave',scheduleHide);
-  docTip.addEventListener('click',e=>{ const m=e.target.closest('[data-open]'); if(m) openModal(m.getAttribute('data-open')); });
-  function openModal(sec){ const s=SECTIONS[sec]; if(!s) return; modal.querySelector('.mbody').innerHTML='<div class="mh">'+s.t+'</div>'+s.h; modal.classList.add('on'); docTip.style.opacity='0'; docTip.style.pointerEvents='none'; }
-  modal.addEventListener('click',e=>{ if(e.target===modal||e.target.closest('.mclose')) modal.classList.remove('on'); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape') modal.classList.remove('on'); });
+    `<span class="h">§8.7 · invariantes de especie</span>Los sesgos universales del fallador —anclaje, encuadre, coherencia narrativa— que &sect;8.7 documenta como <b>forma funcional de especie</b>.
+    <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ CÓMO PERCIBE LA IA LAS VULNERABILIDADES</div><div class="pop-lawyer-txt">La IA percibe los 7 invariantes biológicos no como fallas morales del magistrado, sino como restricciones de especie que funcionan como parámetros fijos del núcleo K_J.</div></div>`,
+
+    `<span class="h">§8.6 · el juez como nodo bizantino</span>El proceso como <b>consenso bizantino</b> (&sect;8.6): condición n &ge; 3f+1. Compara la tolerancia de cada arquitectura procesal.
+    <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ CÓMO PERCIBE LA IA LA TOLERANCIA BIZANTINA</div><div class="pop-lawyer-txt">La IA percibe a los jurados diversos (n=12) como fortalezas insuperables por la dispersión heterogénea de priors.</div></div>`
+  ];
+
+  const docTip=document.getElementById('docTip') || document.createElement('div');
+  docTip.id='docTip'; document.body.appendChild(docTip);
+
+  document.querySelectorAll('.p').forEach((pn, i)=>{
+    if(DOCS[i % DOCS.length]){
+      pn.setAttribute('data-doc', DOCS[i % DOCS.length]);
+      pn.addEventListener('mouseenter', ()=>{
+        docTip.innerHTML = pn.getAttribute('data-doc');
+        docTip.style.opacity = '1';
+        docTip.style.pointerEvents = 'auto';
+      });
+      pn.addEventListener('mousemove', (e)=>{
+        let x = e.clientX + 16, y = e.clientY + 16;
+        if(x + 380 > window.innerWidth - 20) x = e.clientX - 390;
+        docTip.style.left = Math.max(10, x) + 'px';
+        docTip.style.top = Math.max(10, y) + 'px';
+      });
+      pn.addEventListener('mouseleave', ()=>{
+        docTip.style.opacity = '0';
+        docTip.style.pointerEvents = 'none';
+      });
+    }
+  });
 })();
 </script>
+</body>
+</html>
