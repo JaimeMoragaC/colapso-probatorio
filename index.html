@@ -940,11 +940,7 @@ setInterval(()=>{
     if(tipHideTimer) { clearTimeout(tipHideTimer); tipHideTimer = null; }
   }
 
-  // Tooltip stays open while hovering over it
-  if(docTip){
-    docTip.addEventListener('mouseenter', cancelHideTip);
-    docTip.addEventListener('mouseleave', hideTipDelayed);
-  }
+  // [Hover-persistence eliminada] — el popover se abre y cierra por CLIC, no por hover.
 
   // Modal logic
   window.openModal = function(secKey){
@@ -963,21 +959,32 @@ setInterval(()=>{
     if(e.key === 'Escape' && modal) modal.classList.remove('on');
   });
 
-  // Attach hover handlers to ALL module panels
+  // Abrir el popover SOLO al hacer CLIC en la sección (antes se abría con hover).
+  let activeTipPanel = null;
   document.querySelectorAll('.p, .kpi, [data-sec]').forEach((pn) => {
     let secKey = pn.getAttribute('data-sec');
     if(!secKey){
       const child = pn.querySelector('[data-sec]');
-      if(child) secKey = child.getAttribute('data-sec');
-      else secKey = '8.8';
+      secKey = child ? child.getAttribute('data-sec') : '8.8';
     }
-
-    pn.addEventListener('mouseenter', () => {
-      cancelHideTip();
-      showTipAnchored(secKey, pn);
+    pn.style.cursor = 'pointer';
+    pn.addEventListener('click', (e) => {
+      // no interferir con controles interactivos (botones, chips, enlaces, inputs, sliders)
+      if(e.target.closest('button, a, input, select, textarea, label, .axi, .btn')) return;
+      e.stopPropagation();                 // solo el panel más interno responde
+      if(activeTipPanel === pn && docTip && docTip.classList.contains('active')){
+        docTip.classList.remove('active'); activeTipPanel = null;   // toggle: cerrar
+      } else {
+        showTipAnchored(secKey, pn); activeTipPanel = pn;
+      }
     });
+  });
 
-    pn.addEventListener('mouseleave', hideTipDelayed);
+  // Cerrar el popover al hacer clic fuera de él y fuera de cualquier panel.
+  document.addEventListener('click', (e) => {
+    if(!docTip || !docTip.classList.contains('active')) return;
+    if(docTip.contains(e.target) || e.target.closest('.p, .kpi, [data-sec]')) return;
+    docTip.classList.remove('active'); activeTipPanel = null;
   });
 })();
 </script>
