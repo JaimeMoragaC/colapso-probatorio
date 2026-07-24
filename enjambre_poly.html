@@ -15,7 +15,7 @@
     --sig:#35c0ff;   /* Azul eléctrico ciber */
     --viol:#9d8bff;  /* Violeta sobrio */
     --ok:#25e08a;    /* Verde esmeralda */
-    --warn:#2ff0e0;  /* Cyan cian brillante (remplaza amarillo) */
+    --warn:#2ff0e0;  /* Cyan cian brillante */
     --wall:#ff4d5e;  /* Rojo carmesí crítico */
     --cyan:#2ff0e0;  /* Cyan puro */
     --orange:#35c0ff;/* Alias azuleado */
@@ -63,7 +63,7 @@
   @media(max-width:700px){.g-2,.g-4{grid-template-columns:1fr}}
 
   .p{background:var(--bg1);border:1px solid var(--line);border-radius:6px;padding:14px;position:relative;overflow:hidden;transition:all .15s;cursor:pointer}
-  .p:hover{border-color:var(--sig);box-shadow:0 0 15px rgba(53,192,255,0.15);transform:translateY(-1px)}
+  .p:hover{border-color:var(--sig);box-shadow:0 0 18px rgba(53,192,255,0.2);transform:translateY(-1px)}
   .pt{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sig);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
   .pt .t{display:flex;align-items:center;gap:6px}
   .pt .t::before{content:'';display:inline-block;width:3px;height:10px;background:var(--sig);border-radius:1px}
@@ -86,8 +86,8 @@
 
   .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px}
   @media(max-width:900px){.kpis{grid-template-columns:1fr 1fr}}
-  .kpi{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:10px;text-align:center;transition:border-color .15s;cursor:pointer}
-  .kpi:hover{border-color:var(--sig)}
+  .kpi{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:10px;text-align:center;transition:all .15s;cursor:pointer}
+  .kpi:hover{border-color:var(--sig);box-shadow:0 0 12px rgba(53,192,255,0.2)}
   .kpi .kv{font-family:var(--mono);font-size:22px;font-weight:700;line-height:1.1;color:var(--sig)}
   .kpi .kv.wall{color:var(--wall)} .kpi .kv.ok{color:var(--ok)} .kpi .kv.warn{color:var(--cyan)}
   .kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;margin-top:4px}
@@ -116,11 +116,31 @@
   .disc{background:var(--bg2);border:1px solid var(--hair);border-left:3px solid var(--sig);border-radius:4px;padding:10px 12px;font-size:11px;color:var(--ink2);line-height:1.5}
   .disc b{color:var(--ink)}
 
-  /* FLOATING TOOLTIP EN MOUSEOVER */
-  #docTip{position:fixed;z-index:9999;max-width:420px;background:#060b13;border:1px solid var(--sig);border-left:3px solid var(--cyan);box-shadow:0 10px 35px rgba(0,0,0,.9);padding:12px 14px;border-radius:4px;font-size:11px;color:var(--ink2);pointer-events:none;opacity:0;transition:opacity .15s}
-  #docTip .h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;color:var(--cyan);text-transform:uppercase;margin-bottom:5px;display:block}
+  /* FLOATING TOOLTIP EN MOUSEOVER EN TODOS LOS PANELES */
+  #docTip{
+    position: fixed;
+    z-index: 10000;
+    width: 440px;
+    background: #060b13;
+    border: 1px solid var(--sig);
+    border-left: 4px solid var(--cyan);
+    box-shadow: 0 12px 40px rgba(0,0,0,.95);
+    padding: 14px 16px;
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--ink2);
+    pointer-events: none;
+    display: none;
+    opacity: 0;
+    transition: opacity .15s ease;
+  }
+  #docTip.active {
+    display: block;
+    opacity: 1;
+  }
+  #docTip .h{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:1px;color:var(--cyan);text-transform:uppercase;margin-bottom:6px;display:block}
   #docTip b{color:var(--ink)}
-  #docTip .docclick{margin-top:8px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--sig);background:rgba(53,192,255,0.12);border:1px solid rgba(53,192,255,0.3);padding:5px 8px;border-radius:3px;display:inline-block}
+  #docTip .docclick{margin-top:10px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--sig);background:rgba(53,192,255,0.14);border:1px solid rgba(53,192,255,0.4);padding:6px 10px;border-radius:3px;display:inline-block}
 
   /* LAWYER POPOVER BOX */
   .pop-lawyer {
@@ -147,9 +167,9 @@
   }
 
   /* MODAL EMERVENTE COMPLETO AL HACER CLICK EN PANEL */
-  #docModal{position:fixed;inset:0;z-index:10000;background:rgba(4,7,13,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
+  #docModal{position:fixed;inset:0;z-index:10001;background:rgba(4,7,13,.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
   #docModal.on{opacity:1;pointer-events:auto}
-  #docModal .mbox{background:var(--bg1);border:1px solid var(--sig);box-shadow:0 0 50px rgba(53,192,255,.25);border-radius:6px;max-width:740px;width:100%;max-height:88vh;overflow-y:auto;padding:24px;position:relative}
+  #docModal .mbox{background:var(--bg1);border:1px solid var(--sig);box-shadow:0 0 50px rgba(53,192,255,.3);border-radius:6px;max-width:740px;width:100%;max-height:88vh;overflow-y:auto;padding:24px;position:relative}
   #docModal .mclose{position:absolute;top:14px;right:16px;background:var(--bg3);border:1px solid var(--line);color:var(--ink);font-family:var(--mono);font-size:12px;padding:4px 8px;border-radius:3px;cursor:pointer;transition:all .12s}
   #docModal .mclose:hover{background:var(--wall);color:#fff;border-color:var(--wall)}
   #docModal .mh{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--sig);text-transform:uppercase;margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
@@ -430,6 +450,9 @@
   </div>
 
 </div><!-- /wrap -->
+
+<!-- CONTAINER PARA FLOATING TOOLTIP -->
+<div id="docTip"></div>
 
 <!-- MODAL EMERVENTE CON EL EXTRACTO COMPLETO -->
 <div id="docModal">
@@ -758,14 +781,7 @@ setInterval(()=>{
     }
   };
 
-  // Ensure DOM tooltip container exists safely
-  let docTip = document.getElementById('docTip');
-  if(!docTip){
-    docTip = document.createElement('div');
-    docTip.id = 'docTip';
-    document.body.appendChild(docTip);
-  }
-
+  const docTip = document.getElementById('docTip');
   const modal = document.getElementById('docModal');
   const mHeader = document.getElementById('mHeader');
   const mBody = document.getElementById('mBody');
@@ -777,8 +793,7 @@ setInterval(()=>{
     if(mBody) mBody.innerHTML = sec.html;
     if(modal) modal.classList.add('on');
     if(docTip){
-      docTip.style.opacity = '0';
-      docTip.style.pointerEvents = 'none';
+      docTip.classList.remove('active');
     }
   }
 
@@ -786,12 +801,17 @@ setInterval(()=>{
   if(modal) modal.onclick = (e) => { if(e.target === modal) modal.classList.remove('on'); };
   document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal) modal.classList.remove('on'); });
 
-  // Attach hover and click handlers to every module panel with data-sec
-  document.querySelectorAll('[data-sec]').forEach((pn) => {
-    const secKey = pn.getAttribute('data-sec');
+  // Attach hover and click handlers to ALL module panels (.p, .kpi, [data-sec])
+  document.querySelectorAll('.p, .kpi, [data-sec]').forEach((pn) => {
+    let secKey = pn.getAttribute('data-sec');
+    if(!secKey){
+      const child = pn.querySelector('[data-sec]');
+      if(child) secKey = child.getAttribute('data-sec');
+      else secKey = '8.8';
+    }
     const sec = SECTIONS[secKey] || SECTIONS['8.8'];
 
-    pn.addEventListener('mouseenter', () => {
+    pn.addEventListener('mouseenter', (e) => {
       if(!docTip) return;
       const snippet = sec.html.split('</div>')[0];
       docTip.innerHTML = `
@@ -799,19 +819,20 @@ setInterval(()=>{
         <div style="font-size:10.5px; line-height:1.45; margin:4px 0">${snippet}</div>
         <div class="docclick">🔍 Haga clic en este panel para abrir el extracto completo de §8.8 / Anexo I →</div>
       `;
-      docTip.style.opacity = '1';
+      docTip.classList.add('active');
     });
 
     pn.addEventListener('mousemove', (e) => {
       if(!docTip) return;
-      let x = e.clientX + 16, y = e.clientY + 16;
-      if(x + 420 > window.innerWidth - 20) x = e.clientX - 430;
+      let x = e.clientX + 18, y = e.clientY + 18;
+      if(x + 440 > window.innerWidth - 20) x = e.clientX - 450;
+      if(y + docTip.offsetHeight > window.innerHeight - 20) y = Math.max(10, window.innerHeight - docTip.offsetHeight - 10);
       docTip.style.left = Math.max(10, x) + 'px';
       docTip.style.top = Math.max(10, y) + 'px';
     });
 
     pn.addEventListener('mouseleave', () => {
-      if(docTip) docTip.style.opacity = '0';
+      if(docTip) docTip.classList.remove('active');
     });
 
     pn.addEventListener('click', (e) => {
