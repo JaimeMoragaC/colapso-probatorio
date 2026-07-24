@@ -116,16 +116,18 @@
   .disc{background:var(--bg2);border:1px solid var(--hair);border-left:3px solid var(--sig);border-radius:4px;padding:10px 12px;font-size:11px;color:var(--ink2);line-height:1.5}
   .disc b{color:var(--ink)}
 
-  /* FLOATING TOOLTIP INTERACTIVO — SE QUEDA AL ENTRAR CON EL RATÓN */
+  /* TARJETA EMERGENTE COMPLETA — CONTIENE TODA LA EXPLICACIÓN + LINK AL PAPER */
   #docTip{
     position: fixed;
     z-index: 10000;
-    width: 460px;
-    background: rgba(6,11,19,.97);
+    width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(6,11,19,.98);
     border: 1px solid var(--sig);
     border-left: 4px solid var(--cyan);
-    box-shadow: 0 12px 40px rgba(0,0,0,.95);
-    padding: 14px 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.95), 0 0 20px rgba(53,192,255,.15);
+    padding: 16px 18px;
     border-radius: 5px;
     font-size: 11px;
     color: var(--ink2);
@@ -139,17 +141,19 @@
     opacity: 1;
     pointer-events: auto;
   }
-  #docTip .h{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:1px;color:var(--cyan);text-transform:uppercase;margin-bottom:6px;display:block}
+  #docTip .h{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;color:var(--cyan);text-transform:uppercase;margin-bottom:8px;display:block;border-bottom:1px solid var(--line);padding-bottom:6px}
   #docTip b{color:var(--ink)}
+  #docTip .ex{background:var(--bg2);border-left:3px solid var(--cyan);padding:10px 12px;margin:8px 0;font-style:italic;color:var(--ink);font-size:11px;border-radius:0 4px 4px 0;line-height:1.55}
+  #docTip .cite{font-family:var(--mono);font-size:9px;color:var(--mut);margin-top:4px}
   #docTip .tip-link{
-    display:inline-flex;align-items:center;gap:5px;
-    margin-top:10px;font-family:var(--mono);font-size:9.5px;font-weight:700;
-    color:var(--sig);background:rgba(53,192,255,0.14);
-    border:1px solid rgba(53,192,255,0.4);padding:7px 12px;
-    border-radius:3px;cursor:pointer;text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:12px;font-family:var(--mono);font-size:10px;font-weight:700;
+    color:#04070d;background:var(--sig);
+    padding:8px 14px;border-radius:3px;
+    cursor:pointer;text-decoration:none;
     transition:all .12s;
   }
-  #docTip .tip-link:hover{background:rgba(53,192,255,0.28);color:#fff}
+  #docTip .tip-link:hover{background:var(--cyan);color:#04070d}
 
   /* LAWYER POPOVER BOX */
   .pop-lawyer {
@@ -174,36 +178,6 @@
     color: #e2f0f8;
     line-height: 1.45;
   }
-
-  /* PANEL LATERAL DESLIZANTE — NO BLOQUEA EL DASHBOARD */
-  #docModal{
-    position:fixed;top:0;right:0;bottom:0;width:460px;
-    z-index:10001;
-    background:rgba(6,11,19,.96);
-    border-left:2px solid var(--sig);
-    box-shadow:-8px 0 40px rgba(0,0,0,.7);
-    backdrop-filter:blur(8px);
-    transform:translateX(100%);
-    transition:transform .25s ease;
-    overflow-y:auto;padding:22px 20px;
-  }
-  #docModal.on{transform:translateX(0)}
-  #docModal .mclose{position:sticky;top:0;float:right;background:var(--bg3);border:1px solid var(--line);color:var(--ink);font-family:var(--mono);font-size:12px;padding:4px 8px;border-radius:3px;cursor:pointer;transition:all .12s;z-index:2}
-  #docModal .mclose:hover{background:var(--wall);color:#fff;border-color:var(--wall)}
-  #docModal .mh{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--sig);text-transform:uppercase;margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:8px;clear:both}
-  #docModal .mb{font-size:12.5px;color:var(--ink2);line-height:1.7}
-  #docModal .mb b{color:var(--ink)}
-  #docModal .mb .ex{background:var(--bg2);border-left:3px solid var(--cyan);padding:12px 14px;margin:12px 0;font-style:italic;color:var(--ink);font-size:12px;border-radius:0 4px 4px 0}
-  #docModal .mb .cite{font-family:var(--mono);font-size:9.5px;color:var(--mut);margin-top:4px}
-  #docModal .paper-link{
-    display:inline-flex;align-items:center;gap:6px;
-    margin-top:14px;font-family:var(--mono);font-size:10px;font-weight:700;
-    color:#04070d;background:var(--sig);
-    padding:8px 14px;border-radius:3px;
-    cursor:pointer;text-decoration:none;
-    transition:all .12s;
-  }
-  #docModal .paper-link:hover{background:var(--cyan)}
 </style>
 </head>
 <body>
@@ -478,16 +452,8 @@
 
 </div><!-- /wrap -->
 
-<!-- CONTAINER PARA FLOATING TOOLTIP -->
+<!-- TARJETA EMERGENTE INTERACTIVA -->
 <div id="docTip"></div>
-
-<!-- PANEL LATERAL DESLIZANTE — NO BLOQUEA EL DASHBOARD -->
-<div id="docModal">
-  <button class="mclose" id="mCloseBtn" aria-label="cerrar">✕ CERRAR</button>
-  <div class="mh" id="mHeader">SECCIÓN DOCTRINARIA</div>
-  <div class="mb" id="mBody">Cargando extracto...</div>
-  <a class="paper-link" id="mPaperLink" href="#" target="_blank">📄 Abrir sección completa en el Paper →</a>
-</div>
 
 <!-- SCRIPTING & INTERACTOS -->
 <script>
@@ -823,40 +789,45 @@ setInterval(()=>{
   };
 
   const docTip = document.getElementById('docTip');
-  const modal = document.getElementById('docModal');
-  const mHeader = document.getElementById('mHeader');
-  const mBody = document.getElementById('mBody');
-  const mCloseBtn = document.getElementById('mCloseBtn');
-  const mPaperLink = document.getElementById('mPaperLink');
 
   let tipHideTimer = null;
-  let currentTipSecKey = null;
+  let activePanelRect = null;
 
-  function showTip(secKey, x, y){
+  function showTipAnchored(secKey, panelEl){
     if(!docTip) return;
-    currentTipSecKey = secKey;
     const sec = SECTIONS[secKey] || SECTIONS['8.8'];
-    const snippet = sec.html.split('</div>')[0];
     const paperUrl = PAPER_URLS[secKey] || PAPER_URLS['8.8'];
     docTip.innerHTML = `
       <span class="h">${sec.title}</span>
-      <div style="font-size:10.5px; line-height:1.45; margin:4px 0">${snippet}</div>
-      <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ ${sec.html.match(/CÓMO PERCIBE LA IA[^<]*/)?.[0] || 'CÓMO PERCIBE LA IA'}</div></div>
-      <a class="tip-link" href="${paperUrl}" target="_blank" rel="noopener">📄 Abrir sección en el Paper →</a>
+      ${sec.html}
+      <a class="tip-link" href="${paperUrl}" target="_blank" rel="noopener">📄 Abrir esta sección completa en el Paper →</a>
     `;
-    let tx = x + 18, ty = y + 18;
-    if(tx + 460 > window.innerWidth - 20) tx = x - 470;
-    if(ty + 280 > window.innerHeight - 20) ty = Math.max(10, window.innerHeight - 280);
-    docTip.style.left = Math.max(10, tx) + 'px';
-    docTip.style.top = Math.max(10, ty) + 'px';
     docTip.classList.add('active');
+    // Position anchored to panel edge — NO gap
+    const r = panelEl.getBoundingClientRect();
+    activePanelRect = r;
+    const tipW = 500, vw = window.innerWidth, vh = window.innerHeight;
+    let tx, ty;
+    // Try right edge first
+    if(r.right + tipW + 4 < vw){
+      tx = r.right + 2;  // 2px overlap = no gap
+    } else if(r.left - tipW - 4 > 0){
+      tx = r.left - tipW - 2;
+    } else {
+      tx = Math.max(10, vw - tipW - 10);
+    }
+    ty = r.top;
+    const tipH = docTip.scrollHeight || 300;
+    if(ty + tipH > vh - 10) ty = Math.max(10, vh - tipH - 10);
+    docTip.style.left = tx + 'px';
+    docTip.style.top = ty + 'px';
   }
 
   function hideTipDelayed(){
     tipHideTimer = setTimeout(() => {
       if(docTip) docTip.classList.remove('active');
-      currentTipSecKey = null;
-    }, 200);
+      activePanelRect = null;
+    }, 400);
   }
 
   function cancelHideTip(){
@@ -869,20 +840,12 @@ setInterval(()=>{
     docTip.addEventListener('mouseleave', hideTipDelayed);
   }
 
-  function openPanel(secKey){
-    const sec = SECTIONS[secKey] || SECTIONS['8.8'];
-    const paperUrl = PAPER_URLS[secKey] || PAPER_URLS['8.8'];
-    if(mHeader) mHeader.textContent = sec.title;
-    if(mBody) mBody.innerHTML = sec.html;
-    if(mPaperLink) mPaperLink.href = paperUrl;
-    if(modal) modal.classList.add('on');
-    if(docTip) docTip.classList.remove('active');
-  }
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && docTip) docTip.classList.remove('active');
+  });
 
-  if(mCloseBtn) mCloseBtn.onclick = () => modal.classList.remove('on');
-  document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal) modal.classList.remove('on'); });
-
-  // Attach hover and click handlers to ALL module panels (.p, .kpi, [data-sec])
+  // Attach hover handlers to ALL module panels
   document.querySelectorAll('.p, .kpi, [data-sec]').forEach((pn) => {
     let secKey = pn.getAttribute('data-sec');
     if(!secKey){
@@ -891,26 +854,12 @@ setInterval(()=>{
       else secKey = '8.8';
     }
 
-    pn.addEventListener('mouseenter', (e) => {
+    pn.addEventListener('mouseenter', () => {
       cancelHideTip();
-      showTip(secKey, e.clientX, e.clientY);
-    });
-
-    pn.addEventListener('mousemove', (e) => {
-      if(!docTip || !docTip.classList.contains('active')) return;
-      let tx = e.clientX + 18, ty = e.clientY + 18;
-      if(tx + 460 > window.innerWidth - 20) tx = e.clientX - 470;
-      if(ty + 280 > window.innerHeight - 20) ty = Math.max(10, window.innerHeight - 280);
-      docTip.style.left = Math.max(10, tx) + 'px';
-      docTip.style.top = Math.max(10, ty) + 'px';
+      showTipAnchored(secKey, pn);
     });
 
     pn.addEventListener('mouseleave', hideTipDelayed);
-
-    pn.addEventListener('click', (e) => {
-      if(e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT' || e.target.tagName === 'A') return;
-      openPanel(secKey);
-    });
   });
 })();
 </script>
