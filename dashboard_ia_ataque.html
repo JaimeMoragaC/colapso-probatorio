@@ -116,12 +116,12 @@
   .disc{background:var(--bg2);border:1px solid var(--hair);border-left:3px solid var(--sig);border-radius:4px;padding:10px 12px;font-size:11px;color:var(--ink2);line-height:1.5}
   .disc b{color:var(--ink)}
 
-  /* FLOATING TOOLTIP EN MOUSEOVER EN TODOS LOS PANELES */
+  /* FLOATING TOOLTIP INTERACTIVO — SE QUEDA AL ENTRAR CON EL RATÓN */
   #docTip{
     position: fixed;
     z-index: 10000;
-    width: 440px;
-    background: #060b13;
+    width: 460px;
+    background: rgba(6,11,19,.97);
     border: 1px solid var(--sig);
     border-left: 4px solid var(--cyan);
     box-shadow: 0 12px 40px rgba(0,0,0,.95);
@@ -137,10 +137,19 @@
   #docTip.active {
     display: block;
     opacity: 1;
+    pointer-events: auto;
   }
   #docTip .h{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:1px;color:var(--cyan);text-transform:uppercase;margin-bottom:6px;display:block}
   #docTip b{color:var(--ink)}
-  #docTip .docclick{margin-top:10px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--sig);background:rgba(53,192,255,0.14);border:1px solid rgba(53,192,255,0.4);padding:6px 10px;border-radius:3px;display:inline-block}
+  #docTip .tip-link{
+    display:inline-flex;align-items:center;gap:5px;
+    margin-top:10px;font-family:var(--mono);font-size:9.5px;font-weight:700;
+    color:var(--sig);background:rgba(53,192,255,0.14);
+    border:1px solid rgba(53,192,255,0.4);padding:7px 12px;
+    border-radius:3px;cursor:pointer;text-decoration:none;
+    transition:all .12s;
+  }
+  #docTip .tip-link:hover{background:rgba(53,192,255,0.28);color:#fff}
 
   /* LAWYER POPOVER BOX */
   .pop-lawyer {
@@ -166,17 +175,35 @@
     line-height: 1.45;
   }
 
-  /* MODAL EMERVENTE COMPLETO AL HACER CLICK EN PANEL */
-  #docModal{position:fixed;inset:0;z-index:10001;background:rgba(4,7,13,.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
-  #docModal.on{opacity:1;pointer-events:auto}
-  #docModal .mbox{background:var(--bg1);border:1px solid var(--sig);box-shadow:0 0 50px rgba(53,192,255,.3);border-radius:6px;max-width:740px;width:100%;max-height:88vh;overflow-y:auto;padding:24px;position:relative}
-  #docModal .mclose{position:absolute;top:14px;right:16px;background:var(--bg3);border:1px solid var(--line);color:var(--ink);font-family:var(--mono);font-size:12px;padding:4px 8px;border-radius:3px;cursor:pointer;transition:all .12s}
+  /* PANEL LATERAL DESLIZANTE — NO BLOQUEA EL DASHBOARD */
+  #docModal{
+    position:fixed;top:0;right:0;bottom:0;width:460px;
+    z-index:10001;
+    background:rgba(6,11,19,.96);
+    border-left:2px solid var(--sig);
+    box-shadow:-8px 0 40px rgba(0,0,0,.7);
+    backdrop-filter:blur(8px);
+    transform:translateX(100%);
+    transition:transform .25s ease;
+    overflow-y:auto;padding:22px 20px;
+  }
+  #docModal.on{transform:translateX(0)}
+  #docModal .mclose{position:sticky;top:0;float:right;background:var(--bg3);border:1px solid var(--line);color:var(--ink);font-family:var(--mono);font-size:12px;padding:4px 8px;border-radius:3px;cursor:pointer;transition:all .12s;z-index:2}
   #docModal .mclose:hover{background:var(--wall);color:#fff;border-color:var(--wall)}
-  #docModal .mh{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--sig);text-transform:uppercase;margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  #docModal .mh{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--sig);text-transform:uppercase;margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:8px;clear:both}
   #docModal .mb{font-size:12.5px;color:var(--ink2);line-height:1.7}
   #docModal .mb b{color:var(--ink)}
   #docModal .mb .ex{background:var(--bg2);border-left:3px solid var(--cyan);padding:12px 14px;margin:12px 0;font-style:italic;color:var(--ink);font-size:12px;border-radius:0 4px 4px 0}
   #docModal .mb .cite{font-family:var(--mono);font-size:9.5px;color:var(--mut);margin-top:4px}
+  #docModal .paper-link{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:14px;font-family:var(--mono);font-size:10px;font-weight:700;
+    color:#04070d;background:var(--sig);
+    padding:8px 14px;border-radius:3px;
+    cursor:pointer;text-decoration:none;
+    transition:all .12s;
+  }
+  #docModal .paper-link:hover{background:var(--cyan)}
 </style>
 </head>
 <body>
@@ -454,13 +481,12 @@
 <!-- CONTAINER PARA FLOATING TOOLTIP -->
 <div id="docTip"></div>
 
-<!-- MODAL EMERVENTE CON EL EXTRACTO COMPLETO -->
+<!-- PANEL LATERAL DESLIZANTE — NO BLOQUEA EL DASHBOARD -->
 <div id="docModal">
-  <div class="mbox">
-    <button class="mclose" id="mCloseBtn" aria-label="cerrar">✕ CERRAR VENTANA</button>
-    <div class="mh" id="mHeader">SECCIÓN DOCTRINARIA</div>
-    <div class="mb" id="mBody">Cargando extracto...</div>
-  </div>
+  <button class="mclose" id="mCloseBtn" aria-label="cerrar">✕ CERRAR</button>
+  <div class="mh" id="mHeader">SECCIÓN DOCTRINARIA</div>
+  <div class="mb" id="mBody">Cargando extracto...</div>
+  <a class="paper-link" id="mPaperLink" href="#" target="_blank">📄 Abrir sección completa en el Paper →</a>
 </div>
 
 <!-- SCRIPTING & INTERACTOS -->
@@ -781,24 +807,79 @@ setInterval(()=>{
     }
   };
 
+  // URLS DE CADA SECCIÓN EN EL PAPER GITHUB
+  const PAPER_URLS = {
+    '8.8':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#88-profundización-la-función-de-decisión-del-juez-como-objetivo-de-ingeniería-inversa',
+    '8.8p': 'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#88-profundización-la-función-de-decisión-del-juez-como-objetivo-de-ingeniería-inversa',
+    'I.1':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
+    'I.2':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
+    'I.4':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
+    'I.8':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
+    'I.10': 'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
+    '8.6':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#86-el-juez-como-nodo-de-consenso-bizantino',
+    '8.7':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#87-neurobiología-del-fallador',
+    '9':    'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#9-conclusiones',
+    'I.2bis':'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial'
+  };
+
   const docTip = document.getElementById('docTip');
   const modal = document.getElementById('docModal');
   const mHeader = document.getElementById('mHeader');
   const mBody = document.getElementById('mBody');
   const mCloseBtn = document.getElementById('mCloseBtn');
+  const mPaperLink = document.getElementById('mPaperLink');
 
-  function openModal(secKey){
+  let tipHideTimer = null;
+  let currentTipSecKey = null;
+
+  function showTip(secKey, x, y){
+    if(!docTip) return;
+    currentTipSecKey = secKey;
     const sec = SECTIONS[secKey] || SECTIONS['8.8'];
+    const snippet = sec.html.split('</div>')[0];
+    const paperUrl = PAPER_URLS[secKey] || PAPER_URLS['8.8'];
+    docTip.innerHTML = `
+      <span class="h">${sec.title}</span>
+      <div style="font-size:10.5px; line-height:1.45; margin:4px 0">${snippet}</div>
+      <div class="pop-lawyer"><div class="pop-lawyer-tag">👁️ ${sec.html.match(/CÓMO PERCIBE LA IA[^<]*/)?.[0] || 'CÓMO PERCIBE LA IA'}</div></div>
+      <a class="tip-link" href="${paperUrl}" target="_blank" rel="noopener">📄 Abrir sección en el Paper →</a>
+    `;
+    let tx = x + 18, ty = y + 18;
+    if(tx + 460 > window.innerWidth - 20) tx = x - 470;
+    if(ty + 280 > window.innerHeight - 20) ty = Math.max(10, window.innerHeight - 280);
+    docTip.style.left = Math.max(10, tx) + 'px';
+    docTip.style.top = Math.max(10, ty) + 'px';
+    docTip.classList.add('active');
+  }
+
+  function hideTipDelayed(){
+    tipHideTimer = setTimeout(() => {
+      if(docTip) docTip.classList.remove('active');
+      currentTipSecKey = null;
+    }, 200);
+  }
+
+  function cancelHideTip(){
+    if(tipHideTimer) { clearTimeout(tipHideTimer); tipHideTimer = null; }
+  }
+
+  // Tooltip stays open while hovering over it
+  if(docTip){
+    docTip.addEventListener('mouseenter', cancelHideTip);
+    docTip.addEventListener('mouseleave', hideTipDelayed);
+  }
+
+  function openPanel(secKey){
+    const sec = SECTIONS[secKey] || SECTIONS['8.8'];
+    const paperUrl = PAPER_URLS[secKey] || PAPER_URLS['8.8'];
     if(mHeader) mHeader.textContent = sec.title;
     if(mBody) mBody.innerHTML = sec.html;
+    if(mPaperLink) mPaperLink.href = paperUrl;
     if(modal) modal.classList.add('on');
-    if(docTip){
-      docTip.classList.remove('active');
-    }
+    if(docTip) docTip.classList.remove('active');
   }
 
   if(mCloseBtn) mCloseBtn.onclick = () => modal.classList.remove('on');
-  if(modal) modal.onclick = (e) => { if(e.target === modal) modal.classList.remove('on'); };
   document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal) modal.classList.remove('on'); });
 
   // Attach hover and click handlers to ALL module panels (.p, .kpi, [data-sec])
@@ -809,36 +890,26 @@ setInterval(()=>{
       if(child) secKey = child.getAttribute('data-sec');
       else secKey = '8.8';
     }
-    const sec = SECTIONS[secKey] || SECTIONS['8.8'];
 
     pn.addEventListener('mouseenter', (e) => {
-      if(!docTip) return;
-      const snippet = sec.html.split('</div>')[0];
-      docTip.innerHTML = `
-        <span class="h">${sec.title}</span>
-        <div style="font-size:10.5px; line-height:1.45; margin:4px 0">${snippet}</div>
-        <div class="docclick">🔍 Haga clic en este panel para abrir el extracto completo de §8.8 / Anexo I →</div>
-      `;
-      docTip.classList.add('active');
+      cancelHideTip();
+      showTip(secKey, e.clientX, e.clientY);
     });
 
     pn.addEventListener('mousemove', (e) => {
-      if(!docTip) return;
-      let x = e.clientX + 18, y = e.clientY + 18;
-      if(x + 440 > window.innerWidth - 20) x = e.clientX - 450;
-      if(y + docTip.offsetHeight > window.innerHeight - 20) y = Math.max(10, window.innerHeight - docTip.offsetHeight - 10);
-      docTip.style.left = Math.max(10, x) + 'px';
-      docTip.style.top = Math.max(10, y) + 'px';
+      if(!docTip || !docTip.classList.contains('active')) return;
+      let tx = e.clientX + 18, ty = e.clientY + 18;
+      if(tx + 460 > window.innerWidth - 20) tx = e.clientX - 470;
+      if(ty + 280 > window.innerHeight - 20) ty = Math.max(10, window.innerHeight - 280);
+      docTip.style.left = Math.max(10, tx) + 'px';
+      docTip.style.top = Math.max(10, ty) + 'px';
     });
 
-    pn.addEventListener('mouseleave', () => {
-      if(docTip) docTip.classList.remove('active');
-    });
+    pn.addEventListener('mouseleave', hideTipDelayed);
 
     pn.addEventListener('click', (e) => {
-      // Don't intercept button/select/input clicks inside panel
-      if(e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
-      openModal(secKey);
+      if(e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT' || e.target.tagName === 'A') return;
+      openPanel(secKey);
     });
   });
 })();
