@@ -774,18 +774,19 @@ setInterval(()=>{
   };
 
   // URLS DE CADA SECCIÓN EN EL PAPER GITHUB
+  const BASE_URL = 'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#';
   const PAPER_URLS = {
-    '8.8':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#88-profundización-la-función-de-decisión-del-juez-como-objetivo-de-ingeniería-inversa',
-    '8.8p': 'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#88-profundización-la-función-de-decisión-del-juez-como-objetivo-de-ingeniería-inversa',
-    'I.1':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
-    'I.2':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
-    'I.4':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
-    'I.8':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
-    'I.10': 'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial',
-    '8.6':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#86-el-juez-como-nodo-de-consenso-bizantino',
-    '8.7':  'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#87-neurobiología-del-fallador',
-    '9':    'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#9-conclusiones',
-    'I.2bis':'https://github.com/JaimeMoragaC/colapso-probatorio/blob/main/PAPER_v3_trabajo.md#anexo-i-formalización-de-ingeniería-del-ataque-a-la-función-de-decisión-judicial'
+    '8.8':  BASE_URL + '88-el-objeto-del-ataque-no-es-la-prueba-es-la-función-de-decisión-del-juez-la-transposición-del-caso-chatgpt-a-la-mente-del-juzgador',
+    '8.8p': BASE_URL + '88-el-objeto-del-ataque-no-es-la-prueba-es-la-función-de-decisión-del-juez-la-transposición-del-caso-chatgpt-a-la-mente-del-juzgador',
+    'I.1':  BASE_URL + 'i1-el-juzgador-no-es-una-función-es-un-núcleo-de-decisión-estocástico-y-no-estacionario',
+    'I.2':  BASE_URL + 'i2-acceso-observacional-no-interventivo-el-ataque-es-un-problema-de-inferencia-causal-no-de-model-stealing',
+    'I.4':  BASE_URL + 'i4-búsqueda-black-box-discreta-no-gradiente-la-vecindad-de-admisibilidad',
+    'I.8':  BASE_URL + 'i8-colegialidad-por-qué-la-heterogeneidad-de-los-priors-eleva-la-barrera',
+    'I.10': BASE_URL + 'i10-dinámica-de-erosión-y-frontera-de-factibilidad',
+    '8.6':  BASE_URL + '86-el-juez-como-nodo-de-consenso-bizantino-de-base-biológica-la-función-jurisdiccional-vista-desde-la-ingeniería-de-la-información',
+    '8.7':  BASE_URL + '87-neurobiología-del-fallador-por-qué-la-biología-lo-vuelve-más-vulnerable',
+    '9':    BASE_URL + '9-conclusiones',
+    'I.2bis': BASE_URL + 'i2-bis-el-adversario-no-es-monocular-del-corpus-pasivo-al-enjambre-poliforme'
   };
 
   const docTip = document.getElementById('docTip');
