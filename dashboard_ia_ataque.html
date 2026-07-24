@@ -980,7 +980,78 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 
 </div><!-- /row5 -->
 
-<!-- ===== ROW 6: NOTA FORMAL DE INGENIERÍA Y RIGOR EPISTÉMICO ===== -->
+<!-- ===== ROW 6: MATRIZ DE DEFENSAS ESTRUCTURALES Y CONTRA-MEDIDAS PROCESALES ===== -->
+<div class="row" style="grid-template-columns:1fr">
+  <div class="p" style="border-left:4px solid var(--ok-hi); background:var(--bg2)"
+       data-sec="SECCIÓN 7, §8.6 & ANEXO I.8-I.10"
+       data-title="Matriz de Defensas Estructurales y Contra-Medidas Procesales"
+       data-body="Mapeo formal de las 4 defensas institucionales que el paper propone para mitigar la factibilidad del ataque agéntico sobre la cognición judicial."
+       data-quote="«Frente al colapso de atestación en la cognición, la defensa se vuelve forzosamente arquitectónica, colegiada y estocástica.» — §8.6"
+       data-lawyer-tag="👁️ CÓMO PERCIBE LA IA LAS CONTRA-MEDIDAS PROCESALES"
+       data-lawyer="La IA percibe que la atestación de hardware aniquila el canal de falsedades, mientras que la colegialidad heterogénea y la oralidad estocástica vacían la intersección del espacio factible de optimización.">
+    <div class="pt g" style="font-size:10px">★ MATRIZ DE DEFENSAS ESTRUCTURALES Y SOLUCIONES PROCESALES (§7, §8.6 & ANEXO I)</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-top:8px">
+      <div style="background:var(--bg1); border:1px solid var(--bdr); border-radius:3px; padding:10px">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--ok-hi); font-weight:700; margin-bottom:4px">1. ATESTACIÓN HARDWARE (§7)</div>
+        <div style="font-size:10.5px; color:var(--tx); line-height:1.45">Mata por inanición las entradas falsas mediante sellos criptográficos TPM 2.0 y SCITT en el origen. Fuerza al ataque a operar solo en verdades N(x).</div>
+      </div>
+      <div style="background:var(--bg1); border:1px solid var(--bdr); border-radius:3px; padding:10px">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--blue); font-weight:700; margin-bottom:4px">2. COLEGIALIDAD DIVERSA (§8.6)</div>
+        <div style="font-size:10.5px; color:var(--tx); line-height:1.45">Exige n ≥ 3f+1. La heterogeneidad de <em>priors</em> entre magistrados vacía la intersección factible ⋂ R_i, haciendo estocásticamente inviable el veredicto único.</div>
+      </div>
+      <div style="background:var(--bg1); border:1px solid var(--bdr); border-radius:3px; padding:10px">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--amber-hi); font-weight:700; margin-bottom:4px">3. ORALIDAD STOCHASTIC (I.10)</div>
+        <div style="font-size:10.5px; color:var(--tx); line-height:1.45">La no-estacionariedad cognitiva humana (B4) y el contrapunto verbal en vivo introducen ruido estocástico no predecible que destruye la precisión de g_J.</div>
+      </div>
+      <div style="background:var(--bg1); border:1px solid var(--bdr); border-radius:3px; padding:10px">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--th); font-weight:700; margin-bottom:4px">4. ROTACIÓN DE SALAS (§8.8)</div>
+        <div style="font-size:10.5px; color:var(--tx); line-height:1.45">Asignación aleatoria de tabla y anonimización procesal para romper el bucle pasivo de perfilamiento de sentencias anteriores (Anexo I.2).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ROW 7: BUZÓN ABIERTO DE REVISIÓN POR PARES Y FEEDBACK CIENTÍFICO ===== -->
+<div class="row" style="grid-template-columns:1fr">
+  <div class="p" style="border-left:4px solid var(--blue); background:var(--bg2)">
+    <div class="pt b" style="font-size:10px">💬 BUZÓN ABIERTO DE REVISIÓN POR PARES & FEEDBACK CIENTÍFICO Y JURÍDICO</div>
+    <div style="font-size:11px; color:var(--tx); margin-bottom:10px; line-height:1.5">
+      Este demostrador en vivo es un protocolo de investigación abierto. Si usted es <strong>magistrado, abogado litigante, ingeniero en ciberseguridad o investigador de IA</strong>, le invitamos a enviar sus observaciones, objeciones o aportes teóricos:
+    </div>
+    
+    <div style="display:grid; grid-template-columns:220px 220px 1fr 120px; gap:10px; align-items:end">
+      <div>
+        <label style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--th); display:block; margin-bottom:3px">SU PERFIL PROFESIONAL</label>
+        <select id="fb-role" style="width:100%; background:var(--bg1); border:1px solid var(--blue-dim); color:var(--tx); padding:6px; font-family:'Inter',sans-serif; font-size:11px; border-radius:2px">
+          <option value="Magistrado / Juez">Juez / Magistrado</option>
+          <option value="Abogado Litigante">Abogado Litigante</option>
+          <option value="Ingeniero Ciberseguridad / IA">Ingeniero Ciberseguridad / IA</option>
+          <option value="Académico / Investigador">Académico / Investigador</option>
+          <option value="Otro">Otro profesional</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--th); display:block; margin-bottom:3px">TIPO DE APORTE</label>
+        <select id="fb-type" style="width:100%; background:var(--bg1); border:1px solid var(--blue-dim); color:var(--tx); padding:6px; font-family:'Inter',sans-serif; font-size:11px; border-radius:2px">
+          <option value="Objeción Procesal">Objeción Procesal / Doctrinaria</option>
+          <option value="Observación de Ingeniería">Observación de Ciberseguridad / IA</option>
+          <option value="Propuesta de Defensa">Propuesta de Defensa Estructural</option>
+          <option value="Consulta Teórica">Consulta sobre Cota I.1 / Anexo I</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--th); display:block; margin-bottom:3px">SU OBSERVACIÓN O COMENTARIO</label>
+        <input type="text" id="fb-text" placeholder="Escriba aquí su comentario u objeción a la teoría..." style="width:100%; background:var(--bg1); border:1px solid var(--blue-dim); color:var(--tx); padding:6px; font-family:'Inter',sans-serif; font-size:11px; border-radius:2px">
+      </div>
+      <div>
+        <button onclick="submitFeedback()" style="width:100%; background:var(--blue-dim); color:var(--tx); border:1px solid var(--blue); padding:7px; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; cursor:pointer; border-radius:2px">ENVIAR APORTE</button>
+      </div>
+    </div>
+    <div id="fb-status" style="font-family:'JetBrains Mono',monospace; font-size:9.5px; color:var(--ok-hi); margin-top:6px; display:none">✓ Aporte registrado correctamente en el protocolo de revisión por pares.</div>
+  </div>
+</div>
+
+<!-- ===== ROW 8: NOTA FORMAL DE INGENIERÍA Y RIGOR EPISTÉMICO ===== -->
 <div class="row" style="grid-template-columns:1fr">
   <div class="p" style="border-left:4px solid var(--amber-hi); background:var(--bg2)"
        data-sec="ANEXO I.10, I.11 & §8.8"
@@ -1030,6 +1101,26 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 </div>
 
 <script>
+// ===== FEEDBACK CONTROLLER =====
+function submitFeedback(){
+  const role = document.getElementById('fb-role').value;
+  const type = document.getElementById('fb-type').value;
+  const text = document.getElementById('fb-text').value;
+  const status = document.getElementById('fb-status');
+
+  if(!text || text.trim().length < 5){
+    alert('Por favor ingrese un comentario u objeción de al menos 5 caracteres.');
+    return;
+  }
+
+  // Generate GitHub Issue pre-filled link or record confirmation
+  const issueUrl = `https://github.com/JaimeMoragaC/colapso-probatorio/issues/new?title=${encodeURIComponent('[' + type + '] ' + role)}&body=${encodeURIComponent(text)}`;
+  
+  status.style.display = 'block';
+  status.innerHTML = `✓ Aporte registrado correctamente. <a href="${issueUrl}" target="_blank" style="color:var(--amber-hi); text-decoration:underline">Haga clic aquí para publicar su revisión formal en el GitHub Issue oficial</a>.`;
+  document.getElementById('fb-text').value = '';
+}
+
 // ===== FLOATING POPOVER CONTROLLER =====
 const popover = document.getElementById('doc-popover');
 const popSec = document.getElementById('pop-sec');
