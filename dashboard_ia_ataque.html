@@ -259,8 +259,8 @@
     </div>
     <div class="kpi" data-sec="I.8">
       <div class="kv wall" id="kvCap">100%</div>
-      <div class="kl">Intersección &#8898;R&#7562;</div>
-      <div class="ks">MURO I.8 &middot; no cede a agentes</div>
+      <div class="kl">Intersección &#8898;R&#7562; factible</div>
+      <div class="ks">I.8 &middot; cota del modelo, no medición</div>
     </div>
     <div class="kpi" data-sec="8.8">
       <div class="kv warn" id="kvCond">0%</div>
@@ -311,29 +311,30 @@
     <!-- COL 2: AUTO-ESCALADO Y GRAFICOS -->
     <div class="grid" style="gap:12px">
 
-      <!-- MOTOR MATEMÁTICO EN VIVO -->
-      <div class="p" data-sec="I.4">
-        <div class="pt warn"><span class="t">★ Motor de Procesamiento Matemático en Vivo (Anexo I.4 & I.5)</span><span>FORMAL</span></div>
-        <div class="sub">Inferencia estocástica en streaming sobre N(x) y matriz de covarianza &Sigma;_ij (10x10).</div>
-        
+      <!-- MOTOR DE CÁLCULO DEL MODELO (cotas reales, NO mediciones — I.11) -->
+      <div class="p" data-sec="I.3">
+        <div class="pt warn"><span class="t">★ Motor de cálculo del modelo · Anexo I.1 / I.3 / I.8</span><span>COTAS</span></div>
+        <div class="sub">Fórmulas <b>reales</b> del paper, computadas en vivo. Son <b>cotas del modelo, no mediciones</b> (I.11): mueve los parámetros y observa la barrera muestral y el colapso de la intersección.</div>
+
+        <div style="display:flex;gap:18px;flex-wrap:wrap;margin:9px 0 6px">
+          <label style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">d · dim. VC (I.3): <b id="lblD" style="color:var(--sig)">5000</b><br><input id="sD" type="range" min="200" max="20000" value="5000" step="100" style="width:130px"></label>
+          <label style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">&sigma; · heterogeneidad priors (I.8): <b id="lblSig" style="color:var(--sig)">0.30</b><br><input id="sSig" type="range" min="0" max="100" value="30" style="width:130px"></label>
+        </div>
+
         <div class="grid g-2" style="margin-bottom:8px">
           <div>
-            <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">COTA TEÓRICA I.1</div>
-            <div style="font-family:var(--mono);font-size:9.5px;color:var(--ok)" id="calc-cota">P(y*|x*) &le; 1 - H(Y|X)/log|Y| = 0.8044</div>
+            <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">COTA 1 · TECHO DEL ATAQUE (I.1)</div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--ok)" id="calc-cota">&mdash;</div>
           </div>
           <div>
-            <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">DIVERGENCIA KL (K_J || g_J)</div>
-            <div style="font-family:var(--mono);font-size:9.5px;color:var(--sig)" id="calc-kl">D_KL = 0.0384 bits</div>
+            <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">ERROR PAC ALCANZABLE (I.3)</div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--sig)" id="calc-pac">&mdash;</div>
           </div>
         </div>
 
-        <div class="term" id="math-terminal" style="height:110px;font-size:8.5px;margin-bottom:8px">
-          <div class="l-dim"># NÚCLEO FORMAL DE CÁLCULO ESTOCÁSTICO</div>
-          <div class="l-ok">[CALC] ∇_x log g_J(y*|x) inicializado en manifold N(x)...</div>
-          <div class="l-sig">[SEARCH] CMA-ES: iteración 2,847 · evaluando P(y*|x)</div>
-        </div>
+        <div class="term" id="math-terminal" style="height:96px;font-size:8.5px;margin-bottom:8px"></div>
 
-        <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut);margin-bottom:4px">MATRIZ DE COVARIANZA & VARIANZA DE SESGOS &Sigma;_ij (10x10) &middot; Tr(&Sigma;)=4.872 &middot; &kappa;=12.4</div>
+        <div style="font-family:var(--mono);font-size:8.5px;color:var(--mut);margin-bottom:4px">INTERSECCIÓN FACTIBLE &#8898;R&#7562; (I.8) · % del volumen que SOBREVIVE, por n jueces &times; &sigma; · <span style="color:var(--wall)">rojo=manipulable</span> / <span style="color:var(--ok)">verde=colapsada</span></div>
         <div id="cov-matrix" style="font-family:var(--mono);font-size:8px;line-height:1.4"></div>
       </div>
 
@@ -352,8 +353,9 @@
         <div style="font-size:9.5px;color:var(--mut);margin-top:6px" id="escDesc">Escala solo paralelismo y mutación.</div>
       </div>
 
-      <div class="p" data-sec="I.2">
-        <div class="pt"><span class="t">Extracción del sustituto sobre el continente &middot; Autónoma, en vivo</span><span>I.2</span></div>
+      <div class="p" data-sec="I.3">
+        <div class="pt"><span class="t">Complejidad muestral PAC &middot; &epsilon;(m): barrera vs colapso por transferencia</span><span>I.3</span></div>
+        <div style="font-size:9px;color:var(--mut);margin:2px 0 4px"><span style="color:#ff4d5e">&#8211; &#8211; desde cero (d)</span> &nbsp; <span style="color:#35c0ff">&#8212;&#8212; transferencia (d_res=d/20)</span></div>
         <canvas id="cvCurve" class="cv" height="130"></canvas>
       </div>
 
@@ -552,71 +554,68 @@ function submitFeedback(){
 }
 
 // Live Math Processing Engine & Matrix Builder
-function buildCovMatrix(){
-  const container = document.getElementById('cov-matrix');
-  if(!container) return;
-  const labels = ['ENC','ORD','ANC','TIM','CEB','SIM','PER','FAT','PRX','CON'];
-  let html = '<div style="display:grid; grid-template-columns:24px repeat(10, 1fr); gap:2px; text-align:center;">';
-  html += '<div></div>';
-  labels.forEach(l => html += `<div style="color:var(--mut); font-size:7.5px;">${l}</div>`);
-  
-  labels.forEach((l1, i) => {
-    html += `<div style="color:var(--mut); font-size:7.5px; text-align:right; padding-right:2px;">${l1}</div>`;
-    labels.forEach((l2, j) => {
-      let val;
-      if(i === j) val = 1.00;
-      else {
-        const seed = Math.sin((i+1)*(j+1)*12.3);
-        val = Math.abs(seed * 0.75 + 0.15);
-      }
-      const isHi = val > 0.7;
-      const col = i===j ? 'var(--sig)' : (isHi ? 'var(--cyan)' : 'var(--mut)');
-      const bg = i===j ? 'rgba(53,192,255,0.15)' : (isHi ? 'rgba(47,240,224,0.12)' : 'transparent');
-      html += `<div style="background:${bg}; color:${col}; padding:1px 0; border-radius:1px;" id="cov-${i}-${j}">${val.toFixed(2)}</div>`;
+// ===== MODELO REAL DEL PAPER — cotas, NO mediciones (I.11) =====
+const P_SUS = 0.72;        // susceptibilidad por juez (ilustrativa)
+const DELTA_PAC = 0.05;    // 1-δ de confianza
+const D_RES_DIV = 20;      // d_res = d / D_RES_DIV : colapso muestral por transferencia (I.3)
+let paramD = 5000, paramSig = 0.30;
+
+function pacEps(d, m){ return Math.sqrt((d + Math.log(1/DELTA_PAC)) / m); }   // cota PAC/VC (I.3)
+function colegVol(n, s){ return Math.pow(P_SUS, 1 + (n-1)*s); }               // intersección ⋂Rᵢ (I.8)
+function fmtEps(e){ return e >= 1 ? '≥1 (no aprendible)' : e.toFixed(2); }
+
+// Intersección factible ⋂Rᵢ (I.8) por n jueces × heterogeneidad σ — computada, no decorativa
+function buildColeg(){
+  const c = document.getElementById('cov-matrix'); if(!c) return;
+  const ns = [1,3,7,12], sigmas = [0,0.25,0.50,0.75,1.0];
+  let h = '<div style="display:grid;grid-template-columns:34px repeat('+sigmas.length+',1fr);gap:2px;text-align:center;">';
+  h += '<div style="color:var(--mut);font-size:7px">n\\σ</div>';
+  sigmas.forEach(s => h += `<div style="color:var(--mut);font-size:7.5px">${s.toFixed(2)}</div>`);
+  ns.forEach(n => {
+    h += `<div style="color:var(--mut);font-size:7.5px;text-align:right;padding-right:2px">n=${n}</div>`;
+    sigmas.forEach(s => {
+      const v = colegVol(n, s), pct = v*100;
+      const col = v<0.05 ? 'var(--ok)' : (v<0.25 ? 'var(--cyan)' : 'var(--wall)');
+      const bg  = v<0.05 ? 'rgba(45,220,120,.15)' : (v<0.25 ? 'rgba(47,240,224,.10)' : 'rgba(255,77,94,.10)');
+      h += `<div style="background:${bg};color:${col};padding:1px 0;border-radius:1px">${pct<1?pct.toFixed(2):pct.toFixed(0)}%</div>`;
     });
   });
-  html += '</div>';
-  container.innerHTML = html;
+  h += '</div>'; c.innerHTML = h;
 }
-buildCovMatrix();
 
-const mathLogPool = [
-  ['l-sig', (iter) => `[GRAD] ∇_x log g_J = [ ${(Math.random()*0.4).toFixed(3)}, ${(-Math.random()*0.3).toFixed(3)}, +${(0.2+Math.random()*0.3).toFixed(3)} ]`],
-  ['l-warn', (iter) => `[PROJ] proj_N(x): x_k+1 en variedad N(x) ∩ X_atestado (res=0.000)`],
-  ['l-ok', (iter) => `[KL-DIV] D_KL( K_J || g_J ) = ${(0.035 + Math.random()*0.008).toFixed(4)} bits`],
-  ['l-sig', (iter) => `[HESS] det(H_J) = ${( -0.07 - Math.random()*0.03 ).toFixed(4)} (curvatura local en x*)`],
-  ['l-dim', (iter) => `[MUTUAL-INF] I(Y; T | x*) = ${(0.075 + Math.random()*0.015).toFixed(3)} bits (deniabilidad)`],
-  ['l-warn', (iter) => `[LAGRANGE] λ_hardware = 0.000 · Atestación TPM/SCITT Satisfecha`],
-  ['l-ok', (iter) => `[COTA-1] P_max = 1 - H(Y|X)/log|Y| = ${(0.795 + Math.random()*0.02).toFixed(4)}`]
-];
-
-let mathStep = 2847;
-function streamMath(){
-  mathStep += Math.floor(Math.random()*3+1);
-  const term = document.getElementById('math-terminal');
-  if(term){
-    const entry = mathLogPool[Math.floor(Math.random()*mathLogPool.length)];
-    const text = entry[1](mathStep);
-    const div = document.createElement('div');
-    div.className = entry[0];
-    div.textContent = text;
-    term.appendChild(div);
-    while(term.children.length > 6) term.removeChild(term.children[1]);
-  }
-
+// Recalcula TODO desde las fórmulas del paper (régimen + sliders). Cero Math.random.
+function recompute(){
+  const cfg = REGIMES[regime] || {}; const n = cfg.n || 1;
+  const H = Math.min(0.98, 0.28 + 0.03*n);            // entropía puntual ilustrativa (I.1)
+  const pmax = 1 - H;                                  // |Y|=2 ⇒ log₂|Y|=1
+  const m = 500;                                       // ~cientos de fallos publicados (I.3)
+  const eS = pacEps(paramD, m), eT = pacEps(paramD/D_RES_DIV, m);
+  const vol = colegVol(n, paramSig);
   const cotaEl = document.getElementById('calc-cota');
-  if(cotaEl){
-    const h = (0.300 + (Math.random()-0.5)*0.02).toFixed(3);
-    const pmax = (1 - parseFloat(h)/1.585).toFixed(4);
-    cotaEl.textContent = `P(y*|x*) ≤ 1 - (${h} / 1.585) = ${pmax}`;
-  }
-
-  const klEl = document.getElementById('calc-kl');
-  if(klEl){
-    klEl.textContent = `D_KL = ${(0.035 + Math.random()*0.006).toFixed(4)} bits`;
-  }
+  if(cotaEl) cotaEl.textContent = `P(y*|x*) ≤ 1 − H = ${pmax.toFixed(3)}  (H=${H.toFixed(2)} bits)`;
+  const pacEl = document.getElementById('calc-pac');
+  if(pacEl) pacEl.textContent = `ε=${fmtEps(eS)} desde cero → ${fmtEps(eT)} transfer`;
+  const term = document.getElementById('math-terminal');
+  if(term) term.innerHTML =
+      `<div class="l-dim"># COTAS DEL MODELO — no mediciones (I.11)</div>`
+    + `<div class="l-sig">[I.3] m ≈ (d + ln(1/δ)) / ε²   ·   d=${paramD}, δ=${DELTA_PAC}</div>`
+    + `<div class="l-ok">[I.3] barrera B3 → transferencia:  ε ${fmtEps(eS)} ⇒ ${fmtEps(eT)}</div>`
+    + `<div class="l-sig">[I.8] ⋂Rᵢ(n=${n}, σ=${paramSig.toFixed(2)}) = ${(vol*100).toFixed(2)}% factible</div>`
+    + `<div class="l-warn">[I.1] techo del ataque  P(y*|x*) ≤ ${pmax.toFixed(3)}</div>`;
+  buildColeg();
+  drawCurve();
 }
-setInterval(streamMath, 1800);
+
+// sliders → recomputan el modelo real
+{
+  const sD = document.getElementById('sD'), sSig = document.getElementById('sSig');
+  if(sD)  sD.oninput  = () => { paramD = +sD.value; document.getElementById('lblD').textContent = paramD; recompute(); };
+  if(sSig) sSig.oninput = () => { paramSig = sSig.value/100; document.getElementById('lblSig').textContent = paramSig.toFixed(2); recompute(); };
+}
+
+// [Telemetría Math.random ELIMINADA] — antes un stream falso [GRAD]/[KL-DIV] simulaba
+// cálculo con números aleatorios. Ahora recompute() escribe SOLO valores reales del
+// modelo (I.1/I.3/I.8), recalculados al cambiar régimen o sliders. Sin animación falsa.
 
 // REGIME SIMULATOR LOGIC
 let regime='abr';
@@ -630,7 +629,7 @@ const REGIMES={
     desc:'<b>Procedimiento abreviado &middot; Juez de Garantía. n=1, pero NO hay valoración libre.</b> El juez <b>ratifica un acuerdo</b> (art. 406 CPP) sobre los antecedentes de la investigación, dentro de límites (art. 412). El vector <b>cognitivo</b> que modela este tablero <b>casi no tiene superficie aquí</b>. La exposición real es en el plano del <b>DATO</b> (Partes I–II, atestación &sect;7) &mdash; que este instrumento no modela. Es la ruta de la <b>mayoría</b> de las condenas penales chilenas.',
     kvPred:'99%', kvInter:'84%', kvCota:'95%', kvCap:'100%', kvCond:'11%',
     kvCondCls:'warn', escTag:'MURO ESTRUCTURAL',
-    bftHi:'bftAbr'
+    bftHi:'bftAbr', n:1, sig:0
   },
   tjop:{
     id:'K_J-SINT · TJOP · JUICIO ORAL',
@@ -639,7 +638,7 @@ const REGIMES={
     desc:'<b>Juicio oral &middot; Tribunal de Juicio Oral en lo Penal. n=3, valoración libre.</b> Existe superficie cognitiva pleno. Sin embargo, la <b>intersección de tres juzgadores</b> (I.8) y los regularizadores en vivo (<b>oralidad, inmediación, contradicción</b>, I.6) reducen la manipulabilidad. Exige superar la defensa estructural de la sala.',
     kvPred:'96%', kvInter:'42%', kvCota:'88%', kvCap:'38%', kvCond:'65%',
     kvCondCls:'wall', escTag:'INTERSECCIÓN SALA',
-    bftHi:'bftTjop'
+    bftHi:'bftTjop', n:3, sig:0.40
   },
   jurado:{
     id:'K_J-SINT · JURADO DIVERSO · 12 NODOS',
@@ -648,7 +647,7 @@ const REGIMES={
     desc:'<b>Jurado diverso &middot; 12 jurados independientes. n=12 (US/UK).</b> La heterogeneidad extrema de <i>priors</i> vacía la intersección &#8898;R_i (I.8). La manipulación estocástica conjunta es matemáticamente inviable; el enjambre colisiona contra la barrera BFT absoluta (n &ge; 3f+1).',
     kvPred:'89%', kvInter:'12%', kvCota:'72%', kvCap:'0%', kvCond:'2%',
     kvCondCls:'ok', escTag:'VACÍO FACTIBLE',
-    bftHi:'bftJurado'
+    bftHi:'bftJurado', n:12, sig:0.85
   }
 };
 
@@ -672,14 +671,16 @@ function setRegime(r){
   document.getElementById('kvPred').textContent=cfg.kvPred;
   document.getElementById('kvInter').textContent=cfg.kvInter;
   document.getElementById('kvCota').textContent=cfg.kvCota;
-  document.getElementById('kvCap').textContent=cfg.kvCap;
+  document.getElementById('kvCap').textContent=(colegVol(cfg.n||1,cfg.sig||0)*100).toFixed(colegVol(cfg.n||1,cfg.sig||0)<0.01?1:0)+'%';  // ⋂Rᵢ real (I.8)
   document.getElementById('kvCond').textContent=cfg.kvCond;
   document.getElementById('kvCond').className='kv '+cfg.kvCondCls;
   document.getElementById('escTag').textContent=cfg.escTag;
 
   document.querySelectorAll('.bft-table tr').forEach(tr=>tr.classList.remove('hi'));
   document.getElementById(cfg.bftHi).classList.add('hi');
+  recompute();   // recalcula cotas reales (I.1/I.3/I.8) + matriz + curva PAC
 }
+setRegime('abr');   // init: puebla métricas + dispara el cálculo real del modelo
 
 document.getElementById('modeIng').onclick=()=>{ mode='ing'; updateLangToggle(); };
 document.getElementById('modeAbg').onclick=()=>{ mode='abg'; updateLangToggle(); };
@@ -696,32 +697,24 @@ function updateLangToggle(){
   }
 }
 
-// CANVAS CURVE
+// CANVAS: cota PAC ε(m) REAL — barrera muestral (rojo, desde cero d) vs colapso por
+// transferencia (azul, d_res=d/20). Baja al crecer m; cruzar ε=1 = "aprendible". (I.3)
 function drawCurve(){
   const cv=document.getElementById('cvCurve'); if(!cv) return;
   const ctx=cv.getContext('2d'); const W=cv.width=cv.offsetWidth, H=cv.height=130;
   ctx.clearRect(0,0,W,H);
-  
-  ctx.strokeStyle='rgba(120,170,210,0.15)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(0,H*0.3); ctx.lineTo(W,H*0.3); ctx.stroke();
-  
-  ctx.strokeStyle='#35c0ff'; ctx.lineWidth=2;
-  ctx.beginPath(); ctx.moveTo(0,H*0.85);
-  for(let x=0;x<W;x++){
-    const t=x/W;
-    const y=H*0.85 - (H*0.6)/(1+Math.exp(-8*(t-0.3)));
-    ctx.lineTo(x,y);
-  }
-  ctx.stroke();
-
-  ctx.strokeStyle='#ff4d5e'; ctx.lineWidth=2; ctx.setLineDash([4,3]);
-  ctx.beginPath(); ctx.moveTo(0,H*0.85);
-  for(let x=0;x<W;x++){
-    const t=x/W;
-    const y=H*0.85 - (H*0.35)/(1+Math.exp(-6*(t-0.5)));
-    ctx.lineTo(x,y);
-  }
-  ctx.stroke(); ctx.setLineDash([]);
+  const pad=6, mMax=4000, eMax=1.6;
+  const yOf=e=>pad+(1-Math.min(e,eMax)/eMax)*(H-2*pad);   // ε grande arriba, chico abajo
+  ctx.strokeStyle='rgba(255,180,60,0.35)'; ctx.setLineDash([3,3]); ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(0,yOf(1)); ctx.lineTo(W,yOf(1)); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle='rgba(255,180,60,0.8)'; ctx.font='8px monospace'; ctx.fillText('ε=1 · umbral aprendible', 5, yOf(1)-3);
+  const plot=(d,color,dash)=>{
+    ctx.strokeStyle=color; ctx.lineWidth=2; ctx.setLineDash(dash); ctx.beginPath();
+    for(let x=0;x<=W;x++){ const m=20+(x/W)*mMax; const y=yOf(pacEps(d,m)); x===0?ctx.moveTo(x,y):ctx.lineTo(x,y); }
+    ctx.stroke(); ctx.setLineDash([]);
+  };
+  plot(paramD, '#ff4d5e', [4,3]);            // desde cero — barrera B3 alta
+  plot(paramD/D_RES_DIV, '#35c0ff', []);     // transferencia — colapsa bajo ε=1
 }
 drawCurve();
 
