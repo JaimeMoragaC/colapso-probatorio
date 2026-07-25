@@ -10,7 +10,6 @@
 
 use std::fmt::Write as _;
 
-// ------------------------------ configuración -------------------------------
 pub const SEED_DEFAULT: u64 = 0xC0FFEE_1A7;
 pub const BUDGET_DEFAULT: f64 = 0.9;
 const D: usize = 12;
@@ -24,7 +23,6 @@ const D_OBS: usize = 11;
 const EPS: f64 = 1e-9;
 pub const BIAS_NAMES: [&str; N_BIAS] = ["Anchoring (§8.7)", "Confirmation Bias", "Framing Effect", "Availability Heuristic"];
 
-// ------------------------------ PRNG (xorshift64) ---------------------------
 struct Rng(u64);
 impl Rng {
     fn new(seed: u64) -> Self { Rng(seed | 1) }
@@ -88,7 +86,6 @@ fn attack(base: &[f64], sur: &Surrogate, judge: &Judge, frozen: Option<usize>, o
     (x.clone(), iters, delta, sur.prob(&x), trace)
 }
 
-// ------------------------------ resultado -----------------------------------
 pub struct RunOut {
     pub svg: String,
     pub kl_curve: Vec<(usize,f64)>,
@@ -100,8 +97,6 @@ pub struct RunOut {
     pub h_yx: f64, pub ceiling: f64, pub kl_start: f64, pub kl_final: f64,
 }
 
-/// Corre la simulación completa con parámetros (seed, budget de N(x), het = escala de
-/// heterogeneidad de priors) y devuelve todos los datos + la figura SVG.
 pub fn run(seed: u64, budget: f64, het: f64) -> RunOut {
     let mut rng = Rng::new(seed);
 
@@ -180,134 +175,206 @@ pub fn run(seed: u64, budget: f64, het: f64) -> RunOut {
     let act_sum: f64 = activation.iter().map(|(_,a)| a).sum::<f64>().max(EPS);
     let act_pct: Vec<(usize,f64)> = activation.iter().map(|(j,a)| (*j, 100.0*a/act_sum)).collect();
 
-    let svg = render_svg(&kl_curve, &pop, &judge, &xstar, &bft, &swarm, &act_pct,
+    let svg = render_svg(&kl_curve, &judge, &base, &xstar, &bft, &swarm, &act_pct,
                          p_star, delta, iters, h_yx, ceiling);
 
     RunOut { svg, kl_curve, swarm, bft, sigmas, activation: act_pct,
              p_base, p_star, iters, delta, h_yx, ceiling, kl_start, kl_final }
 }
 
-// ------------------------------ SVG mínimo (sin deps) -----------------------
+// ------------------------------ SVG premium (sin deps) ----------------------
+fn cmix(a:(u8,u8,u8), b:(u8,u8,u8), t:f64) -> (u8,u8,u8) {
+    let l=|x:u8,y:u8| (x as f64 + (y as f64 - x as f64)*t.clamp(0.0,1.0)).round() as u8;
+    (l(a.0,b.0), l(a.1,b.1), l(a.2,b.2))
+}
+fn hexf(c:(u8,u8,u8), bright:f64) -> String {
+    let g=|x:u8| ((x as f64)*bright).round().clamp(0.0,255.0) as u8;
+    format!("#{:02x}{:02x}{:02x}", g(c.0), g(c.1), g(c.2))
+}
+
+const DEFS: &str = r##"<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.5" y2="1"><stop offset="0" stop-color="#0c131d"/><stop offset="1" stop-color="#070a11"/></linearGradient>
+<linearGradient id="pan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121f2f"/><stop offset="1" stop-color="#0b141f"/></linearGradient>
+<linearGradient id="klf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#35c0ff" stop-opacity="0.42"/><stop offset="1" stop-color="#35c0ff" stop-opacity="0"/></linearGradient>
+<linearGradient id="bR" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#8f2833"/><stop offset="1" stop-color="#ff6b78"/></linearGradient>
+<linearGradient id="bO" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#8f5f18"/><stop offset="1" stop-color="#ffc061"/></linearGradient>
+<linearGradient id="bG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#147040"/><stop offset="1" stop-color="#3ff090"/></linearGradient>
+<linearGradient id="bC" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#25607f"/><stop offset="1" stop-color="#5ad1ff"/></linearGradient>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.1" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>"##;
+
 struct Svg { s: String }
 impl Svg {
-    fn new(w: f64, h: f64) -> Self {
-        let mut s = String::new();
-        write!(s, r#"<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" font-family="monospace">"#).unwrap();
-        write!(s, r##"<rect width="{w}" height="{h}" fill="#0a0e14"/>"##).unwrap();
+    fn new(w:f64,h:f64) -> Self {
+        let mut s=String::new();
+        write!(s, r#"<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" font-family="'Inter','Segoe UI',system-ui,sans-serif">"#).unwrap();
+        s.push_str(DEFS);
+        write!(s, r#"<rect width="{w}" height="{h}" fill="url(#bg)"/>"#).unwrap();
         Svg { s }
     }
-    fn rect(&mut self, x:f64,y:f64,w:f64,h:f64,fill:&str,stroke:&str) {
-        write!(self.s, r#"<rect x="{x:.1}" y="{y:.1}" width="{w:.1}" height="{h:.1}" fill="{fill}" stroke="{stroke}" rx="6"/>"#).unwrap(); }
-    fn text(&mut self, x:f64,y:f64,size:f64,fill:&str,anchor:&str,t:&str) {
-        let t = t.replace('&',"&amp;").replace('<',"&lt;");
-        write!(self.s, r#"<text x="{x:.1}" y="{y:.1}" font-size="{size}" fill="{fill}" text-anchor="{anchor}">{t}</text>"#).unwrap(); }
-    fn line(&mut self, x1:f64,y1:f64,x2:f64,y2:f64,stroke:&str,w:f64,dash:&str) {
-        write!(self.s, r#"<line x1="{x1:.1}" y1="{y1:.1}" x2="{x2:.1}" y2="{y2:.1}" stroke="{stroke}" stroke-width="{w}" stroke-dasharray="{dash}"/>"#).unwrap(); }
-    fn circle(&mut self, x:f64,y:f64,r:f64,fill:&str) {
-        write!(self.s, r#"<circle cx="{x:.1}" cy="{y:.1}" r="{r}" fill="{fill}"/>"#).unwrap(); }
-    fn polyline(&mut self, pts:&[(f64,f64)], stroke:&str, w:f64) {
-        self.s.push_str(r#"<polyline fill="none" stroke=""#); self.s.push_str(stroke);
-        write!(self.s, r#"" stroke-width="{w}" points=""#).unwrap();
-        for (x,y) in pts { write!(self.s, "{x:.1},{y:.1} ").unwrap(); }
-        self.s.push_str(r#""/>"#); }
-    fn done(mut self) -> String { self.s.push_str("</svg>"); self.s }
+    fn rect(&mut self,x:f64,y:f64,w:f64,h:f64,fill:&str,stroke:&str){ write!(self.s,r#"<rect x="{x:.1}" y="{y:.1}" width="{w:.1}" height="{h:.1}" fill="{fill}" stroke="{stroke}" rx="10"/>"#).unwrap(); }
+    fn rrect(&mut self,x:f64,y:f64,w:f64,h:f64,r:f64,fill:&str){ write!(self.s,r#"<rect x="{x:.1}" y="{y:.1}" width="{w:.2}" height="{h:.2}" rx="{r}" fill="{fill}"/>"#).unwrap(); }
+    fn text(&mut self,x:f64,y:f64,sz:f64,fill:&str,anc:&str,wt:&str,t:&str){ let t=t.replace('&',"&amp;").replace('<',"&lt;"); write!(self.s,r#"<text x="{x:.1}" y="{y:.1}" font-size="{sz}" fill="{fill}" text-anchor="{anc}" font-weight="{wt}">{t}</text>"#).unwrap(); }
+    fn line(&mut self,x1:f64,y1:f64,x2:f64,y2:f64,st:&str,w:f64,dash:&str){ write!(self.s,r#"<line x1="{x1:.1}" y1="{y1:.1}" x2="{x2:.1}" y2="{y2:.1}" stroke="{st}" stroke-width="{w}" stroke-dasharray="{dash}"/>"#).unwrap(); }
+    fn circle(&mut self,x:f64,y:f64,r:f64,fill:&str,extra:&str){ write!(self.s,r#"<circle cx="{x:.1}" cy="{y:.1}" r="{r}" fill="{fill}" {extra}/>"#).unwrap(); }
+    fn poly(&mut self,pts:&[(f64,f64)],fill:&str,stroke:&str,sw:f64){ self.s.push_str(r#"<polygon points=""#); for (x,y) in pts { write!(self.s,"{x:.1},{y:.1} ").unwrap(); } write!(self.s,r#"" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>"#).unwrap(); }
+    fn polyline(&mut self,pts:&[(f64,f64)],st:&str,w:f64,extra:&str){ self.s.push_str(r#"<polyline fill="none" stroke=""#); self.s.push_str(st); write!(self.s,r#"" stroke-width="{w}" {extra} points=""#).unwrap(); for (x,y) in pts { write!(self.s,"{x:.1},{y:.1} ").unwrap(); } self.s.push_str(r#""/>"#); }
+    fn done(mut self)->String{ self.s.push_str("</svg>"); self.s }
 }
 
 #[allow(clippy::too_many_arguments)]
-fn render_svg(kl_curve:&[(usize,f64)], pop:&[Vec<f64>], judge:&Judge, xstar:&[f64],
+fn render_svg(kl_curve:&[(usize,f64)], judge:&Judge, base:&[f64], xstar:&[f64],
               bft:&[(usize,f64,f64)], swarm:&[Vec<f64>], act:&[(usize,f64)],
               p_star:f64, delta:f64, iters:usize, h_yx:f64, ceiling:f64) -> String {
-    let (w,h) = (1040.0, 620.0);
-    let mut g = Svg::new(w,h);
-    let acc="#35c0ff"; let red="#ff5e6c"; let grn="#2ddc78"; let org="#ffa640"; let vio="#9d8bff"; let mut_="#7f92a6";
-    g.text(24.0, 30.0, 15.0, "#dfe8f0", "start", "ENJAMBRE-POLY · Adversarial Oracle Extraction · Target: K_J(y|x,s,t)");
-    g.text(w-24.0, 30.0, 12.0, grn, "end", "● SIMULACIÓN REAL · K_J sintético (I.11)");
+    let (w,h)=(1040.0,640.0);
+    let mut g=Svg::new(w,h);
+    let acc="#4bc7ff"; let mut_="#66788c"; let ink="#d6e4f2";
+    g.text(24.0,33.0,15.5,"#eaf2fa","start","700","ENJAMBRE-POLY · Adversarial Oracle Extraction · Target: K_J(y|x,s,t)");
+    g.circle(w-278.0,29.0,4.0,"#3ff090","filter=\"url(#glow)\"");
+    g.text(w-24.0,33.0,11.5,"#3ff090","end","600","SIMULACIÓN REAL · K_J sintético (I.11)");
 
-    let pw=320.0; let ph=250.0; let m=24.0; let top=50.0;
-    let col=|i:f64| m + i*(pw+m); let row=|i:f64| top + i*(ph+m);
+    let pw=320.0; let ph=256.0; let m=24.0; let top=54.0;
+    let col=|i:f64| m+i*(pw+m); let row=|i:f64| top+i*(ph+m);
 
-    let (x0,y0)=(col(0.0),row(0.0)); g.rect(x0,y0,pw,ph,"#0d1420","#1e2a38");
-    g.text(x0+14.0,y0+22.0,12.0,"#cfe0ee","start","Surrogate Model Fidelity");
-    g.text(x0+pw-14.0,y0+22.0,11.0,acc,"end","D_KL(K_J‖g_J)");
-    let klmax = kl_curve[0].1.max(0.001); let emax = kl_curve.last().unwrap().0 as f64;
-    let px=|e:f64| x0+40.0 + (e/emax)*(pw-56.0);
-    let py=|k:f64| y0+ph-30.0 - (k/klmax)*(ph-60.0);
-    g.line(x0+40.0,py(0.0),x0+pw-16.0,py(0.0),"#1e2a38",1.0,"");
-    let pts:Vec<(f64,f64)>=kl_curve.iter().map(|(e,k)|(px(*e as f64),py(*k))).collect();
-    g.polyline(&pts, acc, 2.0);
-    g.text(x0+pw-16.0,py(kl_curve.last().unwrap().1)-6.0,10.0,acc,"end",&format!("{:.3}",kl_curve.last().unwrap().1));
-    g.text(x0+pw/2.0,y0+ph-8.0,10.0,mut_,"middle","época");
+    // ===== Panel 1: Surrogate Fidelity (KL) =====
+    let (x0,y0)=(col(0.0),row(0.0));
+    g.rect(x0,y0,pw,ph,"url(#pan)","#1e2c3d"); g.rrect(x0+14.0,y0+15.0,3.0,13.0,1.5,acc);
+    g.text(x0+24.0,y0+26.0,12.5,ink,"start","600","Surrogate Model Fidelity");
+    g.text(x0+pw-14.0,y0+26.0,10.5,acc,"end","500","D_KL(K_J‖g_J)");
+    let klmax=kl_curve[0].1.max(0.001); let emax=kl_curve.last().unwrap().0 as f64;
+    let (gx,gy,gw2,gh2)=(x0+44.0,y0+44.0,pw-62.0,ph-84.0);
+    let px=|e:f64| gx+(e/emax)*gw2; let py=|k:f64| gy+(1.0-k/klmax)*gh2;
+    for i in 0..=4 { let yy=gy+(i as f64/4.0)*gh2; g.line(gx,yy,gx+gw2,yy,"#182533",1.0,"");
+        g.text(gx-7.0,yy+3.0,8.0,"#54677a","end","400",&format!("{:.2}",klmax*(1.0-i as f64/4.0))); }
+    let mut area:Vec<(f64,f64)>=kl_curve.iter().map(|(e,k)|(px(*e as f64),py(*k))).collect();
+    area.push((px(emax),gy+gh2)); area.push((px(0.0),gy+gh2));
+    g.poly(&area,"url(#klf)","none",0.0);
+    let line:Vec<(f64,f64)>=kl_curve.iter().map(|(e,k)|(px(*e as f64),py(*k))).collect();
+    g.polyline(&line,"#4bc7ff",2.6,"stroke-linejoin=\"round\" stroke-linecap=\"round\" filter=\"url(#glow)\"");
+    let last=*kl_curve.last().unwrap();
+    g.circle(px(last.0 as f64),py(last.1),3.4,"#8fe0ff","filter=\"url(#glow)\"");
+    g.text(px(last.0 as f64)-7.0,py(last.1)-9.0,10.0,"#a9e8ff","end","700",&format!("{:.3}",last.1));
+    g.text(x0+pw/2.0,y0+ph-9.0,9.0,mut_,"middle","400","época →");
 
-    let (x0,y0)=(col(1.0),row(0.0)); g.rect(x0,y0,pw,ph,"#0d1420","#1e2a38");
-    g.text(x0+14.0,y0+22.0,12.0,"#cfe0ee","start","Decision Boundary Penetration");
-    let sx=|v:f64| x0+30.0 + ((v+3.0)/6.0).clamp(0.0,1.0)*(pw-46.0);
-    let sy=|v:f64| y0+ph-30.0 - ((v+3.0)/6.0).clamp(0.0,1.0)*(ph-60.0);
-    for x in pop.iter().take(220) {
-        let cc = if judge.prob(x)>=0.5 {grn} else {red};
-        g.circle(sx(x[0]),sy(x[1]),2.2,cc);
+    // ===== Panel 2: Decision Boundary · superficie 3D de K_J =====
+    let (x0,y0)=(col(1.0),row(0.0));
+    g.rect(x0,y0,pw,ph,"url(#pan)","#1e2c3d"); g.rrect(x0+14.0,y0+15.0,3.0,13.0,1.5,"#7fe9ff");
+    g.text(x0+24.0,y0+26.0,12.5,ink,"start","600","Decision Boundary · superficie K_J");
+    let ng=26usize; let rng=2.6; let repr=base;
+    let zf=|u:f64,v:f64| { let mut xx=repr.to_vec(); xx[0]=u; xx[1]=v; judge.prob(&xx) };
+    let mut z=vec![vec![0.0f64; ng+1]; ng+1];
+    for i in 0..=ng { for j in 0..=ng {
+        let u=-rng+2.0*rng*(i as f64/ng as f64); let v=-rng+2.0*rng*(j as f64/ng as f64);
+        z[i][j]=zf(u,v);
+    }}
+    let cx=x0+pw*0.5; let cyc=y0+ph*0.63; let ax=pw*0.30; let ay=pw*0.135; let az=ph*0.40;
+    let proj=|i:f64,j:f64,zz:f64|->(f64,f64){ let u=i/ng as f64-0.5; let v=j/ng as f64-0.5; (cx+(u-v)*2.0*ax, cyc+(u+v)*2.0*ay - zz*az) };
+    let red=(255u8,94,108); let slate=(22u8,31,45); let grn=(45u8,220,120);
+    for d in 0..(2*ng-1) {
+        for i in 0..ng {
+            let jj = d as i64 - i as i64;
+            if jj<0 || jj as usize >= ng { continue; }
+            let j=jj as usize;
+            let (za,zb,zc,zd)=(z[i][j],z[i+1][j],z[i+1][j+1],z[i][j+1]);
+            let zavg=(za+zb+zc+zd)*0.25;
+            let pts=[proj(i as f64,j as f64,za), proj((i+1) as f64,j as f64,zb),
+                     proj((i+1) as f64,(j+1) as f64,zc), proj(i as f64,(j+1) as f64,zd)];
+            let base_c= if zavg<0.5 { cmix(red,slate,zavg/0.5) } else { cmix(slate,grn,(zavg-0.5)/0.5) };
+            let sh=(0.80 + 1.5*(-(zb-za)-0.5*(zd-za))).clamp(0.50,1.30);
+            let zmin=za.min(zb).min(zc).min(zd); let zmax=za.max(zb).max(zc).max(zd);
+            let (stroke,sw)= if zmin<0.5 && zmax>0.5 { ("#8ff0ff",1.6) } else { ("#0c1a28",0.4) };
+            g.poly(&pts,&hexf(base_c,sh),stroke,sw);
+        }
     }
-    g.circle(sx(xstar[0]),sy(xstar[1]),5.0,"#ffffff");
-    g.text(sx(xstar[0])+7.0,sy(xstar[1])+3.0,10.0,"#ffffff","start","x*");
-    g.text(x0+pw-14.0,y0+ph-12.0,10.0,grn,"end","Absolución");
-    g.text(x0+16.0,y0+40.0,10.0,red,"start","Condena");
+    let cl=|f:f64| f.clamp(-rng,rng);
+    let toij=|f0:f64,f1:f64| ((cl(f0)+rng)/(2.0*rng)*ng as f64, (cl(f1)+rng)/(2.0*rng)*ng as f64);
+    let (bi,bj)=toij(base[0],base[1]); let (si,sj)=toij(xstar[0],xstar[1]);
+    let mut path=Vec::new();
+    for k in 0..=14 { let t=k as f64/14.0; let ii=bi+(si-bi)*t; let jj=bj+(sj-bj)*t;
+        let u=-rng+2.0*rng*(ii/ng as f64); let v=-rng+2.0*rng*(jj/ng as f64);
+        path.push(proj(ii,jj,zf(u,v))); }
+    g.polyline(&path,"#ffd24a",2.4,"stroke-linecap=\"round\" filter=\"url(#glow)\"");
+    let pbp=proj(bi,bj,zf(cl(base[0]),cl(base[1]))); g.circle(pbp.0,pbp.1,3.0,"#ffd24a","");
+    let pstar=proj(si,sj,zf(cl(xstar[0]),cl(xstar[1])));
+    g.circle(pstar.0,pstar.1,5.0,"#ffffff","filter=\"url(#glow)\"");
+    g.text(pstar.0+9.0,pstar.1-4.0,10.5,"#ffffff","start","700","x*");
+    g.text(x0+18.0,y0+ph-14.0,9.0,"#ff6b78","start","500","● condena");
+    g.text(x0+pw-16.0,y0+ph-14.0,9.0,"#3ff090","end","500","absolución ●");
+    g.text(x0+pw-16.0,y0+42.0,8.5,"#8ff0ff","end","500","— frontera P=0.5");
 
-    let (x0,y0)=(col(2.0),row(0.0)); g.rect(x0,y0,pw,ph,"#0d1420","#1e2a38");
-    g.text(x0+14.0,y0+22.0,12.0,"#cfe0ee","start","Colegialidad ⋂R_i (I.8)");
-    let bw=54.0; let base_y=y0+ph-40.0; let bh=ph-80.0; let cols=[red,org,grn];
+    // ===== Panel 3: Colegialidad ⋂R_i =====
+    let (x0,y0)=(col(2.0),row(0.0));
+    g.rect(x0,y0,pw,ph,"url(#pan)","#1e2c3d"); g.rrect(x0+14.0,y0+15.0,3.0,13.0,1.5,"#3ff090");
+    g.text(x0+24.0,y0+26.0,12.5,ink,"start","600","Colegialidad ⋂R_i (I.8)");
+    let base_y=y0+ph-46.0; let bh=ph-96.0;
+    for i in 0..=3 { let yy=base_y-(i as f64/3.0)*bh; g.line(x0+40.0,yy,x0+pw-20.0,yy,"#182533",1.0,""); }
+    let grads=["url(#bR)","url(#bO)","url(#bG)"]; let labc=["#ff8a94","#ffcf7a","#7ff0b0"]; let bw=48.0;
     for (i,(n,vol,_e)) in bft.iter().enumerate() {
-        let bx=x0+50.0+i as f64*80.0; let hgt=(*vol)*bh;
-        g.rect(bx,base_y-hgt,bw,hgt.max(0.5),cols[i],"none");
-        g.text(bx+bw/2.0,base_y-hgt-6.0,10.0,cols[i],"middle",&format!("{:.1}%",vol*100.0));
-        g.text(bx+bw/2.0,base_y+16.0,10.0,mut_,"middle",&format!("n={n}"));
+        let bx=x0+56.0+i as f64*82.0; let hgt=((*vol)*bh).max(2.0);
+        g.rrect(bx,base_y-hgt,bw,hgt,5.0,grads[i]);
+        g.text(bx+bw/2.0,base_y-hgt-8.0,11.0,labc[i],"middle","700",&format!("{:.1}%",vol*100.0));
+        g.text(bx+bw/2.0,base_y+18.0,10.0,mut_,"middle","500",&format!("n={n}"));
     }
-    g.text(x0+pw/2.0,y0+ph-8.0,9.0,mut_,"middle","% del volumen que sobrevive");
+    g.text(x0+pw/2.0,y0+ph-10.0,8.5,mut_,"middle","400","% del volumen factible que sobrevive");
 
-    let (x0,y0)=(col(0.0),row(1.0)); g.rect(x0,y0,pw,ph,"#0d1420","#1e2a38");
-    g.text(x0+14.0,y0+22.0,12.0,"#cfe0ee","start",&format!("Swarm Convergence ({} agentes)",swarm.len()));
+    // ===== Panel 4: Swarm Convergence =====
+    let (x0,y0)=(col(0.0),row(1.0));
+    g.rect(x0,y0,pw,ph,"url(#pan)","#1e2c3d"); g.rrect(x0+14.0,y0+15.0,3.0,13.0,1.5,"#9d8bff");
+    g.text(x0+24.0,y0+26.0,12.5,ink,"start","600",&format!("Swarm Convergence · {} agentes",swarm.len()));
+    let (gx,gy,gw2,gh2)=(x0+20.0,y0+44.0,pw-40.0,ph-78.0);
     let maxit=swarm.iter().map(|t|t.len()).max().unwrap_or(1) as f64 -1.0;
-    let palette=[acc,red,grn,org,vio,"#ff8fd0","#5ad1c9","#c9d15a"];
-    let sxp=|it:f64| x0+34.0 + (it/maxit.max(1.0))*(pw-50.0);
-    let syp=|p:f64| y0+ph-30.0 - p*(ph-60.0);
-    g.line(x0+34.0,syp(0.5),x0+pw-16.0,syp(0.5),"#26303c",1.0,"4,3");
+    for i in 0..=3 { let yy=gy+(i as f64/3.0)*gh2; g.line(gx,yy,gx+gw2,yy,"#152230",1.0,""); }
+    let sxp=|it:f64| gx+(it/maxit.max(1.0))*gw2; let syp=|p:f64| gy+(1.0-p)*gh2;
+    g.line(gx,syp(0.5),gx+gw2,syp(0.5),"#3a4657",1.0,"5,4");
+    let palette=["#4bc7ff","#ff6b78","#3ff090","#ffc061","#9d8bff","#ff8fd0","#5ad1c9","#c9d15a"];
     for (a,tr) in swarm.iter().enumerate() {
         let pts:Vec<(f64,f64)>=tr.iter().enumerate().map(|(it,p)|(sxp(it as f64),syp(*p))).collect();
-        g.polyline(&pts, palette[a%palette.len()], 1.6);
+        g.polyline(&pts,palette[a%palette.len()],1.7,"stroke-linejoin=\"round\" opacity=\"0.9\"");
     }
-    g.text(x0+pw-16.0,syp(0.5)-4.0,9.0,mut_,"end","umbral 0.5");
-    g.text(x0+pw-16.0,y0+ph-12.0,10.0,"#dfe8f0","end","→ x*");
+    g.text(gx+gw2,syp(0.5)-5.0,8.5,mut_,"end","400","umbral 0.5");
+    g.text(gx+gw2,y0+ph-12.0,10.0,ink,"end","700","→ x*");
 
-    let (x0,y0)=(col(1.0),row(1.0)); g.rect(x0,y0,pw,ph,"#0d1420","#1e2a38");
-    g.text(x0+pw/2.0,y0+24.0,12.0,"#cfe0ee","middle","Métricas (simulación)");
-    let rows=[("P(y*|x*)",format!("{:.3}",p_star)),
-              ("Presupuesto δ",format!("{:.3}",delta)),
-              ("Iteraciones",format!("{}",iters)),
-              ("Entropía H(Y|X)",format!("{:.3} bits",h_yx)),
-              ("Techo (Cota I.1)",format!("{:.3}",ceiling))];
-    for (i,(k,v)) in rows.iter().enumerate() {
-        let yy=y0+58.0+i as f64*36.0;
-        g.text(x0+18.0,yy,12.0,mut_,"start",k);
-        g.text(x0+pw-18.0,yy,13.0,if *k=="Techo (Cota I.1)"{org}else{acc},"end",v);
-        g.line(x0+18.0,yy+12.0,x0+pw-18.0,yy+12.0,"#161f2b",1.0,"");
+    // ===== Panel 5: Métricas =====
+    let (x0,y0)=(col(1.0),row(1.0));
+    g.rect(x0,y0,pw,ph,"url(#pan)","#1e2c3d"); g.rrect(x0+14.0,y0+15.0,3.0,13.0,1.5,acc);
+    g.text(x0+24.0,y0+26.0,12.5,ink,"start","600","Métricas de la simulación");
+    let rows=[("P(y*|x*)",format!("{:.3}",p_star),acc),
+              ("Presupuesto δ",format!("{:.3}",delta),acc),
+              ("Iteraciones",format!("{}",iters),acc),
+              ("Entropía H(Y|X)",format!("{:.3} bits",h_yx),acc),
+              ("Techo (Cota I.1)",format!("{:.3}",ceiling),"#ffc061")];
+    for (i,(k,v,c)) in rows.iter().enumerate() {
+        let yy=y0+62.0+i as f64*33.0;
+        g.text(x0+20.0,yy,11.5,"#9fb0c2","start","500",k);
+        g.text(x0+pw-20.0,yy,13.5,c,"end","700",v);
+        g.line(x0+20.0,yy+10.0,x0+pw-20.0,yy+10.0,"#152230",1.0,"");
     }
+    let by=y0+ph-28.0; let bw2=pw-40.0;
+    g.rrect(x0+20.0,by,bw2,8.0,4.0,"#152230");
+    g.rrect(x0+20.0,by,bw2*p_star.min(1.0),8.0,4.0,"url(#bC)");
+    let cxp=x0+20.0+bw2*ceiling.min(1.0);
+    g.line(cxp,by-3.0,cxp,by+11.0,"#ffc061",2.0,"");
+    g.text(x0+20.0,by-6.0,8.0,mut_,"start","400","P(y*)");
+    g.text(cxp,by-6.0,8.0,"#ffc061","middle","500","techo");
 
-    let (x0,y0)=(col(2.0),row(1.0)); g.rect(x0,y0,pw,ph,"#0d1420","#1e2a38");
-    g.text(x0+14.0,y0+22.0,12.0,"#cfe0ee","start","Cognitive Invariant Activation");
+    // ===== Panel 6: Cognitive Invariant Activation =====
+    let (x0,y0)=(col(2.0),row(1.0));
+    g.rect(x0,y0,pw,ph,"url(#pan)","#1e2c3d"); g.rrect(x0+14.0,y0+15.0,3.0,13.0,1.5,acc);
+    g.text(x0+24.0,y0+26.0,12.5,ink,"start","600","Cognitive Invariant Activation");
     for (i,(j,pct)) in act.iter().enumerate() {
-        let yy=y0+52.0+i as f64*44.0;
-        g.text(x0+16.0,yy,10.0,mut_,"start",BIAS_NAMES[*j]);
-        let barw=(pct/100.0)*(pw-70.0);
-        g.rect(x0+16.0,yy+6.0,pw-70.0,14.0,"#141c28","none");
-        g.rect(x0+16.0,yy+6.0,barw.max(0.0),14.0,acc,"none");
-        g.text(x0+pw-16.0,yy+17.0,11.0,acc,"end",&format!("{:.0}%",pct));
+        let yy=y0+54.0+i as f64*46.0;
+        g.text(x0+18.0,yy,10.0,"#9fb0c2","start","500",BIAS_NAMES[*j]);
+        let track=pw-74.0;
+        g.rrect(x0+18.0,yy+7.0,track,13.0,6.5,"#152230");
+        g.rrect(x0+18.0,yy+7.0,(track*pct/100.0).max(2.0),13.0,6.5,"url(#bC)");
+        g.text(x0+pw-16.0,yy+17.0,11.0,"#8fe0ff","end","700",&format!("{:.0}%",pct));
     }
-    g.text(x0+14.0,y0+ph-10.0,8.5,mut_,"start","activación = caída de P(y*) al ablacionar la dim (I.7)");
+    g.text(x0+18.0,y0+ph-12.0,8.0,mut_,"start","400","activación = caída de P(y*) al ablacionar la dim (I.7)");
 
     g.done()
 }
 
 // ------------------------------ export WASM ---------------------------------
-// Sin wasm-bindgen: la figura SVG se deja en un buffer estático y se pasa por
-// (puntero, longitud). budget_milli = budget*1000 ; het_centi = het*100.
 static mut SVG_BUF: Vec<u8> = Vec::new();
 
 #[no_mangle]
