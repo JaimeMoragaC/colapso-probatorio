@@ -99,6 +99,7 @@ pub struct RunOut {
     pub surf_z: Vec<Vec<f64>>,      // z[j][i] = P(absolución) en (u_i, v_j)
     pub xstar3: [f64;3],            // x* sobre la superficie (u,v,z)
     pub path3: Vec<[f64;3]>,        // trayectoria del ataque sobre la superficie
+    pub balls: Vec<f64>,            // muestra de casos: su P(absolución) (para la animación de bolas)
 }
 
 pub fn run(seed: u64, budget: f64, het: f64) -> RunOut {
@@ -197,9 +198,13 @@ pub fn run(seed: u64, budget: f64, het: f64) -> RunOut {
     let svg = render_svg(&kl_curve, &judge, &base, &xstar, &bft, &swarm, &act_pct,
                          p_star, delta, iters, h_yx, ceiling);
 
+    // muestra de casos para la animación de bolas (su veredicto bajo K_J)
+    let nb = 72usize;
+    let balls: Vec<f64> = (0..nb).map(|k| judge.prob(&pop[k * (pop.len()/nb)])).collect();
+
     RunOut { svg, kl_curve, swarm, bft, sigmas, activation: act_pct,
              p_base, p_star, iters, delta, h_yx, ceiling, kl_start, kl_final,
-             surf_ax, surf_z, xstar3, path3 }
+             surf_ax, surf_z, xstar3, path3, balls }
 }
 
 // ------------------------------ SVG premium (sin deps) ----------------------
@@ -406,7 +411,7 @@ pub fn to_json(o: &RunOut) -> String {
     s.push_str(&format!("\"xstar\":[{:.3},{:.3},{:.4}],", o.xstar3[0], o.xstar3[1], o.xstar3[2]));
     s.push_str("\"path\":[");
     for (i,p) in o.path3.iter().enumerate() { if i>0 { s.push(','); } s.push_str(&format!("[{:.3},{:.3},{:.4}]", p[0],p[1],p[2])); }
-    s.push_str("],\"kl\":[");
+    s.push_str(&format!("],\"balls\":[{}],\"kl\":[", f1(&o.balls, 4)));
     for (i,(e,k)) in o.kl_curve.iter().enumerate() { if i>0 { s.push(','); } s.push_str(&format!("[{},{:.5}]", e, k)); }
     s.push_str("],\"swarm\":[");
     for (i,tr) in o.swarm.iter().enumerate() { if i>0 { s.push(','); } s.push('['); s.push_str(&f1(tr,4)); s.push(']'); }

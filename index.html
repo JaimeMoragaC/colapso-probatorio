@@ -1028,26 +1028,67 @@ setInterval(()=>{
   const DARK={paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{color:'#8fa3b8',size:9,family:'monospace'},margin:{l:38,r:14,t:26,b:28}};
   const CFG={displayModeBar:false,responsive:true};
   function labels(){ lb.textContent=(bud.value/100).toFixed(2); lh.textContent=(het.value/100).toFixed(2); ls.textContent=sd.value; }
+  // ===== Decision Space: bolas en pseudo-3D (Canvas 2D, SIN WebGL) =====
+  let BALL=null;
   function surface(d){
-    // Contorno relleno 2D (SVG, SIN WebGL -> funciona en todo navegador). Misma superficie de decisión.
-    const heat={type:'contour',x:d.x,y:d.x,z:d.z,zmin:0,zmax:1,showscale:false,
-      colorscale:[[0,'#e8455a'],[0.32,'#7d2f3d'],[0.5,'#17212f'],[0.68,'#2f7a52'],[1,'#3ff090']],
-      contours:{coloring:'heatmap',showlines:false},line:{smoothing:1.1},hoverinfo:'skip'};
-    const bnd={type:'contour',x:d.x,y:d.x,z:d.z,showscale:false,hoverinfo:'skip',
-      contours:{coloring:'lines',start:0.5,end:0.5,size:1},line:{color:'#8ff0ff',width:2.5}};
-    const path={x:d.path.map(p=>p[0]),y:d.path.map(p=>p[1]),mode:'lines',line:{color:'#ffd24a',width:3,shape:'spline'},hoverinfo:'skip'};
-    const bs={x:[d.path[0][0]],y:[d.path[0][1]],mode:'markers',marker:{size:7,color:'#ffd24a',line:{color:'#0a0e14',width:1}},hoverinfo:'skip'};
-    const xs={x:[d.xstar[0]],y:[d.xstar[1]],mode:'markers+text',marker:{size:10,color:'#fff',line:{color:'#0a0e14',width:1.5}},text:['  x*'],textposition:'middle right',textfont:{color:'#fff',size:13,family:'monospace'},hoverinfo:'skip'};
-    Plotly.react('pI_surface',[heat,bnd,path,bs,xs],Object.assign({},DARK,{
-      title:{text:'Decision Boundary · P(absolución) sobre (rasgo 0, rasgo 1)',font:{size:10.5,color:'#d6e4f2'},x:0.03,xanchor:'left',y:0.98},
-      showlegend:false,
-      xaxis:{title:'rasgo 0',gridcolor:'#16212f',zeroline:false,constrain:'domain'},
-      yaxis:{title:'rasgo 1',gridcolor:'#16212f',zeroline:false,scaleanchor:'x',scaleratio:1},
-      margin:{l:44,r:16,t:30,b:36},
-      annotations:[{x:0.015,y:0.02,xref:'paper',yref:'paper',xanchor:'left',showarrow:false,
-        text:'rojo = condena · verde = absolución · línea = frontera P=0.5 · ▬ trayectoria del ataque → x*',
-        font:{size:8,color:'#66788c'}}]
-    }),CFG);
+    const host=document.getElementById('pI_surface'); if(!host) return;
+    if(!BALL){
+      host.style.position='relative';
+      host.innerHTML='<canvas style="width:100%;height:100%;display:block;border-radius:8px"></canvas>'
+        +'<div style="position:absolute;top:9px;left:13px;font:700 11px monospace;color:#d6e4f2;pointer-events:none">Decision Space · los casos buscan su veredicto</div>'
+        +'<div style="position:absolute;bottom:9px;left:13px;font:8.5px monospace;color:#66788c;pointer-events:none"><span style="color:#ff5e6c">●</span> condena&nbsp;&nbsp;<span style="color:#3ff090">●</span> absolución&nbsp;&nbsp;<span style="color:#ffd24a">●</span> enjambre del ataque &rarr; absolución</div>';
+      BALL={cv:host.querySelector('canvas'), ctx:host.querySelector('canvas').getContext('2d'), b:[], theta:0.7, atk:8};
+      anim();
+    }
+    seed(d);
+  }
+  function seed(d){
+    const pr=d.balls, B=BALL.b;
+    for(let i=0;i<pr.length;i++){
+      if(!B[i]){ const atk=i>=pr.length-8; B[i]={x:atk?-0.8:(Math.random()*2-1),y:Math.random()*1.4-0.7,z:Math.random()*2-1,vx:0,vy:0,vz:0}; }
+      B[i].p=pr[i];
+    }
+    B.length=pr.length; BALL.atk=Math.min(8,B.length);
+  }
+  function ballFill(ctx,x,y,r,hex){
+    const g=ctx.createRadialGradient(x-r*0.32,y-r*0.32,r*0.12,x,y,r);
+    g.addColorStop(0,'#ffffff'); g.addColorStop(0.28,hex); g.addColorStop(1,hex+'11');
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fill();
+  }
+  function pole(ctx,cx,cy,scale,f,th,px,hex,label){
+    const zr=px*Math.sin(th), s=f/(f+zr), sx=cx+px*Math.cos(th)*s*scale, R=30*s;
+    const g=ctx.createRadialGradient(sx,cy,2,sx,cy,R);
+    g.addColorStop(0,hex+'cc'); g.addColorStop(1,hex+'00');
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(sx,cy,R,0,6.2832); ctx.fill();
+    ctx.fillStyle=hex; ctx.font='700 '+Math.max(8,11*s).toFixed(0)+'px monospace'; ctx.textAlign='center';
+    ctx.fillText(label,sx,cy-R-4);
+  }
+  function anim(){
+    const S=BALL, ctx=S.ctx;
+    (function frame(){
+      const dpr=window.devicePixelRatio||1, W=S.cv.offsetWidth||600, H=S.cv.offsetHeight||400;
+      S.cv.width=W*dpr; S.cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+      ctx.fillStyle='#0a121d'; ctx.fillRect(0,0,W,H);
+      S.theta+=0.0035;
+      const cx=W/2, cy=H*0.54, scale=Math.min(W,H)*0.40, f=2.7, B=S.b, N=B.length;
+      for(let i=0;i<N;i++){ const b=B[i], atk=i>=N-S.atk, tx=atk?0.85:(b.p>=0.5?0.85:-0.85);
+        b.vx+=(tx-b.x)*0.006+(Math.random()-0.5)*0.004;
+        b.vy+=(0-b.y)*0.004+(Math.random()-0.5)*0.006;
+        b.vz+=(0-b.z)*0.004+(Math.random()-0.5)*0.006;
+        for(let j=i+1;j<N;j++){ const o=B[j], dx=b.x-o.x,dy=b.y-o.y,dz=b.z-o.z,d2=dx*dx+dy*dy+dz*dz+1e-3; if(d2<0.05){ const ff=0.0006/d2; b.vx+=dx*ff;b.vy+=dy*ff;b.vz+=dz*ff;o.vx-=dx*ff;o.vy-=dy*ff;o.vz-=dz*ff; } }
+        b.vx*=0.90;b.vy*=0.90;b.vz*=0.90; b.x+=b.vx;b.y+=b.vy;b.z+=b.vz;
+        if(b.x<-1.1){b.x=-1.1;b.vx*=-0.5;} if(b.x>1.1){b.x=1.1;b.vx*=-0.5;}
+        if(b.y<-0.72){b.y=-0.72;b.vy*=-0.5;} if(b.y>0.72){b.y=0.72;b.vy*=-0.5;}
+        if(b.z<-1.1){b.z=-1.1;b.vz*=-0.5;} if(b.z>1.1){b.z=1.1;b.vz*=-0.5;}
+      }
+      pole(ctx,cx,cy,scale,f,S.theta,-0.85,'#ff5e6c','CONDENA');
+      pole(ctx,cx,cy,scale,f,S.theta,0.85,'#2ddc78','ABSOLUCIÓN');
+      const P=[];
+      for(let i=0;i<N;i++){ const b=B[i], xr=b.x*Math.cos(S.theta)-b.z*Math.sin(S.theta), zr=b.x*Math.sin(S.theta)+b.z*Math.cos(S.theta), s=f/(f+zr); P.push({sx:cx+xr*s*scale,sy:cy+b.y*s*scale,s,zr,p:b.p,atk:i>=N-S.atk}); }
+      P.sort((a,b)=>b.zr-a.zr);
+      for(let k=0;k<P.length;k++){ const pt=P[k], r=Math.max(1.8,7.5*pt.s), hex=pt.atk?'#ffd24a':(pt.p>=0.5?'#3ff090':'#ff5e6c'); ballFill(ctx,pt.sx,pt.sy,r,hex); }
+      requestAnimationFrame(frame);
+    })();
   }
   function kl(d){
     const t={x:d.kl.map(p=>p[0]),y:d.kl.map(p=>p[1]),mode:'lines',fill:'tozeroy',fillcolor:'rgba(75,199,255,0.16)',line:{color:'#4bc7ff',width:2.4,shape:'spline'},hoverinfo:'skip'};
@@ -1088,7 +1129,7 @@ setInterval(()=>{
         const ptr=W.render_data_wasm((+sd.value)>>>0, Math.round(bud.value*10), (+het.value));
         const d=JSON.parse(new TextDecoder().decode(new Uint8Array(W.memory.buffer, ptr, W.out_len())));
         surface(d); kl(d); swarm(d); bars(d); meta(d);
-        st.textContent='✓ recomputado en vivo · Rust→WASM + Plotly (2D, sin WebGL)';
+        st.textContent='✓ recomputado en vivo · Rust→WASM · bolas Canvas 3D + charts Plotly · sin WebGL';
       }catch(e){ st.textContent='error: '+e.message; }
     },12);
   }
