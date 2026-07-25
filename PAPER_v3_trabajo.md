@@ -37,6 +37,8 @@ Colapso probatorio e indefensión
 
 El reloj legal de la Ley 21.663 ya corre (tres horas para reportar el incidente a la ANCI). Pero el operador no sabe que fue vulnerado. Su ceguera no es un simple error de configuración: la infraestructura crítica basa su defensa en certificaciones de papel estáticas (ISO 27001 y las demás de su clase documental) y en herramientas de software que confían en registros manipulables. Ante un asedio dinámico en Ring-0, estas auditorías operan como una ficción jurídica que el atacante burla a voluntad.  La evidencia material simplemente no existe.
 
+**Pero el servidor es solo el primer eslabón.** Este documento demuestra que el mismo adversario autónomo que borra el testigo en el Ring-0 tiene un blanco más profundo y peor custodiado: no la prueba, sino la **mente del juez** que habrá de valorarla —su *función de decisión*, reducida a un sistema que se sondea y se resuelve como cualquier otro—. El arco que aquí se recorre va del milisegundo en la memoria a la sana crítica del magistrado (§8, Anexo I): **del silicio a la cognición**, el mismo vacío probatorio se reproduce en cada estrato.
+
 Y la salida de escape evidente —«que despliegue entonces atestación de *hardware*»— tampoco lo salva contra este vector, y conviene cerrarla antes de que alguien la ofrezca como coartada. 
 
 Supóngase que este operador no se hubiera conformado con papel: que hubiera instalado TPM 2.0 con arranque medido (measured boot), enclaves de cómputo confidencial (Intel SGX/TDX, AMD SEV-SNP), atestación remota IETF RATS y procedencia de compilación SLSA/Sigstore. Cada uno, con nombre y apellido, cae ante este ataque concreto:
