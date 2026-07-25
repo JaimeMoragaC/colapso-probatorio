@@ -480,7 +480,7 @@
     <div class="p" data-sec="I.3" style="border-left:4px solid var(--cyan); background:var(--bg2)">
       <div class="pt" style="font-size:10px;color:var(--cyan)">★ EXPERIMENTO ANEXO I · Adversarial Oracle Extraction contra K_J — EN VIVO (Rust &rarr; WebAssembly)</div>
       <div style="font-size:10.5px;color:var(--ink2);line-height:1.45;margin:6px 0 8px">
-        Esta figura la computa <b>el mismo código Rust</b> compilado a <b>WebAssembly</b>, en tu navegador — no un JavaScript que la finge. Mueve los parámetros y se <b>recalcula la simulación real</b>: surrogate <code>g_J</code>, ataque black-box sobre <code>N(x)</code>, colapso de colegialidad <code>&#8898;R&#7562;</code> (I.8), activación por ablación (I.7). <b>K_J es sintético</b> y así se declara (I.11).
+        Los datos los computa <b>el mismo código Rust</b> compilado a <b>WebAssembly</b> en tu navegador; los pinta <b>Plotly</b> (vendorizado, sin CDN externo). <b>Arrastra la superficie 3D para rotarla.</b> Mueve los parámetros y se <b>recalcula la simulación real</b>: surrogate <code>g_J</code>, ataque black-box sobre <code>N(x)</code>, colapso de colegialidad <code>&#8898;R&#7562;</code> (I.8), activación por ablación (I.7). <b>K_J es sintético</b> y así se declara (I.11).
       </div>
       <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:6px 0 10px">
         <label style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">Presupuesto δ de N(x): <b id="wLblBud" style="color:var(--sig)">0.90</b><br><input id="wBud" type="range" min="10" max="200" value="90" style="width:130px"></label>
@@ -488,8 +488,16 @@
         <label style="font-family:var(--mono);font-size:8.5px;color:var(--mut)">Semilla K_J: <b id="wLblSeed" style="color:var(--sig)">3141</b><br><input id="wSeed" type="range" min="1" max="9999" value="3141" style="width:130px"></label>
         <span id="wStatus" style="font-family:var(--mono);font-size:9px;color:var(--mut)">cargando WASM&hellip;</span>
       </div>
-      <div id="figIBox" style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
-        <img src="anexo_i_poc/figure.svg" alt="Figura del experimento Anexo I" style="width:100%;display:block">
+      <div id="figIBox">
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px">
+          <div id="pI_surface" style="height:400px;background:#0a121d;border:1px solid var(--line);border-radius:8px"></div>
+          <div id="pI_meta" style="background:#0a121d;border:1px solid var(--line);border-radius:8px;padding:14px"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px">
+          <div id="pI_kl" style="height:230px;background:#0a121d;border:1px solid var(--line);border-radius:8px"></div>
+          <div id="pI_swarm" style="height:230px;background:#0a121d;border:1px solid var(--line);border-radius:8px"></div>
+          <div id="pI_bars" style="background:#0a121d;border:1px solid var(--line);border-radius:8px;padding:14px"></div>
+        </div>
       </div>
       <div class="proof-run" style="margin-top:10px">cargo build --release --target wasm32-unknown-unknown --lib   #  el .wasm que corre aquí   ·   cargo run --release   #  nativo + CSVs</div>
     </div>
@@ -990,7 +998,7 @@ setInterval(()=>{
     pn.style.cursor = 'pointer';
     pn.addEventListener('click', (e) => {
       // no interferir con controles interactivos (botones, chips, enlaces, inputs, sliders)
-      if(e.target.closest('button, a, input, select, textarea, label, .axi, .btn')) return;
+      if(e.target.closest('button, a, input, select, textarea, label, .axi, .btn, #figIBox, canvas')) return;
       e.stopPropagation();                 // solo el panel más interno responde
       if(activeTipPanel === pn && docTip && docTip.classList.contains('active')){
         docTip.classList.remove('active'); activeTipPanel = null;   // toggle: cerrar
@@ -1008,33 +1016,79 @@ setInterval(()=>{
   });
 })();
 </script>
+<script src="vendor/plotly-gl3d.min.js"></script>
 <script>
-/* Loader del experimento Anexo I: instancia el .wasm (mismo Rust) y recomputa la figura en vivo. */
+/* Loader Anexo I: WASM (Rust) computa los datos; Plotly (vendorizado) pinta la superficie 3D + charts. */
 (function(){
-  const box=document.getElementById('figIBox'), st=document.getElementById('wStatus');
+  const st=document.getElementById('wStatus');
   const bud=document.getElementById('wBud'), het=document.getElementById('wHet'), sd=document.getElementById('wSeed');
   const lb=document.getElementById('wLblBud'), lh=document.getElementById('wLblHet'), ls=document.getElementById('wLblSeed');
-  if(!box||!bud) return;
+  if(!bud) return;
   let W=null, timer=null;
+  const DARK={paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{color:'#8fa3b8',size:9,family:'monospace'},margin:{l:38,r:14,t:26,b:28}};
+  const CFG={displayModeBar:false,responsive:true};
   function labels(){ lb.textContent=(bud.value/100).toFixed(2); lh.textContent=(het.value/100).toFixed(2); ls.textContent=sd.value; }
-  function draw(){
-    if(!W) return;
-    st.textContent='computando la simulación…';
-    setTimeout(()=>{
-      try{
-        const ptr=W.render_svg_wasm((+sd.value)>>>0, Math.round(bud.value*10), (+het.value));
-        const len=W.svg_len();
-        const svg=new TextDecoder().decode(new Uint8Array(W.memory.buffer, ptr, len));
-        box.innerHTML=svg;
-        st.textContent='✓ recomputado en vivo · Rust → WASM';
-      }catch(e){ st.textContent='error WASM: '+e.message; }
-    }, 12);
+  function surface(d){
+    const surf={type:'surface',x:d.x,y:d.x,z:d.z,cmin:0,cmax:1,showscale:false,opacity:0.98,
+      colorscale:[[0,'#e8455a'],[0.35,'#7d2f3d'],[0.5,'#17212f'],[0.65,'#2f7a52'],[1,'#3ff090']],
+      contours:{z:{show:true,start:0.5,end:0.5,size:1,color:'#8ff0ff',width:3}},
+      lighting:{ambient:0.72,diffuse:0.6,specular:0.12,roughness:0.55},hoverinfo:'skip'};
+    const path={type:'scatter3d',mode:'lines',x:d.path.map(p=>p[0]),y:d.path.map(p=>p[1]),z:d.path.map(p=>p[2]+0.01),line:{color:'#ffd24a',width:6},hoverinfo:'skip'};
+    const xs={type:'scatter3d',mode:'markers+text',x:[d.xstar[0]],y:[d.xstar[1]],z:[d.xstar[2]+0.03],marker:{size:4,color:'#fff'},text:['x*'],textfont:{color:'#fff',size:13},textposition:'top center',hoverinfo:'skip'};
+    Plotly.react('pI_surface',[surf,path,xs],{paper_bgcolor:'rgba(0,0,0,0)',margin:{l:0,r:0,t:0,b:0},showlegend:false,
+      scene:{xaxis:{title:'rasgo 0',color:'#5a6b7d',gridcolor:'#1a2634',backgroundcolor:'rgba(10,18,29,0.4)',showbackground:true},
+             yaxis:{title:'rasgo 1',color:'#5a6b7d',gridcolor:'#1a2634',backgroundcolor:'rgba(10,18,29,0.4)',showbackground:true},
+             zaxis:{title:'P(absol.)',range:[0,1],color:'#5a6b7d',gridcolor:'#1a2634',backgroundcolor:'rgba(10,18,29,0.4)',showbackground:true},
+             camera:{eye:{x:1.55,y:-1.7,z:0.95}},aspectratio:{x:1,y:1,z:0.55}}},CFG);
   }
-  function deb(){ labels(); clearTimeout(timer); timer=setTimeout(draw, 200); }
-  [bud,het,sd].forEach(el=>el.addEventListener('input', deb));
+  function kl(d){
+    const t={x:d.kl.map(p=>p[0]),y:d.kl.map(p=>p[1]),mode:'lines',fill:'tozeroy',fillcolor:'rgba(75,199,255,0.16)',line:{color:'#4bc7ff',width:2.4,shape:'spline'},hoverinfo:'skip'};
+    Plotly.react('pI_kl',[t],Object.assign({},DARK,{title:{text:'Surrogate Fidelity · D_KL(K_J‖g_J)',font:{size:10.5,color:'#d6e4f2'},x:0.03,xanchor:'left',y:0.97},
+      xaxis:{title:'época',gridcolor:'#16212f',zeroline:false},yaxis:{gridcolor:'#16212f',zeroline:false,rangemode:'tozero'}}),CFG);
+  }
+  function swarm(d){
+    const pal=['#4bc7ff','#ff6b78','#3ff090','#ffc061','#9d8bff','#ff8fd0','#5ad1c9','#c9d15a'];
+    const tr=d.swarm.map((s,i)=>({y:s,x:s.map((_,k)=>k),mode:'lines',line:{color:pal[i%8],width:1.6,shape:'spline'},hoverinfo:'skip',showlegend:false}));
+    const mx=Math.max.apply(null,d.swarm.map(s=>s.length))-1;
+    tr.push({x:[0,mx],y:[0.5,0.5],mode:'lines',line:{color:'#3a4657',width:1,dash:'dash'},hoverinfo:'skip',showlegend:false});
+    Plotly.react('pI_swarm',tr,Object.assign({},DARK,{title:{text:'Swarm Convergence · P(y*)',font:{size:10.5,color:'#d6e4f2'},x:0.03,xanchor:'left',y:0.97},
+      xaxis:{title:'iteración',gridcolor:'#16212f',zeroline:false},yaxis:{range:[0,1],gridcolor:'#16212f',zeroline:false}}),CFG);
+  }
+  const NB=['Anchoring','Confirmation','Framing','Availability'];
+  function barHTML(label,pct,color){ const p=Math.max(pct,0); return '<div style="margin:5px 0"><div style="display:flex;justify-content:space-between;font:600 9.5px monospace;color:#9fb0c2"><span>'+label+'</span><span style="color:'+color+'">'+(p<1?p.toFixed(2):p.toFixed(0))+'%</span></div><div style="height:12px;background:#152230;border-radius:6px;overflow:hidden;margin-top:2px"><div style="height:100%;width:'+Math.max(p,1)+'%;background:linear-gradient(90deg,'+color+'44,'+color+');border-radius:6px"></div></div></div>'; }
+  function bars(d){
+    let h='<div style="font:700 11px monospace;color:#d6e4f2;margin-bottom:6px">Colegialidad ⋂R_i (I.8)</div>';
+    const bc=['#ff6b78','#ffc061','#3ff090'];
+    d.bft.forEach(function(b,i){ h+=barHTML('n='+b[0], b[1]*100, bc[i]); });
+    h+='<div style="font:700 11px monospace;color:#d6e4f2;margin:12px 0 6px">Cognitive Invariant Activation (I.7)</div>';
+    d.act.forEach(function(a){ h+=barHTML(NB[a[0]], a[1], '#5ad1ff'); });
+    document.getElementById('pI_bars').innerHTML=h;
+  }
+  function meta(d){
+    const m=d.metrics;
+    const rows=[['P(y*|x*)',m.p_star.toFixed(3),'#5ad1ff'],['Presupuesto δ',m.delta.toFixed(3),'#5ad1ff'],['Iteraciones',m.iters,'#5ad1ff'],['Entropía H(Y|X)',m.h_yx.toFixed(3)+' bits','#5ad1ff'],['Techo (Cota I.1)',m.ceiling.toFixed(3),'#ffc061']];
+    let h='<div style="font:700 11px monospace;color:#d6e4f2;margin-bottom:10px">Métricas de la simulación</div>';
+    rows.forEach(function(r){ h+='<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #152230;font:12px monospace"><span style="color:#9fb0c2">'+r[0]+'</span><span style="color:'+r[2]+';font-weight:700">'+r[1]+'</span></div>'; });
+    h+='<div style="margin-top:14px"><div style="height:8px;background:#152230;border-radius:4px;position:relative"><div style="height:100%;width:'+(m.p_star*100).toFixed(1)+'%;background:linear-gradient(90deg,#25607f,#5ad1ff);border-radius:4px"></div><div style="position:absolute;top:-3px;left:'+(m.ceiling*100).toFixed(1)+'%;width:2px;height:14px;background:#ffc061"></div></div><div style="display:flex;justify-content:space-between;font:8px monospace;color:#66788c;margin-top:3px"><span>P(y*)</span><span style="color:#ffc061">techo '+m.ceiling.toFixed(3)+'</span></div></div>';
+    document.getElementById('pI_meta').innerHTML=h;
+  }
+  function draw(){
+    if(!W || !window.Plotly){ return; }
+    st.textContent='computando la simulación…';
+    setTimeout(function(){
+      try{
+        const ptr=W.render_data_wasm((+sd.value)>>>0, Math.round(bud.value*10), (+het.value));
+        const d=JSON.parse(new TextDecoder().decode(new Uint8Array(W.memory.buffer, ptr, W.out_len())));
+        surface(d); kl(d); swarm(d); bars(d); meta(d);
+        st.textContent='✓ recomputado en vivo · Rust→WASM + Plotly (arrastra el 3D para rotar)';
+      }catch(e){ st.textContent='error: '+e.message; }
+    },12);
+  }
+  function deb(){ labels(); clearTimeout(timer); timer=setTimeout(draw,220); }
+  [bud,het,sd].forEach(function(el){ el.addEventListener('input',deb); });
   fetch('anexo_i_poc/anexo_i.wasm').then(r=>r.arrayBuffer()).then(b=>WebAssembly.instantiate(b,{}))
-    .then(({instance})=>{ W=instance.exports; labels(); draw(); })
-    .catch(()=>{ st.textContent='WASM no disponible — se muestra la figura estática'; });
+    .then(function(res){ W=res.instance.exports; labels(); draw(); })
+    .catch(function(e){ st.textContent='WASM no disponible: '+e.message; });
 })();
 </script>
 </body>

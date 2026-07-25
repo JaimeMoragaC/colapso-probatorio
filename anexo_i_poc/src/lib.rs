@@ -95,6 +95,10 @@ pub struct RunOut {
     pub activation: Vec<(usize,f64)>,
     pub p_base: f64, pub p_star: f64, pub iters: usize, pub delta: f64,
     pub h_yx: f64, pub ceiling: f64, pub kl_start: f64, pub kl_final: f64,
+    pub surf_ax: Vec<f64>,          // eje u/v de la superficie de decisión
+    pub surf_z: Vec<Vec<f64>>,      // z[j][i] = P(absolución) en (u_i, v_j)
+    pub xstar3: [f64;3],            // x* sobre la superficie (u,v,z)
+    pub path3: Vec<[f64;3]>,        // trayectoria del ataque sobre la superficie
 }
 
 pub fn run(seed: u64, budget: f64, het: f64) -> RunOut {
@@ -175,11 +179,27 @@ pub fn run(seed: u64, budget: f64, het: f64) -> RunOut {
     let act_sum: f64 = activation.iter().map(|(_,a)| a).sum::<f64>().max(EPS);
     let act_pct: Vec<(usize,f64)> = activation.iter().map(|(j,a)| (*j, 100.0*a/act_sum)).collect();
 
+    // superficie de decisión (grid sobre dim0×dim1) para el render 3D del dashboard
+    let ng2 = 44usize; let srng = 2.9;
+    let surf_ax: Vec<f64> = (0..=ng2).map(|i| -srng + 2.0*srng*(i as f64/ng2 as f64)).collect();
+    let zat = |u:f64,v:f64| { let mut xx=base.clone(); xx[0]=u; xx[1]=v; judge.prob(&xx) };
+    let mut surf_z = vec![vec![0.0f64; ng2+1]; ng2+1];
+    for j in 0..=ng2 { for i in 0..=ng2 { surf_z[j][i] = zat(surf_ax[i], surf_ax[j]); } }
+    let cl = |f:f64| f.clamp(-srng, srng);
+    let xstar3 = [cl(xstar[0]), cl(xstar[1]), zat(cl(xstar[0]), cl(xstar[1]))];
+    let path3: Vec<[f64;3]> = (0..=22).map(|k| {
+        let t=k as f64/22.0;
+        let u=cl(base[0])+(cl(xstar[0])-cl(base[0]))*t;
+        let v=cl(base[1])+(cl(xstar[1])-cl(base[1]))*t;
+        [u, v, zat(u,v)]
+    }).collect();
+
     let svg = render_svg(&kl_curve, &judge, &base, &xstar, &bft, &swarm, &act_pct,
                          p_star, delta, iters, h_yx, ceiling);
 
     RunOut { svg, kl_curve, swarm, bft, sigmas, activation: act_pct,
-             p_base, p_star, iters, delta, h_yx, ceiling, kl_start, kl_final }
+             p_base, p_star, iters, delta, h_yx, ceiling, kl_start, kl_final,
+             surf_ax, surf_z, xstar3, path3 }
 }
 
 // ------------------------------ SVG premium (sin deps) ----------------------
@@ -374,14 +394,46 @@ fn render_svg(kl_curve:&[(usize,f64)], judge:&Judge, base:&[f64], xstar:&[f64],
     g.done()
 }
 
+// ------------------------------ serialización JSON (sin serde) --------------
+pub fn to_json(o: &RunOut) -> String {
+    let mut s = String::with_capacity(64_000);
+    let f1 = |v:&[f64], p:usize| v.iter().map(|x| format!("{:.*}", p, x)).collect::<Vec<_>>().join(",");
+    s.push('{');
+    s.push_str(&format!("\"x\":[{}],", f1(&o.surf_ax, 3)));
+    s.push_str("\"z\":[");
+    for (r,row) in o.surf_z.iter().enumerate() { if r>0 { s.push(','); } s.push('['); s.push_str(&f1(row,4)); s.push(']'); }
+    s.push_str("],");
+    s.push_str(&format!("\"xstar\":[{:.3},{:.3},{:.4}],", o.xstar3[0], o.xstar3[1], o.xstar3[2]));
+    s.push_str("\"path\":[");
+    for (i,p) in o.path3.iter().enumerate() { if i>0 { s.push(','); } s.push_str(&format!("[{:.3},{:.3},{:.4}]", p[0],p[1],p[2])); }
+    s.push_str("],\"kl\":[");
+    for (i,(e,k)) in o.kl_curve.iter().enumerate() { if i>0 { s.push(','); } s.push_str(&format!("[{},{:.5}]", e, k)); }
+    s.push_str("],\"swarm\":[");
+    for (i,tr) in o.swarm.iter().enumerate() { if i>0 { s.push(','); } s.push('['); s.push_str(&f1(tr,4)); s.push(']'); }
+    s.push_str("],\"bft\":[");
+    for (i,(n,vol,ent)) in o.bft.iter().enumerate() { if i>0 { s.push(','); } s.push_str(&format!("[{},{:.4},{:.4}]", n, vol, ent)); }
+    s.push_str("],\"act\":[");
+    for (i,(j,pct)) in o.activation.iter().enumerate() { if i>0 { s.push(','); } s.push_str(&format!("[{},{:.2}]", j, pct)); }
+    s.push_str(&format!("],\"metrics\":{{\"p_star\":{:.4},\"delta\":{:.4},\"iters\":{},\"h_yx\":{:.4},\"ceiling\":{:.4}}}",
+        o.p_star, o.delta, o.iters, o.h_yx, o.ceiling));
+    s.push('}');
+    s
+}
+
 // ------------------------------ export WASM ---------------------------------
-static mut SVG_BUF: Vec<u8> = Vec::new();
+static mut OUT_BUF: Vec<u8> = Vec::new();
+
+#[no_mangle]
+pub extern "C" fn render_data_wasm(seed: u32, budget_milli: u32, het_centi: u32) -> *const u8 {
+    let o = run(seed as u64, budget_milli as f64 / 1000.0, het_centi as f64 / 100.0);
+    unsafe { OUT_BUF = to_json(&o).into_bytes(); OUT_BUF.as_ptr() }
+}
 
 #[no_mangle]
 pub extern "C" fn render_svg_wasm(seed: u32, budget_milli: u32, het_centi: u32) -> *const u8 {
     let svg = run(seed as u64, budget_milli as f64 / 1000.0, het_centi as f64 / 100.0).svg;
-    unsafe { SVG_BUF = svg.into_bytes(); SVG_BUF.as_ptr() }
+    unsafe { OUT_BUF = svg.into_bytes(); OUT_BUF.as_ptr() }
 }
 
 #[no_mangle]
-pub extern "C" fn svg_len() -> usize { unsafe { SVG_BUF.len() } }
+pub extern "C" fn out_len() -> usize { unsafe { OUT_BUF.len() } }
