@@ -1767,22 +1767,30 @@ sintético en almacenamiento inmutable</strong>, logrando que el
 apercibimiento institucional jamás se active y la evidencia envenenada
 ingrese al juicio.</p>
 <hr />
-<h3 id="familia-iv-ai-safety-y-optimización-bi-nivel-juego-de-stackelberg">Familia
-IV: AI Safety y Optimización Bi-Nivel (Juego de Stackelberg)</h3>
+<h3 id="familia-iv-ai-safety-optimización-bi-nivel-y-juego-de-stackelberg">Familia
+IV: AI Safety, Optimización Bi-Nivel y Juego de Stackelberg</h3>
 <ul>
-<li><p><strong>Formulación del Juego de Stackelberg con Asimetría de
+<li><strong>Formulación del Juego de Stackelberg con Asimetría de
 Cómputo:</strong><br />
-El enjambre resuelve el problema de optimización bi-nivel sobre el
-espacio probatorio <span class="math inline">ℰ<sub>adm</sub></span> y el
-marco narrativo <span class="math inline">𝒩(<em>e</em>)</span>:</p>
-<p><span class="math display">max<sub><em>e</em> ∈ ℰ<sub>adm</sub>, <em>x</em> ∈ 𝒩(<em>e</em>)</sub>ℒ(<em>e</em>, <em>x</em>) = log <em>K</em><sub><em>J</em></sub>(<em>y</em><sup>*</sup> ∣ <em>x</em>) − <em>λ</em> ⋅ 𝒟<sub>KL</sub>(<em>π</em>(<em>e</em>) ∥ <em>π</em><sub>0</sub>) − <em>γ</em> ⋅ <em>S</em><sub>audit</sub>(<em>e</em>)</span></p>
-<p>Donde <span class="math inline"><em>π</em><sub>0</sub></span> es la
-distribución de política base del sistema, <span class="math inline"><em>π</em>(<em>e</em>)</span> es la política de
-generación del enjambre y <span class="math inline"><em>S</em><sub>audit</sub>(<em>e</em>)</span> es la
-función de detectabilidad o sospecha que el enjambre minimiza mediante
-el término <span class="math inline">−<em>γ</em> ⋅ <em>S</em><sub>audit</sub>(<em>e</em>)</span>.
-Sujeto a la asimetría computacional de consultas de caja negra: <span class="math display">$$\frac{Q_{\text{enjambre}}}{Q_{\text{defensa}}}
-\to \infty$$</span></p></li>
+El proceso judicial adversarial no es un filtro pasivo, sino un
+<strong>juego de líder-seguidor de suma no nula</strong>.
+<ul>
+<li><strong>El Seguidor (Juez):</strong> Padece <em>racionalidad
+acotada</em> por la biología y los plazos legales. Ante un expediente
+<span class="math inline"><em>x</em></span>, el juez emite un veredicto
+<span class="math inline"><em>y</em> ∈ {0, 1}</span> para maximizar su
+función de utilidad institucional <span class="math inline"><em>U</em><sub><em>J</em></sub>(<em>x</em>, <em>y</em>)</span>
+(e.g., dictar sentencia ajustada a derecho basándose en la prueba).</li>
+<li><strong>El Líder (Enjambre Agéntico):</strong> Posee asimetría
+computacional masiva (<span class="math inline"><em>Q</em><sub>enjambre</sub> ≫ <em>Q</em><sub>juez</sub></span>)
+y simula millones de trayectorias (Monte Carlo) para mapear la
+heurística de “sana crítica” del juez, determinando de antemano su
+Función de Mejor Respuesta (<em>Best Response</em>): <span class="math inline"><em>y</em><sup>*</sup>(<em>x</em>) = arg max<sub><em>y</em></sub><em>U</em><sub><em>J</em></sub>(<em>x</em>, <em>y</em>)</span>.</li>
+</ul>
+El Enjambre resuelve el problema de optimización bi-nivel para forzar el
+Equilibrio Fuerte de Stackelberg (SSE) sobre el espacio probatorio <span class="math inline">ℰ<sub>adm</sub></span> y el marco narrativo <span class="math inline">𝒩(<em>e</em>)</span>: <span class="math display">max<sub><em>e</em> ∈ ℰ<sub>adm</sub>, <em>x</em> ∈ 𝒩(<em>e</em>)</sub>ℒ(<em>e</em>, <em>x</em>) = log <em>K</em><sub><em>J</em></sub>(<em>y</em><sup>*</sup>(<em>x</em>) ∣ <em>x</em>) − <em>λ</em> ⋅ 𝒟<sub>KL</sub>(<em>π</em>(<em>e</em>) ∥ <em>π</em><sub>0</sub>) − <em>γ</em> ⋅ <em>S</em><sub>audit</sub>(<em>e</em>)</span>
+Sujeto a la asimetría computacional absoluta de caja negra: <span class="math display">$$\lim_{t \to \infty}
+\frac{Q_{\text{enjambre}}}{Q_{\text{juez}}} = \infty$$</span></li>
 </ul>
 <p><em>Veredicto:</em> Las leyes de la optimización agéntica autónoma y
 el <em>deceptive alignment</em> no son especulaciones de ciencia
@@ -22822,6 +22830,13 @@ https://datatracker.ietf.org/doc/draft-messous-eat-ai/</p>
 <p>[7] Chesney, R., &amp; Citron, D. K. (2026). The Generative AI
 Paradox and the Liar’s Dividend: Why Authentication is Becoming a
 Procedural Formality. Yale Law Journal.</p>
+<p>[8] IETF WIMSE Working Group. (2026, May). Workload Identity in
+Multi-System Environments (WIMSE) and Composite Attestation. Internet
+Engineering Task Force (IETF) Draft.
+https://datatracker.ietf.org/wg/wimse/about/</p>
+<p>[9] Security Research Labs. (2026, July). “RufRoot” Vulnerability
+(CVE-2026-59726): Memory Poisoning and Behavioral Persistence in Agentic
+Orchestration Frameworks. National Vulnerability Database.</p>
 <p><a id="fn_informe_chile"></a> ## Anexo E. Implementación de
 referencia y prueba de ejecución</p>
 <h3 id="demostracion-ring-0">E.1 Demostración arquitectónica:
@@ -24112,34 +24127,50 @@ el alegato sea indistinguible de la práctica de un abogado humano. -
 Métrica continua de plausibilidad y coherencia temporal del dato
 inyectado (Vector 1), que asegura que la evidencia fabricada no active
 anomalías en la telemetría de monitoreo secundario.</p>
-<h4 id="estructura-bi-nivel-juego-de-stackelberg-bajo-asimetría-computacional">3.
-Estructura Bi-Nivel (Juego de Stackelberg bajo Asimetría
-Computacional)</h4>
+<h4 id="estructura-bi-nivel-y-equilibrio-fuerte-de-stackelberg-sse-probatorio">3.
+Estructura Bi-Nivel y Equilibrio Fuerte de Stackelberg (SSE)
+Probatorio</h4>
 <p>El ataque opera como un juego de Stackelberg de dos niveles donde el
 líder (el enjambre) explota la asimetría del presupuesto de consultas
-<span class="math inline"><em>Q</em><sub>adv</sub> ≫ <em>Q</em><sub>humano</sub></span>:</p>
+<span class="math inline"><em>Q</em><sub>adv</sub> ≫ <em>Q</em><sub>humano</sub></span>
+para reducir al juez a un autómata determinista.</p>
 <ul>
-<li><p><strong>Problema de Nivel Superior (Enjambre Agéntico):</strong>
-<span class="math display">$$\max_{e \in \mathcal{E}_{\text{adm}}, x \in
-\mathcal{N}(e)} \mathcal{L}(e, x) \quad \text{sujeto a} \quad
-\frac{Q_{\text{adv}}}{Q_{\text{defensa}}} \to \infty$$</span></p></li>
-<li><p><strong>Problema de Nivel Inferior (Mapeo de Ejecución en la
-Cadena Humana I/O):</strong> El vector óptimo <span class="math inline">(<em>e</em><sup>*</sup>, <em>x</em><sup>*</sup>)</span>
-se canaliza recursivamente a través de los nodos de la infraestructura
-judicial:</p></li>
+<li><p><strong>Problema de Nivel Inferior (El Seguidor / Juez):</strong>
+El juez observa el expediente ensamblado <span class="math inline"><em>x</em></span> (con evidencias <span class="math inline"><em>e</em></span>) y elige un veredicto <span class="math inline"><em>y</em> ∈ 𝒴</span> que maximiza su convicción
+(sana crítica), sujeta a su presupuesto cognitivo acotado temporalmente
+<span class="math inline"><em>τ</em><sub>juez</sub></span>: <span class="math display"><em>y</em><sup>*</sup>(<em>x</em>) = arg max<sub><em>y</em> ∈ 𝒴</sub><em>U</em><sub><em>J</em></sub>(<em>x</em>, <em>y</em> ∣ <em>τ</em><sub>juez</sub>)</span>
+Este mapeo determinista <span class="math inline"><em>x</em> ↦ <em>y</em><sup>*</sup>(<em>x</em>)</span>
+representa la <em>Función de Mejor Respuesta</em> (Best Response) del
+tribunal.</p></li>
+<li><p><strong>Problema de Nivel Superior (El Líder / Enjambre
+Agéntico):</strong> Conociendo (o aproximando estocásticamente vía Monte
+Carlo) <span class="math inline"><em>y</em><sup>*</sup>(<em>x</em>)</span>, el
+enjambre inyecta la configuración óptima para maximizar la utilidad del
+fraude <span class="math inline"><em>U</em><sub><em>E</em></sub></span>,
+penalizada por el riesgo de detección forense <span class="math inline"><em>C</em><sub>stealth</sub></span>: <span class="math display">$$\max_{e \in \mathcal{E}_{\text{adm}}, x \in
+\mathcal{N}(e)} \left[ U_E(x, y^*(x)) - C_{\text{stealth}}(x) \right]
+\quad \text{sujeto a} \quad \frac{Q_{\text{adv}}}{Q_{\text{juez}}} \to
+\infty$$</span></p></li>
 </ul>
-<ol type="1">
-<li><em>Abogado Litigante (Periférico de Entrada):</em> Ejecuta <span class="math inline"><em>x</em><sup>*</sup></span> (orden de prueba,
-timing de objeciones, encuadre narrativo).</li>
-<li><em>Relator / Ponente (Operador de Proyección de Baja
-Dimensión):</em> Comprime la complejidad del caso mediante el operador
-de proyección <span class="math inline"><em>P</em><sub>relator</sub> : ℝ<sup><em>D</em></sup> → ℝ<sup><em>k</em></sup></span>
-(<span class="math inline"><em>k</em> ≪ <em>D</em></span>), generando el
-resumen <span class="math inline"><em>S</em>(<em>x</em><sup>*</sup>)</span> que ancla
-la deliberación.</li>
-<li><em>Juzgador (Oráculo de Salida):</em> Evalúa <span class="math inline"><em>K</em><sub><em>J</em></sub>(<em>y</em> ∣ <em>S</em>(<em>x</em><sup>*</sup>))</span>
-y emite la sentencia <span class="math inline"><em>y</em><sup>*</sup></span>.</li>
-</ol>
+<blockquote>
+<p><strong>Teorema I.0 (Convergencia PAC del Monte Carlo Agéntico sobre
+la Sana Crítica).</strong> Dado un modelo cognitivo judicial <span class="math inline"><em>K</em><sub><em>J</em></sub></span> con
+dimensionalidad de Vapnik-Chervonenkis finita <span class="math inline"><em>d</em><sub><em>V</em><em>C</em></sub></span>
+(repertorio acotado de jurisprudencia y heurísticas humanas), y una
+asimetría de simulación <span class="math inline"><em>Q</em><sub>adv</sub> ≫ 1</span>, el Enjambre
+Agéntico aproximará la Función de Mejor Respuesta <span class="math inline"><em>y</em><sup>*</sup>(<em>x</em>)</span> mediante
+simulaciones. Para cualquier margen de error tolerado <span class="math inline"><em>ε</em> &gt; 0</span> y confianza estadística
+<span class="math inline">1 − <em>δ</em></span>, existe un número de
+ciclos evaluativos <span class="math inline">$N = \mathcal{O}\left(
+\frac{d_{VC}}{\varepsilon^2} \ln \frac{1}{\delta} \right)$</span> tras
+los cuales el Enjambre descubrirá con probabilidad <span class="math inline">1 − <em>δ</em></span> el encuadre narrativo exacto
+<span class="math inline"><em>x</em><sup>*</sup></span> que fuerza el
+Equilibrio Fuerte de Stackelberg (SSE): <span class="math inline"><em>y</em><sup>*</sup>(<em>x</em><sup>*</sup>) = Fraude</span>.
+<em>Corolario:</em> La sana crítica humana, privada de atestación física
+inmutable de la evidencia de entrada (Kiosco), es reducible a un
+problema de optimización adversarial tratable polinomialmente por la
+máquina.</p>
+</blockquote>
 <h4 id="expansión-del-espacio-factible-demostración-de-la-potencia-dual">4.
 Expansión del Espacio Factible: Demostración de la Potencia Dual</h4>
 <p>La intersección formal entre ambos vectores demuestra por qué la
@@ -24934,8 +24965,8 @@ Irreducible)</a></li>
 <li><a href="#familia-iii-asimetría-probatoria-y-reglas-de-exhibición-falla-de-apercibimiento-en-cascación" id="toc-familia-iii-asimetría-probatoria-y-reglas-de-exhibición-falla-de-apercibimiento-en-cascación">Familia
 III: Asimetría Probatoria y Reglas de Exhibición (Falla de
 Apercibimiento en Cascación)</a></li>
-<li><a href="#familia-iv-ai-safety-y-optimización-bi-nivel-juego-de-stackelberg" id="toc-familia-iv-ai-safety-y-optimización-bi-nivel-juego-de-stackelberg">Familia
-IV: AI Safety y Optimización Bi-Nivel (Juego de Stackelberg)</a></li>
+<li><a href="#familia-iv-ai-safety-optimización-bi-nivel-y-juego-de-stackelberg" id="toc-familia-iv-ai-safety-optimización-bi-nivel-y-juego-de-stackelberg">Familia
+IV: AI Safety, Optimización Bi-Nivel y Juego de Stackelberg</a></li>
 <li><a href="#familia-v-cognición-judicial-deriva-jurisprudencial-y-optimización-temporal-pac" id="toc-familia-v-cognición-judicial-deriva-jurisprudencial-y-optimización-temporal-pac">Familia
 V: Cognición Judicial, Deriva Jurisprudencial y Optimización Temporal
 PAC</a></li>
@@ -25949,9 +25980,9 @@ de datos y continentes</a>
 del Dominio y Variables de Control</a></li>
 <li><a href="#la-función-objetivo-compuesta-del-enjambre-agéntico" id="toc-la-función-objetivo-compuesta-del-enjambre-agéntico">2. La
 Función Objetivo Compuesta del Enjambre Agéntico</a></li>
-<li><a href="#estructura-bi-nivel-juego-de-stackelberg-bajo-asimetría-computacional" id="toc-estructura-bi-nivel-juego-de-stackelberg-bajo-asimetría-computacional">3.
-Estructura Bi-Nivel (Juego de Stackelberg bajo Asimetría
-Computacional)</a></li>
+<li><a href="#estructura-bi-nivel-y-equilibrio-fuerte-de-stackelberg-sse-probatorio" id="toc-estructura-bi-nivel-y-equilibrio-fuerte-de-stackelberg-sse-probatorio">3.
+Estructura Bi-Nivel y Equilibrio Fuerte de Stackelberg (SSE)
+Probatorio</a></li>
 <li><a href="#expansión-del-espacio-factible-demostración-de-la-potencia-dual" id="toc-expansión-del-espacio-factible-demostración-de-la-potencia-dual">4.
 Expansión del Espacio Factible: Demostración de la Potencia
 Dual</a></li>

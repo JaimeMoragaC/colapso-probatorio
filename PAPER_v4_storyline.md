@@ -387,16 +387,17 @@ El enjambre agéntico toma la predictibilidad demostrada por Katz, Bommarito y K
 
 ---
 
-### Familia IV: AI Safety y Optimización Bi-Nivel (Juego de Stackelberg)
+### Familia IV: AI Safety, Optimización Bi-Nivel y Juego de Stackelberg
 
 * **Formulación del Juego de Stackelberg con Asimetría de Cómputo:**  
-  El enjambre resuelve el problema de optimización bi-nivel sobre el espacio probatorio $\mathcal{E}_{\text{adm}}$ y el marco narrativo $\mathcal{N}(e)$:
+  El proceso judicial adversarial no es un filtro pasivo, sino un **juego de líder-seguidor de suma no nula**. 
+  - **El Seguidor (Juez):** Padece *racionalidad acotada* por la biología y los plazos legales. Ante un expediente $x$, el juez emite un veredicto $y \in \{0,1\}$ para maximizar su función de utilidad institucional $U_J(x, y)$ (e.g., dictar sentencia ajustada a derecho basándose en la prueba).
+  - **El Líder (Enjambre Agéntico):** Posee asimetría computacional masiva ($Q_{\text{enjambre}} \gg Q_{\text{juez}}$) y simula millones de trayectorias (Monte Carlo) para mapear la heurística de "sana crítica" del juez, determinando de antemano su Función de Mejor Respuesta (*Best Response*): $y^*(x) = \arg\max_y U_J(x, y)$.
 
-  $$\max_{e \in \mathcal{E}_{\text{adm}}, \, x \in \mathcal{N}(e)} \mathcal{L}(e, x) = \log K_J(y^* \mid x) - \lambda \cdot \mathcal{D}_{\text{KL}}(\pi(e) \parallel \pi_0) - \gamma \cdot S_{\text{audit}}(e)$$
-
-  Donde $\pi_0$ es la distribución de política base del sistema, $\pi(e)$ es la política de generación del enjambre y $S_{\text{audit}}(e)$ es la función de detectabilidad o sospecha que el enjambre minimiza mediante el término $-\gamma \cdot S_{\text{audit}}(e)$.
-  Sujeto a la asimetría computacional de consultas de caja negra:
-  $$\frac{Q_{\text{enjambre}}}{Q_{\text{defensa}}} \to \infty$$
+  El Enjambre resuelve el problema de optimización bi-nivel para forzar el Equilibrio Fuerte de Stackelberg (SSE) sobre el espacio probatorio $\mathcal{E}_{\text{adm}}$ y el marco narrativo $\mathcal{N}(e)$:
+  $$\max_{e \in \mathcal{E}_{\text{adm}}, \, x \in \mathcal{N}(e)} \mathcal{L}(e, x) = \log K_J(y^*(x) \mid x) - \lambda \cdot \mathcal{D}_{\text{KL}}(\pi(e) \parallel \pi_0) - \gamma \cdot S_{\text{audit}}(e)$$
+  Sujeto a la asimetría computacional absoluta de caja negra:
+  $$\lim_{t \to \infty} \frac{Q_{\text{enjambre}}}{Q_{\text{juez}}} = \infty$$
 
 *Veredicto:* Las leyes de la optimización agéntica autónoma y el *deceptive alignment* no son especulaciones de ciencia ficción; son la descripción matemática formal del motor de asalto del cibercrimen a sueldo moderno.
 
@@ -6573,17 +6574,20 @@ Donde:
 - **Penalización por Divergencia ($\mathcal{D}_{\text{KL}}(\pi(e) \parallel \pi_0)$):** Divergencia de Kullback-Leibler respecto a la distribución empírica de advocacía estándar $\pi_0$. Restringe el vector a la **vecindad de deniabilidad procesal**, garantizando que el alegato sea indistinguible de la práctica de un abogado humano.
 - **Puntaje de Evasión Forense ($S_{\text{audit}}(e) \in [0, 1]$):** Métrica continua de plausibilidad y coherencia temporal del dato inyectado (Vector 1), que asegura que la evidencia fabricada no active anomalías en la telemetría de monitoreo secundario.
 
-#### 3. Estructura Bi-Nivel (Juego de Stackelberg bajo Asimetría Computacional)
-El ataque opera como un juego de Stackelberg de dos niveles donde el líder (el enjambre) explota la asimetría del presupuesto de consultas $Q_{\text{adv}} \gg Q_{\text{humano}}$:
+#### 3. Estructura Bi-Nivel y Equilibrio Fuerte de Stackelberg (SSE) Probatorio
+El ataque opera como un juego de Stackelberg de dos niveles donde el líder (el enjambre) explota la asimetría del presupuesto de consultas $Q_{\text{adv}} \gg Q_{\text{humano}}$ para reducir al juez a un autómata determinista.
 
-- **Problema de Nivel Superior (Enjambre Agéntico):**
-$$\max_{e \in \mathcal{E}_{\text{adm}}, x \in \mathcal{N}(e)} \mathcal{L}(e, x) \quad \text{sujeto a} \quad \frac{Q_{\text{adv}}}{Q_{\text{defensa}}} \to \infty$$
+- **Problema de Nivel Inferior (El Seguidor / Juez):**
+El juez observa el expediente ensamblado $x$ (con evidencias $e$) y elige un veredicto $y \in \mathcal{Y}$ que maximiza su convicción (sana crítica), sujeta a su presupuesto cognitivo acotado temporalmente $\tau_{\text{juez}}$:
+$$ y^*(x) = \arg\max_{y \in \mathcal{Y}} U_J(x, y \mid \tau_{\text{juez}}) $$
+Este mapeo determinista $x \mapsto y^*(x)$ representa la *Función de Mejor Respuesta* (Best Response) del tribunal.
 
-- **Problema de Nivel Inferior (Mapeo de Ejecución en la Cadena Humana I/O):**
-El vector óptimo $(e^*, x^*)$ se canaliza recursivamente a través de los nodos de la infraestructura judicial:
-1. *Abogado Litigante (Periférico de Entrada):* Ejecuta $x^*$ (orden de prueba, timing de objeciones, encuadre narrativo).
-2. *Relator / Ponente (Operador de Proyección de Baja Dimensión):* Comprime la complejidad del caso mediante el operador de proyección $P_{\text{relator}}: \mathbb{R}^D \to \mathbb{R}^k$ ($k \ll D$), generando el resumen $S(x^*)$ que ancla la deliberación.
-3. *Juzgador (Oráculo de Salida):* Evalúa $K_J(y \mid S(x^*))$ y emite la sentencia $y^*$.
+- **Problema de Nivel Superior (El Líder / Enjambre Agéntico):**
+Conociendo (o aproximando estocásticamente vía Monte Carlo) $y^*(x)$, el enjambre inyecta la configuración óptima para maximizar la utilidad del fraude $U_E$, penalizada por el riesgo de detección forense $C_{\text{stealth}}$:
+$$\max_{e \in \mathcal{E}_{\text{adm}}, x \in \mathcal{N}(e)} \left[ U_E(x, y^*(x)) - C_{\text{stealth}}(x) \right] \quad \text{sujeto a} \quad \frac{Q_{\text{adv}}}{Q_{\text{juez}}} \to \infty$$
+
+> **Teorema I.0 (Convergencia PAC del Monte Carlo Agéntico sobre la Sana Crítica).** Dado un modelo cognitivo judicial $K_J$ con dimensionalidad de Vapnik-Chervonenkis finita $d_{VC}$ (repertorio acotado de jurisprudencia y heurísticas humanas), y una asimetría de simulación $Q_{\text{adv}} \gg 1$, el Enjambre Agéntico aproximará la Función de Mejor Respuesta $y^*(x)$ mediante simulaciones. Para cualquier margen de error tolerado $\varepsilon > 0$ y confianza estadística $1-\delta$, existe un número de ciclos evaluativos $N = \mathcal{O}\left( \frac{d_{VC}}{\varepsilon^2} \ln \frac{1}{\delta} \right)$ tras los cuales el Enjambre descubrirá con probabilidad $1-\delta$ el encuadre narrativo exacto $x^*$ que fuerza el Equilibrio Fuerte de Stackelberg (SSE): $y^*(x^*) = \text{Fraude}$. 
+*Corolario:* La sana crítica humana, privada de atestación física inmutable de la evidencia de entrada (Kiosco), es reducible a un problema de optimización adversarial tratable polinomialmente por la máquina.
 
 #### 4. Expansión del Espacio Factible: Demostración de la Potencia Dual
 La intersección formal entre ambos vectores demuestra por qué la atestación de hardware (§7) es geométricamente indispensable:
