@@ -719,7 +719,14 @@ Los nodos validadores, actuando con absoluta probidad técnica, verifican
 la validez de la firma atestada y aprueban el bloque con 100% de
 consenso honesto. <strong>El consenso BFT sobre TLS atestado no custodia
 la verdad fáctica: institucionaliza la falsedad inyectada en el bus de
-datos y la vuelve criptográficamente inimpugnable.</strong></p>
+datos y la vuelve criptográficamente inimpugnable. Para el operador de
+justicia y el directorio corporativo, esto representa el colapso
+absoluto de la presunción de veracidad documental: el sistema no está
+custodiando el hecho material, sino blindando matemáticamente un
+perjurio digital. Presentar este registro ante un tribunal asumiendo su
+infalibilidad deja de ser un eximente de responsabilidad para
+convertirse —bajo el estándar de debida diligencia de la Ley 21.595— en
+la constatación probatoria de una negligencia sistémica.</strong></p>
 <p><em>Condición de Falsabilidad:</em> El ataque queda neutralizado
 únicamente si la captura del hecho y su procesamiento hash ocurren en un
 SoC monolítico donde el transductor analógico/óptico y el motor
@@ -788,8 +795,15 @@ sensores fuera de banda con Funciones Físicas Inclonables (PUFs) o
 Generadores Cuánticos de Números Aleatorios (QRNG) que aporten entropía
 física inaccesible desde el sistema comprometido. Si la fuente de
 aleatoriedad de referencia es inobservable para el enjambre, este no
-puede ajustar su distribución sintética a ella y la mímica se
-quiebra.</p>
+puede ajustar su distribución sintética a ella y la mímica se quiebra.
+<strong>En estrados, la capacidad del enjambre de saturar el canal con
+entropía sintética destruye la utilidad del peritaje informático
+tradicional. Si la huella de la intrusión es estocásticamente idéntica
+al ruido natural del sistema operativo, el estándar probatorio exigido
+para demostrar el eximente de responsabilidad se vuelve materialmente
+imposible de satisfacer, condenando al regulado a un <em>non liquet</em>
+probatorio que la legislación imputará a su propia falta de
+control.</strong></p>
 <hr />
 <h4 id="forense-post-incidente-en-sistemas-ciberfísicos-e-industriales-yaacoub-et-al.-2020">3.
 Forense Post-Incidente en Sistemas Ciberfísicos e Industriales (Yaacoub
@@ -870,7 +884,12 @@ inexistente debido a penalizaciones de latencia crítica. Al matizarlo,
 se demuestra que el enjambre ataca por SMM (Ring -2) precisamente porque
 sabe explotar la heterogeneidad del parque de hardware. En ambas
 condiciones, la metodología de Yaacoub et al. pierde su punto de apoyo
-físico.</p>
+físico. <strong>Jurídicamente, esto invalida al hipervisor y al sistema
+operativo como peritos válidos del incidente. Si la arquitectura
+industrial obliga al regulador o al tribunal a interrogar a un software
+de captura forense que corre sobre el mismo Ring-2 subvertido, la
+pericia resultante no es una investigación independiente, sino una
+declaración dictada por el propio atacante.</strong></p>
 <p><em>Condición de Falsabilidad:</em> La reconstrucción forense
 industrial solo es viable si la arquitectura incorpora de fábrica un
 <strong>Interpositor de Hardware Dedicado (FPGA/CPLD activo)</strong>
@@ -940,7 +959,14 @@ inmutablemente por 10 años, protegiendo con rigor militar y sanción
 penal la inmutabilidad perpetua de una mentira</strong>. Cuando el
 tribunal dicta la exhibición forzada bajo apercibimiento legal, la
 empresa entrega un link al bucket WORM matemáticamente inexpugnable,
-logrando que el tribunal valide una falsedad certificada en la nube.</p>
+logrando que el tribunal valide una falsedad certificada en la nube.
+<strong>Esta subversión destruye la doctrina procesal de la exhibición
+forzada: el custodio corporativo cumple con la orden judicial entregando
+prueba criptográficamente perfecta que es fidedignamente falsa. La
+asimetría ya no reside en el ocultamiento de la información, sino en el
+monopolio sobre el vector de envenenamiento (TOCTOU), configurando un
+escenario donde el cumplimiento formal del mandato judicial consuma el
+fraude procesal.</strong></p>
 <p><em>Condición de Falsabilidad:</em> La exhibición forzada recupera
 eficacia probatoria si la orden judicial exige que los registros
 exhibidos posean firmas criptográficas de origen adheridas por el sensor
@@ -1009,23 +1035,30 @@ Binding</em>) y el aislamiento de dominios de WebAuthn, puesto que la
 vulnerabilidad opera en el plano semántico: el navegador miente
 activamente al transductor biológico (el ojo humano). Proof.com
 certifica una estafa procesal perfecta ejecutada biológica y
-criptográficamente por la propia víctima. 3. <strong>El Descubrimiento
-del TOCTOU en la Capa Cognitiva (<em>Browser-Use Agents</em>) y
-Validación Cuantitativa (TOCTOU-Bench):</strong> La literatura de
-frontera (arXiv:2603.00476, febrero de 2026) demuestra la existencia de
-una ventana TOCTOU inherente en la automatización de navegadores web por
-parte de agentes de IA. Esto es empíricamente respaldado por el estudio
-<em>TOCTOU-Bench</em> (fines de 2025), el cual provee medición
-cuantitativa de cómo los Agentes LLM son incapaces de cerrar la brecha
-temporal entre la validación de un estado y la ejecución de una
-herramienta. Esta vulnerabilidad expande la tesis de subversión más allá
-del servidor Ring-0 hacia la asincronía del navegador del cliente:
-debido a la falta de primitivas atómicas de “verificación y uso” en
-interacciones web, el DOM evoluciona asíncronamente. En los milisegundos
-previos a la ejecución de la acción (“uso”), scripts maliciosos
-invisibles mutan el plano semántico de la página, induciendo al agente
-—o al usuario humano engañado visualmente— a firmar o validar un
-fraude.</p>
+criptográficamente por la propia víctima. <strong>Desde la dogmática
+civil, esto fractura el pilar del consentimiento informado y la fe
+pública delegada. El notario humano da fe de la identidad biológica de
+la parte, pero es el navegador asíncrono quien controla el plano
+semántico del contrato. Cuando el hardware sella a ciegas lo que la
+pantalla falsifica, la nulidad por vicio del consentimiento se vuelve
+indetectable, convirtiendo a la infraestructura de fe pública en el
+vehículo de su propia deslegitimación.</strong> 3. <strong>El
+Descubrimiento del TOCTOU en la Capa Cognitiva (<em>Browser-Use
+Agents</em>) y Validación Cuantitativa (TOCTOU-Bench):</strong> La
+literatura de frontera (arXiv:2603.00476, febrero de 2026) demuestra la
+existencia de una ventana TOCTOU inherente en la automatización de
+navegadores web por parte de agentes de IA. Esto es empíricamente
+respaldado por el estudio <em>TOCTOU-Bench</em> (fines de 2025), el cual
+provee medición cuantitativa de cómo los Agentes LLM son incapaces de
+cerrar la brecha temporal entre la validación de un estado y la
+ejecución de una herramienta. Esta vulnerabilidad expande la tesis de
+subversión más allá del servidor Ring-0 hacia la asincronía del
+navegador del cliente: debido a la falta de primitivas atómicas de
+“verificación y uso” en interacciones web, el DOM evoluciona
+asíncronamente. En los milisegundos previos a la ejecución de la acción
+(“uso”), scripts maliciosos invisibles mutan el plano semántico de la
+página, induciendo al agente —o al usuario humano engañado visualmente—
+a firmar o validar un fraude.</p>
 <p><em>Condición de Falsabilidad:</em> La firma notarial remota solo es
 epistémicamente válida si se ejecuta en terminales físicas provistas de
 módulos de firma con pantallas integradas físicamente aisladas
@@ -1621,7 +1654,13 @@ documental de la prueba. Al intentar tratar a un enjambre autónomo
 polimórfico como si fuera un “espectrómetro de masas” o un “test de ADN”
 analizable estáticamente, la dogmática procesal norteamericana incurrió
 en un anacronismo metodológico que la ha dejado ciega ante ataques
-cognitivos de caja negra en Ring-0.</p>
+cognitivos de caja negra en Ring-0. <strong>A nivel institucional, esta
+parálisis legislativa confirma el diagnóstico de obsolescencia jurídica:
+mientras las cortes debaten reglas de admisibilidad diseñadas para la
+Revolución Industrial, el cibercrimen explota los cimientos matemáticos
+de la arquitectura computacional, imponiendo un fraude masivo que el
+sistema de justicia es ontológicamente incapaz de nombrar, medir o
+detener.</strong></p>
 <hr />
 <h4 id="concepción-racionalista-de-la-prueba-taruffo-ferrer-beltrán-laudan-coloma-accatino-pearl">12.
 Concepción Racionalista de la Prueba (Taruffo, Ferrer Beltrán, Laudan,
@@ -1679,7 +1718,14 @@ Al operar estrictamente con proposiciones verdaderas, el ataque es
 legalmente inatacable bajo las reglas del debido proceso. La sana
 crítica racionalista del juez no descubre el engaño; se transforma en el
 procesador algorítmico que convalida la mutilación epistémica ejecutada
-por el cibercrimen.</p>
+por el cibercrimen. <strong>El resultado es la ruina dogmática del
+debido proceso: el tribunal emite una sentencia injusta no por falta de
+racionalidad, sino por un exceso de confianza ingenua en un corpus
+probatorio que fue diseñado estocásticamente para esclavizar su sana
+crítica. Legalmente, el juez y el directorio corporativo quedan
+prisioneros de una realidad sintética donde el cumplimiento impecable de
+las reglas procesales conduce, de forma infalible, a la impunidad del
+adversario.</strong></p>
 <hr />
 <h4 id="ciencia-cognitiva-y-predicción-judicial-guthrie-danziger-katzbommarito-kleinberg-ashley">13.
 Ciencia Cognitiva y Predicción Judicial (Guthrie, Danziger,
@@ -1738,7 +1784,15 @@ hallar el encuadre probatorio <span class="math inline"><em>x</em><sup>*</sup></
 probabilidad del veredicto deseado <span class="math inline"><em>y</em><sup>*</sup></span> e inyecta la prueba en
 el expediente. El juzgador biológico no actúa como un tercero imparcial:
 es transformado en el periférico de ejecución biológico que procesa el
-payload adversarial y firma la sentencia deseada por el cibercrimen.</p>
+payload adversarial y firma la sentencia deseada por el cibercrimen.
+<strong>Para las corporaciones y los organismos reguladores, esto sella
+el riesgo final. Proveer prueba o someterse al escrutinio de un tribunal
+hackeado cognitivamente anula cualquier garantía fiduciaria. Ya no basta
+con asegurar el perímetro de datos propios; si el vector cognitivo del
+juzgador puede ser saturado por el enjambre, la búsqueda de justicia se
+disuelve en una asimetría matemática, dejando a los sujetos regulados a
+merced de una extorsión institucional perfectamente
+automatizada.</strong></p>
 <hr />
 <hr />
 <h2 id="fase-2-formalización-matemática-rigurosa-de-las-familias-doctrinales">FASE
