@@ -4458,20 +4458,23 @@ repositorios de pruebas de concepto (PoC) indexados públicamente en
 plataformas como GitHub, constituyen el mayor compendio de historia
 ofensiva de la informática jamás reunido —y es de acceso libre—.</p>
 <p>El impacto regulatorio de esta convergencia es la destrucción
-termodinámica de la asimetría de costos. Un asedio que históricamente
-requería presupuestos de inteligencia estatal, hoy es ejecutado por un
-actor solitario utilizando simple inferencia de CPU sobre una
-<em>laptop</em> genérica de ofimática. Con ese equipo civil y el inmenso
-acervo público de <em>exploits</em>, el atacante instila el modelo de
-lenguaje en su RAM y produce, de forma continua y autónoma, variantes
-polimórficas de <em>zero-days</em> contra bancos, infraestructuras
-críticas y entidades reguladas, destrozando las firmas estáticas de los
-antivirus corporativos a costo marginal cero. Para el Directorio y su
-gerencia legal, esto aniquila cualquier defensa basada en el “caso
-fortuito”. El ataque catastrófico no es imprevisible; es un riesgo
-algorítmico comoditizado que corre en la mochila de un universitario.
-Ignorar esta asimetría material ya no es ignorancia técnica: configura
-una negligencia inexcusable sancionable por ley.</p>
+termodinámica de la asimetría de costos. Como advirtió fundacionalmente
+Ross Anderson (2001)<sup>[13]</sup>, la ciberseguridad no es un problema
+puramente técnico, sino económico: las defensas fallan ineludiblemente
+cuando el costo de atacar es marginalmente inferior al de defender. Un
+asedio que históricamente requería presupuestos de inteligencia estatal,
+hoy es ejecutado por un actor solitario utilizando simple inferencia de
+CPU sobre una <em>laptop</em> genérica de ofimática. Con ese equipo
+civil y el inmenso acervo público de <em>exploits</em>, el atacante
+instila el modelo de lenguaje en su RAM y produce, de forma continua y
+autónoma, variantes polimórficas de <em>zero-days</em> contra bancos,
+infraestructuras críticas y entidades reguladas, destrozando las firmas
+estáticas de los antivirus corporativos a costo marginal cero. Para el
+Directorio y su gerencia legal, esto aniquila cualquier defensa basada
+en el “caso fortuito”. El ataque catastrófico no es imprevisible; es un
+riesgo algorítmico comoditizado que corre en la mochila de un
+universitario. Ignorar esta asimetría material ya no es ignorancia
+técnica: configura una negligencia inexcusable sancionable por ley.</p>
 <p>Lo que Claude Mythos de Anthropic aportó no fue el conocimiento
 ofensivo —ese acervo ya era público e ilimitado—. Lo que aportó fue el
 motor cognitivo para industrializarlo a escala, permitiendo que un
@@ -5731,15 +5734,19 @@ corporativo chileno quedó atrapado en una tenaza estructural perfecta:
 por un lado, adversarios de velocidad algorítmica capaces de reescribir
 la realidad forense en tiempo de ejecución, reduciendo la telemetría
 <em>cloud</em> a una ilusión perfectamente
-documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. El propio
-simposio <em>USENIX Security</em> (2026)<sup>[12]</sup> demostró con el
-ataque “Download More RAM” que ni los hiperescalares son inmunes: al
-explotar buses de memoria física sin protección contra escritura, los
-enjambres eluden cualquier aislamiento del Ring-0 o <em>Confidential
-Computing</em>. Por el otro, el recordatorio brutal de que los
-servidores donde se almacenan esas ilusiones ni siquiera nos pertenecen,
-pudiendo ser desconectados en horas por un simple cambio de viento
-geopolítico.</p>
+documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. Aquí se
+materializa de forma letal el axioma fundacional de Ken Thompson
+(1984)<sup>[15]</sup>: <em>es imposible confiar en un software que no
+controlas directamente en un hardware de tu propiedad</em>. El propio
+simposio <em>USENIX Security</em> (2026)<sup>[12]</sup> probó
+empíricamente esta ley inmutable con el ataque “Download More RAM”,
+revelando que ni los hiperescalares son inmunes: al explotar buses de
+memoria física sin protección contra escritura, los enjambres eluden
+cualquier aislamiento del Ring-0 o <em>Confidential Computing</em>,
+usurpando el sustrato subyacente. Por el otro, el recordatorio brutal de
+que los servidores donde se almacenan esas ilusiones ni siquiera nos
+pertenecen, pudiendo ser desconectados en horas por un simple cambio de
+viento geopolítico.</p>
 <p>Construir una política nacional de ciberseguridad asumiendo que el
 adversario operará a velocidad humana y que la jurisdicción extranjera
 será eternamente benevolente ya no es optimismo tec nológico; a la luz
@@ -11558,11 +11565,17 @@ documental —es decir, revisar qué certificaciones tienen y asumir que
 eso basta—.</p>
 <p>Pero a medida que vas bajando de abstracción y miras la arquitectura
 real, te vas dando cuenta de que hay un abismo gigantesco entre lo que
-promete el contrato y lo que físicamente ocurre en el procesador. No
-quiero hacer de esto un tratado de criptografía ni mucho menos, pero es
-imposible entender el problema legal que enfrentan los directorios
-corporativos sin mirar, aunque sea por un momento, la asimetría física
-que hay detrás de la “nube”.</p>
+promete el contrato y lo que físicamente ocurre en el procesador. La
+nube moderna ha violado catastróficamente el principio sagrado del
+diseño seguro: la <em>Economía del Mecanismo</em> formulada por Saltzer
+y Schroeder (1975)<sup>[14]</sup>, que exige arquitecturas simples y
+auditables. Un clúster hiperescalar con millones de líneas de código y
+contenedores hiper-anidados garantiza matemáticamente la existencia de
+vulnerabilidades no documentadas (como <em>RufRoot</em> o el secuestro
+WIMSE). No quiero hacer de esto un tratado de criptografía ni mucho
+menos, pero es imposible entender el problema legal que enfrentan los
+directorios corporativos sin mirar, aunque sea por un momento, la
+asimetría física que hay detrás de la “nube”.</p>
 <p>Al final, lo que intento demostrar aquí no es una teoría de
 laboratorio o un escenario distópico; es algo que ya estamos viendo
 reventar, caso tras caso, tanto en los incidentes de la industria
@@ -22866,6 +22879,14 @@ Directive). Official Journal of the European Union. L 2024/2853.</p>
 <p>[12] Weissman, Z., et al. (2026, August). “Download More RAM”:
 Bypassing Ring-0 via Mutable DIMM Bus Exploitation. In 35th USENIX
 Security Symposium (USENIX Security 26).</p>
+<p>[13] Anderson, R. (2001). Why Information Security is Hard - An
+Economic Perspective. In Annual Computer Security Applications
+Conference (ACSAC). IEEE Computer Society.</p>
+<p>[14] Saltzer, J. H., &amp; Schroeder, M. D. (1975). The protection of
+information in computer systems. Proceedings of the IEEE, 63(9),
+1278-1308.</p>
+<p>[15] Thompson, K. (1984). Reflections on Trusting Trust.
+Communications of the ACM, 27(8), 761-763. Turing Award Lecture.</p>
 <p><a id="fn_informe_chile"></a> ## Anexo E. Implementación de
 referencia y prueba de ejecución</p>
 <h3 id="demostracion-ring-0">E.1 Demostración arquitectónica:
