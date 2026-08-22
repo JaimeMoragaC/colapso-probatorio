@@ -6021,6 +6021,10 @@ V. Informes técnicos y de inteligencia de amenazas
 
 [7] Chesney, R., & Citron, D. K. (2026). The Generative AI Paradox and the Liar’s Dividend: Why Authentication is Becoming a Procedural Formality. Yale Law Journal. 
 
+[8] IETF WIMSE Working Group. (2026, May). Workload Identity in Multi-System Environments (WIMSE) and Composite Attestation. Internet Engineering Task Force (IETF) Draft. https://datatracker.ietf.org/wg/wimse/about/
+
+[9] Security Research Labs. (2026, July). "RufRoot" Vulnerability (CVE-2026-59726): Memory Poisoning and Behavioral Persistence in Agentic Orchestration Frameworks. National Vulnerability Database.
+
 <a id="fn_informe_chile"></a>
 ## Anexo E. Implementación de referencia y prueba de ejecución
 
