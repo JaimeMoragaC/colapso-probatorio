@@ -466,7 +466,7 @@ PASO 1
 <strong>Marco de Apertura Institucional y Doctrina Mundial de
 Ciberseguridad</strong>
 <p>
-Exposición sistemática de los 11 modelos defensivos y doctrinas globales
+Exposición sistemática de los 12 modelos defensivos y doctrinas globales
 (Bengio 2026, CISA, NIST, SelectVote, Garfinkel, Yaacoub, DEESLR,
 Proof.com, Andrea Fortuna, Quinn Emanuel, Durand 2026, MintMCP/Kiteworks
 PCN, ZKP/AST, Jing Zhang/PunkGo).
@@ -513,7 +513,9 @@ Ring-0</strong>
 Inutilización de observabilidad (EDR/SIEM/SOC 2/ISO 27001), asimetría
 del tiempo de ataque vs. reporte legal (milisegundos vs. horas),
 envenenamiento ETL/KMS en RAM y la imputabilidad penal de directores
-bajo Ley 21.595, Ley 21.663 y NCG 502.
+bajo Ley 21.595, Ley 21.663 y NCG 502, agravada por la Directiva Europea
+2024/2853 (Responsabilidad de Producto) que consagra la responsabilidad
+civil por <em>model drift</em> agéntico incontrolado.
 </p>
 </div>
 </div>
@@ -1270,7 +1272,7 @@ e instrucciones - Arquitectura Harvard pura).</p>
 <hr />
 <h3 id="matriz-definitiva-de-falsabilidad-y-evaluación-económica">MATRIZ
 DEFINITIVA DE FALSABILIDAD Y EVALUACIÓN ECONÓMICA</h3>
-<p>La siguiente matriz sistematiza la evaluación de los 11 modelos del
+<p>La siguiente matriz sistematiza la evaluación de los 12 modelos del
 Vector I, incorporando las refutaciones de ingeniería de sistemas de la
 revisión destructiva Red Team:</p>
 <table>
@@ -1427,6 +1429,19 @@ Hardware Físico (<em>Air-Gapped</em>) que rompen la simetría
 in-memory.</td>
 <td style="text-align: left;">Costo medio (requiere bypass del
 hipervisor); <strong>100% Escalable por Red</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>12. NIST AI Forensics (Adversarial
+Observability)</strong></td>
+<td style="text-align: left;">Rastreabilidad del “Chain-of-Thought”
+(CoT) en RAM.</td>
+<td style="text-align: left;">Evaporación de memoria: La justificación
+de la acción agéntica reside en una capa efímera que el Enjambre
+destruye antes del vaciado (Core Dump).</td>
+<td style="text-align: left;">Captura estática del estado cognitivo
+mediante interbloqueo de memoria externa en placa.</td>
+<td style="text-align: left;">Costo alto (requiere infraestructura de
+captura física); <strong>Limitado a Kioscos Auditables</strong>.</td>
 </tr>
 </tbody>
 </table>
@@ -5716,10 +5731,15 @@ corporativo chileno quedó atrapado en una tenaza estructural perfecta:
 por un lado, adversarios de velocidad algorítmica capaces de reescribir
 la realidad forense en tiempo de ejecución, reduciendo la telemetría
 <em>cloud</em> a una ilusión perfectamente
-documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. Por el otro,
-el recordatorio brutal de que los servidores donde se almacenan esas
-ilusiones ni siquiera nos pertenecen, pudiendo ser desconectados en
-horas por un simple cambio de viento geopolítico.</p>
+documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. El propio
+simposio <em>USENIX Security</em> (2026) demostró con el ataque
+“Download More RAM” que ni los hiperescalares son inmunes: al explotar
+buses de memoria física sin protección contra escritura, los enjambres
+eluden cualquier aislamiento del Ring-0 o <em>Confidential
+Computing</em>. Por el otro, el recordatorio brutal de que los
+servidores donde se almacenan esas ilusiones ni siquiera nos pertenecen,
+pudiendo ser desconectados en horas por un simple cambio de viento
+geopolítico.</p>
 <p>Construir una política nacional de ciberseguridad asumiendo que el
 adversario operará a velocidad humana y que la jurisdicción extranjera
 será eternamente benevolente ya no es optimismo tec nológico; a la luz
@@ -22837,6 +22857,15 @@ https://datatracker.ietf.org/wg/wimse/about/</p>
 <p>[9] Security Research Labs. (2026, July). “RufRoot” Vulnerability
 (CVE-2026-59726): Memory Poisoning and Behavioral Persistence in Agentic
 Orchestration Frameworks. National Vulnerability Database.</p>
+<p>[10] National Institute of Standards and Technology (NIST). (2026,
+February). Adversarial Observability and Agentic Failures. NIST AI Agent
+Standards Initiative. https://www.nist.gov/itl/ai-agent-forensics/</p>
+<p>[11] European Parliament and Council. (2024). Directive (EU)
+2024/2853 on liability for defective products (Product Liability
+Directive). Official Journal of the European Union. L 2024/2853.</p>
+<p>[12] Weissman, Z., et al. (2026, August). “Download More RAM”:
+Bypassing Ring-0 via Mutable DIMM Bus Exploitation. In 35th USENIX
+Security Symposium (USENIX Security 26).</p>
 <p><a id="fn_informe_chile"></a> ## Anexo E. Implementación de
 referencia y prueba de ejecución</p>
 <h3 id="demostracion-ring-0">E.1 Demostración arquitectónica:

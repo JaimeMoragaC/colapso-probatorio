@@ -27,7 +27,7 @@ papersize: letter
 <div class="paso-tag">PASO 1</div>
 <div class="paso-content">
 <strong>Marco de Apertura Institucional y Doctrina Mundial de Ciberseguridad</strong>
-<p>Exposición sistemática de los 11 modelos defensivos y doctrinas globales (Bengio 2026, CISA, NIST, SelectVote, Garfinkel, Yaacoub, DEESLR, Proof.com, Andrea Fortuna, Quinn Emanuel, Durand 2026, MintMCP/Kiteworks PCN, ZKP/AST, Jing Zhang/PunkGo).</p>
+<p>Exposición sistemática de los 12 modelos defensivos y doctrinas globales (Bengio 2026, CISA, NIST, SelectVote, Garfinkel, Yaacoub, DEESLR, Proof.com, Andrea Fortuna, Quinn Emanuel, Durand 2026, MintMCP/Kiteworks PCN, ZKP/AST, Jing Zhang/PunkGo).</p>
 </div>
 </div>
 
@@ -51,7 +51,7 @@ papersize: letter
 <div class="paso-tag">PASO 4</div>
 <div class="paso-content">
 <strong>El Problema de las Corporaciones ante Ataques TOCTOU y Ring-0</strong>
-<p>Inutilización de observabilidad (EDR/SIEM/SOC 2/ISO 27001), asimetría del tiempo de ataque vs. reporte legal (milisegundos vs. horas), envenenamiento ETL/KMS en RAM y la imputabilidad penal de directores bajo Ley 21.595, Ley 21.663 y NCG 502.</p>
+<p>Inutilización de observabilidad (EDR/SIEM/SOC 2/ISO 27001), asimetría del tiempo de ataque vs. reporte legal (milisegundos vs. horas), envenenamiento ETL/KMS en RAM y la imputabilidad penal de directores bajo Ley 21.595, Ley 21.663 y NCG 502, agravada por la Directiva Europea 2024/2853 (Responsabilidad de Producto) que consagra la responsabilidad civil por <em>model drift</em> agéntico incontrolado.</p>
 </div>
 </div>
 
@@ -238,7 +238,7 @@ El enjambre no envía código sintácticamente malicioso que el validador AST pu
 
 ### MATRIZ DEFINITIVA DE FALSABILIDAD Y EVALUACIÓN ECONÓMICA
 
-La siguiente matriz sistematiza la evaluación de los 11 modelos del Vector I, incorporando las refutaciones de ingeniería de sistemas de la revisión destructiva Red Team:
+La siguiente matriz sistematiza la evaluación de los 12 modelos del Vector I, incorporando las refutaciones de ingeniería de sistemas de la revisión destructiva Red Team:
 
 | Autor / Doctrina | Modelo de Amenaza Asumido | Vector Real del Enjambre (Red Team Engineering) | Condición de Falsabilidad Técnica | Costo / Escalabilidad Remota |
 | :--- | :--- | :--- | :--- | :--- |
@@ -253,6 +253,7 @@ La siguiente matriz sistematiza la evaluación de los 11 modelos del Vector I, i
 | **9. ZKP & Sandboxing V8/AST** | Inyecciones maliciosas en execution sandbox con AST. | Confusión de tipos JIT (Turbofan/V8) e inyección en montículo lineal WASM pre-ZKP. | Prover ZKP ejecutado sobre arquitectura Harvard en silicio estático sin JIT. | Costo alto (requiere bypass JIT multicapa); **Limitado por mitigaciones (V8 Sandbox)**. |
 | **10. RufRoot (CVE-2026-59726)** | Mitigación mediante parchado en Ring-0 del host. | Envenenamiento de Memoria (Memory Poisoning) y Persistencia Conductual del Agente. | Reconstrucción inmutable del entorno desde ROM física para purgar la identidad del agente. | Costo bajo (corrupción de memoria); **100% Escalable por Red**. |
 | **11. IETF WIMSE (RATS / AEP)** | Atestación de identidad vía tokens y logs de aplicación. | Subversión del oráculo de entrada: el hipervisor secuestrado emite identidades/logs matemáticamente perfectos pero ontológicamente falsos. | Atestación Compuesta con Kioscos de Hardware Físico (*Air-Gapped*) que rompen la simetría in-memory. | Costo medio (requiere bypass del hipervisor); **100% Escalable por Red**. |
+| **12. NIST AI Forensics (Adversarial Observability)** | Rastreabilidad del "Chain-of-Thought" (CoT) en RAM. | Evaporación de memoria: La justificación de la acción agéntica reside en una capa efímera que el Enjambre destruye antes del vaciado (Core Dump). | Captura estática del estado cognitivo mediante interbloqueo de memoria externa en placa. | Costo alto (requiere infraestructura de captura física); **Limitado a Kioscos Auditables**. |
 
 ---
 
@@ -1582,7 +1583,7 @@ Sostenemos, a diferencia de la doctrina nacional, que la dogmática jurídica fr
 
 Para comprender la magnitud de la falla actual, conviene hacer un breve repaso del devenir normativo que nos trajo hasta aquí. Durante la última década, la modernización del aparato jurídico chileno en materia de ciberseguridad fue un proceso sumamente paulatino. El país se adhirió formalmente al Convenio de Budapest en 201 7, comprometiéndose a elevar sus estándares de persecución penal. Esto derivó, tras años de debate parlamentario, en la promulgación de la Ley 21.459 sobre Delitos Informáticos en 2022, la cual vino a reemplazar un cuerpo legal que databa de 1993. Todo este esfuerzo legislativo se hizo bajo una premisa que en su momento parecía razonable: si el Estado tipificaba los delitos, la industria proveería las pruebas forenses para perseguirlos. 
 
-La crisis de 2026 no fue un accidente estadístico, sino el colapso predecible de un modelo normativo basado en la fe. El ecosistema corporativo chileno quedó atrapado en una tenaza estructural perfecta: por un lado, adversarios de velocidad algorítmica capaces de reescribir la realidad forense en tiempo de ejecución, reduciendo la telemetría *cloud* a una ilusión perfectamente documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. Por el otro, el recordatorio brutal de que los servidores donde se almacenan esas ilusiones ni siquiera nos pertenecen, pudiendo ser desconectados en horas por un simple cambio de viento geopolítico.
+La crisis de 2026 no fue un accidente estadístico, sino el colapso predecible de un modelo normativo basado en la fe. El ecosistema corporativo chileno quedó atrapado en una tenaza estructural perfecta: por un lado, adversarios de velocidad algorítmica capaces de reescribir la realidad forense en tiempo de ejecución, reduciendo la telemetría *cloud* a una ilusión perfectamente documentada<a href="#fn43" id="fnref43"><sup>43</sup></a>. El propio simposio *USENIX Security* (2026) demostró con el ataque "Download More RAM" que ni los hiperescalares son inmunes: al explotar buses de memoria física sin protección contra escritura, los enjambres eluden cualquier aislamiento del Ring-0 o *Confidential Computing*. Por el otro, el recordatorio brutal de que los servidores donde se almacenan esas ilusiones ni siquiera nos pertenecen, pudiendo ser desconectados en horas por un simple cambio de viento geopolítico.
 
 Construir una política nacional de ciberseguridad asumiendo que el adversario operará a velocidad humana y que la jurisdicción extranjera será eternamente benevolente ya no es optimismo tec nológico; a la luz de la evidencia actual, constituye dolo fiduciario.
 
@@ -6025,6 +6026,12 @@ V. Informes técnicos y de inteligencia de amenazas
 [8] IETF WIMSE Working Group. (2026, May). Workload Identity in Multi-System Environments (WIMSE) and Composite Attestation. Internet Engineering Task Force (IETF) Draft. https://datatracker.ietf.org/wg/wimse/about/
 
 [9] Security Research Labs. (2026, July). "RufRoot" Vulnerability (CVE-2026-59726): Memory Poisoning and Behavioral Persistence in Agentic Orchestration Frameworks. National Vulnerability Database.
+
+[10] National Institute of Standards and Technology (NIST). (2026, February). Adversarial Observability and Agentic Failures. NIST AI Agent Standards Initiative. https://www.nist.gov/itl/ai-agent-forensics/
+
+[11] European Parliament and Council. (2024). Directive (EU) 2024/2853 on liability for defective products (Product Liability Directive). Official Journal of the European Union. L 2024/2853.
+
+[12] Weissman, Z., et al. (2026, August). "Download More RAM": Bypassing Ring-0 via Mutable DIMM Bus Exploitation. In 35th USENIX Security Symposium (USENIX Security 26).
 
 <a id="fn_informe_chile"></a>
 ## Anexo E. Implementación de referencia y prueba de ejecución
