@@ -97,9 +97,17 @@ Para evitar la falacia de la omnipotencia (*god-mode*) y sostener una postura t�
 
 ## FASE 1: ANÁLISIS INDIVIDUAL COMPLETO POR VECTORES Y TRABAJOS
 
+> *Para sostener la afirmación de que el modelo normativo actual está colapsado, no basta con citar incidentes. Es imperativo someter a la literatura defensiva de frontera a un escrutinio destructivo.*
+
+Esta primera fase ejecuta una revisión crítica y sistemática del estado del arte en ciberseguridad, derecho probatorio y ciencias cognitivas aplicadas. A través de la lente de la ingeniería destructiva (*Red Teaming*), se desarticulan los 12 modelos y doctrinas defensivas dominantes de la literatura académica y comercial (2025-2026). El objetivo de esta sección no es resumir estas obras, sino someterlas a estrés extremo frente a un adversario agéntico autónomo, demostrando cómo y por qué cada una de estas "soluciones" presenta fallas arquitectónicas insalvables. El análisis se bifurca en dos grandes frentes de subversión: el ataque al continente (el sustrato informático) y el ataque al contenido (la cognición del juzgador).
+
 ---
 
 ### VECTOR I: VULNERABILIDADES DEL SUSTRATO E INFRAESTRUCTURA DE SOFTWARE
+
+> *Si el sistema que audita el ataque corre en la misma memoria que el atacante ya conquistó, la auditoría es una ilusión perfectamente documentada.*
+
+El **Vector I** examina las vulnerabilidades inherentes a la infraestructura donde nacen, se procesan y se almacenan los datos. Esta sección deconstruye nueve arquitecturas defensivas de vanguardia —desde esquemas de Tolerancia a Fallas Bizantinas (BFT) y memorias WORM, hasta enclaves de Cómputo Confidencial (SGX/WASM) y modelos Zero-Knowledge (ZKP)—. La constante que unifica el fracaso empírico de todos estos sistemas es la ceguera de Ring-0 y la latencia TOCTOU (*Time-of-Check to Time-of-Use*): la incapacidad estructural del software de Capa 7 para certificar la realidad cuando el enjambre adversario controla el bus de memoria subyacente.
 
 ---
 
@@ -260,6 +268,10 @@ La siguiente matriz sistematiza la evaluación de los 12 modelos del Vector I, i
 ---
 
 ### VECTOR II: ATAQUES COGNITIVOS DE CAJA NEGRA SOBRE LA FUNCIÓN JUDICIAL $f_J$ (CON INPUTS VERDADEROS Y KERNEL LIMPIO)
+
+> *Cuando el sustrato de hardware resulta inexpugnable o la evidencia es criptográficamente perfecta, el enjambre cambia de plano. Ya no ataca al archivo; ataca a la mente que lo lee.*
+
+El **Vector II** abandona el estrato del código para ingresar al dominio de la epistemología procesal y las ciencias cognitivas. Si el Vector I trataba sobre cómo el atacante falsifica la prueba, este vector revela cómo el adversario instrumentaliza prueba *100% verídica y atestada* para forzar una sentencia predeterminada. Aquí se analizan las doctrinas fundacionales del *AI Safety* (Bengio/Brundage), las reglas de evidencia anglosajonas (FRE 707) y el racionalismo probatorio, demostrando que la función de decisión del juez ($f_J$) opera como una API estocástica de biología vulnerable, susceptible de ser sometida a ingeniería inversa mediante saturación de ruido cognitivo.
 
 ---
 
