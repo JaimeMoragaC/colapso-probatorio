@@ -806,7 +806,7 @@ Fíjese en lo que cada capa hace realmente. El TPM tradicional padece de ceguera
 
 ¿Cuál es la única configuración que resiste el asedio de un peritaje hostil? Separar físicamente la ejecución de la validación. Atestar la instrucción dinámica en el silicio, sí, pero *extrayendo la Raíz de Confianza (las llaves maestras y el motor de verificación) fuera del perímetro del proveedor de nube*, subordinándola a jurisdicción soberana. La física del microchip operará igual en cualquier latitud, pero la criptografía que audita a ese procesador no puede depender de un tercero que cobra por el servicio auditado. Solo al recuperar el control asimétrico de las llaves, el registro deja de ser una representación documental manipulable para convertirse en el hecho material mismo.
 
-### La Aniquilación del Estándar Documental: Dos Vectores de Ruptura Estructural
+### [PASO 3] Hito Mythos, Cibercrimen Organizado y Evolución Agéntica a Julio de 2026
 
 > *El andamiaje de confianza que sostuvo la ciberseguridad corporativa durante dos décadas fue pulverizado en 2026 por dos fuerzas asimétricas e incontenibles: la mutación polimórfica en memoria volátil y la interdependencia armada de la nube pública.*
 
@@ -2746,7 +2746,7 @@ Para que el agente adversario logre falsificar la evidencia en este nuevo escena
 
 La soberanía, por tanto, no exige que el silicio tenga pasaporte chileno; exige que la firma criptográfica sea materialmente inimpugnable. Al trasladar el campo de batalla desde la maleabilidad del software hacia la rigidez de la física, el operador no impide que el adversario intente el ataque, pero quiebra por completo el modelo de negocios que lo financiaba, garantizando que el crimen deje una huella forense que sobreviva a la intrusión.
 
-## 2. Definición del modelo de amenazas
+## 2. [PASO 1] Definición del modelo de amenazas y los 12 vectores defensivos
 
 > *No se puede legislar contra una amenaza que no se ha nombrado. Aquí se nombra: tres tipos, un mismo efecto —la evidencia deja de probar.*
 
@@ -3231,7 +3231,7 @@ Toda la arquitectura de fiscalización de la Ley 21.663, las multas de la Ley 21
 
 Dentro de sus propias reglas, el modelo de cumplimiento no tiene arreglo. Queda una última esperanza —las defensas que venden los hiperescalares—; el próximo capítulo las examina, y la Parte II muestra la salida real.
 
-## 4. Análisis crítico de las defensas hiperescalares
+## 4. [PASO 2] Análisis crítico de las defensas hiperescalares y fallas estructurales
 
 > *AWS, Google y Microsoft no venden mentiras. Venden algo peor: certezas que dejan de valer en el milisegundo exacto en que usted las necesita.*
 
@@ -4148,7 +4148,7 @@ Aceptar esta claudicación regulatoria no es un mero formalismo administrativo; 
 
 5. Vulneración irreversible del secreto de Estado y la bArquitectura de confianza cero en ejecución (*Zero-Trust Runtime*). Este marco erradica la dependencia epistémica en el software del proveedor. (1 y 4) La estandarización de IETF RATS y SCITT exige desplazar la raíz de confianza (*Root of Trust*) al silicio (TPM/DICE), impidiendo vectores TOCTOU; aplicar firmas post-cuánticas (ML-DSA) sin esta raíz física solo sella matemáticamente telemetría ya envenenada en origen (*Garbage In, Garbage Out*). (2 y 7) La soberanía criptográfica requiere retener el material de llaves fuera de la infraestructura de procesamiento (KMS externo) y someter los canales de actualización a control dual firmado, neutralizando el compromiso por *supply chain*. (3) Los enclaves TEE (SEV-SNP/TDX) aíslan la memoria del hipervisor, pero sin un canal seguro atestado, se vuelven una bóveda inauditable donde un agente adversarial puede operar invisibilizado frente al EDR. (5 y 6) La detección estocástica de anomalías y la minimización/restricción de egreso a nivel de *kernel* actúan como capas defensivas secundarias, indispensables pero inútiles si la atestación física base fue comprometida. y —sobre todo— cómo se cierra de verdad (Parte II).
 
-## 5. El cisma regulatorio global (Julio 2026): La abdicación del *compliance* de papel y la lección para Chile
+## 5. [PASO 4] El cisma regulatorio global: La corporación ante ataques TOCTOU y Ring-0
 
 > *En 2026, los reguladores del mundo empezaron a confesar en voz baja lo que este documento dice en voz alta. Aquí están esas confesiones.*
 
@@ -4263,7 +4263,7 @@ La distinción relevante no es el proveedor, sino el resultado: si la evidencia 
 
 <div style="page-break-before: always;"></div>
 
-## 7. Discusión y propuesta regulatoria
+## 7. [PASO 6] Discusión y propuesta regulatoria: Formalización Matemática y Silicio Soberano
 
 > *La solución no exige leyes nuevas. Exige algo más difícil: dejar de creerle a la máquina por costumbre.*
 
@@ -5140,7 +5140,7 @@ Este precedente internacional, trasladado a la jurisdicción chilena bajo la ple
 3. **La CMF como Gatillador Asimétrico:** En este escenario de alto riesgo penal, la Comisión para el Mercado Financiero (CMF) no necesita emitir regulaciones restrictivas *ex-ante*. Basta con que —apoyada en su potestad fiscalizadora, la NCG 502 y el marco Fintec— comience a exigir que las entidades financieras supervisadas presenten una **cadena de custodia criptográfica atestada por hardware** sobre las decisiones críticas que delegan a algoritmos autónomos en el SFA. 
 Ante la amenaza de inhabilitación y cárcel efectiva para gerentes por negligencia corporativa (Ley 21.595), y sin el blindaje del privilegio abogado-cliente (*Heppner*), las corporaciones chilenas se verán forzadas a abandonar los modelos opacos en la nube. Serán ellas mismas quienes, motivadas por el pánico patrimonial, demanden infraestructuras de **Atestación Soberana Anclada en Hardware**, transformando esta mitigación técnica en un estándar obligatorio de debida diligencia de mercado.
 
-## 8. Profundizaciones en la frontera entre la prueba y la máquina
+## 8. [PASO 5] El Naufragio de la Regla FRE 707 y la frontera entre la prueba y la máquina
 
 > *Queda una pregunta incómoda: si la salida es tan clara, ¿por qué nadie la exige? La respuesta no es técnica —es teoría de juegos.*
 
