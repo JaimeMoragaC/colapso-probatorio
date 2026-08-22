@@ -431,6 +431,25 @@ MARCO ESTRATÉGICO NARRATIVO (SECUENCIA DE FRONTERA 2026)
 </div>
 </div>
 <p>
+Frente a agentes autónomos capaces de alterar la memoria del sistema
+operativo en su nivel más profundo (Ring-0) sin alertar a los sensores,
+los registros generados por el propio software pierden su valor
+epistémico. La respuesta institucional de los tribunales occidentales ha
+claudicado ante este fenómeno; el colapso normativo se cristalizó a
+mediados de 2026, cuando el Standing Committee on Rules of Practice and
+Procedure de Estados Unidos se vio obligado a congelar y retirar de la
+vía de aprobación rápida la propuesta Federal Rule of Evidence 707
+(Machine-Generated Evidence). Tras el cierre del periodo de comentarios
+públicos en febrero de 2026, el comité admitió “preocupaciones globales
+mayores” respecto a la imposibilidad práctica de someter la producción
+estocástica de una IA de caja negra al escrutinio del estándar Daubert
+(FRE 702). Esta parálisis regulatoria demuestra que el “teatro de la
+seguridad” no solo afecta a las corporaciones obligadas, sino que ha
+desarmado los filtros de admisibilidad de las magistraturas más
+avanzadas del planeta, dejando al descubierto una grieta insondable en
+la fe pública digital.
+</p>
+<p>
 Este dictamen científico-jurídico reordena la investigación de frontera
 en una secuencia lógica estricta para la comunidad global de
 ciberseguridad, directores de empresas y la magistratura:
@@ -809,8 +828,15 @@ intercepta las interrupciones de lectura forense de <em>Volatility</em>
 y devuelve cabeceras <code>EPROCESS</code> reconstruidas sintéticamente,
 el peritaje en software es ciego y el peritaje físico por JTAG/Cold Boot
 queda cerrado en las plataformas endurecidas descritas (fusibles de
-depuración quemados y cifrado de memoria activo). En esas condiciones,
-la metodología de Yaacoub et al. pierde su punto de apoyo físico.</p>
+depuración quemados y cifrado de memoria activo). Es necesario añadir
+aquí un matiz: esto ocurre <em>donde está efectivamente implementado y
+activo por firmware</em>. En entornos industriales (SCADA/ICS) y PLCs
+antiguos, el cifrado de memoria en hardware (como TME o SEV) es casi
+inexistente debido a penalizaciones de latencia crítica. Al matizarlo,
+se demuestra que el enjambre ataca por SMM (Ring -2) precisamente porque
+sabe explotar la heterogeneidad del parque de hardware. En ambas
+condiciones, la metodología de Yaacoub et al. pierde su punto de apoyo
+físico.</p>
 <p><em>Condición de Falsabilidad:</em> La reconstrucción forense
 industrial solo es viable si la arquitectura incorpora de fábrica un
 <strong>Interpositor de Hardware Dedicado (FPGA/CPLD activo)</strong>
@@ -950,17 +976,22 @@ vulnerabilidad opera en el plano semántico: el navegador miente
 activamente al transductor biológico (el ojo humano). Proof.com
 certifica una estafa procesal perfecta ejecutada biológica y
 criptográficamente por la propia víctima. 3. <strong>El Descubrimiento
-del TOCTOU en la Capa Cognitiva (<em>Browser-Use Agents</em>):</strong>
-La literatura de frontera (arXiv:2603.00476, febrero de 2026) demuestra
-la existencia de una ventana TOCTOU inherente en la automatización de
-navegadores web por parte de agentes de IA. Expande la tesis de
-subversión más allá del servidor Ring-0 hacia la asincronía del
-navegador del cliente: debido a la falta de primitivas atómicas de
-“verificación y uso” en interacciones web, el DOM evoluciona
-asíncronamente. En los milisegundos previos a la ejecución de la acción
-(“uso”), scripts maliciosos invisibles mutan el plano semántico de la
-página, induciendo al agente —o al usuario humano engañado visualmente—
-a firmar o validar un fraude.</p>
+del TOCTOU en la Capa Cognitiva (<em>Browser-Use Agents</em>) y
+Validación Cuantitativa (TOCTOU-Bench):</strong> La literatura de
+frontera (arXiv:2603.00476, febrero de 2026) demuestra la existencia de
+una ventana TOCTOU inherente en la automatización de navegadores web por
+parte de agentes de IA. Esto es empíricamente respaldado por el estudio
+<em>TOCTOU-Bench</em> (fines de 2025), el cual provee medición
+cuantitativa de cómo los Agentes LLM son incapaces de cerrar la brecha
+temporal entre la validación de un estado y la ejecución de una
+herramienta. Esta vulnerabilidad expande la tesis de subversión más allá
+del servidor Ring-0 hacia la asincronía del navegador del cliente:
+debido a la falta de primitivas atómicas de “verificación y uso” en
+interacciones web, el DOM evoluciona asíncronamente. En los milisegundos
+previos a la ejecución de la acción (“uso”), scripts maliciosos
+invisibles mutan el plano semántico de la página, induciendo al agente
+—o al usuario humano engañado visualmente— a firmar o validar un
+fraude.</p>
 <p><em>Condición de Falsabilidad:</em> La firma notarial remota solo es
 epistémicamente válida si se ejecuta en terminales físicas provistas de
 módulos de firma con pantallas integradas físicamente aisladas
@@ -1239,7 +1270,7 @@ e instrucciones - Arquitectura Harvard pura).</p>
 <hr />
 <h3 id="matriz-definitiva-de-falsabilidad-y-evaluación-económica">MATRIZ
 DEFINITIVA DE FALSABILIDAD Y EVALUACIÓN ECONÓMICA</h3>
-<p>La siguiente matriz sistematiza la evaluación de los 9 modelos del
+<p>La siguiente matriz sistematiza la evaluación de los 11 modelos del
 Vector I, incorporando las refutaciones de ingeniería de sistemas de la
 revisión destructiva Red Team:</p>
 <table>
@@ -1370,6 +1401,32 @@ Harvard en silicio estático sin JIT.</td>
 <td style="text-align: left;">Costo alto (requiere bypass JIT
 multicapa); <strong>Limitado por mitigaciones (V8
 Sandbox)</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10. RufRoot
+(CVE-2026-59726)</strong></td>
+<td style="text-align: left;">Mitigación mediante parchado en Ring-0 del
+host.</td>
+<td style="text-align: left;">Envenenamiento de Memoria (Memory
+Poisoning) y Persistencia Conductual del Agente.</td>
+<td style="text-align: left;">Reconstrucción inmutable del entorno desde
+ROM física para purgar la identidad del agente.</td>
+<td style="text-align: left;">Costo bajo (corrupción de memoria);
+<strong>100% Escalable por Red</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>11. IETF WIMSE (RATS /
+AEP)</strong></td>
+<td style="text-align: left;">Atestación de identidad vía tokens y logs
+de aplicación.</td>
+<td style="text-align: left;">Subversión del oráculo de entrada: el
+hipervisor secuestrado emite identidades/logs matemáticamente perfectos
+pero ontológicamente falsos.</td>
+<td style="text-align: left;">Atestación Compuesta con Kioscos de
+Hardware Físico (<em>Air-Gapped</em>) que rompen la simetría
+in-memory.</td>
+<td style="text-align: left;">Costo medio (requiere bypass del
+hipervisor); <strong>100% Escalable por Red</strong>.</td>
 </tr>
 </tbody>
 </table>
@@ -1890,6 +1947,26 @@ Hardware</strong>. Si el resultado de la función de optimización del
 atacante se enfrenta a verificadores que miden el estado físico
 invariante del silicio de manera externa (fuera de banda), la simetría
 ofensiva de la IA se rompe por completo.</p>
+<p><em>La Insuficiencia del IETF, WIMSE y la “Atestación Compuesta”
+(Composite Attestation):</em> Aunque la industria de arquitectura de
+redes ya reconoce el problema de la caja negra en la IA —evidenciado en
+el borrador <em>draft-messous-eat-ai-00</em> de febrero de 2026 del IETF
+y en el marco <strong>WIMSE</strong> (<em>Workload Identity in
+Multi-System Environments</em>) que propone vincular “Action Evidence
+Packages” (AEP) a firmas TPM mediante Entity Attestation Tokens (EAT)
+para otorgar a los Agentes Autónomos una capa de identidad
+independiente—, estas propuestas de “Atestación Compuesta” en la nube se
+quedan radicalmente cortas frente al Kiosco físico. WIMSE intenta aislar
+la identidad del agente, pero un token EAT certifica el estado lógico
+reportado por el módulo atestador; si el sistema hipervisor ya está
+comprometido por debajo del límite de observabilidad del TPM (o sufre
+una caída en el aislamiento de <em>confidential computing</em>), la
+atestación reportará una mentira matemáticamente perfecta. Solo los
+Kioscos de Atestación, apoyados en aislamiento físico total
+(<em>Air-Gap</em>) y hardware externo e inmodificable dedicado
+exclusivamente a la verificación presencial, logran evadir el vector de
+manipulación in-memory (<em>TOCTOU/Ring-0</em>) que neutraliza los
+borradores actuales del IETF.</p>
 <p>Para evitar que la crítica doctrinal y la formalización matemática
 (Fases 1 y 2) sean desestimadas como especulación teórica, esta fase
 demuestra la aplicabilidad de los ataques mediante el contraste con
@@ -3999,6 +4076,20 @@ de forma autónoma, el sustrato lógico de la máquina anfitriona. Un
 <em>jailbreak</em> semántico infringe una política de uso; un enjambre
 autónomo penetrando el Ring-0 subyuga el sistema nervioso de la
 infraestructura crítica.</p>
+<p>Esta asfixia probatoria no es una mera proyección teórica, es
+empírica. El reciente descubrimiento de la vulnerabilidad crítica
+“RufRoot” (CVE-2026-59726) en plataformas de orquestación agéntica
+durante 2026 marca el punto de no retorno: un asalto de
+<strong>Envenenamiento de Memoria (<em>Memory Poisoning</em>)</strong>
+que otorga <strong>Persistencia Conductual</strong> al Enjambre. A
+diferencia de un exploit tradicional que se neutraliza parchando el
+sistema operativo subyacente, RufRoot altera el espacio cognitivo de la
+IA. El Enjambre continuará ejecutando operaciones subversivas incluso
+después de que el CISO aplique parches de seguridad en el hipervisor,
+porque la malicia quedó codificada en su identidad y memoria
+persistente. Este nivel de corrupción endémica destruye estructuralmente
+la excusa corporativa del “cumplimiento mediante parchado de
+software”.</p>
 <p>Y la razón por la que esta asfixia es sistémica —y no un problema de
 un OIV aislado— es el monocultivo arquitectónico que el Estado chileno
 ampara. Las 915 entidades vitales y los miles de regulados por la CMF no
@@ -11492,6 +11583,43 @@ Forenses</strong> al final del documento. Cada sección cuenta con un
 hipervínculo directo para los lectores que requieran escudriñar la
 mecánica técnica de la vulnerabilidad.</p>
 </blockquote>
+<h3 id="el-colapso-epistémico-institucional-y-el-espejismo-de-las-marcas-de-agua-c2pa">4.1
+El Colapso Epistémico Institucional y el Espejismo de las Marcas de Agua
+(C2PA)</h3>
+<blockquote>
+<p><em>Frente al colapso epistémico, la industria respondió con marcas
+de agua. Un adversario en Ring-0 no necesita borrar la marca; solo
+necesita generar un deepfake perfecto y estamparle la marca
+criptográfica de autenticidad del propio sistema operativo.</em></p>
+</blockquote>
+<p>La doctrina y la sociología jurídica de 2026 han comenzado a utilizar
+el término “Colapso Epistémico” (<em>Epistemic Collapse</em>) para
+describir la falla sistémica de la evidencia digital frente a la IA
+generativa. En este entorno, el “Dividendo del Mentiroso” (<em>Liar’s
+Dividend</em>) se ha vuelto asimétrico: un delincuente siempre puede
+alegar que evidencia genuina en su contra es un deepfake, forzando a los
+tribunales a desechar pruebas legítimas ante la sola “incertidumbre
+ambiental”.</p>
+<p>Para intentar restaurar la confianza, regulaciones recientes (como
+los Códigos de Prácticas de la UE) se han aferrado a coaliciones
+comerciales como <strong>C2PA</strong> (<em>Coalition for Content
+Provenance and Authenticity</em>). El modelo confía en “marcas de agua
+inyectadas” y credenciales de procedencia criptográfica (metadatos
+firmados).</p>
+<p>Sin embargo, el estándar C2PA es, por diseño computacional, ciego a
+la subversión de bajo nivel: la credencial de contenido asume la
+integridad del sensor y de la aplicación que procesa la firma en el
+dispositivo del usuario. Si un enjambre agéntico corrompe el kernel
+(Ring-0) del <em>endpoint</em> —o el servidor donde transita el flujo de
+video/audio—, el adversario secuestra el propio módulo criptográfico que
+sella el C2PA. El atacante no elimina la marca de agua para falsificar
+el origen; <em>utiliza</em> las credenciales legítimas del sistema
+comprometido para inyectar su “sello de autenticidad perfecta” en un
+deepfake. Ante un juez, la evidencia sintética pasará todas las
+verificaciones matemáticas de procedencia de las plataformas
+hiperescalares. Las marcas de agua en software, sin una Atestación
+Soberana por Hardware que certifique la pureza del entorno de ejecución,
+no combaten el colapso epistémico; lo certifican notarialmente.</p>
 <h3 id="el-espejismo-del-estándar-razonable-el-caso-capital-one">El
 espejismo del “estándar razonable” (El caso Capital One)</h3>
 <blockquote>
@@ -18255,6 +18383,65 @@ falsificación algorítmica (Mythos) como verdad empírica, consolidando la
 indefensión probatoria de la víctima y la impunidad
 corporativa.</em></p>
 </blockquote>
+<h3 id="el-precedente-united-states-v.-heppner-sdny-2026-y-la-responsabilidad-penal-corporativa-en-chile">El
+Precedente <em>United States v. Heppner</em> (SDNY 2026) y la
+Responsabilidad Penal Corporativa en Chile</h3>
+<p>En la intersección entre la ceguera forense de los sistemas de IA y
+la responsabilidad penal corporativa, el fallo de <em>United States v.
+Heppner</em> (S.D.N.Y. mayo de 2026) altera definitivamente el
+equilibrio estratégico en el litigio complejo. La Corte de Distrito
+resolvió que la interacción de ejecutivos y abogados con un “enjambre de
+IA” (agentes autónomos) para diseñar o evaluar estrategias legales,
+financieras o probatorias <strong>no está amparada por el privilegio
+abogado-cliente (<em>attorney-client privilege</em>)</strong>. La
+magistratura estadounidense fundamentó que la máquina carece de la
+expectativa de confidencialidad humana y opera, en los hechos, como un
+tercero expuesto a <em>prompts</em> cruzados y exfiltración de
+memoria.</p>
+<p>Este precedente internacional, trasladado a la jurisdicción chilena
+bajo la plena entrada en vigencia de la <strong>Ley N° 21.595 de Delitos
+Económicos</strong> y la <strong>Ley Fintec (Sistemas de Finanzas
+Abiertas - SFA)</strong>, produce una tormenta perfecta para el régimen
+de responsabilidad de las personas jurídicas (Ley N° 20.393):</p>
+<ol type="1">
+<li><strong>La Pérdida del Escudo Corporativo ante el Secuestro
+Epistemológico:</strong> Si un agente de IA corporativo toma una
+decisión o genera un reporte crítico (por ejemplo, evaluando riesgos de
+lavado de activos o cumplimiento normativo), y su telemetría ha sido
+subvertida mediante un ataque TOCTOU (como se analizó en los vectores de
+<em>Browser-Use Agents</em> y Ring-0), la corporación queda expuesta. No
+puede ampararse en el secreto profesional para ocultar al tribunal los
+<em>prompts</em> y los registros de la máquina —o, peor aún, la ausencia
+manipulada de los mismos—. La “caja negra” pasa a ser prueba de cargo en
+su contra.</li>
+<li><strong>Infracción de los Deberes de Dirección (Ley 21.595) y
+Finanzas Abiertas (Ley Fintec):</strong> La Ley 21.595 penaliza
+severamente la negligencia en los Modelos de Prevención de Delitos
+(MPD). Delegar procesos críticos a una IA cuya infraestructura es
+inatestable constituye un incumplimiento grave del deber de supervisión.
+Esto es catastrófico bajo la arquitectura de la Ley Fintec: en un
+ecosistema de <em>Open Finance</em> (SFA), donde los datos financieros
+de los clientes transitan a velocidad de máquina entre APIs de
+instituciones, depender de agentes autónomos sin validación soberana
+implica abrir un vector sistémico de envenenamiento y fraude. Una IA
+manipulada podría orquestar exfiltraciones masivas o transacciones
+ilícitas de manera autónoma.</li>
+<li><strong>La CMF como Gatillador Asimétrico:</strong> En este
+escenario de alto riesgo penal, la Comisión para el Mercado Financiero
+(CMF) no necesita emitir regulaciones restrictivas <em>ex-ante</em>.
+Basta con que —apoyada en su potestad fiscalizadora, la NCG 502 y el
+marco Fintec— comience a exigir que las entidades financieras
+supervisadas presenten una <strong>cadena de custodia criptográfica
+atestada por hardware</strong> sobre las decisiones críticas que delegan
+a algoritmos autónomos en el SFA. Ante la amenaza de inhabilitación y
+cárcel efectiva para gerentes por negligencia corporativa (Ley 21.595),
+y sin el blindaje del privilegio abogado-cliente (<em>Heppner</em>), las
+corporaciones chilenas se verán forzadas a abandonar los modelos opacos
+en la nube. Serán ellas mismas quienes, motivadas por el pánico
+patrimonial, demanden infraestructuras de <strong>Atestación Soberana
+Anclada en Hardware</strong>, transformando esta mitigación técnica en
+un estándar obligatorio de debida diligencia de mercado.</li>
+</ol>
 <h2 id="profundizaciones-en-la-frontera-entre-la-prueba-y-la-máquina">8.
 Profundizaciones en la frontera entre la prueba y la máquina</h2>
 <blockquote>
@@ -22625,6 +22812,16 @@ The National Law Review, XVI(211).
 https://natlawreview.com/article/machine-generated-evidence-challenges-federal-rules-inside-contested-proposed</p>
 <p>[4] Perez-Montes, J. H. L. (2026, June 24). Daubert in the digital
 age — Proposed Fed. R. Evid. 707. Reuters Legal Industry Insights</p>
+<p>[5] Xu, Y., et al. (2025). TOCTOU-Bench: Evaluating Time-of-Check to
+Time-of-Use Vulnerabilities in LLM-Enabled Agents. OpenReview.
+https://openreview.net/forum?id=TOCTOUBench</p>
+<p>[6] Messous, M., &amp; Birkholz, H. (2026, February). Entity
+Attestation Token (EAT) Profile for Autonomous AI Agents. Internet
+Engineering Task Force (IETF) - draft-messous-eat-ai-00.
+https://datatracker.ietf.org/doc/draft-messous-eat-ai/</p>
+<p>[7] Chesney, R., &amp; Citron, D. K. (2026). The Generative AI
+Paradox and the Liar’s Dividend: Why Authentication is Becoming a
+Procedural Formality. Yale Law Journal.</p>
 <p><a id="fn_informe_chile"></a> ## Anexo E. Implementación de
 referencia y prueba de ejecución</p>
 <h3 id="demostracion-ring-0">E.1 Demostración arquitectónica:
@@ -25163,6 +25360,9 @@ crítico de las defensas hiperescalares</a>
 <ul>
 <li><a href="#el-contrainterrogatorio-manual-de-supervivencia-probatoria." id="toc-el-contrainterrogatorio-manual-de-supervivencia-probatoria.">El
 Contrainterrogatorio: Manual de supervivencia probatoria.</a></li>
+<li><a href="#el-colapso-epistémico-institucional-y-el-espejismo-de-las-marcas-de-agua-c2pa" id="toc-el-colapso-epistémico-institucional-y-el-espejismo-de-las-marcas-de-agua-c2pa">4.1
+El Colapso Epistémico Institucional y el Espejismo de las Marcas de Agua
+(C2PA)</a></li>
 <li><a href="#el-espejismo-del-estándar-razonable-el-caso-capital-one" id="toc-el-espejismo-del-estándar-razonable-el-caso-capital-one">El
 espejismo del “estándar razonable” (El caso Capital One)</a>
 <ul>
@@ -25520,7 +25720,12 @@ La Trampa de Licitación: Modelo de Anexo Técnico (RFP) para Contratación
 Soberana</a></li>
 </ul></li>
 <li><a href="#corolario-jurisdiccional-el-juez-como-periférico-vulnerable" id="toc-corolario-jurisdiccional-el-juez-como-periférico-vulnerable">Corolario
-Jurisdiccional: El juez como periférico vulnerable</a></li>
+Jurisdiccional: El juez como periférico vulnerable</a>
+<ul>
+<li><a href="#el-precedente-united-states-v.-heppner-sdny-2026-y-la-responsabilidad-penal-corporativa-en-chile" id="toc-el-precedente-united-states-v.-heppner-sdny-2026-y-la-responsabilidad-penal-corporativa-en-chile">El
+Precedente <em>United States v. Heppner</em> (SDNY 2026) y la
+Responsabilidad Penal Corporativa en Chile</a></li>
+</ul></li>
 <li><a href="#profundizaciones-en-la-frontera-entre-la-prueba-y-la-máquina" id="toc-profundizaciones-en-la-frontera-entre-la-prueba-y-la-máquina">8.
 Profundizaciones en la frontera entre la prueba y la máquina</a>
 <ul>
