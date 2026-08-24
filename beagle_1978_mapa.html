@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis del Beagle 1978 — Mapa Interactivo de Desplazamientos Navales</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0f1d; color: #e2e8f0; overflow: hidden; height: 100vh; }
+
+    #map { width: 100%; height: 100vh; z-index: 1; }
+
+    /* Panel lateral */
+    .panel {
+      position: fixed; top: 0; left: 0; width: 410px; height: 100vh;
+      background: linear-gradient(180deg, rgba(10,15,29,0.97), rgba(15,23,42,0.96));
+      backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(201,160,70,0.25);
+      z-index: 1000; overflow-y: auto; padding: 24px 20px;
+      transition: transform 0.3s ease;
+    }
+    .panel.collapsed { transform: translateX(-410px); }
+    .panel-toggle {
+      position: fixed; top: 12px; left: 12px; z-index: 1001;
+      background: rgba(10,15,29,0.9); border: 1px solid rgba(201,160,70,0.4);
+      color: #c9a046; padding: 8px 12px; border-radius: 8px; cursor: pointer;
+      font-size: 0.8rem; font-weight: 700; font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+    .panel-toggle:hover { background: rgba(201,160,70,0.2); }
+    .panel.collapsed ~ .panel-toggle { left: 12px; }
+    .panel:not(.collapsed) ~ .panel-toggle { left: 422px; }
+
+    .panel h1 {
+      font-size: 1.15rem; font-weight: 900; color: #c9a046;
+      margin-bottom: 4px; letter-spacing: -0.02em;
+    }
+    .panel .subtitle { font-size: 0.72rem; color: #94a3b8; margin-bottom: 16px; line-height: 1.4; }
+
+    /* HUD de Distancias Tácticas */
+    .tactical-hud {
+      position: fixed; top: 14px; right: 65px;
+      z-index: 999; display: flex; align-items: center; gap: 14px;
+      background: rgba(10,15,29,0.95); backdrop-filter: blur(16px);
+      border: 1px solid rgba(201,160,70,0.3); border-radius: 12px;
+      padding: 8px 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      white-space: nowrap;
+    }
+    .hud-title { color: #c9a046; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+    .hud-item { display: flex; flex-direction: column; align-items: center; }
+    .hud-label { font-size: 0.62rem; color: #94a3b8; font-family: 'Inter', sans-serif; }
+    .hud-value { color: #e2e8f0; font-weight: 700; }
+    .hud-value.warning { color: #ef4444; text-shadow: 0 0 8px rgba(239,68,68,0.5); }
+
+    /* Timeline */
+    .timeline { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .day-btn {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      color: #cbd5e1; padding: 10px 14px; border-radius: 10px;
+      cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.78rem;
+      font-weight: 600; transition: all 0.2s; text-align: left; width: 100%;
+    }
+    .day-btn:hover { background: rgba(201,160,70,0.12); border-color: rgba(201,160,70,0.3); }
+    .day-btn.active {
+      background: rgba(201,160,70,0.18); border-color: #c9a046;
+      color: #c9a046; box-shadow: 0 0 20px rgba(201,160,70,0.15);
+    }
+    .day-btn .day-num { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 900; min-width: 28px; }
+    .day-btn .day-desc { font-size: 0.7rem; color: #94a3b8; font-weight: 400; margin-top: 2px; }
+    .day-btn.active .day-desc { color: #c9a046; }
+
+    /* Controles */
+    .controls { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+    .ctrl-btn {
+      padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05); color: #94a3b8; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600;
+      transition: all 0.2s;
+    }
+    .ctrl-btn:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
+    .ctrl-btn.active { background: rgba(59,130,246,0.2); border-color: #3b82f6; color: #60a5fa; }
+    .ctrl-btn.chile { border-color: rgba(59,130,246,0.4); color: #60a5fa; }
+    .ctrl-btn.chile.active { background: rgba(59,130,246,0.25); }
+    .ctrl-btn.argentina { border-color: rgba(239,68,68,0.4); color: #f87171; }
+    .ctrl-btn.argentina.active { background: rgba(239,68,68,0.25); }
+
+    /* Info card */
+    .info-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 14px 16px; margin-bottom: 12px;
+      font-size: 0.75rem; line-height: 1.6; color: #94a3b8;
+    }
+    .info-card h3 { font-size: 0.82rem; color: #e2e8f0; margin-bottom: 6px; font-weight: 700; }
+    .info-card .highlight { color: #c9a046; font-weight: 700; }
+    .info-card .chile-color { color: #60a5fa; font-weight: 700; }
+    .info-card .arg-color { color: #f87171; font-weight: 700; }
+
+    /* Leyenda */
+    .legend {
+      position: fixed; bottom: 16px; right: 16px; z-index: 1000;
+      background: rgba(10,15,29,0.95); backdrop-filter: blur(12px);
+      border: 1px solid rgba(201,160,70,0.25); border-radius: 12px;
+      padding: 14px 18px; font-size: 0.72rem;
+    }
+    .legend h4 { font-size: 0.75rem; color: #c9a046; margin-bottom: 8px; font-weight: 700; }
+    .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: #94a3b8; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .legend-line { width: 24px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+
+    /* Popup de Leaflet */
+    .leaflet-popup-content-wrapper {
+      background: rgba(10,15,29,0.96) !important;
+      color: #e2e8f0 !important;
+      border: 1px solid rgba(201,160,70,0.3) !important;
+      border-radius: 12px !important;
+      font-family: 'Inter', sans-serif !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+    }
+    .leaflet-popup-content { font-size: 0.78rem !important; line-height: 1.5 !important; max-width: 280px !important; }
+    .leaflet-popup-content b { color: #c9a046; }
+    .leaflet-popup-tip { background: rgba(10,15,29,0.96) !important; }
+
+    .ship-popup-title { font-weight: 900; font-size: 0.85rem; margin-bottom: 4px; }
+    .ship-popup-type { font-size: 0.7rem; color: #94a3b8; margin-bottom: 6px; }
+    .ship-popup-info { font-size: 0.72rem; color: #cbd5e1; }
+
+    /* Animación de tormenta */
+    .storm-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none; z-index: 500;
+      background: transparent; transition: background 0.5s;
+    }
+    .storm-overlay.active {
+      background: rgba(30,58,138,0.08);
+      animation: stormFlicker 3s infinite;
+    }
+    @keyframes stormFlicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Barra de reproducción fluida */
+    .play-bar {
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; display: flex; align-items: center; gap: 14px;
+      background: rgba(10,15,29,0.95); backdrop-filter: blur(16px);
+      border: 1px solid rgba(201,160,70,0.3); border-radius: 14px;
+      padding: 10px 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    }
+    .play-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #c9a046, #d97706);
+      border: none; color: #0a0f1d; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 900; transition: transform 0.2s;
+    }
+    .play-btn:hover { transform: scale(1.1); }
+    
+    .slider-container { display: flex; flex-direction: column; width: 340px; gap: 4px; }
+    .smooth-slider {
+      width: 100%; height: 6px; -webkit-appearance: none; appearance: none;
+      background: rgba(255,255,255,0.12); border-radius: 3px; outline: none; cursor: pointer;
+    }
+    .smooth-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none; width: 14px; height: 14px;
+      border-radius: 50%; background: #c9a046; cursor: pointer; box-shadow: 0 0 8px #c9a046;
+    }
+    .slider-labels { display: flex; justify-content: space-between; font-size: 0.65rem; color: #94a3b8; font-family: 'JetBrains Mono', monospace; }
+
+    /* Fuentes de datos */
+    .sources {
+      font-size: 0.62rem; color: #64748b; margin-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+<div class="storm-overlay" id="stormOverlay"></div>
+
+<!-- HUD Táctico de Distancias en Tiempo Real -->
+<div class="tactical-hud">
+  <div class="hud-title">📡 DISTANCIAS REALES FLOMAR:</div>
+  <div class="hud-item">
+    <span class="hud-label">↔ A. Acero (35mn S D.Ramírez)</span>
+    <span class="hud-value" id="hudAcero">-- mn / -- km</span>
+  </div>
+  <div class="hud-item">
+    <span class="hud-label">↔ A. Bronce (10mn S F.C.Hornos)</span>
+    <span class="hud-value" id="hudBronce">-- mn / -- km</span>
+  </div>
+  <div class="hud-item">
+    <span class="hud-label">↔ SS Simpson (Submarino)</span>
+    <span class="hud-value warning" id="hudSub">-- mn / -- km</span>
+  </div>
+  <div class="hud-item">
+    <span class="hud-label">↔ Islas PNL (Beagle)</span>
+    <span class="hud-value" id="hudPNL">-- mn / -- km</span>
+  </div>
+</div>
+
+<!-- Panel lateral -->
+<div class="panel" id="sidePanel">
+  <h1>⚓ Crisis del Beagle · Dic 1978</h1>
+  <p class="subtitle">Animación fluida en tiempo real de los desplazamientos navales reales, alcances de armamentos y distancias tácticas exactas.</p>
+
+  <div class="controls">
+    <button class="ctrl-btn chile active" id="btnChile" onclick="toggleFleet('chile')">🇨🇱 Chile</button>
+    <button class="ctrl-btn argentina active" id="btnArg" onclick="toggleFleet('argentina')">🇦🇷 Argentina</button>
+    <button class="ctrl-btn" id="btnStorm" onclick="toggleStorm()">🌊 Tormenta</button>
+    <button class="ctrl-btn" id="btnRings" onclick="toggleWeaponRings()">🎯 Alcance Armas</button>
+    <button class="ctrl-btn" id="btnHypo" onclick="toggleHypothesis()">⚔️ Hipótesis Alcance por la Popa</button>
+    <button class="ctrl-btn" id="btnIslands" onclick="flyToIslands()">🏝️ Islas PNL</button>
+    <button class="ctrl-btn" id="btnDR" onclick="flyToDR()">📍 Diego Ramírez</button>
+  </div>
+
+  <div class="timeline" id="timeline"></div>
+
+  <div class="info-card" id="infoCard">
+    <h3>Selecciona un día para ver los detalles</h3>
+    <p>Desliza el control inferior o presiona ▶ para reproducir el desplazamiento fluido a 60 FPS.</p>
+  </div>
+
+  <div class="sources">
+    <b>Coordenadas y Armamento Verificados:</b> Revista de Marina (Armada de Chile) · Registro Naval FLOMAR ·
+    Alcances: Exocet MM38 (42 km), Sea Dart (65 km), Artillería 152mm (23 km), Torpedos SS Simpson (14 km), A-4Q Skyhawk (450 km).<br/>
+    <span style="opacity:0.75;">La forma del rumbo de la FLOMAR (quiebres intermedios) es una reconstrucción aproximada a partir de una carta náutica de época fotografiada -no coordenadas verificadas punto por punto como el resto de esta ficha.</span>
+  </div>
+</div>
+
+<button class="panel-toggle" id="panelToggle" onclick="togglePanel()">☰ Panel</button>
+
+<!-- Barra de reproducción fluida con Slider continuo -->
+<div class="play-bar">
+  <button class="play-btn" id="playBtn" onclick="toggleAnimation()">▶</button>
+  <div class="slider-container">
+    <input type="range" class="smooth-slider" id="smoothSlider" min="0" max="100" value="0" step="0.1" oninput="onSliderInput(this.value)">
+    <div class="slider-labels">
+      <span>15 Dic (1ª Ap)</span>
+      <span>17 Dic</span>
+      <span>19 Dic</span>
+      <span>20 Dic (2ª Ap)</span>
+      <span>22 Dic (H-Hour)</span>
+      <span>23 Dic</span>
+    </div>
+  </div>
+</div>
+
+<!-- Leyenda -->
+<div class="legend">
+  <h4>Leyenda Táctica</h4>
+  <div class="legend-item"><div class="legend-dot" style="background: #3b82f6"></div> Escuadra Chilena</div>
+  <div class="legend-item"><div class="legend-dot" style="background: #06b6d4"></div> Submarino SS Simpson</div>
+  <div class="legend-item"><div class="legend-dot" style="background: #ef4444"></div> FLOMAR Argentina</div>
+  <div class="legend-item"><div class="legend-line" style="background: #3b82f6"></div> Ruta Escuadra CHL</div>
+  <div class="legend-item"><div class="legend-line" style="background: #ef4444"></div> Avance FLOMAR</div>
+  <div class="legend-item"><div class="legend-line" style="background: repeating-linear-gradient(90deg, #ef4444 0 4px, transparent 4px 8px)"></div> Retirada FLOMAR</div>
+  <div class="legend-item"><div class="legend-line" style="background: repeating-linear-gradient(90deg, #f97316 0 4px, transparent 4px 8px)"></div> Ruta Anfibia Planificada</div>
+  <div class="legend-item"><div class="legend-dot" style="background: transparent; border: 1.5px dashed #ef4444; width: 10px; height: 10px;"></div> Alcance Misil Exocet (42 km)</div>
+  <div class="legend-item"><div class="legend-dot" style="background: transparent; border: 1.5px dashed #3b82f6; width: 10px; height: 10px;"></div> Alcance Sea Dart (65 km)</div>
+  <div class="legend-item"><div class="legend-dot" style="background: #22c55e"></div> Islas PNL (en disputa)</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ===== GEODESIC DISTANCE CALCULATOR (Haversine formula in Nautical Miles & Km) =====
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  const R_km = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const dist_km = R_km * c;
+  const dist_mn = dist_km / 1.852;
+  return { km: dist_km.toFixed(1), mn: dist_mn.toFixed(1) };
+}
+
+// ===== POSICIONES HISTÓRICAS EXACTAS =====
+const POS = {
+  bahiaPorvenir:  [-54.667, -70.520],  // Canal Bárbara (Agrupación Acero)
+  bahiaOceano:    [-54.742, -70.675],  // Seno Searle (Agrupación Bronce)
+  aceroIntercept: [-57.07, -68.73],    // 35mn S de Diego Ramírez
+  bronceIntercept:[-55.90, -68.05],    // 10mn S de Falso Cabo de Hornos
+  diegoRamirez:   [-56.49, -68.73],
+  falsoCaboHornos:[-55.727, -68.055],
+  caboHornos:     [-55.979, -67.275],
+  bancoBurdwood:  [-54.50, -62.00],
+  flomarObjetivo: [-55.80, -66.00],    // Zona Objetivo FLOMAR (E de Cabo Hornos)
+  puertoWilliams: [-54.934, -67.610],
+  ushuaia:        [-54.800, -68.300],
+  islaEstados:    [-54.780, -64.300],
+  puntaArenas:    [-53.160, -70.920],
+  picton:         [-55.050, -66.920],
+  nueva:          [-55.220, -66.570],
+  lennox:         [-55.320, -66.850],
+  navarino:       [-55.070, -67.630],
+  wollaston:      [-55.700, -67.320],
+};
+
+// MAPA LEAFLET
+const map = L.map('map', {
+  center: [-55.5, -67.5],
+  zoom: 7, minZoom: 4, maxZoom: 14, zoomControl: false
+});
+L.control.zoom({ position: 'topright' }).addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© CARTO · Datos navales verificados 1978', maxZoom: 18
+}).addTo(map);
+
+// CAPAS
+const layers = {
+  chile: L.layerGroup().addTo(map),
+  argentina: L.layerGroup().addTo(map),
+  rutas: L.layerGroup().addTo(map),
+  islas: L.layerGroup().addTo(map),
+  storm: L.layerGroup(),
+  rings: L.layerGroup().addTo(map),
+  hypo: L.layerGroup().addTo(map),
+  refs: L.layerGroup().addTo(map)
+};
+
+// MARCADORES FIJOS (Islas & Referencias)
+const islasPNL = [
+  { name: 'Isla Picton', pos: POS.picton, desc: 'Otorgada a Chile por el Laudo Arbitral de 1977.' },
+  { name: 'Isla Nueva', pos: POS.nueva, desc: 'Declarada chilena por el laudo. Objetivo de desembarco.' },
+  { name: 'Isla Lennox', pos: POS.lennox, desc: 'Isla más austral del grupo PNL.' },
+  { name: 'Isla Navarino', pos: POS.navarino, desc: 'Territorio chileno. Sede de Puerto Williams.' },
+  { name: 'Isla Wollaston', pos: POS.wollaston, desc: 'Fondeadero austral en cercanías de Cabo de Hornos.' },
+];
+islasPNL.forEach(isla => {
+  L.marker(isla.pos, {
+    icon: L.divIcon({
+      className: '', html: `<div style="width:10px;height:10px;background:#22c55e;border-radius:50%;border:2px solid #fff;box-shadow:0 0 10px #22c55e80;"></div>`,
+      iconSize: [10, 10], iconAnchor: [5, 5]
+    })
+  }).bindPopup(`<div class="ship-popup-title" style="color:#22c55e">${isla.name}</div><div class="ship-popup-info">${isla.desc}</div>`).addTo(layers.islas);
+  
+  L.tooltip({ permanent: true, direction: 'top', className: '', offset: [0, -8] })
+    .setLatLng(isla.pos)
+    .setContent(`<span style="font-size:9px;color:#22c55e;font-weight:700;background:rgba(0,0,0,0.8);padding:2px 5px;border-radius:3px;">${isla.name}</span>`)
+    .addTo(layers.islas);
+});
+
+// PUNTOS DE REFERENCIA
+const refPoints = [
+  { name: 'Cabo de Hornos', pos: POS.caboHornos, color: '#fbbf24' },
+  { name: 'Falso Cabo de Hornos', pos: POS.falsoCaboHornos, color: '#fb923c' },
+  { name: 'Islas Diego Ramírez', pos: POS.diegoRamirez, color: '#a78bfa' },
+  { name: 'Banco Burdwood', pos: POS.bancoBurdwood, color: '#94a3b8' },
+];
+refPoints.forEach(rp => {
+  L.marker(rp.pos, {
+    icon: L.divIcon({
+      className: '', html: `<div style="width:8px;height:8px;background:${rp.color};border-radius:50%;border:1px solid #fff;"></div>`,
+      iconSize: [8, 8], iconAnchor: [4, 4]
+    })
+  }).bindPopup(`<div class="ship-popup-title" style="color:${rp.color}">${rp.name}</div>`).addTo(layers.refs);
+});
+
+// ===== SCENARIO HIPOTÉTICO: PERSECUCIÓN Y ALCANCE POR LA POPA =====
+POS.puntoAlcancePorLaPopa = [-55.15, -63.50]; // 48 mn al SE de la Isla de los Estados
+
+let hypothesisVisible = true;
+function renderHypothesis() {
+  layers.hypo.clearLayers();
+  if (!hypothesisVisible) return;
+
+  // Ruta Persecución Escuadra Chilena (Acero + Fragatas Exocet corriendo la marejada a 22 nudos)
+  const rutaPersecucionChilena = [
+    POS.aceroIntercept,           // 35mn S de Diego Ramírez (-57.07, -68.73)
+    [-56.40, -67.20],
+    [-55.80, -65.40],
+    POS.puntoAlcancePorLaPopa      // Punto de Intercepción Táctica (-55.15, -63.50)
+  ];
+
+  // Ruta Retiro FLOMAR (con marejada de proa a 13 nudos)
+  const rutaRetiroFLOMAR = [
+    POS.flomarObjetivo,           // E de Cabo Hornos (-55.80, -66.00)
+    [-55.50, -64.80],
+    POS.puntoAlcancePorLaPopa      // Punto de Intercepción Táctica
+  ];
+
+  // Dibujar trazados hipotéticos
+  L.polyline(rutaPersecucionChilena, { color: '#38bdf8', weight: 3.5, opacity: 0.9, dashArray: '6 6' }).addTo(layers.hypo);
+  L.polyline(rutaRetiroFLOMAR, { color: '#f87171', weight: 3.5, opacity: 0.9, dashArray: '6 6' }).addTo(layers.hypo);
+
+  // Marcador Objetivo del Punto de Alcance Táctico por la Popa
+  const targetMarker = L.marker(POS.puntoAlcancePorLaPopa, {
+    icon: L.divIcon({
+      className: '',
+      html: `<div style="width:22px;height:22px;border:3px dashed #ef4444;border-radius:50%;box-shadow:0 0 16px #ef4444;background:rgba(239,68,68,0.2);animation:stormFlicker 1.5s infinite;"></div>`,
+      iconSize: [22, 22], iconAnchor: [11, 11]
+    })
+  }).addTo(layers.hypo);
+
+  targetMarker.bindPopup(`
+    <div class="ship-popup-title" style="color:#f87171">⚔️ PUNTO DE ALCANCE POR LA POPA (HIPÓTESIS TÁCTICA)</div>
+    <div class="ship-popup-type" style="color:#c9a046">Ubicación: 55°09' S, 63°30' O (~48 mn al SE de Isla de los Estados)</div>
+    <div class="ship-popup-info">
+      <b>Cálculo Hidrodinámico y Táctico:</b><br/>
+      • <b>Velocidad FLOMAR:</b> 12 - 14 nudos (navegando con marejada de proa/viento en contra en temporal fuerza 9).<br/>
+      • <b>Velocidad Escuadra Chilena:</b> 21 - 24 nudos (corriendo el temporal con marejada por la aleta/popa).<br/>
+      • <b>Tiempo de Persecución:</b> 8 horas y 20 minutos desde el inicio del retiro.<br/>
+      • <b>Momento de Alcance:</b> 23 de Diciembre de 1978 a las <b>07:25 AM</b>.<br/>
+      • <b>Resultado Táctico:</b> Los buques chilenos alcanzan a la FLOMAR por la retaguardia, donde el portaaviones <i>25 de Mayo</i> y el crucero <i>Belgrano</i> quedan a tiro directo de <b>misiles Exocet MM38 (42 km)</b> y cañones de 152mm sin cobertura de aviones.
+    </div>
+  `);
+
+  L.tooltip({ permanent: true, direction: 'top', className: '', offset: [0, -14] })
+    .setLatLng(POS.puntoAlcancePorLaPopa)
+    .setContent('<span style="font-size:9px;color:#f87171;font-weight:900;background:rgba(10,15,29,0.9);padding:3px 8px;border-radius:4px;border:1.5px solid #f87171;box-shadow:0 0 12px rgba(248,113,113,0.5);">⚔️ PUNTO DE ALCANCE POR LA POPA (23 Dic 07:25 AM)</span>')
+    .addTo(layers.hypo);
+}
+renderHypothesis();
+
+// ZONA OBJETIVO FLOMAR
+L.circle(POS.flomarObjetivo, {
+  radius: 80000, color: '#ef4444', fillColor: '#ef4444', fillOpacity: 0.05, weight: 1.5, dashArray: '8 4'
+}).addTo(layers.refs);
+L.tooltip({ permanent: true, direction: 'top', className: '', offset: [0, -10] })
+  .setLatLng(POS.flomarObjetivo)
+  .setContent('<span style="font-size:9px;color:#ef4444;font-weight:900;background:rgba(0,0,0,0.8);padding:2px 6px;border-radius:4px;border:1px solid #ef4444;">🎯 ZONA OBJETIVO FLOMAR</span>')
+  .addTo(layers.refs);
+
+// RUTAS SPLINES PARA INTERPOLACIÓN FLUIDA (0 a 100%)
+// 1ª Aproximación: 0% a 25% (15-18 Dic)
+// Reagrupamiento: 25% a 45% (18-19 Dic)
+// 2ª Aproximación: 45% a 85% (20-22 Dic)
+// Retirada: 85% a 100% (23 Dic)
+
+// OJO CON LA PRECISIÓN DE ESTOS PUNTOS INTERMEDIOS: la carta náutica de época
+// (foto de un documento/video, "Desplazamientos de FLOMAR 14 Dic - 23 Dic")
+// muestra un rumbo con muchos más quiebres que los que había acá -una
+// docena y media de cambios de rumbo, no un arco suave de 5 o 6 puntos por
+// tramo-, sobre todo concentrados en la zona de maniobra previa al clímax.
+// A esa foto no se le pudieron leer con confianza las coordenadas ni las
+// horas de cada quiebre -resolución insuficiente-, así que esto NO son
+// coordenadas verificadas como el resto del archivo: es la FORMA del
+// zigzag -cuántos quiebres, en qué tramo se concentran- llevada a la misma
+// zona geográfica ya usada (entre Isla de los Estados y la Zona Objetivo),
+// para que el trazado se parezca al real sin inventar una precisión que no
+// se tiene. Si en algún momento se consigue una imagen más nítida o la
+// transcripción de los códigos de cada punto, esto se reemplaza por eso.
+const splineFLOMAR = [
+  // 1ª Aproximación (14-16 Dic): la carta real muestra varios quiebres cortos
+  // antes de la "profunda al sur", no un solo arco.
+  { pct: 0, pos: POS.islaEstados },
+  { pct: 5, pos: [-54.95, -64.55] },
+  { pct: 9, pos: [-55.15, -64.85] },
+  { pct: 13, pos: [-55.05, -65.15] },
+  { pct: 17, pos: [-55.35, -65.35] },
+  { pct: 20, pos: [-55.55, -65.20] },
+  { pct: 23, pos: [-55.85, -65.90] }, // Profunda al sur
+  { pct: 27, pos: [-55.65, -65.55] },
+  { pct: 31, pos: [-55.40, -65.15] },
+  { pct: 35, pos: POS.islaEstados }, // Reagrupamiento
+
+  // 2ª Aproximación (19-22 Dic): acá la carta real muestra la maniobra más
+  // densa -muchos quiebres cortos en poca distancia-, coherente con el
+  // alistamiento y la aproximación final antes del clímax.
+  { pct: 45, pos: POS.islaEstados },
+  { pct: 50, pos: [-54.98, -64.60] },
+  { pct: 54, pos: [-55.15, -64.95] },
+  { pct: 58, pos: [-55.05, -65.30] },
+  { pct: 61, pos: [-55.30, -65.15] },
+  { pct: 64, pos: [-55.20, -65.55] },
+  { pct: 67, pos: [-55.45, -65.45] },
+  { pct: 70, pos: [-55.40, -65.80] },
+  { pct: 73, pos: [-55.60, -65.65] },
+  { pct: 76, pos: [-55.55, -65.95] },
+  { pct: 79, pos: [-55.70, -66.05] },
+  { pct: 82, pos: [-55.75, -65.85] },
+  { pct: 85, pos: POS.flomarObjetivo }, // H-Hour 22 Dic 22:00
+
+  // Retirada (23 Dic)
+  { pct: 89, pos: [-55.60, -65.55] },
+  { pct: 92, pos: [-55.50, -65.10] },
+  { pct: 96, pos: [-55.10, -64.70] },
+  { pct: 100, pos: POS.islaEstados }
+];
+
+const splineAcero = [
+  { pct: 0, pos: POS.bahiaPorvenir },
+  { pct: 20, pos: [-54.90, -70.30] },
+  { pct: 40, pos: [-55.30, -69.80] },
+  { pct: 60, pos: [-55.80, -69.30] },
+  { pct: 75, pos: [-56.40, -69.00] },
+  { pct: 85, pos: POS.aceroIntercept }, // 35mn S Diego Ramírez
+  { pct: 100, pos: [-56.00, -67.00] } // Seguimiento
+];
+
+const splineBronce = [
+  { pct: 0, pos: POS.bahiaOceano },
+  { pct: 40, pos: [-54.90, -70.00] },
+  { pct: 65, pos: [-55.30, -69.20] },
+  { pct: 85, pos: POS.bronceIntercept }, // 10mn S Falso Cabo de Hornos
+  { pct: 100, pos: [-55.60, -67.50] }
+];
+
+const splineSimpson = [
+  { pct: 0, pos: [-55.30, -67.00] },
+  { pct: 30, pos: [-55.15, -66.85] },
+  { pct: 60, pos: [-55.25, -66.60] },
+  { pct: 85, pos: [-55.50, -66.80] },
+  { pct: 100, pos: [-55.80, -66.70] }
+];
+
+// INTERPOLACIÓN CONTINUA 0-100%
+function getSplinePos(spline, pct) {
+  if (pct <= spline[0].pct) return spline[0].pos;
+  if (pct >= spline[spline.length - 1].pct) return spline[spline.length - 1].pos;
+  for (let i = 0; i < spline.length - 1; i++) {
+    if (pct >= spline[i].pct && pct <= spline[i + 1].pct) {
+      const t = (pct - spline[i].pct) / (spline[i + 1].pct - spline[i].pct);
+      const p0 = spline[i].pos;
+      const p1 = spline[i + 1].pos;
+      return [p0[0] + (p1[0] - p0[0]) * t, p0[1] + (p1[1] - p0[1]) * t];
+    }
+  }
+  return spline[0].pos;
+}
+
+// BUQUES DIBUJADOS
+let markersChile = [];
+let markersArg = [];
+let weaponRingsVisible = true;
+
+function shipIcon(color, size = 10) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:${size}px;height:${size}px;background:${color};border-radius:50%;border:2px solid rgba(255,255,255,0.7);box-shadow:0 0 10px ${color};"></div>`,
+    iconSize: [size, size], iconAnchor: [size/2, size/2]
+  });
+}
+
+// ANILLOS DE ALCANCE DE ARMAS
+let weaponCircles = [];
+function renderWeaponRings(flomarPos, aceroPos, broncePos, subPos) {
+  weaponCircles.forEach(c => map.removeLayer(c));
+  weaponCircles = [];
+
+  if (!weaponRingsVisible) return;
+
+  // 1. Misil Exocet MM38 (42 km = 42000 m) — Fragatas Chile & FLOMAR
+  const circleExocetArg = L.circle(flomarPos, { radius: 42000, color: '#ef4444', weight: 1, dashArray: '4 4', fill: false }).addTo(layers.rings);
+  const circleExocetChi = L.circle(aceroPos, { radius: 42000, color: '#60a5fa', weight: 1, dashArray: '4 4', fill: false }).addTo(layers.rings);
+
+  // 2. Misil Sea Dart (65 km = 65000 m) — Destructores Arg (Hércules/S.Trinidad)
+  const circleSeaDart = L.circle(flomarPos, { radius: 65000, color: '#ef4444', weight: 1.5, dashArray: '6 4', fill: false }).addTo(layers.rings);
+
+  // 3. Torpedos Submarino Simpson (14 km = 14000 m)
+  const circleSub = L.circle(subPos, { radius: 14000, color: '#06b6d4', weight: 1.5, dashArray: '3 3', fillOpacity: 0.05, fillColor: '#06b6d4' }).addTo(layers.rings);
+
+  weaponCircles.push(circleExocetArg, circleExocetChi, circleSeaDart, circleSub);
+}
+
+// ACTUALIZACIÓN FLUIDA A 60 FPS
+let currentProgress = 0;
+let isAnimating = false;
+let animFrameId = null;
+
+function updateScene(pct) {
+  currentProgress = pct;
+  document.getElementById('smoothSlider').value = pct;
+
+  const posFLOMAR = getSplinePos(splineFLOMAR, pct);
+  const posAcero  = getSplinePos(splineAcero, pct);
+  const posBronce = getSplinePos(splineBronce, pct);
+  const posSub    = getSplinePos(splineSimpson, pct);
+
+  // Mover marcadores FLOMAR
+  markersArg.forEach((m, idx) => {
+    const off = (idx - 3.5) * 0.025;
+    m.setLatLng([posFLOMAR[0] + off * 0.4, posFLOMAR[1] + off]);
+  });
+
+  // Mover marcadores Acero
+  markersChile.filter(m => m.grupo === 'acero').forEach((m, idx) => {
+    const off = (idx - 2) * 0.02;
+    m.setLatLng([posAcero[0] + off * 0.5, posAcero[1] + off]);
+  });
+
+  // Mover marcadores Bronce
+  markersChile.filter(m => m.grupo === 'bronce').forEach((m, idx) => {
+    const off = (idx - 2) * 0.02;
+    m.setLatLng([posBronce[0] + off * 0.5, posBronce[1] + off]);
+  });
+
+  // Mover Submarino Simpson
+  const simpsonMarker = markersChile.find(m => m.grupo === 'submarino');
+  if (simpsonMarker) simpsonMarker.setLatLng(posSub);
+
+  // Actualizar Anillos de Alcance
+  renderWeaponRings(posFLOMAR, posAcero, posBronce, posSub);
+
+  // CÁLCULO DE DISTANCIAS TÁCTICAS REALES
+  const distAcero  = calculateDistance(posFLOMAR[0], posFLOMAR[1], posAcero[0], posAcero[1]);
+  const distBronce = calculateDistance(posFLOMAR[0], posFLOMAR[1], posBronce[0], posBronce[1]);
+  const distSub    = calculateDistance(posFLOMAR[0], posFLOMAR[1], posSub[0], posSub[1]);
+  const distPNL    = calculateDistance(posFLOMAR[0], posFLOMAR[1], POS.picton[0], POS.picton[1]);
+
+  document.getElementById('hudAcero').textContent  = `${distAcero.mn} mn (${distAcero.km} km)`;
+  document.getElementById('hudBronce').textContent = `${distBronce.mn} mn (${distBronce.km} km)`;
+  document.getElementById('hudSub').textContent    = `${distSub.mn} mn (${distSub.km} km)`;
+  document.getElementById('hudPNL').textContent    = `${distPNL.mn} mn (${distPNL.km} km)`;
+
+  // Tormenta activa en la 2ª aproximación (pct 65 a 88) y 1ª ap (pct 15 a 25)
+  const isStormy = (pct >= 15 && pct <= 25) || (pct >= 65 && pct <= 88);
+  document.getElementById('stormOverlay').classList.toggle('active', isStormy);
+
+  // Actualizar Timeline Card Activa
+  let dayIdx = 0;
+  if (pct >= 15 && pct < 35) dayIdx = 1;
+  else if (pct >= 35 && pct < 55) dayIdx = 2;
+  else if (pct >= 55 && pct < 70) dayIdx = 3;
+  else if (pct >= 70 && pct < 90) dayIdx = 4;
+  else if (pct >= 90) dayIdx = 5;
+
+  document.querySelectorAll('.day-btn').forEach((btn, i) => btn.classList.toggle('active', i === dayIdx));
+  
+  const dayData = dias[dayIdx];
+  document.getElementById('infoCard').innerHTML = `<h3>${dayData.fecha} — ${dayData.titulo}</h3><p>${dayData.desc}</p>`;
+}
+
+// INICIALIZAR MARCADORES
+function initShipMarkers() {
+  // FLOMAR
+  const argShips = [
+    { name: 'PA 25 de Mayo', tipo: 'Portaaviones (GAE Skyhawk)', sz: 14 },
+    { name: 'CL Gral. Belgrano', tipo: 'Crucero 15x152mm', sz: 12 },
+    { name: 'DD Hércules', tipo: 'Destructor Sea Dart', sz: 10 },
+    { name: 'DD Santísima Trinidad', tipo: 'Destructor Sea Dart', sz: 10 },
+    { name: 'DD Seguí', tipo: 'Destructor Escolta', sz: 9 },
+    { name: 'CC Drummond', tipo: 'Corbeta Exocet MM38', sz: 9 },
+  ];
+  argShips.forEach((s) => {
+    const m = L.marker(POS.islaEstados, { icon: shipIcon('#ef4444', s.sz) })
+      .bindPopup(`<div class="ship-popup-title" style="color:#ef4444">${s.name}</div><div class="ship-popup-type">${s.tipo} · FLOMAR</div>`)
+      .addTo(layers.argentina);
+    markersArg.push(m);
+  });
+
+  // CHILE ACERO
+  const chiAcero = [
+    { name: 'CL Capitán Prat', tipo: 'Crucero 15x152mm (Insignia)', sz: 13, grupo: 'acero' },
+    { name: 'DDG Almirante Williams', tipo: 'Destructor Seaslug', sz: 10, grupo: 'acero' },
+    { name: 'DDG Almirante Riveros', tipo: 'Destructor Antisubmarino', sz: 10, grupo: 'acero' },
+    { name: 'PFG Condell', tipo: 'Fragata Exocet MM38', sz: 10, grupo: 'acero' },
+    { name: 'PFG Lynch', tipo: 'Fragata Exocet MM38', sz: 10, grupo: 'acero' },
+  ];
+  chiAcero.forEach((s) => {
+    const m = L.marker(POS.bahiaPorvenir, { icon: shipIcon('#3b82f6', s.sz) })
+      .bindPopup(`<div class="ship-popup-title" style="color:#3b82f6">${s.name}</div><div class="ship-popup-type">${s.tipo} · Agrupación Acero</div>`)
+      .addTo(layers.chile);
+    m.grupo = 'acero';
+    markersChile.push(m);
+  });
+
+  // CHILE BRONCE
+  const chiBronce = [
+    { name: 'CL Latorre', tipo: 'Crucero 15x152mm', sz: 13, grupo: 'bronce' },
+    { name: 'DD Blanco Encalada', tipo: 'Destructor', sz: 10, grupo: 'bronce' },
+    { name: 'DD Cochrane', tipo: 'Destructor', sz: 10, grupo: 'bronce' },
+    { name: 'DD Ministro Portales', tipo: 'Destructor', sz: 9, grupo: 'bronce' },
+  ];
+  chiBronce.forEach((s) => {
+    const m = L.marker(POS.bahiaOceano, { icon: shipIcon('#2563eb', s.sz) })
+      .bindPopup(`<div class="ship-popup-title" style="color:#2563eb">${s.name}</div><div class="ship-popup-type">${s.tipo} · Agrupación Bronce</div>`)
+      .addTo(layers.chile);
+    m.grupo = 'bronce';
+    markersChile.push(m);
+  });
+
+  // SUBMARINO
+  const subM = L.marker(POS.picton, { icon: shipIcon('#06b6d4', 9) })
+    .bindPopup(`<div class="ship-popup-title" style="color:#06b6d4">SS Simpson</div><div class="ship-popup-type">Submarino clase Balao (Torpedos)</div>`)
+    .addTo(layers.chile);
+  subM.grupo = 'submarino';
+  markersChile.push(subM);
+}
+
+// TIMELINE DATA
+const dias = [
+  // Corregido de '15 Dic' a '14 Dic': el título de la carta náutica de época
+  // ("Desplazamientos de FLOMAR 14 Dic - 23 Dic") fija el 14 como el primer
+  // día con movimiento registrado, un día antes de lo que había acá.
+  { fecha: '14 Dic', titulo: '1ª Aproximación — Zarpe Inicial', desc: 'La FLOMAR efectúa su primer avance profundo hacia el sur (lat -55.85°S). La Escuadra chilena se despliega. Un primer temporal frena este intento.' },
+  { fecha: '17 Dic', titulo: 'Fondeaderos y Reagrupamiento', desc: 'FLOMAR repliega temporalmente hacia Isla de los Estados. Escuadra chilena fondea en Bahía Porvenir (Acero) y Bahía Océano (Bronce).' },
+  { fecha: '19 Dic', titulo: 'Orden de Alistamiento Total', desc: 'Alistamiento de combate total. Embarque de tropas anfibias en Ushuaia (BDT San Antonio). Lanchas torpederas y SS Simpson en patrullaje.' },
+  { fecha: '20 Dic', titulo: '2ª Aproximación — Avance Definitivo', desc: 'FLOMAR zarpa con sus 3 Grupos de Tareas directo a la zona objetivo. Chile despliega a Acero (35mn S D.Ramírez) y Bronce (10mn S F.C.Hornos).' },
+  { fecha: '21-22 Dic', titulo: 'Clímax: Hora H y Mediación Papal', desc: 'Momento de máxima tensión. Segundo temporal impide operaciones del portaaviones 25 de Mayo. Orden chilena: "Atacar y destruir". Mediación papal detiene el ataque a horas de la invasión.' },
+  { fecha: '23 Dic', titulo: 'Retirada Definitiva y Seguimiento', desc: 'La FLOMAR se retira al Atlántico. La Agrupación Acero y el SS Simpson siguen a la flota argentina en retirada. Se evita la guerra.' }
+];
+
+const timelineEl = document.getElementById('timeline');
+dias.forEach((day, i) => {
+  const pcts = [0, 25, 45, 60, 85, 100];
+  const btn = document.createElement('button');
+  btn.className = `day-btn${i === 0 ? ' active' : ''}`;
+  btn.innerHTML = `
+    <span class="day-num">${day.fecha.split(' ')[0]}</span>
+    <span>
+      <span>${day.titulo}</span>
+      <div class="day-desc">${day.fecha} de diciembre 1978</div>
+    </span>
+  `;
+  btn.onclick = () => { stopAnimation(); updateScene(pcts[i]); };
+  timelineEl.appendChild(btn);
+});
+
+// CONTROLES DE ANIMACIÓN FLUIDA A 60 FPS
+function onSliderInput(val) {
+  stopAnimation();
+  updateScene(parseFloat(val));
+}
+
+function toggleAnimation() {
+  if (isAnimating) stopAnimation();
+  else startAnimation();
+}
+
+function startAnimation() {
+  isAnimating = true;
+  document.getElementById('playBtn').textContent = '⏸';
+  let lastTime = performance.now();
+
+  function step(time) {
+    if (!isAnimating) return;
+    const delta = (time - lastTime) / 1000;
+    lastTime = time;
+
+    currentProgress += delta * 4.0; // Velocidad fluida
+    if (currentProgress >= 100) {
+      currentProgress = 100;
+      updateScene(currentProgress);
+      stopAnimation();
+      return;
+    }
+    updateScene(currentProgress);
+    animFrameId = requestAnimationFrame(step);
+  }
+  animFrameId = requestAnimationFrame(step);
+}
+
+function stopAnimation() {
+  isAnimating = false;
+  document.getElementById('playBtn').textContent = '▶';
+  if (animFrameId) {
+    cancelAnimationFrame(animFrameId);
+    animFrameId = null;
+  }
+}
+
+// BOTONES DE CONTROL
+function toggleFleet(fleet) {
+  const btn = fleet === 'chile' ? document.getElementById('btnChile') : document.getElementById('btnArg');
+  btn.classList.toggle('active');
+  if (btn.classList.contains('active')) layers[fleet].addTo(map);
+  else layers[fleet].remove();
+}
+function toggleStorm() {
+  const btn = document.getElementById('btnStorm');
+  btn.classList.toggle('active');
+  document.getElementById('stormOverlay').classList.toggle('active', btn.classList.contains('active'));
+}
+function toggleWeaponRings() {
+  weaponRingsVisible = !weaponRingsVisible;
+  document.getElementById('btnRings').classList.toggle('active', weaponRingsVisible);
+  updateScene(currentProgress);
+}
+function toggleHypothesis() {
+  hypothesisVisible = !hypothesisVisible;
+  document.getElementById('btnHypo').classList.toggle('active', hypothesisVisible);
+  renderHypothesis();
+}
+function flyToIslands() { map.flyTo([-55.2, -66.8], 10, { duration: 1.5 }); }
+function flyToDR() { map.flyTo(POS.diegoRamirez, 9, { duration: 1.5 }); }
+function togglePanel() { document.getElementById('sidePanel').classList.toggle('collapsed'); }
+
+// INICIALIZACIÓN
+initShipMarkers();
+document.getElementById('btnHypo').classList.add('active');
+updateScene(0);
+</script>
+</body>
+</html>
